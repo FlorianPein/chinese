@@ -1,7 +1,8 @@
 # U01-L01: Hello, thank you, goodbye
 
 > **Goal:** greet someone (casually or politely), say thank you, answer a thank-you, and say goodbye.
-> **Time:** ~10–15 min · **Data:** [`data/U01-L01.json`](../data/U01-L01.json) · **Before:** [A01: Tones](A01-tones.md) · **Next:** A02: Tone pairs
+>
+> **Listen:** [🔊 all phrases and words](https://florianpein.github.io/chinese/#listen/U01-L01) · **Time:** ~10–15 min · **Data:** [`data/U01-L01.json`](../data/U01-L01.json) · **Before:** [A01: Tones](A01-tones.md) · **Next:** A02: Tone pairs
 
 ## Phrases
 
@@ -20,7 +21,7 @@
 | **nǐ**<br><sub>ni3</sub> | you | from A01 |
 | **nín**<br><sub>nin2</sub> | you (polite) | from A01 |
 | **hǎo**<br><sub>hao3</sub> | good, well | from A01 |
-| **-men**<br><sub>men5</sub> | plural ending for people | `nǐ` you → `nǐmen` you (all) |
+| **-men**<br><sub>-men5</sub> | plural ending for people | `nǐ` you → `nǐmen` you (all) |
 | **xièxie**<br><sub>xie4xie5</sub> | to thank | second syllable is neutral |
 | **bù**<br><sub>bu4</sub> | not | from A01; becomes **bú** before a 4th tone (see tip) |
 | **kèqi**<br><sub>ke4qi5</sub> | polite, formal | |

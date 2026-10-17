@@ -1,7 +1,8 @@
 # A01: The four tones + neutral tone
 
 > **Goal:** recognise and say the four tones and the neutral tone, using 13 common words you'll need straight away.
-> **Time:** ~15 min · **Data:** [`data/A01.json`](../data/A01.json) · **Next:** [U01-L01: Hello](U01-L01-hello.md)
+>
+> **Listen:** [🔊 all words and sentences](https://florianpein.github.io/chinese/#listen/A01) · **Time:** ~15 min · **Data:** [`data/A01.json`](../data/A01.json) · **Next:** [U01-L01: Hello](U01-L01-hello.md)
 
 Every Mandarin syllable has a **tone**: a pitch shape. The tone is part of the word, just like its vowels and consonants. Change the tone and you often get a different word:
 
@@ -10,7 +11,7 @@ Every Mandarin syllable has a **tone**: a pitch shape. The tone is part of the w
 | **mǎi**<br><sub>mai3</sub> | to buy | low, dipping |
 | **mài**<br><sub>mai4</sub> | to sell | sharp fall |
 
-> 🔊 **Audio:** generated audio arrives in the next build step. Until then, you can hear every syllable on the [Yabla Pinyin chart](https://chinese.yabla.com/chinese-pinyin-chart.php): click a syllable and pick the tone.
+> 🔊 **Audio:** every word and sentence in this lesson is on the [listening page](https://florianpein.github.io/chinese/#listen/A01), with a 🐢 button to play it slowly. To hear *any* syllable in all four tones, try the [Yabla Pinyin chart](https://chinese.yabla.com/chinese-pinyin-chart.php).
 
 ## The tones
 
@@ -39,7 +40,7 @@ All of these are high-frequency words, and most come up again in the next lesson
 | 1st | **tā**<br><sub>ta1</sub> | he / she |
 | 1st | **hē**<br><sub>he1</sub> | to drink |
 | 1st + neutral | **māma**<br><sub>ma1ma5</sub> | mum |
-| 2nd | **shéi**<br><sub>shei2</sub> | who? |
+| 2nd | **shéi**<br><sub>shei2</sub> | who? (also said *shuí*, which is what the audio uses) |
 | 2nd | **rén**<br><sub>ren2</sub> | person |
 | 2nd | **nín**<br><sub>nin2</sub> | you (polite) |
 | 3rd | **nǐ**<br><sub>ni3</sub> | you |

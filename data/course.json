@@ -1,0 +1,6 @@
+{
+  "lessons": [
+    {"id": "A01", "title": "The four tones + neutral tone", "file": "A01-tones.md"},
+    {"id": "U01-L01", "title": "Hello, thank you, goodbye", "file": "U01-L01-hello.md"}
+  ]
+}

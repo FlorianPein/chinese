@@ -1,0 +1,565 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pinyin Flashcards</title>
+<meta name="theme-color" content="#b23a2e">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🀄</text></svg>">
+<style>
+:root {
+  --bg: #faf7f2; --surface: #ffffff; --surface-2: #f2ede4; --text: #1f1b16; --muted: #6b6258;
+  --border: #e3dccf; --accent: #b23a2e; --accent-text: #ffffff; --good: #2f7d4f; --bad: #b23a2e;
+  --warn: #9a6b00; --shadow: 0 1px 2px rgba(0,0,0,.06), 0 4px 16px rgba(0,0,0,.05);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #171411; --surface: #221e1a; --surface-2: #2c2722; --text: #f1ebe3; --muted: #a59a8d;
+    --border: #3a332c; --accent: #e0675a; --accent-text: #1a0f0d; --good: #5cc28a; --bad: #e0675a;
+    --warn: #e0b04f; --shadow: none;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #171411; --surface: #221e1a; --surface-2: #2c2722; --text: #f1ebe3; --muted: #a59a8d;
+  --border: #3a332c; --accent: #e0675a; --accent-text: #1a0f0d; --good: #5cc28a; --bad: #e0675a;
+  --warn: #e0b04f; --shadow: none;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body {
+  background: var(--bg); color: var(--text);
+  font: 16px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", sans-serif;
+  -webkit-text-size-adjust: 100%;
+}
+button, input { font: inherit; color: inherit; }
+.wrap { max-width: 640px; margin: 0 auto; padding: 0 16px 48px; }
+header { display: flex; align-items: baseline; justify-content: space-between; padding: 18px 0 8px; gap: 12px; }
+header h1 { font-size: 1.15rem; margin: 0; letter-spacing: .01em; }
+header .stat { color: var(--muted); font-size: .9rem; white-space: nowrap; }
+nav { display: flex; gap: 4px; background: var(--surface-2); padding: 4px; border-radius: 12px; margin: 8px 0 20px; }
+nav a {
+  flex: 1; text-align: center; padding: 8px 4px; border-radius: 9px; text-decoration: none;
+  color: var(--muted); font-size: .95rem; font-weight: 500;
+}
+nav a.on { background: var(--surface); color: var(--text); box-shadow: var(--shadow); }
+.card {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 16px;
+  padding: 24px 20px; box-shadow: var(--shadow);
+}
+.center { text-align: center; }
+.muted { color: var(--muted); }
+.small { font-size: .85rem; }
+.tag {
+  display: inline-block; font-size: .75rem; letter-spacing: .04em; text-transform: uppercase;
+  color: var(--muted); background: var(--surface-2); padding: 2px 8px; border-radius: 99px;
+}
+.py { font-size: 2rem; line-height: 1.25; font-weight: 600; margin: 14px 0 2px; overflow-wrap: anywhere; }
+.num { color: var(--muted); font-size: .9rem; font-variant-numeric: tabular-nums; }
+.en { font-size: 1.3rem; margin: 14px 0 0; }
+.lit { color: var(--muted); font-style: italic; margin-top: 4px; }
+.note { margin-top: 12px; font-size: .9rem; color: var(--warn); }
+.prompt { font-size: 1.05rem; color: var(--muted); margin-top: 6px; }
+.big-en { font-size: 1.6rem; font-weight: 600; margin: 14px 0 4px; }
+hr { border: 0; border-top: 1px solid var(--border); margin: 18px 0; }
+.row { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin-top: 18px; }
+.btn {
+  border: 1px solid var(--border); background: var(--surface-2); padding: 10px 16px; border-radius: 10px;
+  cursor: pointer; min-height: 44px;
+}
+.btn:hover { filter: brightness(.97); }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-text); font-weight: 600; }
+.btn.icon { padding: 10px 14px; }
+.grades { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-top: 18px; }
+.grades .btn { padding: 10px 4px; display: flex; flex-direction: column; align-items: center; line-height: 1.2; }
+.grades .btn small { color: var(--muted); font-size: .72rem; margin-top: 2px; }
+.grades .btn.primary small { color: inherit; opacity: .85; }
+a.btn { color: var(--text); text-decoration: none; }
+a.btn.primary { color: var(--accent-text); }
+.grades .again { border-color: var(--bad); }
+.grades .good { border-color: var(--good); }
+input[type=text] {
+  width: 100%; padding: 12px 14px; border: 1px solid var(--border); border-radius: 10px;
+  background: var(--bg); font-size: 1.2rem; margin-top: 16px; text-align: center;
+}
+input[type=text]:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+.result { margin-top: 14px; font-weight: 600; }
+.result.ok { color: var(--good); }
+.result.no { color: var(--bad); }
+.options { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 20px; }
+.options .btn { font-size: 1.35rem; padding: 14px 8px; }
+.options .btn.right { border-color: var(--good); background: color-mix(in srgb, var(--good) 15%, var(--surface)); }
+.options .btn.wrong { border-color: var(--bad); background: color-mix(in srgb, var(--bad) 15%, var(--surface)); }
+.list { display: flex; flex-direction: column; gap: 10px; }
+.item {
+  display: flex; gap: 12px; align-items: flex-start; background: var(--surface);
+  border: 1px solid var(--border); border-radius: 12px; padding: 12px 14px;
+}
+.item .main { flex: 1; min-width: 0; }
+.item .p { font-weight: 600; font-size: 1.15rem; }
+.item .e { color: var(--text); }
+.item .l { color: var(--muted); font-size: .85rem; font-style: italic; }
+.item .btns { display: flex; gap: 6px; }
+.item .btn { min-height: 40px; padding: 6px 10px; }
+.lesson {
+  display: flex; align-items: center; gap: 12px; background: var(--surface);
+  border: 1px solid var(--border); border-radius: 12px; padding: 12px 14px;
+}
+.lesson input { width: 22px; height: 22px; accent-color: var(--accent); flex: none; }
+.lesson .main { flex: 1; min-width: 0; }
+.lesson .t { font-weight: 600; }
+.lesson a { color: var(--accent); font-size: .9rem; white-space: nowrap; }
+h2 { font-size: 1rem; margin: 26px 0 10px; color: var(--muted); font-weight: 600; }
+.setting { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 8px 0; }
+.setting input[type=number] {
+  width: 72px; padding: 6px 8px; border-radius: 8px; border: 1px solid var(--border); background: var(--bg);
+}
+.progress { height: 6px; background: var(--surface-2); border-radius: 99px; overflow: hidden; margin: -8px 0 16px; }
+.progress > div { height: 100%; background: var(--accent); transition: width .3s; }
+.kbd { font-size: .75rem; color: var(--muted); margin-top: 14px; }
+@media (max-width: 420px) {
+  .py { font-size: 1.7rem; }
+  .kbd { display: none; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>🀄 Pinyin Flashcards</h1>
+    <span class="stat" id="stat"></span>
+  </header>
+  <nav>
+    <a href="#review" data-tab="review">Review</a>
+    <a href="#tones" data-tab="tones">Tones</a>
+    <a href="#listen" data-tab="listen">Listen</a>
+    <a href="#lessons" data-tab="lessons">Lessons</a>
+  </nav>
+  <main id="view"></main>
+</div>
+
+<script>
+"use strict";
+
+// ---------- storage (per browser; export/import to move between devices) ----------
+const KEY = "pinyin-flashcards-v1";
+const DEFAULT_STATE = { unlocked: [], cards: {}, settings: { newPerDay: 15, numbers: true }, newToday: { day: "", count: 0 } };
+let state = load();
+function load() {
+  try {
+    const s = JSON.parse(localStorage.getItem(KEY));
+    if (s) return { ...DEFAULT_STATE, ...s, settings: { ...DEFAULT_STATE.settings, ...s.settings } };
+  } catch (e) { /* storage unavailable */ }
+  return structuredClone(DEFAULT_STATE);
+}
+function save() { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) { /* ignore */ } }
+
+// ---------- data ----------
+let DATA = { lessons: [], items: [] };
+const byId = {};
+const LESSON_URL = "https://github.com/FlorianPein/chinese/blob/HEAD/lessons/";
+
+// ---------- pinyin answer checking: tone marks or numbers both work ----------
+const MARKS = { "\u0304": 1, "\u0301": 2, "\u030c": 3, "\u0300": 4 };
+function canon(s) {
+  let letters = "", tones = "";
+  const t = s.normalize("NFD").toLowerCase().replace(/u:/g, "v");
+  for (const ch of t) {
+    if (MARKS[ch]) tones += MARKS[ch];
+    else if (ch === "\u0308") letters = letters.slice(0, -1) + "v";   // ü
+    else if (/[1-4]/.test(ch)) tones += ch;                           // 5 / 0 = neutral
+    else if (/[a-z]/.test(ch)) letters += ch;
+  }
+  return { letters, tones };
+}
+function checkAnswer(given, item) {
+  const a = canon(given), b = canon(item.pinyin);
+  if (a.letters === b.letters && a.tones === b.tones) return "ok";
+  if (a.letters === b.letters) return "tones";
+  return "no";
+}
+
+// ---------- audio ----------
+let player = null;
+function play(id, slow) {
+  if (player) player.pause();
+  player = new Audio(`audio/${id}.mp3`);
+  player.preservesPitch = true;
+  player.playbackRate = slow ? 0.7 : 1;
+  player.play().catch(() => {});
+}
+
+// ---------- spaced repetition ----------
+const TYPES = ["read", "listen", "write"];   // pinyin→meaning, audio→meaning, meaning→pinyin
+const DAY = 86400000;
+const today = () => new Date().toISOString().slice(0, 10);
+const startOfToday = () => { const d = new Date(); d.setHours(0, 0, 0, 0); return d.getTime(); };
+
+function unlockedItems() {
+  const on = new Set(state.unlocked);
+  return DATA.items.filter(i => on.has(i.lesson));
+}
+function allCardIds() {
+  const ids = [];
+  for (const item of unlockedItems()) for (const t of TYPES) ids.push(`${item.id}:${t}`);
+  return ids;
+}
+function isDue(c) { return c && c.due <= Date.now(); }
+function canIntroduce(cardId) {
+  // listen/write cards for an item only start once its read card has been seen
+  const [itemId, type] = cardId.split(":");
+  return type === "read" || !!state.cards[`${itemId}:read`];
+}
+function newLeftToday() {
+  if (state.newToday.day !== today()) state.newToday = { day: today(), count: 0 };
+  return Math.max(0, state.settings.newPerDay - state.newToday.count);
+}
+function counts() {
+  let due = 0, fresh = 0;
+  for (const id of allCardIds()) {
+    const c = state.cards[id];
+    if (c) { if (isDue(c)) due++; } else if (canIntroduce(id)) fresh++;
+  }
+  return { due, fresh: Math.min(fresh, newLeftToday()) };
+}
+function nextCard(exclude) {
+  const ids = allCardIds();
+  // 1. due cards, most overdue first
+  const due = ids.filter(id => isDue(state.cards[id]) && id !== exclude)
+                 .sort((a, b) => state.cards[a].due - state.cards[b].due);
+  if (due.length) return due[0];
+  // 2. new cards in course order; an item's listen and write cards follow
+  //    a few cards after its read card, so new words get practised three ways
+  if (newLeftToday() > 0) {
+    const order = id => ids.indexOf(id) / TYPES.length + TYPES.indexOf(id.split(":")[1]) * 3;
+    const fresh = ids.filter(id => !state.cards[id] && canIntroduce(id) && id !== exclude);
+    fresh.sort((a, b) => order(a) - order(b));
+    if (fresh.length) return fresh[0];
+  }
+  // 3. a card just failed, if it's the only one left
+  if (exclude && isDue(state.cards[exclude])) return exclude;
+  return null;
+}
+function grade(cardId, g) {   // g: 1 again, 2 hard, 3 good, 4 easy
+  let c = state.cards[cardId];
+  if (!c) {
+    c = { interval: 0, ease: 2.5, reps: 0, lapses: 0, due: 0 };
+    newLeftToday(); state.newToday.count++;
+  }
+  if (g === 1) {
+    c.lapses++; c.ease = Math.max(1.3, c.ease - 0.2); c.interval = 0;
+    c.due = Date.now() + 60 * 1000;          // again in about a minute
+  } else {
+    if (g === 2) { c.interval = Math.max(1, Math.round(c.interval * 1.2)); c.ease = Math.max(1.3, c.ease - 0.15); }
+    if (g === 3) c.interval = c.interval < 1 ? 1 : c.interval < 3 ? 3 : Math.round(c.interval * c.ease);
+    if (g === 4) { c.interval = c.interval < 1 ? 3 : Math.round(c.interval * c.ease * 1.3); c.ease += 0.15; }
+    c.reps++;
+    c.due = startOfToday() + c.interval * DAY;
+  }
+  state.cards[cardId] = c;
+  save();
+}
+function intervalLabel(cardId, g) {
+  const c = state.cards[cardId] || { interval: 0, ease: 2.5 };
+  if (g === 1) return "1 min";
+  let d = g === 2 ? Math.max(1, Math.round(c.interval * 1.2))
+        : g === 3 ? (c.interval < 1 ? 1 : c.interval < 3 ? 3 : Math.round(c.interval * c.ease))
+        : (c.interval < 1 ? 3 : Math.round(c.interval * c.ease * 1.3));
+  return d < 30 ? `${d} d` : d < 365 ? `${Math.round(d / 30)} mo` : `${(d / 365).toFixed(1)} y`;
+}
+
+// ---------- rendering helpers ----------
+const $ = (sel, el = document) => el.querySelector(sel);
+const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const view = $("#view");
+function pinyinBlock(item) {
+  return `<div class="py">${esc(item.pinyin)}</div>` +
+    (state.settings.numbers ? `<div class="num">${esc(item.numbers)}</div>` : "");
+}
+function meaningBlock(item) {
+  return `<div class="en">${esc(item.english)}</div>` +
+    (item.literal ? `<div class="lit">literally: ${esc(item.literal)}</div>` : "") +
+    (item.note ? `<div class="note">${esc(item.note)}</div>` : "") +
+    (item.audio_note ? `<div class="note">🔊 ${esc(item.audio_note)}</div>` : "");
+}
+const audioButtons = id => `<button class="btn icon" data-play="${id}" title="Play">🔊</button>` +
+                           `<button class="btn icon" data-slow="${id}" title="Play slowly">🐢</button>`;
+function updateStat() {
+  const { due, fresh } = counts();
+  $("#stat").textContent = state.unlocked.length ? `${due} due · ${fresh} new` : "";
+}
+let keyHandler = null;
+document.addEventListener("keydown", e => {
+  if (keyHandler && !(e.target instanceof HTMLInputElement)) keyHandler(e);
+});
+view.addEventListener("click", e => {
+  const p = e.target.closest("[data-play]"), s = e.target.closest("[data-slow]");
+  if (p) play(p.dataset.play, false);
+  if (s) play(s.dataset.slow, true);
+});
+
+// ---------- Review ----------
+let session = { done: 0, lastFailed: null };
+function renderReview() {
+  keyHandler = null;
+  if (!state.unlocked.length) {
+    view.innerHTML = `<div class="card center"><p><b>Welcome!</b></p>
+      <p class="muted">Go to <a href="#lessons">Lessons</a> and tick the lessons you've worked through.
+      Their phrases and words then show up here as flashcards.</p></div>`;
+    return;
+  }
+  const cardId = nextCard(session.lastFailed);
+  session.lastFailed = null;
+  const { due, fresh } = counts();
+  const total = session.done + due + fresh;
+  const bar = `<div class="progress"><div style="width:${total ? 100 * session.done / total : 100}%"></div></div>`;
+  if (!cardId) {
+    view.innerHTML = bar + `<div class="card center"><p style="font-size:2rem;margin:0">🎉</p>
+      <p><b>All done for now.</b></p><p class="muted">${session.done ? `You reviewed ${session.done} cards. ` : ""}
+      Come back tomorrow, unlock the next lesson, or practise in <a href="#tones">Tones</a>.</p></div>`;
+    return;
+  }
+  const [itemId, type] = cardId.split(":");
+  const item = byId[itemId];
+  const isNew = !state.cards[cardId];
+  const head = `<div class="center"><span class="tag">${isNew ? "new · " : ""}${
+    { read: "read", listen: "listen", write: "say it in Pinyin" }[type]}</span>
+    <span class="tag">${esc(item.lesson)}</span></div>`;
+  let revealed = false;
+
+  const gradeRow = (suggest) => `<div class="grades">
+      ${[["again", 1, "Again"], ["hard", 2, "Hard"], ["good", 3, "Good"], ["easy", 4, "Easy"]].map(([cls, g, label]) =>
+        `<button class="btn ${cls}${suggest === g ? " primary" : ""}" data-grade="${g}">${label}<small>${intervalLabel(cardId, g)}</small></button>`).join("")}
+    </div><div class="kbd center">Keys: 1–4 to grade · P to play</div>`;
+
+  function finish(g) {
+    grade(cardId, g);
+    session.done++;
+    if (g === 1) session.lastFailed = cardId;
+    updateStat();
+    renderReview();
+  }
+  function wireGrades() {
+    view.querySelectorAll("[data-grade]").forEach(b => b.onclick = () => finish(+b.dataset.grade));
+  }
+
+  if (type === "read" || type === "listen") {
+    const front = type === "read"
+      ? pinyinBlock(item) + `<div class="prompt">What does it mean?</div>`
+      : `<div class="py">🎧</div><div class="prompt">Listen. What does it mean?</div>`;
+    view.innerHTML = bar + `<div class="card center">${head}${front}
+      <div class="row">${audioButtons(itemId)}<button class="btn primary" id="show">Show answer</button></div>
+      <div id="back"></div></div>`;
+    if (type === "listen") play(itemId);
+    const reveal = () => {
+      if (revealed) return; revealed = true;
+      $("#show").remove();
+      $("#back").innerHTML = `<hr>${type === "listen" ? pinyinBlock(item) : ""}${meaningBlock(item)}${gradeRow()}`;
+      if (type === "read") play(itemId);
+      wireGrades();
+    };
+    $("#show").onclick = reveal;
+    keyHandler = e => {
+      if (e.key === " " || e.key === "Enter") { e.preventDefault(); reveal(); }
+      else if (e.key === "p") play(itemId);
+      else if (revealed && "1234".includes(e.key)) finish(+e.key);
+    };
+  } else {
+    view.innerHTML = bar + `<div class="card center">${head}
+      <div class="big-en">${esc(item.english)}</div>
+      ${item.literal ? `<div class="lit">literally: ${esc(item.literal)}</div>` : ""}
+      <input type="text" id="answer" placeholder="nǐ hǎo  or  ni3 hao3" autocomplete="off" autocapitalize="off" spellcheck="false">
+      <div class="row"><button class="btn" id="dunno">Show me</button><button class="btn primary" id="check">Check</button></div>
+      <div id="back"></div></div>`;
+    const input = $("#answer");
+    input.focus();
+    const check = (gaveUp) => {
+      if (revealed) return; revealed = true;
+      const verdict = gaveUp ? "no" : checkAnswer(input.value, item);
+      const msg = { ok: "✓ Correct", tones: "Almost: the tones aren't right", no: gaveUp ? "Here it is:" : "✗ Not quite" }[verdict];
+      $("#back").innerHTML = `<div class="result ${verdict === "ok" ? "ok" : "no"}">${msg}</div>
+        ${pinyinBlock(item)}${item.note ? `<div class="note">${esc(item.note)}</div>` : ""}
+        ${item.audio_note ? `<div class="note">🔊 ${esc(item.audio_note)}</div>` : ""}
+        <div class="row">${audioButtons(itemId)}</div>${gradeRow(verdict === "ok" ? 3 : 1)}`;
+      $(".row").remove();
+      input.disabled = true;
+      play(itemId);
+      wireGrades();
+    };
+    $("#check").onclick = () => check(false);
+    $("#dunno").onclick = () => check(true);
+    input.addEventListener("keydown", e => { if (e.key === "Enter") { e.preventDefault(); check(false); } });
+    keyHandler = e => {
+      if (e.key === "p") play(itemId);
+      else if (revealed && "1234".includes(e.key)) finish(+e.key);
+    };
+  }
+}
+
+// ---------- Tones quiz ----------
+let toneScore = { right: 0, total: 0 };
+const TONE_MARK = ["", "\u0304", "\u0301", "\u030c", "\u0300", ""];
+function markSyllable(base, tone) {
+  // tone mark goes on a, else e or o, else the last vowel (iu → u, ui → i)
+  let s = base.replace("v", "ü");
+  let i = s.search(/[ae]/);
+  if (i < 0) i = s.indexOf("ou") >= 0 ? s.indexOf("o") : -1;
+  if (i < 0) { const m = [...s.matchAll(/[iouü]/g)]; i = m.length ? m[m.length - 1].index : -1; }
+  if (i < 0) return s;
+  return (s.slice(0, i + 1) + TONE_MARK[tone] + s.slice(i + 1)).normalize("NFC");
+}
+const writeSyllables = syl => syl.map(([b, t, br]) => (br ? " " : "") + markSyllable(b, t)).join("");
+function renderTones() {
+  keyHandler = null;
+  const pool = unlockedItems().filter(i => i.heardAsWritten && i.syllables.length <= 3 && i.syllables.some(s => s[1] !== 5));
+  if (pool.length < 2) {
+    view.innerHTML = `<div class="card center"><p class="muted">Tick at least one lesson in
+      <a href="#lessons">Lessons</a> to practise hearing tones.</p></div>`;
+    return;
+  }
+  const item = pool[Math.floor(Math.random() * pool.length)];
+  const right = item.syllables;
+  // build 3 wrong options by changing the tone of one or two syllables
+  const options = new Map([[writeSyllables(right), true]]);
+  for (let tries = 0; options.size < 4 && tries < 200; tries++) {
+    const alt = right.map(s => [...s]);
+    const toned = alt.map((s, i) => s[1] === 5 ? -1 : i).filter(i => i >= 0);
+    if (!toned.length) break;
+    const changes = Math.min(toned.length, 1 + Math.floor(Math.random() * 2));
+    for (let k = 0; k < changes; k++) {
+      const i = toned[Math.floor(Math.random() * toned.length)];
+      alt[i][1] = 1 + Math.floor(Math.random() * 4);
+    }
+    const w = writeSyllables(alt);
+    if (!options.has(w)) options.set(w, false);
+  }
+  const shuffled = [...options.entries()].sort(() => Math.random() - 0.5);
+  view.innerHTML = `<div class="card center">
+    <span class="tag">which tones do you hear?</span>
+    <span class="tag" id="score">${toneScore.right} / ${toneScore.total}</span>
+    <div class="row">${audioButtons(item.id)}</div>
+    <div class="options">${shuffled.map(([w, ok], i) =>
+      `<button class="btn" data-ok="${ok}" data-i="${i}">${esc(w)}</button>`).join("")}</div>
+    <div id="back"></div></div>`;
+  play(item.id);
+  let answered = false;
+  const answer = btn => {
+    if (answered) return; answered = true;
+    const ok = btn.dataset.ok === "true";
+    toneScore.total++; if (ok) toneScore.right++;
+    $("#score").textContent = `${toneScore.right} / ${toneScore.total}`;
+    view.querySelectorAll(".options .btn").forEach(b => {
+      if (b.dataset.ok === "true") b.classList.add("right");
+      else if (b === btn) b.classList.add("wrong");
+    });
+    $("#back").innerHTML = `<div class="result ${ok ? "ok" : "no"}">${ok ? "✓ Right" : "✗ Not this time"}</div>
+      ${pinyinBlock(item)}${meaningBlock(item)}
+      <div class="row"><button class="btn primary" id="next">Next</button></div>`;
+    $("#next").onclick = renderTones;
+    $("#next").focus();
+  };
+  view.querySelectorAll(".options .btn").forEach(b => b.onclick = () => answer(b));
+  keyHandler = e => {
+    if (e.key === "p") play(item.id);
+    else if (!answered && "1234".includes(e.key)) { const b = view.querySelector(`.options [data-i="${+e.key - 1}"]`); if (b) answer(b); }
+    else if (answered && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); renderTones(); }
+  };
+}
+
+// ---------- Listen (browse a lesson with audio) ----------
+function renderListen(lessonId) {
+  keyHandler = null;
+  const lesson = DATA.lessons.find(l => l.id === lessonId) || DATA.lessons[0];
+  const items = DATA.items.filter(i => i.lesson === lesson.id);
+  const group = (kind, title) => {
+    const list = items.filter(i => i.kind === kind);
+    if (!list.length) return "";
+    return `<h2>${title}</h2><div class="list">${list.map(i => `
+      <div class="item"><div class="main">
+        <div class="p">${esc(i.pinyin)}</div>
+        ${state.settings.numbers ? `<div class="num">${esc(i.numbers)}</div>` : ""}
+        <div class="e">${esc(i.english)}</div>
+        ${i.literal ? `<div class="l">literally: ${esc(i.literal)}</div>` : ""}
+        ${i.audio_note ? `<div class="note small">🔊 ${esc(i.audio_note)}</div>` : ""}
+      </div><div class="btns">${audioButtons(i.id)}</div></div>`).join("")}</div>`;
+  };
+  view.innerHTML = `<div class="list">${DATA.lessons.length > 1 ? `<div class="row" style="margin:0">${
+      DATA.lessons.map(l => `<a class="btn${l.id === lesson.id ? " primary" : ""}" href="#listen/${l.id}">${esc(l.id)}</a>`).join("")}</div>` : ""}
+    <div class="card"><div class="t"><b>${esc(lesson.id)}: ${esc(lesson.title)}</b></div>
+      <a class="small" style="color:var(--accent)" href="${LESSON_URL}${lesson.file}" target="_blank" rel="noopener">Open the lesson ↗</a></div>
+    </div>${group("phrase", "Phrases")}${group("word", "Words")}`;
+}
+
+// ---------- Lessons (choose what's in the flashcards) + settings ----------
+function renderLessons() {
+  keyHandler = null;
+  const on = new Set(state.unlocked);
+  view.innerHTML = `<p class="muted small" style="margin-top:0">Tick the lessons you've done. Their cards join your reviews.</p>
+    <div class="list">${DATA.lessons.map(l => {
+      const n = DATA.items.filter(i => i.lesson === l.id).length;
+      return `<label class="lesson"><input type="checkbox" data-lesson="${l.id}" ${on.has(l.id) ? "checked" : ""}>
+        <div class="main"><div class="t">${esc(l.id)}: ${esc(l.title)}</div><div class="muted small">${n} phrases &amp; words</div></div>
+        <a href="#listen/${l.id}" title="Listen">🔊</a>
+        <a href="${LESSON_URL}${l.file}" target="_blank" rel="noopener">lesson ↗</a></label>`;
+    }).join("")}</div>
+    <h2>Settings</h2>
+    <div class="card">
+      <div class="setting"><span>New cards per day</span><input type="number" id="newPerDay" min="0" max="200" value="${state.settings.newPerDay}"></div>
+      <div class="setting"><span>Show tone numbers under Pinyin</span><input type="checkbox" id="numbers" ${state.settings.numbers ? "checked" : ""}></div>
+    </div>
+    <h2>Your progress</h2>
+    <div class="card">
+      <p class="muted small" style="margin-top:0">Progress is saved in this browser only. To move it to another device, export here and import there.</p>
+      <div class="row" style="justify-content:flex-start">
+        <button class="btn" id="export">Export</button>
+        <label class="btn">Import<input type="file" id="import" accept="application/json" hidden></label>
+        <button class="btn" id="reset">Reset</button>
+      </div>
+    </div>`;
+  view.querySelectorAll("[data-lesson]").forEach(cb => cb.onchange = () => {
+    const set = new Set(state.unlocked);
+    cb.checked ? set.add(cb.dataset.lesson) : set.delete(cb.dataset.lesson);
+    state.unlocked = DATA.lessons.map(l => l.id).filter(id => set.has(id));
+    save(); updateStat();
+  });
+  $("#newPerDay").onchange = e => { state.settings.newPerDay = Math.max(0, +e.target.value || 0); save(); updateStat(); };
+  $("#numbers").onchange = e => { state.settings.numbers = e.target.checked; save(); };
+  $("#export").onclick = () => {
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(new Blob([JSON.stringify(state, null, 1)], { type: "application/json" }));
+    a.download = `pinyin-progress-${today()}.json`;
+    a.click();
+  };
+  $("#import").onchange = async e => {
+    try {
+      const s = JSON.parse(await e.target.files[0].text());
+      if (!s.cards || !s.unlocked) throw new Error();
+      state = { ...DEFAULT_STATE, ...s }; save(); updateStat(); renderLessons();
+      alert("Progress imported.");
+    } catch { alert("That file doesn't look like an exported progress file."); }
+  };
+  $("#reset").onclick = () => {
+    if (confirm("Delete all progress in this browser?")) { state = structuredClone(DEFAULT_STATE); save(); updateStat(); renderLessons(); }
+  };
+}
+
+// ---------- routing ----------
+function route() {
+  const [tab, arg] = (location.hash.slice(1) || "review").split("/");
+  document.querySelectorAll("nav a").forEach(a => a.classList.toggle("on", a.dataset.tab === tab));
+  if (player) player.pause();
+  ({ review: renderReview, tones: renderTones, listen: () => renderListen(arg), lessons: renderLessons }[tab] || renderReview)();
+  updateStat();
+}
+
+fetch("cards.json")
+  .then(r => r.json())
+  .then(d => {
+    DATA = d;
+    for (const i of d.items) byId[i.id] = i;
+    window.addEventListener("hashchange", route);
+    route();
+  })
+  .catch(() => { view.innerHTML = `<div class="card center muted">Couldn't load the cards. If you opened this file directly, run a local server: <code>python3 -m http.server -d docs</code></div>`; });
+</script>
+</body>
+</html>

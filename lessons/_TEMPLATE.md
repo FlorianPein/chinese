@@ -1,7 +1,8 @@
 # UXX-LXX: Title
 
 > **Goal:** one sentence describing what you can do after this lesson.
-> **Time:** ~10–15 min · **Data:** [`data/UXX-LXX.json`](../data/UXX-LXX.json)
+>
+> **Listen:** [🔊 all phrases and words](https://florianpein.github.io/chinese/#listen/UXX-LXX) · **Time:** ~10–15 min · **Data:** [`data/UXX-LXX.json`](../data/UXX-LXX.json)
 
 ## Phrases
 
