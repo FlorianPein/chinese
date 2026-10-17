@@ -1,14 +1,24 @@
-"""Build the course: check the data, generate audio, write the flashcard data.
+"""Build the course: check the lessons, generate audio, write the app data.
 
-    python tools/build.py            # check + audio + cards
-    python tools/build.py check      # only check data and lessons
-    python tools/build.py audio      # (re)generate changed audio
-    python tools/build.py cards      # write docs/cards.json
+    python tools/build.py            # check + audio + cards + lesson notes
+    python tools/build.py check      # only check the data
+    python tools/build.py audio      # (re)generate missing or changed audio
+    python tools/build.py cards      # write docs/cards.json and lessons/*.md
+    python tools/build.py audio --force   # regenerate all audio
+
+Everything this writes (audio, docs/cards.json, lessons/*.md) is committed, so
+nothing has to be generated when a lesson is started.
 
 Audio comes from an offline Mandarin TTS model (Matcha-TTS trained on the Baker
 corpus, run with sherpa-onnx). The model is fed Pinyin syllables directly, so
 the audio follows the Pinyin in the data exactly, including neutral tones and
 the spoken tone changes from pinyin.spoken().
+
+The model sometimes gets a tone wrong, mostly for syllables that are rare in
+that tone (hě, bū). So every take is checked: its pitch is measured and
+compared with the tone shapes it should have. Up to TAKES takes are made and
+the best is kept. If no take of a single syllable is right, a good take of the
+same syllable in another tone is pitch-edited into the right tone shape.
 """
 
 import json
@@ -29,19 +39,81 @@ LESSONS = ROOT / "lessons"
 DOCS = ROOT / "docs"
 AUDIO = DOCS / "audio"
 CACHE = Path(__file__).parent / ".cache"
+APP_URL = "https://florianpein.github.io/chinese/"
 
 RELEASES = "https://github.com/k2-fsa/sherpa-onnx/releases/download"
 MODEL_DIR = CACHE / "matcha-icefall-zh-baker"
 VOCODER = CACHE / "vocos-22khz-univ.onnx"
 
+TONE_NAMES = {1: "1st tone", 2: "2nd tone", 3: "3rd tone", 4: "4th tone", 5: "neutral tone"}
+SOUND_ID = re.compile(r"^s-([a-zv]+)([1-5])$")
+EXERCISES = {"hear", "tone", "meaning", "pinyin", "match", "build", "type"}
+# rough seconds per step, for the time estimate
+SECONDS = {"intro": 40, "new": 25, "hear": 10, "tone": 8, "meaning": 10, "pinyin": 10,
+           "match": 35, "build": 25, "type": 20, "speak": 35}
+
+
+# --- loading -----------------------------------------------------------------
+
+def sound_item(sid, lesson_id, label=""):
+    base, tone = SOUND_ID.match(sid).groups()
+    return {"id": sid, "kind": "sound", "pinyin": pinyin.mark(base, int(tone)),
+            "english": label, "lesson": lesson_id}
+
+
+def step_refs(step):
+    """Item and sound ids a step refers to (not counting answer options that are plain Pinyin)."""
+    refs = []
+    for key in ("item", "play"):
+        if key in step:
+            refs.append(step[key])
+    if step["type"] in ("meaning",):
+        refs += step.get("options", [])
+    refs += step.get("items", [])
+    for row in step.get("rows", []):
+        refs += row
+    return refs
+
 
 def load_course():
     course = json.loads((DATA / "course.json").read_text())
-    lessons = []
-    for entry in course["lessons"]:
-        data = json.loads((DATA / f"{entry['id']}.json").read_text())
-        lessons.append({**entry, "items": data["items"]})
-    return lessons
+    topics, lessons, items = [], [], {}
+    for topic in course["topics"]:
+        topics.append({k: topic[k] for k in ("id", "title", "planned")} | {"lessons": topic["lessons"]})
+        for lid in topic["lessons"]:
+            data = json.loads((DATA / f"{lid}.json").read_text())
+            lesson = {"id": lid, "topic": topic["id"], "title": data["title"], "goal": data["goal"],
+                      "file": f"{lid}.md", "steps": data["steps"], "own": []}
+            for item in data["items"]:
+                item = {**item, "lesson": lid}
+                if item["id"] in items:
+                    raise SystemExit(f"ERROR {lid}: item id {item['id']!r} is already used "
+                                     f"in {items[item['id']]['lesson']}")
+                items[item["id"]] = item
+                lesson["own"].append(item["id"])
+            # sounds: every s-… id the steps use, plus every new one-syllable
+            # word in all four tones
+            labels = data.get("sounds", {})
+            wanted = [r for s in data["steps"] for r in step_refs(s) if r.startswith("s-")]
+            for s in data["steps"]:
+                if s["type"] == "new" and s["item"] in items:
+                    syl = pinyin.syllables(pinyin.parse(items[s["item"]]["pinyin"]))
+                    if len(syl) == 1:
+                        wanted += [f"s-{syl[0][0]}{t}" for t in (1, 2, 3, 4)]
+            for sid in wanted:
+                if not SOUND_ID.match(sid):
+                    raise SystemExit(f"ERROR {lid}: {sid!r} isn't a sound id like s-ma1")
+                if sid not in items:
+                    items[sid] = sound_item(sid, lid, labels.get(sid, ""))
+                    lesson["own"].append(sid)
+            lessons.append(lesson)
+    return topics, lessons, items
+
+
+def tiles(text):
+    """'Hǎo, wǒ hē.' -> ['hǎo', 'wǒ', 'hē'] (the word tiles of a build exercise)."""
+    words = re.findall(r"[^\s,.!?:;，。！？：；]+", text)
+    return [w[:1].lower() + w[1:] for w in words]
 
 
 def say_segments(item):
@@ -49,6 +121,129 @@ def say_segments(item):
     if "say" in item:
         return pinyin.parse_numbers(item["say"])
     return pinyin.spoken(pinyin.parse(item["pinyin"]))
+
+
+# --- check -------------------------------------------------------------------
+
+def check(lessons, items):
+    errors, warnings = [], []
+    known = set()           # vocabulary introduced so far (by "new" steps)
+    known_pinyin = set()
+
+    def pin(x):
+        return pinyin.to_numbers(x).lower()
+
+    for lesson in lessons:
+        lid = lesson["id"]
+        for iid in lesson["own"]:
+            item = items[iid]
+            if item["kind"] == "sound":
+                continue
+            for field in ("id", "kind", "pinyin", "english", "hanzi"):
+                if field not in item:
+                    errors.append(f"{lid}/{iid}: missing {field!r}")
+            if item["kind"] not in ("word", "phrase"):
+                errors.append(f"{lid}/{iid}: kind should be word or phrase")
+            try:
+                pinyin.tts_tokens(say_segments(item))
+            except ValueError as e:
+                errors.append(f"{lid}/{iid}: {e}")
+        introduced = [s["item"] for s in lesson["steps"] if s["type"] == "new"]
+        for iid in lesson["own"]:
+            if items[iid]["kind"] != "sound" and introduced.count(iid) != 1:
+                errors.append(f"{lid}/{iid}: needs exactly one 'new' step (has {introduced.count(iid)})")
+
+        for n, step in enumerate(lesson["steps"], 1):
+            where = f"{lid} step {n} ({step.get('type')})"
+            t = step.get("type")
+            for ref in step_refs(step):
+                if ref not in items:
+                    errors.append(f"{where}: unknown item {ref!r}")
+                elif items[ref]["kind"] != "sound" and ref not in known and not (t == "new" and ref == step["item"]):
+                    errors.append(f"{where}: {ref!r} is used before its 'new' step")
+            if any(r not in items for r in step_refs(step)):
+                continue
+            opts = step.get("options", [])
+            if len(opts) != len(set(map(str, opts))):
+                errors.append(f"{where}: duplicate options")
+            if t == "intro":
+                if "title" not in step or "text" not in step:
+                    errors.append(f"{where}: needs title and text")
+            elif t == "new":
+                item = items[step["item"]]
+                if item["lesson"] != lid:
+                    errors.append(f"{where}: {item['id']!r} belongs to {item['lesson']}")
+                known.add(item["id"])
+                if item["kind"] == "word":
+                    known_pinyin.add(pin(item["pinyin"]))
+                else:
+                    for w in tiles(item["pinyin"]):
+                        if pin(w) not in known_pinyin:
+                            warnings.append(f"{where}: phrase word {w!r} hasn't been taught as a word")
+            elif t == "hear":
+                right = items[step["play"]]["pinyin"]
+                if right not in opts:
+                    errors.append(f"{where}: options don't include {right!r}")
+                for o in opts:
+                    try:
+                        pinyin.parse(o)
+                    except ValueError as e:
+                        errors.append(f"{where}: {e}")
+            elif t == "tone":
+                item = items[step["play"]]
+                syl = pinyin.syllables(pinyin.parse(item["pinyin"]))
+                if len(syl) != 1 or syl != pinyin.syllables(say_segments(item)):
+                    errors.append(f"{where}: tone steps need a one-syllable item heard as written")
+                elif syl[0][1] not in opts:
+                    errors.append(f"{where}: options don't include tone {syl[0][1]}")
+            elif t == "meaning":
+                if step["item"] not in opts:
+                    errors.append(f"{where}: options don't include {step['item']!r}")
+                if step.get("from") not in ("audio", "pinyin"):
+                    errors.append(f"{where}: 'from' must be audio or pinyin")
+                english = [items[o]["english"] for o in opts]
+                if len(set(english)) != len(english):
+                    errors.append(f"{where}: two options have the same meaning")
+            elif t == "pinyin":
+                if items[step["item"]]["pinyin"] not in opts:
+                    errors.append(f"{where}: options don't include {items[step['item']]['pinyin']!r}")
+            elif t == "match":
+                its = [items[i] for i in step["items"]]
+                if not 2 <= len(its) <= 5:
+                    errors.append(f"{where}: match needs 2–5 items")
+                for key in ("pinyin", "english"):
+                    if len({i[key] for i in its}) != len(its):
+                        errors.append(f"{where}: two items have the same {key}")
+            elif t == "build":
+                words = tiles(items[step["item"]]["pinyin"])
+                if set(step.get("extra", [])) & set(words):
+                    errors.append(f"{where}: an extra tile is part of the answer")
+                if len(words) < 2:
+                    errors.append(f"{where}: build needs at least 2 words")
+            elif t == "type":
+                if step.get("from") not in ("audio", "english"):
+                    errors.append(f"{where}: 'from' must be audio or english")
+            elif t == "speak":
+                pass
+            else:
+                errors.append(f"{where}: unknown step type")
+    return errors, warnings
+
+
+# --- audio -------------------------------------------------------------------
+
+def download_models():
+    CACHE.mkdir(exist_ok=True)
+    if not MODEL_DIR.exists():
+        print("Downloading TTS model (~75 MB)…")
+        tar = CACHE / "model.tar.bz2"
+        urllib.request.urlretrieve(f"{RELEASES}/tts-models/matcha-icefall-zh-baker.tar.bz2", tar)
+        with tarfile.open(tar) as t:
+            t.extractall(CACHE, filter="data")
+        tar.unlink()
+    if not VOCODER.exists():
+        print("Downloading vocoder (~55 MB)…")
+        urllib.request.urlretrieve(f"{RELEASES}/vocoder-models/vocos-22khz-univ.onnx", VOCODER)
 
 
 class CorpusLexicon:
@@ -92,9 +287,12 @@ class CorpusLexicon:
 
 
 def audio_tokens(item, lexicon):
+    if item["kind"] == "sound":
+        base, tone = SOUND_ID.match(item["id"]).groups()
+        return [base + ("" if tone == "5" else tone), "."]
     segments = say_segments(item)
     syl = [i for i, s in enumerate(segments) if s[0] == "syl"]
-    chars = [c for c in item["hanzi"] if "\u4e00" <= c <= "\u9fff"]
+    chars = [c for c in item["hanzi"] if "一" <= c <= "鿿"]
     if "say" not in item and len(chars) == len(syl):
         segments = list(segments)
         for i, label in zip(syl, lexicon.labels(chars)):
@@ -104,63 +302,68 @@ def audio_tokens(item, lexicon):
     return pinyin.tts_tokens(segments)
 
 
-# --- check -------------------------------------------------------------------
+# Tone checking. Pitch is measured in semitones above 200 Hz; this voice's
+# high level (1st tone) is around 9, its low (3rd tone) around 0.
 
-def check(lessons):
-    errors = []
-    ids = set()
-    known_pinyin = set()
-    for lesson in lessons:
-        lid = lesson["id"]
-        md = LESSONS / lesson["file"]
-        if not md.exists():
-            errors.append(f"{lid}: lesson file {md.name} missing")
-            continue
-        text = md.read_text()
-        for item in lesson["items"]:
-            where = f"{lid}/{item.get('id')}"
-            for field in ("id", "kind", "pinyin", "english", "hanzi"):
-                if field not in item:
-                    errors.append(f"{where}: missing {field!r}")
-            if item["id"] in ids:
-                errors.append(f"{where}: duplicate id")
-            ids.add(item["id"])
-            if not item["id"].startswith(lid + "-"):
-                errors.append(f"{where}: id should start with {lid}-")
-            try:
-                pinyin.tts_tokens(say_segments(item))
-            except ValueError as e:
-                errors.append(f"{where}: {e}")
-            if item["pinyin"] not in text:
-                errors.append(f"{where}: {item['pinyin']!r} doesn't appear in {md.name}")
-            known_pinyin.add(item["pinyin"])
-
-    # Tone numbers shown in lessons must match the tone marks.
-    for md in sorted(LESSONS.glob("[!_]*.md")):
-        for m in re.finditer(r"\*\*([^*]+)\*\*<br><sub>([^<]+)</sub>", md.read_text()):
-            marks, numbers = m.groups()
-            if pinyin.to_numbers(marks) != numbers:
-                errors.append(f"{md.name}: {marks!r} shown as {numbers!r}, "
-                              f"expected {pinyin.to_numbers(marks)!r}")
-            if marks not in known_pinyin:
-                errors.append(f"{md.name}: {marks!r} isn't in any data file")
-    return errors
+def pitch_track(samples, sr):
+    import numpy as np
+    import parselmouth
+    snd = parselmouth.Sound(np.asarray(samples, dtype=np.float64), sampling_frequency=sr)
+    p = snd.to_pitch(time_step=0.01, pitch_floor=75, pitch_ceiling=600)
+    return p.xs(), p.selected_array["frequency"]
 
 
-# --- audio -------------------------------------------------------------------
+def voiced_runs(f0, gap=2, shortest=4):
+    """Index ranges of voiced stretches (gaps of up to `gap` frames are bridged)."""
+    runs, start, last = [], None, None
+    for i, f in enumerate(f0):
+        if f > 0:
+            if start is None:
+                start = i
+            elif i - last > gap + 1:
+                runs.append((start, last + 1))
+                start = i
+            last = i
+    if start is not None:
+        runs.append((start, last + 1))
+    return [r for r in runs if r[1] - r[0] >= shortest]
 
-def download_models():
-    CACHE.mkdir(exist_ok=True)
-    if not MODEL_DIR.exists():
-        print("Downloading TTS model (~75 MB)…")
-        tar = CACHE / "model.tar.bz2"
-        urllib.request.urlretrieve(f"{RELEASES}/tts-models/matcha-icefall-zh-baker.tar.bz2", tar)
-        with tarfile.open(tar) as t:
-            t.extractall(CACHE, filter="data")
-        tar.unlink()
-    if not VOCODER.exists():
-        print("Downloading vocoder (~55 MB)…")
-        urllib.request.urlretrieve(f"{RELEASES}/vocoder-models/vocos-22khz-univ.onnx", VOCODER)
+
+def contour(f0):
+    """Five median pitch values (semitones) across a voiced stretch."""
+    import numpy as np
+    st = 12 * np.log2(f0[f0 > 0] / 200)
+    return [float(np.median(x)) for x in np.array_split(st, 5)]
+
+
+def tone_margin(c, tone, alone):
+    """How clearly a 5-point contour has the given tone (> 0: it does)."""
+    s, e, lo, hi = c[0], c[-1], min(c), max(c)
+    mean = sum(c) / 5
+    if tone == 1:
+        return min(3.0 - (hi - lo), mean - (7 if alone else 5))
+    if tone == 2:
+        return min(e - min(c[:3]) - 2.5, e - (7 if alone else 5))
+    if tone == 3:
+        if alone:
+            return min(3.0 - min(c[:4]), 6.5 - max(c[:3]), 8 - e)
+        return min(4.0 - min(c), 6.5 - max(c[:3]))
+    if tone == 4:
+        return min(max(c[:2]) - e - (4 if alone else 3), max(c[:2]) - (7.5 if alone else 6))
+    return 0.0  # neutral: not checked
+
+
+def tone_score(samples, sr, tones):
+    """Smallest tone margin over the syllables, or None if the syllables
+    can't be told apart in the pitch track."""
+    _, f0 = pitch_track(samples, sr)
+    if len(tones) == 1:
+        return tone_margin(contour(f0), tones[0], True) if (f0 > 0).sum() >= 5 else None
+    runs = voiced_runs(f0)
+    if len(runs) != len(tones):
+        return None
+    margins = [tone_margin(contour(f0[a:b]), t, False) for (a, b), t in zip(runs, tones) if t != 5]
+    return min(margins) if margins else 0.0
 
 
 class Speaker:
@@ -190,54 +393,183 @@ class Speaker:
         ))
         self.tts = sherpa_onnx.OfflineTts(config)
 
-    def to_mp3(self, tokens, out):
+    def say(self, tokens, speed=1.0):
         import numpy as np
-        import soundfile as sf
-        audio = self.tts.generate("".join(self.char[t] for t in tokens), sid=0, speed=1.0)
-        samples = np.array(audio.samples, dtype=np.float32)
-        samples *= 0.9 / max(1e-6, np.abs(samples).max())
-        sr = audio.sample_rate
-        samples = np.concatenate([np.zeros(int(sr * 0.15)), samples, np.zeros(int(sr * 0.25))])
-        with tempfile.NamedTemporaryFile(suffix=".wav") as wav:
-            sf.write(wav.name, samples, sr)
-            subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", wav.name,
-                            "-ac", "1", "-b:a", "48k", str(out)], check=True)
+        audio = self.tts.generate("".join(self.char[t] for t in tokens), sid=0, speed=speed)
+        return np.array(audio.samples, dtype=np.float32), audio.sample_rate
 
 
-def build_audio(lessons, force=False):
+TAKES = 9
+GOOD = 0.6           # tone margin (semitones) a take needs to count as right
+SPEED = {1: 0.9}     # single syllables a little slower: easier to hear the tone
+
+# Target tone shapes for pitch editing, as (time 0–1, level 1–5) on the
+# usual 5-level scale; level L is -1 + 2.6 * (L - 1) semitones above 200 Hz.
+# A syllable said alone gets the full shape; inside a phrase the 3rd tone
+# just stays low.
+SHAPES = {1: [(0, 5), (1, 4.9)], 2: [(0, 3), (0.3, 2.8), (1, 5)],
+          3: [(0, 2.3), (0.55, 1), (0.8, 1.2), (1, 3.3)], 4: [(0, 5.2), (1, 1.3)]}
+SHAPES_IN_PHRASE = {**SHAPES, 2: [(0, 3), (0.3, 2.8), (1, 4.8)],
+                    3: [(0, 2.2), (0.6, 1), (1, 1.3)], 4: [(0, 5), (1, 1.8)]}
+
+
+def hz(level):
+    return 200 * 2 ** ((-1 + 2.6 * (level - 1)) / 12)
+
+
+def retone(samples, sr, tone):
+    """Pitch-edit a one-syllable take into the given tone shape (PSOLA)."""
+    import numpy as np
+    import parselmouth
+    from parselmouth.praat import call
+    snd = parselmouth.Sound(np.asarray(samples, dtype=np.float64), sampling_frequency=sr)
+    t, f0 = pitch_track(samples, sr)
+    voiced = t[f0 > 0]
+    t0, t1 = voiced[0], voiced[-1]
+    manip = call(snd, "To Manipulation", 0.01, 75, 600)
+    tier = call("Create PitchTier", "target", snd.xmin, snd.xmax)
+    for x, level in SHAPES[tone]:
+        call(tier, "Add point", t0 + x * (t1 - t0), hz(level))
+    call([tier, manip], "Replace pitch tier")
+    out = call(manip, "Get resynthesis (overlap-add)")
+    return np.array(out.values[0], dtype=np.float32), sr
+
+
+def fix_phrase(samples, sr, tones):
+    """Pitch-edit only the syllables of a phrase whose tone came out wrong,
+    keeping the rest of the take as it is. None if the syllables can't be
+    found in the pitch track."""
+    import numpy as np
+    import parselmouth
+    from parselmouth.praat import call
+    t, f0 = pitch_track(samples, sr)
+    runs = voiced_runs(f0)
+    if len(runs) != len(tones):
+        return None
+    snd = parselmouth.Sound(np.asarray(samples, dtype=np.float64), sampling_frequency=sr)
+    manip = call(snd, "To Manipulation", 0.01, 75, 600)
+    tier = call(manip, "Extract pitch tier")
+    for (a, b), tone in zip(runs, tones):
+        if tone == 5 or tone_margin(contour(f0[a:b]), tone, False) > GOOD + 0.3:
+            continue
+        t0, t1 = t[a], t[b - 1]
+        call(tier, "Remove points between", t0 - 0.006, t1 + 0.006)
+        for x, level in SHAPES_IN_PHRASE[tone]:
+            call(tier, "Add point", t0 + x * (t1 - t0), hz(level))
+    call([tier, manip], "Replace pitch tier")
+    out = call(manip, "Get resynthesis (overlap-add)")
+    return np.array(out.values[0], dtype=np.float32), sr
+
+
+def make_take(speaker, tokens):
+    """Best of up to TAKES takes, pitch-edited if none has the right tones.
+    Returns (samples, sr, method, score)."""
+    tones = [int(t[-1]) if t[-1].isdigit() else 5 for t in tokens if t[0].isalpha()]
+    base_speed = SPEED.get(len(tones), 1.0)
+    if all(t == 5 for t in tones):
+        y, sr = speaker.say(tokens, base_speed)
+        return y, sr, "natural", None
+    best = None
+    for k in range(TAKES):
+        y, sr = speaker.say(tokens, base_speed * (1.0, 0.92, 1.08)[k % 3])
+        score = tone_score(y, sr, tones)
+        key = -99 if score is None else score
+        if best is None or key > best[0]:
+            best = (key, y, sr, score)
+        if score is not None and score > GOOD + 0.3:
+            break
+    key, y, sr, score = best
+    if score is not None and score > GOOD:
+        return y, sr, "natural", score
+    if len(tones) == 1:
+        # pitch-edit the clearest take of this syllable in the 1st or 4th tone
+        base = tokens[0].rstrip("12345")
+        sources = []
+        for t in (1, 4):
+            for _ in range(TAKES):
+                ys, srs = speaker.say([f"{base}{t}", "."], base_speed)
+                m = tone_score(ys, srs, [t])
+                if m is not None:
+                    sources.append((m, ys, srs))
+        if sources:
+            _, ys, srs = max(sources, key=lambda s: s[0])
+            y2, sr2 = retone(ys, srs, tones[0])
+            return y2, sr2, "pitch-edited", tone_score(y2, sr2, tones)
+    elif score is not None:
+        fixed = fix_phrase(y, sr, tones)
+        if fixed:
+            s2 = tone_score(*fixed, tones)
+            if s2 is not None and s2 > score:
+                return *fixed, "pitch-edited", s2
+    return y, sr, "unchecked" if score is None else "best-effort", score
+
+
+def to_mp3(samples, sr, out):
+    import numpy as np
+    import soundfile as sf
+    samples = np.asarray(samples, dtype=np.float32)
+    samples *= 0.9 / max(1e-6, np.abs(samples).max())
+    samples = np.concatenate([np.zeros(int(sr * 0.15)), samples, np.zeros(int(sr * 0.25))])
+    with tempfile.NamedTemporaryFile(suffix=".wav") as wav:
+        sf.write(wav.name, samples, sr)
+        subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", wav.name,
+                        "-ac", "1", "-b:a", "48k", str(out)], check=True)
+
+
+def build_audio(items, force=False):
     AUDIO.mkdir(parents=True, exist_ok=True)
     manifest_path = AUDIO / "manifest.json"
     manifest = json.loads(manifest_path.read_text()) if manifest_path.exists() else {}
+    manifest = {k: v for k, v in manifest.items() if isinstance(v, dict)}
     lexicon = CorpusLexicon()
-    wanted = {}
-    for lesson in lessons:
-        for item in lesson["items"]:
-            wanted[item["id"]] = " ".join(audio_tokens(item, lexicon))
+    wanted = {iid: " ".join(audio_tokens(item, lexicon)) for iid, item in items.items()}
 
     todo = [i for i, toks in wanted.items()
-            if force or manifest.get(i) != toks or not (AUDIO / f"{i}.mp3").exists()]
+            if force or manifest.get(i, {}).get("tokens") != toks or not (AUDIO / f"{i}.mp3").exists()]
     speaker = Speaker() if todo else None
-    for n, item_id in enumerate(todo, 1):
-        tokens = wanted[item_id].split()
-        print(f"[{n}/{len(todo)}] {item_id}: {wanted[item_id]}")
-        speaker.to_mp3(tokens, AUDIO / f"{item_id}.mp3")
-        manifest[item_id] = wanted[item_id]
+    done = {}   # tokens -> id already made in this run (same sound, same file)
+    for n, iid in enumerate(todo, 1):
+        toks = wanted[iid]
+        if toks in done:
+            (AUDIO / f"{iid}.mp3").write_bytes((AUDIO / f"{done[toks]}.mp3").read_bytes())
+            manifest[iid] = {**manifest[done[toks]]}
+        else:
+            y, sr, method, score = make_take(speaker, toks.split())
+            to_mp3(y, sr, AUDIO / f"{iid}.mp3")
+            manifest[iid] = {"tokens": toks, "method": method,
+                             "score": None if score is None else round(score, 1)}
+            done[toks] = iid
+        m = manifest[iid]
+        print(f"[{n}/{len(todo)}] {iid}: {toks}  ({m['method']}, {m['score']})")
 
     for f in AUDIO.glob("*.mp3"):  # remove audio for deleted items
         if f.stem not in wanted:
             f.unlink()
     manifest = {k: v for k, v in sorted(manifest.items()) if k in wanted}
     manifest_path.write_text(json.dumps(manifest, ensure_ascii=False, indent=1) + "\n")
-    print(f"Audio: {len(todo)} generated, {len(wanted)} total.")
+    methods = {}
+    for v in manifest.values():
+        methods[v["method"]] = methods.get(v["method"], 0) + 1
+    print(f"Audio: {len(todo)} generated, {len(wanted)} total {methods}.")
+    for k, v in manifest.items():
+        if v["method"] == "best-effort" or (v["score"] is not None and v["score"] <= GOOD):
+            print(f"  WARNING {k}: no take had clearly the right tones (score {v['score']})")
 
 
-# --- cards -------------------------------------------------------------------
+# --- cards + lesson notes ----------------------------------------------------
 
-def build_cards(lessons):
-    out = {"lessons": [], "items": []}
+def minutes(steps):
+    return round(sum(SECONDS.get(s["type"], 15) for s in steps) / 60)
+
+
+def build_cards(topics, lessons, items):
+    out = {"topics": topics, "lessons": [], "items": []}
     for lesson in lessons:
-        out["lessons"].append({k: lesson[k] for k in ("id", "title", "file")})
-        for item in lesson["items"]:
+        out["lessons"].append({k: lesson[k] for k in ("id", "topic", "title", "goal", "file", "steps")}
+                              | {"minutes": minutes(lesson["steps"])})
+    for lesson in lessons:
+        for iid in lesson["own"]:
+            item = items[iid]
             segments = pinyin.parse(item["pinyin"])
             written = pinyin.syllables(segments)
             heard = pinyin.syllables(say_segments(item))
@@ -250,8 +582,8 @@ def build_cards(lessons):
                 elif s[1] == " ":
                     gap = 1
             card = {
-                "id": item["id"],
-                "lesson": lesson["id"],
+                "id": iid,
+                "lesson": item["lesson"],
                 "kind": item["kind"],
                 "pinyin": item["pinyin"],
                 "numbers": pinyin.to_numbers(item["pinyin"]),
@@ -267,22 +599,107 @@ def build_cards(lessons):
             out["items"].append(card)
     DOCS.mkdir(exist_ok=True)
     (DOCS / "cards.json").write_text(json.dumps(out, ensure_ascii=False, indent=1) + "\n")
-    print(f"Cards: {len(out['items'])} items from {len(lessons)} lessons.")
+    print(f"Cards: {len(out['items'])} items, {len(lessons)} lessons.")
+
+
+def py(text):
+    """Pinyin for the notes: tone marks, with tone numbers underneath."""
+    return f"**{text}**<br><sub>{pinyin.to_numbers(text)}</sub>"
+
+
+def build_notes(topics, lessons, items):
+    """lessons/<id>.md: a readable summary of each lesson, generated from its data."""
+    LESSONS.mkdir(exist_ok=True)
+    order = [l["id"] for l in lessons]
+    for lesson in lessons:
+        lid = lesson["id"]
+        i = order.index(lid)
+        nav = []
+        if i > 0:
+            nav.append(f"**Previous:** [{order[i - 1]}]({order[i - 1]}.md)")
+        if i + 1 < len(order):
+            nav.append(f"**Next:** [{order[i + 1]}]({order[i + 1]}.md)")
+        own = [items[x] for x in lesson["own"]]
+        words = [x for x in own if x["kind"] == "word"]
+        phrases = [x for x in own if x["kind"] == "phrase"]
+        sounds = [x for x in own if x["kind"] == "sound"]
+        counts = {}
+        for s in lesson["steps"]:
+            counts[s["type"]] = counts.get(s["type"], 0) + 1
+        n_ex = sum(v for k, v in counts.items() if k in EXERCISES)
+
+        md = [f"# {lid}: {lesson['title']}", "",
+              f"> **Goal:** {lesson['goal']}", ">",
+              f"> **Do the lesson:** [in the app]({APP_URL}#lesson/{lid}) · "
+              f"**Listen:** [all audio]({APP_URL}#listen/{lid}) · ~{minutes(lesson['steps'])} min · "
+              f"{len(lesson['steps'])} steps, {n_ex} exercises",
+              ">", f"> " + " · ".join(nav + [f"**Data:** [`data/{lid}.json`](../data/{lid}.json)"]), "",
+              f"<!-- Generated by tools/build.py from data/{lid}.json. Edit the data, not this file. -->", ""]
+        md += ["## Explanations", ""]
+        for s in lesson["steps"]:
+            if s["type"] != "intro":
+                continue
+            md += [f"### {s['title']}", "", s["text"].replace("\n\n", "\n\n"), ""]
+            for row in s.get("rows", []):
+                md.append(" · ".join(f"**{items[r]['pinyin']}**" + (f" ({items[r]['english']})" if items[r]["english"] else "")
+                                     for r in row) + "  ")
+            if s.get("rows"):
+                md.append("")
+        if words:
+            md += ["## New words", "", "| Pinyin | Meaning | Note |", "|--------|---------|------|"]
+            md += [f"| {py(w['pinyin'])} | {w['english']} | {w.get('note', '')} |" for w in words]
+            md.append("")
+        if phrases:
+            md += ["## New phrases", "", "| Pinyin | English | Literally |", "|--------|---------|-----------|"]
+            md += [f"| {py(p['pinyin'])} | {p['english']} | {p.get('literal', '')} |" for p in phrases]
+            md.append("")
+        if sounds:
+            groups = {}
+            for s in sounds:
+                groups.setdefault(SOUND_ID.match(s["id"]).group(1), []).append(s)
+            md += ["## Sounds with audio", "",
+                   "Every syllable used in this lesson, in each tone. Play them on the "
+                   f"[listening page]({APP_URL}#listen/{lid}).", ""]
+            for base, group in groups.items():
+                group.sort(key=lambda s: s["id"])
+                md.append(f"- **{base.replace('v', 'ü')}**: " + " · ".join(s["pinyin"] for s in group))
+            md.append("")
+        reviewed = sorted({r for s in lesson["steps"] for r in step_refs(s)
+                           if r in items and items[r]["kind"] != "sound" and items[r]["lesson"] != lid},
+                          key=lambda r: list(items).index(r))
+        if reviewed:
+            md += ["## Repeated from earlier lessons", "",
+                   ", ".join(f"**{items[r]['pinyin']}** ({items[r]['english']})" for r in reviewed), ""]
+        kinds = {"hear": "pick what you hear", "tone": "name the tone", "meaning": "pick the meaning",
+                 "pinyin": "pick the Pinyin", "match": "match pairs", "build": "build the sentence",
+                 "type": "type the Pinyin", "speak": "say it aloud (record and compare)"}
+        md += ["## Exercises", "", " · ".join(f"{counts[k]}× {v}" for k, v in kinds.items() if k in counts), ""]
+        (LESSONS / f"{lid}.md").write_text("\n".join(md))
+    for f in LESSONS.glob("[!_]*.md"):
+        if f.stem not in order:
+            f.unlink()
+    print(f"Notes: {len(lessons)} lesson files.")
 
 
 def main():
     cmd = sys.argv[1] if len(sys.argv) > 1 else "all"
-    lessons = load_course()
-    errors = check(lessons)
+    topics, lessons, items = load_course()
+    errors, warnings = check(lessons, items)
+    for w in warnings:
+        print("WARNING", w)
     for e in errors:
         print("ERROR", e)
     if errors:
         sys.exit(1)
-    print("Check: OK")
+    print(f"Check: OK ({len(lessons)} lessons, {len(items)} items with audio)")
+    for lesson in lessons:
+        n_ex = sum(1 for s in lesson["steps"] if s["type"] in EXERCISES)
+        print(f"  {lesson['id']}: {len(lesson['steps'])} steps, {n_ex} exercises, ~{minutes(lesson['steps'])} min")
     if cmd in ("all", "audio"):
-        build_audio(lessons, force="--force" in sys.argv)
+        build_audio(items, force="--force" in sys.argv)
     if cmd in ("all", "cards"):
-        build_cards(lessons)
+        build_cards(topics, lessons, items)
+        build_notes(topics, lessons, items)
 
 
 if __name__ == "__main__":

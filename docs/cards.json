@@ -1,20 +1,753 @@
 {
- "lessons": [
+ "topics": [
   {
    "id": "A01",
    "title": "The four tones + neutral tone",
-   "file": "A01-tones.md"
+   "planned": 5,
+   "lessons": [
+    "A01-L01",
+    "A01-L02"
+   ]
+  }
+ ],
+ "lessons": [
+  {
+   "id": "A01-L01",
+   "topic": "A01",
+   "title": "High and falling: tones 1 and 4",
+   "goal": "Hear and say the 1st tone (high) and the 4th tone (falling), and use your first 5 words.",
+   "file": "A01-L01.md",
+   "steps": [
+    {
+     "type": "intro",
+     "title": "Every syllable has a tone",
+     "text": "A tone is a pitch shape: high, rising, low or falling. It's part of the word, like its vowels. Change the tone and you get a different word.\n\nTap each one and listen. It's the same syllable **ma**, five times:",
+     "rows": [
+      [
+       "s-ma1",
+       "s-ma2",
+       "s-ma3",
+       "s-ma4",
+       "s-ma5"
+      ]
+     ]
+    },
+    {
+     "type": "intro",
+     "tone": 1,
+     "title": "1st tone: high and flat",
+     "text": "Start high and hold it, like singing one note.\n\nEnglish: the *Aaah* at the doctor's. German: a sung *Laaa*.\n\nThe mark is a flat line: **ā**.",
+     "rows": [
+      [
+       "s-ma1",
+       "s-ta1",
+       "s-he1",
+       "s-shi1"
+      ]
+     ]
+    },
+    {
+     "type": "intro",
+     "tone": 4,
+     "title": "4th tone: a sharp fall",
+     "text": "Start high and drop fast, like a firm *No!* or *Stop!* German: *Nein!* or *Doch!*\n\nThe mark falls from left to right: **à**.",
+     "rows": [
+      [
+       "s-ma4",
+       "s-ta4",
+       "s-shi4",
+       "s-bu4"
+      ]
+     ]
+    },
+    {
+     "type": "intro",
+     "title": "High or falling?",
+     "text": "Each pair is the same syllable, first in the 1st tone, then in the 4th. Play each pair a few times.",
+     "rows": [
+      [
+       "s-ma1",
+       "s-ma4"
+      ],
+      [
+       "s-ta1",
+       "s-ta4"
+      ],
+      [
+       "s-he1",
+       "s-he4"
+      ],
+      [
+       "s-shi1",
+       "s-shi4"
+      ]
+     ]
+    },
+    {
+     "type": "tone",
+     "play": "s-ma1",
+     "options": [
+      1,
+      4
+     ]
+    },
+    {
+     "type": "tone",
+     "play": "s-ma4",
+     "options": [
+      1,
+      4
+     ]
+    },
+    {
+     "type": "hear",
+     "play": "s-ta4",
+     "options": [
+      "tā",
+      "tà"
+     ]
+    },
+    {
+     "type": "hear",
+     "play": "s-he1",
+     "options": [
+      "hē",
+      "hè"
+     ]
+    },
+    {
+     "type": "tone",
+     "play": "s-shi4",
+     "options": [
+      1,
+      4
+     ]
+    },
+    {
+     "type": "tone",
+     "play": "s-bu1",
+     "options": [
+      1,
+      4
+     ]
+    },
+    {
+     "type": "hear",
+     "play": "s-shi1",
+     "options": [
+      "shī",
+      "shì"
+     ]
+    },
+    {
+     "type": "tone",
+     "play": "s-ta1",
+     "options": [
+      1,
+      4
+     ]
+    },
+    {
+     "type": "new",
+     "item": "ta"
+    },
+    {
+     "type": "hear",
+     "play": "ta",
+     "options": [
+      "tā",
+      "tà"
+     ]
+    },
+    {
+     "type": "new",
+     "item": "he"
+    },
+    {
+     "type": "meaning",
+     "item": "he",
+     "from": "audio",
+     "options": [
+      "ta",
+      "he"
+     ]
+    },
+    {
+     "type": "meaning",
+     "item": "ta",
+     "from": "pinyin",
+     "options": [
+      "ta",
+      "he"
+     ]
+    },
+    {
+     "type": "new",
+     "item": "shi"
+    },
+    {
+     "type": "pinyin",
+     "item": "shi",
+     "options": [
+      "shì",
+      "shī"
+     ]
+    },
+    {
+     "type": "tone",
+     "play": "shi",
+     "options": [
+      1,
+      4
+     ]
+    },
+    {
+     "type": "new",
+     "item": "bu"
+    },
+    {
+     "type": "meaning",
+     "item": "bu",
+     "from": "audio",
+     "options": [
+      "bu",
+      "shi",
+      "he"
+     ]
+    },
+    {
+     "type": "match",
+     "items": [
+      "ta",
+      "he",
+      "shi",
+      "bu"
+     ]
+    },
+    {
+     "type": "new",
+     "item": "dui"
+    },
+    {
+     "type": "tone",
+     "play": "dui",
+     "options": [
+      1,
+      4
+     ]
+    },
+    {
+     "type": "meaning",
+     "item": "dui",
+     "from": "pinyin",
+     "options": [
+      "dui",
+      "bu",
+      "shi"
+     ]
+    },
+    {
+     "type": "type",
+     "item": "he",
+     "from": "english"
+    },
+    {
+     "type": "type",
+     "item": "bu",
+     "from": "english"
+    },
+    {
+     "type": "intro",
+     "title": "Your first sentences",
+     "text": "Chinese word order is like English: **he / drinks**. To say *not*, put **bù** right before the verb: **he / not / drinks**."
+    },
+    {
+     "type": "new",
+     "item": "ta-he"
+    },
+    {
+     "type": "new",
+     "item": "ta-bu-he"
+    },
+    {
+     "type": "meaning",
+     "item": "ta-bu-he",
+     "from": "audio",
+     "options": [
+      "ta-he",
+      "ta-bu-he"
+     ]
+    },
+    {
+     "type": "build",
+     "item": "ta-bu-he",
+     "extra": [
+      "shì"
+     ]
+    },
+    {
+     "type": "hear",
+     "play": "ta-he",
+     "options": [
+      "Tā hē.",
+      "Tà hē.",
+      "Tā hè."
+     ]
+    },
+    {
+     "type": "new",
+     "item": "dui-shi-ta"
+    },
+    {
+     "type": "meaning",
+     "item": "dui-shi-ta",
+     "from": "audio",
+     "options": [
+      "dui-shi-ta",
+      "ta-bu-he",
+      "ta-he"
+     ]
+    },
+    {
+     "type": "build",
+     "item": "dui-shi-ta",
+     "extra": [
+      "bù"
+     ]
+    },
+    {
+     "type": "tone",
+     "play": "s-he4",
+     "options": [
+      1,
+      4
+     ]
+    },
+    {
+     "type": "type",
+     "item": "shi",
+     "from": "audio"
+    },
+    {
+     "type": "type",
+     "item": "ta",
+     "from": "audio"
+    },
+    {
+     "type": "match",
+     "items": [
+      "dui",
+      "ta-he",
+      "ta-bu-he",
+      "shi"
+     ]
+    },
+    {
+     "type": "pinyin",
+     "item": "dui",
+     "options": [
+      "duì",
+      "duī"
+     ]
+    },
+    {
+     "type": "hear",
+     "play": "s-bu4",
+     "options": [
+      "bū",
+      "bù"
+     ]
+    },
+    {
+     "type": "type",
+     "item": "ta-bu-he",
+     "from": "english"
+    },
+    {
+     "type": "speak",
+     "item": "ta-bu-he"
+    },
+    {
+     "type": "speak",
+     "item": "dui-shi-ta"
+    }
+   ],
+   "minutes": 15
   },
   {
-   "id": "U01-L01",
-   "title": "Hello, thank you, goodbye",
-   "file": "U01-L01-hello.md"
+   "id": "A01-L02",
+   "topic": "A01",
+   "title": "Low: tone 3",
+   "goal": "Hear and say the 3rd tone (low) next to tones 1 and 4, and say I, you and OK.",
+   "file": "A01-L02.md",
+   "steps": [
+    {
+     "type": "intro",
+     "title": "Warm-up",
+     "text": "First a few things from last time: the 1st tone (high, flat) and the 4th tone (falling).",
+     "rows": [
+      [
+       "s-ma1",
+       "s-ma4"
+      ]
+     ]
+    },
+    {
+     "type": "tone",
+     "play": "s-ta4",
+     "options": [
+      1,
+      4
+     ]
+    },
+    {
+     "type": "meaning",
+     "item": "he",
+     "from": "audio",
+     "options": [
+      "he",
+      "ta",
+      "bu"
+     ]
+    },
+    {
+     "type": "build",
+     "item": "ta-bu-he",
+     "extra": [
+      "duì"
+     ]
+    },
+    {
+     "type": "type",
+     "item": "shi",
+     "from": "english"
+    },
+    {
+     "type": "hear",
+     "play": "dui",
+     "options": [
+      "duì",
+      "duī"
+     ]
+    },
+    {
+     "type": "match",
+     "items": [
+      "ta",
+      "he",
+      "shi",
+      "bu",
+      "dui"
+     ]
+    },
+    {
+     "type": "intro",
+     "tone": 3,
+     "title": "3rd tone: low",
+     "text": "Drop your voice low and keep it relaxed. A bit creaky is fine.\n\nEnglish: a low, doubtful *Hmm…* German: a reluctant *Na ja…*\n\nSaid on its own, it often rises a little at the end. Inside a sentence it mostly just stays **low**. Beginners make it too bouncy, so think *low*, not *down-up*.\n\nThe mark is a little valley: **ǎ**.",
+     "rows": [
+      [
+       "s-ma3",
+       "s-wo3",
+       "s-ni3",
+       "s-hao3"
+      ]
+     ]
+    },
+    {
+     "type": "intro",
+     "title": "High, low or falling?",
+     "text": "Here are the three tones you know now, on the same syllables. Play each row a few times and draw the shapes in the air with your hand.",
+     "rows": [
+      [
+       "s-ma1",
+       "s-ma3",
+       "s-ma4"
+      ],
+      [
+       "s-hao1",
+       "s-hao3",
+       "s-hao4"
+      ],
+      [
+       "s-ni1",
+       "s-ni3",
+       "s-ni4"
+      ]
+     ]
+    },
+    {
+     "type": "tone",
+     "play": "s-ma3",
+     "options": [
+      1,
+      3,
+      4
+     ]
+    },
+    {
+     "type": "tone",
+     "play": "s-hao3",
+     "options": [
+      1,
+      3,
+      4
+     ]
+    },
+    {
+     "type": "hear",
+     "play": "s-wo4",
+     "options": [
+      "wǒ",
+      "wò"
+     ]
+    },
+    {
+     "type": "tone",
+     "play": "s-ni1",
+     "options": [
+      1,
+      3,
+      4
+     ]
+    },
+    {
+     "type": "tone",
+     "play": "s-bu3",
+     "options": [
+      1,
+      3,
+      4
+     ]
+    },
+    {
+     "type": "hear",
+     "play": "s-he3",
+     "options": [
+      "hē",
+      "hě",
+      "hè"
+     ]
+    },
+    {
+     "type": "new",
+     "item": "wo"
+    },
+    {
+     "type": "hear",
+     "play": "wo",
+     "options": [
+      "wǒ",
+      "wō",
+      "wò"
+     ]
+    },
+    {
+     "type": "new",
+     "item": "ni"
+    },
+    {
+     "type": "meaning",
+     "item": "ni",
+     "from": "audio",
+     "options": [
+      "ni",
+      "wo",
+      "ta"
+     ]
+    },
+    {
+     "type": "meaning",
+     "item": "wo",
+     "from": "pinyin",
+     "options": [
+      "wo",
+      "ni",
+      "ta"
+     ]
+    },
+    {
+     "type": "match",
+     "items": [
+      "wo",
+      "ni",
+      "ta",
+      "he"
+     ]
+    },
+    {
+     "type": "new",
+     "item": "hao"
+    },
+    {
+     "type": "tone",
+     "play": "hao",
+     "options": [
+      1,
+      3,
+      4
+     ]
+    },
+    {
+     "type": "pinyin",
+     "item": "hao",
+     "options": [
+      "hǎo",
+      "hāo",
+      "hào"
+     ]
+    },
+    {
+     "type": "type",
+     "item": "wo",
+     "from": "english"
+    },
+    {
+     "type": "intro",
+     "title": "Coming soon: nǐ hǎo",
+     "text": "You probably know **nǐ hǎo** (hello). It's two 3rd tones in a row, and that makes the first one change. That gets its own lesson, so for now we leave it out."
+    },
+    {
+     "type": "new",
+     "item": "wo-bu-he"
+    },
+    {
+     "type": "meaning",
+     "item": "wo-bu-he",
+     "from": "audio",
+     "options": [
+      "wo-bu-he",
+      "ta-bu-he",
+      "ta-he"
+     ]
+    },
+    {
+     "type": "build",
+     "item": "wo-bu-he",
+     "extra": [
+      "nǐ"
+     ]
+    },
+    {
+     "type": "new",
+     "item": "shi-wo"
+    },
+    {
+     "type": "hear",
+     "play": "shi-wo",
+     "options": [
+      "Shì wǒ.",
+      "Shì nǐ.",
+      "Shì tā."
+     ]
+    },
+    {
+     "type": "new",
+     "item": "hao-wo-he"
+    },
+    {
+     "type": "build",
+     "item": "hao-wo-he",
+     "extra": [
+      "bù"
+     ]
+    },
+    {
+     "type": "meaning",
+     "item": "hao-wo-he",
+     "from": "pinyin",
+     "options": [
+      "hao-wo-he",
+      "wo-bu-he",
+      "shi-wo"
+     ]
+    },
+    {
+     "type": "tone",
+     "play": "ni",
+     "options": [
+      1,
+      3,
+      4
+     ]
+    },
+    {
+     "type": "tone",
+     "play": "dui",
+     "options": [
+      1,
+      3,
+      4
+     ]
+    },
+    {
+     "type": "tone",
+     "play": "ta",
+     "options": [
+      1,
+      3,
+      4
+     ]
+    },
+    {
+     "type": "type",
+     "item": "wo",
+     "from": "audio"
+    },
+    {
+     "type": "type",
+     "item": "ni",
+     "from": "audio"
+    },
+    {
+     "type": "type",
+     "item": "ta-bu-he",
+     "from": "english"
+    },
+    {
+     "type": "match",
+     "items": [
+      "ni",
+      "wo",
+      "hao",
+      "bu",
+      "dui"
+     ]
+    },
+    {
+     "type": "hear",
+     "play": "dui-shi-ta",
+     "options": [
+      "Duì, shì tā!",
+      "Duì, shì wǒ!",
+      "Duì, shì nǐ!"
+     ]
+    },
+    {
+     "type": "type",
+     "item": "shi-wo",
+     "from": "english"
+    },
+    {
+     "type": "speak",
+     "item": "hao-wo-he"
+    },
+    {
+     "type": "speak",
+     "item": "wo-bu-he"
+    },
+    {
+     "type": "speak",
+     "item": "shi-wo"
+    }
+   ],
+   "minutes": 15
   }
  ],
  "items": [
   {
-   "id": "A01-w01",
-   "lesson": "A01",
+   "id": "ta",
+   "lesson": "A01-L01",
    "kind": "word",
    "pinyin": "tā",
    "numbers": "ta1",
@@ -26,11 +759,12 @@
      0
     ]
    ],
-   "heardAsWritten": true
+   "heardAsWritten": true,
+   "note": "One word for both he and she. Only the characters are different."
   },
   {
-   "id": "A01-w02",
-   "lesson": "A01",
+   "id": "he",
+   "lesson": "A01-L01",
    "kind": "word",
    "pinyin": "hē",
    "numbers": "he1",
@@ -42,129 +776,12 @@
      0
     ]
    ],
-   "heardAsWritten": true
+   "heardAsWritten": true,
+   "note": "The h is rough, like German ch in Bach, not a soft English h."
   },
   {
-   "id": "A01-w03",
-   "lesson": "A01",
-   "kind": "word",
-   "pinyin": "māma",
-   "numbers": "ma1ma5",
-   "english": "mum",
-   "syllables": [
-    [
-     "ma",
-     1,
-     0
-    ],
-    [
-     "ma",
-     5,
-     0
-    ]
-   ],
-   "heardAsWritten": true
-  },
-  {
-   "id": "A01-w04",
-   "lesson": "A01",
-   "kind": "word",
-   "pinyin": "shéi",
-   "numbers": "shei2",
-   "english": "who?",
-   "syllables": [
-    [
-     "shei",
-     2,
-     0
-    ]
-   ],
-   "heardAsWritten": false,
-   "audio_note": "Also pronounced shuí. The audio uses shuí, because the voice model can't say shéi."
-  },
-  {
-   "id": "A01-w05",
-   "lesson": "A01",
-   "kind": "word",
-   "pinyin": "rén",
-   "numbers": "ren2",
-   "english": "person",
-   "syllables": [
-    [
-     "ren",
-     2,
-     0
-    ]
-   ],
-   "heardAsWritten": true
-  },
-  {
-   "id": "A01-w06",
-   "lesson": "A01",
-   "kind": "word",
-   "pinyin": "nín",
-   "numbers": "nin2",
-   "english": "you (polite)",
-   "syllables": [
-    [
-     "nin",
-     2,
-     0
-    ]
-   ],
-   "heardAsWritten": true
-  },
-  {
-   "id": "A01-w07",
-   "lesson": "A01",
-   "kind": "word",
-   "pinyin": "nǐ",
-   "numbers": "ni3",
-   "english": "you",
-   "syllables": [
-    [
-     "ni",
-     3,
-     0
-    ]
-   ],
-   "heardAsWritten": true
-  },
-  {
-   "id": "A01-w08",
-   "lesson": "A01",
-   "kind": "word",
-   "pinyin": "wǒ",
-   "numbers": "wo3",
-   "english": "I, me",
-   "syllables": [
-    [
-     "wo",
-     3,
-     0
-    ]
-   ],
-   "heardAsWritten": true
-  },
-  {
-   "id": "A01-w09",
-   "lesson": "A01",
-   "kind": "word",
-   "pinyin": "hǎo",
-   "numbers": "hao3",
-   "english": "good",
-   "syllables": [
-    [
-     "hao",
-     3,
-     0
-    ]
-   ],
-   "heardAsWritten": true
-  },
-  {
-   "id": "A01-w10",
-   "lesson": "A01",
+   "id": "shi",
+   "lesson": "A01-L01",
    "kind": "word",
    "pinyin": "shì",
    "numbers": "shi4",
@@ -176,11 +793,12 @@
      0
     ]
    ],
-   "heardAsWritten": true
+   "heardAsWritten": true,
+   "note": "Same form for I am, you are, she is. Chinese verbs never change."
   },
   {
-   "id": "A01-w11",
-   "lesson": "A01",
+   "id": "bu",
+   "lesson": "A01-L01",
    "kind": "word",
    "pinyin": "bù",
    "numbers": "bu4",
@@ -192,15 +810,16 @@
      0
     ]
    ],
-   "heardAsWritten": true
+   "heardAsWritten": true,
+   "note": "Goes right before the verb: bù hē = don't drink."
   },
   {
-   "id": "A01-w12",
-   "lesson": "A01",
+   "id": "dui",
+   "lesson": "A01-L01",
    "kind": "word",
    "pinyin": "duì",
    "numbers": "dui4",
-   "english": "correct, right",
+   "english": "right, correct",
    "syllables": [
     [
      "dui",
@@ -208,137 +827,16 @@
      0
     ]
    ],
-   "heardAsWritten": true
+   "heardAsWritten": true,
+   "note": "Duì! on its own means Right! / Exactly!"
   },
   {
-   "id": "A01-w13",
-   "lesson": "A01",
-   "kind": "word",
-   "pinyin": "ma",
-   "numbers": "ma5",
-   "english": "question particle (yes/no questions)",
-   "syllables": [
-    [
-     "ma",
-     5,
-     0
-    ]
-   ],
-   "heardAsWritten": true
-  },
-  {
-   "id": "A01-w14",
-   "lesson": "A01",
-   "kind": "word",
-   "pinyin": "mǎi",
-   "numbers": "mai3",
-   "english": "to buy",
-   "syllables": [
-    [
-     "mai",
-     3,
-     0
-    ]
-   ],
-   "heardAsWritten": true
-  },
-  {
-   "id": "A01-w15",
-   "lesson": "A01",
-   "kind": "word",
-   "pinyin": "mài",
-   "numbers": "mai4",
-   "english": "to sell",
-   "syllables": [
-    [
-     "mai",
-     4,
-     0
-    ]
-   ],
-   "heardAsWritten": true
-  },
-  {
-   "id": "A01-w16",
-   "lesson": "A01",
-   "kind": "word",
-   "pinyin": "wèn",
-   "numbers": "wen4",
-   "english": "to ask",
-   "syllables": [
-    [
-     "wen",
-     4,
-     0
-    ]
-   ],
-   "heardAsWritten": true
-  },
-  {
-   "id": "A01-w17",
-   "lesson": "A01",
-   "kind": "word",
-   "pinyin": "wěn",
-   "numbers": "wen3",
-   "english": "to kiss",
-   "syllables": [
-    [
-     "wen",
-     3,
-     0
-    ]
-   ],
-   "heardAsWritten": true
-  },
-  {
-   "id": "A01-w18",
-   "lesson": "A01",
-   "kind": "word",
-   "pinyin": "shuìjiào",
-   "numbers": "shui4jiao4",
-   "english": "to sleep",
-   "syllables": [
-    [
-     "shui",
-     4,
-     0
-    ],
-    [
-     "jiao",
-     4,
-     0
-    ]
-   ],
-   "heardAsWritten": true
-  },
-  {
-   "id": "A01-w19",
-   "lesson": "A01",
-   "kind": "word",
-   "pinyin": "shuǐjiǎo",
-   "numbers": "shui3jiao3",
-   "english": "dumplings (boiled)",
-   "syllables": [
-    [
-     "shui",
-     3,
-     0
-    ],
-    [
-     "jiao",
-     3,
-     0
-    ]
-   ],
-   "heardAsWritten": false
-  },
-  {
-   "id": "A01-p01",
-   "lesson": "A01",
+   "id": "ta-he",
+   "lesson": "A01-L01",
    "kind": "phrase",
-   "pinyin": "Tā shì shéi?",
-   "numbers": "Ta1 shi4 shei2?",
-   "english": "Who is he / she?",
+   "pinyin": "Tā hē.",
+   "numbers": "Ta1 he1.",
+   "english": "He / she drinks.",
    "syllables": [
     [
      "ta",
@@ -346,31 +844,52 @@
      0
     ],
     [
-     "shi",
+     "he",
+     1,
+     1
+    ]
+   ],
+   "heardAsWritten": true,
+   "literal": "he / drink"
+  },
+  {
+   "id": "ta-bu-he",
+   "lesson": "A01-L01",
+   "kind": "phrase",
+   "pinyin": "Tā bù hē.",
+   "numbers": "Ta1 bu4 he1.",
+   "english": "He / she doesn't drink.",
+   "syllables": [
+    [
+     "ta",
+     1,
+     0
+    ],
+    [
+     "bu",
      4,
      1
     ],
     [
-     "shei",
-     2,
+     "he",
+     1,
      1
     ]
    ],
-   "heardAsWritten": false,
-   "literal": "he / is / who",
-   "audio_note": "Also pronounced shuí. The audio uses shuí, because the voice model can't say shéi."
+   "heardAsWritten": true,
+   "literal": "he / not / drink"
   },
   {
-   "id": "A01-p02",
-   "lesson": "A01",
+   "id": "dui-shi-ta",
+   "lesson": "A01-L01",
    "kind": "phrase",
-   "pinyin": "Nǐ shì shéi?",
-   "numbers": "Ni3 shi4 shei2?",
-   "english": "Who are you?",
+   "pinyin": "Duì, shì tā!",
+   "numbers": "Dui4, shi4 ta1!",
+   "english": "Right, it's him / her!",
    "syllables": [
     [
-     "ni",
-     3,
+     "dui",
+     4,
      0
     ],
     [
@@ -379,22 +898,405 @@
      1
     ],
     [
-     "shei",
-     2,
+     "ta",
+     1,
      1
     ]
    ],
-   "heardAsWritten": false,
-   "literal": "you / are / who",
-   "audio_note": "Also pronounced shuí. The audio uses shuí, because the voice model can't say shéi."
+   "heardAsWritten": true,
+   "literal": "right / is / him"
   },
   {
-   "id": "A01-p03",
-   "lesson": "A01",
-   "kind": "phrase",
-   "pinyin": "Duì!",
-   "numbers": "Dui4!",
-   "english": "Right! / Correct!",
+   "id": "s-ma1",
+   "lesson": "A01-L01",
+   "kind": "sound",
+   "pinyin": "mā",
+   "numbers": "ma1",
+   "english": "mum",
+   "syllables": [
+    [
+     "ma",
+     1,
+     0
+    ]
+   ],
+   "heardAsWritten": true
+  },
+  {
+   "id": "s-ma2",
+   "lesson": "A01-L01",
+   "kind": "sound",
+   "pinyin": "má",
+   "numbers": "ma2",
+   "english": "hemp",
+   "syllables": [
+    [
+     "ma",
+     2,
+     0
+    ]
+   ],
+   "heardAsWritten": true
+  },
+  {
+   "id": "s-ma3",
+   "lesson": "A01-L01",
+   "kind": "sound",
+   "pinyin": "mǎ",
+   "numbers": "ma3",
+   "english": "horse",
+   "syllables": [
+    [
+     "ma",
+     3,
+     0
+    ]
+   ],
+   "heardAsWritten": true
+  },
+  {
+   "id": "s-ma4",
+   "lesson": "A01-L01",
+   "kind": "sound",
+   "pinyin": "mà",
+   "numbers": "ma4",
+   "english": "to scold",
+   "syllables": [
+    [
+     "ma",
+     4,
+     0
+    ]
+   ],
+   "heardAsWritten": true
+  },
+  {
+   "id": "s-ma5",
+   "lesson": "A01-L01",
+   "kind": "sound",
+   "pinyin": "ma",
+   "numbers": "ma5",
+   "english": "question word",
+   "syllables": [
+    [
+     "ma",
+     5,
+     0
+    ]
+   ],
+   "heardAsWritten": true
+  },
+  {
+   "id": "s-ta1",
+   "lesson": "A01-L01",
+   "kind": "sound",
+   "pinyin": "tā",
+   "numbers": "ta1",
+   "english": "",
+   "syllables": [
+    [
+     "ta",
+     1,
+     0
+    ]
+   ],
+   "heardAsWritten": true
+  },
+  {
+   "id": "s-he1",
+   "lesson": "A01-L01",
+   "kind": "sound",
+   "pinyin": "hē",
+   "numbers": "he1",
+   "english": "",
+   "syllables": [
+    [
+     "he",
+     1,
+     0
+    ]
+   ],
+   "heardAsWritten": true
+  },
+  {
+   "id": "s-shi1",
+   "lesson": "A01-L01",
+   "kind": "sound",
+   "pinyin": "shī",
+   "numbers": "shi1",
+   "english": "",
+   "syllables": [
+    [
+     "shi",
+     1,
+     0
+    ]
+   ],
+   "heardAsWritten": true
+  },
+  {
+   "id": "s-ta4",
+   "lesson": "A01-L01",
+   "kind": "sound",
+   "pinyin": "tà",
+   "numbers": "ta4",
+   "english": "",
+   "syllables": [
+    [
+     "ta",
+     4,
+     0
+    ]
+   ],
+   "heardAsWritten": true
+  },
+  {
+   "id": "s-shi4",
+   "lesson": "A01-L01",
+   "kind": "sound",
+   "pinyin": "shì",
+   "numbers": "shi4",
+   "english": "",
+   "syllables": [
+    [
+     "shi",
+     4,
+     0
+    ]
+   ],
+   "heardAsWritten": true
+  },
+  {
+   "id": "s-bu4",
+   "lesson": "A01-L01",
+   "kind": "sound",
+   "pinyin": "bù",
+   "numbers": "bu4",
+   "english": "",
+   "syllables": [
+    [
+     "bu",
+     4,
+     0
+    ]
+   ],
+   "heardAsWritten": true
+  },
+  {
+   "id": "s-he4",
+   "lesson": "A01-L01",
+   "kind": "sound",
+   "pinyin": "hè",
+   "numbers": "he4",
+   "english": "",
+   "syllables": [
+    [
+     "he",
+     4,
+     0
+    ]
+   ],
+   "heardAsWritten": true
+  },
+  {
+   "id": "s-bu1",
+   "lesson": "A01-L01",
+   "kind": "sound",
+   "pinyin": "bū",
+   "numbers": "bu1",
+   "english": "",
+   "syllables": [
+    [
+     "bu",
+     1,
+     0
+    ]
+   ],
+   "heardAsWritten": true
+  },
+  {
+   "id": "s-ta2",
+   "lesson": "A01-L01",
+   "kind": "sound",
+   "pinyin": "tá",
+   "numbers": "ta2",
+   "english": "",
+   "syllables": [
+    [
+     "ta",
+     2,
+     0
+    ]
+   ],
+   "heardAsWritten": true
+  },
+  {
+   "id": "s-ta3",
+   "lesson": "A01-L01",
+   "kind": "sound",
+   "pinyin": "tǎ",
+   "numbers": "ta3",
+   "english": "",
+   "syllables": [
+    [
+     "ta",
+     3,
+     0
+    ]
+   ],
+   "heardAsWritten": true
+  },
+  {
+   "id": "s-he2",
+   "lesson": "A01-L01",
+   "kind": "sound",
+   "pinyin": "hé",
+   "numbers": "he2",
+   "english": "",
+   "syllables": [
+    [
+     "he",
+     2,
+     0
+    ]
+   ],
+   "heardAsWritten": true
+  },
+  {
+   "id": "s-he3",
+   "lesson": "A01-L01",
+   "kind": "sound",
+   "pinyin": "hě",
+   "numbers": "he3",
+   "english": "",
+   "syllables": [
+    [
+     "he",
+     3,
+     0
+    ]
+   ],
+   "heardAsWritten": true
+  },
+  {
+   "id": "s-shi2",
+   "lesson": "A01-L01",
+   "kind": "sound",
+   "pinyin": "shí",
+   "numbers": "shi2",
+   "english": "",
+   "syllables": [
+    [
+     "shi",
+     2,
+     0
+    ]
+   ],
+   "heardAsWritten": true
+  },
+  {
+   "id": "s-shi3",
+   "lesson": "A01-L01",
+   "kind": "sound",
+   "pinyin": "shǐ",
+   "numbers": "shi3",
+   "english": "",
+   "syllables": [
+    [
+     "shi",
+     3,
+     0
+    ]
+   ],
+   "heardAsWritten": true
+  },
+  {
+   "id": "s-bu2",
+   "lesson": "A01-L01",
+   "kind": "sound",
+   "pinyin": "bú",
+   "numbers": "bu2",
+   "english": "",
+   "syllables": [
+    [
+     "bu",
+     2,
+     0
+    ]
+   ],
+   "heardAsWritten": true
+  },
+  {
+   "id": "s-bu3",
+   "lesson": "A01-L01",
+   "kind": "sound",
+   "pinyin": "bǔ",
+   "numbers": "bu3",
+   "english": "",
+   "syllables": [
+    [
+     "bu",
+     3,
+     0
+    ]
+   ],
+   "heardAsWritten": true
+  },
+  {
+   "id": "s-dui1",
+   "lesson": "A01-L01",
+   "kind": "sound",
+   "pinyin": "duī",
+   "numbers": "dui1",
+   "english": "",
+   "syllables": [
+    [
+     "dui",
+     1,
+     0
+    ]
+   ],
+   "heardAsWritten": true
+  },
+  {
+   "id": "s-dui2",
+   "lesson": "A01-L01",
+   "kind": "sound",
+   "pinyin": "duí",
+   "numbers": "dui2",
+   "english": "",
+   "syllables": [
+    [
+     "dui",
+     2,
+     0
+    ]
+   ],
+   "heardAsWritten": true
+  },
+  {
+   "id": "s-dui3",
+   "lesson": "A01-L01",
+   "kind": "sound",
+   "pinyin": "duǐ",
+   "numbers": "dui3",
+   "english": "",
+   "syllables": [
+    [
+     "dui",
+     3,
+     0
+    ]
+   ],
+   "heardAsWritten": true
+  },
+  {
+   "id": "s-dui4",
+   "lesson": "A01-L01",
+   "kind": "sound",
+   "pinyin": "duì",
+   "numbers": "dui4",
+   "english": "",
    "syllables": [
     [
      "dui",
@@ -402,334 +1304,209 @@
      0
     ]
    ],
-   "heardAsWritten": true,
-   "literal": "right"
+   "heardAsWritten": true
   },
   {
-   "id": "A01-p04",
-   "lesson": "A01",
-   "kind": "phrase",
-   "pinyin": "Shì ma?",
-   "numbers": "Shi4 ma5?",
-   "english": "Really? / Is that so?",
+   "id": "wo",
+   "lesson": "A01-L02",
+   "kind": "word",
+   "pinyin": "wǒ",
+   "numbers": "wo3",
+   "english": "I, me",
    "syllables": [
     [
-     "shi",
-     4,
-     0
-    ],
-    [
-     "ma",
-     5,
-     1
-    ]
-   ],
-   "heardAsWritten": true,
-   "literal": "is + question"
-  },
-  {
-   "id": "A01-p05",
-   "lesson": "A01",
-   "kind": "phrase",
-   "pinyin": "Māma mà mǎ ma?",
-   "numbers": "Ma1ma5 ma4 ma3 ma5?",
-   "english": "Is mum scolding the horse? (tongue-twister)",
-   "syllables": [
-    [
-     "ma",
-     1,
-     0
-    ],
-    [
-     "ma",
-     5,
-     0
-    ],
-    [
-     "ma",
-     4,
-     1
-    ],
-    [
-     "ma",
+     "wo",
      3,
-     1
-    ],
-    [
-     "ma",
-     5,
-     1
+     0
     ]
    ],
    "heardAsWritten": true,
-   "literal": "mum / scold / horse / question"
+   "note": "Like English woe, but low. I and me are the same word."
   },
   {
-   "id": "U01-L01-p01",
-   "lesson": "U01-L01",
-   "kind": "phrase",
-   "pinyin": "Nǐ hǎo!",
-   "numbers": "Ni3 hao3!",
-   "english": "Hello! / Hi!",
+   "id": "ni",
+   "lesson": "A01-L02",
+   "kind": "word",
+   "pinyin": "nǐ",
+   "numbers": "ni3",
+   "english": "you",
    "syllables": [
     [
      "ni",
      3,
      0
-    ],
-    [
-     "hao",
-     3,
-     1
-    ]
-   ],
-   "heardAsWritten": false,
-   "literal": "you / good",
-   "note": "Said ní hǎo (3rd + 3rd tone change)."
-  },
-  {
-   "id": "U01-L01-p02",
-   "lesson": "U01-L01",
-   "kind": "phrase",
-   "pinyin": "Nín hǎo!",
-   "numbers": "Nin2 hao3!",
-   "english": "Hello! (polite)",
-   "syllables": [
-    [
-     "nin",
-     2,
-     0
-    ],
-    [
-     "hao",
-     3,
-     1
     ]
    ],
    "heardAsWritten": true,
-   "literal": "you (polite) / good"
+   "note": "Like English knee, but low."
   },
   {
-   "id": "U01-L01-p03",
-   "lesson": "U01-L01",
-   "kind": "phrase",
-   "pinyin": "Xièxie!",
-   "numbers": "Xie4xie5!",
-   "english": "Thank you!",
+   "id": "hao",
+   "lesson": "A01-L02",
+   "kind": "word",
+   "pinyin": "hǎo",
+   "numbers": "hao3",
+   "english": "good; OK",
    "syllables": [
     [
-     "xie",
-     4,
-     0
-    ],
-    [
-     "xie",
-     5,
+     "hao",
+     3,
      0
     ]
    ],
    "heardAsWritten": true,
-   "literal": "thank-thank"
+   "note": "Hǎo! on its own means OK! / Fine! The ao sounds like English how (with a rough German h)."
   },
   {
-   "id": "U01-L01-p04",
-   "lesson": "U01-L01",
+   "id": "wo-bu-he",
+   "lesson": "A01-L02",
    "kind": "phrase",
-   "pinyin": "Bú kèqi.",
-   "numbers": "Bu2 ke4qi5.",
-   "english": "You're welcome.",
+   "pinyin": "Wǒ bù hē.",
+   "numbers": "Wo3 bu4 he1.",
+   "english": "I don't drink. / I won't have any.",
    "syllables": [
+    [
+     "wo",
+     3,
+     0
+    ],
     [
      "bu",
-     2,
-     0
-    ],
-    [
-     "ke",
      4,
      1
     ],
     [
-     "qi",
-     5,
-     0
+     "he",
+     1,
+     1
     ]
    ],
    "heardAsWritten": true,
-   "literal": "not / polite",
-   "note": "bù becomes bú before a 4th tone."
+   "literal": "I / not / drink"
   },
   {
-   "id": "U01-L01-p05",
-   "lesson": "U01-L01",
+   "id": "shi-wo",
+   "lesson": "A01-L02",
    "kind": "phrase",
-   "pinyin": "Zàijiàn!",
-   "numbers": "Zai4jian4!",
-   "english": "Goodbye!",
+   "pinyin": "Shì wǒ.",
+   "numbers": "Shi4 wo3.",
+   "english": "It's me.",
    "syllables": [
     [
-     "zai",
+     "shi",
      4,
      0
     ],
     [
-     "jian",
-     4,
-     0
+     "wo",
+     3,
+     1
     ]
    ],
    "heardAsWritten": true,
-   "literal": "again / see"
+   "literal": "is / me"
   },
   {
-   "id": "U01-L01-p06",
-   "lesson": "U01-L01",
+   "id": "hao-wo-he",
+   "lesson": "A01-L02",
    "kind": "phrase",
-   "pinyin": "Nǐmen hǎo!",
-   "numbers": "Ni3men5 hao3!",
-   "english": "Hello! (to a group)",
+   "pinyin": "Hǎo, wǒ hē.",
+   "numbers": "Hao3, wo3 he1.",
+   "english": "OK, I'll drink (some).",
+   "syllables": [
+    [
+     "hao",
+     3,
+     0
+    ],
+    [
+     "wo",
+     3,
+     1
+    ],
+    [
+     "he",
+     1,
+     1
+    ]
+   ],
+   "heardAsWritten": true,
+   "literal": "OK / I / drink"
+  },
+  {
+   "id": "s-wo3",
+   "lesson": "A01-L02",
+   "kind": "sound",
+   "pinyin": "wǒ",
+   "numbers": "wo3",
+   "english": "",
+   "syllables": [
+    [
+     "wo",
+     3,
+     0
+    ]
+   ],
+   "heardAsWritten": true
+  },
+  {
+   "id": "s-ni3",
+   "lesson": "A01-L02",
+   "kind": "sound",
+   "pinyin": "nǐ",
+   "numbers": "ni3",
+   "english": "",
    "syllables": [
     [
      "ni",
      3,
      0
-    ],
-    [
-     "men",
-     5,
-     0
-    ],
+    ]
+   ],
+   "heardAsWritten": true
+  },
+  {
+   "id": "s-hao3",
+   "lesson": "A01-L02",
+   "kind": "sound",
+   "pinyin": "hǎo",
+   "numbers": "hao3",
+   "english": "",
+   "syllables": [
     [
      "hao",
      3,
-     1
+     0
     ]
    ],
-   "heardAsWritten": true,
-   "literal": "you (plural) / good"
+   "heardAsWritten": true
   },
   {
-   "id": "U01-L01-p07",
-   "lesson": "U01-L01",
-   "kind": "phrase",
-   "pinyin": "Dàjiā hǎo!",
-   "numbers": "Da4jia1 hao3!",
-   "english": "Hello, everybody!",
+   "id": "s-hao1",
+   "lesson": "A01-L02",
+   "kind": "sound",
+   "pinyin": "hāo",
+   "numbers": "hao1",
+   "english": "",
    "syllables": [
-    [
-     "da",
-     4,
-     0
-    ],
-    [
-     "jia",
-     1,
-     0
-    ],
     [
      "hao",
-     3,
-     1
-    ]
-   ],
-   "heardAsWritten": true,
-   "literal": "everybody / good"
-  },
-  {
-   "id": "U01-L01-p08",
-   "lesson": "U01-L01",
-   "kind": "phrase",
-   "pinyin": "Lǎoshī hǎo!",
-   "numbers": "Lao3shi1 hao3!",
-   "english": "Hello, teacher!",
-   "syllables": [
-    [
-     "lao",
-     3,
-     0
-    ],
-    [
-     "shi",
      1,
      0
-    ],
+    ]
+   ],
+   "heardAsWritten": true
+  },
+  {
+   "id": "s-hao4",
+   "lesson": "A01-L02",
+   "kind": "sound",
+   "pinyin": "hào",
+   "numbers": "hao4",
+   "english": "",
+   "syllables": [
     [
      "hao",
-     3,
-     1
-    ]
-   ],
-   "heardAsWritten": true,
-   "literal": "teacher / good"
-  },
-  {
-   "id": "U01-L01-w01",
-   "lesson": "U01-L01",
-   "kind": "word",
-   "pinyin": "-men",
-   "numbers": "-men5",
-   "english": "plural ending for people",
-   "syllables": [
-    [
-     "men",
-     5,
-     0
-    ]
-   ],
-   "heardAsWritten": true
-  },
-  {
-   "id": "U01-L01-w02",
-   "lesson": "U01-L01",
-   "kind": "word",
-   "pinyin": "xièxie",
-   "numbers": "xie4xie5",
-   "english": "to thank",
-   "syllables": [
-    [
-     "xie",
-     4,
-     0
-    ],
-    [
-     "xie",
-     5,
-     0
-    ]
-   ],
-   "heardAsWritten": true
-  },
-  {
-   "id": "U01-L01-w03",
-   "lesson": "U01-L01",
-   "kind": "word",
-   "pinyin": "kèqi",
-   "numbers": "ke4qi5",
-   "english": "polite, formal",
-   "syllables": [
-    [
-     "ke",
-     4,
-     0
-    ],
-    [
-     "qi",
-     5,
-     0
-    ]
-   ],
-   "heardAsWritten": true
-  },
-  {
-   "id": "U01-L01-w04",
-   "lesson": "U01-L01",
-   "kind": "word",
-   "pinyin": "zài",
-   "numbers": "zai4",
-   "english": "again",
-   "syllables": [
-    [
-     "zai",
      4,
      0
     ]
@@ -737,36 +1514,15 @@
    "heardAsWritten": true
   },
   {
-   "id": "U01-L01-w05",
-   "lesson": "U01-L01",
-   "kind": "word",
-   "pinyin": "jiàn",
-   "numbers": "jian4",
-   "english": "to see, to meet",
+   "id": "s-ni1",
+   "lesson": "A01-L02",
+   "kind": "sound",
+   "pinyin": "nī",
+   "numbers": "ni1",
+   "english": "",
    "syllables": [
     [
-     "jian",
-     4,
-     0
-    ]
-   ],
-   "heardAsWritten": true
-  },
-  {
-   "id": "U01-L01-w06",
-   "lesson": "U01-L01",
-   "kind": "word",
-   "pinyin": "dàjiā",
-   "numbers": "da4jia1",
-   "english": "everybody",
-   "syllables": [
-    [
-     "da",
-     4,
-     0
-    ],
-    [
-     "jia",
+     "ni",
      1,
      0
     ]
@@ -774,21 +1530,96 @@
    "heardAsWritten": true
   },
   {
-   "id": "U01-L01-w07",
-   "lesson": "U01-L01",
-   "kind": "word",
-   "pinyin": "lǎoshī",
-   "numbers": "lao3shi1",
-   "english": "teacher",
+   "id": "s-ni4",
+   "lesson": "A01-L02",
+   "kind": "sound",
+   "pinyin": "nì",
+   "numbers": "ni4",
+   "english": "",
    "syllables": [
     [
-     "lao",
-     3,
+     "ni",
+     4,
      0
-    ],
+    ]
+   ],
+   "heardAsWritten": true
+  },
+  {
+   "id": "s-wo4",
+   "lesson": "A01-L02",
+   "kind": "sound",
+   "pinyin": "wò",
+   "numbers": "wo4",
+   "english": "",
+   "syllables": [
     [
-     "shi",
+     "wo",
+     4,
+     0
+    ]
+   ],
+   "heardAsWritten": true
+  },
+  {
+   "id": "s-wo1",
+   "lesson": "A01-L02",
+   "kind": "sound",
+   "pinyin": "wō",
+   "numbers": "wo1",
+   "english": "",
+   "syllables": [
+    [
+     "wo",
      1,
+     0
+    ]
+   ],
+   "heardAsWritten": true
+  },
+  {
+   "id": "s-wo2",
+   "lesson": "A01-L02",
+   "kind": "sound",
+   "pinyin": "wó",
+   "numbers": "wo2",
+   "english": "",
+   "syllables": [
+    [
+     "wo",
+     2,
+     0
+    ]
+   ],
+   "heardAsWritten": true
+  },
+  {
+   "id": "s-ni2",
+   "lesson": "A01-L02",
+   "kind": "sound",
+   "pinyin": "ní",
+   "numbers": "ni2",
+   "english": "",
+   "syllables": [
+    [
+     "ni",
+     2,
+     0
+    ]
+   ],
+   "heardAsWritten": true
+  },
+  {
+   "id": "s-hao2",
+   "lesson": "A01-L02",
+   "kind": "sound",
+   "pinyin": "háo",
+   "numbers": "hao2",
+   "english": "",
+   "syllables": [
+    [
+     "hao",
+     2,
      0
     ]
    ],

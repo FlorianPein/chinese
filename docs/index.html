@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Pinyin Flashcards</title>
+<title>Pinyin Lessons</title>
 <meta name="theme-color" content="#b23a2e">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🀄</text></svg>">
 <style>
@@ -38,10 +38,11 @@ header h1 { font-size: 1.15rem; margin: 0; letter-spacing: .01em; }
 header .stat { color: var(--muted); font-size: .9rem; white-space: nowrap; }
 nav { display: flex; gap: 4px; background: var(--surface-2); padding: 4px; border-radius: 12px; margin: 8px 0 20px; }
 nav a {
-  flex: 1; text-align: center; padding: 8px 4px; border-radius: 9px; text-decoration: none;
+  flex: 1; text-align: center; padding: 8px 2px; border-radius: 9px; text-decoration: none;
   color: var(--muted); font-size: .95rem; font-weight: 500;
 }
 nav a.on { background: var(--surface); color: var(--text); box-shadow: var(--shadow); }
+body.inlesson header, body.inlesson nav { display: none; }
 .card {
   background: var(--surface); border: 1px solid var(--border); border-radius: 16px;
   padding: 24px 20px; box-shadow: var(--shadow);
@@ -67,13 +68,17 @@ hr { border: 0; border-top: 1px solid var(--border); margin: 18px 0; }
   cursor: pointer; min-height: 44px;
 }
 .btn:hover { filter: brightness(.97); }
+.btn:disabled { opacity: .45; cursor: default; filter: none; }
 .btn.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-text); font-weight: 600; }
 .btn.icon { padding: 10px 14px; }
+.btn.wide { width: 100%; }
+.btn.ghost { background: transparent; border-color: transparent; }
+.btn.bigplay { font-size: 1.8rem; padding: 14px 26px; border-radius: 16px; }
 .grades { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-top: 18px; }
 .grades .btn { padding: 10px 4px; display: flex; flex-direction: column; align-items: center; line-height: 1.2; }
 .grades .btn small { color: var(--muted); font-size: .72rem; margin-top: 2px; }
 .grades .btn.primary small { color: inherit; opacity: .85; }
-a.btn { color: var(--text); text-decoration: none; }
+a.btn { color: var(--text); text-decoration: none; display: inline-flex; align-items: center; justify-content: center; }
 a.btn.primary { color: var(--accent-text); }
 .grades .again { border-color: var(--bad); }
 .grades .good { border-color: var(--good); }
@@ -86,9 +91,12 @@ input[type=text]:focus { outline: 2px solid var(--accent); outline-offset: 1px; 
 .result.ok { color: var(--good); }
 .result.no { color: var(--bad); }
 .options { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 20px; }
+.options.one { grid-template-columns: 1fr; }
 .options .btn { font-size: 1.35rem; padding: 14px 8px; }
-.options .btn.right { border-color: var(--good); background: color-mix(in srgb, var(--good) 15%, var(--surface)); }
-.options .btn.wrong { border-color: var(--bad); background: color-mix(in srgb, var(--bad) 15%, var(--surface)); }
+.options.text .btn { font-size: 1.05rem; }
+.btn.right { border-color: var(--good); background: color-mix(in srgb, var(--good) 15%, var(--surface)); }
+.btn.wrong { border-color: var(--bad); background: color-mix(in srgb, var(--bad) 15%, var(--surface)); }
+.btn.right:disabled, .btn.wrong:disabled { opacity: 1; }
 .list { display: flex; flex-direction: column; gap: 10px; }
 .item {
   display: flex; gap: 12px; align-items: flex-start; background: var(--surface);
@@ -116,23 +124,105 @@ h2 { font-size: 1rem; margin: 26px 0 10px; color: var(--muted); font-weight: 600
 .progress { height: 6px; background: var(--surface-2); border-radius: 99px; overflow: hidden; margin: -8px 0 16px; }
 .progress > div { height: 100%; background: var(--accent); transition: width .3s; }
 .kbd { font-size: .75rem; color: var(--muted); margin-top: 14px; }
+
+/* learn path */
+.topic h2 { margin-bottom: 2px; color: var(--text); }
+.lrow {
+  display: flex; align-items: center; gap: 12px; background: var(--surface); color: var(--text);
+  border: 1px solid var(--border); border-radius: 12px; padding: 12px 14px; text-decoration: none;
+}
+.lrow.next { border-color: var(--accent); box-shadow: var(--shadow); }
+.lrow .ic {
+  flex: none; width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center;
+  background: var(--surface-2); font-weight: 700; color: var(--muted);
+}
+.lrow.done .ic { background: color-mix(in srgb, var(--good) 18%, var(--surface)); color: var(--good); }
+.lrow.next .ic { background: var(--accent); color: var(--accent-text); }
+.lrow .main { flex: 1; min-width: 0; }
+.lrow .t { font-weight: 600; }
+.lrow .go { color: var(--accent); font-weight: 600; font-size: .9rem; }
+.banner { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 16px; }
+
+/* lesson player */
+.ltop { display: flex; align-items: center; gap: 8px; padding: 14px 0 12px; }
+.ltop .progress { flex: 1; margin: 0; height: 10px; }
+.ltop .btn { min-height: 40px; padding: 6px 10px; font-size: 1.1rem; color: var(--muted); }
+.step { text-align: center; min-height: 300px; }
+.step h3 { font-size: 1.3rem; margin: 10px 0 6px; }
+.step .text { text-align: left; margin: 10px auto 0; max-width: 34em; }
+.step .text p { margin: 0 0 10px; }
+.step .sub { color: var(--muted); font-size: .9rem; margin-top: 18px; }
+.tonebig { display: flex; justify-content: center; margin-top: 6px; color: var(--accent); }
+.sylrow { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin-top: 12px; align-items: stretch; }
+.syl {
+  display: flex; flex-direction: column; align-items: center; gap: 2px; min-width: 64px;
+  border: 1px solid var(--border); background: var(--surface-2); border-radius: 12px; padding: 8px 10px; cursor: pointer;
+}
+.syl svg { color: var(--muted); }
+.syl .sp { font-size: 1.3rem; font-weight: 600; line-height: 1.2; }
+.syl .sl { font-size: .72rem; color: var(--muted); max-width: 7em; line-height: 1.2; }
+.syl.on { border-color: var(--accent); }
+.syl.on svg { color: var(--accent); }
+.syl.playing { outline: 2px solid var(--accent); }
+.tonebtn { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.tonebtn svg { color: var(--accent); }
+.tonebtn span { font-size: .95rem; }
+.chips { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin-top: 14px; }
+.chip {
+  display: flex; flex-direction: column; align-items: center; border: 1px solid var(--border);
+  background: var(--surface-2); border-radius: 10px; padding: 6px 12px; cursor: pointer; font-size: 1.1rem; font-weight: 600;
+}
+.chip small { font-weight: 400; font-size: .75rem; color: var(--muted); }
+.match { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 18px; }
+.match .col { display: flex; flex-direction: column; gap: 10px; }
+.match .btn { min-height: 52px; padding: 8px; }
+.match .btn.py-opt { font-size: 1.2rem; font-weight: 600; }
+.match .btn.sel { border-color: var(--accent); outline: 2px solid var(--accent); }
+.match .btn.done { opacity: .35; }
+.answer {
+  min-height: 58px; border-bottom: 2px solid var(--border); margin: 18px 0 14px; padding: 6px 0;
+  display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; align-items: center;
+}
+.bank { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
+.tile {
+  border: 1px solid var(--border); background: var(--surface); border-bottom-width: 3px; border-radius: 10px;
+  padding: 8px 14px; font-size: 1.2rem; font-weight: 600; cursor: pointer; min-height: 44px;
+}
+.tile.used { visibility: hidden; }
+.footer { position: sticky; bottom: 0; padding: 14px 0 16px; margin-top: 14px; background: var(--bg); }
+.footer.ok, .footer.no { border-radius: 16px; padding: 14px 16px 16px; }
+.footer.ok { background: color-mix(in srgb, var(--good) 14%, var(--bg)); }
+.footer.no { background: color-mix(in srgb, var(--bad) 14%, var(--bg)); }
+.fbhead { font-weight: 700; font-size: 1.1rem; }
+.footer.ok .fbhead { color: var(--good); }
+.footer.no .fbhead { color: var(--bad); }
+.fbans { margin: 4px 0 12px; display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; }
+.fbans b { font-size: 1.2rem; }
+.fbans .btn { min-height: 36px; padding: 4px 10px; }
+.rec { margin-top: 18px; }
+.done-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 18px 0; }
+.done-stats div { background: var(--surface-2); border-radius: 12px; padding: 12px 6px; }
+.done-stats b { display: block; font-size: 1.4rem; }
 @media (max-width: 420px) {
   .py { font-size: 1.7rem; }
   .kbd { display: none; }
+  nav a { font-size: .85rem; }
+  .syl { min-width: 56px; padding: 6px 8px; }
 }
 </style>
 </head>
 <body>
 <div class="wrap">
   <header>
-    <h1>🀄 Pinyin Flashcards</h1>
+    <h1>🀄 Pinyin</h1>
     <span class="stat" id="stat"></span>
   </header>
   <nav>
+    <a href="#learn" data-tab="learn">Learn</a>
     <a href="#review" data-tab="review">Review</a>
     <a href="#tones" data-tab="tones">Tones</a>
     <a href="#listen" data-tab="listen">Listen</a>
-    <a href="#lessons" data-tab="lessons">Lessons</a>
+    <a href="#settings" data-tab="settings" title="Settings">⚙︎</a>
   </nav>
   <main id="view"></main>
 </div>
@@ -142,21 +232,21 @@ h2 { font-size: 1rem; margin: 26px 0 10px; color: var(--muted); font-weight: 600
 
 // ---------- storage (per browser; export/import to move between devices) ----------
 const KEY = "pinyin-flashcards-v1";
-const DEFAULT_STATE = { unlocked: [], cards: {}, settings: { newPerDay: 15, numbers: true }, newToday: { day: "", count: 0 } };
+const DEFAULT_STATE = { unlocked: [], cards: {}, lessons: {}, settings: { newPerDay: 15, numbers: true }, newToday: { day: "", count: 0 } };
 let state = load();
 function load() {
   try {
     const s = JSON.parse(localStorage.getItem(KEY));
-    if (s) return { ...DEFAULT_STATE, ...s, settings: { ...DEFAULT_STATE.settings, ...s.settings } };
+    if (s) return { ...structuredClone(DEFAULT_STATE), ...s, settings: { ...DEFAULT_STATE.settings, ...s.settings } };
   } catch (e) { /* storage unavailable */ }
   return structuredClone(DEFAULT_STATE);
 }
 function save() { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) { /* ignore */ } }
 
 // ---------- data ----------
-let DATA = { lessons: [], items: [] };
+let DATA = { topics: [], lessons: [], items: [] };
 const byId = {};
-const LESSON_URL = "https://github.com/FlorianPein/chinese/blob/HEAD/lessons/";
+const GITHUB = "https://github.com/FlorianPein/chinese/blob/HEAD/";
 
 // ---------- pinyin answer checking: tone marks or numbers both work ----------
 const MARKS = { "\u0304": 1, "\u0301": 2, "\u030c": 3, "\u0300": 4 };
@@ -177,15 +267,64 @@ function checkAnswer(given, item) {
   if (a.letters === b.letters) return "tones";
   return "no";
 }
+const samePinyin = (a, b) => { const x = canon(a), y = canon(b); return x.letters === y.letters && x.tones === y.tones; };
+// "Hǎo, wǒ hē." -> ["hǎo", "wǒ", "hē"]
+const tilesOf = text => (text.match(/[^\s,.!?:;，。！？：；]+/g) || []).map(w => w[0].toLowerCase() + w.slice(1));
+function wordFor(w) {   // the word (or sound) item a tile or chip can play
+  return DATA.items.find(i => i.kind === "word" && samePinyin(i.pinyin, w))
+      || DATA.items.find(i => i.kind === "sound" && samePinyin(i.pinyin, w));
+}
 
 // ---------- audio ----------
-let player = null;
+const audioCache = {};
+let current = null, seqToken = 0;
+function audioFor(id) {
+  if (!audioCache[id]) { audioCache[id] = new Audio(`audio/${id}.mp3`); audioCache[id].preload = "auto"; }
+  return audioCache[id];
+}
+function stopAudio() {
+  seqToken++;
+  if (current) current.pause();
+  document.querySelectorAll(".playing").forEach(e => e.classList.remove("playing"));
+}
 function play(id, slow) {
-  if (player) player.pause();
-  player = new Audio(`audio/${id}.mp3`);
-  player.preservesPitch = true;
-  player.playbackRate = slow ? 0.7 : 1;
-  player.play().catch(() => {});
+  stopAudio();
+  const a = audioFor(id);
+  a.preservesPitch = true;
+  a.playbackRate = slow ? 0.7 : 1;
+  a.currentTime = 0;
+  current = a;
+  a.play().catch(() => {});
+}
+async function playSeq(ids) {   // a row of sounds, one after another
+  stopAudio();
+  const my = seqToken;
+  for (const id of ids) {
+    if (my !== seqToken) return;
+    const btn = view.querySelector(`.syl[data-play="${id}"]`);
+    if (btn) btn.classList.add("playing");
+    await new Promise(done => {
+      const a = audioFor(id);
+      a.playbackRate = 1; a.currentTime = 0; current = a;
+      a.onended = done; a.onerror = done;
+      a.play().catch(done);
+    });
+    if (btn) btn.classList.remove("playing");
+    await new Promise(r => setTimeout(r, 250));
+  }
+}
+
+// ---------- tone shapes ----------
+const TONE_NAME = ["", "1st tone", "2nd tone", "3rd tone", "4th tone", "neutral"];
+function toneSvg(tone, w) {
+  // 5 pitch levels (1 low … 5 high), drawn like the usual tone charts
+  const y = L => 26 - (L - 1) * 5.5;
+  const pts = { 1: [[6, 5], [34, 5]], 2: [[6, 3], [34, 5]], 3: [[6, 2.2], [17, 1], [24, 1.2], [34, 3.6]], 4: [[6, 5], [34, 1]] }[tone];
+  const grid = [1, 2, 3, 4, 5].map(L => `<line x1="2" x2="38" y1="${y(L)}" y2="${y(L)}" stroke="currentColor" stroke-opacity=".15" stroke-width="1"/>`).join("");
+  const shape = pts
+    ? `<polyline points="${pts.map(([x, L]) => `${x},${y(L)}`).join(" ")}" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>`
+    : `<circle cx="20" cy="${y(2.5)}" r="3.2" fill="currentColor"/>`;
+  return `<svg width="${w}" height="${w * 0.75}" viewBox="0 0 40 30" aria-hidden="true">${grid}${shape}</svg>`;
 }
 
 // ---------- spaced repetition ----------
@@ -200,7 +339,7 @@ function unlockedItems() {
 }
 function allCardIds() {
   const ids = [];
-  for (const item of unlockedItems()) for (const t of TYPES) ids.push(`${item.id}:${t}`);
+  for (const item of unlockedItems()) if (item.kind !== "sound") for (const t of TYPES) ids.push(`${item.id}:${t}`);
   return ids;
 }
 function isDue(c) { return c && c.due <= Date.now(); }
@@ -266,45 +405,402 @@ function intervalLabel(cardId, g) {
         : (c.interval < 1 ? 3 : Math.round(c.interval * c.ease * 1.3));
   return d < 30 ? `${d} d` : d < 365 ? `${Math.round(d / 30)} mo` : `${(d / 365).toFixed(1)} y`;
 }
+function markLessonDone(id) {
+  // its words and phrases join the reviews, first due tomorrow (the lesson was the first practice)
+  if (!state.unlocked.includes(id)) {
+    const on = new Set([...state.unlocked, id]);
+    state.unlocked = DATA.lessons.map(l => l.id).filter(x => on.has(x));
+  }
+  for (const item of DATA.items.filter(i => i.lesson === id && i.kind !== "sound"))
+    for (const t of TYPES)
+      if (!state.cards[`${item.id}:${t}`])
+        state.cards[`${item.id}:${t}`] = { interval: 1, ease: 2.5, reps: 1, lapses: 0, due: startOfToday() + DAY };
+}
 
 // ---------- rendering helpers ----------
 const $ = (sel, el = document) => el.querySelector(sel);
 const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const fmt = text => text.split(/\n\n+/).map(p => `<p>${esc(p)
+  .replace(/\*\*(.+?)\*\*/g, "<b>$1</b>").replace(/\*(.+?)\*/g, "<i>$1</i>").replace(/\n/g, "<br>")}</p>`).join("");
+const shuffle = a => { a = [...a]; for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
 const view = $("#view");
 function pinyinBlock(item) {
   return `<div class="py">${esc(item.pinyin)}</div>` +
     (state.settings.numbers ? `<div class="num">${esc(item.numbers)}</div>` : "");
 }
+function label(item) {   // meaning, or for a bare syllable its tone
+  return item.english || (item.kind === "sound" ? TONE_NAME[item.syllables[0][1]] : "");
+}
 function meaningBlock(item) {
-  return `<div class="en">${esc(item.english)}</div>` +
+  return `<div class="en">${esc(label(item))}</div>` +
     (item.literal ? `<div class="lit">literally: ${esc(item.literal)}</div>` : "") +
     (item.note ? `<div class="note">${esc(item.note)}</div>` : "") +
     (item.audio_note ? `<div class="note">🔊 ${esc(item.audio_note)}</div>` : "");
 }
 const audioButtons = id => `<button class="btn icon" data-play="${id}" title="Play">🔊</button>` +
                            `<button class="btn icon" data-slow="${id}" title="Play slowly">🐢</button>`;
+function sylButton(id, on) {
+  const it = byId[id];
+  const tone = it.syllables.length === 1 ? it.syllables[0][1] : 0;
+  return `<button class="syl${on ? " on" : ""}" data-play="${id}">${tone ? toneSvg(tone, 28) : ""}
+    <span class="sp">${esc(it.pinyin)}</span>${it.english ? `<span class="sl">${esc(it.english)}</span>` : ""}</button>`;
+}
+function sylRow(ids, onId) {
+  return `<div class="sylrow">${ids.map(id => sylButton(id, id === onId)).join("")}${
+    ids.length > 1 ? `<button class="btn icon" data-seq="${ids.join(" ")}" title="Play the whole row">▶</button>` : ""}</div>`;
+}
 function updateStat() {
-  const { due, fresh } = counts();
-  $("#stat").textContent = state.unlocked.length ? `${due} due · ${fresh} new` : "";
+  const { due } = counts();
+  $("#stat").textContent = state.unlocked.length ? `${due} due` : "";
 }
 let keyHandler = null;
 document.addEventListener("keydown", e => {
-  if (keyHandler && !(e.target instanceof HTMLInputElement)) keyHandler(e);
+  // Enter/Space on a focused button already clicks it
+  const clicks = (e.key === "Enter" || e.key === " ") && e.target instanceof HTMLButtonElement;
+  if (keyHandler && !(e.target instanceof HTMLInputElement) && !clicks) keyHandler(e);
 });
 view.addEventListener("click", e => {
-  const p = e.target.closest("[data-play]"), s = e.target.closest("[data-slow]");
+  const p = e.target.closest("[data-play]"), s = e.target.closest("[data-slow]"), q = e.target.closest("[data-seq]");
   if (p) play(p.dataset.play, false);
   if (s) play(s.dataset.slow, true);
+  if (q) playSeq(q.dataset.seq.split(" "));
 });
+
+// ---------- Learn: the lesson path ----------
+function renderLearn() {
+  keyHandler = null;
+  const next = DATA.lessons.find(l => !state.lessons[l.id]);
+  const { due } = counts();
+  const banner = due > 0 ? `<div class="card banner"><div><b>${due} cards to review</b>
+      <div class="muted small">${due > 40 ? "Clear some of these before a new lesson." : "A quick review first keeps it all fresh."}</div></div>
+      <a class="btn primary" href="#review">Review</a></div>` : "";
+  view.innerHTML = banner + DATA.topics.map(t => `<div class="topic">
+      <h2>${esc(t.id)} · ${esc(t.title)}</h2>
+      <div class="muted small" style="margin-bottom:10px">${t.lessons.length} of ${t.planned} lessons ready</div>
+      <div class="list">${t.lessons.map(id => {
+        const l = DATA.lessons.find(x => x.id === id), st = state.lessons[id];
+        const cls = st ? "done" : l === next ? "next" : "";
+        return `<a class="lrow ${cls}" href="#lesson/${id}">
+          <span class="ic">${st ? "✓" : l === next ? "▶" : +id.slice(-2)}</span>
+          <div class="main"><div class="t">${esc(l.title)}</div>
+            <div class="muted small">${esc(id)} · ~${l.minutes} min${st ? ` · done, best ${st.best}%` : ""}</div></div>
+          <span class="go">${st ? "Again" : "Start"}</span></a>`;
+      }).join("")}</div></div>`).join("") +
+    `<p class="muted small center" style="margin-top:24px">More lessons are added as you go.</p>`;
+}
+
+// ---------- Lesson player ----------
+const EXERCISES = new Set(["hear", "tone", "meaning", "pinyin", "match", "build", "type"]);
+let L = null;   // the running lesson
+function stepAudio(s) {
+  const ids = [s.item, s.play, ...(s.items || []), ...(s.type === "meaning" ? s.options : []), ...(s.rows || []).flat()];
+  return ids.filter(id => id && byId[id]);
+}
+function startLesson(id) {
+  const lesson = DATA.lessons.find(l => l.id === id);
+  if (!lesson) { location.hash = "#learn"; return; }
+  L = { lesson, queue: lesson.steps.map((s, i) => ({ s, i, tries: 0 })), pos: 0, wrong: new Set(), started: Date.now() };
+  for (const s of lesson.steps) stepAudio(s).forEach(audioFor);   // preload
+  renderStep();
+}
+function renderStep() {
+  keyHandler = null;
+  if (L.pos >= L.queue.length) return finishLesson();
+  const entry = L.queue[L.pos];
+  view.innerHTML = `<div class="ltop"><button class="btn ghost" id="quit" title="Quit lesson">✕</button>
+      <div class="progress"><div style="width:${100 * L.pos / L.queue.length}%"></div></div></div>
+    <div class="card step" id="card"></div><div class="footer" id="footer"></div>`;
+  $("#quit").onclick = () => { if (confirm("Quit this lesson? You can start it again any time.")) { L = null; location.hash = "#learn"; } };
+  window.scrollTo(0, 0);
+  STEPS[entry.s.type](entry.s, entry);
+}
+function nextStep() { stopAudio(); L.pos++; renderStep(); }
+function footerButton(text, onClick, disabled) {
+  const f = $("#footer");
+  f.className = "footer";
+  f.innerHTML = `<button class="btn primary wide" id="go"${disabled ? " disabled" : ""}>${text}</button>`;
+  $("#go").onclick = onClick;
+  return $("#go");
+}
+function continueFooter(text = "Continue") {
+  footerButton(text, nextStep).focus();
+  keyHandler = e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); nextStep(); } };
+}
+const answerLine = item => `<div class="fbans"><b>${esc(item.pinyin)}</b><span>${esc(label(item))}</span>${audioButtons(item.id)}</div>`;
+// Show right/wrong. A wrong exercise comes back at the end of the lesson (up to twice).
+function judge(entry, ok, { title, reveal = "", playId = null, requeue = true } = {}) {
+  if (!ok) {
+    L.wrong.add(entry.i);
+    if (requeue && entry.tries < 2) L.queue.push({ ...entry, tries: entry.tries + 1 });
+  }
+  const f = $("#footer");
+  f.className = "footer " + (ok ? "ok" : "no");
+  f.innerHTML = `<div class="fbhead">${title || (ok ? "✓ Correct!" : "✗ Not quite")}</div>${reveal}
+    <button class="btn primary wide" id="go">Continue</button>`;
+  $("#go").onclick = nextStep;
+  $("#go").focus();
+  if (playId) play(playId);
+  keyHandler = e => {
+    if (e.key === "Enter" || e.key === " ") { e.preventDefault(); nextStep(); }
+    else if (e.key === "p" && playId) play(playId);
+  };
+}
+// Multiple choice: buttons with data-k; isRight(k) says which is correct.
+function choose(entry, isRight, after) {
+  const btns = [...view.querySelectorAll("[data-k]")];
+  let answered = false;
+  const pick = b => {
+    if (answered) return; answered = true;
+    const ok = isRight(b.dataset.k);
+    btns.forEach(x => { x.disabled = true; if (isRight(x.dataset.k)) x.classList.add("right"); });
+    if (!ok) b.classList.add("wrong");
+    after(ok);
+  };
+  btns.forEach(b => b.onclick = () => pick(b));
+  footerButton("Choose an answer", null, true);
+  keyHandler = e => {
+    const n = +e.key;
+    if (n >= 1 && n <= btns.length) pick(btns[n - 1]);
+    else if (e.key === "p" && entry.audio) play(entry.audio);
+  };
+}
+const bigPlay = id => `<div class="row"><button class="btn bigplay" data-play="${id}" title="Play again">🔊</button>
+  <button class="btn icon" data-slow="${id}" title="Play slowly">🐢</button></div>`;
+
+const STEPS = {
+  intro(s) {
+    $("#card").innerHTML = `${s.tone ? `<div class="tonebig">${toneSvg(s.tone, 110)}</div>` : `<span class="tag">tip</span>`}
+      <h3>${esc(s.title)}</h3><div class="text">${fmt(s.text)}</div>${(s.rows || []).map(r => sylRow(r)).join("")}`;
+    continueFooter();
+  },
+  new(s) {
+    const it = byId[s.item];
+    let extra = "";
+    if (it.kind === "word" && it.syllables.length === 1) {
+      const [base, tone] = it.syllables[0];
+      const ids = [1, 2, 3, 4].map(t => `s-${base.replace("ü", "v")}${t}`).filter(id => byId[id]);
+      extra = `<div class="sub">The same syllable in all four tones. Only one of them means <i>${esc(it.english)}</i>:</div>
+        ${sylRow(ids, `s-${base.replace("ü", "v")}${tone}`)}`;
+    } else if (it.kind === "phrase") {
+      extra = `<div class="sub">Word by word:</div><div class="chips">${tilesOf(it.pinyin).map(w => {
+        const wi = wordFor(w);
+        return `<button class="chip"${wi ? ` data-play="${wi.id}"` : " disabled"}>${esc(w)}<small>${wi ? esc(wi.english) : ""}</small></button>`;
+      }).join("")}</div>`;
+    }
+    $("#card").innerHTML = `<span class="tag">new ${it.kind}</span>${pinyinBlock(it)}
+      <div class="row">${audioButtons(it.id)}</div>${meaningBlock(it)}${extra}`;
+    play(it.id);
+    continueFooter();
+    const prev = keyHandler;
+    keyHandler = e => { if (e.key === "p") play(it.id); else prev(e); };
+  },
+  hear(s, entry) {
+    const it = byId[s.play];
+    entry.audio = s.play;
+    $("#card").innerHTML = `<span class="tag">listen</span><div class="prompt">What do you hear?</div>${bigPlay(s.play)}
+      <div class="options${s.options.length === 3 ? " one" : ""}">${shuffle(s.options).map(o =>
+        `<button class="btn" data-k="${esc(o)}">${esc(o)}</button>`).join("")}</div>`;
+    play(s.play);
+    choose(entry, k => k === it.pinyin, ok => judge(entry, ok, { reveal: answerLine(it) }));
+  },
+  tone(s, entry) {
+    const it = byId[s.play], right = it.syllables[0][1];
+    entry.audio = s.play;
+    $("#card").innerHTML = `<span class="tag">listen</span><div class="prompt">Which tone is it?</div>${bigPlay(s.play)}
+      <div class="options">${s.options.map(t => `<button class="btn tonebtn" data-k="${t}">${toneSvg(t, 44)}<span>${TONE_NAME[t]}</span></button>`).join("")}</div>`;
+    play(s.play);
+    choose(entry, k => +k === right, ok => judge(entry, ok, { reveal: answerLine(it) }));
+  },
+  meaning(s, entry) {
+    const it = byId[s.item];
+    const front = s.from === "audio"
+      ? `<div class="prompt">What does it mean?</div>${bigPlay(it.id)}`
+      : `${pinyinBlock(it)}<div class="prompt">What does it mean?</div>`;
+    if (s.from === "audio") entry.audio = it.id;
+    $("#card").innerHTML = `<span class="tag">${s.from === "audio" ? "listen" : "read"}</span>${front}
+      <div class="options one text">${shuffle(s.options).map(id => `<button class="btn" data-k="${id}">${esc(byId[id].english)}</button>`).join("")}</div>`;
+    if (s.from === "audio") play(it.id);
+    choose(entry, k => k === it.id, ok => judge(entry, ok, { reveal: answerLine(it), playId: s.from === "audio" ? null : it.id }));
+  },
+  pinyin(s, entry) {
+    const it = byId[s.item];
+    $("#card").innerHTML = `<span class="tag">say it in Pinyin</span><div class="big-en">${esc(it.english)}</div>
+      <div class="prompt">Which one is it?</div>
+      <div class="options${s.options.length === 3 ? " one" : ""}">${shuffle(s.options).map(o => `<button class="btn" data-k="${esc(o)}">${esc(o)}</button>`).join("")}</div>`;
+    choose(entry, k => k === it.pinyin, ok => judge(entry, ok, { reveal: answerLine(it), playId: it.id }));
+  },
+  match(s, entry) {
+    const its = s.items.map(id => byId[id]);
+    $("#card").innerHTML = `<span class="tag">match the pairs</span><div class="prompt">Tap a Pinyin, then its meaning.</div>
+      <div class="match"><div class="col">${shuffle(its).map(i => `<button class="btn py-opt" data-side="l" data-id="${i.id}">${esc(i.pinyin)}</button>`).join("")}</div>
+      <div class="col">${shuffle(its).map(i => `<button class="btn" data-side="r" data-id="${i.id}">${esc(i.english)}</button>`).join("")}</div></div>`;
+    footerButton("Match all pairs", null, true);
+    const sel = { l: null, r: null };
+    let left = its.length, mistakes = 0;
+    view.querySelectorAll(".match .btn").forEach(b => b.onclick = () => {
+      if (b.disabled) return;
+      const side = b.dataset.side;
+      if (side === "l") play(b.dataset.id);
+      if (sel[side]) sel[side].classList.remove("sel");
+      sel[side] = b; b.classList.add("sel");
+      if (!sel.l || !sel.r) return;
+      const [l, r] = [sel.l, sel.r];
+      sel.l = sel.r = null;
+      l.classList.remove("sel"); r.classList.remove("sel");
+      if (l.dataset.id === r.dataset.id) {
+        l.disabled = r.disabled = true; l.classList.add("done"); r.classList.add("done");
+        if (--left === 0) judge(entry, mistakes === 0, { requeue: false,
+          title: mistakes ? `✓ Done, with ${mistakes} wrong tap${mistakes > 1 ? "s" : ""}` : "✓ All pairs right!" });
+      } else {
+        mistakes++;
+        l.classList.add("wrong"); r.classList.add("wrong");
+        setTimeout(() => { l.classList.remove("wrong"); r.classList.remove("wrong"); }, 600);
+      }
+    });
+  },
+  build(s, entry) {
+    const it = byId[s.item];
+    const answer = tilesOf(it.pinyin);
+    const bank = shuffle([...answer, ...(s.extra || [])]);
+    const chosen = [];
+    $("#card").innerHTML = `<span class="tag">build the sentence</span><div class="big-en">${esc(it.english)}</div>
+      <div class="answer" id="ans"></div><div class="bank" id="bank"></div>`;
+    let done = false;
+    const go = footerButton("Check", () => check(), true);
+    const draw = () => {
+      $("#ans").innerHTML = chosen.map((k, n) => `<button class="tile" data-n="${n}">${esc(bank[k])}</button>`).join("");
+      $("#bank").innerHTML = bank.map((w, k) => `<button class="tile${chosen.includes(k) ? " used" : ""}" data-k="${k}">${esc(w)}</button>`).join("");
+      $("#ans").querySelectorAll(".tile").forEach(t => t.onclick = () => { if (!done) { chosen.splice(+t.dataset.n, 1); draw(); } });
+      $("#bank").querySelectorAll(".tile").forEach(t => t.onclick = () => {
+        if (done || chosen.includes(+t.dataset.k)) return;
+        chosen.push(+t.dataset.k);
+        const wi = wordFor(bank[+t.dataset.k]);
+        if (wi) play(wi.id);
+        draw();
+      });
+      go.disabled = !chosen.length;
+    };
+    const check = () => {
+      if (done || !chosen.length) return; done = true;
+      const given = chosen.map(k => bank[k]);
+      const ok = given.length === answer.length && given.every((w, n) => samePinyin(w, answer[n]));
+      judge(entry, ok, { reveal: answerLine(it), playId: it.id });
+    };
+    draw();
+    keyHandler = e => { if (e.key === "Enter") check(); else if (e.key === "Backspace" && chosen.length && !done) { chosen.pop(); draw(); } };
+  },
+  type(s, entry) {
+    const it = byId[s.item];
+    const front = s.from === "audio"
+      ? `<span class="tag">listen and type</span><div class="prompt">Type what you hear.</div>${bigPlay(it.id)}`
+      : `<span class="tag">type it</span><div class="big-en">${esc(it.english)}</div><div class="prompt">Type it in Pinyin.</div>`;
+    if (s.from === "audio") entry.audio = it.id;
+    $("#card").innerHTML = `${front}
+      <input type="text" id="answer" placeholder="hǎo  or  hao3" autocomplete="off" autocapitalize="off" spellcheck="false">
+      <div class="muted small" style="margin-top:8px">Tone marks or tone numbers (1–4, 5 or nothing for neutral).</div>`;
+    if (s.from === "audio") play(it.id);
+    const input = $("#answer");
+    let done = false;
+    const go = footerButton("Check", () => check(), true);
+    input.oninput = () => { go.disabled = !input.value.trim(); };
+    const check = () => {
+      if (done || !input.value.trim()) return; done = true;
+      input.disabled = true;
+      const v = checkAnswer(input.value, it);
+      judge(entry, v === "ok", { title: v === "tones" ? "✗ Almost: the tones aren't right" : null,
+                                 reveal: answerLine(it), playId: s.from === "audio" ? null : it.id });
+    };
+    input.addEventListener("keydown", e => { if (e.key === "Enter") { e.preventDefault(); done ? nextStep() : check(); } });
+    input.focus();
+    keyHandler = e => { if (e.key === "p" && s.from === "audio") play(it.id); };
+  },
+  speak(s) {
+    const it = byId[s.item];
+    const canRecord = !!(navigator.mediaDevices && window.MediaRecorder);
+    $("#card").innerHTML = `<span class="tag">say it aloud</span>${pinyinBlock(it)}<div class="en">${esc(it.english)}</div>
+      <div class="row">${audioButtons(it.id)}</div>
+      <div class="prompt" style="margin-top:16px">Listen, then say it out loud 2–3 times. Copy the tones.</div>
+      ${canRecord ? `<div class="row rec"><button class="btn" id="rec">🎙 Record yourself</button>
+        <button class="btn" id="mine" disabled>▶ You</button><button class="btn" id="both" disabled>▶ Original, then you</button></div>
+        <div class="muted small" id="recmsg"></div>` : ""}`;
+    play(it.id);
+    continueFooter("I said it");
+    const prev = keyHandler;
+    keyHandler = e => { if (e.key === "p") play(it.id); else prev(e); };
+    if (canRecord) recorder(it.id);
+  },
+};
+
+// Record yourself and compare with the original (nothing leaves the browser)
+let rec = null;
+function recorder(id) {
+  let url = null;
+  const btn = $("#rec"), mine = $("#mine"), both = $("#both");
+  const playUrl = () => new Promise(done => { stopAudio(); const a = new Audio(url); current = a; a.onended = done; a.onerror = done; a.play().catch(done); });
+  btn.onclick = async () => {
+    if (rec) { rec.stop(); return; }
+    let stream;
+    try { stream = await navigator.mediaDevices.getUserMedia({ audio: true }); }
+    catch { $("#recmsg").textContent = "No microphone access. Just say it out loud instead."; return; }
+    const chunks = [];
+    rec = new MediaRecorder(stream);
+    rec.ondataavailable = e => chunks.push(e.data);
+    rec.onstop = () => {
+      stream.getTracks().forEach(t => t.stop());
+      if (url) URL.revokeObjectURL(url);
+      url = URL.createObjectURL(new Blob(chunks, { type: rec.mimeType }));
+      rec = null;
+      if (!document.body.contains(btn)) return;
+      btn.textContent = "🎙 Record again";
+      mine.disabled = both.disabled = false;
+      playUrl();
+    };
+    rec.start();
+    btn.textContent = "■ Stop";
+    setTimeout(() => { if (rec && rec.state === "recording") rec.stop(); }, 8000);
+  };
+  mine.onclick = () => playUrl();
+  both.onclick = async () => {
+    await new Promise(done => { stopAudio(); const a = audioFor(id); a.playbackRate = 1; a.currentTime = 0; current = a; a.onended = done; a.onerror = done; a.play().catch(done); });
+    await new Promise(r => setTimeout(r, 300));
+    playUrl();
+  };
+}
+
+function finishLesson() {
+  const { lesson } = L;
+  const exercises = lesson.steps.filter(s => EXERCISES.has(s.type)).length;
+  const accuracy = Math.round(100 * (exercises - L.wrong.size) / Math.max(1, exercises));
+  const minutes = Math.max(1, Math.round((Date.now() - L.started) / 60000));
+  const prev = state.lessons[lesson.id];
+  state.lessons[lesson.id] = { done: prev ? prev.done : today(), last: today(),
+                               best: Math.max(prev ? prev.best : 0, accuracy), times: (prev ? prev.times : 0) + 1 };
+  markLessonDone(lesson.id);
+  save(); updateStat();
+  const learned = DATA.items.filter(i => i.lesson === lesson.id && i.kind !== "sound");
+  const next = DATA.lessons.find(l => !state.lessons[l.id]);
+  L = null;
+  keyHandler = null;
+  view.innerHTML = `<div class="card center" style="margin-top:24px">
+    <p style="font-size:2.4rem;margin:0">🎉</p><h3 style="margin:6px 0">Lesson complete!</h3>
+    <div class="muted">${esc(lesson.id)}: ${esc(lesson.title)}</div>
+    <div class="done-stats"><div><b>${accuracy}%</b><span class="small muted">right first time</span></div>
+      <div><b>${minutes} min</b><span class="small muted">time</span></div>
+      <div><b>${learned.length}</b><span class="small muted">words &amp; phrases</span></div></div>
+    <p class="muted small">${prev ? "" : "They're now in your reviews, first due tomorrow. "}
+      <a href="${GITHUB}lessons/${lesson.file}" target="_blank" rel="noopener" style="color:var(--accent)">Lesson notes ↗</a></p>
+    <div class="row">${next ? `<a class="btn primary" href="#lesson/${next.id}">Next lesson</a>` : ""}
+      <a class="btn${next ? "" : " primary"}" href="#learn">Back to lessons</a></div></div>`;
+}
 
 // ---------- Review ----------
 let session = { done: 0, lastFailed: null };
 function renderReview() {
   keyHandler = null;
   if (!state.unlocked.length) {
-    view.innerHTML = `<div class="card center"><p><b>Welcome!</b></p>
-      <p class="muted">Go to <a href="#lessons">Lessons</a> and tick the lessons you've worked through.
-      Their phrases and words then show up here as flashcards.</p></div>`;
+    view.innerHTML = `<div class="card center"><p><b>Nothing to review yet.</b></p>
+      <p class="muted">Finish a lesson in <a href="#learn">Learn</a>. Its words and phrases then come back here as flashcards,
+      spaced out so you remember them.</p></div>`;
     return;
   }
   const cardId = nextCard(session.lastFailed);
@@ -315,7 +811,7 @@ function renderReview() {
   if (!cardId) {
     view.innerHTML = bar + `<div class="card center"><p style="font-size:2rem;margin:0">🎉</p>
       <p><b>All done for now.</b></p><p class="muted">${session.done ? `You reviewed ${session.done} cards. ` : ""}
-      Come back tomorrow, unlock the next lesson, or practise in <a href="#tones">Tones</a>.</p></div>`;
+      Come back tomorrow, do the next <a href="#learn">lesson</a>, or practise in <a href="#tones">Tones</a>.</p></div>`;
     return;
   }
   const [itemId, type] = cardId.split(":");
@@ -412,22 +908,23 @@ function renderTones() {
   keyHandler = null;
   const pool = unlockedItems().filter(i => i.heardAsWritten && i.syllables.length <= 3 && i.syllables.some(s => s[1] !== 5));
   if (pool.length < 2) {
-    view.innerHTML = `<div class="card center"><p class="muted">Tick at least one lesson in
-      <a href="#lessons">Lessons</a> to practise hearing tones.</p></div>`;
+    view.innerHTML = `<div class="card center"><p class="muted">Finish a lesson in
+      <a href="#learn">Learn</a> to practise hearing tones here.</p></div>`;
     return;
   }
+  // only the tones you've met so far
+  const known = [...new Set(pool.flatMap(i => i.syllables.map(s => s[1])).filter(t => t !== 5))];
   const item = pool[Math.floor(Math.random() * pool.length)];
   const right = item.syllables;
-  // build 3 wrong options by changing the tone of one or two syllables
+  // build up to 3 wrong options by changing the tone of one or two syllables
   const options = new Map([[writeSyllables(right), true]]);
   for (let tries = 0; options.size < 4 && tries < 200; tries++) {
     const alt = right.map(s => [...s]);
     const toned = alt.map((s, i) => s[1] === 5 ? -1 : i).filter(i => i >= 0);
-    if (!toned.length) break;
     const changes = Math.min(toned.length, 1 + Math.floor(Math.random() * 2));
     for (let k = 0; k < changes; k++) {
       const i = toned[Math.floor(Math.random() * toned.length)];
-      alt[i][1] = 1 + Math.floor(Math.random() * 4);
+      alt[i][1] = known[Math.floor(Math.random() * known.length)];
     }
     const w = writeSyllables(alt);
     if (!options.has(w)) options.set(w, false);
@@ -465,7 +962,7 @@ function renderTones() {
   };
 }
 
-// ---------- Listen (browse a lesson with audio) ----------
+// ---------- Listen (all audio of a lesson) ----------
 function renderListen(lessonId) {
   keyHandler = null;
   const lesson = DATA.lessons.find(l => l.id === lessonId) || DATA.lessons[0];
@@ -482,28 +979,28 @@ function renderListen(lessonId) {
         ${i.audio_note ? `<div class="note small">🔊 ${esc(i.audio_note)}</div>` : ""}
       </div><div class="btns">${audioButtons(i.id)}</div></div>`).join("")}</div>`;
   };
+  const sounds = {};
+  for (const i of items.filter(i => i.kind === "sound")) (sounds[i.syllables[0][0]] ||= []).push(i.id);
+  const soundHtml = Object.keys(sounds).length ? `<h2>Sounds in every tone</h2><div class="card" style="padding:12px 8px">${
+    Object.values(sounds).map(ids => sylRow(ids.sort())).join("")}</div>` : "";
   view.innerHTML = `<div class="list">${DATA.lessons.length > 1 ? `<div class="row" style="margin:0">${
       DATA.lessons.map(l => `<a class="btn${l.id === lesson.id ? " primary" : ""}" href="#listen/${l.id}">${esc(l.id)}</a>`).join("")}</div>` : ""}
     <div class="card"><div class="t"><b>${esc(lesson.id)}: ${esc(lesson.title)}</b></div>
-      <a class="small" style="color:var(--accent)" href="${LESSON_URL}${lesson.file}" target="_blank" rel="noopener">Open the lesson ↗</a></div>
-    </div>${group("phrase", "Phrases")}${group("word", "Words")}`;
+      <a class="small" style="color:var(--accent)" href="${GITHUB}lessons/${lesson.file}" target="_blank" rel="noopener">Lesson notes ↗</a></div>
+    </div>${group("word", "Words")}${group("phrase", "Phrases")}${soundHtml}`;
 }
 
-// ---------- Lessons (choose what's in the flashcards) + settings ----------
-function renderLessons() {
+// ---------- Settings ----------
+function renderSettings() {
   keyHandler = null;
-  const on = new Set(state.unlocked);
-  view.innerHTML = `<p class="muted small" style="margin-top:0">Tick the lessons you've done. Their cards join your reviews.</p>
-    <div class="list">${DATA.lessons.map(l => {
-      const n = DATA.items.filter(i => i.lesson === l.id).length;
-      return `<label class="lesson"><input type="checkbox" data-lesson="${l.id}" ${on.has(l.id) ? "checked" : ""}>
-        <div class="main"><div class="t">${esc(l.id)}: ${esc(l.title)}</div><div class="muted small">${n} phrases &amp; words</div></div>
-        <a href="#listen/${l.id}" title="Listen">🔊</a>
-        <a href="${LESSON_URL}${l.file}" target="_blank" rel="noopener">lesson ↗</a></label>`;
-    }).join("")}</div>
+  view.innerHTML = `<h2 style="margin-top:0">Lessons done</h2>
+    <p class="muted small" style="margin-top:0">Lessons you finish are ticked automatically. Ticking one by hand also adds its words to your reviews.</p>
+    <div class="list">${DATA.lessons.map(l => `<label class="lesson"><input type="checkbox" data-lesson="${l.id}" ${state.lessons[l.id] ? "checked" : ""}>
+        <div class="main"><div class="t">${esc(l.id)}: ${esc(l.title)}</div></div>
+        <a href="${GITHUB}lessons/${l.file}" target="_blank" rel="noopener">notes ↗</a></label>`).join("")}</div>
     <h2>Settings</h2>
     <div class="card">
-      <div class="setting"><span>New cards per day</span><input type="number" id="newPerDay" min="0" max="200" value="${state.settings.newPerDay}"></div>
+      <div class="setting"><span>New review cards per day</span><input type="number" id="newPerDay" min="0" max="200" value="${state.settings.newPerDay}"></div>
       <div class="setting"><span>Show tone numbers under Pinyin</span><input type="checkbox" id="numbers" ${state.settings.numbers ? "checked" : ""}></div>
     </div>
     <h2>Your progress</h2>
@@ -516,9 +1013,14 @@ function renderLessons() {
       </div>
     </div>`;
   view.querySelectorAll("[data-lesson]").forEach(cb => cb.onchange = () => {
-    const set = new Set(state.unlocked);
-    cb.checked ? set.add(cb.dataset.lesson) : set.delete(cb.dataset.lesson);
-    state.unlocked = DATA.lessons.map(l => l.id).filter(id => set.has(id));
+    const id = cb.dataset.lesson;
+    if (cb.checked) {
+      state.lessons[id] = state.lessons[id] || { done: today(), last: today(), best: 0, times: 0 };
+      markLessonDone(id);
+    } else {
+      delete state.lessons[id];
+      state.unlocked = state.unlocked.filter(x => x !== id);
+    }
     save(); updateStat();
   });
   $("#newPerDay").onchange = e => { state.settings.newPerDay = Math.max(0, +e.target.value || 0); save(); updateStat(); };
@@ -533,21 +1035,24 @@ function renderLessons() {
     try {
       const s = JSON.parse(await e.target.files[0].text());
       if (!s.cards || !s.unlocked) throw new Error();
-      state = { ...DEFAULT_STATE, ...s }; save(); updateStat(); renderLessons();
+      state = { ...structuredClone(DEFAULT_STATE), ...s }; save(); updateStat(); renderSettings();
       alert("Progress imported.");
     } catch { alert("That file doesn't look like an exported progress file."); }
   };
   $("#reset").onclick = () => {
-    if (confirm("Delete all progress in this browser?")) { state = structuredClone(DEFAULT_STATE); save(); updateStat(); renderLessons(); }
+    if (confirm("Delete all progress in this browser?")) { state = structuredClone(DEFAULT_STATE); save(); updateStat(); renderSettings(); }
   };
 }
 
 // ---------- routing ----------
 function route() {
-  const [tab, arg] = (location.hash.slice(1) || "review").split("/");
+  const [tab, arg] = (location.hash.slice(1) || "learn").split("/");
+  stopAudio();
+  if (tab !== "lesson") L = null;
+  document.body.classList.toggle("inlesson", tab === "lesson");
   document.querySelectorAll("nav a").forEach(a => a.classList.toggle("on", a.dataset.tab === tab));
-  if (player) player.pause();
-  ({ review: renderReview, tones: renderTones, listen: () => renderListen(arg), lessons: renderLessons }[tab] || renderReview)();
+  ({ learn: renderLearn, review: renderReview, tones: renderTones, listen: () => renderListen(arg),
+     settings: renderSettings, lesson: () => startLesson(arg) }[tab] || renderLearn)();
   updateStat();
 }
 
@@ -556,10 +1061,13 @@ fetch("cards.json")
   .then(d => {
     DATA = d;
     for (const i of d.items) byId[i.id] = i;
+    // drop progress for lessons that no longer exist (e.g. after the course was restructured)
+    const ids = new Set(d.lessons.map(l => l.id));
+    state.unlocked = state.unlocked.filter(id => ids.has(id));
     window.addEventListener("hashchange", route);
     route();
   })
-  .catch(() => { view.innerHTML = `<div class="card center muted">Couldn't load the cards. If you opened this file directly, run a local server: <code>python3 -m http.server -d docs</code></div>`; });
+  .catch(() => { view.innerHTML = `<div class="card center muted">Couldn't load the lessons. If you opened this file directly, run a local server: <code>python3 -m http.server -d docs</code></div>`; });
 </script>
 </body>
 </html>

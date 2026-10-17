@@ -1,41 +1,257 @@
 {
- "A01-p01": "ta1 shi4 shui2 ?",
- "A01-p02": "ni3 shi4 shui2 ?",
- "A01-p03": "dui4 !",
- "A01-p04": "shi4 ma ?",
- "A01-p05": "ma1 ma ma4 ma3 ma ?",
- "A01-w01": "ta1 .",
- "A01-w02": "he1 .",
- "A01-w03": "ma1 ma .",
- "A01-w04": "shui2 .",
- "A01-w05": "ren2 .",
- "A01-w06": "nin2 .",
- "A01-w07": "ni3 .",
- "A01-w08": "wo3 .",
- "A01-w09": "hao3 .",
- "A01-w10": "shi4 .",
- "A01-w11": "bu4 .",
- "A01-w12": "dui4 .",
- "A01-w13": "ma .",
- "A01-w14": "mai3 .",
- "A01-w15": "mai4 .",
- "A01-w16": "wen4 .",
- "A01-w17": "wen3 .",
- "A01-w18": "shui4 jiao4 .",
- "A01-w19": "shui2 jiao3 .",
- "U01-L01-p01": "ni2 hao3 !",
- "U01-L01-p02": "nin2 hao3 !",
- "U01-L01-p03": "xie4 xie4 !",
- "U01-L01-p04": "bu2 ke4 qi4 .",
- "U01-L01-p05": "zai4 jian4 !",
- "U01-L01-p06": "ni3 men hao3 !",
- "U01-L01-p07": "da4 jia1 hao3 !",
- "U01-L01-p08": "lao3 shi1 hao3 !",
- "U01-L01-w01": "men .",
- "U01-L01-w02": "xie4 xie4 .",
- "U01-L01-w03": "ke4 qi4 .",
- "U01-L01-w04": "zai4 .",
- "U01-L01-w05": "jian4 .",
- "U01-L01-w06": "da4 jia1 .",
- "U01-L01-w07": "lao3 shi1 ."
+ "bu": {
+  "tokens": "bu4 .",
+  "method": "natural",
+  "score": 2.4
+ },
+ "dui": {
+  "tokens": "dui4 .",
+  "method": "natural",
+  "score": 2.5
+ },
+ "dui-shi-ta": {
+  "tokens": "dui4 , shi4 ta1 !",
+  "method": "pitch-edited",
+  "score": 2.4
+ },
+ "hao": {
+  "tokens": "hao3 .",
+  "method": "natural",
+  "score": 2.8
+ },
+ "hao-wo-he": {
+  "tokens": "hao3 , wo3 he1 .",
+  "method": "natural",
+  "score": 1.5
+ },
+ "he": {
+  "tokens": "he1 .",
+  "method": "natural",
+  "score": 1.6
+ },
+ "ni": {
+  "tokens": "ni3 .",
+  "method": "pitch-edited",
+  "score": 3.7
+ },
+ "s-bu1": {
+  "tokens": "bu1 .",
+  "method": "pitch-edited",
+  "score": 2.2
+ },
+ "s-bu2": {
+  "tokens": "bu2 .",
+  "method": "natural",
+  "score": 3.3
+ },
+ "s-bu3": {
+  "tokens": "bu3 .",
+  "method": "natural",
+  "score": 1.3
+ },
+ "s-bu4": {
+  "tokens": "bu4 .",
+  "method": "natural",
+  "score": 2.4
+ },
+ "s-dui1": {
+  "tokens": "dui1 .",
+  "method": "natural",
+  "score": 1.8
+ },
+ "s-dui2": {
+  "tokens": "dui2 .",
+  "method": "natural",
+  "score": 1.7
+ },
+ "s-dui3": {
+  "tokens": "dui3 .",
+  "method": "natural",
+  "score": 0.9
+ },
+ "s-dui4": {
+  "tokens": "dui4 .",
+  "method": "natural",
+  "score": 2.5
+ },
+ "s-hao1": {
+  "tokens": "hao1 .",
+  "method": "pitch-edited",
+  "score": 2.3
+ },
+ "s-hao2": {
+  "tokens": "hao2 .",
+  "method": "pitch-edited",
+  "score": 1.8
+ },
+ "s-hao3": {
+  "tokens": "hao3 .",
+  "method": "natural",
+  "score": 2.8
+ },
+ "s-hao4": {
+  "tokens": "hao4 .",
+  "method": "natural",
+  "score": 3.1
+ },
+ "s-he1": {
+  "tokens": "he1 .",
+  "method": "natural",
+  "score": 1.6
+ },
+ "s-he2": {
+  "tokens": "he2 .",
+  "method": "natural",
+  "score": 1.4
+ },
+ "s-he3": {
+  "tokens": "he3 .",
+  "method": "pitch-edited",
+  "score": 3.8
+ },
+ "s-he4": {
+  "tokens": "he4 .",
+  "method": "natural",
+  "score": 3.0
+ },
+ "s-ma1": {
+  "tokens": "ma1 .",
+  "method": "natural",
+  "score": 0.9
+ },
+ "s-ma2": {
+  "tokens": "ma2 .",
+  "method": "natural",
+  "score": 1.5
+ },
+ "s-ma3": {
+  "tokens": "ma3 .",
+  "method": "natural",
+  "score": 1.6
+ },
+ "s-ma4": {
+  "tokens": "ma4 .",
+  "method": "natural",
+  "score": 3.2
+ },
+ "s-ma5": {
+  "tokens": "ma .",
+  "method": "natural",
+  "score": null
+ },
+ "s-ni1": {
+  "tokens": "ni1 .",
+  "method": "natural",
+  "score": 0.8
+ },
+ "s-ni2": {
+  "tokens": "ni2 .",
+  "method": "natural",
+  "score": 3.0
+ },
+ "s-ni3": {
+  "tokens": "ni3 .",
+  "method": "pitch-edited",
+  "score": 3.7
+ },
+ "s-ni4": {
+  "tokens": "ni4 .",
+  "method": "natural",
+  "score": 2.9
+ },
+ "s-shi1": {
+  "tokens": "shi1 .",
+  "method": "natural",
+  "score": 1.8
+ },
+ "s-shi2": {
+  "tokens": "shi2 .",
+  "method": "natural",
+  "score": 2.9
+ },
+ "s-shi3": {
+  "tokens": "shi3 .",
+  "method": "natural",
+  "score": 1.5
+ },
+ "s-shi4": {
+  "tokens": "shi4 .",
+  "method": "natural",
+  "score": 1.0
+ },
+ "s-ta1": {
+  "tokens": "ta1 .",
+  "method": "pitch-edited",
+  "score": 2.3
+ },
+ "s-ta2": {
+  "tokens": "ta2 .",
+  "method": "natural",
+  "score": 2.2
+ },
+ "s-ta3": {
+  "tokens": "ta3 .",
+  "method": "natural",
+  "score": 3.0
+ },
+ "s-ta4": {
+  "tokens": "ta4 .",
+  "method": "natural",
+  "score": 2.1
+ },
+ "s-wo1": {
+  "tokens": "wo1 .",
+  "method": "natural",
+  "score": 1.7
+ },
+ "s-wo2": {
+  "tokens": "wo2 .",
+  "method": "natural",
+  "score": 1.4
+ },
+ "s-wo3": {
+  "tokens": "wo3 .",
+  "method": "natural",
+  "score": 1.0
+ },
+ "s-wo4": {
+  "tokens": "wo4 .",
+  "method": "natural",
+  "score": 2.3
+ },
+ "shi": {
+  "tokens": "shi4 .",
+  "method": "natural",
+  "score": 1.0
+ },
+ "shi-wo": {
+  "tokens": "shi4 wo3 .",
+  "method": "unchecked",
+  "score": null
+ },
+ "ta": {
+  "tokens": "ta1 .",
+  "method": "pitch-edited",
+  "score": 2.3
+ },
+ "ta-bu-he": {
+  "tokens": "ta1 bu4 he1 .",
+  "method": "pitch-edited",
+  "score": 1.5
+ },
+ "ta-he": {
+  "tokens": "ta1 he1 .",
+  "method": "natural",
+  "score": 1.0
+ },
+ "wo": {
+  "tokens": "wo3 .",
+  "method": "natural",
+  "score": 1.0
+ },
+ "wo-bu-he": {
+  "tokens": "wo3 bu4 he1 .",
+  "method": "pitch-edited",
+  "score": 1.7
+ }
 }

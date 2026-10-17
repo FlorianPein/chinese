@@ -4,8 +4,10 @@ Updated after lessons and chat sessions.
 
 ## Current position
 
-- **Next lesson:** [A01: The four tones](lessons/A01-tones.md)
+- **Next lesson:** [A01-L01: Tones 1 and 4](https://florianpein.github.io/chinese/#lesson/A01-L01) ([notes](lessons/A01-L01.md))
 - **Milestone in progress:** read any Pinyin aloud with roughly the right sounds and tones (Track A + Unit 1)
+
+The course was restructured into small Duolingo-style lessons on 2026-10-17; nothing had been done in the old version yet.
 
 ## Completed lessons
 

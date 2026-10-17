@@ -171,3 +171,22 @@ def tts_tokens(segments):
     if not toks or toks[-1] not in {",", ".", "!", "?", ":"}:
         toks.append(".")  # a final punctuation mark gives cleaner, complete tones
     return toks
+
+
+MARK_FOR_TONE = {1: "̄", 2: "́", 3: "̌", 4: "̀"}
+
+
+def mark(base, tone):
+    """('hao', 3) -> 'hǎo'. The mark goes on a or e, on the o of ou,
+    otherwise on the last vowel (iu -> iú, ui -> uí)."""
+    s = base.replace("v", "ü")
+    if tone not in MARK_FOR_TONE:
+        return s
+    i = s.find("a")
+    if i < 0:
+        i = s.find("e")
+    if i < 0 and "ou" in s:
+        i = s.find("o")
+    if i < 0:
+        i = max(s.rfind(v) for v in "iouü")
+    return unicodedata.normalize("NFC", s[:i + 1] + MARK_FOR_TONE[tone] + s[i + 1:])
