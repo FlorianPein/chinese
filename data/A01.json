@@ -1,0 +1,30 @@
+{
+  "lesson": "A01",
+  "title": "The four tones + neutral tone",
+  "items": [
+    {"id": "A01-w01", "kind": "word", "pinyin": "tā", "english": "he / she", "hanzi": "他 / 她"},
+    {"id": "A01-w02", "kind": "word", "pinyin": "hē", "english": "to drink", "hanzi": "喝"},
+    {"id": "A01-w03", "kind": "word", "pinyin": "māma", "english": "mum", "hanzi": "妈妈"},
+    {"id": "A01-w04", "kind": "word", "pinyin": "shéi", "english": "who?", "hanzi": "谁"},
+    {"id": "A01-w05", "kind": "word", "pinyin": "rén", "english": "person", "hanzi": "人"},
+    {"id": "A01-w06", "kind": "word", "pinyin": "nín", "english": "you (polite)", "hanzi": "您"},
+    {"id": "A01-w07", "kind": "word", "pinyin": "nǐ", "english": "you", "hanzi": "你"},
+    {"id": "A01-w08", "kind": "word", "pinyin": "wǒ", "english": "I, me", "hanzi": "我"},
+    {"id": "A01-w09", "kind": "word", "pinyin": "hǎo", "english": "good", "hanzi": "好"},
+    {"id": "A01-w10", "kind": "word", "pinyin": "shì", "english": "to be (am / is / are)", "hanzi": "是"},
+    {"id": "A01-w11", "kind": "word", "pinyin": "bù", "english": "not, no", "hanzi": "不"},
+    {"id": "A01-w12", "kind": "word", "pinyin": "duì", "english": "correct, right", "hanzi": "对"},
+    {"id": "A01-w13", "kind": "word", "pinyin": "ma", "english": "question particle (yes/no questions)", "hanzi": "吗"},
+    {"id": "A01-w14", "kind": "word", "pinyin": "mǎi", "english": "to buy", "hanzi": "买"},
+    {"id": "A01-w15", "kind": "word", "pinyin": "mài", "english": "to sell", "hanzi": "卖"},
+    {"id": "A01-w16", "kind": "word", "pinyin": "wèn", "english": "to ask", "hanzi": "问"},
+    {"id": "A01-w17", "kind": "word", "pinyin": "wěn", "english": "to kiss", "hanzi": "吻"},
+    {"id": "A01-w18", "kind": "word", "pinyin": "shuìjiào", "english": "to sleep", "hanzi": "睡觉"},
+    {"id": "A01-w19", "kind": "word", "pinyin": "shuǐjiǎo", "english": "dumplings (boiled)", "hanzi": "水饺"},
+    {"id": "A01-p01", "kind": "phrase", "pinyin": "Tā shì shéi?", "english": "Who is he / she?", "literal": "he / is / who", "hanzi": "他是谁？"},
+    {"id": "A01-p02", "kind": "phrase", "pinyin": "Nǐ shì shéi?", "english": "Who are you?", "literal": "you / are / who", "hanzi": "你是谁？"},
+    {"id": "A01-p03", "kind": "phrase", "pinyin": "Duì!", "english": "Right! / Correct!", "literal": "right", "hanzi": "对！"},
+    {"id": "A01-p04", "kind": "phrase", "pinyin": "Shì ma?", "english": "Really? / Is that so?", "literal": "is + question", "hanzi": "是吗？"},
+    {"id": "A01-p05", "kind": "phrase", "pinyin": "Māma mà mǎ ma?", "english": "Is mum scolding the horse? (tongue-twister)", "literal": "mum / scold / horse / question", "hanzi": "妈妈骂马吗？"}
+  ]
+}

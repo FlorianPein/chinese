@@ -1,0 +1,21 @@
+{
+  "lesson": "U01-L01",
+  "title": "Hello, thank you, goodbye",
+  "items": [
+    {"id": "U01-L01-p01", "kind": "phrase", "pinyin": "Nǐ hǎo!", "english": "Hello! / Hi!", "literal": "you / good", "hanzi": "你好！", "note": "Said ní hǎo (3rd + 3rd tone change)."},
+    {"id": "U01-L01-p02", "kind": "phrase", "pinyin": "Nín hǎo!", "english": "Hello! (polite)", "literal": "you (polite) / good", "hanzi": "您好！"},
+    {"id": "U01-L01-p03", "kind": "phrase", "pinyin": "Xièxie!", "english": "Thank you!", "literal": "thank-thank", "hanzi": "谢谢！"},
+    {"id": "U01-L01-p04", "kind": "phrase", "pinyin": "Bú kèqi.", "english": "You're welcome.", "literal": "not / polite", "hanzi": "不客气。", "note": "bù becomes bú before a 4th tone."},
+    {"id": "U01-L01-p05", "kind": "phrase", "pinyin": "Zàijiàn!", "english": "Goodbye!", "literal": "again / see", "hanzi": "再见！"},
+    {"id": "U01-L01-p06", "kind": "phrase", "pinyin": "Nǐmen hǎo!", "english": "Hello! (to a group)", "literal": "you (plural) / good", "hanzi": "你们好！"},
+    {"id": "U01-L01-p07", "kind": "phrase", "pinyin": "Dàjiā hǎo!", "english": "Hello, everybody!", "literal": "everybody / good", "hanzi": "大家好！"},
+    {"id": "U01-L01-p08", "kind": "phrase", "pinyin": "Lǎoshī hǎo!", "english": "Hello, teacher!", "literal": "teacher / good", "hanzi": "老师好！"},
+    {"id": "U01-L01-w01", "kind": "word", "pinyin": "-men", "english": "plural ending for people", "hanzi": "们"},
+    {"id": "U01-L01-w02", "kind": "word", "pinyin": "xièxie", "english": "to thank", "hanzi": "谢谢"},
+    {"id": "U01-L01-w03", "kind": "word", "pinyin": "kèqi", "english": "polite, formal", "hanzi": "客气"},
+    {"id": "U01-L01-w04", "kind": "word", "pinyin": "zài", "english": "again", "hanzi": "再"},
+    {"id": "U01-L01-w05", "kind": "word", "pinyin": "jiàn", "english": "to see, to meet", "hanzi": "见"},
+    {"id": "U01-L01-w06", "kind": "word", "pinyin": "dàjiā", "english": "everybody", "hanzi": "大家"},
+    {"id": "U01-L01-w07", "kind": "word", "pinyin": "lǎoshī", "english": "teacher", "hanzi": "老师"}
+  ]
+}
