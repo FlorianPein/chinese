@@ -156,6 +156,7 @@ Why these words: *bàba*, *māma* and *tā* are among the first words anyone nee
   - the app's **Words** tab lists every word and phrase from the lessons you've finished in that browser;
   - **[WORDS.md](WORDS.md)** lists every word per lesson and marks it *seen* once the lesson is in `data/progress.json`. Say *"I finished P01"* and Claude updates it. New lessons are planned from this list: no word is taught twice, and recaps use words you've seen.
 - **Weak spots** (sounds or words that keep going wrong) go in [PROGRESS.md](PROGRESS.md), and the next lessons repeat them more.
+- **How Claude learns your progress:** the app keeps a log of finished lessons (with scores), every wrong answer (what was asked and what you picked) and every flashcard grade. **⚙︎ → Copy progress for Claude** (also on the *Lesson complete* screen) copies a short summary plus the new log entries; paste it into a chat. Claude merges it with `tools/progress.py` into `data/progress.json` and `data/progress-log.jsonl`, updates PROGRESS.md, and plans the next lessons around your mistakes.
 
 ---
 
@@ -207,6 +208,8 @@ Moved out of the course for now. They come back once the chart is done (or earli
 - **Tone pairs:** the 20 combinations of two tones in a word (*xièxie*, *lǎoshī*, *péngyou*), as drills
 - **Tone changes in depth:** 3+3, *bù*, *yī*, as separate practice lessons
 - **Chart checkpoints:** a short review lesson after each topic, if the flashcards aren't enough
+
+**To do: automatic progress sync to GitHub.** Instead of copying and pasting, the app would save its log to this repo by itself (on a separate `progress` branch, so the lessons and the app aren't touched), after each lesson and review session. Claude would read it at the start of every session, and your phone and laptop would share progress. It needs a one-time setup per device: a fine-grained GitHub token that can only write to this repo, pasted into ⚙︎. The log format is already the one the copy button uses, so `tools/progress.py` would work unchanged.
 
 **Later still:** characters (they're already stored with every word), chat role-plays with Claude, an in-app chart of every syllable with audio.
 

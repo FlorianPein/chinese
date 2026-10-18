@@ -39,7 +39,7 @@ More lessons are added as you go (next: P03, *ga ka ha*). Every lesson uses all 
 | **Words** | Every word and phrase you've seen, by lesson, with audio. |
 | **Tones** | Hear a word or syllable and pick the right tones. |
 | **Listen** | All audio of a lesson: words, phrases, and every sound in each tone. 🐢 plays slowly. |
-| **⚙︎** | Mark lessons as done, settings, export/import your progress (it's stored per browser). |
+| **⚙︎** | **Copy progress for Claude**, mark lessons as done, settings, export/import your progress (it's stored per browser). |
 
 In speaking exercises you can record yourself and play it back next to the original. The recording stays in your browser.
 
@@ -75,7 +75,8 @@ Audio comes from an offline Mandarin voice ([Matcha-TTS](https://github.com/k2-f
 
 Open a session in this repo and ask, for example:
 
-- *"I finished P01."* (marks its words as seen and updates your progress)
+- *"Here's my progress:"* and paste from **⚙︎ → Copy progress for Claude**. It holds your finished lessons and scores, the answers you got wrong and your flashcard grades. Claude merges it with `python tools/progress.py`, updates PROGRESS.md, and plans the next lessons around your mistakes.
+- *"I finished P01."* (marks its words as seen, if you don't want to paste)
 - *"Quiz me on everything so far. I'll answer like ma1."*
 - *"Drill b vs p and d vs t."*
 - *"Build the next lesson."*

@@ -249,7 +249,13 @@ details.later .list { margin-top: 10px; }
 
 // ---------- storage (per browser; export/import to move between devices) ----------
 const KEY = "pinyin-flashcards-v1";
-const DEFAULT_STATE = { unlocked: [], cards: {}, lessons: {}, settings: { newPerDay: 15, numbers: true }, newToday: { day: "", count: 0 } };
+const DEFAULT_STATE = { unlocked: [], cards: {}, lessons: {}, log: [], settings: { newPerDay: 15, numbers: true }, newToday: { day: "", count: 0 } };
+// Activity log for "Copy progress for Claude": finished lessons, wrong answers, flashcard grades.
+const LOG_MAX = 3000;
+function logEvent(e) {
+  state.log.push({ d: new Date().toISOString().slice(0, 19), ...e });
+  if (state.log.length > LOG_MAX) state.log.splice(0, state.log.length - LOG_MAX);
+}
 let state = load();
 function load() {
   try {
@@ -412,6 +418,7 @@ function grade(cardId, g) {   // g: 1 again, 2 hard, 3 good, 4 easy
     c.due = startOfToday() + c.interval * DAY;
   }
   state.cards[cardId] = c;
+  logEvent({ t: "review", card: cardId, grade: ["", "again", "hard", "good", "easy"][g] });
   save();
 }
 function intervalLabel(cardId, g) {
@@ -481,7 +488,70 @@ view.addEventListener("click", e => {
   if (p) play(p.dataset.play, false);
   if (s) play(s.dataset.slow, true);
   if (q) playSeq(q.dataset.seq.split(" "));
+  if (e.target.closest("[data-copy-progress]")) copyProgress();
 });
+
+// ---------- Copy progress for Claude ----------
+// A readable summary plus the exact new log entries since the last copy, as JSON.
+function progressReport() {
+  const now = new Date().toISOString().slice(0, 16).replace("T", " ");
+  const since = state.copiedAt || "";
+  const fresh = state.log.filter(e => e.d > since);
+  const lines = [`## Pinyin progress (copied ${now} UTC${since ? `, new since ${since.replace("T", " ")}` : ""})`, ""];
+
+  const done = DATA.lessons.filter(l => state.lessons[l.id]);
+  lines.push(`**Lessons done:** ${done.length ? done.map(l => {
+    const st = state.lessons[l.id];
+    return `${l.id} (${st.done}, best ${st.best}%, ${st.times}×)`;
+  }).join(", ") : "none yet"}`);
+
+  const runs = fresh.filter(e => e.t === "lesson");
+  if (runs.length) lines.push(`**Lessons since last copy:** ${runs.map(e => `${e.lesson} ${e.score}% in ${e.minutes} min`).join(", ")}`);
+
+  const misses = state.log.filter(e => e.t === "mistake");
+  if (misses.length) {
+    const count = {};
+    for (const e of misses) { const k = `${e.type}: ${e.want} → ${e.got}`; count[k] = (count[k] || 0) + 1; }
+    const top = Object.entries(count).sort((a, b) => b[1] - a[1]).slice(0, 12);
+    lines.push("", `**Most frequent mistakes** (all time, ${misses.length} in total):`);
+    top.forEach(([k, n]) => lines.push(`- ${n}× ${k}`));
+  }
+
+  const reviews = state.log.filter(e => e.t === "review");
+  if (reviews.length) {
+    const week = new Date(Date.now() - 7 * DAY).toISOString().slice(0, 16);
+    const again = {};
+    for (const e of reviews) if (e.grade === "again") again[e.card] = (again[e.card] || 0) + 1;
+    const hard = Object.entries(again).sort((a, b) => b[1] - a[1]).slice(0, 10);
+    const { due } = counts();
+    lines.push("", `**Flashcards:** ${reviews.length} reviews in total, ${reviews.filter(e => e.d > week).length} in the last 7 days, ${due} due now.`);
+    if (hard.length) lines.push(`Forgotten most often: ${hard.map(([c, n]) => {
+      const [id, type] = c.split(":");
+      return `${byId[id] ? byId[id].pinyin : id} (${type}) ${n}×`;
+    }).join(", ")}`);
+  }
+
+  const data = { v: 1, copied: now, since, lessons: state.lessons, log: fresh };
+  lines.push("", "```json", JSON.stringify(data), "```");
+  return lines.join("\n");
+}
+async function copyProgress() {
+  const text = progressReport();
+  const msgs = view.querySelectorAll("[data-copy-msg]");
+  const mark = () => { state.copiedAt = new Date().toISOString().slice(0, 19); save(); };
+  try {
+    await navigator.clipboard.writeText(text);
+    mark();
+    msgs.forEach(m => m.textContent = "Copied. Paste it into your chat with Claude.");
+  } catch {
+    // no clipboard access (e.g. some phones): show the text to copy by hand
+    msgs.forEach(m => {
+      m.innerHTML = `Select all and copy:<textarea readonly style="width:100%;height:160px;margin-top:6px;font:12px monospace">${esc(text)}</textarea>`;
+      const ta = m.querySelector("textarea"); ta.focus(); ta.select();
+    });
+    mark();
+  }
+}
 
 // ---------- Learn: the lesson path ----------
 function renderLearn() {
@@ -559,6 +629,7 @@ const answerLine = item => `<div class="fbans"><b>${esc(item.pinyin)}</b><span>$
 // Show right/wrong. A wrong exercise comes back at the end of the lesson (up to twice).
 function judge(entry, ok, { title, reveal = "", playId = null, requeue = true } = {}) {
   if (!ok) {
+    logMistake(entry);
     L.wrong.add(entry.i);
     if (requeue && entry.tries < 2) L.queue.push({ ...entry, tries: entry.tries + 1 });
   }
@@ -574,6 +645,18 @@ function judge(entry, ok, { title, reveal = "", playId = null, requeue = true } 
     else if (e.key === "p" && playId) play(playId);
   };
 }
+function logMistake(entry) {
+  const s = entry.s, g = entry.given;
+  const it = byId[s.item || s.play];
+  const want = s.pair ? s.pair.map(id => byId[id].pinyin).join(" / ") + (byId[s.pair[0]].pinyin === byId[s.pair[1]].pinyin ? " (same)" : " (different)")
+             : s.type === "match" ? s.items.map(id => byId[id].pinyin).join(", ")
+             : it ? it.pinyin + (s.type === "meaning" ? ` = ${it.english}` : "") : "";
+  const got = g === undefined ? "" : s.type === "tone" ? TONE_NAME[g]
+            : s.type === "meaning" ? (byId[g] ? byId[g].english : g)
+            : s.type === "audio" ? (byId[g] ? byId[g].pinyin : g)
+            : s.type === "same" ? (g === "same" ? "said same" : "said different") : String(g);
+  logEvent({ t: "mistake", lesson: L.lesson.id, step: entry.i, type: s.type, want, got, retry: entry.tries });
+}
 // Multiple choice: buttons with data-k; isRight(k) says which is correct.
 function choose(entry, isRight, after) {
   const btns = [...view.querySelectorAll("[data-k]")];
@@ -581,6 +664,7 @@ function choose(entry, isRight, after) {
   const pick = b => {
     if (answered) return; answered = true;
     const ok = isRight(b.dataset.k);
+    entry.given = b.dataset.k;
     btns.forEach(x => { x.disabled = true; if (isRight(x.dataset.k)) x.classList.add("right"); });
     if (!ok) b.classList.add("wrong");
     after(ok);
@@ -647,6 +731,7 @@ const STEPS = {
         if (b.dataset.pick === it.id) b.classList.add("right");
         else if (b.dataset.pick === picked) b.classList.add("wrong");
       });
+      entry.given = picked;
       judge(entry, picked === it.id, { reveal: answerLine(it) });
     };
     keyHandler = e => { const n = +e.key; if (n >= 1 && n <= btns.length) select(btns[n - 1]); else if (e.key === "Enter") check(); };
@@ -729,6 +814,7 @@ const STEPS = {
       if (l.dataset.id === r.dataset.id) {
         l.disabled = r.disabled = true; l.classList.add("done"); r.classList.add("done");
         if (sound) l.textContent = byId[l.dataset.id].pinyin;
+        entry.given = `${mistakes} wrong tap${mistakes === 1 ? "" : "s"}`;
         if (--left === 0) judge(entry, mistakes === 0, { requeue: false,
           title: mistakes ? `✓ Done, with ${mistakes} wrong tap${mistakes > 1 ? "s" : ""}` : "✓ All pairs right!" });
       } else {
@@ -764,6 +850,7 @@ const STEPS = {
       if (done || !chosen.length) return; done = true;
       const given = chosen.map(k => bank[k]);
       const ok = given.length === answer.length && given.every((w, n) => samePinyin(w, answer[n]));
+      entry.given = given.join(" ");
       judge(entry, ok, { reveal: answerLine(it), playId: it.id });
     };
     draw();
@@ -787,6 +874,7 @@ const STEPS = {
       if (done || !input.value.trim()) return; done = true;
       input.disabled = true;
       const v = checkAnswer(input.value, it);
+      entry.given = input.value.trim();
       judge(entry, v === "ok", { title: v === "tones" ? "✗ Almost: the tones aren't right" : null,
                                  reveal: answerLine(it), playId: s.from === "audio" ? null : it.id });
     };
@@ -856,6 +944,7 @@ function finishLesson() {
   state.lessons[lesson.id] = { done: prev ? prev.done : today(), last: today(),
                                best: Math.max(prev ? prev.best : 0, accuracy), times: (prev ? prev.times : 0) + 1 };
   markLessonDone(lesson.id);
+  logEvent({ t: "lesson", lesson: lesson.id, score: accuracy, minutes, wrong: L.wrong.size, exercises });
   save(); updateStat();
   const learned = DATA.items.filter(i => i.lesson === lesson.id && i.kind !== "sound");
   const next = DATA.lessons.find(l => !state.lessons[l.id]);
@@ -869,6 +958,7 @@ function finishLesson() {
       <div><b>${learned.length}</b><span class="small muted">words &amp; phrases</span></div></div>
     <p class="muted small">${prev ? "" : "They're now in your reviews, first due tomorrow, and in <a href=\"#words\" style=\"color:var(--accent)\">Words</a>. "}
       <a href="${GITHUB}lessons/${lesson.file}" target="_blank" rel="noopener" style="color:var(--accent)">Lesson notes ↗</a></p>
+    <div class="row"><button class="btn" data-copy-progress>📋 Copy progress for Claude</button></div><div data-copy-msg class="muted small"></div>
     <div class="row">${next ? `<a class="btn primary" href="#lesson/${next.id}">Next lesson</a>` : ""}
       <a class="btn${next ? "" : " primary"}" href="#learn">Back to lessons</a></div></div>`;
 }
@@ -1101,6 +1191,10 @@ function renderSettings() {
     </div>
     <h2>Your progress</h2>
     <div class="card">
+      <p class="muted small" style="margin-top:0"><b>For Claude:</b> copy your progress and paste it into a chat with Claude. It's a short summary (lessons, mistakes, flashcards) that Claude uses to adapt the next lessons.</p>
+      <div class="row" style="justify-content:flex-start;margin-top:0"><button class="btn primary" data-copy-progress>📋 Copy progress for Claude</button></div>
+      <div data-copy-msg class="muted small"></div>
+      <hr>
       <p class="muted small" style="margin-top:0">Progress is saved in this browser only. To move it to another device, export here and import there.</p>
       <div class="row" style="justify-content:flex-start">
         <button class="btn" id="export">Export</button>
