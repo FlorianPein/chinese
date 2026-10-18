@@ -1,6 +1,6 @@
 {
   "lesson": "P03",
-  "goal": "Hear ge ke he in all four tones, hear g from k and the 1st tone from the 4th, and say I'm thirsty and me and my brother.",
+  "goal": "Hear ge ke he in all four tones, hear g from k and the 4th tone from the 3rd and the 1st, and say I'm thirsty and me and my brother.",
   "items": [
     {"id": "he", "kind": "word", "pinyin": "hē", "english": "to drink", "hanzi": "喝", "note": "High and flat. The h is rough, from the back of the mouth, like German ach."},
     {"id": "he-and", "kind": "word", "pinyin": "hé", "english": "and", "hanzi": "和", "note": "Rising. It joins two nouns (me and you), not two sentences."},
@@ -19,7 +19,15 @@
     {"type": "hear", "play": "s-te2", "options": ["dé", "té"]},
     {"type": "tone", "play": "s-ne3", "options": [1, 2, 3, 4]},
     {"type": "meaning", "item": "wo-e-le", "from": "audio", "options": ["wo-e-le", "wo-ne", "wode"]},
-    {"type": "meaning", "item": "fo", "from": "audio", "options": ["fo", "e", "mo"]},
+    {"type": "meaning", "item": "wo-ne", "from": "audio", "options": ["wo-ne", "wode", "wo-e-le"]},
+
+    {"type": "intro", "title": "3rd or 4th?",
+     "text": "Both can sound like they go down, but they start in different places.\n\nThe **4th** starts **high** and drops fast, like a firm *No!* (German *Nein!*). It's the shortest tone.\n\nThe **3rd** starts **low**, sinks even lower, then comes back up, like a doubtful *Hmm…?* (German *Naja…*). Said on its own it's the longest tone.\n\nThe marks draw the shapes: **ˋ** slopes down (lè), **ˇ** is a little valley, down and up again (lě).\n\nEach row is 3rd, then 4th.",
+     "rows": [["s-le3", "s-le4"], ["s-ne3", "s-ne4"], ["s-po3", "s-po4"], ["s-e3", "s-e4"]]},
+    {"type": "same", "pair": ["s-le3", "s-le4"]},
+    {"type": "audio", "item": "s-ne4", "options": ["s-ne3", "s-ne4"]},
+    {"type": "tone", "play": "s-po3", "options": [1, 2, 3, 4]},
+    {"type": "type", "item": "e", "from": "audio"},
 
     {"type": "intro", "title": "g and k: the puff, a third time",
      "text": "Today: the back of the tongue, **g k h**, with the **e** from P02.\n\n**g** and **k** are a pair like b/p and d/t. **k** has a strong puff of air (English *kite*, German *Kuh*). **g** has none: it's the *k* in English *sky*, not the buzzing *g* of English *go*.\n\nHand in front of your mouth again: you should only feel air on the k.",
@@ -43,8 +51,8 @@
     {"type": "tone", "play": "s-ge4", "options": [1, 2, 3, 4]},
     {"type": "tone", "play": "s-he1", "options": [1, 2, 3, 4]},
     {"type": "tone", "play": "s-ke3", "options": [1, 2, 3, 4]},
-    {"type": "same", "pair": ["s-he4", "s-he4"]},
-    {"type": "tone", "play": "s-de2", "options": [1, 2, 3, 4]},
+    {"type": "same", "pair": ["s-he3", "s-he4"]},
+    {"type": "tone", "play": "s-le4", "options": [1, 2, 3, 4]},
     {"type": "audio", "item": "s-ke1", "options": ["s-ge1", "s-ke1", "s-ke4"]},
     {"type": "match", "mode": "sound", "items": ["s-ge1", "s-ke2", "s-he3", "s-te4"]},
     {"type": "hear", "play": "s-ge2", "options": ["gē", "gé", "gě", "gè"]},

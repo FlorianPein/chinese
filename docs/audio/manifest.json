@@ -42,8 +42,9 @@
  },
  "ji": {
   "tokens": "ji3 .",
-  "method": "natural",
-  "score": 2.6
+  "method": "pitch-edited",
+  "score": 3.0,
+  "from": "ji3"
  },
  "ji-ge": {
   "tokens": "ji3 ge4 .",
@@ -63,7 +64,7 @@
  "ke-thirsty": {
   "tokens": "ke3 .",
   "method": "pitch-edited",
-  "score": 3.7,
+  "score": 2.4,
   "from": "ke4"
  },
  "kele": {
@@ -119,7 +120,7 @@
  "s-bo3": {
   "tokens": "bo3 .",
   "method": "pitch-edited",
-  "score": 3.7,
+  "score": 2.9,
   "from": "bo4"
  },
  "s-bo4": {
@@ -142,7 +143,7 @@
  "s-ce3": {
   "tokens": "ce3 .",
   "method": "pitch-edited",
-  "score": 3.8,
+  "score": 2.4,
   "from": "ce4"
  },
  "s-ce4": {
@@ -164,7 +165,7 @@
  "s-che3": {
   "tokens": "che3 .",
   "method": "pitch-edited",
-  "score": 3.9,
+  "score": 3.0,
   "from": "che1"
  },
  "s-che4": {
@@ -186,7 +187,7 @@
  "s-de3": {
   "tokens": "de3 .",
   "method": "pitch-edited",
-  "score": 3.8,
+  "score": 3.1,
   "from": "de2"
  },
  "s-de4": {
@@ -208,8 +209,9 @@
  },
  "s-e3": {
   "tokens": "e3 .",
-  "method": "natural",
-  "score": 1.1
+  "method": "pitch-edited",
+  "score": 2.8,
+  "from": "e3"
  },
  "s-e4": {
   "tokens": "e4 .",
@@ -230,7 +232,7 @@
  "s-fo3": {
   "tokens": "fo3 .",
   "method": "pitch-edited",
-  "score": 3.9,
+  "score": 2.6,
   "from": "fo2"
  },
  "s-fo4": {
@@ -253,7 +255,7 @@
  "s-ge3": {
   "tokens": "ge3 .",
   "method": "pitch-edited",
-  "score": 3.8,
+  "score": 2.8,
   "from": "ge1"
  },
  "s-ge4": {
@@ -275,7 +277,7 @@
  "s-he3": {
   "tokens": "he3 .",
   "method": "pitch-edited",
-  "score": 3.7,
+  "score": 2.8,
   "from": "he4"
  },
  "s-he4": {
@@ -295,8 +297,9 @@
  },
  "s-ji3": {
   "tokens": "ji3 .",
-  "method": "natural",
-  "score": 2.6
+  "method": "pitch-edited",
+  "score": 3.0,
+  "from": "ji3"
  },
  "s-ji4": {
   "tokens": "ji4 .",
@@ -316,7 +319,7 @@
  "s-ke3": {
   "tokens": "ke3 .",
   "method": "pitch-edited",
-  "score": 3.7,
+  "score": 2.4,
   "from": "ke4"
  },
  "s-ke4": {
@@ -339,7 +342,7 @@
  "s-le3": {
   "tokens": "le3 .",
   "method": "pitch-edited",
-  "score": 3.8,
+  "score": 2.8,
   "from": "le4"
  },
  "s-le4": {
@@ -360,7 +363,7 @@
  "s-mo3": {
   "tokens": "mo3 .",
   "method": "pitch-edited",
-  "score": 3.9,
+  "score": 2.7,
   "from": "mo4"
  },
  "s-mo4": {
@@ -383,7 +386,7 @@
  "s-ne3": {
   "tokens": "ne3 .",
   "method": "pitch-edited",
-  "score": 3.8,
+  "score": 2.7,
   "from": "ne4"
  },
  "s-ne4": {
@@ -404,7 +407,7 @@
  "s-po3": {
   "tokens": "po3 .",
   "method": "pitch-edited",
-  "score": 3.8,
+  "score": 2.5,
   "from": "po4"
  },
  "s-po4": {
@@ -424,8 +427,9 @@
  },
  "s-qi3": {
   "tokens": "qi3 .",
-  "method": "natural",
-  "score": 2.6
+  "method": "pitch-edited",
+  "score": 2.8,
+  "from": "qi3"
  },
  "s-qi4": {
   "tokens": "qi4 .",
@@ -446,8 +450,9 @@
  },
  "s-re3": {
   "tokens": "re3 .",
-  "method": "natural",
-  "score": 2.0
+  "method": "pitch-edited",
+  "score": 2.6,
+  "from": "re3"
  },
  "s-re4": {
   "tokens": "re4 .",
@@ -469,7 +474,7 @@
  "s-se3": {
   "tokens": "se3 .",
   "method": "pitch-edited",
-  "score": 3.8,
+  "score": 2.8,
   "from": "se4"
  },
  "s-se4": {
@@ -490,7 +495,7 @@
  "s-she3": {
   "tokens": "she3 .",
   "method": "pitch-edited",
-  "score": 3.8,
+  "score": 2.6,
   "from": "she4"
  },
  "s-she4": {
@@ -513,7 +518,7 @@
  "s-te3": {
   "tokens": "te3 .",
   "method": "pitch-edited",
-  "score": 3.7,
+  "score": 2.9,
   "from": "te4"
  },
  "s-te4": {
@@ -533,8 +538,9 @@
  },
  "s-wo3": {
   "tokens": "wo3 .",
-  "method": "natural",
-  "score": 1.4
+  "method": "pitch-edited",
+  "score": 2.5,
+  "from": "wo3"
  },
  "s-wo4": {
   "tokens": "wo4 .",
@@ -554,7 +560,7 @@
  "s-xi3": {
   "tokens": "xi3 .",
   "method": "pitch-edited",
-  "score": 3.7,
+  "score": 2.4,
   "from": "xi4"
  },
  "s-xi4": {
@@ -576,7 +582,7 @@
  "s-ze3": {
   "tokens": "ze3 .",
   "method": "pitch-edited",
-  "score": 3.7,
+  "score": 2.6,
   "from": "ze4"
  },
  "s-ze4": {
@@ -596,8 +602,9 @@
  },
  "s-zhe3": {
   "tokens": "zhe3 .",
-  "method": "natural",
-  "score": 1.7
+  "method": "pitch-edited",
+  "score": 2.6,
+  "from": "zhe3"
  },
  "s-zhe4": {
   "tokens": "zhe4 .",
@@ -611,8 +618,9 @@
  },
  "wo": {
   "tokens": "wo3 .",
-  "method": "natural",
-  "score": 1.4
+  "method": "pitch-edited",
+  "score": 2.5,
+  "from": "wo3"
  },
  "wo-de-che": {
   "tokens": "wo3 de che1 .",
@@ -662,7 +670,7 @@
  "xi": {
   "tokens": "xi3 .",
   "method": "pitch-edited",
-  "score": 3.7,
+  "score": 2.4,
   "from": "xi4"
  },
  "zhe": {

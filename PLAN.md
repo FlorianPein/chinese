@@ -44,7 +44,7 @@ So `a` with the lips group is the block **ba pa ma fa**, and `a` with the tongue
 - **P01–P06: one group of initials per lesson**, each with the one final that suits it (*o* after the lips, *e* after the others, *i* after j q x). So the first six lessons go through every initial with almost the same vowel, and what you learn to hear is the initials: *bo/po*, *de/te*, *ge/ke*, *ze/ce*, *zhe/che*, *ji/qi*, and *ze/zhe/ji* side by side.
 - **P07–P08: recap** of the first six. No new sounds: P07 mixes the pairs with and without a puff of air (b/p, d/t, g/k, z/c, zh/ch, j/q), P08 the three tongue positions (z/zh/j, c/ch/q, s/sh/x). Mixed in random order, all four tones, faster than before.
 - **From P09: mixed and faster.** Each lesson takes a new final, or a pair of finals that are easy to confuse (*ai/ei*, *an/ang*, *en/eng*, *in/ing*, *u/ü*), across several groups of initials at once, in no fixed order. Lessons cover more of the chart each time: 3 blocks in P10, up to 15 in P23.
-- **All four tones from the start, never separated**: P01 introduces all four side by side. From then on every chart shows all four tones and every tone question offers all four, because the tones are learned by hearing them against each other. Each early lesson also trains one hard contrast: P02 the 2nd against the 3rd (and the light neutral tone in *wǒ de*), P03 the 1st against the 4th.
+- **All four tones from the start, never separated**: P01 introduces all four side by side. From then on every chart shows all four tones and every tone question offers all four, because the tones are learned by hearing them against each other. Each early lesson also trains one hard contrast: P02 the 2nd against the 3rd (and the light neutral tone in *wǒ de*), P03 the 4th against the 3rd (low, dips and comes back up) and the 1st (stays high).
 - **Tone changes** are taught where they first come up: *bù → bú* before a 4th tone (P11), *yī → yí* (as soon as *yí gè* appears), and two 3rd tones in a row (*nǐ hǎo*, P14).
 
 **The order: 24 lessons in 7 topics.** The full list, with the chart showing which lesson teaches each of the 404 syllables, is in **[CHART.md](CHART.md)** (generated from `data/course.json`).
@@ -53,7 +53,7 @@ So `a` with the lips group is the block **ba pa ma fa**, and `a` with the tongue
 |-------|---------|-----------|---------------|
 | One group of initials per lesson | P01 | bo po mo fo · wo; the four tones | `wǒ`, `pò`, `mō`, `fó` |
 | | P02 | de te ne le · me · e; 2nd vs 3rd; neutral tone | `è`, `wǒ de`, *Wǒ è le.* |
-| | P03 | ge ke he; 1st vs 4th | `hē`, `hé`, `kě`, `gēge`, *Wǒ kě le.* |
+| | P03 | ge ke he; 4th vs 3rd and 1st | `hē`, `hé`, `kě`, `gēge`, *Wǒ kě le.* |
 | | P04 | ze ce se; s is always sharp (German ß) | `sè`, `gè`, `kè` |
 | | P05 | zhe che she re; z vs zh, s vs sh | `zhè`, `chē`, `rè`, `zhège`, *Zhège ne?* |
 | | P06 | ji qi xi; x = German *ich* | `qī`, `jǐ`, `xǐ`, `qìchē`, *Wǒ xǐ chē.* |
@@ -159,7 +159,7 @@ All six follow the same pattern as P02: a warm-up on the previous lesson, the ne
 
 | Lesson | Explanations | Contrasts drilled | Words and phrases |
 |--------|--------------|-------------------|-------------------|
-| P03 | g/k (the puff a third time); h is rough like German *ach*; 1st vs 4th (both start high: stay or drop) | gē/kē, kē/hē, kē/kè | `hē` (drink), `hé` (and), `kě` (thirsty), `gēge`, *Wǒ kě le.*, *Wǒ hé gēge* |
+| P03 | g/k (the puff a third time); h is rough like German *ach*; 4th vs 3rd (high and falling, or low, dipping and rising) and 4th vs 1st (both start high: stay or drop) | gē/kē, kē/hē, lě/lè, kē/kè | `hē` (drink), `hé` (and), `kě` (thirsty), `gēge`, *Wǒ kě le.*, *Wǒ hé gēge* |
 | P04 | z = soft ts (German *Zeit*, no puff); c = ts with a puff, never k or s; s always sharp like *ß* | dé/zé, zè/cè, tè/cè, zè/cè/sè | `sè`, `gè`, `kè`: all 4th tone, so only the initial differs |
 | P05 | zh ch sh r with the tongue curled back (German *dsch, tsch, sch*; r like English *run*) | zhè/chè, ze/zhe, ce/che, se/she, rè/lè | `zhè`, `chē`, `rè`, `zhège`, *Wǒ de chē*, *Zhège ne?* |
 | P06 | the vowel i; j q x with a flat tongue; x = German *ich*; three tongue positions side by side | jì/qì, she/xi, sè/shè/xì | `qī`, `jǐ`, `xǐ`, `qìchē`, *Wǒ xǐ chē.* |

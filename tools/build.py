@@ -504,9 +504,16 @@ SPEED = {1: 0.9}     # single syllables a little slower: easier to hear the tone
 # Target tone shapes for pitch editing, as (time 0–1, level 1–5) on the
 # usual 5-level scale; level L is -1 + 2.6 * (L - 1) semitones above 200 Hz.
 # A syllable said alone gets the full shape; inside a phrase the 3rd tone
-# just stays low.
+# just stays low. The 3rd tone said alone dips early and rises well before
+# the voice fades out: a rise only at the very end is too quiet to hear,
+# and then the 3rd sounds like a low 4th.
 SHAPES = {1: [(0, 5), (1, 4.9)], 2: [(0, 3), (0.3, 2.8), (1, 5)],
-          3: [(0, 2.3), (0.55, 1), (0.8, 1.2), (1, 3.3)], 4: [(0, 5.2), (1, 1.3)]}
+          3: [(0, 2.3), (0.4, 1), (0.6, 1.1), (1, 4)], 4: [(0, 5.2), (1, 1.3)]}
+# The 3rd tone is the longest one when said alone, and its rise needs to be
+# loud: the vowel of a 3rd tone made from another tone is stretched, and the
+# end of it (where the voice would fade) is made louder.
+STRETCH_3RD = 1.4
+LIFT_3RD_DB = 7
 SHAPES_IN_PHRASE = {**SHAPES, 2: [(0, 3), (0.3, 2.8), (1, 4.8)],
                     3: [(0, 2.2), (0.6, 1), (1, 1.3)], 4: [(0, 5), (1, 1.8)]}
 
@@ -529,8 +536,20 @@ def retone(samples, sr, tone):
     for x, level in SHAPES[tone]:
         call(tier, "Add point", t0 + x * (t1 - t0), hz(level))
     call([tier, manip], "Replace pitch tier")
+    if tone == 3:
+        dur = call("Create DurationTier", "stretch", snd.xmin, snd.xmax)
+        for x, k in [(t0 - 0.001, 1), (t0 + 0.03, STRETCH_3RD), (t1 - 0.03, STRETCH_3RD), (t1 + 0.001, 1)]:
+            call(dur, "Add point", x, k)
+        call([dur, manip], "Replace duration tier")
     out = call(manip, "Get resynthesis (overlap-add)")
-    return np.array(out.values[0], dtype=np.float32), sr
+    y = np.array(out.values[0], dtype=np.float32)
+    if tone == 3:
+        t, f0 = pitch_track(y, sr)
+        voiced = t[f0 > 0]
+        x = (np.arange(len(y)) / sr - voiced[0]) / (voiced[-1] - voiced[0])
+        gain = np.interp(x, [0.45, 0.9, 1.0, 1.15], [0, LIFT_3RD_DB, LIFT_3RD_DB, 0], left=0, right=0)
+        y = (y * 10 ** (gain / 20)).astype(np.float32)
+    return y, sr
 
 
 def fix_phrase(samples, sr, tones):
@@ -593,6 +612,13 @@ def make_take(speaker, tokens, lexicon):
             if made is None:
                 raise SystemExit(f"ERROR: no usable take of {base} in any tone")
             return made
+        if tones[0] == 3:
+            # the voice learned the 3rd tone from sentences, where it is
+            # short and only falls; said alone it needs the full dip and rise
+            sources = [3] if 3 in trained else [t for t in (1, 4) if t in trained] or trained[:2]
+            made = pitch_edit(speaker, base, 3, sources, base_speed)
+            if made:
+                return made
     best = None
     for k in range(TAKES):
         y, sr = speaker.say(tokens, base_speed * (1.0, 0.92, 1.08)[k % 3])

@@ -4,21 +4,21 @@
 
 Every syllable of Mandarin, with the lesson that teaches it (the small number). **Bold** means you've done that lesson. Initials go down, finals go across, like the [Yabla chart](https://chinese.yabla.com/chinese-pinyin-chart.php).
 
-24 lessons · 404 syllables · 0 lessons done · [lesson order](#lesson-order) · [words you've seen](WORDS.md)
+24 lessons · 404 syllables · 1 lessons done · [lesson order](#lesson-order) · [words you've seen](WORDS.md)
 
 ### Simple and compound finals
 
 | | **a** | **o** | **e** | **-i** | **er** | **ai** | **ei** | **ao** | **ou** | **an** | **en** | **ang** | **eng** | **ong** |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| **–** | a<sub>9</sub> | o<sub>1</sub> | e<sub>2</sub> |  | er<sub>10</sub> | ai<sub>13</sub> | ei<sub>13</sub> | ao<sub>14</sub> | ou<sub>14</sub> | an<sub>16</sub> | en<sub>18</sub> | ang<sub>16</sub> | eng<sub>18</sub> |  |
+| **–** | a<sub>9</sub> | o<sub>1</sub> | **e**<sub>2</sub> |  | er<sub>10</sub> | ai<sub>13</sub> | ei<sub>13</sub> | ao<sub>14</sub> | ou<sub>14</sub> | an<sub>16</sub> | en<sub>18</sub> | ang<sub>16</sub> | eng<sub>18</sub> |  |
 | **b** | ba<sub>9</sub> | bo<sub>1</sub> |  |  |  | bai<sub>13</sub> | bei<sub>13</sub> | bao<sub>14</sub> |  | ban<sub>16</sub> | ben<sub>18</sub> | bang<sub>16</sub> | beng<sub>18</sub> |  |
 | **p** | pa<sub>9</sub> | po<sub>1</sub> |  |  |  | pai<sub>13</sub> | pei<sub>13</sub> | pao<sub>14</sub> | pou<sub>14</sub> | pan<sub>16</sub> | pen<sub>18</sub> | pang<sub>16</sub> | peng<sub>18</sub> |  |
-| **m** | ma<sub>9</sub> | mo<sub>1</sub> | me<sub>2</sub> |  |  | mai<sub>13</sub> | mei<sub>13</sub> | mao<sub>14</sub> | mou<sub>14</sub> | man<sub>16</sub> | men<sub>18</sub> | mang<sub>16</sub> | meng<sub>18</sub> |  |
+| **m** | ma<sub>9</sub> | mo<sub>1</sub> | **me**<sub>2</sub> |  |  | mai<sub>13</sub> | mei<sub>13</sub> | mao<sub>14</sub> | mou<sub>14</sub> | man<sub>16</sub> | men<sub>18</sub> | mang<sub>16</sub> | meng<sub>18</sub> |  |
 | **f** | fa<sub>9</sub> | fo<sub>1</sub> |  |  |  |  | fei<sub>13</sub> |  | fou<sub>14</sub> | fan<sub>16</sub> | fen<sub>18</sub> | fang<sub>16</sub> | feng<sub>18</sub> |  |
-| **d** | da<sub>9</sub> |  | de<sub>2</sub> |  |  | dai<sub>13</sub> | dei<sub>13</sub> | dao<sub>14</sub> | dou<sub>14</sub> | dan<sub>16</sub> |  | dang<sub>16</sub> | deng<sub>18</sub> | dong<sub>17</sub> |
-| **t** | ta<sub>9</sub> |  | te<sub>2</sub> |  |  | tai<sub>13</sub> |  | tao<sub>14</sub> | tou<sub>14</sub> | tan<sub>16</sub> |  | tang<sub>16</sub> | teng<sub>18</sub> | tong<sub>17</sub> |
-| **n** | na<sub>9</sub> |  | ne<sub>2</sub> |  |  | nai<sub>13</sub> | nei<sub>13</sub> | nao<sub>14</sub> |  | nan<sub>16</sub> | nen<sub>18</sub> | nang<sub>16</sub> | neng<sub>18</sub> | nong<sub>17</sub> |
-| **l** | la<sub>9</sub> |  | le<sub>2</sub> |  |  | lai<sub>13</sub> | lei<sub>13</sub> | lao<sub>14</sub> | lou<sub>14</sub> | lan<sub>16</sub> |  | lang<sub>16</sub> | leng<sub>18</sub> | long<sub>17</sub> |
+| **d** | da<sub>9</sub> |  | **de**<sub>2</sub> |  |  | dai<sub>13</sub> | dei<sub>13</sub> | dao<sub>14</sub> | dou<sub>14</sub> | dan<sub>16</sub> |  | dang<sub>16</sub> | deng<sub>18</sub> | dong<sub>17</sub> |
+| **t** | ta<sub>9</sub> |  | **te**<sub>2</sub> |  |  | tai<sub>13</sub> |  | tao<sub>14</sub> | tou<sub>14</sub> | tan<sub>16</sub> |  | tang<sub>16</sub> | teng<sub>18</sub> | tong<sub>17</sub> |
+| **n** | na<sub>9</sub> |  | **ne**<sub>2</sub> |  |  | nai<sub>13</sub> | nei<sub>13</sub> | nao<sub>14</sub> |  | nan<sub>16</sub> | nen<sub>18</sub> | nang<sub>16</sub> | neng<sub>18</sub> | nong<sub>17</sub> |
+| **l** | la<sub>9</sub> |  | **le**<sub>2</sub> |  |  | lai<sub>13</sub> | lei<sub>13</sub> | lao<sub>14</sub> | lou<sub>14</sub> | lan<sub>16</sub> |  | lang<sub>16</sub> | leng<sub>18</sub> | long<sub>17</sub> |
 | **g** | ga<sub>9</sub> |  | ge<sub>3</sub> |  |  | gai<sub>13</sub> | gei<sub>13</sub> | gao<sub>14</sub> | gou<sub>14</sub> | gan<sub>16</sub> | gen<sub>18</sub> | gang<sub>16</sub> | geng<sub>18</sub> | gong<sub>17</sub> |
 | **k** | ka<sub>9</sub> |  | ke<sub>3</sub> |  |  | kai<sub>13</sub> |  | kao<sub>14</sub> | kou<sub>14</sub> | kan<sub>16</sub> | ken<sub>18</sub> | kang<sub>16</sub> | keng<sub>18</sub> | kong<sub>17</sub> |
 | **h** | ha<sub>9</sub> |  | he<sub>3</sub> |  |  | hai<sub>13</sub> | hei<sub>13</sub> | hao<sub>14</sub> | hou<sub>14</sub> | han<sub>16</sub> | hen<sub>18</sub> | hang<sub>16</sub> | heng<sub>18</sub> | hong<sub>17</sub> |
@@ -90,7 +90,7 @@ Each lesson teaches one or more blocks of the chart and 2–5 words that use onl
 | # | Syllables | New tones | Focus | Words | Status |
 |---|---|---|---|---|---|
 | [P01](lessons/P01.md) | bo po mo fo · o · wo | 1st, 2nd, 3rd, 4th | All four tones, side by side; b vs p (the puff of air); the o that sounds like wo | wǒ (I, me), pò (broken), mō (to touch, to feel), fó (Buddha) | [ready](https://florianpein.github.io/chinese/#lesson/P01) |
-| [P02](lessons/P02.md) | de te ne le · me · e | neutral | The vowel e; d vs t; the 2nd tone against the 3rd; the light neutral tone | è (hungry), wǒ de (my, mine) | [ready](https://florianpein.github.io/chinese/#lesson/P02) |
+| [P02](lessons/P02.md) | de te ne le · me · e | neutral | The vowel e; d vs t; the 2nd tone against the 3rd; the light neutral tone | è (hungry), wǒ de (my, mine) | ✅ done 2026-10-18 |
 | [P03](lessons/P03.md) | ge ke he |  | g vs k; the rough h; the 1st tone against the 4th | hē (to drink), hé (and), kě (thirsty), gēge (older brother) | [ready](https://florianpein.github.io/chinese/#lesson/P03) |
 | [P04](lessons/P04.md) | ze ce se |  | z = a soft German z (ts), c = ts with a puff, s always sharp; z vs c vs d and t | sè (colour), gè (counting word for people and things), kè (class, lesson) | [ready](https://florianpein.github.io/chinese/#lesson/P04) |
 | [P05](lessons/P05.md) | zhe che she re |  | The tongue curled back; ze vs zhe, se vs she | zhè (this), chē (vehicle, car), rè (hot), zhège (this one) | [ready](https://florianpein.github.io/chinese/#lesson/P05) |

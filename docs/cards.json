@@ -1022,7 +1022,7 @@
    "topic": "T01",
    "title": "ge ke he",
    "focus": "g vs k; the rough h; the 1st tone against the 4th",
-   "goal": "Hear ge ke he in all four tones, hear g from k and the 1st tone from the 4th, and say I'm thirsty and me and my brother.",
+   "goal": "Hear ge ke he in all four tones, hear g from k and the 4th tone from the 3rd and the 1st, and say I'm thirsty and me and my brother.",
    "file": "P03.md",
    "steps": [
     {
@@ -1086,13 +1086,66 @@
     },
     {
      "type": "meaning",
-     "item": "fo",
+     "item": "wo-ne",
      "from": "audio",
      "options": [
-      "fo",
-      "e",
-      "mo"
+      "wo-ne",
+      "wode",
+      "wo-e-le"
      ]
+    },
+    {
+     "type": "intro",
+     "title": "3rd or 4th?",
+     "text": "Both can sound like they go down, but they start in different places.\n\nThe **4th** starts **high** and drops fast, like a firm *No!* (German *Nein!*). It's the shortest tone.\n\nThe **3rd** starts **low**, sinks even lower, then comes back up, like a doubtful *Hmm…?* (German *Naja…*). Said on its own it's the longest tone.\n\nThe marks draw the shapes: **ˋ** slopes down (lè), **ˇ** is a little valley, down and up again (lě).\n\nEach row is 3rd, then 4th.",
+     "rows": [
+      [
+       "s-le3",
+       "s-le4"
+      ],
+      [
+       "s-ne3",
+       "s-ne4"
+      ],
+      [
+       "s-po3",
+       "s-po4"
+      ],
+      [
+       "s-e3",
+       "s-e4"
+      ]
+     ]
+    },
+    {
+     "type": "same",
+     "pair": [
+      "s-le3",
+      "s-le4"
+     ]
+    },
+    {
+     "type": "audio",
+     "item": "s-ne4",
+     "options": [
+      "s-ne3",
+      "s-ne4"
+     ]
+    },
+    {
+     "type": "tone",
+     "play": "s-po3",
+     "options": [
+      1,
+      2,
+      3,
+      4
+     ]
+    },
+    {
+     "type": "type",
+     "item": "e",
+     "from": "audio"
     },
     {
      "type": "intro",
@@ -1236,13 +1289,13 @@
     {
      "type": "same",
      "pair": [
-      "s-he4",
+      "s-he3",
       "s-he4"
      ]
     },
     {
      "type": "tone",
-     "play": "s-de2",
+     "play": "s-le4",
      "options": [
       1,
       2,
@@ -1393,7 +1446,7 @@
      "from": "english"
     }
    ],
-   "minutes": 11
+   "minutes": 12
   },
   {
    "id": "P04",
@@ -3231,7 +3284,7 @@
     ]
    ],
    "heardAsWritten": true,
-   "v": "a052fcb4",
+   "v": "0fc18e48",
    "note": "Low 3rd tone. The w is a short u gliding into the o, like English war (without the r)."
   },
   {
@@ -3456,7 +3509,7 @@
     ]
    ],
    "heardAsWritten": true,
-   "v": "2a8fff17"
+   "v": "fcaa8420"
   },
   {
    "id": "s-mo4",
@@ -3524,7 +3577,7 @@
     ]
    ],
    "heardAsWritten": true,
-   "v": "3c9ce930"
+   "v": "aa7f418b"
   },
   {
    "id": "s-po3",
@@ -3541,7 +3594,7 @@
     ]
    ],
    "heardAsWritten": true,
-   "v": "ce8567ad"
+   "v": "e699e966"
   },
   {
    "id": "s-fo3",
@@ -3558,7 +3611,7 @@
     ]
    ],
    "heardAsWritten": true,
-   "v": "01b5f2df"
+   "v": "0458fc16"
   },
   {
    "id": "s-fo4",
@@ -3609,7 +3662,7 @@
     ]
    ],
    "heardAsWritten": true,
-   "v": "a052fcb4"
+   "v": "0fc18e48"
   },
   {
    "id": "s-wo4",
@@ -3771,7 +3824,7 @@
     ]
    ],
    "heardAsWritten": true,
-   "v": "334d7f8b"
+   "v": "45a8965b"
   },
   {
    "id": "s-e4",
@@ -3907,7 +3960,7 @@
     ]
    ],
    "heardAsWritten": true,
-   "v": "a4cd0d6d"
+   "v": "27b081ec"
   },
   {
    "id": "s-ne2",
@@ -3941,7 +3994,7 @@
     ]
    ],
    "heardAsWritten": true,
-   "v": "32bba0da"
+   "v": "adefc4d8"
   },
   {
    "id": "s-le2",
@@ -3975,7 +4028,7 @@
     ]
    ],
    "heardAsWritten": true,
-   "v": "c23f1299"
+   "v": "33fbac70"
   },
   {
    "id": "s-de1",
@@ -4026,7 +4079,7 @@
     ]
    ],
    "heardAsWritten": true,
-   "v": "43912e03"
+   "v": "d1e37f6e"
   },
   {
    "id": "s-ne1",
@@ -4113,7 +4166,7 @@
     ]
    ],
    "heardAsWritten": true,
-   "v": "29b613b4",
+   "v": "5f8362b2",
    "note": "Low 3rd tone, with a strong puff on the k."
   },
   {
@@ -4353,7 +4406,7 @@
     ]
    ],
    "heardAsWritten": true,
-   "v": "ce0775bd"
+   "v": "e97f8d1d"
   },
   {
    "id": "s-he4",
@@ -4387,7 +4440,7 @@
     ]
    ],
    "heardAsWritten": true,
-   "v": "46512a46"
+   "v": "ab85b33c"
   },
   {
    "id": "s-ke3",
@@ -4404,7 +4457,7 @@
     ]
    ],
    "heardAsWritten": true,
-   "v": "29b613b4"
+   "v": "5f8362b2"
   },
   {
    "id": "se",
@@ -4560,7 +4613,7 @@
     ]
    ],
    "heardAsWritten": true,
-   "v": "e402d183"
+   "v": "db98e4a7"
   },
   {
    "id": "s-ce1",
@@ -4611,7 +4664,7 @@
     ]
    ],
    "heardAsWritten": true,
-   "v": "a34fd5dd"
+   "v": "5fce57cc"
   },
   {
    "id": "s-se1",
@@ -4662,7 +4715,7 @@
     ]
    ],
    "heardAsWritten": true,
-   "v": "f8c22c13"
+   "v": "276c845c"
   },
   {
    "id": "zhe",
@@ -4966,7 +5019,7 @@
     ]
    ],
    "heardAsWritten": true,
-   "v": "5a53dbec"
+   "v": "e9765561"
   },
   {
    "id": "s-che2",
@@ -5000,7 +5053,7 @@
     ]
    ],
    "heardAsWritten": true,
-   "v": "491d3d8a"
+   "v": "b5bdb9c4"
   },
   {
    "id": "s-she2",
@@ -5034,7 +5087,7 @@
     ]
    ],
    "heardAsWritten": true,
-   "v": "88b9b2d3"
+   "v": "2b266bb9"
   },
   {
    "id": "s-re2",
@@ -5068,7 +5121,7 @@
     ]
    ],
    "heardAsWritten": true,
-   "v": "9fe68a12"
+   "v": "05e3e310"
   },
   {
    "id": "qi",
@@ -5103,7 +5156,7 @@
     ]
    ],
    "heardAsWritten": true,
-   "v": "41bd3fc2",
+   "v": "a052a6d2",
    "note": "Asks for a small number. It needs a counting word after it: jǐ ge (P08)."
   },
   {
@@ -5121,7 +5174,7 @@
     ]
    ],
    "heardAsWritten": true,
-   "v": "7bac4231",
+   "v": "6eeca4fb",
    "note": "x is the German ch of ich. Low 3rd tone."
   },
   {
@@ -5344,7 +5397,7 @@
     ]
    ],
    "heardAsWritten": true,
-   "v": "7bac4231"
+   "v": "6eeca4fb"
   },
   {
    "id": "s-ji3",
@@ -5361,7 +5414,7 @@
     ]
    ],
    "heardAsWritten": true,
-   "v": "41bd3fc2"
+   "v": "a052a6d2"
   },
   {
    "id": "s-qi3",
@@ -5378,7 +5431,7 @@
     ]
    ],
    "heardAsWritten": true,
-   "v": "2a9e09a1"
+   "v": "c6fdbb3a"
   },
   {
    "id": "kele",

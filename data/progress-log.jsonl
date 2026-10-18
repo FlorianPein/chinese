@@ -1,0 +1,13 @@
+{"d": "2026-10-18T20:43:44", "got": "4th tone", "lesson": "P02", "retry": 0, "step": 3, "t": "mistake", "type": "tone", "want": "fó"}
+{"d": "2026-10-18T20:46:25", "got": "dè", "lesson": "P02", "retry": 0, "step": 9, "t": "mistake", "type": "hear", "want": "tè"}
+{"d": "2026-10-18T20:48:51", "got": "4th tone", "lesson": "P02", "retry": 0, "step": 15, "t": "mistake", "type": "tone", "want": "ně"}
+{"d": "2026-10-18T20:49:29", "got": "4th tone", "lesson": "P02", "retry": 0, "step": 17, "t": "mistake", "type": "tone", "want": "pǒ"}
+{"d": "2026-10-18T20:49:44", "got": "3rd tone", "lesson": "P02", "retry": 0, "step": 19, "t": "mistake", "type": "tone", "want": "lè"}
+{"d": "2026-10-18T20:50:00", "got": "lè", "lesson": "P02", "retry": 0, "step": 20, "t": "mistake", "type": "audio", "want": "lě"}
+{"d": "2026-10-18T20:50:40", "got": "1 wrong tap", "lesson": "P02", "retry": 0, "step": 21, "t": "mistake", "type": "match", "want": "dē, té, ně, lè"}
+{"d": "2026-10-18T20:56:02", "got": "1 wrong tap", "lesson": "P02", "retry": 0, "step": 32, "t": "mistake", "type": "match", "want": "è, wǒ de, wǒ, pò, mō"}
+{"d": "2026-10-18T20:56:19", "got": "my, mine", "lesson": "P02", "retry": 0, "step": 34, "t": "mistake", "type": "meaning", "want": "Wǒ ne? = And me? / What about me?"}
+{"d": "2026-10-18T20:56:30", "got": "e", "lesson": "P02", "retry": 0, "step": 35, "t": "mistake", "type": "type", "want": "è"}
+{"d": "2026-10-18T20:58:02", "got": "e3", "lesson": "P02", "retry": 1, "step": 35, "t": "mistake", "type": "type", "want": "è"}
+{"d": "2026-10-18T20:58:12", "got": "e3", "lesson": "P02", "retry": 2, "step": 35, "t": "mistake", "type": "type", "want": "è"}
+{"d": "2026-10-18T20:58:18", "exercises": 26, "lesson": "P02", "minutes": 15, "score": 62, "t": "lesson", "wrong": 10}
