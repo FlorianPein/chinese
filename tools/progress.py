@@ -1,6 +1,7 @@
 """Merge a "Copy progress for Claude" paste from the app into the repo.
 
     python tools/progress.py pasted.txt     # or: ... | python tools/progress.py
+    python tools/progress.py --github       # what the app synced to the progress branch
 
 - data/progress.json gets the lessons done (date, best score, times), which
   build.py uses for WORDS.md and CHART.md. Pastes from different devices add
@@ -14,6 +15,7 @@ Run tools/build.py afterwards to update WORDS.md and CHART.md.
 
 import json
 import re
+import subprocess
 import sys
 from collections import Counter
 from pathlib import Path
@@ -30,9 +32,23 @@ def extract(text):
     return json.loads(m.group(1))
 
 
+def from_github():
+    """The file the app syncs to the progress branch (see README: Sync between devices)."""
+    root = DATA.parent
+    if subprocess.run(["git", "fetch", "-q", "origin", "progress"], cwd=root).returncode:
+        sys.exit("No progress branch on GitHub yet: connect sync in the app first (README: Sync between devices).")
+    synced = json.loads(subprocess.run(["git", "show", "FETCH_HEAD:progress.json"], cwd=root, check=True,
+                                       capture_output=True, text=True).stdout)
+    return {"copied": synced.get("updated", "")[:16].replace("T", " "),
+            "lessons": synced.get("lessons", {}), "log": synced.get("log", [])}
+
+
 def main():
-    text = Path(sys.argv[1]).read_text(encoding="utf-8") if len(sys.argv) > 1 else sys.stdin.read()
-    data = extract(text)
+    if sys.argv[1:] == ["--github"]:
+        data = from_github()
+    else:
+        text = Path(sys.argv[1]).read_text(encoding="utf-8") if len(sys.argv) > 1 else sys.stdin.read()
+        data = extract(text)
 
     progress = json.loads(PROGRESS.read_text()) if PROGRESS.exists() else {}
     # each device (phone, computer) keeps its own progress, so pastes are

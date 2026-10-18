@@ -118,6 +118,8 @@ input[type=text]:focus { outline: 2px solid var(--accent); outline-offset: 1px; 
 .lesson a { color: var(--accent); font-size: .9rem; white-space: nowrap; }
 h2 { font-size: 1rem; margin: 26px 0 10px; color: var(--muted); font-weight: 600; }
 .setting { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 8px 0; }
+.sync-form input { width: 100%; padding: 8px 10px; border-radius: 8px; border: 1px solid var(--border); background: var(--bg); color: var(--text); font-size: 1rem; margin: 4px 0 10px; }
+.sync-form label { display: block; }
 .setting input[type=number] {
   width: 72px; padding: 6px 8px; border-radius: 8px; border: 1px solid var(--border); background: var(--bg);
 }
@@ -247,9 +249,9 @@ details.later .list { margin-top: 10px; }
 <script>
 "use strict";
 
-// ---------- storage (per browser; export/import to move between devices) ----------
+// ---------- storage (per browser; synced through GitHub, or export/import to move between devices) ----------
 const KEY = "pinyin-flashcards-v1";
-const DEFAULT_STATE = { unlocked: [], cards: {}, lessons: {}, log: [], settings: { newPerDay: 15, numbers: true }, newToday: { day: "", count: 0 } };
+const DEFAULT_STATE = { unlocked: [], cards: {}, lessons: {}, removedLessons: {}, log: [], settings: { newPerDay: 15, numbers: true }, newToday: { day: "", count: 0 } };
 // Activity log for "Copy progress for Claude": finished lessons, wrong answers, flashcard grades.
 const LOG_MAX = 3000;
 function logEvent(e) {
@@ -264,7 +266,149 @@ function load() {
   } catch (e) { /* storage unavailable */ }
   return structuredClone(DEFAULT_STATE);
 }
-function save() { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) { /* ignore */ } }
+function saveLocal() { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) { /* ignore */ } }
+function save() { saveLocal(); scheduleSync(); }
+const nowIso = () => new Date().toISOString();
+
+// ---------- sync between devices, through a file on a branch of the GitHub repo ----------
+// The token stays in this browser (its own key, so Export never contains it).
+const SYNC_KEY = "pinyin-sync", SYNC_BRANCH = "progress", SYNC_FILE = "progress.json";
+const SHARED = ["lessons", "removedLessons", "cards", "unlocked", "log"];   // settings stay per device
+let syncCfg = (() => { try { return JSON.parse(localStorage.getItem(SYNC_KEY)) || {}; } catch (e) { return {}; } })();
+let syncTimer = null, syncing = null, syncAgain = false;
+function saveSyncCfg() { try { localStorage.setItem(SYNC_KEY, JSON.stringify(syncCfg)); } catch (e) { /* ignore */ } }
+function scheduleSync() {
+  if (!syncCfg.token) return;
+  clearTimeout(syncTimer);
+  syncTimer = setTimeout(syncNow, 5000);
+}
+// JSON with sorted keys, to tell whether two states really differ
+const stableJson = v => JSON.stringify(v, (k, x) => x && typeof x === "object" && !Array.isArray(x)
+  ? Object.fromEntries(Object.entries(x).sort(([p], [q]) => p < q ? -1 : p > q ? 1 : 0)) : x);
+const pickShared = st => Object.fromEntries(SHARED.map(k => [k, st[k] || (k === "unlocked" || k === "log" ? [] : {})]));
+
+// Nothing done on either device is lost: lessons are combined (a lesson unticked
+// later than it was done stays removed), each flashcard keeps its latest review,
+// and the logs are joined.
+function mergeState(a, b) {
+  const removed = { ...(b.removedLessons || {}) };
+  for (const [id, at] of Object.entries(a.removedLessons || {})) if (!removed[id] || at > removed[id]) removed[id] = at;
+  const la = a.lessons || {}, lb = b.lessons || {}, lessons = {};
+  for (const id of new Set([...Object.keys(la), ...Object.keys(lb)])) {
+    const x = la[id], y = lb[id];
+    const st = x && y ? { ...((y.at || "") > (x.at || "") ? y : x),
+                          done: x.done < y.done ? x.done : y.done, last: x.last > y.last ? x.last : y.last,
+                          best: Math.max(x.best || 0, y.best || 0), times: Math.max(x.times || 0, y.times || 0) } : x || y;
+    if (removed[id] && removed[id] > (st.at || "")) continue;
+    lessons[id] = st;
+    delete removed[id];
+  }
+  const cards = { ...(b.cards || {}) };
+  const weight = c => [c.at || "", c.reps + c.lapses];
+  for (const [id, c] of Object.entries(a.cards || {})) {
+    const o = cards[id], [ta, na] = weight(c), [tb, nb] = o ? weight(o) : ["", -1];
+    if (!o || ta > tb || (ta === tb && na > nb)) cards[id] = c;
+  }
+  const unlocked = [...new Set([...(a.unlocked || []), ...(b.unlocked || [])])].filter(id => !removed[id]);
+  const seen = new Set(), log = [];
+  for (const e of [...(b.log || []), ...(a.log || [])]) {
+    const k = JSON.stringify(e);
+    if (!seen.has(k)) { seen.add(k); log.push(e); }
+  }
+  log.sort((x, y) => x.d < y.d ? -1 : x.d > y.d ? 1 : 0);
+  return { lessons, removedLessons: removed, cards, unlocked, log: log.slice(-LOG_MAX) };
+}
+
+async function gh(path, opts = {}) {
+  const r = await fetch(`https://api.github.com/repos/${syncCfg.repo}/${path}`, {
+    cache: "no-store", ...opts,
+    headers: { Authorization: `Bearer ${syncCfg.token}`, Accept: "application/vnd.github+json",
+               ...(opts.body ? { "Content-Type": "application/json" } : {}) },
+  });
+  if (r.status === 404 && !opts.method) return null;
+  if (!r.ok) { const e = new Error(`GitHub ${r.status}`); e.status = r.status; throw e; }
+  return r.json();
+}
+const toB64 = str => {
+  const b = new TextEncoder().encode(str);
+  let bin = "";
+  for (let i = 0; i < b.length; i += 0x8000) bin += String.fromCharCode(...b.subarray(i, i + 0x8000));
+  return btoa(bin);
+};
+const fromB64 = str => new TextDecoder().decode(Uint8Array.from(atob(str.replace(/\s/g, "")), c => c.charCodeAt(0)));
+async function readRemote() {
+  const f = await gh(`contents/${SYNC_FILE}?ref=${SYNC_BRANCH}`);
+  if (!f) return { sha: null, data: {}, branch: !!(await gh(`branches/${SYNC_BRANCH}`)) };
+  const content = f.content || (await gh(`git/blobs/${f.sha}`)).content;   // files over 1 MB come without content
+  return { sha: f.sha, data: JSON.parse(fromB64(content)), branch: true };
+}
+async function writeRemote(remote, data) {
+  const content = JSON.stringify(data, null, 1) + "\n";
+  const message = `Progress from ${syncCfg.device || "a device"}`;
+  if (!remote.branch) {   // first sync: a branch of its own, holding only this file
+    const tree = await gh("git/trees", { method: "POST", body: JSON.stringify({ tree: [{ path: SYNC_FILE, mode: "100644", type: "blob", content }] }) });
+    const commit = await gh("git/commits", { method: "POST", body: JSON.stringify({ message, tree: tree.sha, parents: [] }) });
+    return gh("git/refs", { method: "POST", body: JSON.stringify({ ref: `refs/heads/${SYNC_BRANCH}`, sha: commit.sha }) });
+  }
+  return gh(`contents/${SYNC_FILE}`, { method: "PUT", body: JSON.stringify(
+    { message, content: toB64(content), branch: SYNC_BRANCH, ...(remote.sha ? { sha: remote.sha } : {}) }) });
+}
+function syncError(e) {
+  if (e.status === 401) return "GitHub didn't accept the token. It may have expired: make a new one and connect again.";
+  if (e.status === 403 || e.status === 404) return `The token can't write to ${syncCfg.repo}. Check that it has access to this repository, with Contents: Read and write.`;
+  if (e.status) return `GitHub answered with error ${e.status}. It will try again later.`;
+  return "Couldn't reach GitHub (offline?). It will try again later.";
+}
+async function syncNow() {
+  clearTimeout(syncTimer); syncTimer = null;
+  if (!syncCfg.token || !DATA.lessons.length) return;
+  if (syncing) { syncAgain = true; return syncing; }
+  syncing = (async () => {
+    for (let attempt = 0; ; attempt++) {
+      try {
+        const remote = await readRemote();
+        const before = stableJson(pickShared(state));
+        Object.assign(state, mergeState(state, remote.data));
+        tidyLessons();
+        saveLocal();
+        const shared = pickShared(state);
+        if (stableJson(shared) !== stableJson(pickShared(remote.data)))
+          await writeRemote(remote, { v: 1, updated: nowIso(), ...shared });
+        syncCfg.last = nowIso(); syncCfg.error = "";
+        if (stableJson(shared) !== before) refreshAfterSync();
+        break;
+      } catch (e) {
+        if ((e.status === 409 || e.status === 422) && attempt < 3) continue;   // the other device wrote first: merge again
+        syncCfg.error = syncError(e);
+        break;
+      }
+    }
+    saveSyncCfg();
+    document.querySelectorAll("[data-sync-status]").forEach(el => el.innerHTML = syncStatus());
+  })();
+  await syncing;
+  syncing = null;
+  if (syncAgain) { syncAgain = false; syncNow(); }
+}
+function syncStatus() {
+  if (syncCfg.error) return `⚠ ${esc(syncCfg.error)}`;
+  return syncCfg.last ? `Last synced ${new Date(syncCfg.last).toLocaleString()}.` : "Not synced yet.";
+}
+function refreshAfterSync() {
+  updateStat();
+  const tab = location.hash.slice(1).split("/")[0] || "learn";
+  if (["learn", "words", "settings"].includes(tab)) route();   // never in the middle of a lesson or review
+}
+// every lesson that's done has its words in the reviews; lessons that no longer exist are dropped
+function tidyLessons() {
+  const ids = new Set(DATA.lessons.map(l => l.id));
+  state.unlocked = state.unlocked.filter(id => ids.has(id));
+  for (const id of Object.keys(state.lessons)) if (ids.has(id)) markLessonDone(id);
+}
+document.addEventListener("visibilitychange", () => {
+  if (document.visibilityState === "hidden") { if (syncTimer) syncNow(); }   // about to close: send what's pending
+  else if (!syncCfg.last || Date.now() - Date.parse(syncCfg.last) > 60000) syncNow();
+});
 
 // ---------- data ----------
 let DATA = { topics: [], lessons: [], items: [] };
@@ -417,6 +561,7 @@ function grade(cardId, g) {   // g: 1 again, 2 hard, 3 good, 4 easy
     c.reps++;
     c.due = startOfToday() + c.interval * DAY;
   }
+  c.at = nowIso();
   state.cards[cardId] = c;
   logEvent({ t: "review", card: cardId, grade: ["", "again", "hard", "good", "easy"][g] });
   save();
@@ -941,8 +1086,9 @@ function finishLesson() {
   const accuracy = Math.round(100 * (exercises - L.wrong.size) / Math.max(1, exercises));
   const minutes = Math.max(1, Math.round((Date.now() - L.started) / 60000));
   const prev = state.lessons[lesson.id];
-  state.lessons[lesson.id] = { done: prev ? prev.done : today(), last: today(),
+  state.lessons[lesson.id] = { done: prev ? prev.done : today(), last: today(), at: nowIso(),
                                best: Math.max(prev ? prev.best : 0, accuracy), times: (prev ? prev.times : 0) + 1 };
+  delete state.removedLessons[lesson.id];
   markLessonDone(lesson.id);
   logEvent({ t: "lesson", lesson: lesson.id, score: accuracy, minutes, wrong: L.wrong.size, exercises });
   save(); updateStat();
@@ -1189,13 +1335,28 @@ function renderSettings() {
       <div class="setting"><span>New review cards per day</span><input type="number" id="newPerDay" min="0" max="200" value="${state.settings.newPerDay}"></div>
       <div class="setting"><span>Show tone numbers under Pinyin</span><input type="checkbox" id="numbers" ${state.settings.numbers ? "checked" : ""}></div>
     </div>
+    <h2>Sync between devices</h2>
+    <div class="card">${syncCfg.token ? `
+      <p style="margin-top:0">This ${esc(syncCfg.device || "device")} syncs with <b>${esc(syncCfg.repo)}</b> (branch <code>${SYNC_BRANCH}</code>): lessons, flashcards and mistakes.</p>
+      <p class="muted small" data-sync-status>${syncStatus()}</p>
+      <div class="row" style="justify-content:flex-start;margin-top:0">
+        <button class="btn primary" id="syncNow">Sync now</button><button class="btn" id="syncOff">Disconnect</button></div>` : `
+      <p class="muted small" style="margin-top:0">Keeps your phone and computer in step through a file in your GitHub repo, and Claude can read it there. You need a GitHub token: <a href="${GITHUB}README.md#sync-between-devices" target="_blank" rel="noopener" style="color:var(--accent)">how to make one ↗</a></p>
+      <div class="sync-form">
+        <label class="small">GitHub token<input type="password" id="syncToken" placeholder="github_pat_…" autocomplete="off"></label>
+        <label class="small">Repository<input type="text" id="syncRepo" value="FlorianPein/chinese" autocomplete="off" autocapitalize="off" spellcheck="false"></label>
+        <label class="small">Name of this device<input type="text" id="syncDevice" value="${/Mobi|Android|iPhone|iPad/.test(navigator.userAgent) ? "phone" : "computer"}" autocomplete="off"></label>
+      </div>
+      <div class="row" style="justify-content:flex-start;margin-top:0"><button class="btn primary" id="syncOn">Connect</button></div>
+      <p class="muted small" data-sync-status>${syncCfg.error ? syncStatus() : ""}</p>`}
+    </div>
     <h2>Your progress</h2>
     <div class="card">
       <p class="muted small" style="margin-top:0"><b>For Claude:</b> copy your progress and paste it into a chat with Claude. It's a short summary (lessons, mistakes, flashcards) that Claude uses to adapt the next lessons.</p>
       <div class="row" style="justify-content:flex-start;margin-top:0"><button class="btn primary" data-copy-progress>📋 Copy progress for Claude</button></div>
       <div data-copy-msg class="muted small"></div>
       <hr>
-      <p class="muted small" style="margin-top:0">Progress is saved in this browser only. To move it to another device, export here and import there.</p>
+      <p class="muted small" style="margin-top:0">Progress is saved in this browser${syncCfg.token ? " and synced" : ". To keep devices in step, use sync above"}. Export saves it to a file; Import <b>replaces</b> this browser's progress with one.</p>
       <div class="row" style="justify-content:flex-start">
         <button class="btn" id="export">Export</button>
         <label class="btn">Import<input type="file" id="import" accept="application/json" hidden></label>
@@ -1205,10 +1366,12 @@ function renderSettings() {
   view.querySelectorAll("[data-lesson]").forEach(cb => cb.onchange = () => {
     const id = cb.dataset.lesson;
     if (cb.checked) {
-      state.lessons[id] = state.lessons[id] || { done: today(), last: today(), best: 0, times: 0 };
+      state.lessons[id] = state.lessons[id] || { done: today(), last: today(), at: nowIso(), best: 0, times: 0 };
+      delete state.removedLessons[id];
       markLessonDone(id);
     } else {
       delete state.lessons[id];
+      state.removedLessons[id] = nowIso();
       state.unlocked = state.unlocked.filter(x => x !== id);
     }
     save(); updateStat();
@@ -1229,8 +1392,22 @@ function renderSettings() {
       alert("Progress imported.");
     } catch { alert("That file doesn't look like an exported progress file."); }
   };
+  if ($("#syncOn")) $("#syncOn").onclick = async () => {
+    const token = $("#syncToken").value.trim(), repo = $("#syncRepo").value.trim().replace(/^https:\/\/github\.com\//, "").replace(/\/$/, "");
+    if (!token || !/^[\w.-]+\/[\w.-]+$/.test(repo)) { $("[data-sync-status]").textContent = "Fill in the token and the repository (owner/name)."; return; }
+    syncCfg = { token, repo, device: $("#syncDevice").value.trim() || "device" };
+    $("[data-sync-status]").textContent = "Connecting…";
+    await syncNow();
+    if (syncCfg.error && !syncCfg.last) { const error = syncCfg.error; syncCfg = { error }; }   // never worked: forget the token
+    saveSyncCfg(); renderSettings();
+  };
+  if ($("#syncNow")) $("#syncNow").onclick = () => { $("[data-sync-status]").textContent = "Syncing…"; syncNow(); };
+  if ($("#syncOff")) $("#syncOff").onclick = () => {
+    if (confirm("Stop syncing on this device? Your progress stays here and on GitHub.")) { syncCfg = {}; saveSyncCfg(); renderSettings(); }
+  };
   $("#reset").onclick = () => {
-    if (confirm("Delete all progress in this browser?")) { state = structuredClone(DEFAULT_STATE); save(); updateStat(); renderSettings(); }
+    if (confirm(syncCfg.token ? "Delete all progress in this browser? Sync is on, so it comes back from GitHub at the next sync. Disconnect first to start from zero here."
+                              : "Delete all progress in this browser?")) { state = structuredClone(DEFAULT_STATE); save(); updateStat(); renderSettings(); }
   };
 }
 
@@ -1256,6 +1433,7 @@ fetch("cards.json")
     state.unlocked = state.unlocked.filter(id => ids.has(id));
     window.addEventListener("hashchange", route);
     route();
+    syncNow();
   })
   .catch(() => { view.innerHTML = `<div class="card center muted">Couldn't load the lessons. If you opened this file directly, run a local server: <code>python3 -m http.server -d docs</code></div>`; });
 </script>

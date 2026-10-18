@@ -77,11 +77,31 @@ The check catches mistakes such as a chart block missing or taught twice, a word
 
 Audio comes from an offline Mandarin voice ([Matcha-TTS](https://github.com/k2-fsa/sherpa-onnx), trained on the Baker corpus), downloaded on first run to `tools/.cache/`. It's driven directly by the Pinyin, so it applies the spoken tone changes (*nǐ hǎo* is said *ní hǎo*). Each take's pitch is measured and checked against the tones it should have. The best of several takes is kept, and a syllable no take gets right is pitch-edited into the correct tone shape. A 3rd tone said on its own is always pitch-edited into the full dip and rise, and made a bit longer and louder at the end: the voice learned the 3rd tone from sentences, where it's short and only falls, so said alone it sounded like a low 4th. `docs/audio/manifest.json` records which method each file used. Some syllables never occur in some tones in the voice's training data (*fō*, *fǒ*, *fò*, *dě*, *cē*, …). Said directly, they come out as a different sound (*fō* sounded close to *jiē*), so a single syllable like that is always made by pitch-editing the same syllable in a tone the voice knows well (*fó* → *fō*); the manifest's `from` says which. Words and phrases may not use such syllables at all: the build stops and names them. Where the voice can't say a syllable at all, an item gets a `"say"` override plus an `"audio_note"` (e.g. *shéi* is spoken as *shuí*).
 
+## Sync between devices
+
+The app saves your progress in the browser. With sync on, it also keeps it in `progress.json` on a branch of this repo called `progress`. Each device merges that file with its own progress when the app opens, a few seconds after each change, and when you leave the app. So your phone and computer stay in step, and Claude can read your progress without a paste. Nothing done on either device is lost: lessons are combined, each flashcard keeps its latest review, and the mistake logs are joined. Settings stay per device.
+
+The repo is public, so anyone could see `progress.json` (scores, mistakes and flashcard grades), but nothing else about you.
+
+**1. Make a token on GitHub** (once per device, so you can cancel one without the other):
+
+1. Open [github.com/settings/personal-access-tokens/new](https://github.com/settings/personal-access-tokens/new). It's also under your profile picture → **Settings** → **Developer settings** → **Personal access tokens** → **Fine-grained tokens** → **Generate new token**.
+2. **Token name:** e.g. `Pinyin app (phone)`.
+3. **Expiration:** pick a date, e.g. a year from now. When it expires, the app says so; make a new one and connect again.
+4. **Repository access:** **Only select repositories** → `FlorianPein/chinese`.
+5. **Permissions** → **Repository permissions** → **Contents** → **Read and write**. Leave everything else as it is (Metadata: read-only is added by itself).
+6. **Generate token** and copy it (it starts with `github_pat_`). GitHub shows it only once.
+
+**2. Connect the app:** open the app → **⚙︎** → **Sync between devices**, paste the token, check the device name, and tap **Connect**. Do the same on the other device with its own token. The first sync creates the `progress` branch.
+
+The token is kept only in that browser and can do nothing but read and change this one repo. If you lose a device, delete its token on the same GitHub page. **Disconnect** stops syncing on a device and keeps its progress.
+
 ## Practising with Claude
 
 Open a session in this repo and ask, for example:
 
-- *"Here's my progress:"* and paste from **⚙︎ → Copy progress for Claude**. It holds your finished lessons and scores, the answers you got wrong and your flashcard grades. Claude merges it with `python tools/progress.py`, updates PROGRESS.md, and plans the next lessons around your mistakes. The app keeps progress per device and doesn't sync, so if you use your phone and your computer, paste from both: the pastes add up here.
+- *"Check my progress."* With sync on (see above), Claude reads it from the `progress` branch with `python tools/progress.py --github`, updates PROGRESS.md, and plans the next lessons around your mistakes.
+- *"Here's my progress:"* and paste from **⚙︎ → Copy progress for Claude**. It holds your finished lessons and scores, the answers you got wrong and your flashcard grades. Claude merges it with `python tools/progress.py`, updates PROGRESS.md, and plans the next lessons around your mistakes. Without sync, each device keeps its own progress, so paste from both: the pastes add up here.
 - *"I finished P01."* (marks its words as seen, if you don't want to paste)
 - *"Quiz me on everything so far. I'll answer like ma1."*
 - *"Drill b vs p and d vs t."*
