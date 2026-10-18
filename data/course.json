@@ -22,12 +22,12 @@
 
  "topics": [
   {"id": "T01", "title": "The a row and the four tones", "lessons": [
-   {"id": "P01", "title": "ba pa ma fa", "cells": ["a:bpmf", "a:none"], "tones": [1, 4, 5],
-    "focus": "The 1st and 4th tones; b vs p (the puff of air)"},
-   {"id": "P02", "title": "da ta na la", "cells": ["a:dtnl"], "tones": [3],
-    "focus": "The 3rd tone; d vs t"},
-   {"id": "P03", "title": "ga ka ha", "cells": ["a:gkh"], "tones": [2],
-    "focus": "The 2nd tone; g vs k; the rough h",
+   {"id": "P01", "title": "ba pa ma fa", "cells": ["a:bpmf", "a:none"], "tones": [1, 2, 3, 4, 5],
+    "focus": "All four tones, side by side; b vs p (the puff of air)"},
+   {"id": "P02", "title": "da ta na la", "cells": ["a:dtnl"], "tones": [],
+    "focus": "d vs t; telling the 2nd tone from the 3rd"},
+   {"id": "P03", "title": "ga ka ha", "cells": ["a:gkh"], "tones": [],
+    "focus": "g vs k; the rough h; the 1st tone against the 4th",
     "words": ["ná", "là", "kǎ"]}
   ]},
   {"id": "T02", "title": "e, o and the neutral tone", "lessons": [

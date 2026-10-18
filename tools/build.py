@@ -46,6 +46,9 @@ RELEASES = "https://github.com/k2-fsa/sherpa-onnx/releases/download"
 MODEL_DIR = CACHE / "matcha-icefall-zh-baker"
 VOCODER = CACHE / "vocos-22khz-univ.onnx"
 
+# Tones are never taught or tested apart: every chart and tone question has all
+# four, so they can always be compared.
+ALL_TONES = [1, 2, 3, 4]
 TONE_NAMES = {1: "1st tone", 2: "2nd tone", 3: "3rd tone", 4: "4th tone", 5: "neutral tone"}
 SOUND_ID = re.compile(r"^s-([a-zv]+)([1-5])$")
 EXERCISES = {"hear", "tone", "same", "audio", "meaning", "pinyin", "match", "build", "type"}
@@ -192,6 +195,8 @@ def check(lessons, items):
             elif t == "chart":
                 if "title" not in step or not step.get("syllables") or not step.get("tones"):
                     errors.append(f"{where}: needs title, syllables and tones")
+                elif step["tones"] != ALL_TONES:
+                    errors.append(f"{where}: a chart shows all four tones, so they can be compared")
             elif t == "same":
                 if len(step.get("pair", [])) != 2 or any(items[r]["kind"] != "sound" for r in step["pair"]):
                     errors.append(f"{where}: 'pair' must be two sounds")
@@ -227,6 +232,8 @@ def check(lessons, items):
                     errors.append(f"{where}: tone steps need a one-syllable item heard as written")
                 elif syl[0][1] not in opts:
                     errors.append(f"{where}: options don't include tone {syl[0][1]}")
+                elif syl[0][1] != 5 and sorted(opts) != ALL_TONES:
+                    errors.append(f"{where}: tone questions offer all four tones")
             elif t == "meaning":
                 if step["item"] not in opts:
                     errors.append(f"{where}: options don't include {step['item']!r}")
@@ -295,6 +302,8 @@ def check_plan(chart, plan, items):
                     errors.append(f"{lid}/{wid}: {pinyin.mark(base, tone)!r} uses a syllable not taught yet")
                 elif tone not in tones:
                     errors.append(f"{lid}/{wid}: {pinyin.mark(base, tone)!r} uses tone {tone} before it's taught")
+    if plan and not set(ALL_TONES) <= set(plan[0]["tones"]):
+        errors.append(f"{plan[0]['id']}: the first lesson teaches all four tones together")
     for cell in chart.all_cells():
         if cell not in taught:
             errors.append(f"chart cell {cell!r} ({' '.join(chart.syllables(cell))}) isn't in any lesson")

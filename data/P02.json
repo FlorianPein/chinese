@@ -1,6 +1,6 @@
 {
   "lesson": "P02",
-  "goal": "Say da ta na la, add the 3rd tone (low), and learn he / she, big, that and which.",
+  "goal": "Say da ta na la in all four tones, tell the 2nd tone from the 3rd, and learn he / she, big, that and which.",
   "items": [
     {"id": "ta", "kind": "word", "pinyin": "tā", "english": "he / she", "hanzi": "他 / 她", "note": "One word for he and she (and him and her). Only the characters differ."},
     {"id": "da", "kind": "word", "pinyin": "dà", "english": "big", "hanzi": "大", "note": "No puff of air on the d, like the t in English stop."},
@@ -11,11 +11,11 @@
   ],
   "steps": [
     {"type": "intro", "title": "Warm-up",
-     "text": "First a quick look back: **b p m f** with **a**, in the 1st and 4th tones.",
-     "rows": [["s-ba1", "s-pa1", "s-ma1", "s-fa1"], ["s-ba4", "s-pa4", "s-ma4", "s-fa4"]]},
+     "text": "First a quick look back: **b p m f** with **a**, in all four tones.",
+     "rows": [["s-ba1", "s-ba2", "s-ba3", "s-ba4"], ["s-pa1", "s-pa2", "s-pa3", "s-pa4"], ["s-ma1", "s-ma2", "s-ma3", "s-ma4"], ["s-fa1", "s-fa2", "s-fa3", "s-fa4"]]},
     {"type": "hear", "play": "s-pa4", "options": ["bà", "pà"]},
     {"type": "meaning", "item": "mama", "from": "audio", "options": ["mama", "baba", "pa"]},
-    {"type": "tone", "play": "s-fa1", "options": [1, 4]},
+    {"type": "tone", "play": "s-fa2", "options": [1, 2, 3, 4]},
     {"type": "type", "item": "pa", "from": "english"},
 
     {"type": "intro", "title": "d and t: the puff again",
@@ -25,17 +25,19 @@
     {"type": "same", "pair": ["s-da4", "s-ta4"]},
     {"type": "hear", "play": "s-la4", "options": ["nà", "là", "dà"]},
 
-    {"type": "intro", "tone": 3, "title": "3rd tone: low",
-     "text": "Drop your voice low and keep it relaxed. A bit creaky is fine.\n\nEnglish: a low, doubtful *Hmm…* German: a reluctant *Na ja…*\n\nSaid on its own it often rises a little at the end. Inside a sentence it mostly just stays **low**, so think *low*, not *down-up*.\n\nThe mark is a little valley: **ǎ**. As a number: **a3**.",
-     "rows": [["s-ma3", "s-da3", "s-na3", "s-ba3"]]},
+    {"type": "intro", "title": "2nd or 3rd?",
+     "text": "The pair beginners mix up most is the **2nd** tone (rising) and the **3rd** (low). Said on its own, the 3rd tone can rise a little at the end, so both seem to go up.\n\nListen to where they **start**: the 2nd starts in the middle and climbs straight up, like a surprised *What?* The 3rd first sinks low and stays there, like a doubtful *Hmm…*\n\nEach row is 2nd, then 3rd.",
+     "rows": [["s-da2", "s-da3"], ["s-na2", "s-na3"], ["s-ma2", "s-ma3"]]},
+    {"type": "same", "pair": ["s-la2", "s-la3"]},
     {"type": "chart", "title": "Your second block of the chart",
-     "text": "da ta na la in the three tones you know now. Play each row and draw the shapes in the air with your hand: high, low, falling.",
-     "syllables": ["da", "ta", "na", "la"], "tones": [1, 3, 4]},
-    {"type": "tone", "play": "s-na3", "options": [1, 3, 4]},
-    {"type": "tone", "play": "s-ta4", "options": [1, 3, 4]},
-    {"type": "tone", "play": "s-pa3", "options": [1, 3, 4]},
-    {"type": "audio", "item": "s-la3", "options": ["s-la1", "s-la3", "s-la4"]},
-    {"type": "match", "mode": "sound", "items": ["s-da1", "s-ta3", "s-na4", "s-la3"]},
+     "text": "da ta na la in all four tones. Play each row and draw the shapes in the air with your hand: high, rising, low, falling.",
+     "syllables": ["da", "ta", "na", "la"], "tones": [1, 2, 3, 4]},
+    {"type": "tone", "play": "s-na3", "options": [1, 2, 3, 4]},
+    {"type": "tone", "play": "s-ta2", "options": [1, 2, 3, 4]},
+    {"type": "tone", "play": "s-pa3", "options": [1, 2, 3, 4]},
+    {"type": "tone", "play": "s-la4", "options": [1, 2, 3, 4]},
+    {"type": "audio", "item": "s-la3", "options": ["s-la2", "s-la3", "s-la4"]},
+    {"type": "match", "mode": "sound", "items": ["s-da1", "s-ta2", "s-na3", "s-la4"]},
     {"type": "type", "item": "s-da3", "from": "audio"},
 
     {"type": "new", "item": "ta"},
@@ -43,7 +45,7 @@
     {"type": "meaning", "item": "da", "from": "audio", "options": ["da", "pa", "ta"]},
     {"type": "new", "item": "na-that"},
     {"type": "new", "item": "na-which"},
-    {"type": "hear", "play": "na-which", "options": ["nǎ", "nà"]},
+    {"type": "hear", "play": "na-which", "options": ["ná", "nǎ", "nà"]},
     {"type": "pinyin", "item": "na-which", "options": ["nǎ", "nà", "lǎ"]},
     {"type": "match", "items": ["ta", "da", "na-that", "na-which", "baba"]},
 
@@ -52,7 +54,7 @@
     {"type": "build", "item": "ta-baba-pa", "extra": ["māma", "dà"]},
     {"type": "meaning", "item": "ta-pa", "from": "audio", "options": ["ta-pa", "ta-baba-pa", "baba-pa"]},
     {"type": "type", "item": "baba", "from": "english"},
-    {"type": "hear", "play": "s-ma3", "options": ["mā", "mǎ", "mà"]},
+    {"type": "hear", "play": "s-ma3", "options": ["mā", "má", "mǎ", "mà"]},
     {"type": "type", "item": "ta", "from": "audio"},
     {"type": "speak", "item": "ta-baba-pa"}
   ]

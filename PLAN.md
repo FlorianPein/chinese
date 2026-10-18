@@ -15,6 +15,7 @@
 | Repetition | From the 2nd lesson on, every lesson starts with a warm-up and mixes in older sounds and words. Finished lessons go into spaced-repetition flashcards |
 | Where lessons happen | In the web app ([Learn tab](https://florianpein.github.io/chinese/)). Each lesson also has generated notes in `lessons/` |
 | Your answers | Mostly buttons. When you type, `ma1` and `mā` both work; neutral tone is `5` or no number |
+| Tones | **All four, always together.** P01 teaches all four at once, and every chart and tone question in every lesson has all four, so you always hear the contrasts. The build enforces this |
 | Sound comparisons | English *and* German |
 | Characters | Stored in the data, hidden everywhere for now |
 
@@ -41,7 +42,7 @@ So `a` with the lips group is the block **ba pa ma fa**, and `a` with the tongue
 - **At the start, one block per lesson**, because everything is new: the tones, the puff of air on p/t/k, the chart itself.
 - **Hard blocks get more room**: j q x get two lessons (with *i* and with *ü*), z c s and zh ch sh r get five, with an extra lesson just for telling them apart.
 - **Later, blocks are combined**: once you know all the initials, a new final like *ei* or *eng* is one new idea, so it's taught across the whole chart in one lesson.
-- **Tones come in the first lessons**: P01 the 1st and 4th tones (and the light neutral tone in *māma*), P02 the 3rd, P03 the 2nd. P04 is about the neutral tone in little grammar words.
+- **All four tones from the start, never separated**: P01 introduces all four side by side (and the light neutral tone in *māma*). From then on every chart shows all four tones and every tone question offers all four, because the tones are learned by hearing them against each other. Each early lesson also trains one hard contrast: P02 the 2nd against the 3rd, P03 the 1st against the 4th. P04 is about the neutral tone in little grammar words.
 - **Tone changes** are taught where they first come up: *bù → bú* before a 4th tone (P08), *yī → yí* (as soon as *yí gè* appears), and two 3rd tones in a row (*nǐ hǎo*, P20 at the latest).
 
 **The order: 48 lessons in 10 topics.** The full list, with the chart showing which lesson teaches each of the 404 syllables, is in **[CHART.md](CHART.md)** (generated from `data/course.json`).
@@ -116,32 +117,32 @@ Every exercise you get wrong comes back at the end of the lesson (up to twice).
 
 ## 3. The first two lessons
 
-### P01: ba pa ma fa (≈ 29 steps, 10 min)
+### P01: ba pa ma fa (≈ 33 steps, 12 min)
 
-**Block:** `a` with b p m f, and `a` on its own. **Tones:** 1st and 4th; the neutral tone is introduced only as "short and light" for *māma* and *bàba*.
+**Block:** `a` with b p m f, and `a` on its own. **Tones:** all four; the neutral tone is introduced only as "short and light" for *māma* and *bàba*.
 
 | Part | Slides |
 |------|--------|
 | 1. The chart | **tip**: initial + final + tone; today's block; the *a* of *Vater* / *father* |
 | 2. b vs p | **tip** (the puff of air, hand in front of the mouth) → **listen** *bā/pā* → **same or different** *bà/pà* → **listen** *bā/pā/mā* |
-| 3. Tones | **tip**: *ma* in all four tones, just listening → **tip** 1st tone → **tip** 4th tone → **chart** ba pa ma fa × tones 1 and 4 |
-| 4. Practise the block | 3× **which tone** · **read and listen** *fà* · **match sounds** · **listen and type** *pà* |
-| 5. Words | **new** `bā` (eight) · **new** `pà` (to be afraid) · **meaning** · **tip** neutral tone · **new** `māma` (mum) · **new** `bàba` (dad) · **match** · **say it in Pinyin** · **type it** |
+| 3. Tones | **tip**: *ma* in all four tones, just listening → **tip** for each tone (1st, 2nd, 3rd, 4th), each with *mā má mǎ mà* to compare → **same or different** *má/mǎ* → **chart** ba pa ma fa × all four tones |
+| 4. Practise the block | 4× **which tone** (one of each, always 4 choices) · **read and listen** *fǎ* (against *fá*, *fà*) · **match sounds** (one per tone) · **listen and type** *pà* |
+| 5. Words | **new** `bā` (eight) · **new** `pà` (to be afraid) · **meaning** · **tip** neutral tone · **new** `māma` (mum) · **new** `bàba` (dad) · **match** · **say it in Pinyin** (*bàba* / *pàpa* / *bǎba*) · **type it** |
 | 6. First sentence | **new** *Bàba pà.* (Dad is scared.) · **build** · **same or different** · **say it aloud** ×2 |
 
 ### P02: da ta na la (≈ 33 steps, 10 min)
 
-**Block:** `a` with d t n l. **Tone:** the 3rd (low), next to the 1st and 4th.
+**Block:** `a` with d t n l. **Tones:** all four; the contrast to train is the 2nd (rising) against the 3rd (low).
 
 | Part | Slides |
 |------|--------|
-| 1. Warm-up (P01) | **tip** with P01's block → **listen** *bà/pà* → **meaning** *māma* (audio) → **which tone** *fā* → **type it** *pà* |
+| 1. Warm-up (P01) | **tip** with P01's block in all four tones → **listen** *bà/pà* → **meaning** *māma* (audio) → **which tone** *fá* → **type it** *pà* |
 | 2. d vs t | **tip** (same puff as b/p; n and l as in English/German) → **listen** *dā/tā* → **same or different** *dà/tà* → **listen** *nà/là/dà* |
-| 3. 3rd tone | **tip** 3rd tone → **chart** da ta na la × tones 1, 3, 4 |
-| 4. Practise the block | 3× **which tone** (one on an old syllable: *pǎ*) · **read and listen** *lǎ* · **match sounds** · **listen and type** *dǎ* |
-| 5. Words | **new** `tā` (he / she) · **new** `dà` (big) · **meaning** · **new** `nà` (that) · **new** `nǎ` (which?) · **listen** *nǎ/nà* · **say it in Pinyin** · **match** (with *bàba*) |
+| 3. 2nd or 3rd? | **tip** (where the tone starts: mid and up, or low) with *dá/dǎ*, *ná/nǎ*, *má/mǎ* → **same or different** *lá/lǎ* → **chart** da ta na la × all four tones |
+| 4. Practise the block | 4× **which tone** (one on an old syllable: *pǎ*; always 4 choices) · **read and listen** *lǎ* · **match sounds** (one per tone) · **listen and type** *dǎ* |
+| 5. Words | **new** `tā` (he / she) · **new** `dà` (big) · **meaning** · **new** `nà` (that) · **new** `nǎ` (which?) · **listen** *ná/nǎ/nà* · **say it in Pinyin** · **match** (with *bàba*) |
 | 6. Sentences | **new** *Tā pà.* · **new** *Tā bàba pà.* (His dad is scared.) · **build** · **meaning** (audio) |
-| 7. Mixed recap | **type it** *bàba* · **listen** *mā/mǎ/mà* · **listen and type** *tā* · **say it aloud** |
+| 7. Mixed recap | **type it** *bàba* · **listen** *mā/má/mǎ/mà* · **listen and type** *tā* · **say it aloud** |
 
 Why these words: *bàba*, *māma* and *tā* are among the first words anyone needs; *bā* starts the numbers; *pà* gives a first verb, so you can make a sentence. *dà*, *nà* and *nǎ* are very common, and *nà* / *nǎ* differ only in the tone, which is exactly what P02 is about.
 
@@ -224,7 +225,7 @@ The first versions of the tone lessons (A01-L01, A01-L02) and of U01-L01 are in 
 
 Rule of thumb: **don't start a new lesson if more than ~40 flashcards are due.**
 
-- **After P03:** all four tones, and the a row of the easy initials.
+- **After P01:** all four tones. **After P03:** the a row of the easy initials, and the hardest tone contrasts.
 - **After P16:** every initial, including j q x and z c s / zh ch sh r.
 - **After P31:** -n and -ng; you can read most syllables you meet.
 - **After P48:** the whole chart: read any Pinyin aloud with the right sounds and tones, and about 170 words.

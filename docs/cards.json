@@ -114,7 +114,7 @@
    "id": "P01",
    "topic": "T01",
    "title": "ba pa ma fa",
-   "focus": "The 1st and 4th tones; b vs p (the puff of air)",
+   "focus": "All four tones, side by side; b vs p (the puff of air)",
    "built": true,
    "chart": "ba pa ma fa · a"
   },
@@ -122,7 +122,7 @@
    "id": "P02",
    "topic": "T01",
    "title": "da ta na la",
-   "focus": "The 3rd tone; d vs t",
+   "focus": "d vs t; telling the 2nd tone from the 3rd",
    "built": true,
    "chart": "da ta na la"
   },
@@ -130,7 +130,7 @@
    "id": "P03",
    "topic": "T01",
    "title": "ga ka ha",
-   "focus": "The 2nd tone; g vs k; the rough h",
+   "focus": "g vs k; the rough h; the 1st tone against the 4th",
    "built": false,
    "chart": "ga ka ha"
   },
@@ -500,8 +500,8 @@
    "id": "P01",
    "topic": "T01",
    "title": "ba pa ma fa",
-   "focus": "The 1st and 4th tones; b vs p (the puff of air)",
-   "goal": "Say ba pa ma fa in the 1st and 4th tones, hear b from p, and learn your first 4 words.",
+   "focus": "All four tones, side by side; b vs p (the puff of air)",
+   "goal": "Say ba pa ma fa in all four tones, hear b from p, and learn your first 4 words.",
    "file": "P01.md",
    "steps": [
     {
@@ -562,7 +562,7 @@
     {
      "type": "intro",
      "title": "Every syllable has a tone",
-     "text": "A tone is a pitch shape. Change the tone and you get a different word. Here is **ma** in the four tones. Just listen.\n\nToday you learn two of them: the 1st and the 4th.",
+     "text": "A tone is a pitch shape. Change the tone and you get a different word. Here is **ma** in the four tones. Just listen.\n\nYou'll always practise all four together: hearing them side by side is how you learn to tell them apart.",
      "rows": [
       [
        "s-ma1",
@@ -576,8 +576,14 @@
      "type": "intro",
      "tone": 1,
      "title": "1st tone: high and flat",
-     "text": "Start high and hold it, like singing one note.\n\nEnglish: the *Aaah* at the doctor's. German: a sung *Laaa*.\n\nThe mark is a flat line: **ā**. As a number: **a1**.",
+     "text": "Start high and hold it, like singing one note.\n\nEnglish: the *Aaah* at the doctor's. German: a sung *Laaa*.\n\nThe mark is a flat line: **ā**. As a number: **a1**. The top row has all four tones to compare.",
      "rows": [
+      [
+       "s-ma1",
+       "s-ma2",
+       "s-ma3",
+       "s-ma4"
+      ],
       [
        "s-ba1",
        "s-pa1",
@@ -588,10 +594,56 @@
     },
     {
      "type": "intro",
+     "tone": 2,
+     "title": "2nd tone: rising",
+     "text": "Start in the middle and go up, like a surprised *What?* German: *Was?*, or *Ja?* answering the phone.\n\nThe mark rises from left to right: **á**. As a number: **a2**.",
+     "rows": [
+      [
+       "s-ma1",
+       "s-ma2",
+       "s-ma3",
+       "s-ma4"
+      ],
+      [
+       "s-ba2",
+       "s-pa2",
+       "s-ma2",
+       "s-fa2"
+      ]
+     ]
+    },
+    {
+     "type": "intro",
+     "tone": 3,
+     "title": "3rd tone: low",
+     "text": "Drop your voice low and keep it relaxed. A bit creaky is fine.\n\nEnglish: a low, doubtful *Hmm…* German: a reluctant *Na ja…*\n\nSaid on its own it often rises a little at the end. Inside a sentence it mostly just stays **low**, so think *low*, not *down-up*.\n\nThe mark is a little valley: **ǎ**. As a number: **a3**.",
+     "rows": [
+      [
+       "s-ma1",
+       "s-ma2",
+       "s-ma3",
+       "s-ma4"
+      ],
+      [
+       "s-ba3",
+       "s-pa3",
+       "s-ma3",
+       "s-fa3"
+      ]
+     ]
+    },
+    {
+     "type": "intro",
      "tone": 4,
      "title": "4th tone: a sharp fall",
      "text": "Start high and drop fast, like a firm *No!* German: *Nein!* or *Doch!*\n\nThe mark falls from left to right: **à**. As a number: **a4**.",
      "rows": [
+      [
+       "s-ma1",
+       "s-ma2",
+       "s-ma3",
+       "s-ma4"
+      ],
       [
        "s-ba4",
        "s-pa4",
@@ -601,9 +653,16 @@
      ]
     },
     {
+     "type": "same",
+     "pair": [
+      "s-ma2",
+      "s-ma3"
+     ]
+    },
+    {
      "type": "chart",
      "title": "Your first block of the chart",
-     "text": "Tap a square to hear it. Tap a syllable on the left to hear it in both tones, or a tone at the top to hear the whole column.",
+     "text": "Tap a square to hear it. Tap a syllable on the left to hear it in all four tones, or a tone at the top to hear the whole column. Draw the shapes in the air with your hand: high, rising, low, falling.",
      "syllables": [
       "ba",
       "pa",
@@ -612,6 +671,8 @@
      ],
      "tones": [
       1,
+      2,
+      3,
       4
      ]
     },
@@ -620,30 +681,47 @@
      "play": "s-ma4",
      "options": [
       1,
+      2,
+      3,
       4
      ]
     },
     {
      "type": "tone",
-     "play": "s-pa1",
+     "play": "s-pa2",
      "options": [
       1,
+      2,
+      3,
       4
      ]
     },
     {
      "type": "audio",
-     "item": "s-fa4",
+     "item": "s-fa3",
      "options": [
-      "s-fa4",
-      "s-fa1"
+      "s-fa2",
+      "s-fa3",
+      "s-fa4"
      ]
     },
     {
      "type": "tone",
-     "play": "s-ba4",
+     "play": "s-fa1",
      "options": [
       1,
+      2,
+      3,
+      4
+     ]
+    },
+    {
+     "type": "tone",
+     "play": "s-ba3",
+     "options": [
+      1,
+      2,
+      3,
       4
      ]
     },
@@ -652,8 +730,8 @@
      "mode": "sound",
      "items": [
       "s-ba1",
-      "s-pa4",
-      "s-ma1",
+      "s-pa2",
+      "s-ma3",
       "s-fa4"
      ]
     },
@@ -713,7 +791,7 @@
      "options": [
       "bàba",
       "pàpa",
-      "bāba"
+      "bǎba"
      ]
     },
     {
@@ -735,8 +813,8 @@
     {
      "type": "same",
      "pair": [
-      "s-ma1",
-      "s-ma1"
+      "s-pa3",
+      "s-pa3"
      ]
     },
     {
@@ -748,31 +826,43 @@
      "item": "baba-pa"
     }
    ],
-   "minutes": 10
+   "minutes": 12
   },
   {
    "id": "P02",
    "topic": "T01",
    "title": "da ta na la",
-   "focus": "The 3rd tone; d vs t",
-   "goal": "Say da ta na la, add the 3rd tone (low), and learn he / she, big, that and which.",
+   "focus": "d vs t; telling the 2nd tone from the 3rd",
+   "goal": "Say da ta na la in all four tones, tell the 2nd tone from the 3rd, and learn he / she, big, that and which.",
    "file": "P02.md",
    "steps": [
     {
      "type": "intro",
      "title": "Warm-up",
-     "text": "First a quick look back: **b p m f** with **a**, in the 1st and 4th tones.",
+     "text": "First a quick look back: **b p m f** with **a**, in all four tones.",
      "rows": [
       [
        "s-ba1",
-       "s-pa1",
-       "s-ma1",
-       "s-fa1"
+       "s-ba2",
+       "s-ba3",
+       "s-ba4"
       ],
       [
-       "s-ba4",
-       "s-pa4",
-       "s-ma4",
+       "s-pa1",
+       "s-pa2",
+       "s-pa3",
+       "s-pa4"
+      ],
+      [
+       "s-ma1",
+       "s-ma2",
+       "s-ma3",
+       "s-ma4"
+      ],
+      [
+       "s-fa1",
+       "s-fa2",
+       "s-fa3",
        "s-fa4"
       ]
      ]
@@ -797,9 +887,11 @@
     },
     {
      "type": "tone",
-     "play": "s-fa1",
+     "play": "s-fa2",
      "options": [
       1,
+      2,
+      3,
       4
      ]
     },
@@ -853,22 +945,34 @@
     },
     {
      "type": "intro",
-     "tone": 3,
-     "title": "3rd tone: low",
-     "text": "Drop your voice low and keep it relaxed. A bit creaky is fine.\n\nEnglish: a low, doubtful *Hmm…* German: a reluctant *Na ja…*\n\nSaid on its own it often rises a little at the end. Inside a sentence it mostly just stays **low**, so think *low*, not *down-up*.\n\nThe mark is a little valley: **ǎ**. As a number: **a3**.",
+     "title": "2nd or 3rd?",
+     "text": "The pair beginners mix up most is the **2nd** tone (rising) and the **3rd** (low). Said on its own, the 3rd tone can rise a little at the end, so both seem to go up.\n\nListen to where they **start**: the 2nd starts in the middle and climbs straight up, like a surprised *What?* The 3rd first sinks low and stays there, like a doubtful *Hmm…*\n\nEach row is 2nd, then 3rd.",
      "rows": [
       [
-       "s-ma3",
-       "s-da3",
-       "s-na3",
-       "s-ba3"
+       "s-da2",
+       "s-da3"
+      ],
+      [
+       "s-na2",
+       "s-na3"
+      ],
+      [
+       "s-ma2",
+       "s-ma3"
       ]
+     ]
+    },
+    {
+     "type": "same",
+     "pair": [
+      "s-la2",
+      "s-la3"
      ]
     },
     {
      "type": "chart",
      "title": "Your second block of the chart",
-     "text": "da ta na la in the three tones you know now. Play each row and draw the shapes in the air with your hand: high, low, falling.",
+     "text": "da ta na la in all four tones. Play each row and draw the shapes in the air with your hand: high, rising, low, falling.",
      "syllables": [
       "da",
       "ta",
@@ -877,6 +981,7 @@
      ],
      "tones": [
       1,
+      2,
       3,
       4
      ]
@@ -886,15 +991,17 @@
      "play": "s-na3",
      "options": [
       1,
+      2,
       3,
       4
      ]
     },
     {
      "type": "tone",
-     "play": "s-ta4",
+     "play": "s-ta2",
      "options": [
       1,
+      2,
       3,
       4
      ]
@@ -904,6 +1011,17 @@
      "play": "s-pa3",
      "options": [
       1,
+      2,
+      3,
+      4
+     ]
+    },
+    {
+     "type": "tone",
+     "play": "s-la4",
+     "options": [
+      1,
+      2,
       3,
       4
      ]
@@ -912,7 +1030,7 @@
      "type": "audio",
      "item": "s-la3",
      "options": [
-      "s-la1",
+      "s-la2",
       "s-la3",
       "s-la4"
      ]
@@ -922,9 +1040,9 @@
      "mode": "sound",
      "items": [
       "s-da1",
-      "s-ta3",
-      "s-na4",
-      "s-la3"
+      "s-ta2",
+      "s-na3",
+      "s-la4"
      ]
     },
     {
@@ -962,6 +1080,7 @@
      "type": "hear",
      "play": "na-which",
      "options": [
+      "ná",
       "nǎ",
       "nà"
      ]
@@ -1021,6 +1140,7 @@
      "play": "s-ma3",
      "options": [
       "mā",
+      "má",
       "mǎ",
       "mà"
      ]
@@ -1305,6 +1425,102 @@
    "heardAsWritten": true
   },
   {
+   "id": "s-ba2",
+   "lesson": "P01",
+   "kind": "sound",
+   "pinyin": "bá",
+   "numbers": "ba2",
+   "english": "",
+   "syllables": [
+    [
+     "ba",
+     2,
+     0
+    ]
+   ],
+   "heardAsWritten": true
+  },
+  {
+   "id": "s-pa2",
+   "lesson": "P01",
+   "kind": "sound",
+   "pinyin": "pá",
+   "numbers": "pa2",
+   "english": "",
+   "syllables": [
+    [
+     "pa",
+     2,
+     0
+    ]
+   ],
+   "heardAsWritten": true
+  },
+  {
+   "id": "s-fa2",
+   "lesson": "P01",
+   "kind": "sound",
+   "pinyin": "fá",
+   "numbers": "fa2",
+   "english": "",
+   "syllables": [
+    [
+     "fa",
+     2,
+     0
+    ]
+   ],
+   "heardAsWritten": true
+  },
+  {
+   "id": "s-ba3",
+   "lesson": "P01",
+   "kind": "sound",
+   "pinyin": "bǎ",
+   "numbers": "ba3",
+   "english": "",
+   "syllables": [
+    [
+     "ba",
+     3,
+     0
+    ]
+   ],
+   "heardAsWritten": true
+  },
+  {
+   "id": "s-pa3",
+   "lesson": "P01",
+   "kind": "sound",
+   "pinyin": "pǎ",
+   "numbers": "pa3",
+   "english": "",
+   "syllables": [
+    [
+     "pa",
+     3,
+     0
+    ]
+   ],
+   "heardAsWritten": true
+  },
+  {
+   "id": "s-fa3",
+   "lesson": "P01",
+   "kind": "sound",
+   "pinyin": "fǎ",
+   "numbers": "fa3",
+   "english": "",
+   "syllables": [
+    [
+     "fa",
+     3,
+     0
+    ]
+   ],
+   "heardAsWritten": true
+  },
+  {
    "id": "s-fa4",
    "lesson": "P01",
    "kind": "sound",
@@ -1331,70 +1547,6 @@
     [
      "ma",
      5,
-     0
-    ]
-   ],
-   "heardAsWritten": true
-  },
-  {
-   "id": "s-ba2",
-   "lesson": "P01",
-   "kind": "sound",
-   "pinyin": "bá",
-   "numbers": "ba2",
-   "english": "",
-   "syllables": [
-    [
-     "ba",
-     2,
-     0
-    ]
-   ],
-   "heardAsWritten": true
-  },
-  {
-   "id": "s-ba3",
-   "lesson": "P01",
-   "kind": "sound",
-   "pinyin": "bǎ",
-   "numbers": "ba3",
-   "english": "",
-   "syllables": [
-    [
-     "ba",
-     3,
-     0
-    ]
-   ],
-   "heardAsWritten": true
-  },
-  {
-   "id": "s-pa2",
-   "lesson": "P01",
-   "kind": "sound",
-   "pinyin": "pá",
-   "numbers": "pa2",
-   "english": "",
-   "syllables": [
-    [
-     "pa",
-     2,
-     0
-    ]
-   ],
-   "heardAsWritten": true
-  },
-  {
-   "id": "s-pa3",
-   "lesson": "P01",
-   "kind": "sound",
-   "pinyin": "pǎ",
-   "numbers": "pa3",
-   "english": "",
-   "syllables": [
-    [
-     "pa",
-     3,
      0
     ]
    ],
@@ -1620,6 +1772,22 @@
    "heardAsWritten": true
   },
   {
+   "id": "s-da2",
+   "lesson": "P02",
+   "kind": "sound",
+   "pinyin": "dá",
+   "numbers": "da2",
+   "english": "",
+   "syllables": [
+    [
+     "da",
+     2,
+     0
+    ]
+   ],
+   "heardAsWritten": true
+  },
+  {
    "id": "s-da3",
    "lesson": "P02",
    "kind": "sound",
@@ -1636,6 +1804,22 @@
    "heardAsWritten": true
   },
   {
+   "id": "s-na2",
+   "lesson": "P02",
+   "kind": "sound",
+   "pinyin": "ná",
+   "numbers": "na2",
+   "english": "",
+   "syllables": [
+    [
+     "na",
+     2,
+     0
+    ]
+   ],
+   "heardAsWritten": true
+  },
+  {
    "id": "s-na3",
    "lesson": "P02",
    "kind": "sound",
@@ -1646,6 +1830,54 @@
     [
      "na",
      3,
+     0
+    ]
+   ],
+   "heardAsWritten": true
+  },
+  {
+   "id": "s-la2",
+   "lesson": "P02",
+   "kind": "sound",
+   "pinyin": "lá",
+   "numbers": "la2",
+   "english": "",
+   "syllables": [
+    [
+     "la",
+     2,
+     0
+    ]
+   ],
+   "heardAsWritten": true
+  },
+  {
+   "id": "s-la3",
+   "lesson": "P02",
+   "kind": "sound",
+   "pinyin": "lǎ",
+   "numbers": "la3",
+   "english": "",
+   "syllables": [
+    [
+     "la",
+     3,
+     0
+    ]
+   ],
+   "heardAsWritten": true
+  },
+  {
+   "id": "s-ta2",
+   "lesson": "P02",
+   "kind": "sound",
+   "pinyin": "tá",
+   "numbers": "ta2",
+   "english": "",
+   "syllables": [
+    [
+     "ta",
+     2,
      0
     ]
    ],
@@ -1694,70 +1926,6 @@
     [
      "la",
      1,
-     0
-    ]
-   ],
-   "heardAsWritten": true
-  },
-  {
-   "id": "s-la3",
-   "lesson": "P02",
-   "kind": "sound",
-   "pinyin": "lǎ",
-   "numbers": "la3",
-   "english": "",
-   "syllables": [
-    [
-     "la",
-     3,
-     0
-    ]
-   ],
-   "heardAsWritten": true
-  },
-  {
-   "id": "s-ta2",
-   "lesson": "P02",
-   "kind": "sound",
-   "pinyin": "tá",
-   "numbers": "ta2",
-   "english": "",
-   "syllables": [
-    [
-     "ta",
-     2,
-     0
-    ]
-   ],
-   "heardAsWritten": true
-  },
-  {
-   "id": "s-da2",
-   "lesson": "P02",
-   "kind": "sound",
-   "pinyin": "dá",
-   "numbers": "da2",
-   "english": "",
-   "syllables": [
-    [
-     "da",
-     2,
-     0
-    ]
-   ],
-   "heardAsWritten": true
-  },
-  {
-   "id": "s-na2",
-   "lesson": "P02",
-   "kind": "sound",
-   "pinyin": "ná",
-   "numbers": "na2",
-   "english": "",
-   "syllables": [
-    [
-     "na",
-     2,
      0
     ]
    ],

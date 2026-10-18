@@ -89,6 +89,16 @@
   "method": "natural",
   "score": 1.5
  },
+ "s-fa2": {
+  "tokens": "fa2 .",
+  "method": "natural",
+  "score": 2.2
+ },
+ "s-fa3": {
+  "tokens": "fa3 .",
+  "method": "natural",
+  "score": 1.7
+ },
  "s-fa4": {
   "tokens": "fa4 .",
   "method": "natural",
@@ -98,6 +108,11 @@
   "tokens": "la1 .",
   "method": "pitch-edited",
   "score": 2.3
+ },
+ "s-la2": {
+  "tokens": "la2 .",
+  "method": "pitch-edited",
+  "score": 1.8
  },
  "s-la3": {
   "tokens": "la3 .",

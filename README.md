@@ -23,12 +23,12 @@ Don't start a new lesson while more than ~40 flashcards are due.
 
 Each lesson teaches one block of the chart and 2–5 words made only of sounds you already know, in about 30 short steps (8–10 min). From the 2nd lesson on, each one starts with a warm-up and mixes in older sounds and words. Do them in the app; the notes are a summary to read.
 
-| Lesson | Block | New tones | New words | Notes |
-|--------|-------|-----------|-----------|-------|
-| [P01](https://florianpein.github.io/chinese/#lesson/P01) | ba pa ma fa · a | 1st, 4th (+ neutral) | bā, pà, māma, bàba | [notes](lessons/P01.md) |
-| [P02](https://florianpein.github.io/chinese/#lesson/P02) | da ta na la | 3rd | tā, dà, nà, nǎ | [notes](lessons/P02.md) |
+| Lesson | Block | Tone focus | New words | Notes |
+|--------|-------|------------|-----------|-------|
+| [P01](https://florianpein.github.io/chinese/#lesson/P01) | ba pa ma fa · a | all four (+ neutral) | bā, pà, māma, bàba | [notes](lessons/P01.md) |
+| [P02](https://florianpein.github.io/chinese/#lesson/P02) | da ta na la | 2nd vs 3rd | tā, dà, nà, nǎ | [notes](lessons/P02.md) |
 
-More lessons are added as you go (next: P03, *ga ka ha* and the 2nd tone). The whole order is in [CHART.md](CHART.md#lesson-order).
+More lessons are added as you go (next: P03, *ga ka ha*). Every lesson uses all four tones. The whole order is in [CHART.md](CHART.md#lesson-order).
 
 ## The app
 

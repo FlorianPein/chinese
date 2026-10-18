@@ -89,9 +89,9 @@ Each lesson teaches one or more blocks of the chart and 2–5 words that use onl
 
 | # | Syllables | New tones | Focus | Words | Status |
 |---|---|---|---|---|---|
-| [P01](lessons/P01.md) | ba pa ma fa · a | 1st, 4th, neutral | The 1st and 4th tones; b vs p (the puff of air) | bā (eight), pà (to be afraid), māma (mum), bàba (dad) | [ready](https://florianpein.github.io/chinese/#lesson/P01) |
-| [P02](lessons/P02.md) | da ta na la | 3rd | The 3rd tone; d vs t | tā (he / she), dà (big), nà (that), nǎ (which?) | [ready](https://florianpein.github.io/chinese/#lesson/P02) |
-| P03 | ga ka ha | 2nd | The 2nd tone; g vs k; the rough h | *ná, là, kǎ* | planned |
+| [P01](lessons/P01.md) | ba pa ma fa · a | 1st, 2nd, 3rd, 4th, neutral | All four tones, side by side; b vs p (the puff of air) | bā (eight), pà (to be afraid), māma (mum), bàba (dad) | [ready](https://florianpein.github.io/chinese/#lesson/P01) |
+| [P02](lessons/P02.md) | da ta na la |  | d vs t; telling the 2nd tone from the 3rd | tā (he / she), dà (big), nà (that), nǎ (which?) | [ready](https://florianpein.github.io/chinese/#lesson/P02) |
+| P03 | ga ka ha |  | g vs k; the rough h; the 1st tone against the 4th | *ná, là, kǎ* | planned |
 
 ### e, o and the neutral tone
 
