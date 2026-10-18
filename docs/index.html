@@ -200,6 +200,22 @@ h2 { font-size: 1rem; margin: 26px 0 10px; color: var(--muted); font-weight: 600
 .fbans b { font-size: 1.2rem; }
 .fbans .btn { min-height: 36px; padding: 4px 10px; }
 .rec { margin-top: 18px; }
+.btn.sel { border-color: var(--accent); outline: 2px solid var(--accent); }
+.lrow.planned { opacity: .6; padding: 8px 14px; }
+.lrow.planned .ic { width: 28px; height: 28px; font-size: .85rem; }
+details.later { margin-top: 26px; }
+details.later summary { cursor: pointer; color: var(--muted); font-weight: 600; }
+details.later .list { margin-top: 10px; }
+.chart { display: grid; gap: 6px; margin: 16px auto 0; max-width: 420px; align-items: stretch; }
+.chart button {
+  border: 1px solid var(--border); background: var(--surface-2); border-radius: 10px; cursor: pointer;
+  min-height: 48px; padding: 6px 8px;
+}
+.chart .chead { display: flex; flex-direction: column; align-items: center; gap: 2px; background: transparent; border-color: transparent; color: var(--muted); font-size: .75rem; }
+.chart .chead svg { color: var(--accent); }
+.chart .rhead { font-weight: 600; background: transparent; text-align: left; }
+.chart .ccell { font-size: 1.25rem; font-weight: 600; }
+.chart .playing { outline: 2px solid var(--accent); }
 .done-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 18px 0; }
 .done-stats div { background: var(--surface-2); border-radius: 12px; padding: 12px 6px; }
 .done-stats b { display: block; font-size: 1.4rem; }
@@ -220,6 +236,7 @@ h2 { font-size: 1rem; margin: 26px 0 10px; color: var(--muted); font-weight: 600
   <nav>
     <a href="#learn" data-tab="learn">Learn</a>
     <a href="#review" data-tab="review">Review</a>
+    <a href="#words" data-tab="words">Words</a>
     <a href="#tones" data-tab="tones">Tones</a>
     <a href="#listen" data-tab="listen">Listen</a>
     <a href="#settings" data-tab="settings" title="Settings">⚙︎</a>
@@ -301,7 +318,7 @@ async function playSeq(ids) {   // a row of sounds, one after another
   const my = seqToken;
   for (const id of ids) {
     if (my !== seqToken) return;
-    const btn = view.querySelector(`.syl[data-play="${id}"]`);
+    const btn = view.querySelector(`.syl[data-play="${id}"], .ccell[data-play="${id}"]`);
     if (btn) btn.classList.add("playing");
     await new Promise(done => {
       const a = audioFor(id);
@@ -474,26 +491,38 @@ function renderLearn() {
   const banner = due > 0 ? `<div class="card banner"><div><b>${due} cards to review</b>
       <div class="muted small">${due > 40 ? "Clear some of these before a new lesson." : "A quick review first keeps it all fresh."}</div></div>
       <a class="btn primary" href="#review">Review</a></div>` : "";
-  view.innerHTML = banner + DATA.topics.map(t => `<div class="topic">
-      <h2>${esc(t.id)} · ${esc(t.title)}</h2>
-      <div class="muted small" style="margin-bottom:10px">${t.lessons.length} of ${t.planned} lessons ready</div>
-      <div class="list">${t.lessons.map(id => {
-        const l = DATA.lessons.find(x => x.id === id), st = state.lessons[id];
-        const cls = st ? "done" : l === next ? "next" : "";
-        return `<a class="lrow ${cls}" href="#lesson/${id}">
-          <span class="ic">${st ? "✓" : l === next ? "▶" : +id.slice(-2)}</span>
-          <div class="main"><div class="t">${esc(l.title)}</div>
-            <div class="muted small">${esc(id)} · ~${l.minutes} min${st ? ` · done, best ${st.best}%` : ""}</div></div>
-          <span class="go">${st ? "Again" : "Start"}</span></a>`;
-      }).join("")}</div></div>`).join("") +
-    `<p class="muted small center" style="margin-top:24px">More lessons are added as you go.</p>`;
+  const row = p => {
+    if (!p.built) return `<div class="lrow planned"><span class="ic">${+p.id.slice(1)}</span>
+      <div class="main"><div class="t">${esc(p.title)}</div><div class="muted small">${esc(p.focus)}</div></div></div>`;
+    const l = DATA.lessons.find(x => x.id === p.id), st = state.lessons[p.id];
+    const cls = st ? "done" : l === next ? "next" : "";
+    return `<a class="lrow ${cls}" href="#lesson/${p.id}">
+      <span class="ic">${st ? "✓" : l === next ? "▶" : +p.id.slice(1)}</span>
+      <div class="main"><div class="t">${esc(l.title)}</div>
+        <div class="muted small">${esc(l.focus)}</div>
+        <div class="muted small">${esc(p.id)} · ~${l.minutes} min${st ? ` · done, best ${st.best}%` : ""}</div></div>
+      <span class="go">${st ? "Again" : "Start"}</span></a>`;
+  };
+  const topics = DATA.topics.map(t => ({ ...t, rows: DATA.plan.filter(p => p.topic === t.id) }));
+  const started = topics.filter(t => t.rows.some(p => p.built));
+  const later = topics.filter(t => !t.rows.some(p => p.built));
+  view.innerHTML = banner + started.map(t => `<div class="topic">
+      <h2>${esc(t.title)}</h2>
+      <div class="muted small" style="margin-bottom:10px">${t.rows.filter(p => p.built).length} of ${t.rows.length} lessons ready</div>
+      <div class="list">${t.rows.map(row).join("")}</div></div>`).join("") +
+    (later.length ? `<details class="later"><summary>Coming later: ${later.reduce((n, t) => n + t.rows.length, 0)} more lessons</summary>${
+      later.map(t => `<div class="topic"><h2>${esc(t.title)}</h2><div class="list">${t.rows.map(row).join("")}</div></div>`).join("")}</details>` : "") +
+    `<p class="muted small center" style="margin-top:24px">The lessons follow the Pinyin chart. More are added as you go.</p>`;
 }
 
 // ---------- Lesson player ----------
-const EXERCISES = new Set(["hear", "tone", "meaning", "pinyin", "match", "build", "type"]);
+const EXERCISES = new Set(["hear", "tone", "same", "audio", "meaning", "pinyin", "match", "build", "type"]);
+const soundId = (base, tone) => `s-${base.replace("ü", "v")}${tone}`;
+const chartIds = s => s.syllables.flatMap(b => s.tones.map(t => soundId(b, t)));
 let L = null;   // the running lesson
 function stepAudio(s) {
-  const ids = [s.item, s.play, ...(s.items || []), ...(s.type === "meaning" ? s.options : []), ...(s.rows || []).flat()];
+  const ids = [s.item, s.play, ...(s.items || []), ...(s.pair || []), ...(["meaning", "audio"].includes(s.type) ? s.options : []),
+               ...(s.rows || []).flat(), ...(s.type === "chart" ? chartIds(s) : [])];
   return ids.filter(id => id && byId[id]);
 }
 function startLesson(id) {
@@ -561,6 +590,7 @@ function choose(entry, isRight, after) {
   keyHandler = e => {
     const n = +e.key;
     if (n >= 1 && n <= btns.length) pick(btns[n - 1]);
+    else if (e.key === "p" && entry.seq) playSeq(entry.seq);
     else if (e.key === "p" && entry.audio) play(entry.audio);
   };
 }
@@ -572,6 +602,54 @@ const STEPS = {
     $("#card").innerHTML = `${s.tone ? `<div class="tonebig">${toneSvg(s.tone, 110)}</div>` : `<span class="tag">tip</span>`}
       <h3>${esc(s.title)}</h3><div class="text">${fmt(s.text)}</div>${(s.rows || []).map(r => sylRow(r)).join("")}`;
     continueFooter();
+  },
+  chart(s) {
+    // syllables down, tones across; a row or column header plays the whole line
+    $("#card").innerHTML = `<span class="tag">the chart</span><h3>${esc(s.title)}</h3>${s.text ? `<div class="text">${fmt(s.text)}</div>` : ""}
+      <div class="chart" style="grid-template-columns: auto repeat(${s.tones.length}, 1fr)"><span></span>${
+        s.tones.map(t => `<button class="chead" data-seq="${s.syllables.map(b => soundId(b, t)).join(" ")}" title="Play the column">${toneSvg(t, 34)}<span>${TONE_NAME[t]}</span></button>`).join("")}${
+        s.syllables.map(b => `<button class="rhead" data-seq="${s.tones.map(t => soundId(b, t)).join(" ")}" title="Play the row">${esc(b)} ▶</button>` +
+          s.tones.map(t => `<button class="ccell" data-play="${soundId(b, t)}">${esc(byId[soundId(b, t)].pinyin)}</button>`).join("")).join("")}</div>`;
+    continueFooter();
+  },
+  same(s, entry) {
+    const [a, b] = s.pair, isSame = byId[a].pinyin === byId[b].pinyin;
+    entry.seq = [a, b];
+    $("#card").innerHTML = `<span class="tag">listen</span><div class="prompt">Two sounds. Are they the same?</div>
+      <div class="row"><button class="btn bigplay" data-seq="${a} ${b}" title="Play both again">🔊 🔊</button></div>
+      <div class="options"><button class="btn" data-k="same">Same</button><button class="btn" data-k="diff">Different</button></div>`;
+    playSeq([a, b]);
+    choose(entry, k => (k === "same") === isSame, ok => judge(entry, ok, {
+      title: ok ? `✓ Correct: ${isSame ? "the same" : "different"}` : `✗ They were ${isSame ? "the same" : "different"}`,
+      reveal: `<div class="fbans">${[a, b].map(x => `<b>${esc(byId[x].pinyin)}</b><button class="btn icon" data-play="${x}" title="Play">🔊</button>`).join("")}</div>` }));
+  },
+  audio(s, entry) {
+    // see the Pinyin, listen to the options, pick the one that says it
+    const it = byId[s.item];
+    $("#card").innerHTML = `<span class="tag">read and listen</span><div class="prompt">Which one says</div>${pinyinBlock(it)}
+      <div class="options">${shuffle(s.options).map((id, n) => `<button class="btn" data-pick="${id}">🔊 ${n + 1}</button>`).join("")}</div>
+      <div class="muted small" style="margin-top:10px">Tap each to listen, then press Check.</div>`;
+    const btns = [...view.querySelectorAll("[data-pick]")];
+    let picked = null, done = false;
+    const go = footerButton("Check", () => check(), true);
+    const select = b => {
+      play(b.dataset.pick);
+      if (done) return;
+      btns.forEach(x => x.classList.toggle("sel", x === b));
+      picked = b.dataset.pick; go.disabled = false;
+    };
+    btns.forEach(b => b.onclick = () => select(b));
+    const check = () => {
+      if (done || !picked) return; done = true;
+      btns.forEach(b => {
+        b.classList.remove("sel");
+        b.textContent = `🔊 ${byId[b.dataset.pick].pinyin}`;
+        if (b.dataset.pick === it.id) b.classList.add("right");
+        else if (b.dataset.pick === picked) b.classList.add("wrong");
+      });
+      judge(entry, picked === it.id, { reveal: answerLine(it) });
+    };
+    keyHandler = e => { const n = +e.key; if (n >= 1 && n <= btns.length) select(btns[n - 1]); else if (e.key === "Enter") check(); };
   },
   new(s) {
     const it = byId[s.item];
@@ -630,10 +708,11 @@ const STEPS = {
     choose(entry, k => k === it.pinyin, ok => judge(entry, ok, { reveal: answerLine(it), playId: it.id }));
   },
   match(s, entry) {
-    const its = s.items.map(id => byId[id]);
-    $("#card").innerHTML = `<span class="tag">match the pairs</span><div class="prompt">Tap a Pinyin, then its meaning.</div>
-      <div class="match"><div class="col">${shuffle(its).map(i => `<button class="btn py-opt" data-side="l" data-id="${i.id}">${esc(i.pinyin)}</button>`).join("")}</div>
-      <div class="col">${shuffle(its).map(i => `<button class="btn" data-side="r" data-id="${i.id}">${esc(i.english)}</button>`).join("")}</div></div>`;
+    // normal: Pinyin ↔ meaning. mode "sound": a sound ↔ its Pinyin
+    const its = s.items.map(id => byId[id]), sound = s.mode === "sound";
+    $("#card").innerHTML = `<span class="tag">match the pairs</span><div class="prompt">${sound ? "Tap a sound, then its Pinyin." : "Tap a Pinyin, then its meaning."}</div>
+      <div class="match"><div class="col">${shuffle(its).map(i => `<button class="btn py-opt" data-side="l" data-id="${i.id}">${sound ? "🔊" : esc(i.pinyin)}</button>`).join("")}</div>
+      <div class="col">${shuffle(its).map(i => `<button class="btn${sound ? " py-opt" : ""}" data-side="r" data-id="${i.id}">${esc(sound ? i.pinyin : i.english)}</button>`).join("")}</div></div>`;
     footerButton("Match all pairs", null, true);
     const sel = { l: null, r: null };
     let left = its.length, mistakes = 0;
@@ -649,6 +728,7 @@ const STEPS = {
       l.classList.remove("sel"); r.classList.remove("sel");
       if (l.dataset.id === r.dataset.id) {
         l.disabled = r.disabled = true; l.classList.add("done"); r.classList.add("done");
+        if (sound) l.textContent = byId[l.dataset.id].pinyin;
         if (--left === 0) judge(entry, mistakes === 0, { requeue: false,
           title: mistakes ? `✓ Done, with ${mistakes} wrong tap${mistakes > 1 ? "s" : ""}` : "✓ All pairs right!" });
       } else {
@@ -696,7 +776,7 @@ const STEPS = {
       : `<span class="tag">type it</span><div class="big-en">${esc(it.english)}</div><div class="prompt">Type it in Pinyin.</div>`;
     if (s.from === "audio") entry.audio = it.id;
     $("#card").innerHTML = `${front}
-      <input type="text" id="answer" placeholder="hǎo  or  hao3" autocomplete="off" autocapitalize="off" spellcheck="false">
+      <input type="text" id="answer" placeholder="ma1  or  mā" autocomplete="off" autocapitalize="off" spellcheck="false">
       <div class="muted small" style="margin-top:8px">Tone marks or tone numbers (1–4, 5 or nothing for neutral).</div>`;
     if (s.from === "audio") play(it.id);
     const input = $("#answer");
@@ -787,7 +867,7 @@ function finishLesson() {
     <div class="done-stats"><div><b>${accuracy}%</b><span class="small muted">right first time</span></div>
       <div><b>${minutes} min</b><span class="small muted">time</span></div>
       <div><b>${learned.length}</b><span class="small muted">words &amp; phrases</span></div></div>
-    <p class="muted small">${prev ? "" : "They're now in your reviews, first due tomorrow. "}
+    <p class="muted small">${prev ? "" : "They're now in your reviews, first due tomorrow, and in <a href=\"#words\" style=\"color:var(--accent)\">Words</a>. "}
       <a href="${GITHUB}lessons/${lesson.file}" target="_blank" rel="noopener" style="color:var(--accent)">Lesson notes ↗</a></p>
     <div class="row">${next ? `<a class="btn primary" href="#lesson/${next.id}">Next lesson</a>` : ""}
       <a class="btn${next ? "" : " primary"}" href="#learn">Back to lessons</a></div></div>`;
@@ -962,6 +1042,30 @@ function renderTones() {
   };
 }
 
+// ---------- Words (everything from the lessons you've done) ----------
+const itemList = list => `<div class="list">${list.map(i => `
+  <div class="item"><div class="main">
+    <div class="p">${esc(i.pinyin)}</div>
+    ${state.settings.numbers ? `<div class="num">${esc(i.numbers)}</div>` : ""}
+    <div class="e">${esc(i.english)}</div>
+    ${i.literal ? `<div class="l">literally: ${esc(i.literal)}</div>` : ""}
+    ${i.audio_note ? `<div class="note small">🔊 ${esc(i.audio_note)}</div>` : ""}
+  </div><div class="btns">${audioButtons(i.id)}</div></div>`).join("")}</div>`;
+function renderWords() {
+  keyHandler = null;
+  const done = DATA.lessons.filter(l => state.lessons[l.id]);
+  if (!done.length) {
+    view.innerHTML = `<div class="card center"><p><b>No words yet.</b></p>
+      <p class="muted">Every word and phrase you meet in a lesson shows up here once you've finished the lesson.</p></div>`;
+    return;
+  }
+  const seen = DATA.items.filter(i => i.kind !== "sound" && state.lessons[i.lesson]);
+  const n = k => seen.filter(i => i.kind === k).length;
+  view.innerHTML = `<div class="card"><b>${n("word")} words</b> and <b>${n("phrase")} phrases</b> seen, from ${done.length} lesson${done.length > 1 ? "s" : ""}.
+      <div class="muted small">Newest first. They're all in your <a href="#review" style="color:var(--accent)">reviews</a>.</div></div>` +
+    [...done].reverse().map(l => `<h2>${esc(l.id)} · ${esc(l.title)}</h2>${itemList(seen.filter(i => i.lesson === l.id))}`).join("");
+}
+
 // ---------- Listen (all audio of a lesson) ----------
 function renderListen(lessonId) {
   keyHandler = null;
@@ -969,15 +1073,7 @@ function renderListen(lessonId) {
   const items = DATA.items.filter(i => i.lesson === lesson.id);
   const group = (kind, title) => {
     const list = items.filter(i => i.kind === kind);
-    if (!list.length) return "";
-    return `<h2>${title}</h2><div class="list">${list.map(i => `
-      <div class="item"><div class="main">
-        <div class="p">${esc(i.pinyin)}</div>
-        ${state.settings.numbers ? `<div class="num">${esc(i.numbers)}</div>` : ""}
-        <div class="e">${esc(i.english)}</div>
-        ${i.literal ? `<div class="l">literally: ${esc(i.literal)}</div>` : ""}
-        ${i.audio_note ? `<div class="note small">🔊 ${esc(i.audio_note)}</div>` : ""}
-      </div><div class="btns">${audioButtons(i.id)}</div></div>`).join("")}</div>`;
+    return list.length ? `<h2>${title}</h2>${itemList(list)}` : "";
   };
   const sounds = {};
   for (const i of items.filter(i => i.kind === "sound")) (sounds[i.syllables[0][0]] ||= []).push(i.id);
@@ -1051,7 +1147,7 @@ function route() {
   if (tab !== "lesson") L = null;
   document.body.classList.toggle("inlesson", tab === "lesson");
   document.querySelectorAll("nav a").forEach(a => a.classList.toggle("on", a.dataset.tab === tab));
-  ({ learn: renderLearn, review: renderReview, tones: renderTones, listen: () => renderListen(arg),
+  ({ learn: renderLearn, review: renderReview, words: renderWords, tones: renderTones, listen: () => renderListen(arg),
      settings: renderSettings, lesson: () => startLesson(arg) }[tab] || renderLearn)();
   updateStat();
 }

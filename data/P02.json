@@ -1,0 +1,59 @@
+{
+  "lesson": "P02",
+  "goal": "Say da ta na la, add the 3rd tone (low), and learn he / she, big, that and which.",
+  "items": [
+    {"id": "ta", "kind": "word", "pinyin": "tā", "english": "he / she", "hanzi": "他 / 她", "note": "One word for he and she (and him and her). Only the characters differ."},
+    {"id": "da", "kind": "word", "pinyin": "dà", "english": "big", "hanzi": "大", "note": "No puff of air on the d, like the t in English stop."},
+    {"id": "na-that", "kind": "word", "pinyin": "nà", "english": "that", "hanzi": "那", "note": "Falling, like pointing: that one!"},
+    {"id": "na-which", "kind": "word", "pinyin": "nǎ", "english": "which?", "hanzi": "哪", "note": "Low. Only the tone tells nǎ (which?) from nà (that)."},
+    {"id": "ta-pa", "kind": "phrase", "pinyin": "Tā pà.", "english": "He / she is scared.", "literal": "he / afraid", "hanzi": "他怕。"},
+    {"id": "ta-baba-pa", "kind": "phrase", "pinyin": "Tā bàba pà.", "english": "His / her dad is scared.", "literal": "he / dad / afraid", "hanzi": "他爸爸怕。", "note": "Family words can follow tā directly: tā bàba = his dad."}
+  ],
+  "steps": [
+    {"type": "intro", "title": "Warm-up",
+     "text": "First a quick look back: **b p m f** with **a**, in the 1st and 4th tones.",
+     "rows": [["s-ba1", "s-pa1", "s-ma1", "s-fa1"], ["s-ba4", "s-pa4", "s-ma4", "s-fa4"]]},
+    {"type": "hear", "play": "s-pa4", "options": ["bà", "pà"]},
+    {"type": "meaning", "item": "mama", "from": "audio", "options": ["mama", "baba", "pa"]},
+    {"type": "tone", "play": "s-fa1", "options": [1, 4]},
+    {"type": "type", "item": "pa", "from": "english"},
+
+    {"type": "intro", "title": "d and t: the puff again",
+     "text": "It works like b and p: **t** has a strong puff of air (English *top*), **d** has none (the *t* in English *stop*).\n\n**n** and **l** are the same as in English and German.",
+     "rows": [["s-da1", "s-ta1"], ["s-da4", "s-ta4"], ["s-na4", "s-la4"]]},
+    {"type": "hear", "play": "s-ta1", "options": ["dā", "tā"]},
+    {"type": "same", "pair": ["s-da4", "s-ta4"]},
+    {"type": "hear", "play": "s-la4", "options": ["nà", "là", "dà"]},
+
+    {"type": "intro", "tone": 3, "title": "3rd tone: low",
+     "text": "Drop your voice low and keep it relaxed. A bit creaky is fine.\n\nEnglish: a low, doubtful *Hmm…* German: a reluctant *Na ja…*\n\nSaid on its own it often rises a little at the end. Inside a sentence it mostly just stays **low**, so think *low*, not *down-up*.\n\nThe mark is a little valley: **ǎ**. As a number: **a3**.",
+     "rows": [["s-ma3", "s-da3", "s-na3", "s-ba3"]]},
+    {"type": "chart", "title": "Your second block of the chart",
+     "text": "da ta na la in the three tones you know now. Play each row and draw the shapes in the air with your hand: high, low, falling.",
+     "syllables": ["da", "ta", "na", "la"], "tones": [1, 3, 4]},
+    {"type": "tone", "play": "s-na3", "options": [1, 3, 4]},
+    {"type": "tone", "play": "s-ta4", "options": [1, 3, 4]},
+    {"type": "tone", "play": "s-pa3", "options": [1, 3, 4]},
+    {"type": "audio", "item": "s-la3", "options": ["s-la1", "s-la3", "s-la4"]},
+    {"type": "match", "mode": "sound", "items": ["s-da1", "s-ta3", "s-na4", "s-la3"]},
+    {"type": "type", "item": "s-da3", "from": "audio"},
+
+    {"type": "new", "item": "ta"},
+    {"type": "new", "item": "da"},
+    {"type": "meaning", "item": "da", "from": "audio", "options": ["da", "pa", "ta"]},
+    {"type": "new", "item": "na-that"},
+    {"type": "new", "item": "na-which"},
+    {"type": "hear", "play": "na-which", "options": ["nǎ", "nà"]},
+    {"type": "pinyin", "item": "na-which", "options": ["nǎ", "nà", "lǎ"]},
+    {"type": "match", "items": ["ta", "da", "na-that", "na-which", "baba"]},
+
+    {"type": "new", "item": "ta-pa"},
+    {"type": "new", "item": "ta-baba-pa"},
+    {"type": "build", "item": "ta-baba-pa", "extra": ["māma", "dà"]},
+    {"type": "meaning", "item": "ta-pa", "from": "audio", "options": ["ta-pa", "ta-baba-pa", "baba-pa"]},
+    {"type": "type", "item": "baba", "from": "english"},
+    {"type": "hear", "play": "s-ma3", "options": ["mā", "mǎ", "mà"]},
+    {"type": "type", "item": "ta", "from": "audio"},
+    {"type": "speak", "item": "ta-baba-pa"}
+  ]
+}

@@ -1,13 +1,14 @@
 # Progress
 
-Updated after lessons and chat sessions.
+Updated after lessons and chat sessions. Lessons you've done are also recorded in `data/progress.json`, which marks their words as seen in [WORDS.md](WORDS.md) and their syllables in bold in [CHART.md](CHART.md).
 
 ## Current position
 
-- **Next lesson:** [A01-L01: Tones 1 and 4](https://florianpein.github.io/chinese/#lesson/A01-L01) ([notes](lessons/A01-L01.md))
-- **Milestone in progress:** read any Pinyin aloud with roughly the right sounds and tones (Track A + Unit 1)
+- **Next lesson:** [P01: ba pa ma fa](https://florianpein.github.io/chinese/#lesson/P01) ([notes](lessons/P01.md))
+- **Milestone in progress:** all four tones and the a row (P01–P03)
+- **Words seen:** 0 (see [WORDS.md](WORDS.md))
 
-The course was restructured into small Duolingo-style lessons on 2026-10-17; nothing had been done in the old version yet.
+The course was restructured around the Pinyin chart on 2026-10-18. Nothing had been done in the earlier versions, so nothing carries over.
 
 ## Completed lessons
 
@@ -17,7 +18,7 @@ The course was restructured into small Duolingo-style lessons on 2026-10-17; not
 
 ## Weak spots
 
-Sounds, tones and phrases that need extra practice. Lessons and quizzes come back to these.
+Sounds, tones and words that need extra practice. Lessons and quizzes come back to these.
 
 | Item | Problem | Since | Status |
 |------|---------|-------|--------|
@@ -25,7 +26,7 @@ Sounds, tones and phrases that need extra practice. Lessons and quizzes come bac
 
 ## Session log
 
-Chat practice sessions (quizzes, role-plays, checkpoints).
+Chat practice sessions (quizzes, drills, checkpoints).
 
 | Date | Type | Covered | Takeaways |
 |------|------|---------|-----------|

@@ -1,34 +1,574 @@
 {
  "topics": [
   {
-   "id": "A01",
-   "title": "The four tones + neutral tone",
-   "planned": 5,
+   "id": "T01",
+   "title": "The a row and the four tones",
    "lessons": [
-    "A01-L01",
-    "A01-L02"
+    "P01",
+    "P02",
+    "P03"
    ]
+  },
+  {
+   "id": "T02",
+   "title": "e, o and the neutral tone",
+   "lessons": [
+    "P04",
+    "P05",
+    "P06"
+   ]
+  },
+  {
+   "id": "T03",
+   "title": "i, u and ü",
+   "lessons": [
+    "P07",
+    "P08",
+    "P09"
+   ]
+  },
+  {
+   "id": "T04",
+   "title": "j q x",
+   "lessons": [
+    "P10",
+    "P11"
+   ]
+  },
+  {
+   "id": "T05",
+   "title": "z c s and zh ch sh r",
+   "lessons": [
+    "P12",
+    "P13",
+    "P14",
+    "P15",
+    "P16"
+   ]
+  },
+  {
+   "id": "T06",
+   "title": "ai ei ao ou",
+   "lessons": [
+    "P17",
+    "P18",
+    "P19",
+    "P20",
+    "P21",
+    "P22",
+    "P23"
+   ]
+  },
+  {
+   "id": "T07",
+   "title": "-n and -ng",
+   "lessons": [
+    "P24",
+    "P25",
+    "P26",
+    "P27",
+    "P28",
+    "P29",
+    "P30",
+    "P31"
+   ]
+  },
+  {
+   "id": "T08",
+   "title": "Finals starting with i",
+   "lessons": [
+    "P32",
+    "P33",
+    "P34",
+    "P35",
+    "P36",
+    "P37",
+    "P38",
+    "P39"
+   ]
+  },
+  {
+   "id": "T09",
+   "title": "Finals starting with u",
+   "lessons": [
+    "P40",
+    "P41",
+    "P42",
+    "P43",
+    "P44",
+    "P45",
+    "P46"
+   ]
+  },
+  {
+   "id": "T10",
+   "title": "Finals starting with ü",
+   "lessons": [
+    "P47",
+    "P48"
+   ]
+  }
+ ],
+ "plan": [
+  {
+   "id": "P01",
+   "topic": "T01",
+   "title": "ba pa ma fa",
+   "focus": "The 1st and 4th tones; b vs p (the puff of air)",
+   "built": true,
+   "chart": "ba pa ma fa · a"
+  },
+  {
+   "id": "P02",
+   "topic": "T01",
+   "title": "da ta na la",
+   "focus": "The 3rd tone; d vs t",
+   "built": true,
+   "chart": "da ta na la"
+  },
+  {
+   "id": "P03",
+   "topic": "T01",
+   "title": "ga ka ha",
+   "focus": "The 2nd tone; g vs k; the rough h",
+   "built": false,
+   "chart": "ga ka ha"
+  },
+  {
+   "id": "P04",
+   "topic": "T02",
+   "title": "de te ne le · me",
+   "focus": "The vowel e; little words in the neutral tone",
+   "built": false,
+   "chart": "de te ne le · me"
+  },
+  {
+   "id": "P05",
+   "topic": "T02",
+   "title": "ge ke he · e",
+   "focus": "e after g k h, and on its own",
+   "built": false,
+   "chart": "ge ke he · e"
+  },
+  {
+   "id": "P06",
+   "topic": "T02",
+   "title": "bo po mo fo · wo",
+   "focus": "The o after b p m f sounds like wo",
+   "built": false,
+   "chart": "bo po mo fo · o · wo"
+  },
+  {
+   "id": "P07",
+   "topic": "T03",
+   "title": "bi pi mi · di ti ni li · yi",
+   "focus": "The vowel i; alone it's written yi",
+   "built": false,
+   "chart": "bi pi mi · di ti ni li · yi"
+  },
+  {
+   "id": "P08",
+   "topic": "T03",
+   "title": "bu du gu · wu",
+   "focus": "The vowel u; alone it's written wu; bù becomes bú before a 4th tone",
+   "built": false,
+   "chart": "bu pu mu fu · du tu nu lu · gu ku hu · wu"
+  },
+  {
+   "id": "P09",
+   "topic": "T03",
+   "title": "nü lü · yu",
+   "focus": "ü as in German; alone it's written yu",
+   "built": false,
+   "chart": "nü lü · yu"
+  },
+  {
+   "id": "P10",
+   "topic": "T04",
+   "title": "ji qi xi",
+   "focus": "Three new initials with a flat tongue; j vs q",
+   "built": false,
+   "chart": "ji qi xi"
+  },
+  {
+   "id": "P11",
+   "topic": "T04",
+   "title": "ju qu xu",
+   "focus": "After j q x, u is always ü",
+   "built": false,
+   "chart": "ju qu xu"
+  },
+  {
+   "id": "P12",
+   "topic": "T05",
+   "title": "zi ci si",
+   "focus": "z = German z (ts), c = ts with a puff; the buzzing i",
+   "built": false,
+   "chart": "zi ci si"
+  },
+  {
+   "id": "P13",
+   "topic": "T05",
+   "title": "zhi chi shi ri",
+   "focus": "The tongue curled back; the buzzing i again",
+   "built": false,
+   "chart": "zhi chi shi ri"
+  },
+  {
+   "id": "P14",
+   "topic": "T05",
+   "title": "za ca sa · zha cha sha",
+   "focus": "Telling z c s and zh ch sh apart",
+   "built": false,
+   "chart": "za ca sa · zha cha sha"
+  },
+  {
+   "id": "P15",
+   "topic": "T05",
+   "title": "ze zhe che re · er",
+   "focus": "e after z c s and zh ch sh r; the r-sound er",
+   "built": false,
+   "chart": "ze ce se · zhe che she re · er"
+  },
+  {
+   "id": "P16",
+   "topic": "T05",
+   "title": "zu cu su · zhu chu shu ru",
+   "focus": "u after z c s and zh ch sh r",
+   "built": false,
+   "chart": "zu cu su · zhu chu shu ru"
+  },
+  {
+   "id": "P17",
+   "topic": "T06",
+   "title": "bai dai · ai",
+   "focus": "ai as in English eye",
+   "built": false,
+   "chart": "bai pai mai · dai tai nai lai · ai"
+  },
+  {
+   "id": "P18",
+   "topic": "T06",
+   "title": "gai zai zhai",
+   "focus": "ai with the other initials",
+   "built": false,
+   "chart": "gai kai hai · zai cai sai · zhai chai shai"
+  },
+  {
+   "id": "P19",
+   "topic": "T06",
+   "title": "bei dei gei zei shei · ei",
+   "focus": "ei as in English day, across the whole chart",
+   "built": false,
+   "chart": "bei pei mei fei · dei nei lei · gei hei · zei · zhei shei · ei"
+  },
+  {
+   "id": "P20",
+   "topic": "T06",
+   "title": "bao dao gao · ao",
+   "focus": "ao as in English how; two 3rd tones in a row (nǐ hǎo)",
+   "built": false,
+   "chart": "bao pao mao · dao tao nao lao · gao kao hao · ao"
+  },
+  {
+   "id": "P21",
+   "topic": "T06",
+   "title": "zao zhao shao rao",
+   "focus": "ao with z c s and zh ch sh r",
+   "built": false,
+   "chart": "zao cao sao · zhao chao shao rao"
+  },
+  {
+   "id": "P22",
+   "topic": "T06",
+   "title": "pou dou gou · ou",
+   "focus": "ou as in English go",
+   "built": false,
+   "chart": "pou mou fou · dou tou lou · gou kou hou · ou"
+  },
+  {
+   "id": "P23",
+   "topic": "T06",
+   "title": "zou zhou shou rou",
+   "focus": "ou with z c s and zh ch sh r",
+   "built": false,
+   "chart": "zou cou sou · zhou chou shou rou"
+  },
+  {
+   "id": "P24",
+   "topic": "T07",
+   "title": "ban dan gan · an",
+   "focus": "The ending -n",
+   "built": false,
+   "chart": "ban pan man fan · dan tan nan lan · gan kan han · an"
+  },
+  {
+   "id": "P25",
+   "topic": "T07",
+   "title": "zan zhan shan ran",
+   "focus": "an with z c s and zh ch sh r",
+   "built": false,
+   "chart": "zan can san · zhan chan shan ran"
+  },
+  {
+   "id": "P26",
+   "topic": "T07",
+   "title": "ben men gen · en",
+   "focus": "en: the e becomes a short uh",
+   "built": false,
+   "chart": "ben pen men fen · nen · gen ken hen · en"
+  },
+  {
+   "id": "P27",
+   "topic": "T07",
+   "title": "zen zhen shen ren",
+   "focus": "en with z c s and zh ch sh r",
+   "built": false,
+   "chart": "zen cen sen · zhen chen shen ren"
+  },
+  {
+   "id": "P28",
+   "topic": "T07",
+   "title": "bang dang gang · ang",
+   "focus": "The ending -ng; an vs ang",
+   "built": false,
+   "chart": "bang pang mang fang · dang tang nang lang · gang kang hang · ang"
+  },
+  {
+   "id": "P29",
+   "topic": "T07",
+   "title": "zang zhang shang rang",
+   "focus": "ang with z c s and zh ch sh r",
+   "built": false,
+   "chart": "zang cang sang · zhang chang shang rang"
+  },
+  {
+   "id": "P30",
+   "topic": "T07",
+   "title": "beng deng geng zeng sheng · eng",
+   "focus": "eng across the whole chart; en vs eng",
+   "built": false,
+   "chart": "beng peng meng feng · deng teng neng leng · geng keng heng · zeng ceng seng · zheng cheng sheng reng · eng"
+  },
+  {
+   "id": "P31",
+   "topic": "T07",
+   "title": "dong gong zong zhong",
+   "focus": "ong sounds like German ung",
+   "built": false,
+   "chart": "dong tong nong long · gong kong hong · zong cong song · zhong chong rong"
+  },
+  {
+   "id": "P32",
+   "topic": "T08",
+   "title": "dia lia · jia qia xia · ya",
+   "focus": "i + a glide together; alone it's written ya",
+   "built": false,
+   "chart": "dia lia · jia qia xia · ya"
+  },
+  {
+   "id": "P33",
+   "topic": "T08",
+   "title": "bie die jie · ye",
+   "focus": "ie: the e here is like German e in jetzt",
+   "built": false,
+   "chart": "bie pie mie · die tie nie lie · jie qie xie · ye"
+  },
+  {
+   "id": "P34",
+   "topic": "T08",
+   "title": "biao diao jiao · yao",
+   "focus": "iao = i + ao",
+   "built": false,
+   "chart": "biao piao miao · diao tiao niao liao · jiao qiao xiao · yao"
+  },
+  {
+   "id": "P35",
+   "topic": "T08",
+   "title": "miu diu jiu · you",
+   "focus": "iu is short for iou; alone it's written you",
+   "built": false,
+   "chart": "miu · diu niu liu · jiu qiu xiu · you"
+  },
+  {
+   "id": "P36",
+   "topic": "T08",
+   "title": "bian dian jian · yan",
+   "focus": "ian sounds like ien",
+   "built": false,
+   "chart": "bian pian mian · dian tian nian lian · jian qian xian · yan"
+  },
+  {
+   "id": "P37",
+   "topic": "T08",
+   "title": "bin lin jin · yin",
+   "focus": "in",
+   "built": false,
+   "chart": "bin pin min · nin lin · jin qin xin · yin"
+  },
+  {
+   "id": "P38",
+   "topic": "T08",
+   "title": "bing ding jing · ying",
+   "focus": "ing; in vs ing",
+   "built": false,
+   "chart": "bing ping ming · ding ting ning ling · jing qing xing · ying"
+  },
+  {
+   "id": "P39",
+   "topic": "T08",
+   "title": "liang jiang · yang · jiong · yong",
+   "focus": "iang and iong",
+   "built": false,
+   "chart": "niang liang · jiang qiang xiang · yang · jiong qiong xiong · yong"
+  },
+  {
+   "id": "P40",
+   "topic": "T09",
+   "title": "gua zhua wa · guai zhuai wai",
+   "focus": "ua and uai; alone they're written wa and wai",
+   "built": false,
+   "chart": "gua kua hua · zhua chua shua · wa · guai kuai huai · zhuai chuai shuai · wai"
+  },
+  {
+   "id": "P41",
+   "topic": "T09",
+   "title": "duo guo zuo zhuo",
+   "focus": "uo across the chart (you know it from wo)",
+   "built": false,
+   "chart": "duo tuo nuo luo · guo kuo huo · zuo cuo suo · zhuo chuo shuo ruo"
+  },
+  {
+   "id": "P42",
+   "topic": "T09",
+   "title": "dui gui · wei",
+   "focus": "ui is short for uei; alone it's written wei",
+   "built": false,
+   "chart": "dui tui · gui kui hui · wei"
+  },
+  {
+   "id": "P43",
+   "topic": "T09",
+   "title": "zui sui zhui shui",
+   "focus": "ui with z c s and zh ch sh r",
+   "built": false,
+   "chart": "zui cui sui · zhui chui shui rui"
+  },
+  {
+   "id": "P44",
+   "topic": "T09",
+   "title": "duan guan zuan zhuan · wan",
+   "focus": "uan across the chart",
+   "built": false,
+   "chart": "duan tuan nuan luan · guan kuan huan · zuan cuan suan · zhuan chuan shuan ruan · wan"
+  },
+  {
+   "id": "P45",
+   "topic": "T09",
+   "title": "dun gun zun zhun · wen",
+   "focus": "un is short for uen; alone it's written wen",
+   "built": false,
+   "chart": "dun tun lun · gun kun hun · zun cun sun · zhun chun shun run · wen"
+  },
+  {
+   "id": "P46",
+   "topic": "T09",
+   "title": "guang zhuang · wang · weng",
+   "focus": "uang and weng",
+   "built": false,
+   "chart": "guang kuang huang · zhuang chuang shuang · wang · weng"
+  },
+  {
+   "id": "P47",
+   "topic": "T10",
+   "title": "nüe lüe · jue que xue · yue",
+   "focus": "üe; after j q x it's written ue",
+   "built": false,
+   "chart": "nüe lüe · jue que xue · yue"
+  },
+  {
+   "id": "P48",
+   "topic": "T10",
+   "title": "juan · yuan · jun · yun",
+   "focus": "üan and ün, the last two finals",
+   "built": false,
+   "chart": "juan quan xuan · yuan · jun qun xun · yun"
   }
  ],
  "lessons": [
   {
-   "id": "A01-L01",
-   "topic": "A01",
-   "title": "High and falling: tones 1 and 4",
-   "goal": "Hear and say the 1st tone (high) and the 4th tone (falling), and use your first 5 words.",
-   "file": "A01-L01.md",
+   "id": "P01",
+   "topic": "T01",
+   "title": "ba pa ma fa",
+   "focus": "The 1st and 4th tones; b vs p (the puff of air)",
+   "goal": "Say ba pa ma fa in the 1st and 4th tones, hear b from p, and learn your first 4 words.",
+   "file": "P01.md",
    "steps": [
     {
      "type": "intro",
+     "title": "The Pinyin chart",
+     "text": "Every Chinese syllable is built the same way: an **initial** (the consonant at the start), a **final** (the rest) and a **tone** (the pitch).\n\nThe Pinyin chart lists all of them, about 400. Each lesson teaches one block of it.\n\nToday's block: **b p m f** with the final **a**. That **a** is the open *a* of German *Vater* or English *father*. On its own it's a syllable too: **a**.",
+     "rows": [
+      [
+       "s-a1"
+      ],
+      [
+       "s-ba1",
+       "s-pa1",
+       "s-ma1",
+       "s-fa1"
+      ]
+     ]
+    },
+    {
+     "type": "intro",
+     "title": "b and p: the puff of air",
+     "text": "Hold your hand in front of your mouth.\n\n**p** comes with a strong puff of air, like English *pie* or a firm German *P*.\n\n**b** has no puff. It isn't a buzzing English *b* either: think of the *p* in English *spy*, or a soft southern German *b*.\n\n**m** and **f** are the same as in English and German.",
+     "rows": [
+      [
+       "s-ba1",
+       "s-pa1"
+      ],
+      [
+       "s-ba4",
+       "s-pa4"
+      ]
+     ]
+    },
+    {
+     "type": "hear",
+     "play": "s-pa1",
+     "options": [
+      "bā",
+      "pā"
+     ]
+    },
+    {
+     "type": "same",
+     "pair": [
+      "s-ba4",
+      "s-pa4"
+     ]
+    },
+    {
+     "type": "hear",
+     "play": "s-ba1",
+     "options": [
+      "bā",
+      "pā",
+      "mā"
+     ]
+    },
+    {
+     "type": "intro",
      "title": "Every syllable has a tone",
-     "text": "A tone is a pitch shape: high, rising, low or falling. It's part of the word, like its vowels. Change the tone and you get a different word.\n\nTap each one and listen. It's the same syllable **ma**, five times:",
+     "text": "A tone is a pitch shape. Change the tone and you get a different word. Here is **ma** in the four tones. Just listen.\n\nToday you learn two of them: the 1st and the 4th.",
      "rows": [
       [
        "s-ma1",
        "s-ma2",
        "s-ma3",
-       "s-ma4",
-       "s-ma5"
+       "s-ma4"
       ]
      ]
     },
@@ -36,13 +576,13 @@
      "type": "intro",
      "tone": 1,
      "title": "1st tone: high and flat",
-     "text": "Start high and hold it, like singing one note.\n\nEnglish: the *Aaah* at the doctor's. German: a sung *Laaa*.\n\nThe mark is a flat line: **ā**.",
+     "text": "Start high and hold it, like singing one note.\n\nEnglish: the *Aaah* at the doctor's. German: a sung *Laaa*.\n\nThe mark is a flat line: **ā**. As a number: **a1**.",
      "rows": [
       [
+       "s-ba1",
+       "s-pa1",
        "s-ma1",
-       "s-ta1",
-       "s-he1",
-       "s-shi1"
+       "s-fa1"
       ]
      ]
     },
@@ -50,43 +590,27 @@
      "type": "intro",
      "tone": 4,
      "title": "4th tone: a sharp fall",
-     "text": "Start high and drop fast, like a firm *No!* or *Stop!* German: *Nein!* or *Doch!*\n\nThe mark falls from left to right: **à**.",
+     "text": "Start high and drop fast, like a firm *No!* German: *Nein!* or *Doch!*\n\nThe mark falls from left to right: **à**. As a number: **a4**.",
      "rows": [
       [
+       "s-ba4",
+       "s-pa4",
        "s-ma4",
-       "s-ta4",
-       "s-shi4",
-       "s-bu4"
+       "s-fa4"
       ]
      ]
     },
     {
-     "type": "intro",
-     "title": "High or falling?",
-     "text": "Each pair is the same syllable, first in the 1st tone, then in the 4th. Play each pair a few times.",
-     "rows": [
-      [
-       "s-ma1",
-       "s-ma4"
-      ],
-      [
-       "s-ta1",
-       "s-ta4"
-      ],
-      [
-       "s-he1",
-       "s-he4"
-      ],
-      [
-       "s-shi1",
-       "s-shi4"
-      ]
-     ]
-    },
-    {
-     "type": "tone",
-     "play": "s-ma1",
-     "options": [
+     "type": "chart",
+     "title": "Your first block of the chart",
+     "text": "Tap a square to hear it. Tap a syllable on the left to hear it in both tones, or a tone at the top to hear the whole column.",
+     "syllables": [
+      "ba",
+      "pa",
+      "ma",
+      "fa"
+     ],
+     "tones": [
       1,
       4
      ]
@@ -100,385 +624,266 @@
      ]
     },
     {
-     "type": "hear",
-     "play": "s-ta4",
-     "options": [
-      "tā",
-      "tà"
-     ]
-    },
-    {
-     "type": "hear",
-     "play": "s-he1",
-     "options": [
-      "hē",
-      "hè"
-     ]
-    },
-    {
      "type": "tone",
-     "play": "s-shi4",
+     "play": "s-pa1",
      "options": [
       1,
       4
      ]
     },
     {
-     "type": "tone",
-     "play": "s-bu1",
+     "type": "audio",
+     "item": "s-fa4",
      "options": [
-      1,
-      4
-     ]
-    },
-    {
-     "type": "hear",
-     "play": "s-shi1",
-     "options": [
-      "shī",
-      "shì"
+      "s-fa4",
+      "s-fa1"
      ]
     },
     {
      "type": "tone",
-     "play": "s-ta1",
+     "play": "s-ba4",
      "options": [
       1,
       4
-     ]
-    },
-    {
-     "type": "new",
-     "item": "ta"
-    },
-    {
-     "type": "hear",
-     "play": "ta",
-     "options": [
-      "tā",
-      "tà"
-     ]
-    },
-    {
-     "type": "new",
-     "item": "he"
-    },
-    {
-     "type": "meaning",
-     "item": "he",
-     "from": "audio",
-     "options": [
-      "ta",
-      "he"
-     ]
-    },
-    {
-     "type": "meaning",
-     "item": "ta",
-     "from": "pinyin",
-     "options": [
-      "ta",
-      "he"
-     ]
-    },
-    {
-     "type": "new",
-     "item": "shi"
-    },
-    {
-     "type": "pinyin",
-     "item": "shi",
-     "options": [
-      "shì",
-      "shī"
-     ]
-    },
-    {
-     "type": "tone",
-     "play": "shi",
-     "options": [
-      1,
-      4
-     ]
-    },
-    {
-     "type": "new",
-     "item": "bu"
-    },
-    {
-     "type": "meaning",
-     "item": "bu",
-     "from": "audio",
-     "options": [
-      "bu",
-      "shi",
-      "he"
      ]
     },
     {
      "type": "match",
+     "mode": "sound",
      "items": [
-      "ta",
-      "he",
-      "shi",
-      "bu"
-     ]
-    },
-    {
-     "type": "new",
-     "item": "dui"
-    },
-    {
-     "type": "tone",
-     "play": "dui",
-     "options": [
-      1,
-      4
-     ]
-    },
-    {
-     "type": "meaning",
-     "item": "dui",
-     "from": "pinyin",
-     "options": [
-      "dui",
-      "bu",
-      "shi"
+      "s-ba1",
+      "s-pa4",
+      "s-ma1",
+      "s-fa4"
      ]
     },
     {
      "type": "type",
-     "item": "he",
-     "from": "english"
-    },
-    {
-     "type": "type",
-     "item": "bu",
-     "from": "english"
-    },
-    {
-     "type": "intro",
-     "title": "Your first sentences",
-     "text": "Chinese word order is like English: **he / drinks**. To say *not*, put **bù** right before the verb: **he / not / drinks**."
-    },
-    {
-     "type": "new",
-     "item": "ta-he"
-    },
-    {
-     "type": "new",
-     "item": "ta-bu-he"
-    },
-    {
-     "type": "meaning",
-     "item": "ta-bu-he",
-     "from": "audio",
-     "options": [
-      "ta-he",
-      "ta-bu-he"
-     ]
-    },
-    {
-     "type": "build",
-     "item": "ta-bu-he",
-     "extra": [
-      "shì"
-     ]
-    },
-    {
-     "type": "hear",
-     "play": "ta-he",
-     "options": [
-      "Tā hē.",
-      "Tà hē.",
-      "Tā hè."
-     ]
-    },
-    {
-     "type": "new",
-     "item": "dui-shi-ta"
-    },
-    {
-     "type": "meaning",
-     "item": "dui-shi-ta",
-     "from": "audio",
-     "options": [
-      "dui-shi-ta",
-      "ta-bu-he",
-      "ta-he"
-     ]
-    },
-    {
-     "type": "build",
-     "item": "dui-shi-ta",
-     "extra": [
-      "bù"
-     ]
-    },
-    {
-     "type": "tone",
-     "play": "s-he4",
-     "options": [
-      1,
-      4
-     ]
-    },
-    {
-     "type": "type",
-     "item": "shi",
+     "item": "s-pa4",
      "from": "audio"
     },
     {
-     "type": "type",
-     "item": "ta",
-     "from": "audio"
+     "type": "new",
+     "item": "ba"
     },
     {
-     "type": "match",
-     "items": [
-      "dui",
-      "ta-he",
-      "ta-bu-he",
-      "shi"
-     ]
+     "type": "new",
+     "item": "pa"
     },
     {
-     "type": "pinyin",
-     "item": "dui",
+     "type": "meaning",
+     "item": "pa",
+     "from": "audio",
      "options": [
-      "duì",
-      "duī"
+      "pa",
+      "ba"
      ]
     },
-    {
-     "type": "hear",
-     "play": "s-bu4",
-     "options": [
-      "bū",
-      "bù"
-     ]
-    },
-    {
-     "type": "type",
-     "item": "ta-bu-he",
-     "from": "english"
-    },
-    {
-     "type": "speak",
-     "item": "ta-bu-he"
-    },
-    {
-     "type": "speak",
-     "item": "dui-shi-ta"
-    }
-   ],
-   "minutes": 15
-  },
-  {
-   "id": "A01-L02",
-   "topic": "A01",
-   "title": "Low: tone 3",
-   "goal": "Hear and say the 3rd tone (low) next to tones 1 and 4, and say I, you and OK.",
-   "file": "A01-L02.md",
-   "steps": [
     {
      "type": "intro",
-     "title": "Warm-up",
-     "text": "First a few things from last time: the 1st tone (high, flat) and the 4th tone (falling).",
+     "title": "The neutral tone",
+     "text": "Some syllables have no tone of their own. They're said short and light, straight after the syllable before. This is the **neutral tone**. It has no mark; as a number it's **5** (or no number at all).\n\nYour next two words end in one: **māma** and **bàba**.",
      "rows": [
       [
        "s-ma1",
-       "s-ma4"
+       "s-ma5"
       ]
      ]
     },
     {
+     "type": "new",
+     "item": "mama"
+    },
+    {
+     "type": "new",
+     "item": "baba"
+    },
+    {
+     "type": "match",
+     "items": [
+      "ba",
+      "pa",
+      "mama",
+      "baba"
+     ]
+    },
+    {
+     "type": "pinyin",
+     "item": "baba",
+     "options": [
+      "bàba",
+      "pàpa",
+      "bāba"
+     ]
+    },
+    {
+     "type": "type",
+     "item": "ba",
+     "from": "english"
+    },
+    {
+     "type": "new",
+     "item": "baba-pa"
+    },
+    {
+     "type": "build",
+     "item": "baba-pa",
+     "extra": [
+      "bā"
+     ]
+    },
+    {
+     "type": "same",
+     "pair": [
+      "s-ma1",
+      "s-ma1"
+     ]
+    },
+    {
+     "type": "speak",
+     "item": "baba"
+    },
+    {
+     "type": "speak",
+     "item": "baba-pa"
+    }
+   ],
+   "minutes": 10
+  },
+  {
+   "id": "P02",
+   "topic": "T01",
+   "title": "da ta na la",
+   "focus": "The 3rd tone; d vs t",
+   "goal": "Say da ta na la, add the 3rd tone (low), and learn he / she, big, that and which.",
+   "file": "P02.md",
+   "steps": [
+    {
+     "type": "intro",
+     "title": "Warm-up",
+     "text": "First a quick look back: **b p m f** with **a**, in the 1st and 4th tones.",
+     "rows": [
+      [
+       "s-ba1",
+       "s-pa1",
+       "s-ma1",
+       "s-fa1"
+      ],
+      [
+       "s-ba4",
+       "s-pa4",
+       "s-ma4",
+       "s-fa4"
+      ]
+     ]
+    },
+    {
+     "type": "hear",
+     "play": "s-pa4",
+     "options": [
+      "bà",
+      "pà"
+     ]
+    },
+    {
+     "type": "meaning",
+     "item": "mama",
+     "from": "audio",
+     "options": [
+      "mama",
+      "baba",
+      "pa"
+     ]
+    },
+    {
      "type": "tone",
-     "play": "s-ta4",
+     "play": "s-fa1",
      "options": [
       1,
       4
      ]
     },
     {
-     "type": "meaning",
-     "item": "he",
-     "from": "audio",
-     "options": [
-      "he",
-      "ta",
-      "bu"
-     ]
-    },
-    {
-     "type": "build",
-     "item": "ta-bu-he",
-     "extra": [
-      "duì"
-     ]
-    },
-    {
      "type": "type",
-     "item": "shi",
+     "item": "pa",
      "from": "english"
     },
     {
-     "type": "hear",
-     "play": "dui",
-     "options": [
-      "duì",
-      "duī"
+     "type": "intro",
+     "title": "d and t: the puff again",
+     "text": "It works like b and p: **t** has a strong puff of air (English *top*), **d** has none (the *t* in English *stop*).\n\n**n** and **l** are the same as in English and German.",
+     "rows": [
+      [
+       "s-da1",
+       "s-ta1"
+      ],
+      [
+       "s-da4",
+       "s-ta4"
+      ],
+      [
+       "s-na4",
+       "s-la4"
+      ]
      ]
     },
     {
-     "type": "match",
-     "items": [
-      "ta",
-      "he",
-      "shi",
-      "bu",
-      "dui"
+     "type": "hear",
+     "play": "s-ta1",
+     "options": [
+      "dā",
+      "tā"
+     ]
+    },
+    {
+     "type": "same",
+     "pair": [
+      "s-da4",
+      "s-ta4"
+     ]
+    },
+    {
+     "type": "hear",
+     "play": "s-la4",
+     "options": [
+      "nà",
+      "là",
+      "dà"
      ]
     },
     {
      "type": "intro",
      "tone": 3,
      "title": "3rd tone: low",
-     "text": "Drop your voice low and keep it relaxed. A bit creaky is fine.\n\nEnglish: a low, doubtful *Hmm…* German: a reluctant *Na ja…*\n\nSaid on its own, it often rises a little at the end. Inside a sentence it mostly just stays **low**. Beginners make it too bouncy, so think *low*, not *down-up*.\n\nThe mark is a little valley: **ǎ**.",
+     "text": "Drop your voice low and keep it relaxed. A bit creaky is fine.\n\nEnglish: a low, doubtful *Hmm…* German: a reluctant *Na ja…*\n\nSaid on its own it often rises a little at the end. Inside a sentence it mostly just stays **low**, so think *low*, not *down-up*.\n\nThe mark is a little valley: **ǎ**. As a number: **a3**.",
      "rows": [
       [
        "s-ma3",
-       "s-wo3",
-       "s-ni3",
-       "s-hao3"
+       "s-da3",
+       "s-na3",
+       "s-ba3"
       ]
      ]
     },
     {
-     "type": "intro",
-     "title": "High, low or falling?",
-     "text": "Here are the three tones you know now, on the same syllables. Play each row a few times and draw the shapes in the air with your hand.",
-     "rows": [
-      [
-       "s-ma1",
-       "s-ma3",
-       "s-ma4"
-      ],
-      [
-       "s-hao1",
-       "s-hao3",
-       "s-hao4"
-      ],
-      [
-       "s-ni1",
-       "s-ni3",
-       "s-ni4"
-      ]
+     "type": "chart",
+     "title": "Your second block of the chart",
+     "text": "da ta na la in the three tones you know now. Play each row and draw the shapes in the air with your hand: high, low, falling.",
+     "syllables": [
+      "da",
+      "ta",
+      "na",
+      "la"
+     ],
+     "tones": [
+      1,
+      3,
+      4
      ]
     },
     {
      "type": "tone",
-     "play": "s-ma3",
+     "play": "s-na3",
      "options": [
       1,
       3,
@@ -487,24 +892,7 @@
     },
     {
      "type": "tone",
-     "play": "s-hao3",
-     "options": [
-      1,
-      3,
-      4
-     ]
-    },
-    {
-     "type": "hear",
-     "play": "s-wo4",
-     "options": [
-      "wǒ",
-      "wò"
-     ]
-    },
-    {
-     "type": "tone",
-     "play": "s-ni1",
+     "play": "s-ta4",
      "options": [
       1,
       3,
@@ -513,7 +901,7 @@
     },
     {
      "type": "tone",
-     "play": "s-bu3",
+     "play": "s-pa3",
      "options": [
       1,
       3,
@@ -521,394 +909,292 @@
      ]
     },
     {
-     "type": "hear",
-     "play": "s-he3",
+     "type": "audio",
+     "item": "s-la3",
      "options": [
-      "hē",
-      "hě",
-      "hè"
-     ]
-    },
-    {
-     "type": "new",
-     "item": "wo"
-    },
-    {
-     "type": "hear",
-     "play": "wo",
-     "options": [
-      "wǒ",
-      "wō",
-      "wò"
-     ]
-    },
-    {
-     "type": "new",
-     "item": "ni"
-    },
-    {
-     "type": "meaning",
-     "item": "ni",
-     "from": "audio",
-     "options": [
-      "ni",
-      "wo",
-      "ta"
-     ]
-    },
-    {
-     "type": "meaning",
-     "item": "wo",
-     "from": "pinyin",
-     "options": [
-      "wo",
-      "ni",
-      "ta"
+      "s-la1",
+      "s-la3",
+      "s-la4"
      ]
     },
     {
      "type": "match",
+     "mode": "sound",
      "items": [
-      "wo",
-      "ni",
-      "ta",
-      "he"
+      "s-da1",
+      "s-ta3",
+      "s-na4",
+      "s-la3"
+     ]
+    },
+    {
+     "type": "type",
+     "item": "s-da3",
+     "from": "audio"
+    },
+    {
+     "type": "new",
+     "item": "ta"
+    },
+    {
+     "type": "new",
+     "item": "da"
+    },
+    {
+     "type": "meaning",
+     "item": "da",
+     "from": "audio",
+     "options": [
+      "da",
+      "pa",
+      "ta"
      ]
     },
     {
      "type": "new",
-     "item": "hao"
+     "item": "na-that"
     },
     {
-     "type": "tone",
-     "play": "hao",
+     "type": "new",
+     "item": "na-which"
+    },
+    {
+     "type": "hear",
+     "play": "na-which",
      "options": [
-      1,
-      3,
-      4
+      "nǎ",
+      "nà"
      ]
     },
     {
      "type": "pinyin",
-     "item": "hao",
+     "item": "na-which",
      "options": [
-      "hǎo",
-      "hāo",
-      "hào"
+      "nǎ",
+      "nà",
+      "lǎ"
      ]
-    },
-    {
-     "type": "type",
-     "item": "wo",
-     "from": "english"
-    },
-    {
-     "type": "intro",
-     "title": "Coming soon: nǐ hǎo",
-     "text": "You probably know **nǐ hǎo** (hello). It's two 3rd tones in a row, and that makes the first one change. That gets its own lesson, so for now we leave it out."
-    },
-    {
-     "type": "new",
-     "item": "wo-bu-he"
-    },
-    {
-     "type": "meaning",
-     "item": "wo-bu-he",
-     "from": "audio",
-     "options": [
-      "wo-bu-he",
-      "ta-bu-he",
-      "ta-he"
-     ]
-    },
-    {
-     "type": "build",
-     "item": "wo-bu-he",
-     "extra": [
-      "nǐ"
-     ]
-    },
-    {
-     "type": "new",
-     "item": "shi-wo"
-    },
-    {
-     "type": "hear",
-     "play": "shi-wo",
-     "options": [
-      "Shì wǒ.",
-      "Shì nǐ.",
-      "Shì tā."
-     ]
-    },
-    {
-     "type": "new",
-     "item": "hao-wo-he"
-    },
-    {
-     "type": "build",
-     "item": "hao-wo-he",
-     "extra": [
-      "bù"
-     ]
-    },
-    {
-     "type": "meaning",
-     "item": "hao-wo-he",
-     "from": "pinyin",
-     "options": [
-      "hao-wo-he",
-      "wo-bu-he",
-      "shi-wo"
-     ]
-    },
-    {
-     "type": "tone",
-     "play": "ni",
-     "options": [
-      1,
-      3,
-      4
-     ]
-    },
-    {
-     "type": "tone",
-     "play": "dui",
-     "options": [
-      1,
-      3,
-      4
-     ]
-    },
-    {
-     "type": "tone",
-     "play": "ta",
-     "options": [
-      1,
-      3,
-      4
-     ]
-    },
-    {
-     "type": "type",
-     "item": "wo",
-     "from": "audio"
-    },
-    {
-     "type": "type",
-     "item": "ni",
-     "from": "audio"
-    },
-    {
-     "type": "type",
-     "item": "ta-bu-he",
-     "from": "english"
     },
     {
      "type": "match",
      "items": [
-      "ni",
-      "wo",
-      "hao",
-      "bu",
-      "dui"
+      "ta",
+      "da",
+      "na-that",
+      "na-which",
+      "baba"
      ]
     },
     {
-     "type": "hear",
-     "play": "dui-shi-ta",
+     "type": "new",
+     "item": "ta-pa"
+    },
+    {
+     "type": "new",
+     "item": "ta-baba-pa"
+    },
+    {
+     "type": "build",
+     "item": "ta-baba-pa",
+     "extra": [
+      "māma",
+      "dà"
+     ]
+    },
+    {
+     "type": "meaning",
+     "item": "ta-pa",
+     "from": "audio",
      "options": [
-      "Duì, shì tā!",
-      "Duì, shì wǒ!",
-      "Duì, shì nǐ!"
+      "ta-pa",
+      "ta-baba-pa",
+      "baba-pa"
      ]
     },
     {
      "type": "type",
-     "item": "shi-wo",
+     "item": "baba",
      "from": "english"
     },
     {
-     "type": "speak",
-     "item": "hao-wo-he"
+     "type": "hear",
+     "play": "s-ma3",
+     "options": [
+      "mā",
+      "mǎ",
+      "mà"
+     ]
+    },
+    {
+     "type": "type",
+     "item": "ta",
+     "from": "audio"
     },
     {
      "type": "speak",
-     "item": "wo-bu-he"
-    },
-    {
-     "type": "speak",
-     "item": "shi-wo"
+     "item": "ta-baba-pa"
     }
    ],
-   "minutes": 15
+   "minutes": 10
   }
  ],
  "items": [
   {
-   "id": "ta",
-   "lesson": "A01-L01",
+   "id": "ba",
+   "lesson": "P01",
    "kind": "word",
-   "pinyin": "tā",
-   "numbers": "ta1",
-   "english": "he / she",
+   "pinyin": "bā",
+   "numbers": "ba1",
+   "english": "eight",
    "syllables": [
     [
-     "ta",
+     "ba",
      1,
      0
     ]
    ],
    "heardAsWritten": true,
-   "note": "One word for both he and she. Only the characters are different."
+   "note": "No puff of air on the b."
   },
   {
-   "id": "he",
-   "lesson": "A01-L01",
+   "id": "pa",
+   "lesson": "P01",
    "kind": "word",
-   "pinyin": "hē",
-   "numbers": "he1",
-   "english": "to drink",
+   "pinyin": "pà",
+   "numbers": "pa4",
+   "english": "to be afraid",
    "syllables": [
     [
-     "he",
+     "pa",
+     4,
+     0
+    ]
+   ],
+   "heardAsWritten": true,
+   "note": "A strong puff of air on the p, then a sharp fall."
+  },
+  {
+   "id": "mama",
+   "lesson": "P01",
+   "kind": "word",
+   "pinyin": "māma",
+   "numbers": "ma1ma5",
+   "english": "mum",
+   "syllables": [
+    [
+     "ma",
      1,
      0
-    ]
-   ],
-   "heardAsWritten": true,
-   "note": "The h is rough, like German ch in Bach, not a soft English h."
-  },
-  {
-   "id": "shi",
-   "lesson": "A01-L01",
-   "kind": "word",
-   "pinyin": "shì",
-   "numbers": "shi4",
-   "english": "to be (am / is / are)",
-   "syllables": [
+    ],
     [
-     "shi",
-     4,
+     "ma",
+     5,
      0
     ]
    ],
    "heardAsWritten": true,
-   "note": "Same form for I am, you are, she is. Chinese verbs never change."
+   "note": "The second ma is short and light: the neutral tone."
   },
   {
-   "id": "bu",
-   "lesson": "A01-L01",
+   "id": "baba",
+   "lesson": "P01",
    "kind": "word",
-   "pinyin": "bù",
-   "numbers": "bu4",
-   "english": "not, no",
+   "pinyin": "bàba",
+   "numbers": "ba4ba5",
+   "english": "dad",
    "syllables": [
     [
-     "bu",
+     "ba",
      4,
+     0
+    ],
+    [
+     "ba",
+     5,
      0
     ]
    ],
    "heardAsWritten": true,
-   "note": "Goes right before the verb: bù hē = don't drink."
+   "note": "Falling, then a short, light ba."
   },
   {
-   "id": "dui",
-   "lesson": "A01-L01",
-   "kind": "word",
-   "pinyin": "duì",
-   "numbers": "dui4",
-   "english": "right, correct",
-   "syllables": [
-    [
-     "dui",
-     4,
-     0
-    ]
-   ],
-   "heardAsWritten": true,
-   "note": "Duì! on its own means Right! / Exactly!"
-  },
-  {
-   "id": "ta-he",
-   "lesson": "A01-L01",
+   "id": "baba-pa",
+   "lesson": "P01",
    "kind": "phrase",
-   "pinyin": "Tā hē.",
-   "numbers": "Ta1 he1.",
-   "english": "He / she drinks.",
+   "pinyin": "Bàba pà.",
+   "numbers": "Ba4ba5 pa4.",
+   "english": "Dad is scared.",
    "syllables": [
     [
-     "ta",
-     1,
+     "ba",
+     4,
      0
     ],
     [
-     "he",
-     1,
+     "ba",
+     5,
+     0
+    ],
+    [
+     "pa",
+     4,
      1
     ]
    ],
    "heardAsWritten": true,
-   "literal": "he / drink"
+   "literal": "dad / afraid"
   },
   {
-   "id": "ta-bu-he",
-   "lesson": "A01-L01",
-   "kind": "phrase",
-   "pinyin": "Tā bù hē.",
-   "numbers": "Ta1 bu4 he1.",
-   "english": "He / she doesn't drink.",
+   "id": "s-a1",
+   "lesson": "P01",
+   "kind": "sound",
+   "pinyin": "ā",
+   "numbers": "a1",
+   "english": "",
    "syllables": [
     [
-     "ta",
+     "a",
      1,
      0
-    ],
-    [
-     "bu",
-     4,
-     1
-    ],
-    [
-     "he",
-     1,
-     1
     ]
    ],
-   "heardAsWritten": true,
-   "literal": "he / not / drink"
+   "heardAsWritten": true
   },
   {
-   "id": "dui-shi-ta",
-   "lesson": "A01-L01",
-   "kind": "phrase",
-   "pinyin": "Duì, shì tā!",
-   "numbers": "Dui4, shi4 ta1!",
-   "english": "Right, it's him / her!",
+   "id": "s-ba1",
+   "lesson": "P01",
+   "kind": "sound",
+   "pinyin": "bā",
+   "numbers": "ba1",
+   "english": "",
    "syllables": [
     [
-     "dui",
-     4,
-     0
-    ],
-    [
-     "shi",
-     4,
-     1
-    ],
-    [
-     "ta",
+     "ba",
      1,
-     1
+     0
     ]
    ],
-   "heardAsWritten": true,
-   "literal": "right / is / him"
+   "heardAsWritten": true
+  },
+  {
+   "id": "s-pa1",
+   "lesson": "P01",
+   "kind": "sound",
+   "pinyin": "pā",
+   "numbers": "pa1",
+   "english": "",
+   "syllables": [
+    [
+     "pa",
+     1,
+     0
+    ]
+   ],
+   "heardAsWritten": true
   },
   {
    "id": "s-ma1",
-   "lesson": "A01-L01",
+   "lesson": "P01",
    "kind": "sound",
    "pinyin": "mā",
    "numbers": "ma1",
@@ -923,8 +1209,56 @@
    "heardAsWritten": true
   },
   {
+   "id": "s-fa1",
+   "lesson": "P01",
+   "kind": "sound",
+   "pinyin": "fā",
+   "numbers": "fa1",
+   "english": "",
+   "syllables": [
+    [
+     "fa",
+     1,
+     0
+    ]
+   ],
+   "heardAsWritten": true
+  },
+  {
+   "id": "s-ba4",
+   "lesson": "P01",
+   "kind": "sound",
+   "pinyin": "bà",
+   "numbers": "ba4",
+   "english": "",
+   "syllables": [
+    [
+     "ba",
+     4,
+     0
+    ]
+   ],
+   "heardAsWritten": true
+  },
+  {
+   "id": "s-pa4",
+   "lesson": "P01",
+   "kind": "sound",
+   "pinyin": "pà",
+   "numbers": "pa4",
+   "english": "",
+   "syllables": [
+    [
+     "pa",
+     4,
+     0
+    ]
+   ],
+   "heardAsWritten": true
+  },
+  {
    "id": "s-ma2",
-   "lesson": "A01-L01",
+   "lesson": "P01",
    "kind": "sound",
    "pinyin": "má",
    "numbers": "ma2",
@@ -940,7 +1274,7 @@
   },
   {
    "id": "s-ma3",
-   "lesson": "A01-L01",
+   "lesson": "P01",
    "kind": "sound",
    "pinyin": "mǎ",
    "numbers": "ma3",
@@ -956,7 +1290,7 @@
   },
   {
    "id": "s-ma4",
-   "lesson": "A01-L01",
+   "lesson": "P01",
    "kind": "sound",
    "pinyin": "mà",
    "numbers": "ma4",
@@ -971,12 +1305,28 @@
    "heardAsWritten": true
   },
   {
+   "id": "s-fa4",
+   "lesson": "P01",
+   "kind": "sound",
+   "pinyin": "fà",
+   "numbers": "fa4",
+   "english": "",
+   "syllables": [
+    [
+     "fa",
+     4,
+     0
+    ]
+   ],
+   "heardAsWritten": true
+  },
+  {
    "id": "s-ma5",
-   "lesson": "A01-L01",
+   "lesson": "P01",
    "kind": "sound",
    "pinyin": "ma",
    "numbers": "ma5",
-   "english": "question word",
+   "english": "",
    "syllables": [
     [
      "ma",
@@ -987,8 +1337,211 @@
    "heardAsWritten": true
   },
   {
+   "id": "s-ba2",
+   "lesson": "P01",
+   "kind": "sound",
+   "pinyin": "bá",
+   "numbers": "ba2",
+   "english": "",
+   "syllables": [
+    [
+     "ba",
+     2,
+     0
+    ]
+   ],
+   "heardAsWritten": true
+  },
+  {
+   "id": "s-ba3",
+   "lesson": "P01",
+   "kind": "sound",
+   "pinyin": "bǎ",
+   "numbers": "ba3",
+   "english": "",
+   "syllables": [
+    [
+     "ba",
+     3,
+     0
+    ]
+   ],
+   "heardAsWritten": true
+  },
+  {
+   "id": "s-pa2",
+   "lesson": "P01",
+   "kind": "sound",
+   "pinyin": "pá",
+   "numbers": "pa2",
+   "english": "",
+   "syllables": [
+    [
+     "pa",
+     2,
+     0
+    ]
+   ],
+   "heardAsWritten": true
+  },
+  {
+   "id": "s-pa3",
+   "lesson": "P01",
+   "kind": "sound",
+   "pinyin": "pǎ",
+   "numbers": "pa3",
+   "english": "",
+   "syllables": [
+    [
+     "pa",
+     3,
+     0
+    ]
+   ],
+   "heardAsWritten": true
+  },
+  {
+   "id": "ta",
+   "lesson": "P02",
+   "kind": "word",
+   "pinyin": "tā",
+   "numbers": "ta1",
+   "english": "he / she",
+   "syllables": [
+    [
+     "ta",
+     1,
+     0
+    ]
+   ],
+   "heardAsWritten": true,
+   "note": "One word for he and she (and him and her). Only the characters differ."
+  },
+  {
+   "id": "da",
+   "lesson": "P02",
+   "kind": "word",
+   "pinyin": "dà",
+   "numbers": "da4",
+   "english": "big",
+   "syllables": [
+    [
+     "da",
+     4,
+     0
+    ]
+   ],
+   "heardAsWritten": true,
+   "note": "No puff of air on the d, like the t in English stop."
+  },
+  {
+   "id": "na-that",
+   "lesson": "P02",
+   "kind": "word",
+   "pinyin": "nà",
+   "numbers": "na4",
+   "english": "that",
+   "syllables": [
+    [
+     "na",
+     4,
+     0
+    ]
+   ],
+   "heardAsWritten": true,
+   "note": "Falling, like pointing: that one!"
+  },
+  {
+   "id": "na-which",
+   "lesson": "P02",
+   "kind": "word",
+   "pinyin": "nǎ",
+   "numbers": "na3",
+   "english": "which?",
+   "syllables": [
+    [
+     "na",
+     3,
+     0
+    ]
+   ],
+   "heardAsWritten": true,
+   "note": "Low. Only the tone tells nǎ (which?) from nà (that)."
+  },
+  {
+   "id": "ta-pa",
+   "lesson": "P02",
+   "kind": "phrase",
+   "pinyin": "Tā pà.",
+   "numbers": "Ta1 pa4.",
+   "english": "He / she is scared.",
+   "syllables": [
+    [
+     "ta",
+     1,
+     0
+    ],
+    [
+     "pa",
+     4,
+     1
+    ]
+   ],
+   "heardAsWritten": true,
+   "literal": "he / afraid"
+  },
+  {
+   "id": "ta-baba-pa",
+   "lesson": "P02",
+   "kind": "phrase",
+   "pinyin": "Tā bàba pà.",
+   "numbers": "Ta1 ba4ba5 pa4.",
+   "english": "His / her dad is scared.",
+   "syllables": [
+    [
+     "ta",
+     1,
+     0
+    ],
+    [
+     "ba",
+     4,
+     1
+    ],
+    [
+     "ba",
+     5,
+     0
+    ],
+    [
+     "pa",
+     4,
+     1
+    ]
+   ],
+   "heardAsWritten": true,
+   "literal": "he / dad / afraid",
+   "note": "Family words can follow tā directly: tā bàba = his dad."
+  },
+  {
+   "id": "s-da1",
+   "lesson": "P02",
+   "kind": "sound",
+   "pinyin": "dā",
+   "numbers": "da1",
+   "english": "",
+   "syllables": [
+    [
+     "da",
+     1,
+     0
+    ]
+   ],
+   "heardAsWritten": true
+  },
+  {
    "id": "s-ta1",
-   "lesson": "A01-L01",
+   "lesson": "P02",
    "kind": "sound",
    "pinyin": "tā",
    "numbers": "ta1",
@@ -1003,32 +1556,16 @@
    "heardAsWritten": true
   },
   {
-   "id": "s-he1",
-   "lesson": "A01-L01",
+   "id": "s-da4",
+   "lesson": "P02",
    "kind": "sound",
-   "pinyin": "hē",
-   "numbers": "he1",
+   "pinyin": "dà",
+   "numbers": "da4",
    "english": "",
    "syllables": [
     [
-     "he",
-     1,
-     0
-    ]
-   ],
-   "heardAsWritten": true
-  },
-  {
-   "id": "s-shi1",
-   "lesson": "A01-L01",
-   "kind": "sound",
-   "pinyin": "shī",
-   "numbers": "shi1",
-   "english": "",
-   "syllables": [
-    [
-     "shi",
-     1,
+     "da",
+     4,
      0
     ]
    ],
@@ -1036,7 +1573,7 @@
   },
   {
    "id": "s-ta4",
-   "lesson": "A01-L01",
+   "lesson": "P02",
    "kind": "sound",
    "pinyin": "tà",
    "numbers": "ta4",
@@ -1051,15 +1588,15 @@
    "heardAsWritten": true
   },
   {
-   "id": "s-shi4",
-   "lesson": "A01-L01",
+   "id": "s-na4",
+   "lesson": "P02",
    "kind": "sound",
-   "pinyin": "shì",
-   "numbers": "shi4",
+   "pinyin": "nà",
+   "numbers": "na4",
    "english": "",
    "syllables": [
     [
-     "shi",
+     "na",
      4,
      0
     ]
@@ -1067,15 +1604,15 @@
    "heardAsWritten": true
   },
   {
-   "id": "s-bu4",
-   "lesson": "A01-L01",
+   "id": "s-la4",
+   "lesson": "P02",
    "kind": "sound",
-   "pinyin": "bù",
-   "numbers": "bu4",
+   "pinyin": "là",
+   "numbers": "la4",
    "english": "",
    "syllables": [
     [
-     "bu",
+     "la",
      4,
      0
     ]
@@ -1083,48 +1620,32 @@
    "heardAsWritten": true
   },
   {
-   "id": "s-he4",
-   "lesson": "A01-L01",
+   "id": "s-da3",
+   "lesson": "P02",
    "kind": "sound",
-   "pinyin": "hè",
-   "numbers": "he4",
+   "pinyin": "dǎ",
+   "numbers": "da3",
    "english": "",
    "syllables": [
     [
-     "he",
-     4,
+     "da",
+     3,
      0
     ]
    ],
    "heardAsWritten": true
   },
   {
-   "id": "s-bu1",
-   "lesson": "A01-L01",
+   "id": "s-na3",
+   "lesson": "P02",
    "kind": "sound",
-   "pinyin": "bū",
-   "numbers": "bu1",
+   "pinyin": "nǎ",
+   "numbers": "na3",
    "english": "",
    "syllables": [
     [
-     "bu",
-     1,
-     0
-    ]
-   ],
-   "heardAsWritten": true
-  },
-  {
-   "id": "s-ta2",
-   "lesson": "A01-L01",
-   "kind": "sound",
-   "pinyin": "tá",
-   "numbers": "ta2",
-   "english": "",
-   "syllables": [
-    [
-     "ta",
-     2,
+     "na",
+     3,
      0
     ]
    ],
@@ -1132,7 +1653,7 @@
   },
   {
    "id": "s-ta3",
-   "lesson": "A01-L01",
+   "lesson": "P02",
    "kind": "sound",
    "pinyin": "tǎ",
    "numbers": "ta3",
@@ -1147,111 +1668,15 @@
    "heardAsWritten": true
   },
   {
-   "id": "s-he2",
-   "lesson": "A01-L01",
+   "id": "s-na1",
+   "lesson": "P02",
    "kind": "sound",
-   "pinyin": "hé",
-   "numbers": "he2",
+   "pinyin": "nā",
+   "numbers": "na1",
    "english": "",
    "syllables": [
     [
-     "he",
-     2,
-     0
-    ]
-   ],
-   "heardAsWritten": true
-  },
-  {
-   "id": "s-he3",
-   "lesson": "A01-L01",
-   "kind": "sound",
-   "pinyin": "hě",
-   "numbers": "he3",
-   "english": "",
-   "syllables": [
-    [
-     "he",
-     3,
-     0
-    ]
-   ],
-   "heardAsWritten": true
-  },
-  {
-   "id": "s-shi2",
-   "lesson": "A01-L01",
-   "kind": "sound",
-   "pinyin": "shí",
-   "numbers": "shi2",
-   "english": "",
-   "syllables": [
-    [
-     "shi",
-     2,
-     0
-    ]
-   ],
-   "heardAsWritten": true
-  },
-  {
-   "id": "s-shi3",
-   "lesson": "A01-L01",
-   "kind": "sound",
-   "pinyin": "shǐ",
-   "numbers": "shi3",
-   "english": "",
-   "syllables": [
-    [
-     "shi",
-     3,
-     0
-    ]
-   ],
-   "heardAsWritten": true
-  },
-  {
-   "id": "s-bu2",
-   "lesson": "A01-L01",
-   "kind": "sound",
-   "pinyin": "bú",
-   "numbers": "bu2",
-   "english": "",
-   "syllables": [
-    [
-     "bu",
-     2,
-     0
-    ]
-   ],
-   "heardAsWritten": true
-  },
-  {
-   "id": "s-bu3",
-   "lesson": "A01-L01",
-   "kind": "sound",
-   "pinyin": "bǔ",
-   "numbers": "bu3",
-   "english": "",
-   "syllables": [
-    [
-     "bu",
-     3,
-     0
-    ]
-   ],
-   "heardAsWritten": true
-  },
-  {
-   "id": "s-dui1",
-   "lesson": "A01-L01",
-   "kind": "sound",
-   "pinyin": "duī",
-   "numbers": "dui1",
-   "english": "",
-   "syllables": [
-    [
-     "dui",
+     "na",
      1,
      0
     ]
@@ -1259,15 +1684,47 @@
    "heardAsWritten": true
   },
   {
-   "id": "s-dui2",
-   "lesson": "A01-L01",
+   "id": "s-la1",
+   "lesson": "P02",
    "kind": "sound",
-   "pinyin": "duí",
-   "numbers": "dui2",
+   "pinyin": "lā",
+   "numbers": "la1",
    "english": "",
    "syllables": [
     [
-     "dui",
+     "la",
+     1,
+     0
+    ]
+   ],
+   "heardAsWritten": true
+  },
+  {
+   "id": "s-la3",
+   "lesson": "P02",
+   "kind": "sound",
+   "pinyin": "lǎ",
+   "numbers": "la3",
+   "english": "",
+   "syllables": [
+    [
+     "la",
+     3,
+     0
+    ]
+   ],
+   "heardAsWritten": true
+  },
+  {
+   "id": "s-ta2",
+   "lesson": "P02",
+   "kind": "sound",
+   "pinyin": "tá",
+   "numbers": "ta2",
+   "english": "",
+   "syllables": [
+    [
+     "ta",
      2,
      0
     ]
@@ -1275,318 +1732,15 @@
    "heardAsWritten": true
   },
   {
-   "id": "s-dui3",
-   "lesson": "A01-L01",
+   "id": "s-da2",
+   "lesson": "P02",
    "kind": "sound",
-   "pinyin": "duǐ",
-   "numbers": "dui3",
+   "pinyin": "dá",
+   "numbers": "da2",
    "english": "",
    "syllables": [
     [
-     "dui",
-     3,
-     0
-    ]
-   ],
-   "heardAsWritten": true
-  },
-  {
-   "id": "s-dui4",
-   "lesson": "A01-L01",
-   "kind": "sound",
-   "pinyin": "duì",
-   "numbers": "dui4",
-   "english": "",
-   "syllables": [
-    [
-     "dui",
-     4,
-     0
-    ]
-   ],
-   "heardAsWritten": true
-  },
-  {
-   "id": "wo",
-   "lesson": "A01-L02",
-   "kind": "word",
-   "pinyin": "wǒ",
-   "numbers": "wo3",
-   "english": "I, me",
-   "syllables": [
-    [
-     "wo",
-     3,
-     0
-    ]
-   ],
-   "heardAsWritten": true,
-   "note": "Like English woe, but low. I and me are the same word."
-  },
-  {
-   "id": "ni",
-   "lesson": "A01-L02",
-   "kind": "word",
-   "pinyin": "nǐ",
-   "numbers": "ni3",
-   "english": "you",
-   "syllables": [
-    [
-     "ni",
-     3,
-     0
-    ]
-   ],
-   "heardAsWritten": true,
-   "note": "Like English knee, but low."
-  },
-  {
-   "id": "hao",
-   "lesson": "A01-L02",
-   "kind": "word",
-   "pinyin": "hǎo",
-   "numbers": "hao3",
-   "english": "good; OK",
-   "syllables": [
-    [
-     "hao",
-     3,
-     0
-    ]
-   ],
-   "heardAsWritten": true,
-   "note": "Hǎo! on its own means OK! / Fine! The ao sounds like English how (with a rough German h)."
-  },
-  {
-   "id": "wo-bu-he",
-   "lesson": "A01-L02",
-   "kind": "phrase",
-   "pinyin": "Wǒ bù hē.",
-   "numbers": "Wo3 bu4 he1.",
-   "english": "I don't drink. / I won't have any.",
-   "syllables": [
-    [
-     "wo",
-     3,
-     0
-    ],
-    [
-     "bu",
-     4,
-     1
-    ],
-    [
-     "he",
-     1,
-     1
-    ]
-   ],
-   "heardAsWritten": true,
-   "literal": "I / not / drink"
-  },
-  {
-   "id": "shi-wo",
-   "lesson": "A01-L02",
-   "kind": "phrase",
-   "pinyin": "Shì wǒ.",
-   "numbers": "Shi4 wo3.",
-   "english": "It's me.",
-   "syllables": [
-    [
-     "shi",
-     4,
-     0
-    ],
-    [
-     "wo",
-     3,
-     1
-    ]
-   ],
-   "heardAsWritten": true,
-   "literal": "is / me"
-  },
-  {
-   "id": "hao-wo-he",
-   "lesson": "A01-L02",
-   "kind": "phrase",
-   "pinyin": "Hǎo, wǒ hē.",
-   "numbers": "Hao3, wo3 he1.",
-   "english": "OK, I'll drink (some).",
-   "syllables": [
-    [
-     "hao",
-     3,
-     0
-    ],
-    [
-     "wo",
-     3,
-     1
-    ],
-    [
-     "he",
-     1,
-     1
-    ]
-   ],
-   "heardAsWritten": true,
-   "literal": "OK / I / drink"
-  },
-  {
-   "id": "s-wo3",
-   "lesson": "A01-L02",
-   "kind": "sound",
-   "pinyin": "wǒ",
-   "numbers": "wo3",
-   "english": "",
-   "syllables": [
-    [
-     "wo",
-     3,
-     0
-    ]
-   ],
-   "heardAsWritten": true
-  },
-  {
-   "id": "s-ni3",
-   "lesson": "A01-L02",
-   "kind": "sound",
-   "pinyin": "nǐ",
-   "numbers": "ni3",
-   "english": "",
-   "syllables": [
-    [
-     "ni",
-     3,
-     0
-    ]
-   ],
-   "heardAsWritten": true
-  },
-  {
-   "id": "s-hao3",
-   "lesson": "A01-L02",
-   "kind": "sound",
-   "pinyin": "hǎo",
-   "numbers": "hao3",
-   "english": "",
-   "syllables": [
-    [
-     "hao",
-     3,
-     0
-    ]
-   ],
-   "heardAsWritten": true
-  },
-  {
-   "id": "s-hao1",
-   "lesson": "A01-L02",
-   "kind": "sound",
-   "pinyin": "hāo",
-   "numbers": "hao1",
-   "english": "",
-   "syllables": [
-    [
-     "hao",
-     1,
-     0
-    ]
-   ],
-   "heardAsWritten": true
-  },
-  {
-   "id": "s-hao4",
-   "lesson": "A01-L02",
-   "kind": "sound",
-   "pinyin": "hào",
-   "numbers": "hao4",
-   "english": "",
-   "syllables": [
-    [
-     "hao",
-     4,
-     0
-    ]
-   ],
-   "heardAsWritten": true
-  },
-  {
-   "id": "s-ni1",
-   "lesson": "A01-L02",
-   "kind": "sound",
-   "pinyin": "nī",
-   "numbers": "ni1",
-   "english": "",
-   "syllables": [
-    [
-     "ni",
-     1,
-     0
-    ]
-   ],
-   "heardAsWritten": true
-  },
-  {
-   "id": "s-ni4",
-   "lesson": "A01-L02",
-   "kind": "sound",
-   "pinyin": "nì",
-   "numbers": "ni4",
-   "english": "",
-   "syllables": [
-    [
-     "ni",
-     4,
-     0
-    ]
-   ],
-   "heardAsWritten": true
-  },
-  {
-   "id": "s-wo4",
-   "lesson": "A01-L02",
-   "kind": "sound",
-   "pinyin": "wò",
-   "numbers": "wo4",
-   "english": "",
-   "syllables": [
-    [
-     "wo",
-     4,
-     0
-    ]
-   ],
-   "heardAsWritten": true
-  },
-  {
-   "id": "s-wo1",
-   "lesson": "A01-L02",
-   "kind": "sound",
-   "pinyin": "wō",
-   "numbers": "wo1",
-   "english": "",
-   "syllables": [
-    [
-     "wo",
-     1,
-     0
-    ]
-   ],
-   "heardAsWritten": true
-  },
-  {
-   "id": "s-wo2",
-   "lesson": "A01-L02",
-   "kind": "sound",
-   "pinyin": "wó",
-   "numbers": "wo2",
-   "english": "",
-   "syllables": [
-    [
-     "wo",
+     "da",
      2,
      0
     ]
@@ -1594,31 +1748,15 @@
    "heardAsWritten": true
   },
   {
-   "id": "s-ni2",
-   "lesson": "A01-L02",
+   "id": "s-na2",
+   "lesson": "P02",
    "kind": "sound",
-   "pinyin": "ní",
-   "numbers": "ni2",
+   "pinyin": "ná",
+   "numbers": "na2",
    "english": "",
    "syllables": [
     [
-     "ni",
-     2,
-     0
-    ]
-   ],
-   "heardAsWritten": true
-  },
-  {
-   "id": "s-hao2",
-   "lesson": "A01-L02",
-   "kind": "sound",
-   "pinyin": "háo",
-   "numbers": "hao2",
-   "english": "",
-   "syllables": [
-    [
-     "hao",
+     "na",
      2,
      0
     ]

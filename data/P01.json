@@ -1,0 +1,62 @@
+{
+  "lesson": "P01",
+  "goal": "Say ba pa ma fa in the 1st and 4th tones, hear b from p, and learn your first 4 words.",
+  "items": [
+    {"id": "ba", "kind": "word", "pinyin": "bā", "english": "eight", "hanzi": "八", "note": "No puff of air on the b."},
+    {"id": "pa", "kind": "word", "pinyin": "pà", "english": "to be afraid", "hanzi": "怕", "note": "A strong puff of air on the p, then a sharp fall."},
+    {"id": "mama", "kind": "word", "pinyin": "māma", "english": "mum", "hanzi": "妈妈", "note": "The second ma is short and light: the neutral tone."},
+    {"id": "baba", "kind": "word", "pinyin": "bàba", "english": "dad", "hanzi": "爸爸", "note": "Falling, then a short, light ba."},
+    {"id": "baba-pa", "kind": "phrase", "pinyin": "Bàba pà.", "english": "Dad is scared.", "literal": "dad / afraid", "hanzi": "爸爸怕。"}
+  ],
+  "sounds": {
+    "s-ma1": "mum", "s-ma2": "hemp", "s-ma3": "horse", "s-ma4": "to scold"
+  },
+  "steps": [
+    {"type": "intro", "title": "The Pinyin chart",
+     "text": "Every Chinese syllable is built the same way: an **initial** (the consonant at the start), a **final** (the rest) and a **tone** (the pitch).\n\nThe Pinyin chart lists all of them, about 400. Each lesson teaches one block of it.\n\nToday's block: **b p m f** with the final **a**. That **a** is the open *a* of German *Vater* or English *father*. On its own it's a syllable too: **a**.",
+     "rows": [["s-a1"], ["s-ba1", "s-pa1", "s-ma1", "s-fa1"]]},
+    {"type": "intro", "title": "b and p: the puff of air",
+     "text": "Hold your hand in front of your mouth.\n\n**p** comes with a strong puff of air, like English *pie* or a firm German *P*.\n\n**b** has no puff. It isn't a buzzing English *b* either: think of the *p* in English *spy*, or a soft southern German *b*.\n\n**m** and **f** are the same as in English and German.",
+     "rows": [["s-ba1", "s-pa1"], ["s-ba4", "s-pa4"]]},
+    {"type": "hear", "play": "s-pa1", "options": ["bā", "pā"]},
+    {"type": "same", "pair": ["s-ba4", "s-pa4"]},
+    {"type": "hear", "play": "s-ba1", "options": ["bā", "pā", "mā"]},
+
+    {"type": "intro", "title": "Every syllable has a tone",
+     "text": "A tone is a pitch shape. Change the tone and you get a different word. Here is **ma** in the four tones. Just listen.\n\nToday you learn two of them: the 1st and the 4th.",
+     "rows": [["s-ma1", "s-ma2", "s-ma3", "s-ma4"]]},
+    {"type": "intro", "tone": 1, "title": "1st tone: high and flat",
+     "text": "Start high and hold it, like singing one note.\n\nEnglish: the *Aaah* at the doctor's. German: a sung *Laaa*.\n\nThe mark is a flat line: **ā**. As a number: **a1**.",
+     "rows": [["s-ba1", "s-pa1", "s-ma1", "s-fa1"]]},
+    {"type": "intro", "tone": 4, "title": "4th tone: a sharp fall",
+     "text": "Start high and drop fast, like a firm *No!* German: *Nein!* or *Doch!*\n\nThe mark falls from left to right: **à**. As a number: **a4**.",
+     "rows": [["s-ba4", "s-pa4", "s-ma4", "s-fa4"]]},
+    {"type": "chart", "title": "Your first block of the chart",
+     "text": "Tap a square to hear it. Tap a syllable on the left to hear it in both tones, or a tone at the top to hear the whole column.",
+     "syllables": ["ba", "pa", "ma", "fa"], "tones": [1, 4]},
+    {"type": "tone", "play": "s-ma4", "options": [1, 4]},
+    {"type": "tone", "play": "s-pa1", "options": [1, 4]},
+    {"type": "audio", "item": "s-fa4", "options": ["s-fa4", "s-fa1"]},
+    {"type": "tone", "play": "s-ba4", "options": [1, 4]},
+    {"type": "match", "mode": "sound", "items": ["s-ba1", "s-pa4", "s-ma1", "s-fa4"]},
+    {"type": "type", "item": "s-pa4", "from": "audio"},
+
+    {"type": "new", "item": "ba"},
+    {"type": "new", "item": "pa"},
+    {"type": "meaning", "item": "pa", "from": "audio", "options": ["pa", "ba"]},
+    {"type": "intro", "title": "The neutral tone",
+     "text": "Some syllables have no tone of their own. They're said short and light, straight after the syllable before. This is the **neutral tone**. It has no mark; as a number it's **5** (or no number at all).\n\nYour next two words end in one: **māma** and **bàba**.",
+     "rows": [["s-ma1", "s-ma5"]]},
+    {"type": "new", "item": "mama"},
+    {"type": "new", "item": "baba"},
+    {"type": "match", "items": ["ba", "pa", "mama", "baba"]},
+    {"type": "pinyin", "item": "baba", "options": ["bàba", "pàpa", "bāba"]},
+    {"type": "type", "item": "ba", "from": "english"},
+
+    {"type": "new", "item": "baba-pa"},
+    {"type": "build", "item": "baba-pa", "extra": ["bā"]},
+    {"type": "same", "pair": ["s-ma1", "s-ma1"]},
+    {"type": "speak", "item": "baba"},
+    {"type": "speak", "item": "baba-pa"}
+  ]
+}
