@@ -4,25 +4,22 @@
 
 Every word and phrase from the lessons. A lesson's words count as **seen** once the lesson is marked done in `data/progress.json` (tell Claude *I finished P01*). The app keeps its own list under **Words**.
 
-**Seen:** 0 words, 0 phrases · **In ready lessons, not seen yet:** 8 words, 3 phrases
+**Seen:** 0 words, 0 phrases · **In ready lessons, not seen yet:** 6 words, 2 phrases
 
-## [P01](lessons/P01.md): ba pa ma fa (not seen yet)
-
-| Pinyin | Numbers | Meaning | Kind |
-|---|---|---|---|
-| **bā** | ba1 | eight | word |
-| **pà** | pa4 | to be afraid | word |
-| **māma** | ma1ma5 | mum | word |
-| **bàba** | ba4ba5 | dad | word |
-| **Bàba pà.** | Ba4ba5 pa4. | Dad is scared. | phrase |
-
-## [P02](lessons/P02.md): da ta na la (not seen yet)
+## [P01](lessons/P01.md): bo po mo fo · wo (not seen yet)
 
 | Pinyin | Numbers | Meaning | Kind |
 |---|---|---|---|
-| **tā** | ta1 | he / she | word |
-| **dà** | da4 | big | word |
-| **nà** | na4 | that | word |
-| **nǎ** | na3 | which? | word |
-| **Tā pà.** | Ta1 pa4. | He / she is scared. | phrase |
-| **Tā bàba pà.** | Ta1 ba4ba5 pa4. | His / her dad is scared. | phrase |
+| **wǒ** | wo3 | I, me | word |
+| **pò** | po4 | broken | word |
+| **mō** | mo1 | to touch, to feel | word |
+| **fó** | fo2 | Buddha | word |
+
+## [P02](lessons/P02.md): de te ne le · me · e (not seen yet)
+
+| Pinyin | Numbers | Meaning | Kind |
+|---|---|---|---|
+| **è** | e4 | hungry | word |
+| **wǒ de** | wo3 de5 | my, mine | word |
+| **Wǒ è le.** | Wo3 e4 le5. | I'm hungry (now). | phrase |
+| **Wǒ ne?** | Wo3 ne5? | And me? / What about me? | phrase |

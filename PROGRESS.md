@@ -4,8 +4,8 @@ Updated after lessons and chat sessions. Lessons you've done are also recorded i
 
 ## Current position
 
-- **Next lesson:** [P01: ba pa ma fa](https://florianpein.github.io/chinese/#lesson/P01) ([notes](lessons/P01.md))
-- **Milestone in progress:** all four tones and the a row (P01–P03)
+- **Next lesson:** [P01: bo po mo fo · wo](https://florianpein.github.io/chinese/#lesson/P01) ([notes](lessons/P01.md))
+- **Milestone in progress:** all four tones, and one group of initials per lesson (P01–P06)
 - **Words seen:** 0 (see [WORDS.md](WORDS.md))
 
 The course was restructured around the Pinyin chart on 2026-10-18. Nothing had been done in the earlier versions, so nothing carries over.

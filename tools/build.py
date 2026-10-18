@@ -646,7 +646,9 @@ def minutes(steps):
 
 
 def cell_text(chart, cells):
-    """['a:bpmf', 'a:none'] -> 'ba pa ma fa · a'"""
+    """['a:bpmf', 'a:none'] -> 'ba pa ma fa · a'; a recap lesson has no cells"""
+    if not cells:
+        return "recap, no new sounds"
     return " · ".join(" ".join(x.replace("v", "ü") for x in chart.syllables(c)) for c in cells)
 
 

@@ -3,14 +3,16 @@
 **Learner:** total beginner; explanations in English, pronunciation compared to English *and* German
 **Goal:** talking to people. The first step is to hear and say every sound of Mandarin
 **Script:** Pinyin only (no characters for now)
-**Time:** one lesson is about 8–10 min; skip days, or do several lessons at once
+**Time:** one lesson is about 10–12 min; skip days, or do several lessons at once
+**Focus for now:** listening (telling the tones and the sounds apart) and a few words per lesson
 
 ### Decisions
 
 | Topic | Decision |
 |-------|----------|
-| Course structure | For now the lessons work through the **Pinyin chart** (like the [Yabla chart](https://chinese.yabla.com/chinese-pinyin-chart.php)), block by block. Everything else is in [future plans](#6-future-plans) |
-| Lesson size | Small: one block of the chart (e.g. *ba pa ma fa*) and 2–5 words. About 25–35 short steps |
+| Course structure | For now the lessons work through the **Pinyin chart** (like the [Yabla chart](https://chinese.yabla.com/chinese-pinyin-chart.php)). First **one group of initials per lesson** (P01–P06), then **two recap lessons**, then **mixed lessons** that combine several groups and finals and get faster. Everything else is in [future plans](#6-future-plans) |
+| Lesson size | P01–P08: one group of initials with one final (e.g. *bo po mo fo*) and 2–5 words. From P09: 3–15 chart blocks around one contrast (e.g. *an vs ang* everywhere). About 35 short steps |
+| Exercises | Mostly **listening**: which tone, which sound, same or different, match the sounds, write what you hear. Speaking and sentence building come back later |
 | Words | Chosen by importance, and only from syllables and tones you've already learned (checked automatically) |
 | Repetition | From the 2nd lesson on, every lesson starts with a warm-up and mixes in older sounds and words. Finished lessons go into spaced-repetition flashcards |
 | Where lessons happen | In the web app ([Learn tab](https://florianpein.github.io/chinese/)). Each lesson also has generated notes in `lessons/` |
@@ -39,26 +41,29 @@ So `a` with the lips group is the block **ba pa ma fa**, and `a` with the tongue
 
 **How blocks become lessons**
 
-- **At the start, one block per lesson**, because everything is new: the tones, the puff of air on p/t/k, the chart itself.
-- **Hard blocks get more room**: j q x get two lessons (with *i* and with *ü*), z c s and zh ch sh r get five, with an extra lesson just for telling them apart.
-- **Later, blocks are combined**: once you know all the initials, a new final like *ei* or *eng* is one new idea, so it's taught across the whole chart in one lesson.
-- **All four tones from the start, never separated**: P01 introduces all four side by side (and the light neutral tone in *māma*). From then on every chart shows all four tones and every tone question offers all four, because the tones are learned by hearing them against each other. Each early lesson also trains one hard contrast: P02 the 2nd against the 3rd, P03 the 1st against the 4th. P04 is about the neutral tone in little grammar words.
-- **Tone changes** are taught where they first come up: *bù → bú* before a 4th tone (P08), *yī → yí* (as soon as *yí gè* appears), and two 3rd tones in a row (*nǐ hǎo*, P20 at the latest).
+- **P01–P06: one group of initials per lesson**, each with the one final that suits it (*o* after the lips, *e* after the others, *i* after j q x). So the first six lessons go through every initial with almost the same vowel, and what you learn to hear is the initials: *bo/po*, *de/te*, *ge/ke*, *ze/ce*, *zhe/che*, *ji/qi*, and *ze/zhe/ji* side by side.
+- **P07–P08: recap** of the first six. No new sounds: P07 mixes the pairs with and without a puff of air (b/p, d/t, g/k, z/c, zh/ch, j/q), P08 the three tongue positions (z/zh/j, c/ch/q, s/sh/x). Mixed in random order, all four tones, faster than before.
+- **From P09: mixed and faster.** Each lesson takes a new final, or a pair of finals that are easy to confuse (*ai/ei*, *an/ang*, *en/eng*, *in/ing*, *u/ü*), across several groups of initials at once, in no fixed order. Lessons cover more of the chart each time: 3 blocks in P10, up to 15 in P23.
+- **All four tones from the start, never separated**: P01 introduces all four side by side. From then on every chart shows all four tones and every tone question offers all four, because the tones are learned by hearing them against each other. Each early lesson also trains one hard contrast: P02 the 2nd against the 3rd (and the light neutral tone in *wǒ de*), P03 the 1st against the 4th.
+- **Tone changes** are taught where they first come up: *bù → bú* before a 4th tone (P11), *yī → yí* (as soon as *yí gè* appears), and two 3rd tones in a row (*nǐ hǎo*, P14).
 
-**The order: 48 lessons in 10 topics.** The full list, with the chart showing which lesson teaches each of the 404 syllables, is in **[CHART.md](CHART.md)** (generated from `data/course.json`).
+**The order: 24 lessons in 7 topics.** The full list, with the chart showing which lesson teaches each of the 404 syllables, is in **[CHART.md](CHART.md)** (generated from `data/course.json`).
 
 | Topic | Lessons | What's new | Example words |
 |-------|---------|-----------|---------------|
-| The a row and the four tones | P01–P03 | ba pa ma fa · da ta na la · ga ka ha; tones | `bàba`, `māma`, `tā`, `dà`, `nǎ` |
-| e, o and the neutral tone | P04–P06 | de le ne me · ge ke he · bo po mo fo, wo | `de`, `ma`, `hē`, `gēge`, `wǒ` |
-| i, u and ü | P07–P09 | bi di ni, yi · bu du gu, wu · nü lü, yu | `nǐ`, `yī`, `bù`, `wǔ`, `yú` |
-| j q x | P10–P11 | ji qi xi · ju qu xu | `qī`, `jǐ`, `qù` |
-| z c s and zh ch sh r | P12–P16 | zi ci si · zhi chi shi ri · their a, e, u rows; er | `sì`, `shì`, `chī`, `chá`, `zhè`, `èr` |
-| ai ei ao ou | P17–P23 | the diphthongs | `lái`, `mǎi`, `zài`, `méi`, `hǎo`, `dōu` |
-| -n and -ng | P24–P31 | an en ang eng ong | `kàn`, `hěn`, `rén`, `shénme`, `néng` |
-| Finals starting with i | P32–P39 | ia ie iao iu ian in ing iang iong | `jiā`, `xièxie`, `jiào`, `yǒu`, `míngzi` |
-| Finals starting with u | P40–P46 | ua uo uai ui uan un uang | `shuō`, `duì`, `shuǐ`, `xǐhuan`, `wèn` |
-| Finals starting with ü | P47–P48 | üe üan ün | `xué`, `yuè`, `yuǎn` |
+| One group of initials per lesson | P01 | bo po mo fo · wo; the four tones | `wǒ`, `pò`, `mō`, `fó` |
+| | P02 | de te ne le · me · e; 2nd vs 3rd; neutral tone | `è`, `wǒ de`, *Wǒ è le.* |
+| | P03 | ge ke he; 1st vs 4th | `hē`, `kě`, `gēge`, `hé` |
+| | P04 | ze ce se | `sè`, `gè` |
+| | P05 | zhe che she re | `zhè`, `chē`, `rè`, `zhège` |
+| | P06 | ji qi xi | `qī`, `jǐ`, `xǐ`, `qìchē` |
+| Recap | P07 | the puff of air: b/p d/t g/k z/c zh/ch j/q | `kělè`, `kèqi` |
+| | P08 | z, zh or j? c, ch or q? s, sh or x? | `jìde`, `jǐ ge` |
+| Simple finals, mixed | P09–P12 | the a row everywhere · zi zhi, er · i vs u · u vs ü | `bàba`, `tā`, `chá`, `shì`, `chī`, `nǐ`, `bù`, `qù` |
+| ai ei ao ou, mixed | P13–P15 | ai vs ei · ao vs ou · z c s vs zh ch sh with all four | `lái`, `méi`, `hǎo`, `dōu`, `zài`, `shéi` |
+| -n and -ng, mixed | P16–P18 | an vs ang · an ang ong with z/zh · en vs eng | `kàn`, `máng`, `sān`, `hěn`, `rén`, `néng` |
+| Finals starting with i, mixed | P19–P21 | ia ie iao · iu ian · in ing iang iong | `jiā`, `xièxie`, `yǒu`, `qián`, `míngzi` |
+| Finals starting with u and ü, mixed | P22–P24 | ua uo uai · ui uan un · uang weng and üe üan ün | `shuō`, `Zhōngguó`, `duì`, `xǐhuan`, `xué` |
 
 Words for lessons that aren't built yet are candidates. They're picked when the lesson is made, adjusted to what you find hard (see `PROGRESS.md`).
 
@@ -117,34 +122,36 @@ Every exercise you get wrong comes back at the end of the lesson (up to twice).
 
 ## 3. The first two lessons
 
-### P01: ba pa ma fa (≈ 33 steps, 12 min)
+Both are almost all listening: no speaking or sentence-building slides for now.
 
-**Block:** `a` with b p m f, and `a` on its own. **Tones:** all four; the neutral tone is introduced only as "short and light" for *māma* and *bàba*.
+### P01: bo po mo fo · wo (36 steps, ≈ 11 min)
 
-| Part | Slides |
-|------|--------|
-| 1. The chart | **tip**: initial + final + tone; today's block; the *a* of *Vater* / *father* |
-| 2. b vs p | **tip** (the puff of air, hand in front of the mouth) → **listen** *bā/pā* → **same or different** *bà/pà* → **listen** *bā/pā/mā* |
-| 3. Tones | **tip**: *ma* in all four tones, just listening → **tip** for each tone (1st, 2nd, 3rd, 4th), each with *mā má mǎ mà* to compare → **same or different** *má/mǎ* → **chart** ba pa ma fa × all four tones |
-| 4. Practise the block | 4× **which tone** (one of each, always 4 choices) · **read and listen** *fǎ* (against *fá*, *fà*) · **match sounds** (one per tone) · **listen and type** *pà* |
-| 5. Words | **new** `bā` (eight) · **new** `pà` (to be afraid) · **meaning** · **tip** neutral tone · **new** `māma` (mum) · **new** `bàba` (dad) · **match** · **say it in Pinyin** (*bàba* / *pàpa* / *bǎba*) · **type it** |
-| 6. First sentence | **new** *Bàba pà.* (Dad is scared.) · **build** · **same or different** · **say it aloud** ×2 |
-
-### P02: da ta na la (≈ 33 steps, 10 min)
-
-**Block:** `a` with d t n l. **Tones:** all four; the contrast to train is the 2nd (rising) against the 3rd (low).
+**Blocks:** `o` with b p m f, and `wo`. **Tones:** all four.
 
 | Part | Slides |
 |------|--------|
-| 1. Warm-up (P01) | **tip** with P01's block in all four tones → **listen** *bà/pà* → **meaning** *māma* (audio) → **which tone** *fá* → **type it** *pà* |
-| 2. d vs t | **tip** (same puff as b/p; n and l as in English/German) → **listen** *dā/tā* → **same or different** *dà/tà* → **listen** *nà/là/dà* |
-| 3. 2nd or 3rd? | **tip** (where the tone starts: mid and up, or low) with *dá/dǎ*, *ná/nǎ*, *má/mǎ* → **same or different** *lá/lǎ* → **chart** da ta na la × all four tones |
-| 4. Practise the block | 4× **which tone** (one on an old syllable: *pǎ*; always 4 choices) · **read and listen** *lǎ* · **match sounds** (one per tone) · **listen and type** *dǎ* |
-| 5. Words | **new** `tā` (he / she) · **new** `dà` (big) · **meaning** · **new** `nà` (that) · **new** `nǎ` (which?) · **listen** *ná/nǎ/nà* · **say it in Pinyin** · **match** (with *bàba*) |
-| 6. Sentences | **new** *Tā pà.* · **new** *Tā bàba pà.* (His dad is scared.) · **build** · **meaning** (audio) |
-| 7. Mixed recap | **type it** *bàba* · **listen** *mā/má/mǎ/mà* · **listen and type** *tā* · **say it aloud** |
+| 1. The chart | **tip**: initial + final + tone; today's block; the *o* after b p m f has a little *w* in it (*bo* ≈ *b-wo*), open like British *law* / German *Sonne* |
+| 2. b vs p | **tip** (the puff of air, hand in front of the mouth) → **listen** *bō/pō* → **same or different** *bò/pò* → **listen** *bó/pó/mó* |
+| 3. Tones | **tip**: *mo* in all four tones, just listening → **tip** for each tone, each with *mō mó mǒ mò* to compare → **same or different** *mó/mǒ* → **chart** bo po mo fo × all four tones |
+| 4. Practise the block | 4× **which tone** (always 4 choices) · **same or different** *pō/pò* · **read and listen** *pǒ* · **match sounds** (one per tone) · **listen** *mó* (from all four) · **listen and type** *pò* |
+| 5. Words, one per tone | **new** `wǒ` (I, me) · **which tone** · **new** `pò` (broken) · **meaning** · **new** `mō` (to touch) · **listen** · **new** `fó` (Buddha) · **tip** the four words side by side: *mō fó wǒ pò* · **meaning** · **same or different** *fó/fǒ* · **match** · **meaning** · **say it in Pinyin** · **listen** *fó* (from all four) · **listen and type** *wǒ* |
 
-Why these words: *bàba*, *māma* and *tā* are among the first words anyone needs; *bā* starts the numbers; *pà* gives a first verb, so you can make a sentence. *dà*, *nà* and *nǎ* are very common, and *nà* / *nǎ* differ only in the tone, which is exactly what P02 is about.
+### P02: de te ne le · me · e (36 steps, ≈ 10 min)
+
+**Blocks:** `e` with d t n l, `me`, and `e` alone. **Tones:** all four; the contrast to train is the 2nd (rising) against the 3rd (low). New: the neutral tone, in *wǒ de*.
+
+| Part | Slides |
+|------|--------|
+| 1. Warm-up (P01) | **tip** with P01's block in all four tones → **listen** *bò/pò* → **meaning** *wǒ*, *fó* (audio) → **which tone** *fó* |
+| 2. The vowel e | **tip** (say *o*, then smile: a deep *uh*; not the e of *bed* / *Bett*) with *ē é ě è* and *wo* against *e* → **listen** *wò/è* → **same or different** *wō/ē* |
+| 3. d vs t | **tip** (same puff as b/p) → **listen** *dè/tè* → **same or different** *dé/té* → **listen** *nè/lè/dè* |
+| 4. 2nd or 3rd? | **tip** (where the tone starts: mid and up, or low) with *dé/dě*, *né/ně*, *mó/mǒ* → **same or different** *lé/lě* → **chart** de te ne le × all four tones |
+| 5. Practise the block | 4× **which tone** (one old: *pǒ*) · **same or different** · **read and listen** *lě* · **match sounds** · **listen** *né* (from dé té né lé) · **listen and type** *dě* |
+| 6. Words | **new** `è` (hungry) · **meaning** · **new** `wǒ de` (my) · **tip** neutral tone (*wǒ* → *wǒ de*) · **new** *Wǒ è le.* (I'm hungry.) · **new** *Wǒ ne?* (And me?) · **meaning** (audio) ×2 · **say it in Pinyin** · **match** · **listen** *pò* · **listen and type** *è* |
+
+Why these words: *wǒ* is the most useful word there is, and the four P01 words have one tone each (*mō fó wǒ pò*), so the words themselves are a tone drill. In P02, *de, le, ne* and *me* are nearly always neutral grammar words, so the lesson uses them for the neutral tone and gives you two everyday phrases: *Wǒ è le.* and *Wǒ ne?*. P03 adds *kě* (thirsty) for *Wǒ kě le.*
+
+**Audio note:** *o* on its own (the interjection *ó / ò*, "oh?") isn't used: the speech model says it unclearly. Neutral syllables are only played inside words, because on their own they come out with a full tone.
 
 ---
 
@@ -165,7 +172,7 @@ Why these words: *bàba*, *māma* and *tā* are among the first words anyone nee
 | Tool | What it is |
 |------|------------|
 | **Web app** (`docs/`, GitHub Pages) | **Learn**: the lessons in chart order. **Review**: flashcards. **Words**: everything you've seen. **Tones**: a tone-hearing quiz. **Listen**: all audio of a lesson. Progress is saved in your browser (export/import in ⚙︎) |
-| **Course** (`data/course.json`) | The chart (initial groups, finals) and all 48 lessons: blocks, new tones, focus, candidate words |
+| **Course** (`data/course.json`) | The chart (initial groups, finals) and all 24 lessons: blocks, new tones, focus, candidate words |
 | **Lessons** (`data/P01.json`, …) | A built lesson's words, phrases (with hidden characters) and its exact slides |
 | **Progress** (`data/progress.json`) | The lessons you've done, for WORDS.md and CHART.md |
 | **Build** (`tools/build.py`) | Checks everything (each chart block taught once, every word only uses sounds taught by then, no word tested before it's taught, …), makes the audio, writes the app data, lesson notes, CHART.md and WORDS.md |
@@ -186,7 +193,7 @@ archive/   earlier versions of the course
 
 Moved out of the course for now. They come back once the chart is done (or earlier, mixed in, if you want a break from sounds).
 
-**Conversation units** (the earlier Track B). By the end of the chart you'll know about 170 words, many of them from these units (*nǐ*, *hǎo*, *xièxie*, *jiào*, *míngzi*, *péngyou*, *xǐhuan* …), so the units can go faster.
+**Conversation units** (the earlier Track B). By the end of the chart you'll know about 100 words, many of them from these units (*nǐ*, *hǎo*, *xièxie*, *jiào*, *míngzi*, *péngyou*, *xǐhuan* …), so the units can go faster.
 
 | Unit | Theme | You'll be able to… |
 |------|-------|--------------------|
@@ -228,9 +235,9 @@ The first versions of the tone lessons (A01-L01, A01-L02) and of U01-L01 are in 
 
 Rule of thumb: **don't start a new lesson if more than ~40 flashcards are due.**
 
-- **After P01:** all four tones. **After P03:** the a row of the easy initials, and the hardest tone contrasts.
-- **After P16:** every initial, including j q x and z c s / zh ch sh r.
-- **After P31:** -n and -ng; you can read most syllables you meet.
-- **After P48:** the whole chart: read any Pinyin aloud with the right sounds and tones, and about 170 words.
+- **After P01:** all four tones. **After P03:** the hardest tone contrasts (2nd/3rd, 1st/4th).
+- **After P06:** every initial, including z c s, zh ch sh r and j q x. **After P08:** you can hear them apart in a random mix.
+- **After P18:** every simple final, ai ei ao ou, and -n / -ng; you can hear most syllables you meet.
+- **After P24:** the whole chart: hear and read any Pinyin with the right sounds and tones, and about 100 words.
 
-At ~1 lesson a day the chart takes about 7–8 weeks.
+At ~1 lesson a day the chart takes about 4 weeks (the mixed lessons may need a second go).

@@ -1,9 +1,9 @@
 # Mandarin with Pinyin
 
-My course for learning Mandarin Chinese through **Pinyin**, without characters for now. It starts by working through the **Pinyin chart** block by block (*ba pa ma fa*, *da ta na la*, …), in small Duolingo-style lessons with a few useful words each.
+My course for learning Mandarin Chinese through **Pinyin**, without characters for now. It works through the **Pinyin chart**: first one group of initials per lesson (*bo po mo fo*, *de te ne le*, …), then mixed lessons that go faster. The focus for now is listening: hearing the four tones and the sounds apart, plus a few useful words per lesson.
 
 - **[Open the app](https://florianpein.github.io/chinese/)**: lessons, flashcard review, your words, tone quiz and all audio (works on your phone)
-- **[CHART.md](CHART.md)**: the Pinyin chart with the lesson for every syllable, and the order of all 48 lessons
+- **[CHART.md](CHART.md)**: the Pinyin chart with the lesson for every syllable, and the order of all 24 lessons
 - **[WORDS.md](WORDS.md)**: every word taught so far, and which ones you've seen
 - **[PLAN.md](PLAN.md)**: how the course works, the slide types, the first lessons in detail, future plans
 - **[PROGRESS.md](PROGRESS.md)**: what's done and what needs more practice
@@ -21,14 +21,14 @@ Don't start a new lesson while more than ~40 flashcards are due.
 
 ## Lessons
 
-Each lesson teaches one block of the chart and 2–5 words made only of sounds you already know, in about 30 short steps (8–10 min). From the 2nd lesson on, each one starts with a warm-up and mixes in older sounds and words. Do them in the app; the notes are a summary to read.
+Each lesson teaches part of the chart and 2–5 words made only of sounds you already know, in about 35 short steps (10–12 min), mostly listening exercises. From the 2nd lesson on, each one starts with a warm-up and mixes in older sounds and words. Do them in the app; the notes are a summary to read.
 
 | Lesson | Block | Tone focus | New words | Notes |
 |--------|-------|------------|-----------|-------|
-| [P01](https://florianpein.github.io/chinese/#lesson/P01) | ba pa ma fa · a | all four (+ neutral) | bā, pà, māma, bàba | [notes](lessons/P01.md) |
-| [P02](https://florianpein.github.io/chinese/#lesson/P02) | da ta na la | 2nd vs 3rd | tā, dà, nà, nǎ | [notes](lessons/P02.md) |
+| [P01](https://florianpein.github.io/chinese/#lesson/P01) | bo po mo fo · wo | all four | wǒ, pò, mō, fó | [notes](lessons/P01.md) |
+| [P02](https://florianpein.github.io/chinese/#lesson/P02) | de te ne le · me · e | 2nd vs 3rd; neutral | è, wǒ de, *Wǒ è le.*, *Wǒ ne?* | [notes](lessons/P02.md) |
 
-More lessons are added as you go (next: P03, *ga ka ha*). Every lesson uses all four tones. The whole order is in [CHART.md](CHART.md#lesson-order).
+More lessons are added as you go (next: P03, *ge ke he*). Every lesson uses all four tones. The whole order is in [CHART.md](CHART.md#lesson-order).
 
 ## The app
 
