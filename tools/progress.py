@@ -3,7 +3,8 @@
     python tools/progress.py pasted.txt     # or: ... | python tools/progress.py
 
 - data/progress.json gets the lessons done (date, best score, times), which
-  build.py uses for WORDS.md and CHART.md
+  build.py uses for WORDS.md and CHART.md. Pastes from different devices add
+  up: a lesson recorded before is kept, even if this paste doesn't have it
 - data/progress-log.jsonl gets every new log entry (finished lessons, wrong
   answers, flashcard grades), without duplicates
 - prints a summary of weak spots over the whole log, for PROGRESS.md
@@ -34,9 +35,20 @@ def main():
     data = extract(text)
 
     progress = json.loads(PROGRESS.read_text()) if PROGRESS.exists() else {}
-    progress["done"] = {lid: st["done"] for lid, st in sorted(data["lessons"].items())}
-    progress["lessons"] = dict(sorted(data["lessons"].items()))
-    progress["copied"] = data["copied"]
+    # each device (phone, computer) keeps its own progress, so pastes are
+    # merged with what's recorded, never replace it
+    lessons = progress.get("lessons", {})
+    for lid, st in data["lessons"].items():
+        old = lessons.get(lid, {})
+        merged = {**old, **st}
+        for key, pick in (("done", min), ("last", max), ("best", max), ("times", max)):
+            vals = [x[key] for x in (old, st) if x.get(key) is not None]
+            if vals:
+                merged[key] = pick(vals)
+        lessons[lid] = merged
+    progress["lessons"] = dict(sorted(lessons.items()))
+    progress["done"] = {lid: st["done"] for lid, st in progress["lessons"].items()}
+    progress["copied"] = max(progress.get("copied", ""), data["copied"])
     PROGRESS.write_text(json.dumps(progress, ensure_ascii=False, indent=1) + "\n")
 
     old = LOG.read_text(encoding="utf-8").splitlines() if LOG.exists() else []

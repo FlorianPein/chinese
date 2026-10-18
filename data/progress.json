@@ -1,8 +1,13 @@
 {
  "done": {
+  "P01": "2026-10-18",
   "P02": "2026-10-18"
  },
  "lessons": {
+  "P01": {
+   "done": "2026-10-18",
+   "note": "done on the phone; recorded from chat, no score"
+  },
   "P02": {
    "done": "2026-10-18",
    "last": "2026-10-18",

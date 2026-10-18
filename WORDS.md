@@ -4,9 +4,9 @@
 
 Every word and phrase from the lessons. A lesson's words count as **seen** once the lesson is marked done in `data/progress.json` (tell Claude *I finished P01*). The app keeps its own list under **Words**.
 
-**Seen:** 2 words, 2 phrases · **In ready lessons, not seen yet:** 23 words, 9 phrases
+**Seen:** 6 words, 2 phrases · **In ready lessons, not seen yet:** 19 words, 9 phrases
 
-## [P01](lessons/P01.md): bo po mo fo · wo (not seen yet)
+## [P01](lessons/P01.md): bo po mo fo · wo (seen 2026-10-18)
 
 | Pinyin | Numbers | Meaning | Kind |
 |---|---|---|---|

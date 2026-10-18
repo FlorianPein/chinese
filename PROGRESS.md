@@ -6,15 +6,16 @@ Updated after lessons and chat sessions. Lessons you've done are also recorded i
 
 - **Next lesson:** [P03: ge ke he](https://florianpein.github.io/chinese/#lesson/P03) ([notes](lessons/P03.md)), now with an extra section on the 3rd vs the 4th tone
 - **Milestone in progress:** all four tones, and one group of initials per lesson (P01–P06)
-- **Words seen:** 4 (see [WORDS.md](WORDS.md))
+- **Words seen:** 8 (see [WORDS.md](WORDS.md))
 - **Last progress copied:** 2026-10-18 20:58 UTC
 
-The course was restructured around the Pinyin chart on 2026-10-18. Nothing had been done in the earlier versions, so nothing carries over. P01 isn't marked as done in the app (only P02 is), so its words don't count as seen yet.
+The course was restructured around the Pinyin chart on 2026-10-18. Nothing had been done in the earlier versions, so nothing carries over. P01 was done on the phone, P02 on the computer: the app keeps progress per device, and pastes from each are merged here.
 
 ## Completed lessons
 
 | Date | Lesson | Score | Notes |
 |------|--------|-------|-------|
+| 2026-10-18 | P01 | (no score) | Done on the phone; recorded from chat |
 | 2026-10-18 | P02 | 62% (10 of 26 wrong, 15 min) | 2nd vs 3rd (the lesson's focus) went well. Most mistakes were the 3rd against the 4th tone |
 
 ## Weak spots

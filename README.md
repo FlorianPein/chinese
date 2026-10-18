@@ -81,7 +81,7 @@ Audio comes from an offline Mandarin voice ([Matcha-TTS](https://github.com/k2-f
 
 Open a session in this repo and ask, for example:
 
-- *"Here's my progress:"* and paste from **⚙︎ → Copy progress for Claude**. It holds your finished lessons and scores, the answers you got wrong and your flashcard grades. Claude merges it with `python tools/progress.py`, updates PROGRESS.md, and plans the next lessons around your mistakes.
+- *"Here's my progress:"* and paste from **⚙︎ → Copy progress for Claude**. It holds your finished lessons and scores, the answers you got wrong and your flashcard grades. Claude merges it with `python tools/progress.py`, updates PROGRESS.md, and plans the next lessons around your mistakes. The app keeps progress per device and doesn't sync, so if you use your phone and your computer, paste from both: the pastes add up here.
 - *"I finished P01."* (marks its words as seen, if you don't want to paste)
 - *"Quiz me on everything so far. I'll answer like ma1."*
 - *"Drill b vs p and d vs t."*
