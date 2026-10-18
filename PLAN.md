@@ -53,12 +53,12 @@ So `a` with the lips group is the block **ba pa ma fa**, and `a` with the tongue
 |-------|---------|-----------|---------------|
 | One group of initials per lesson | P01 | bo po mo fo · wo; the four tones | `wǒ`, `pò`, `mō`, `fó` |
 | | P02 | de te ne le · me · e; 2nd vs 3rd; neutral tone | `è`, `wǒ de`, *Wǒ è le.* |
-| | P03 | ge ke he; 1st vs 4th | `hē`, `kě`, `gēge`, `hé` |
-| | P04 | ze ce se | `sè`, `gè` |
-| | P05 | zhe che she re | `zhè`, `chē`, `rè`, `zhège` |
-| | P06 | ji qi xi | `qī`, `jǐ`, `xǐ`, `qìchē` |
-| Recap | P07 | the puff of air: b/p d/t g/k z/c zh/ch j/q | `kělè`, `kèqi` |
-| | P08 | z, zh or j? c, ch or q? s, sh or x? | `jìde`, `jǐ ge` |
+| | P03 | ge ke he; 1st vs 4th | `hē`, `hé`, `kě`, `gēge`, *Wǒ kě le.* |
+| | P04 | ze ce se; s is always sharp (German ß) | `sè`, `gè`, `kè` |
+| | P05 | zhe che she re; z vs zh, s vs sh | `zhè`, `chē`, `rè`, `zhège`, *Zhège ne?* |
+| | P06 | ji qi xi; x = German *ich* | `qī`, `jǐ`, `xǐ`, `qìchē`, *Wǒ xǐ chē.* |
+| Recap | P07 | the puff of air: b/p d/t g/k z/c zh/ch j/q | `kělè`, `kèqi`, *Wǒ hē kělè.* |
+| | P08 | z, zh or j? c, ch or q? s, sh or x? | `jìde`, `jǐ ge`, *Qī ge.* |
 | Simple finals, mixed | P09–P12 | the a row everywhere · zi zhi, er · i vs u · u vs ü | `bàba`, `tā`, `chá`, `shì`, `chī`, `nǐ`, `bù`, `qù` |
 | ai ei ao ou, mixed | P13–P15 | ai vs ei · ao vs ou · z c s vs zh ch sh with all four | `lái`, `méi`, `hǎo`, `dōu`, `zài`, `shéi` |
 | -n and -ng, mixed | P16–P18 | an vs ang · an ang ong with z/zh · en vs eng | `kàn`, `máng`, `sān`, `hěn`, `rén`, `néng` |
@@ -120,7 +120,7 @@ Every exercise you get wrong comes back at the end of the lesson (up to twice).
 
 ---
 
-## 3. The first two lessons
+## 3. The first lessons
 
 Both are almost all listening: no speaking or sentence-building slides for now.
 
@@ -151,7 +151,20 @@ Both are almost all listening: no speaking or sentence-building slides for now.
 
 Why these words: *wǒ* is the most useful word there is, and the four P01 words have one tone each (*mō fó wǒ pò*), so the words themselves are a tone drill. In P02, *de, le, ne* and *me* are nearly always neutral grammar words, so the lesson uses them for the neutral tone and gives you two everyday phrases: *Wǒ è le.* and *Wǒ ne?*. P03 adds *kě* (thirsty) for *Wǒ kě le.*
 
-**Audio note:** *o* on its own (the interjection *ó / ò*, "oh?") isn't used: the speech model says it unclearly. Neutral syllables are only played inside words, because on their own they come out with a full tone.
+**Audio note:** *o* on its own (the interjection *ó / ò*, "oh?") isn't used: the speech model says it unclearly. Neutral syllables are only played inside words, because on their own they come out with a full tone. Syllables the model never heard in a tone (*fō fǒ fò*, *dě dè*, *tē té tě*, …) are pitch-edited from a tone it knows (*fó*), because said directly they sound like another syllable.
+
+### P03–P08 in short
+
+All six follow the same pattern as P02: a warm-up on the previous lesson, the new initials one at a time with English and German comparisons, the chart block, a practice round (always one old sound mixed in), then the words.
+
+| Lesson | Explanations | Contrasts drilled | Words and phrases |
+|--------|--------------|-------------------|-------------------|
+| P03 | g/k (the puff a third time); h is rough like German *ach*; 1st vs 4th (both start high: stay or drop) | gē/kē, kē/hē, kē/kè | `hē` (drink), `hé` (and), `kě` (thirsty), `gēge`, *Wǒ kě le.*, *Wǒ hé gēge* |
+| P04 | z = soft ts (German *Zeit*, no puff); c = ts with a puff, never k or s; s always sharp like *ß* | dé/zé, zè/cè, tè/cè, zè/cè/sè | `sè`, `gè`, `kè`: all 4th tone, so only the initial differs |
+| P05 | zh ch sh r with the tongue curled back (German *dsch, tsch, sch*; r like English *run*) | zhè/chè, ze/zhe, ce/che, se/she, rè/lè | `zhè`, `chē`, `rè`, `zhège`, *Wǒ de chē*, *Zhège ne?* |
+| P06 | the vowel i; j q x with a flat tongue; x = German *ich*; three tongue positions side by side | jì/qì, she/xi, sè/shè/xì | `qī`, `jǐ`, `xǐ`, `qìchē`, *Wǒ xǐ chē.* |
+| P07 | recap: the six puff pairs, then puff and tone at once | b/p d/t g/k z/c zh/ch j/q, random order | `kělè`, `kèqi`, *Wǒ hē kělè.*, *Gēge kèqi.* |
+| P08 | recap: three tongue positions; s/sh/x and r | z/zh/j, c/ch/q, s/sh/x, faster | `jìde`, `jǐ ge`, *Wǒ jìde.*, *Qī ge.* |
 
 ---
 
@@ -180,8 +193,8 @@ Why these words: *wǒ* is the most useful word there is, and the four P01 words 
 
 ```
 PLAN.md  README.md  PROGRESS.md  CHART.md  WORDS.md
-data/      course.json  P01.json  P02.json  progress.json
-lessons/   P01.md  P02.md          ← generated notes
+data/      course.json  P01.json … P08.json  progress.json
+lessons/   P01.md … P08.md          ← generated notes
 docs/      index.html  cards.json  audio/
 tools/     build.py  chart.py  pinyin.py
 archive/   earlier versions of the course

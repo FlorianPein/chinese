@@ -91,17 +91,17 @@ Each lesson teaches one or more blocks of the chart and 2–5 words that use onl
 |---|---|---|---|---|---|
 | [P01](lessons/P01.md) | bo po mo fo · o · wo | 1st, 2nd, 3rd, 4th | All four tones, side by side; b vs p (the puff of air); the o that sounds like wo | wǒ (I, me), pò (broken), mō (to touch, to feel), fó (Buddha) | [ready](https://florianpein.github.io/chinese/#lesson/P01) |
 | [P02](lessons/P02.md) | de te ne le · me · e | neutral | The vowel e; d vs t; the 2nd tone against the 3rd; the light neutral tone | è (hungry), wǒ de (my, mine) | [ready](https://florianpein.github.io/chinese/#lesson/P02) |
-| P03 | ge ke he |  | g vs k; the rough h; the 1st tone against the 4th | *hē, kě, gēge, hé* | planned |
-| P04 | ze ce se |  | z = German z (ts), c = ts with a puff; z vs c vs d and t | *sè, gè* | planned |
-| P05 | zhe che she re |  | The tongue curled back; ze vs zhe, se vs she | *zhè, chē, rè, zhège* | planned |
-| P06 | ji qi xi |  | The flat tongue; j vs q; xi vs se vs she | *qī, jǐ, xǐ, qìchē* | planned |
+| [P03](lessons/P03.md) | ge ke he |  | g vs k; the rough h; the 1st tone against the 4th | hē (to drink), hé (and), kě (thirsty), gēge (older brother) | [ready](https://florianpein.github.io/chinese/#lesson/P03) |
+| [P04](lessons/P04.md) | ze ce se |  | z = a soft German z (ts), c = ts with a puff, s always sharp; z vs c vs d and t | sè (colour), gè (counting word for people and things), kè (class, lesson) | [ready](https://florianpein.github.io/chinese/#lesson/P04) |
+| [P05](lessons/P05.md) | zhe che she re |  | The tongue curled back; ze vs zhe, se vs she | zhè (this), chē (vehicle, car), rè (hot), zhège (this one) | [ready](https://florianpein.github.io/chinese/#lesson/P05) |
+| [P06](lessons/P06.md) | ji qi xi |  | The flat tongue; j vs q; xi vs se vs she | qī (seven), jǐ (how many), xǐ (to wash), qìchē (automobile, car) | [ready](https://florianpein.github.io/chinese/#lesson/P06) |
 
 ### Recap
 
 | # | Syllables | New tones | Focus | Words | Status |
 |---|---|---|---|---|---|
-| P07 | recap, no new sounds |  | b/p, d/t, g/k, z/c, zh/ch, j/q mixed, all four tones | *kělè, kèqi* | planned |
-| P08 | recap, no new sounds |  | z/zh/j, c/ch/q, s/sh/x and r mixed, all four tones, faster | *jìde, jǐ ge* | planned |
+| [P07](lessons/P07.md) | recap, no new sounds |  | b/p, d/t, g/k, z/c, zh/ch, j/q mixed, all four tones | kělè (cola), kèqi (polite) | [ready](https://florianpein.github.io/chinese/#lesson/P07) |
+| [P08](lessons/P08.md) | recap, no new sounds |  | z/zh/j, c/ch/q, s/sh/x and r mixed, all four tones, faster | jìde (to remember), jǐ ge (how many of them?) | [ready](https://florianpein.github.io/chinese/#lesson/P08) |
 
 ### Simple finals, mixed
 

@@ -89,15 +89,15 @@
    "topic": "T01",
    "title": "ge ke he",
    "focus": "g vs k; the rough h; the 1st tone against the 4th",
-   "built": false,
+   "built": true,
    "chart": "ge ke he"
   },
   {
    "id": "P04",
    "topic": "T01",
    "title": "ze ce se",
-   "focus": "z = German z (ts), c = ts with a puff; z vs c vs d and t",
-   "built": false,
+   "focus": "z = a soft German z (ts), c = ts with a puff, s always sharp; z vs c vs d and t",
+   "built": true,
    "chart": "ze ce se"
   },
   {
@@ -105,7 +105,7 @@
    "topic": "T01",
    "title": "zhe che she re",
    "focus": "The tongue curled back; ze vs zhe, se vs she",
-   "built": false,
+   "built": true,
    "chart": "zhe che she re"
   },
   {
@@ -113,7 +113,7 @@
    "topic": "T01",
    "title": "ji qi xi",
    "focus": "The flat tongue; j vs q; xi vs se vs she",
-   "built": false,
+   "built": true,
    "chart": "ji qi xi"
   },
   {
@@ -121,7 +121,7 @@
    "topic": "T02",
    "title": "Recap: the puff of air",
    "focus": "b/p, d/t, g/k, z/c, zh/ch, j/q mixed, all four tones",
-   "built": false,
+   "built": true,
    "chart": "recap, no new sounds"
   },
   {
@@ -129,7 +129,7 @@
    "topic": "T02",
    "title": "Recap: z, zh or j?",
    "focus": "z/zh/j, c/ch/q, s/sh/x and r mixed, all four tones, faster",
-   "built": false,
+   "built": true,
    "chart": "recap, no new sounds"
   },
   {
@@ -1016,6 +1016,2203 @@
     }
    ],
    "minutes": 10
+  },
+  {
+   "id": "P03",
+   "topic": "T01",
+   "title": "ge ke he",
+   "focus": "g vs k; the rough h; the 1st tone against the 4th",
+   "goal": "Hear ge ke he in all four tones, hear g from k and the 1st tone from the 4th, and say I'm thirsty and me and my brother.",
+   "file": "P03.md",
+   "steps": [
+    {
+     "type": "intro",
+     "title": "Warm-up",
+     "text": "A quick look back at P02: **de te ne le** and **e**, in all four tones.",
+     "rows": [
+      [
+       "s-de1",
+       "s-de2",
+       "s-de3",
+       "s-de4"
+      ],
+      [
+       "s-te1",
+       "s-te2",
+       "s-te3",
+       "s-te4"
+      ],
+      [
+       "s-le1",
+       "s-le2",
+       "s-le3",
+       "s-le4"
+      ],
+      [
+       "s-e1",
+       "s-e2",
+       "s-e3",
+       "s-e4"
+      ]
+     ]
+    },
+    {
+     "type": "hear",
+     "play": "s-te2",
+     "options": [
+      "dé",
+      "té"
+     ]
+    },
+    {
+     "type": "tone",
+     "play": "s-ne3",
+     "options": [
+      1,
+      2,
+      3,
+      4
+     ]
+    },
+    {
+     "type": "meaning",
+     "item": "wo-e-le",
+     "from": "audio",
+     "options": [
+      "wo-e-le",
+      "wo-ne",
+      "wode"
+     ]
+    },
+    {
+     "type": "meaning",
+     "item": "fo",
+     "from": "audio",
+     "options": [
+      "fo",
+      "e",
+      "mo"
+     ]
+    },
+    {
+     "type": "intro",
+     "title": "g and k: the puff, a third time",
+     "text": "Today: the back of the tongue, **g k h**, with the **e** from P02.\n\n**g** and **k** are a pair like b/p and d/t. **k** has a strong puff of air (English *kite*, German *Kuh*). **g** has none: it's the *k* in English *sky*, not the buzzing *g* of English *go*.\n\nHand in front of your mouth again: you should only feel air on the k.",
+     "rows": [
+      [
+       "s-ge1",
+       "s-ke1"
+      ],
+      [
+       "s-ge4",
+       "s-ke4"
+      ]
+     ]
+    },
+    {
+     "type": "hear",
+     "play": "s-ke4",
+     "options": [
+      "gè",
+      "kè"
+     ]
+    },
+    {
+     "type": "same",
+     "pair": [
+      "s-ge2",
+      "s-ke2"
+     ]
+    },
+    {
+     "type": "intro",
+     "title": "h: rough, from the back",
+     "text": "The Chinese **h** is made further back than an English h, with a bit of friction. It's close to the German *ch* in *ach* or *Bach* (not the soft one in *ich*), just a little lighter. English has nothing like it; Scottish *loch* comes close.\n\nTop row: **he** in the four tones. Below: **ke** against **he**.",
+     "rows": [
+      [
+       "s-he1",
+       "s-he2",
+       "s-he3",
+       "s-he4"
+      ],
+      [
+       "s-ke1",
+       "s-he1"
+      ],
+      [
+       "s-ke4",
+       "s-he4"
+      ]
+     ]
+    },
+    {
+     "type": "hear",
+     "play": "s-he4",
+     "options": [
+      "gè",
+      "kè",
+      "hè"
+     ]
+    },
+    {
+     "type": "same",
+     "pair": [
+      "s-ke1",
+      "s-he1"
+     ]
+    },
+    {
+     "type": "intro",
+     "title": "1st or 4th?",
+     "text": "The 1st and the 4th tone both **start high**. The difference is what comes next: the 1st **stays** up, like one long sung note; the 4th **drops** fast, like a firm *No!*\n\nSaid quickly, a 1st tone can sound a little like a 4th. Listen to the end of the syllable: level, or falling?\n\nEach row is 1st, then 4th.",
+     "rows": [
+      [
+       "s-ge1",
+       "s-ge4"
+      ],
+      [
+       "s-he1",
+       "s-he4"
+      ],
+      [
+       "s-mo1",
+       "s-mo4"
+      ]
+     ]
+    },
+    {
+     "type": "same",
+     "pair": [
+      "s-ke1",
+      "s-ke4"
+     ]
+    },
+    {
+     "type": "chart",
+     "title": "Your third block of the chart",
+     "text": "ge ke he in all four tones. Play each column too: four times high, four times rising, and so on.",
+     "syllables": [
+      "ge",
+      "ke",
+      "he"
+     ],
+     "tones": [
+      1,
+      2,
+      3,
+      4
+     ]
+    },
+    {
+     "type": "tone",
+     "play": "s-ge4",
+     "options": [
+      1,
+      2,
+      3,
+      4
+     ]
+    },
+    {
+     "type": "tone",
+     "play": "s-he1",
+     "options": [
+      1,
+      2,
+      3,
+      4
+     ]
+    },
+    {
+     "type": "tone",
+     "play": "s-ke3",
+     "options": [
+      1,
+      2,
+      3,
+      4
+     ]
+    },
+    {
+     "type": "same",
+     "pair": [
+      "s-he4",
+      "s-he4"
+     ]
+    },
+    {
+     "type": "tone",
+     "play": "s-de2",
+     "options": [
+      1,
+      2,
+      3,
+      4
+     ]
+    },
+    {
+     "type": "audio",
+     "item": "s-ke1",
+     "options": [
+      "s-ge1",
+      "s-ke1",
+      "s-ke4"
+     ]
+    },
+    {
+     "type": "match",
+     "mode": "sound",
+     "items": [
+      "s-ge1",
+      "s-ke2",
+      "s-he3",
+      "s-te4"
+     ]
+    },
+    {
+     "type": "hear",
+     "play": "s-ge2",
+     "options": [
+      "gē",
+      "gé",
+      "gě",
+      "gè"
+     ]
+    },
+    {
+     "type": "type",
+     "item": "s-ke4",
+     "from": "audio"
+    },
+    {
+     "type": "new",
+     "item": "he"
+    },
+    {
+     "type": "tone",
+     "play": "he",
+     "options": [
+      1,
+      2,
+      3,
+      4
+     ]
+    },
+    {
+     "type": "new",
+     "item": "he-and"
+    },
+    {
+     "type": "intro",
+     "title": "Same syllable, different word",
+     "text": "**hē** (1st tone) means *to drink*, **hé** (2nd tone) means *and*. Only the tone tells them apart, so listen to the shape: level, or rising?",
+     "rows": [
+      [
+       "he",
+       "he-and"
+      ]
+     ]
+    },
+    {
+     "type": "meaning",
+     "item": "he-and",
+     "from": "audio",
+     "options": [
+      "he-and",
+      "he",
+      "wo"
+     ]
+    },
+    {
+     "type": "new",
+     "item": "ke-thirsty"
+    },
+    {
+     "type": "new",
+     "item": "gege"
+    },
+    {
+     "type": "new",
+     "item": "wo-ke-le"
+    },
+    {
+     "type": "new",
+     "item": "wo-he-gege"
+    },
+    {
+     "type": "meaning",
+     "item": "wo-ke-le",
+     "from": "audio",
+     "options": [
+      "wo-ke-le",
+      "wo-e-le",
+      "wo-ne"
+     ]
+    },
+    {
+     "type": "pinyin",
+     "item": "ke-thirsty",
+     "options": [
+      "kě",
+      "kē",
+      "gě"
+     ]
+    },
+    {
+     "type": "match",
+     "items": [
+      "he",
+      "he-and",
+      "ke-thirsty",
+      "gege",
+      "e"
+     ]
+    },
+    {
+     "type": "hear",
+     "play": "gege",
+     "options": [
+      "gēge",
+      "kēge",
+      "gēke"
+     ]
+    },
+    {
+     "type": "meaning",
+     "item": "wo-he-gege",
+     "from": "audio",
+     "options": [
+      "wo-he-gege",
+      "wo-ke-le",
+      "wode"
+     ]
+    },
+    {
+     "type": "type",
+     "item": "he",
+     "from": "english"
+    }
+   ],
+   "minutes": 11
+  },
+  {
+   "id": "P04",
+   "topic": "T01",
+   "title": "ze ce se",
+   "focus": "z = a soft German z (ts), c = ts with a puff, s always sharp; z vs c vs d and t",
+   "goal": "Hear ze ce se in all four tones, hear z from c and both from d and t, and learn 3 words that all have the 4th tone.",
+   "file": "P04.md",
+   "steps": [
+    {
+     "type": "intro",
+     "title": "Warm-up",
+     "text": "A quick look back at P03: **ge ke he** in all four tones.",
+     "rows": [
+      [
+       "s-ge1",
+       "s-ge2",
+       "s-ge3",
+       "s-ge4"
+      ],
+      [
+       "s-ke1",
+       "s-ke2",
+       "s-ke3",
+       "s-ke4"
+      ],
+      [
+       "s-he1",
+       "s-he2",
+       "s-he3",
+       "s-he4"
+      ]
+     ]
+    },
+    {
+     "type": "hear",
+     "play": "s-ke1",
+     "options": [
+      "gē",
+      "kē"
+     ]
+    },
+    {
+     "type": "tone",
+     "play": "s-he4",
+     "options": [
+      1,
+      2,
+      3,
+      4
+     ]
+    },
+    {
+     "type": "meaning",
+     "item": "he-and",
+     "from": "audio",
+     "options": [
+      "he-and",
+      "he",
+      "gege"
+     ]
+    },
+    {
+     "type": "meaning",
+     "item": "wo-ke-le",
+     "from": "audio",
+     "options": [
+      "wo-ke-le",
+      "wo-e-le",
+      "wo-he-gege"
+     ]
+    },
+    {
+     "type": "intro",
+     "title": "z: a soft ts",
+     "text": "Today: the tongue tip at the teeth, **z c s**, with **e** again.\n\n**z** is a *ts*, like the German *z* in *Zeit*, or the *ts* in English *cats*. It's soft, with **no puff** of air: closer to the *ds* in English *kids*. It's never the buzzing English *z* of *zoo*.\n\nTop row: **ze** in two tones. Below: **de** against **ze**.",
+     "rows": [
+      [
+       "s-ze2",
+       "s-ze4"
+      ],
+      [
+       "s-de2",
+       "s-ze2"
+      ]
+     ]
+    },
+    {
+     "type": "hear",
+     "play": "s-ze2",
+     "options": [
+      "dé",
+      "zé"
+     ]
+    },
+    {
+     "type": "intro",
+     "title": "c: ts with a puff",
+     "text": "**c** is never a k or an s. It's **ts with a strong puff** of air, like a firm German *z* in *Zahn* with extra breath, or the *ts h* in English *its high*.\n\nSo z and c are a pair, like d/t and g/k: the same sound, without and with a puff.",
+     "rows": [
+      [
+       "s-ze4",
+       "s-ce4"
+      ],
+      [
+       "s-te4",
+       "s-ce4"
+      ]
+     ]
+    },
+    {
+     "type": "hear",
+     "play": "s-ce4",
+     "options": [
+      "zè",
+      "cè"
+     ]
+    },
+    {
+     "type": "same",
+     "pair": [
+      "s-ze4",
+      "s-ce4"
+     ]
+    },
+    {
+     "type": "intro",
+     "title": "s: always sharp",
+     "text": "**s** is always a sharp, hissing s, as in English *see* or German *ß* and *ss* (*Straße*, *muss*). It's never the soft German s of *Sonne* or *Rose*, even at the start of a word.\n\nThe row: **se**, **ce**, **ze**.",
+     "rows": [
+      [
+       "s-se4",
+       "s-ce4",
+       "s-ze4"
+      ]
+     ]
+    },
+    {
+     "type": "hear",
+     "play": "s-se4",
+     "options": [
+      "zè",
+      "cè",
+      "sè"
+     ]
+    },
+    {
+     "type": "hear",
+     "play": "s-te4",
+     "options": [
+      "tè",
+      "cè"
+     ]
+    },
+    {
+     "type": "chart",
+     "title": "Your fourth block of the chart",
+     "text": "ze ce se in all four tones. Say each one after the audio: z soft, c with a puff, s sharp.",
+     "syllables": [
+      "ze",
+      "ce",
+      "se"
+     ],
+     "tones": [
+      1,
+      2,
+      3,
+      4
+     ]
+    },
+    {
+     "type": "tone",
+     "play": "s-ce3",
+     "options": [
+      1,
+      2,
+      3,
+      4
+     ]
+    },
+    {
+     "type": "tone",
+     "play": "s-ze2",
+     "options": [
+      1,
+      2,
+      3,
+      4
+     ]
+    },
+    {
+     "type": "tone",
+     "play": "s-se1",
+     "options": [
+      1,
+      2,
+      3,
+      4
+     ]
+    },
+    {
+     "type": "same",
+     "pair": [
+      "s-ze1",
+      "s-ce1"
+     ]
+    },
+    {
+     "type": "tone",
+     "play": "s-ge3",
+     "options": [
+      1,
+      2,
+      3,
+      4
+     ]
+    },
+    {
+     "type": "audio",
+     "item": "s-ce2",
+     "options": [
+      "s-ze2",
+      "s-ce2",
+      "s-te2"
+     ]
+    },
+    {
+     "type": "match",
+     "mode": "sound",
+     "items": [
+      "s-ze1",
+      "s-ce2",
+      "s-se3",
+      "s-te4"
+     ]
+    },
+    {
+     "type": "hear",
+     "play": "s-de2",
+     "options": [
+      "dé",
+      "zé",
+      "té",
+      "cé"
+     ]
+    },
+    {
+     "type": "same",
+     "pair": [
+      "s-se2",
+      "s-se3"
+     ]
+    },
+    {
+     "type": "type",
+     "item": "s-ze4",
+     "from": "audio"
+    },
+    {
+     "type": "new",
+     "item": "se"
+    },
+    {
+     "type": "new",
+     "item": "ge"
+    },
+    {
+     "type": "new",
+     "item": "ke"
+    },
+    {
+     "type": "intro",
+     "title": "Three words, one tone",
+     "text": "All three new words have the **4th tone**: **sè**, **gè**, **kè**. Here only the initial tells them apart: a sharp s, a g without a puff, a k with one.",
+     "rows": [
+      [
+       "se",
+       "ge",
+       "ke"
+      ]
+     ]
+    },
+    {
+     "type": "meaning",
+     "item": "ke",
+     "from": "audio",
+     "options": [
+      "ke",
+      "ge",
+      "se"
+     ]
+    },
+    {
+     "type": "meaning",
+     "item": "se",
+     "from": "audio",
+     "options": [
+      "se",
+      "e",
+      "ke-thirsty"
+     ]
+    },
+    {
+     "type": "pinyin",
+     "item": "ke",
+     "options": [
+      "kè",
+      "gè",
+      "kě"
+     ]
+    },
+    {
+     "type": "match",
+     "items": [
+      "se",
+      "ge",
+      "ke",
+      "he",
+      "gege"
+     ]
+    },
+    {
+     "type": "hear",
+     "play": "ge",
+     "options": [
+      "gè",
+      "kè",
+      "zè"
+     ]
+    },
+    {
+     "type": "meaning",
+     "item": "ke-thirsty",
+     "from": "pinyin",
+     "options": [
+      "ke-thirsty",
+      "ke",
+      "he"
+     ]
+    },
+    {
+     "type": "type",
+     "item": "se",
+     "from": "audio"
+    }
+   ],
+   "minutes": 10
+  },
+  {
+   "id": "P05",
+   "topic": "T01",
+   "title": "zhe che she re",
+   "focus": "The tongue curled back; ze vs zhe, se vs she",
+   "goal": "Hear zhe che she re in all four tones, hear ze from zhe and se from she, and say this one and my car.",
+   "file": "P05.md",
+   "steps": [
+    {
+     "type": "intro",
+     "title": "Warm-up",
+     "text": "A quick look back at P04: **ze ce se** in all four tones.",
+     "rows": [
+      [
+       "s-ze1",
+       "s-ze2",
+       "s-ze3",
+       "s-ze4"
+      ],
+      [
+       "s-ce1",
+       "s-ce2",
+       "s-ce3",
+       "s-ce4"
+      ],
+      [
+       "s-se1",
+       "s-se2",
+       "s-se3",
+       "s-se4"
+      ]
+     ]
+    },
+    {
+     "type": "hear",
+     "play": "s-ce4",
+     "options": [
+      "zè",
+      "cè",
+      "sè"
+     ]
+    },
+    {
+     "type": "tone",
+     "play": "s-ze2",
+     "options": [
+      1,
+      2,
+      3,
+      4
+     ]
+    },
+    {
+     "type": "meaning",
+     "item": "ke",
+     "from": "audio",
+     "options": [
+      "ke",
+      "ke-thirsty",
+      "ge"
+     ]
+    },
+    {
+     "type": "meaning",
+     "item": "wo-he-gege",
+     "from": "audio",
+     "options": [
+      "wo-he-gege",
+      "wo-ke-le",
+      "gege"
+     ]
+    },
+    {
+     "type": "intro",
+     "title": "The tongue curled back",
+     "text": "Today: **zh ch sh r**. For all four, curl the tip of your tongue up and back, behind the bump above your top teeth. That gives them a darker, hollow sound.\n\n- **zh** like the *j* in English *jam*, without the buzz; German *dsch*.\n- **ch** like English *church*, with a puff; German *tsch*.\n- **sh** like English *shoe*, German *sch*.\n- **r** like the English *r* in *run*, with a little buzz, a bit like the *s* in *pleasure*. Never a German r.\n\nThey're written with two letters but are one sound each.",
+     "rows": [
+      [
+       "s-zhe4",
+       "s-che4",
+       "s-she4",
+       "s-re4"
+      ],
+      [
+       "s-zhe1",
+       "s-che1",
+       "s-she1",
+       "s-re1"
+      ]
+     ]
+    },
+    {
+     "type": "hear",
+     "play": "s-che4",
+     "options": [
+      "zhè",
+      "chè"
+     ]
+    },
+    {
+     "type": "same",
+     "pair": [
+      "s-zhe1",
+      "s-che1"
+     ]
+    },
+    {
+     "type": "hear",
+     "play": "s-re4",
+     "options": [
+      "shè",
+      "rè",
+      "lè"
+     ]
+    },
+    {
+     "type": "intro",
+     "title": "z or zh? s or sh?",
+     "text": "z c s (tongue at the teeth) and zh ch sh (tongue curled back) are the pairs most learners mix up. z c s are bright and hissing; zh ch sh are darker and hushing.\n\nEach row is the tongue at the teeth, then curled back.",
+     "rows": [
+      [
+       "s-ze2",
+       "s-zhe2"
+      ],
+      [
+       "s-ce4",
+       "s-che4"
+      ],
+      [
+       "s-se4",
+       "s-she4"
+      ]
+     ]
+    },
+    {
+     "type": "hear",
+     "play": "s-she4",
+     "options": [
+      "sè",
+      "shè"
+     ]
+    },
+    {
+     "type": "same",
+     "pair": [
+      "s-ze4",
+      "s-zhe4"
+     ]
+    },
+    {
+     "type": "hear",
+     "play": "s-ce1",
+     "options": [
+      "cē",
+      "chē"
+     ]
+    },
+    {
+     "type": "chart",
+     "title": "Your fifth block of the chart",
+     "text": "zhe che she re in all four tones. Keep your tongue curled back the whole time.",
+     "syllables": [
+      "zhe",
+      "che",
+      "she",
+      "re"
+     ],
+     "tones": [
+      1,
+      2,
+      3,
+      4
+     ]
+    },
+    {
+     "type": "tone",
+     "play": "s-she2",
+     "options": [
+      1,
+      2,
+      3,
+      4
+     ]
+    },
+    {
+     "type": "tone",
+     "play": "s-zhe3",
+     "options": [
+      1,
+      2,
+      3,
+      4
+     ]
+    },
+    {
+     "type": "tone",
+     "play": "s-che1",
+     "options": [
+      1,
+      2,
+      3,
+      4
+     ]
+    },
+    {
+     "type": "same",
+     "pair": [
+      "s-se2",
+      "s-she2"
+     ]
+    },
+    {
+     "type": "tone",
+     "play": "s-re4",
+     "options": [
+      1,
+      2,
+      3,
+      4
+     ]
+    },
+    {
+     "type": "audio",
+     "item": "s-zhe2",
+     "options": [
+      "s-ze2",
+      "s-zhe2",
+      "s-de2"
+     ]
+    },
+    {
+     "type": "match",
+     "mode": "sound",
+     "items": [
+      "s-zhe1",
+      "s-che2",
+      "s-she3",
+      "s-re4"
+     ]
+    },
+    {
+     "type": "hear",
+     "play": "s-she4",
+     "options": [
+      "sè",
+      "shè",
+      "cè",
+      "chè"
+     ]
+    },
+    {
+     "type": "tone",
+     "play": "s-ke1",
+     "options": [
+      1,
+      2,
+      3,
+      4
+     ]
+    },
+    {
+     "type": "type",
+     "item": "s-che4",
+     "from": "audio"
+    },
+    {
+     "type": "new",
+     "item": "zhe"
+    },
+    {
+     "type": "new",
+     "item": "che"
+    },
+    {
+     "type": "meaning",
+     "item": "che",
+     "from": "audio",
+     "options": [
+      "che",
+      "zhe",
+      "ke"
+     ]
+    },
+    {
+     "type": "new",
+     "item": "re"
+    },
+    {
+     "type": "hear",
+     "play": "re",
+     "options": [
+      "rè",
+      "lè",
+      "shè"
+     ]
+    },
+    {
+     "type": "new",
+     "item": "zhege"
+    },
+    {
+     "type": "new",
+     "item": "wo-de-che"
+    },
+    {
+     "type": "new",
+     "item": "zhege-ne"
+    },
+    {
+     "type": "meaning",
+     "item": "zhege-ne",
+     "from": "audio",
+     "options": [
+      "zhege-ne",
+      "wo-ne",
+      "wo-de-che"
+     ]
+    },
+    {
+     "type": "pinyin",
+     "item": "zhe",
+     "options": [
+      "zhè",
+      "zè",
+      "chè"
+     ]
+    },
+    {
+     "type": "match",
+     "items": [
+      "zhe",
+      "che",
+      "re",
+      "zhege",
+      "e"
+     ]
+    },
+    {
+     "type": "meaning",
+     "item": "re",
+     "from": "audio",
+     "options": [
+      "re",
+      "e",
+      "ke-thirsty"
+     ]
+    },
+    {
+     "type": "meaning",
+     "item": "wo-de-che",
+     "from": "audio",
+     "options": [
+      "wo-de-che",
+      "wo-he-gege",
+      "zhege"
+     ]
+    },
+    {
+     "type": "type",
+     "item": "che",
+     "from": "english"
+    }
+   ],
+   "minutes": 10
+  },
+  {
+   "id": "P06",
+   "topic": "T01",
+   "title": "ji qi xi",
+   "focus": "The flat tongue; j vs q; xi vs se vs she",
+   "goal": "Hear ji qi xi in all four tones, hear j from q and xi from se and she, and learn seven, how many, to wash and car.",
+   "file": "P06.md",
+   "steps": [
+    {
+     "type": "intro",
+     "title": "Warm-up",
+     "text": "A quick look back at P05: **zhe che she re** in all four tones.",
+     "rows": [
+      [
+       "s-zhe1",
+       "s-zhe2",
+       "s-zhe3",
+       "s-zhe4"
+      ],
+      [
+       "s-che1",
+       "s-che2",
+       "s-che3",
+       "s-che4"
+      ],
+      [
+       "s-she1",
+       "s-she2",
+       "s-she3",
+       "s-she4"
+      ],
+      [
+       "s-re1",
+       "s-re2",
+       "s-re3",
+       "s-re4"
+      ]
+     ]
+    },
+    {
+     "type": "hear",
+     "play": "s-she4",
+     "options": [
+      "sè",
+      "shè"
+     ]
+    },
+    {
+     "type": "tone",
+     "play": "s-che3",
+     "options": [
+      1,
+      2,
+      3,
+      4
+     ]
+    },
+    {
+     "type": "meaning",
+     "item": "zhege-ne",
+     "from": "audio",
+     "options": [
+      "zhege-ne",
+      "wo-de-che",
+      "wo-ne"
+     ]
+    },
+    {
+     "type": "meaning",
+     "item": "re",
+     "from": "audio",
+     "options": [
+      "re",
+      "zhe",
+      "se"
+     ]
+    },
+    {
+     "type": "intro",
+     "title": "A new vowel: i",
+     "text": "Today: the tongue flat, **j q x**, with the final **i**.\n\nThis **i** is the plain *ee* of English *see*, German *Liebe*. Lips spread, tongue high.\n\nFor **j q x**, keep the tip of your tongue down behind your lower teeth and press the middle of the tongue up. That's what *flat* means here. They sound soft and bright, almost like they have a little *y* in them.",
+     "rows": [
+      [
+       "s-ji1",
+       "s-qi1",
+       "s-xi1"
+      ],
+      [
+       "s-ji4",
+       "s-qi4",
+       "s-xi4"
+      ]
+     ]
+    },
+    {
+     "type": "intro",
+     "title": "j and q: the puff, once more",
+     "text": "**j** is like the *j* in English *jeep*, but without the buzz and with the tongue flat. **q** is the same with a strong puff, like *ch* in English *cheese* (German *tsch*, softer).\n\nThe letter q is the surprise: it's never a k sound.",
+     "rows": [
+      [
+       "s-ji1",
+       "s-qi1"
+      ],
+      [
+       "s-ji4",
+       "s-qi4"
+      ]
+     ]
+    },
+    {
+     "type": "hear",
+     "play": "s-qi4",
+     "options": [
+      "jì",
+      "qì"
+     ]
+    },
+    {
+     "type": "same",
+     "pair": [
+      "s-ji2",
+      "s-qi2"
+     ]
+    },
+    {
+     "type": "intro",
+     "title": "x: the German ch of ich",
+     "text": "**x** is like the German *ch* in *ich* or *Milch*: tongue flat, air hissing over it. English has no such sound; it's between *s* and *sh*, as in *see* and *she* said at once.\n\nRow by row: **xi** against **se** and **she** (s, curled-back sh, flat x).",
+     "rows": [
+      [
+       "s-xi1",
+       "s-xi2",
+       "s-xi3",
+       "s-xi4"
+      ],
+      [
+       "s-se4",
+       "s-she4",
+       "s-xi4"
+      ]
+     ]
+    },
+    {
+     "type": "hear",
+     "play": "s-xi4",
+     "options": [
+      "sè",
+      "shè",
+      "xì"
+     ]
+    },
+    {
+     "type": "same",
+     "pair": [
+      "s-she4",
+      "s-xi4"
+     ]
+    },
+    {
+     "type": "intro",
+     "title": "Three ways to say ts and ch",
+     "text": "You now know three tongue positions: at the teeth (**z c s**), curled back (**zh ch sh**), flat (**j q x**). Each row is one sound in all three positions. P08 practises them side by side.",
+     "rows": [
+      [
+       "s-ze4",
+       "s-zhe4",
+       "s-ji4"
+      ],
+      [
+       "s-ce4",
+       "s-che4",
+       "s-qi4"
+      ],
+      [
+       "s-se4",
+       "s-she4",
+       "s-xi4"
+      ]
+     ]
+    },
+    {
+     "type": "chart",
+     "title": "Your sixth block of the chart",
+     "text": "ji qi xi in all four tones. That's every initial of Mandarin.",
+     "syllables": [
+      "ji",
+      "qi",
+      "xi"
+     ],
+     "tones": [
+      1,
+      2,
+      3,
+      4
+     ]
+    },
+    {
+     "type": "tone",
+     "play": "s-qi2",
+     "options": [
+      1,
+      2,
+      3,
+      4
+     ]
+    },
+    {
+     "type": "tone",
+     "play": "s-xi3",
+     "options": [
+      1,
+      2,
+      3,
+      4
+     ]
+    },
+    {
+     "type": "tone",
+     "play": "s-ji1",
+     "options": [
+      1,
+      2,
+      3,
+      4
+     ]
+    },
+    {
+     "type": "same",
+     "pair": [
+      "s-xi1",
+      "s-xi4"
+     ]
+    },
+    {
+     "type": "tone",
+     "play": "s-she2",
+     "options": [
+      1,
+      2,
+      3,
+      4
+     ]
+    },
+    {
+     "type": "audio",
+     "item": "s-qi4",
+     "options": [
+      "s-ji4",
+      "s-qi4",
+      "s-che4"
+     ]
+    },
+    {
+     "type": "match",
+     "mode": "sound",
+     "items": [
+      "s-ji1",
+      "s-qi2",
+      "s-xi3",
+      "s-zhe4"
+     ]
+    },
+    {
+     "type": "hear",
+     "play": "s-ji3",
+     "options": [
+      "jī",
+      "jí",
+      "jǐ",
+      "jì"
+     ]
+    },
+    {
+     "type": "type",
+     "item": "s-qi4",
+     "from": "audio"
+    },
+    {
+     "type": "new",
+     "item": "qi"
+    },
+    {
+     "type": "tone",
+     "play": "qi",
+     "options": [
+      1,
+      2,
+      3,
+      4
+     ]
+    },
+    {
+     "type": "new",
+     "item": "ji"
+    },
+    {
+     "type": "new",
+     "item": "xi"
+    },
+    {
+     "type": "meaning",
+     "item": "xi",
+     "from": "audio",
+     "options": [
+      "xi",
+      "ji",
+      "qi"
+     ]
+    },
+    {
+     "type": "new",
+     "item": "qiche"
+    },
+    {
+     "type": "new",
+     "item": "wo-xi-che"
+    },
+    {
+     "type": "meaning",
+     "item": "wo-xi-che",
+     "from": "audio",
+     "options": [
+      "wo-xi-che",
+      "wo-de-che",
+      "wo-ke-le"
+     ]
+    },
+    {
+     "type": "pinyin",
+     "item": "qi",
+     "options": [
+      "qī",
+      "jī",
+      "qǐ"
+     ]
+    },
+    {
+     "type": "match",
+     "items": [
+      "qi",
+      "ji",
+      "xi",
+      "qiche",
+      "re"
+     ]
+    },
+    {
+     "type": "hear",
+     "play": "qiche",
+     "options": [
+      "qìchē",
+      "jìchē",
+      "qìzhē"
+     ]
+    },
+    {
+     "type": "meaning",
+     "item": "ji",
+     "from": "audio",
+     "options": [
+      "ji",
+      "qi",
+      "zhe"
+     ]
+    },
+    {
+     "type": "type",
+     "item": "qi",
+     "from": "english"
+    }
+   ],
+   "minutes": 10
+  },
+  {
+   "id": "P07",
+   "topic": "T02",
+   "title": "Recap: the puff of air",
+   "focus": "b/p, d/t, g/k, z/c, zh/ch, j/q mixed, all four tones",
+   "goal": "Hear the puff of air in all six pairs (b/p, d/t, g/k, z/c, zh/ch, j/q) in a random mix, and learn cola and polite.",
+   "file": "P07.md",
+   "steps": [
+    {
+     "type": "intro",
+     "title": "Recap: the puff of air",
+     "text": "No new sounds today. You've met six pairs that differ only in a **puff of air**: the second of each pair has one, the first doesn't.\n\nHand in front of your mouth: b d g z zh j stay still, p t k c ch q blow. This lesson mixes them all up, in all four tones.",
+     "rows": [
+      [
+       "s-bo1",
+       "s-po1"
+      ],
+      [
+       "s-de4",
+       "s-te4"
+      ],
+      [
+       "s-ge1",
+       "s-ke1"
+      ],
+      [
+       "s-ze4",
+       "s-ce4"
+      ],
+      [
+       "s-zhe1",
+       "s-che1"
+      ],
+      [
+       "s-ji1",
+       "s-qi1"
+      ]
+     ]
+    },
+    {
+     "type": "hear",
+     "play": "s-po4",
+     "options": [
+      "bò",
+      "pò"
+     ]
+    },
+    {
+     "type": "hear",
+     "play": "s-de2",
+     "options": [
+      "dé",
+      "té"
+     ]
+    },
+    {
+     "type": "hear",
+     "play": "s-ke3",
+     "options": [
+      "gě",
+      "kě"
+     ]
+    },
+    {
+     "type": "hear",
+     "play": "s-ce4",
+     "options": [
+      "zè",
+      "cè"
+     ]
+    },
+    {
+     "type": "hear",
+     "play": "s-zhe2",
+     "options": [
+      "zhé",
+      "ché"
+     ]
+    },
+    {
+     "type": "hear",
+     "play": "s-qi1",
+     "options": [
+      "jī",
+      "qī"
+     ]
+    },
+    {
+     "type": "chart",
+     "title": "Puff or no puff",
+     "text": "Three pairs in all four tones: without a puff, then with one.",
+     "syllables": [
+      "ge",
+      "ke",
+      "ze",
+      "ce",
+      "ji",
+      "qi"
+     ],
+     "tones": [
+      1,
+      2,
+      3,
+      4
+     ]
+    },
+    {
+     "type": "same",
+     "pair": [
+      "s-te1",
+      "s-de1"
+     ]
+    },
+    {
+     "type": "same",
+     "pair": [
+      "s-qi4",
+      "s-qi4"
+     ]
+    },
+    {
+     "type": "same",
+     "pair": [
+      "s-zhe4",
+      "s-che4"
+     ]
+    },
+    {
+     "type": "same",
+     "pair": [
+      "s-bo2",
+      "s-po2"
+     ]
+    },
+    {
+     "type": "same",
+     "pair": [
+      "s-ke2",
+      "s-ke2"
+     ]
+    },
+    {
+     "type": "audio",
+     "item": "s-te2",
+     "options": [
+      "s-de2",
+      "s-te2",
+      "s-ce2"
+     ]
+    },
+    {
+     "type": "audio",
+     "item": "s-ji4",
+     "options": [
+      "s-ji4",
+      "s-qi4",
+      "s-zhe4"
+     ]
+    },
+    {
+     "type": "hear",
+     "play": "s-che3",
+     "options": [
+      "zhě",
+      "chě",
+      "zě",
+      "cě"
+     ]
+    },
+    {
+     "type": "hear",
+     "play": "s-bo4",
+     "options": [
+      "bò",
+      "pò",
+      "mò",
+      "fò"
+     ]
+    },
+    {
+     "type": "intro",
+     "title": "Puff and tone together",
+     "text": "Now both at once: which initial, and which tone? Take your time: listen to the start for the puff, then to the pitch.",
+     "rows": [
+      [
+       "s-ge1",
+       "s-ke2",
+       "s-ge3",
+       "s-ke4"
+      ],
+      [
+       "s-ji1",
+       "s-qi2",
+       "s-ji3",
+       "s-qi4"
+      ]
+     ]
+    },
+    {
+     "type": "tone",
+     "play": "s-po3",
+     "options": [
+      1,
+      2,
+      3,
+      4
+     ]
+    },
+    {
+     "type": "tone",
+     "play": "s-te1",
+     "options": [
+      1,
+      2,
+      3,
+      4
+     ]
+    },
+    {
+     "type": "tone",
+     "play": "s-ce2",
+     "options": [
+      1,
+      2,
+      3,
+      4
+     ]
+    },
+    {
+     "type": "tone",
+     "play": "s-ji4",
+     "options": [
+      1,
+      2,
+      3,
+      4
+     ]
+    },
+    {
+     "type": "match",
+     "mode": "sound",
+     "items": [
+      "s-bo1",
+      "s-te2",
+      "s-ke3",
+      "s-ce4"
+     ]
+    },
+    {
+     "type": "match",
+     "mode": "sound",
+     "items": [
+      "s-po1",
+      "s-zhe2",
+      "s-qi3",
+      "s-de4"
+     ]
+    },
+    {
+     "type": "type",
+     "item": "s-ke4",
+     "from": "audio"
+    },
+    {
+     "type": "type",
+     "item": "s-qi2",
+     "from": "audio"
+    },
+    {
+     "type": "new",
+     "item": "kele"
+    },
+    {
+     "type": "new",
+     "item": "keqi"
+    },
+    {
+     "type": "intro",
+     "title": "kě, kè, kè",
+     "text": "Three words start with **k**: **kě** (thirsty), **kè** (class) and **kèqi** (polite), and **kělè** starts with kě. Listen for the tone of the first syllable: low, or falling?",
+     "rows": [
+      [
+       "ke-thirsty",
+       "kele"
+      ],
+      [
+       "ke",
+       "keqi"
+      ]
+     ]
+    },
+    {
+     "type": "new",
+     "item": "wo-he-kele"
+    },
+    {
+     "type": "new",
+     "item": "gege-keqi"
+    },
+    {
+     "type": "meaning",
+     "item": "kele",
+     "from": "audio",
+     "options": [
+      "kele",
+      "keqi",
+      "ke"
+     ]
+    },
+    {
+     "type": "meaning",
+     "item": "wo-he-kele",
+     "from": "audio",
+     "options": [
+      "wo-he-kele",
+      "wo-ke-le",
+      "wo-xi-che"
+     ]
+    },
+    {
+     "type": "pinyin",
+     "item": "keqi",
+     "options": [
+      "kèqi",
+      "gèqi",
+      "kèji"
+     ]
+    },
+    {
+     "type": "match",
+     "items": [
+      "kele",
+      "keqi",
+      "he",
+      "qiche",
+      "gege"
+     ]
+    },
+    {
+     "type": "meaning",
+     "item": "gege-keqi",
+     "from": "audio",
+     "options": [
+      "gege-keqi",
+      "wo-he-gege",
+      "zhege-ne"
+     ]
+    },
+    {
+     "type": "hear",
+     "play": "kele",
+     "options": [
+      "kělè",
+      "gělè",
+      "kěnè"
+     ]
+    },
+    {
+     "type": "type",
+     "item": "kele",
+     "from": "english"
+    }
+   ],
+   "minutes": 10
+  },
+  {
+   "id": "P08",
+   "topic": "T02",
+   "title": "Recap: z, zh or j?",
+   "focus": "z/zh/j, c/ch/q, s/sh/x and r mixed, all four tones, faster",
+   "goal": "Hear the three tongue positions apart (z/zh/j, c/ch/q, s/sh/x) and r in a random mix, and ask and answer how many.",
+   "file": "P08.md",
+   "steps": [
+    {
+     "type": "intro",
+     "title": "Recap: three tongue positions",
+     "text": "No new sounds today. Mandarin has three tongue positions where English and German have about one:\n\n- **z c s**: tip of the tongue at the teeth. Bright and hissing.\n- **zh ch sh r**: tip curled back. Dark and hushing.\n- **j q x**: tip down, tongue flat. Soft, with a little *y* in it, like German *ich*.\n\nEach row is one sound in the three positions.",
+     "rows": [
+      [
+       "s-ze4",
+       "s-zhe4",
+       "s-ji4"
+      ],
+      [
+       "s-ce4",
+       "s-che4",
+       "s-qi4"
+      ],
+      [
+       "s-se4",
+       "s-she4",
+       "s-xi4"
+      ]
+     ]
+    },
+    {
+     "type": "hear",
+     "play": "s-zhe4",
+     "options": [
+      "zè",
+      "zhè",
+      "jì"
+     ]
+    },
+    {
+     "type": "hear",
+     "play": "s-qi1",
+     "options": [
+      "cē",
+      "chē",
+      "qī"
+     ]
+    },
+    {
+     "type": "hear",
+     "play": "s-se4",
+     "options": [
+      "sè",
+      "shè",
+      "xì"
+     ]
+    },
+    {
+     "type": "hear",
+     "play": "s-ji2",
+     "options": [
+      "zé",
+      "zhé",
+      "jí"
+     ]
+    },
+    {
+     "type": "intro",
+     "title": "s, sh or x?",
+     "text": "The hissing three are the hardest to hear apart. **s** is sharp and thin, **sh** is darker and lower, **x** is soft and light, like *ich*.\n\nAnd **r** sits with sh: same curled-back tongue, but with a buzz.",
+     "rows": [
+      [
+       "s-se1",
+       "s-she1",
+       "s-xi1"
+      ],
+      [
+       "s-se3",
+       "s-she3",
+       "s-xi3"
+      ],
+      [
+       "s-she4",
+       "s-re4"
+      ]
+     ]
+    },
+    {
+     "type": "same",
+     "pair": [
+      "s-she2",
+      "s-se2"
+     ]
+    },
+    {
+     "type": "same",
+     "pair": [
+      "s-xi4",
+      "s-xi4"
+     ]
+    },
+    {
+     "type": "hear",
+     "play": "s-she3",
+     "options": [
+      "sě",
+      "shě",
+      "xǐ"
+     ]
+    },
+    {
+     "type": "hear",
+     "play": "s-re2",
+     "options": [
+      "ré",
+      "shé",
+      "lé"
+     ]
+    },
+    {
+     "type": "chart",
+     "title": "Three positions",
+     "text": "The tongue at the teeth, curled back and flat, in all four tones. Play the rows in pairs: ze then zhe, se then she.",
+     "syllables": [
+      "ze",
+      "zhe",
+      "ce",
+      "che",
+      "se",
+      "she"
+     ],
+     "tones": [
+      1,
+      2,
+      3,
+      4
+     ]
+    },
+    {
+     "type": "same",
+     "pair": [
+      "s-ce4",
+      "s-che4"
+     ]
+    },
+    {
+     "type": "same",
+     "pair": [
+      "s-ze1",
+      "s-zhe1"
+     ]
+    },
+    {
+     "type": "same",
+     "pair": [
+      "s-qi2",
+      "s-qi2"
+     ]
+    },
+    {
+     "type": "audio",
+     "item": "s-che1",
+     "options": [
+      "s-ce1",
+      "s-che1",
+      "s-qi1"
+     ]
+    },
+    {
+     "type": "audio",
+     "item": "s-xi2",
+     "options": [
+      "s-se2",
+      "s-she2",
+      "s-xi2"
+     ]
+    },
+    {
+     "type": "hear",
+     "play": "s-ce2",
+     "options": [
+      "zé",
+      "cé",
+      "zhé",
+      "ché"
+     ]
+    },
+    {
+     "type": "intro",
+     "title": "Faster: sound and tone",
+     "text": "The same mix with all four tones, a bit faster. Trust your first impression.",
+     "rows": [
+      [
+       "s-zhe1",
+       "s-ji2",
+       "s-ze3",
+       "s-she4"
+      ],
+      [
+       "s-qi1",
+       "s-ce2",
+       "s-xi3",
+       "s-re4"
+      ]
+     ]
+    },
+    {
+     "type": "tone",
+     "play": "s-she3",
+     "options": [
+      1,
+      2,
+      3,
+      4
+     ]
+    },
+    {
+     "type": "tone",
+     "play": "s-ze4",
+     "options": [
+      1,
+      2,
+      3,
+      4
+     ]
+    },
+    {
+     "type": "tone",
+     "play": "s-qi3",
+     "options": [
+      1,
+      2,
+      3,
+      4
+     ]
+    },
+    {
+     "type": "tone",
+     "play": "s-re2",
+     "options": [
+      1,
+      2,
+      3,
+      4
+     ]
+    },
+    {
+     "type": "match",
+     "mode": "sound",
+     "items": [
+      "s-ze1",
+      "s-zhe2",
+      "s-ji3",
+      "s-se4"
+     ]
+    },
+    {
+     "type": "match",
+     "mode": "sound",
+     "items": [
+      "s-ce1",
+      "s-she2",
+      "s-xi3",
+      "s-re4"
+     ]
+    },
+    {
+     "type": "type",
+     "item": "s-zhe1",
+     "from": "audio"
+    },
+    {
+     "type": "type",
+     "item": "s-xi4",
+     "from": "audio"
+    },
+    {
+     "type": "new",
+     "item": "jide"
+    },
+    {
+     "type": "new",
+     "item": "wo-jide"
+    },
+    {
+     "type": "new",
+     "item": "ji-ge"
+    },
+    {
+     "type": "new",
+     "item": "qi-ge"
+    },
+    {
+     "type": "intro",
+     "title": "How many? Seven.",
+     "text": "Question and answer have the same shape: **jǐ ge?** (how many?) and **qī ge** (seven). The number simply takes the place of jǐ.",
+     "rows": [
+      [
+       "ji-ge",
+       "qi-ge"
+      ]
+     ]
+    },
+    {
+     "type": "meaning",
+     "item": "ji-ge",
+     "from": "audio",
+     "options": [
+      "ji-ge",
+      "qi-ge",
+      "zhege"
+     ]
+    },
+    {
+     "type": "meaning",
+     "item": "wo-jide",
+     "from": "audio",
+     "options": [
+      "wo-jide",
+      "wo-xi-che",
+      "wo-he-kele"
+     ]
+    },
+    {
+     "type": "pinyin",
+     "item": "jide",
+     "options": [
+      "jìde",
+      "qìde",
+      "jǐde"
+     ]
+    },
+    {
+     "type": "match",
+     "items": [
+      "jide",
+      "ji-ge",
+      "zhe",
+      "xi",
+      "keqi"
+     ]
+    },
+    {
+     "type": "meaning",
+     "item": "qi-ge",
+     "from": "audio",
+     "options": [
+      "qi-ge",
+      "ji-ge",
+      "zhege-ne"
+     ]
+    },
+    {
+     "type": "hear",
+     "play": "jide",
+     "options": [
+      "jìde",
+      "qìde",
+      "xìde"
+     ]
+    },
+    {
+     "type": "type",
+     "item": "jide",
+     "from": "english"
+    }
+   ],
+   "minutes": 10
   }
  ],
  "items": [
@@ -1816,6 +4013,1456 @@
     ]
    ],
    "heardAsWritten": true
+  },
+  {
+   "id": "he",
+   "lesson": "P03",
+   "kind": "word",
+   "pinyin": "hē",
+   "numbers": "he1",
+   "english": "to drink",
+   "syllables": [
+    [
+     "he",
+     1,
+     0
+    ]
+   ],
+   "heardAsWritten": true,
+   "note": "High and flat. The h is rough, from the back of the mouth, like German ach."
+  },
+  {
+   "id": "he-and",
+   "lesson": "P03",
+   "kind": "word",
+   "pinyin": "hé",
+   "numbers": "he2",
+   "english": "and",
+   "syllables": [
+    [
+     "he",
+     2,
+     0
+    ]
+   ],
+   "heardAsWritten": true,
+   "note": "Rising. It joins two nouns (me and you), not two sentences."
+  },
+  {
+   "id": "ke-thirsty",
+   "lesson": "P03",
+   "kind": "word",
+   "pinyin": "kě",
+   "numbers": "ke3",
+   "english": "thirsty",
+   "syllables": [
+    [
+     "ke",
+     3,
+     0
+    ]
+   ],
+   "heardAsWritten": true,
+   "note": "Low 3rd tone, with a strong puff on the k."
+  },
+  {
+   "id": "gege",
+   "lesson": "P03",
+   "kind": "word",
+   "pinyin": "gēge",
+   "numbers": "ge1ge5",
+   "english": "older brother",
+   "syllables": [
+    [
+     "ge",
+     1,
+     0
+    ],
+    [
+     "ge",
+     5,
+     0
+    ]
+   ],
+   "heardAsWritten": true,
+   "note": "The second ge is light: neutral tone. The g has no puff of air."
+  },
+  {
+   "id": "wo-ke-le",
+   "lesson": "P03",
+   "kind": "phrase",
+   "pinyin": "Wǒ kě le.",
+   "numbers": "Wo3 ke3 le5.",
+   "english": "I'm thirsty (now).",
+   "syllables": [
+    [
+     "wo",
+     3,
+     0
+    ],
+    [
+     "ke",
+     3,
+     1
+    ],
+    [
+     "le",
+     5,
+     1
+    ]
+   ],
+   "heardAsWritten": false,
+   "literal": "I / thirsty / (it's changed)",
+   "note": "Built like Wǒ è le. Two 3rd tones in a row: the first one rises, so wǒ kě is said wó kě."
+  },
+  {
+   "id": "wo-he-gege",
+   "lesson": "P03",
+   "kind": "phrase",
+   "pinyin": "Wǒ hé gēge",
+   "numbers": "Wo3 he2 ge1ge5",
+   "english": "me and my older brother",
+   "syllables": [
+    [
+     "wo",
+     3,
+     0
+    ],
+    [
+     "he",
+     2,
+     1
+    ],
+    [
+     "ge",
+     1,
+     1
+    ],
+    [
+     "ge",
+     5,
+     0
+    ]
+   ],
+   "heardAsWritten": true,
+   "literal": "I / and / older brother",
+   "note": "No word for my is needed: family members go without de."
+  },
+  {
+   "id": "s-ge1",
+   "lesson": "P03",
+   "kind": "sound",
+   "pinyin": "gē",
+   "numbers": "ge1",
+   "english": "",
+   "syllables": [
+    [
+     "ge",
+     1,
+     0
+    ]
+   ],
+   "heardAsWritten": true
+  },
+  {
+   "id": "s-ke1",
+   "lesson": "P03",
+   "kind": "sound",
+   "pinyin": "kē",
+   "numbers": "ke1",
+   "english": "",
+   "syllables": [
+    [
+     "ke",
+     1,
+     0
+    ]
+   ],
+   "heardAsWritten": true
+  },
+  {
+   "id": "s-ge4",
+   "lesson": "P03",
+   "kind": "sound",
+   "pinyin": "gè",
+   "numbers": "ge4",
+   "english": "",
+   "syllables": [
+    [
+     "ge",
+     4,
+     0
+    ]
+   ],
+   "heardAsWritten": true
+  },
+  {
+   "id": "s-ke4",
+   "lesson": "P03",
+   "kind": "sound",
+   "pinyin": "kè",
+   "numbers": "ke4",
+   "english": "",
+   "syllables": [
+    [
+     "ke",
+     4,
+     0
+    ]
+   ],
+   "heardAsWritten": true
+  },
+  {
+   "id": "s-ge2",
+   "lesson": "P03",
+   "kind": "sound",
+   "pinyin": "gé",
+   "numbers": "ge2",
+   "english": "",
+   "syllables": [
+    [
+     "ge",
+     2,
+     0
+    ]
+   ],
+   "heardAsWritten": true
+  },
+  {
+   "id": "s-ke2",
+   "lesson": "P03",
+   "kind": "sound",
+   "pinyin": "ké",
+   "numbers": "ke2",
+   "english": "",
+   "syllables": [
+    [
+     "ke",
+     2,
+     0
+    ]
+   ],
+   "heardAsWritten": true
+  },
+  {
+   "id": "s-he1",
+   "lesson": "P03",
+   "kind": "sound",
+   "pinyin": "hē",
+   "numbers": "he1",
+   "english": "to drink",
+   "syllables": [
+    [
+     "he",
+     1,
+     0
+    ]
+   ],
+   "heardAsWritten": true
+  },
+  {
+   "id": "s-he2",
+   "lesson": "P03",
+   "kind": "sound",
+   "pinyin": "hé",
+   "numbers": "he2",
+   "english": "and",
+   "syllables": [
+    [
+     "he",
+     2,
+     0
+    ]
+   ],
+   "heardAsWritten": true
+  },
+  {
+   "id": "s-he3",
+   "lesson": "P03",
+   "kind": "sound",
+   "pinyin": "hě",
+   "numbers": "he3",
+   "english": "",
+   "syllables": [
+    [
+     "he",
+     3,
+     0
+    ]
+   ],
+   "heardAsWritten": true
+  },
+  {
+   "id": "s-he4",
+   "lesson": "P03",
+   "kind": "sound",
+   "pinyin": "hè",
+   "numbers": "he4",
+   "english": "",
+   "syllables": [
+    [
+     "he",
+     4,
+     0
+    ]
+   ],
+   "heardAsWritten": true
+  },
+  {
+   "id": "s-ge3",
+   "lesson": "P03",
+   "kind": "sound",
+   "pinyin": "gě",
+   "numbers": "ge3",
+   "english": "",
+   "syllables": [
+    [
+     "ge",
+     3,
+     0
+    ]
+   ],
+   "heardAsWritten": true
+  },
+  {
+   "id": "s-ke3",
+   "lesson": "P03",
+   "kind": "sound",
+   "pinyin": "kě",
+   "numbers": "ke3",
+   "english": "thirsty",
+   "syllables": [
+    [
+     "ke",
+     3,
+     0
+    ]
+   ],
+   "heardAsWritten": true
+  },
+  {
+   "id": "se",
+   "lesson": "P04",
+   "kind": "word",
+   "pinyin": "sè",
+   "numbers": "se4",
+   "english": "colour",
+   "syllables": [
+    [
+     "se",
+     4,
+     0
+    ]
+   ],
+   "heardAsWritten": true,
+   "note": "A sharp s, like German ß. On its own it's mostly in names of colours later on."
+  },
+  {
+   "id": "ge",
+   "lesson": "P04",
+   "kind": "word",
+   "pinyin": "gè",
+   "numbers": "ge4",
+   "english": "counting word for people and things",
+   "syllables": [
+    [
+     "ge",
+     4,
+     0
+    ]
+   ],
+   "heardAsWritten": true,
+   "note": "Chinese puts a counting word between a number and a thing: three ge people. In speech it's usually light: ge."
+  },
+  {
+   "id": "ke",
+   "lesson": "P04",
+   "kind": "word",
+   "pinyin": "kè",
+   "numbers": "ke4",
+   "english": "class, lesson",
+   "syllables": [
+    [
+     "ke",
+     4,
+     0
+    ]
+   ],
+   "heardAsWritten": true,
+   "note": "Falling, with a puff on the k. Don't mix it up with kě (thirsty)."
+  },
+  {
+   "id": "s-ze2",
+   "lesson": "P04",
+   "kind": "sound",
+   "pinyin": "zé",
+   "numbers": "ze2",
+   "english": "",
+   "syllables": [
+    [
+     "ze",
+     2,
+     0
+    ]
+   ],
+   "heardAsWritten": true
+  },
+  {
+   "id": "s-ze4",
+   "lesson": "P04",
+   "kind": "sound",
+   "pinyin": "zè",
+   "numbers": "ze4",
+   "english": "",
+   "syllables": [
+    [
+     "ze",
+     4,
+     0
+    ]
+   ],
+   "heardAsWritten": true
+  },
+  {
+   "id": "s-ce4",
+   "lesson": "P04",
+   "kind": "sound",
+   "pinyin": "cè",
+   "numbers": "ce4",
+   "english": "",
+   "syllables": [
+    [
+     "ce",
+     4,
+     0
+    ]
+   ],
+   "heardAsWritten": true
+  },
+  {
+   "id": "s-se4",
+   "lesson": "P04",
+   "kind": "sound",
+   "pinyin": "sè",
+   "numbers": "se4",
+   "english": "colour",
+   "syllables": [
+    [
+     "se",
+     4,
+     0
+    ]
+   ],
+   "heardAsWritten": true
+  },
+  {
+   "id": "s-ze1",
+   "lesson": "P04",
+   "kind": "sound",
+   "pinyin": "zē",
+   "numbers": "ze1",
+   "english": "",
+   "syllables": [
+    [
+     "ze",
+     1,
+     0
+    ]
+   ],
+   "heardAsWritten": true
+  },
+  {
+   "id": "s-ze3",
+   "lesson": "P04",
+   "kind": "sound",
+   "pinyin": "zě",
+   "numbers": "ze3",
+   "english": "",
+   "syllables": [
+    [
+     "ze",
+     3,
+     0
+    ]
+   ],
+   "heardAsWritten": true
+  },
+  {
+   "id": "s-ce1",
+   "lesson": "P04",
+   "kind": "sound",
+   "pinyin": "cē",
+   "numbers": "ce1",
+   "english": "",
+   "syllables": [
+    [
+     "ce",
+     1,
+     0
+    ]
+   ],
+   "heardAsWritten": true
+  },
+  {
+   "id": "s-ce2",
+   "lesson": "P04",
+   "kind": "sound",
+   "pinyin": "cé",
+   "numbers": "ce2",
+   "english": "",
+   "syllables": [
+    [
+     "ce",
+     2,
+     0
+    ]
+   ],
+   "heardAsWritten": true
+  },
+  {
+   "id": "s-ce3",
+   "lesson": "P04",
+   "kind": "sound",
+   "pinyin": "cě",
+   "numbers": "ce3",
+   "english": "",
+   "syllables": [
+    [
+     "ce",
+     3,
+     0
+    ]
+   ],
+   "heardAsWritten": true
+  },
+  {
+   "id": "s-se1",
+   "lesson": "P04",
+   "kind": "sound",
+   "pinyin": "sē",
+   "numbers": "se1",
+   "english": "",
+   "syllables": [
+    [
+     "se",
+     1,
+     0
+    ]
+   ],
+   "heardAsWritten": true
+  },
+  {
+   "id": "s-se2",
+   "lesson": "P04",
+   "kind": "sound",
+   "pinyin": "sé",
+   "numbers": "se2",
+   "english": "",
+   "syllables": [
+    [
+     "se",
+     2,
+     0
+    ]
+   ],
+   "heardAsWritten": true
+  },
+  {
+   "id": "s-se3",
+   "lesson": "P04",
+   "kind": "sound",
+   "pinyin": "sě",
+   "numbers": "se3",
+   "english": "",
+   "syllables": [
+    [
+     "se",
+     3,
+     0
+    ]
+   ],
+   "heardAsWritten": true
+  },
+  {
+   "id": "zhe",
+   "lesson": "P05",
+   "kind": "word",
+   "pinyin": "zhè",
+   "numbers": "zhe4",
+   "english": "this",
+   "syllables": [
+    [
+     "zhe",
+     4,
+     0
+    ]
+   ],
+   "heardAsWritten": true,
+   "note": "Tongue curled back, no puff, sharp fall."
+  },
+  {
+   "id": "che",
+   "lesson": "P05",
+   "kind": "word",
+   "pinyin": "chē",
+   "numbers": "che1",
+   "english": "vehicle, car",
+   "syllables": [
+    [
+     "che",
+     1,
+     0
+    ]
+   ],
+   "heardAsWritten": true,
+   "note": "Tongue curled back, with a puff: like English ch, then a deep e. Any vehicle: car, bus, bike."
+  },
+  {
+   "id": "re",
+   "lesson": "P05",
+   "kind": "word",
+   "pinyin": "rè",
+   "numbers": "re4",
+   "english": "hot",
+   "syllables": [
+    [
+     "re",
+     4,
+     0
+    ]
+   ],
+   "heardAsWritten": true,
+   "note": "The English r of run, with a little buzz. Not a German r."
+  },
+  {
+   "id": "zhege",
+   "lesson": "P05",
+   "kind": "word",
+   "pinyin": "zhège",
+   "numbers": "zhe4ge5",
+   "english": "this one",
+   "syllables": [
+    [
+     "zhe",
+     4,
+     0
+    ],
+    [
+     "ge",
+     5,
+     0
+    ]
+   ],
+   "heardAsWritten": true,
+   "note": "zhè + the counting word ge (light). Many people say zhèige."
+  },
+  {
+   "id": "wo-de-che",
+   "lesson": "P05",
+   "kind": "phrase",
+   "pinyin": "Wǒ de chē",
+   "numbers": "Wo3 de5 che1",
+   "english": "my car",
+   "syllables": [
+    [
+     "wo",
+     3,
+     0
+    ],
+    [
+     "de",
+     5,
+     1
+    ],
+    [
+     "che",
+     1,
+     1
+    ]
+   ],
+   "heardAsWritten": true,
+   "literal": "I / 's / car"
+  },
+  {
+   "id": "zhege-ne",
+   "lesson": "P05",
+   "kind": "phrase",
+   "pinyin": "Zhège ne?",
+   "numbers": "Zhe4ge5 ne5?",
+   "english": "And this one? / What about this one?",
+   "syllables": [
+    [
+     "zhe",
+     4,
+     0
+    ],
+    [
+     "ge",
+     5,
+     0
+    ],
+    [
+     "ne",
+     5,
+     1
+    ]
+   ],
+   "heardAsWritten": true,
+   "literal": "this one / (what about?)",
+   "note": "ne again: what about …? Point at something and ask."
+  },
+  {
+   "id": "s-zhe4",
+   "lesson": "P05",
+   "kind": "sound",
+   "pinyin": "zhè",
+   "numbers": "zhe4",
+   "english": "this",
+   "syllables": [
+    [
+     "zhe",
+     4,
+     0
+    ]
+   ],
+   "heardAsWritten": true
+  },
+  {
+   "id": "s-che4",
+   "lesson": "P05",
+   "kind": "sound",
+   "pinyin": "chè",
+   "numbers": "che4",
+   "english": "",
+   "syllables": [
+    [
+     "che",
+     4,
+     0
+    ]
+   ],
+   "heardAsWritten": true
+  },
+  {
+   "id": "s-she4",
+   "lesson": "P05",
+   "kind": "sound",
+   "pinyin": "shè",
+   "numbers": "she4",
+   "english": "",
+   "syllables": [
+    [
+     "she",
+     4,
+     0
+    ]
+   ],
+   "heardAsWritten": true
+  },
+  {
+   "id": "s-re4",
+   "lesson": "P05",
+   "kind": "sound",
+   "pinyin": "rè",
+   "numbers": "re4",
+   "english": "hot",
+   "syllables": [
+    [
+     "re",
+     4,
+     0
+    ]
+   ],
+   "heardAsWritten": true
+  },
+  {
+   "id": "s-zhe1",
+   "lesson": "P05",
+   "kind": "sound",
+   "pinyin": "zhē",
+   "numbers": "zhe1",
+   "english": "",
+   "syllables": [
+    [
+     "zhe",
+     1,
+     0
+    ]
+   ],
+   "heardAsWritten": true
+  },
+  {
+   "id": "s-che1",
+   "lesson": "P05",
+   "kind": "sound",
+   "pinyin": "chē",
+   "numbers": "che1",
+   "english": "vehicle, car",
+   "syllables": [
+    [
+     "che",
+     1,
+     0
+    ]
+   ],
+   "heardAsWritten": true
+  },
+  {
+   "id": "s-she1",
+   "lesson": "P05",
+   "kind": "sound",
+   "pinyin": "shē",
+   "numbers": "she1",
+   "english": "",
+   "syllables": [
+    [
+     "she",
+     1,
+     0
+    ]
+   ],
+   "heardAsWritten": true
+  },
+  {
+   "id": "s-re1",
+   "lesson": "P05",
+   "kind": "sound",
+   "pinyin": "rē",
+   "numbers": "re1",
+   "english": "",
+   "syllables": [
+    [
+     "re",
+     1,
+     0
+    ]
+   ],
+   "heardAsWritten": true
+  },
+  {
+   "id": "s-zhe2",
+   "lesson": "P05",
+   "kind": "sound",
+   "pinyin": "zhé",
+   "numbers": "zhe2",
+   "english": "",
+   "syllables": [
+    [
+     "zhe",
+     2,
+     0
+    ]
+   ],
+   "heardAsWritten": true
+  },
+  {
+   "id": "s-zhe3",
+   "lesson": "P05",
+   "kind": "sound",
+   "pinyin": "zhě",
+   "numbers": "zhe3",
+   "english": "",
+   "syllables": [
+    [
+     "zhe",
+     3,
+     0
+    ]
+   ],
+   "heardAsWritten": true
+  },
+  {
+   "id": "s-che2",
+   "lesson": "P05",
+   "kind": "sound",
+   "pinyin": "ché",
+   "numbers": "che2",
+   "english": "",
+   "syllables": [
+    [
+     "che",
+     2,
+     0
+    ]
+   ],
+   "heardAsWritten": true
+  },
+  {
+   "id": "s-che3",
+   "lesson": "P05",
+   "kind": "sound",
+   "pinyin": "chě",
+   "numbers": "che3",
+   "english": "",
+   "syllables": [
+    [
+     "che",
+     3,
+     0
+    ]
+   ],
+   "heardAsWritten": true
+  },
+  {
+   "id": "s-she2",
+   "lesson": "P05",
+   "kind": "sound",
+   "pinyin": "shé",
+   "numbers": "she2",
+   "english": "",
+   "syllables": [
+    [
+     "she",
+     2,
+     0
+    ]
+   ],
+   "heardAsWritten": true
+  },
+  {
+   "id": "s-she3",
+   "lesson": "P05",
+   "kind": "sound",
+   "pinyin": "shě",
+   "numbers": "she3",
+   "english": "",
+   "syllables": [
+    [
+     "she",
+     3,
+     0
+    ]
+   ],
+   "heardAsWritten": true
+  },
+  {
+   "id": "s-re2",
+   "lesson": "P05",
+   "kind": "sound",
+   "pinyin": "ré",
+   "numbers": "re2",
+   "english": "",
+   "syllables": [
+    [
+     "re",
+     2,
+     0
+    ]
+   ],
+   "heardAsWritten": true
+  },
+  {
+   "id": "s-re3",
+   "lesson": "P05",
+   "kind": "sound",
+   "pinyin": "rě",
+   "numbers": "re3",
+   "english": "",
+   "syllables": [
+    [
+     "re",
+     3,
+     0
+    ]
+   ],
+   "heardAsWritten": true
+  },
+  {
+   "id": "qi",
+   "lesson": "P06",
+   "kind": "word",
+   "pinyin": "qī",
+   "numbers": "qi1",
+   "english": "seven",
+   "syllables": [
+    [
+     "qi",
+     1,
+     0
+    ]
+   ],
+   "heardAsWritten": true,
+   "note": "High and flat, with a puff on the q: like English cheese, with the tongue flat."
+  },
+  {
+   "id": "ji",
+   "lesson": "P06",
+   "kind": "word",
+   "pinyin": "jǐ",
+   "numbers": "ji3",
+   "english": "how many",
+   "syllables": [
+    [
+     "ji",
+     3,
+     0
+    ]
+   ],
+   "heardAsWritten": true,
+   "note": "Asks for a small number. It needs a counting word after it: jǐ ge (P08)."
+  },
+  {
+   "id": "xi",
+   "lesson": "P06",
+   "kind": "word",
+   "pinyin": "xǐ",
+   "numbers": "xi3",
+   "english": "to wash",
+   "syllables": [
+    [
+     "xi",
+     3,
+     0
+    ]
+   ],
+   "heardAsWritten": true,
+   "note": "x is the German ch of ich. Low 3rd tone."
+  },
+  {
+   "id": "qiche",
+   "lesson": "P06",
+   "kind": "word",
+   "pinyin": "qìchē",
+   "numbers": "qi4che1",
+   "english": "automobile, car",
+   "syllables": [
+    [
+     "qi",
+     4,
+     0
+    ],
+    [
+     "che",
+     1,
+     0
+    ]
+   ],
+   "heardAsWritten": true,
+   "note": "Two puffs: q, then ch. chē alone is any vehicle; qìchē is a car."
+  },
+  {
+   "id": "wo-xi-che",
+   "lesson": "P06",
+   "kind": "phrase",
+   "pinyin": "Wǒ xǐ chē.",
+   "numbers": "Wo3 xi3 che1.",
+   "english": "I'm washing the car.",
+   "syllables": [
+    [
+     "wo",
+     3,
+     0
+    ],
+    [
+     "xi",
+     3,
+     1
+    ],
+    [
+     "che",
+     1,
+     1
+    ]
+   ],
+   "heardAsWritten": false,
+   "literal": "I / wash / car",
+   "note": "Two 3rd tones: wǒ xǐ is said wó xǐ. The same words work for now, every day and later: Chinese verbs don't change."
+  },
+  {
+   "id": "s-ji1",
+   "lesson": "P06",
+   "kind": "sound",
+   "pinyin": "jī",
+   "numbers": "ji1",
+   "english": "",
+   "syllables": [
+    [
+     "ji",
+     1,
+     0
+    ]
+   ],
+   "heardAsWritten": true
+  },
+  {
+   "id": "s-qi1",
+   "lesson": "P06",
+   "kind": "sound",
+   "pinyin": "qī",
+   "numbers": "qi1",
+   "english": "seven",
+   "syllables": [
+    [
+     "qi",
+     1,
+     0
+    ]
+   ],
+   "heardAsWritten": true
+  },
+  {
+   "id": "s-xi1",
+   "lesson": "P06",
+   "kind": "sound",
+   "pinyin": "xī",
+   "numbers": "xi1",
+   "english": "",
+   "syllables": [
+    [
+     "xi",
+     1,
+     0
+    ]
+   ],
+   "heardAsWritten": true
+  },
+  {
+   "id": "s-ji4",
+   "lesson": "P06",
+   "kind": "sound",
+   "pinyin": "jì",
+   "numbers": "ji4",
+   "english": "",
+   "syllables": [
+    [
+     "ji",
+     4,
+     0
+    ]
+   ],
+   "heardAsWritten": true
+  },
+  {
+   "id": "s-qi4",
+   "lesson": "P06",
+   "kind": "sound",
+   "pinyin": "qì",
+   "numbers": "qi4",
+   "english": "",
+   "syllables": [
+    [
+     "qi",
+     4,
+     0
+    ]
+   ],
+   "heardAsWritten": true
+  },
+  {
+   "id": "s-xi4",
+   "lesson": "P06",
+   "kind": "sound",
+   "pinyin": "xì",
+   "numbers": "xi4",
+   "english": "",
+   "syllables": [
+    [
+     "xi",
+     4,
+     0
+    ]
+   ],
+   "heardAsWritten": true
+  },
+  {
+   "id": "s-ji2",
+   "lesson": "P06",
+   "kind": "sound",
+   "pinyin": "jí",
+   "numbers": "ji2",
+   "english": "",
+   "syllables": [
+    [
+     "ji",
+     2,
+     0
+    ]
+   ],
+   "heardAsWritten": true
+  },
+  {
+   "id": "s-qi2",
+   "lesson": "P06",
+   "kind": "sound",
+   "pinyin": "qí",
+   "numbers": "qi2",
+   "english": "",
+   "syllables": [
+    [
+     "qi",
+     2,
+     0
+    ]
+   ],
+   "heardAsWritten": true
+  },
+  {
+   "id": "s-xi2",
+   "lesson": "P06",
+   "kind": "sound",
+   "pinyin": "xí",
+   "numbers": "xi2",
+   "english": "",
+   "syllables": [
+    [
+     "xi",
+     2,
+     0
+    ]
+   ],
+   "heardAsWritten": true
+  },
+  {
+   "id": "s-xi3",
+   "lesson": "P06",
+   "kind": "sound",
+   "pinyin": "xǐ",
+   "numbers": "xi3",
+   "english": "to wash",
+   "syllables": [
+    [
+     "xi",
+     3,
+     0
+    ]
+   ],
+   "heardAsWritten": true
+  },
+  {
+   "id": "s-ji3",
+   "lesson": "P06",
+   "kind": "sound",
+   "pinyin": "jǐ",
+   "numbers": "ji3",
+   "english": "how many?",
+   "syllables": [
+    [
+     "ji",
+     3,
+     0
+    ]
+   ],
+   "heardAsWritten": true
+  },
+  {
+   "id": "s-qi3",
+   "lesson": "P06",
+   "kind": "sound",
+   "pinyin": "qǐ",
+   "numbers": "qi3",
+   "english": "",
+   "syllables": [
+    [
+     "qi",
+     3,
+     0
+    ]
+   ],
+   "heardAsWritten": true
+  },
+  {
+   "id": "kele",
+   "lesson": "P07",
+   "kind": "word",
+   "pinyin": "kělè",
+   "numbers": "ke3le4",
+   "english": "cola",
+   "syllables": [
+    [
+     "ke",
+     3,
+     0
+    ],
+    [
+     "le",
+     4,
+     0
+    ]
+   ],
+   "heardAsWritten": true,
+   "note": "A puff on the k, none on the l. Low, then falling. Literally: can + happy."
+  },
+  {
+   "id": "keqi",
+   "lesson": "P07",
+   "kind": "word",
+   "pinyin": "kèqi",
+   "numbers": "ke4qi5",
+   "english": "polite",
+   "syllables": [
+    [
+     "ke",
+     4,
+     0
+    ],
+    [
+     "qi",
+     5,
+     0
+    ]
+   ],
+   "heardAsWritten": true,
+   "note": "qi is light here. Later: bú kèqi, you're welcome (literally: don't be polite)."
+  },
+  {
+   "id": "wo-he-kele",
+   "lesson": "P07",
+   "kind": "phrase",
+   "pinyin": "Wǒ hē kělè.",
+   "numbers": "Wo3 he1 ke3le4.",
+   "english": "I'll have a cola. / I drink cola.",
+   "syllables": [
+    [
+     "wo",
+     3,
+     0
+    ],
+    [
+     "he",
+     1,
+     1
+    ],
+    [
+     "ke",
+     3,
+     1
+    ],
+    [
+     "le",
+     4,
+     0
+    ]
+   ],
+   "heardAsWritten": true,
+   "literal": "I / drink / cola",
+   "note": "Ordering is that simple: I + drink + the drink."
+  },
+  {
+   "id": "gege-keqi",
+   "lesson": "P07",
+   "kind": "phrase",
+   "pinyin": "Gēge kèqi.",
+   "numbers": "Ge1ge5 ke4qi5.",
+   "english": "My brother is polite.",
+   "syllables": [
+    [
+     "ge",
+     1,
+     0
+    ],
+    [
+     "ge",
+     5,
+     0
+    ],
+    [
+     "ke",
+     4,
+     1
+    ],
+    [
+     "qi",
+     5,
+     0
+    ]
+   ],
+   "heardAsWritten": true,
+   "literal": "older brother / polite",
+   "note": "No word for is: Chinese puts the describing word straight after the person."
+  },
+  {
+   "id": "jide",
+   "lesson": "P08",
+   "kind": "word",
+   "pinyin": "jìde",
+   "numbers": "ji4de5",
+   "english": "to remember",
+   "syllables": [
+    [
+     "ji",
+     4,
+     0
+    ],
+    [
+     "de",
+     5,
+     0
+    ]
+   ],
+   "heardAsWritten": true,
+   "note": "Falling, then a light de. Flat tongue on the j."
+  },
+  {
+   "id": "ji-ge",
+   "lesson": "P08",
+   "kind": "word",
+   "pinyin": "jǐ ge",
+   "numbers": "ji3 ge5",
+   "english": "how many of them?",
+   "syllables": [
+    [
+     "ji",
+     3,
+     0
+    ],
+    [
+     "ge",
+     5,
+     1
+    ]
+   ],
+   "heardAsWritten": true,
+   "note": "jǐ (how many) + the counting word ge, said light. For small numbers, up to about ten."
+  },
+  {
+   "id": "wo-jide",
+   "lesson": "P08",
+   "kind": "phrase",
+   "pinyin": "Wǒ jìde.",
+   "numbers": "Wo3 ji4de5.",
+   "english": "I remember.",
+   "syllables": [
+    [
+     "wo",
+     3,
+     0
+    ],
+    [
+     "ji",
+     4,
+     1
+    ],
+    [
+     "de",
+     5,
+     0
+    ]
+   ],
+   "heardAsWritten": true,
+   "literal": "I / remember"
+  },
+  {
+   "id": "qi-ge",
+   "lesson": "P08",
+   "kind": "phrase",
+   "pinyin": "Qī ge.",
+   "numbers": "Qi1 ge5.",
+   "english": "Seven (of them).",
+   "syllables": [
+    [
+     "qi",
+     1,
+     0
+    ],
+    [
+     "ge",
+     5,
+     1
+    ]
+   ],
+   "heardAsWritten": true,
+   "literal": "seven / (counting word)",
+   "note": "The answer to jǐ ge: put the number where jǐ was."
   }
  ]
 }

@@ -4,7 +4,7 @@
 
 Every word and phrase from the lessons. A lesson's words count as **seen** once the lesson is marked done in `data/progress.json` (tell Claude *I finished P01*). The app keeps its own list under **Words**.
 
-**Seen:** 0 words, 0 phrases · **In ready lessons, not seen yet:** 6 words, 2 phrases
+**Seen:** 0 words, 0 phrases · **In ready lessons, not seen yet:** 25 words, 11 phrases
 
 ## [P01](lessons/P01.md): bo po mo fo · wo (not seen yet)
 
@@ -23,3 +23,61 @@ Every word and phrase from the lessons. A lesson's words count as **seen** once 
 | **wǒ de** | wo3 de5 | my, mine | word |
 | **Wǒ è le.** | Wo3 e4 le5. | I'm hungry (now). | phrase |
 | **Wǒ ne?** | Wo3 ne5? | And me? / What about me? | phrase |
+
+## [P03](lessons/P03.md): ge ke he (not seen yet)
+
+| Pinyin | Numbers | Meaning | Kind |
+|---|---|---|---|
+| **hē** | he1 | to drink | word |
+| **hé** | he2 | and | word |
+| **kě** | ke3 | thirsty | word |
+| **gēge** | ge1ge5 | older brother | word |
+| **Wǒ kě le.** | Wo3 ke3 le5. | I'm thirsty (now). | phrase |
+| **Wǒ hé gēge** | Wo3 he2 ge1ge5 | me and my older brother | phrase |
+
+## [P04](lessons/P04.md): ze ce se (not seen yet)
+
+| Pinyin | Numbers | Meaning | Kind |
+|---|---|---|---|
+| **sè** | se4 | colour | word |
+| **gè** | ge4 | counting word for people and things | word |
+| **kè** | ke4 | class, lesson | word |
+
+## [P05](lessons/P05.md): zhe che she re (not seen yet)
+
+| Pinyin | Numbers | Meaning | Kind |
+|---|---|---|---|
+| **zhè** | zhe4 | this | word |
+| **chē** | che1 | vehicle, car | word |
+| **rè** | re4 | hot | word |
+| **zhège** | zhe4ge5 | this one | word |
+| **Wǒ de chē** | Wo3 de5 che1 | my car | phrase |
+| **Zhège ne?** | Zhe4ge5 ne5? | And this one? / What about this one? | phrase |
+
+## [P06](lessons/P06.md): ji qi xi (not seen yet)
+
+| Pinyin | Numbers | Meaning | Kind |
+|---|---|---|---|
+| **qī** | qi1 | seven | word |
+| **jǐ** | ji3 | how many | word |
+| **xǐ** | xi3 | to wash | word |
+| **qìchē** | qi4che1 | automobile, car | word |
+| **Wǒ xǐ chē.** | Wo3 xi3 che1. | I'm washing the car. | phrase |
+
+## [P07](lessons/P07.md): Recap: the puff of air (not seen yet)
+
+| Pinyin | Numbers | Meaning | Kind |
+|---|---|---|---|
+| **kělè** | ke3le4 | cola | word |
+| **kèqi** | ke4qi5 | polite | word |
+| **Wǒ hē kělè.** | Wo3 he1 ke3le4. | I'll have a cola. / I drink cola. | phrase |
+| **Gēge kèqi.** | Ge1ge5 ke4qi5. | My brother is polite. | phrase |
+
+## [P08](lessons/P08.md): Recap: z, zh or j? (not seen yet)
+
+| Pinyin | Numbers | Meaning | Kind |
+|---|---|---|---|
+| **jìde** | ji4de5 | to remember | word |
+| **jǐ ge** | ji3 ge5 | how many of them? | word |
+| **Wǒ jìde.** | Wo3 ji4de5. | I remember. | phrase |
+| **Qī ge.** | Qi1 ge5. | Seven (of them). | phrase |

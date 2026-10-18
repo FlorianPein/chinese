@@ -1,0 +1,71 @@
+{
+  "lesson": "P03",
+  "goal": "Hear ge ke he in all four tones, hear g from k and the 1st tone from the 4th, and say I'm thirsty and me and my brother.",
+  "items": [
+    {"id": "he", "kind": "word", "pinyin": "hē", "english": "to drink", "hanzi": "喝", "note": "High and flat. The h is rough, from the back of the mouth, like German ach."},
+    {"id": "he-and", "kind": "word", "pinyin": "hé", "english": "and", "hanzi": "和", "note": "Rising. It joins two nouns (me and you), not two sentences."},
+    {"id": "ke-thirsty", "kind": "word", "pinyin": "kě", "english": "thirsty", "hanzi": "渴", "note": "Low 3rd tone, with a strong puff on the k."},
+    {"id": "gege", "kind": "word", "pinyin": "gēge", "english": "older brother", "hanzi": "哥哥", "note": "The second ge is light: neutral tone. The g has no puff of air."},
+    {"id": "wo-ke-le", "kind": "phrase", "pinyin": "Wǒ kě le.", "english": "I'm thirsty (now).", "literal": "I / thirsty / (it's changed)", "hanzi": "我渴了。", "note": "Built like Wǒ è le. Two 3rd tones in a row: the first one rises, so wǒ kě is said wó kě."},
+    {"id": "wo-he-gege", "kind": "phrase", "pinyin": "Wǒ hé gēge", "english": "me and my older brother", "literal": "I / and / older brother", "hanzi": "我和哥哥", "note": "No word for my is needed: family members go without de."}
+  ],
+  "sounds": {
+    "s-he1": "to drink", "s-he2": "and", "s-ke3": "thirsty"
+  },
+  "steps": [
+    {"type": "intro", "title": "Warm-up",
+     "text": "A quick look back at P02: **de te ne le** and **e**, in all four tones.",
+     "rows": [["s-de1", "s-de2", "s-de3", "s-de4"], ["s-te1", "s-te2", "s-te3", "s-te4"], ["s-le1", "s-le2", "s-le3", "s-le4"], ["s-e1", "s-e2", "s-e3", "s-e4"]]},
+    {"type": "hear", "play": "s-te2", "options": ["dé", "té"]},
+    {"type": "tone", "play": "s-ne3", "options": [1, 2, 3, 4]},
+    {"type": "meaning", "item": "wo-e-le", "from": "audio", "options": ["wo-e-le", "wo-ne", "wode"]},
+    {"type": "meaning", "item": "fo", "from": "audio", "options": ["fo", "e", "mo"]},
+
+    {"type": "intro", "title": "g and k: the puff, a third time",
+     "text": "Today: the back of the tongue, **g k h**, with the **e** from P02.\n\n**g** and **k** are a pair like b/p and d/t. **k** has a strong puff of air (English *kite*, German *Kuh*). **g** has none: it's the *k* in English *sky*, not the buzzing *g* of English *go*.\n\nHand in front of your mouth again: you should only feel air on the k.",
+     "rows": [["s-ge1", "s-ke1"], ["s-ge4", "s-ke4"]]},
+    {"type": "hear", "play": "s-ke4", "options": ["gè", "kè"]},
+    {"type": "same", "pair": ["s-ge2", "s-ke2"]},
+
+    {"type": "intro", "title": "h: rough, from the back",
+     "text": "The Chinese **h** is made further back than an English h, with a bit of friction. It's close to the German *ch* in *ach* or *Bach* (not the soft one in *ich*), just a little lighter. English has nothing like it; Scottish *loch* comes close.\n\nTop row: **he** in the four tones. Below: **ke** against **he**.",
+     "rows": [["s-he1", "s-he2", "s-he3", "s-he4"], ["s-ke1", "s-he1"], ["s-ke4", "s-he4"]]},
+    {"type": "hear", "play": "s-he4", "options": ["gè", "kè", "hè"]},
+    {"type": "same", "pair": ["s-ke1", "s-he1"]},
+
+    {"type": "intro", "title": "1st or 4th?",
+     "text": "The 1st and the 4th tone both **start high**. The difference is what comes next: the 1st **stays** up, like one long sung note; the 4th **drops** fast, like a firm *No!*\n\nSaid quickly, a 1st tone can sound a little like a 4th. Listen to the end of the syllable: level, or falling?\n\nEach row is 1st, then 4th.",
+     "rows": [["s-ge1", "s-ge4"], ["s-he1", "s-he4"], ["s-mo1", "s-mo4"]]},
+    {"type": "same", "pair": ["s-ke1", "s-ke4"]},
+    {"type": "chart", "title": "Your third block of the chart",
+     "text": "ge ke he in all four tones. Play each column too: four times high, four times rising, and so on.",
+     "syllables": ["ge", "ke", "he"], "tones": [1, 2, 3, 4]},
+    {"type": "tone", "play": "s-ge4", "options": [1, 2, 3, 4]},
+    {"type": "tone", "play": "s-he1", "options": [1, 2, 3, 4]},
+    {"type": "tone", "play": "s-ke3", "options": [1, 2, 3, 4]},
+    {"type": "same", "pair": ["s-he4", "s-he4"]},
+    {"type": "tone", "play": "s-de2", "options": [1, 2, 3, 4]},
+    {"type": "audio", "item": "s-ke1", "options": ["s-ge1", "s-ke1", "s-ke4"]},
+    {"type": "match", "mode": "sound", "items": ["s-ge1", "s-ke2", "s-he3", "s-te4"]},
+    {"type": "hear", "play": "s-ge2", "options": ["gē", "gé", "gě", "gè"]},
+    {"type": "type", "item": "s-ke4", "from": "audio"},
+
+    {"type": "new", "item": "he"},
+    {"type": "tone", "play": "he", "options": [1, 2, 3, 4]},
+    {"type": "new", "item": "he-and"},
+    {"type": "intro", "title": "Same syllable, different word",
+     "text": "**hē** (1st tone) means *to drink*, **hé** (2nd tone) means *and*. Only the tone tells them apart, so listen to the shape: level, or rising?",
+     "rows": [["he", "he-and"]]},
+    {"type": "meaning", "item": "he-and", "from": "audio", "options": ["he-and", "he", "wo"]},
+    {"type": "new", "item": "ke-thirsty"},
+    {"type": "new", "item": "gege"},
+    {"type": "new", "item": "wo-ke-le"},
+    {"type": "new", "item": "wo-he-gege"},
+    {"type": "meaning", "item": "wo-ke-le", "from": "audio", "options": ["wo-ke-le", "wo-e-le", "wo-ne"]},
+    {"type": "pinyin", "item": "ke-thirsty", "options": ["kě", "kē", "gě"]},
+    {"type": "match", "items": ["he", "he-and", "ke-thirsty", "gege", "e"]},
+    {"type": "hear", "play": "gege", "options": ["gēge", "kēge", "gēke"]},
+    {"type": "meaning", "item": "wo-he-gege", "from": "audio", "options": ["wo-he-gege", "wo-ke-le", "wode"]},
+    {"type": "type", "item": "he", "from": "english"}
+  ]
+}

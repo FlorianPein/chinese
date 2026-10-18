@@ -1,0 +1,69 @@
+{
+  "lesson": "P06",
+  "goal": "Hear ji qi xi in all four tones, hear j from q and xi from se and she, and learn seven, how many, to wash and car.",
+  "items": [
+    {"id": "qi", "kind": "word", "pinyin": "qī", "english": "seven", "hanzi": "七", "note": "High and flat, with a puff on the q: like English cheese, with the tongue flat."},
+    {"id": "ji", "kind": "word", "pinyin": "jǐ", "english": "how many", "hanzi": "几", "note": "Asks for a small number. It needs a counting word after it: jǐ ge (P08)."},
+    {"id": "xi", "kind": "word", "pinyin": "xǐ", "english": "to wash", "hanzi": "洗", "note": "x is the German ch of ich. Low 3rd tone."},
+    {"id": "qiche", "kind": "word", "pinyin": "qìchē", "english": "automobile, car", "hanzi": "汽车", "note": "Two puffs: q, then ch. chē alone is any vehicle; qìchē is a car."},
+    {"id": "wo-xi-che", "kind": "phrase", "pinyin": "Wǒ xǐ chē.", "english": "I'm washing the car.", "literal": "I / wash / car", "hanzi": "我洗车。", "note": "Two 3rd tones: wǒ xǐ is said wó xǐ. The same words work for now, every day and later: Chinese verbs don't change."}
+  ],
+  "sounds": {
+    "s-qi1": "seven", "s-ji3": "how many?", "s-xi3": "to wash"
+  },
+  "steps": [
+    {"type": "intro", "title": "Warm-up",
+     "text": "A quick look back at P05: **zhe che she re** in all four tones.",
+     "rows": [["s-zhe1", "s-zhe2", "s-zhe3", "s-zhe4"], ["s-che1", "s-che2", "s-che3", "s-che4"], ["s-she1", "s-she2", "s-she3", "s-she4"], ["s-re1", "s-re2", "s-re3", "s-re4"]]},
+    {"type": "hear", "play": "s-she4", "options": ["sè", "shè"]},
+    {"type": "tone", "play": "s-che3", "options": [1, 2, 3, 4]},
+    {"type": "meaning", "item": "zhege-ne", "from": "audio", "options": ["zhege-ne", "wo-de-che", "wo-ne"]},
+    {"type": "meaning", "item": "re", "from": "audio", "options": ["re", "zhe", "se"]},
+
+    {"type": "intro", "title": "A new vowel: i",
+     "text": "Today: the tongue flat, **j q x**, with the final **i**.\n\nThis **i** is the plain *ee* of English *see*, German *Liebe*. Lips spread, tongue high.\n\nFor **j q x**, keep the tip of your tongue down behind your lower teeth and press the middle of the tongue up. That's what *flat* means here. They sound soft and bright, almost like they have a little *y* in them.",
+     "rows": [["s-ji1", "s-qi1", "s-xi1"], ["s-ji4", "s-qi4", "s-xi4"]]},
+
+    {"type": "intro", "title": "j and q: the puff, once more",
+     "text": "**j** is like the *j* in English *jeep*, but without the buzz and with the tongue flat. **q** is the same with a strong puff, like *ch* in English *cheese* (German *tsch*, softer).\n\nThe letter q is the surprise: it's never a k sound.",
+     "rows": [["s-ji1", "s-qi1"], ["s-ji4", "s-qi4"]]},
+    {"type": "hear", "play": "s-qi4", "options": ["jì", "qì"]},
+    {"type": "same", "pair": ["s-ji2", "s-qi2"]},
+
+    {"type": "intro", "title": "x: the German ch of ich",
+     "text": "**x** is like the German *ch* in *ich* or *Milch*: tongue flat, air hissing over it. English has no such sound; it's between *s* and *sh*, as in *see* and *she* said at once.\n\nRow by row: **xi** against **se** and **she** (s, curled-back sh, flat x).",
+     "rows": [["s-xi1", "s-xi2", "s-xi3", "s-xi4"], ["s-se4", "s-she4", "s-xi4"]]},
+    {"type": "hear", "play": "s-xi4", "options": ["sè", "shè", "xì"]},
+    {"type": "same", "pair": ["s-she4", "s-xi4"]},
+
+    {"type": "intro", "title": "Three ways to say ts and ch",
+     "text": "You now know three tongue positions: at the teeth (**z c s**), curled back (**zh ch sh**), flat (**j q x**). Each row is one sound in all three positions. P08 practises them side by side.",
+     "rows": [["s-ze4", "s-zhe4", "s-ji4"], ["s-ce4", "s-che4", "s-qi4"], ["s-se4", "s-she4", "s-xi4"]]},
+    {"type": "chart", "title": "Your sixth block of the chart",
+     "text": "ji qi xi in all four tones. That's every initial of Mandarin.",
+     "syllables": ["ji", "qi", "xi"], "tones": [1, 2, 3, 4]},
+    {"type": "tone", "play": "s-qi2", "options": [1, 2, 3, 4]},
+    {"type": "tone", "play": "s-xi3", "options": [1, 2, 3, 4]},
+    {"type": "tone", "play": "s-ji1", "options": [1, 2, 3, 4]},
+    {"type": "same", "pair": ["s-xi1", "s-xi4"]},
+    {"type": "tone", "play": "s-she2", "options": [1, 2, 3, 4]},
+    {"type": "audio", "item": "s-qi4", "options": ["s-ji4", "s-qi4", "s-che4"]},
+    {"type": "match", "mode": "sound", "items": ["s-ji1", "s-qi2", "s-xi3", "s-zhe4"]},
+    {"type": "hear", "play": "s-ji3", "options": ["jī", "jí", "jǐ", "jì"]},
+    {"type": "type", "item": "s-qi4", "from": "audio"},
+
+    {"type": "new", "item": "qi"},
+    {"type": "tone", "play": "qi", "options": [1, 2, 3, 4]},
+    {"type": "new", "item": "ji"},
+    {"type": "new", "item": "xi"},
+    {"type": "meaning", "item": "xi", "from": "audio", "options": ["xi", "ji", "qi"]},
+    {"type": "new", "item": "qiche"},
+    {"type": "new", "item": "wo-xi-che"},
+    {"type": "meaning", "item": "wo-xi-che", "from": "audio", "options": ["wo-xi-che", "wo-de-che", "wo-ke-le"]},
+    {"type": "pinyin", "item": "qi", "options": ["qī", "jī", "qǐ"]},
+    {"type": "match", "items": ["qi", "ji", "xi", "qiche", "re"]},
+    {"type": "hear", "play": "qiche", "options": ["qìchē", "jìchē", "qìzhē"]},
+    {"type": "meaning", "item": "ji", "from": "audio", "options": ["ji", "qi", "zhe"]},
+    {"type": "type", "item": "qi", "from": "english"}
+  ]
+}

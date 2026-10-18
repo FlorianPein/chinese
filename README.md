@@ -27,8 +27,14 @@ Each lesson teaches part of the chart and 2–5 words made only of sounds you al
 |--------|-------|------------|-----------|-------|
 | [P01](https://florianpein.github.io/chinese/#lesson/P01) | bo po mo fo · wo | all four | wǒ, pò, mō, fó | [notes](lessons/P01.md) |
 | [P02](https://florianpein.github.io/chinese/#lesson/P02) | de te ne le · me · e | 2nd vs 3rd; neutral | è, wǒ de, *Wǒ è le.*, *Wǒ ne?* | [notes](lessons/P02.md) |
+| [P03](https://florianpein.github.io/chinese/#lesson/P03) | ge ke he | 1st vs 4th | hē, hé, kě, gēge, *Wǒ kě le.*, *Wǒ hé gēge* | [notes](lessons/P03.md) |
+| [P04](https://florianpein.github.io/chinese/#lesson/P04) | ze ce se | all four | sè, gè, kè | [notes](lessons/P04.md) |
+| [P05](https://florianpein.github.io/chinese/#lesson/P05) | zhe che she re | all four | zhè, chē, rè, zhège, *Wǒ de chē*, *Zhège ne?* | [notes](lessons/P05.md) |
+| [P06](https://florianpein.github.io/chinese/#lesson/P06) | ji qi xi | all four | qī, jǐ, xǐ, qìchē, *Wǒ xǐ chē.* | [notes](lessons/P06.md) |
+| [P07](https://florianpein.github.io/chinese/#lesson/P07) | recap: the puff of air | all four, mixed | kělè, kèqi, *Wǒ hē kělè.*, *Gēge kèqi.* | [notes](lessons/P07.md) |
+| [P08](https://florianpein.github.io/chinese/#lesson/P08) | recap: z, zh or j? | all four, faster | jìde, jǐ ge, *Wǒ jìde.*, *Qī ge.* | [notes](lessons/P08.md) |
 
-More lessons are added as you go (next: P03, *ge ke he*). Every lesson uses all four tones. The whole order is in [CHART.md](CHART.md#lesson-order).
+More lessons are added as you go (next: P09, *ba da ga za zha*). Every lesson uses all four tones. The whole order is in [CHART.md](CHART.md#lesson-order).
 
 ## The app
 
@@ -69,7 +75,7 @@ python tools/build.py                   # check, make audio, write docs/cards.js
 
 The check catches mistakes such as a chart block missing or taught twice, a word using a syllable or tone that hasn't been taught yet, a word being tested before it's taught, or an answer missing from its options. Everything the build writes is committed, so the app needs nothing generated at run time.
 
-Audio comes from an offline Mandarin voice ([Matcha-TTS](https://github.com/k2-fsa/sherpa-onnx), trained on the Baker corpus), downloaded on first run to `tools/.cache/`. It's driven directly by the Pinyin, so it applies the spoken tone changes (*nǐ hǎo* is said *ní hǎo*). Each take's pitch is measured and checked against the tones it should have. The best of several takes is kept, and a syllable no take gets right is pitch-edited into the correct tone shape. `docs/audio/manifest.json` records which method each file used. Where the voice can't say a syllable at all, an item gets a `"say"` override plus an `"audio_note"` (e.g. *shéi* is spoken as *shuí*).
+Audio comes from an offline Mandarin voice ([Matcha-TTS](https://github.com/k2-fsa/sherpa-onnx), trained on the Baker corpus), downloaded on first run to `tools/.cache/`. It's driven directly by the Pinyin, so it applies the spoken tone changes (*nǐ hǎo* is said *ní hǎo*). Each take's pitch is measured and checked against the tones it should have. The best of several takes is kept, and a syllable no take gets right is pitch-edited into the correct tone shape. `docs/audio/manifest.json` records which method each file used. Some syllables never occur in some tones in the voice's training data (*fō*, *fǒ*, *fò*, *dě*, *cē*, …). Said directly, they come out as a different sound (*fō* sounded close to *jiē*), so a single syllable like that is always made by pitch-editing the same syllable in a tone the voice knows well (*fó* → *fō*); the manifest's `from` says which. Words and phrases may not use such syllables at all: the build stops and names them. Where the voice can't say a syllable at all, an item gets a `"say"` override plus an `"audio_note"` (e.g. *shéi* is spoken as *shuí*).
 
 ## Practising with Claude
 

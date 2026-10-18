@@ -19,6 +19,12 @@ that tone (hě, bū). So every take is checked: its pitch is measured and
 compared with the tone shapes it should have. Up to TAKES takes are made and
 the best is kept. If no take of a single syllable is right, a good take of the
 same syllable in another tone is pitch-edited into the right tone shape.
+
+Some syllables never occur in a tone in the training corpus (fō, fǒ, fò, dě,
+tē, cē, …). The model has never heard those tokens, so it says something else
+entirely (fō comes out close to jiē). A syllable alone in such a tone is always
+made by pitch-editing the same syllable in its best-trained tone (fó -> fō);
+words and phrases must not use such tokens at all (the build stops).
 """
 
 import json
@@ -343,15 +349,23 @@ class CorpusLexicon:
     def __init__(self):
         download_models()
         self.words = {}
-        neutral_counts = {}
+        self.counts = {}    # token -> how many lexicon words use it
         for line in (MODEL_DIR / "lexicon.txt").open(encoding="utf-8"):
             word, *toks = line.split()
             if len(toks) == len(word):
                 self.words[word] = toks
             for t in toks:
-                if t.isalpha():
-                    neutral_counts[t] = neutral_counts.get(t, 0) + 1
-        self.rare = lambda base: neutral_counts.get(base, 0) < self.RARE
+                self.counts[t] = self.counts.get(t, 0) + 1
+        self.rare = lambda base: self.counts.get(base, 0) < self.RARE
+
+    def trained(self, token):
+        """Whether the model learned this token well enough to say it."""
+        return self.counts.get(token, 0) >= self.RARE
+
+    def best_tones(self, base):
+        """The base's well-trained tones, most common first."""
+        return sorted((t for t in (1, 2, 3, 4) if self.trained(f"{base}{t}")),
+                      key=lambda t: -self.counts[f"{base}{t}"])
 
     def labels(self, chars):
         """Corpus token for each character (longest word match first)."""
@@ -544,14 +558,40 @@ def fix_phrase(samples, sr, tones):
     return np.array(out.values[0], dtype=np.float32), sr
 
 
-def make_take(speaker, tokens):
+def pitch_edit(speaker, base, tone, sources, speed):
+    """Pitch-edit the clearest take of `base` in one of the source tones into
+    `tone`. Returns (samples, sr, method, score, source token) or None."""
+    takes = []
+    for t in sources:
+        for _ in range(TAKES):
+            ys, srs = speaker.say([f"{base}{t}", "."], speed)
+            m = tone_score(ys, srs, [t])
+            if m is not None:
+                takes.append((m, ys, srs, f"{base}{t}"))
+    if not takes:
+        return None
+    _, ys, srs, src = max(takes, key=lambda s: s[0])
+    y2, sr2 = retone(ys, srs, tone)
+    return y2, sr2, "pitch-edited", tone_score(y2, sr2, [tone]), src
+
+
+def make_take(speaker, tokens, lexicon):
     """Best of up to TAKES takes, pitch-edited if none has the right tones.
-    Returns (samples, sr, method, score)."""
+    Returns (samples, sr, method, score, source token if pitch-edited)."""
     tones = [int(t[-1]) if t[-1].isdigit() else 5 for t in tokens if t[0].isalpha()]
     base_speed = SPEED.get(len(tones), 1.0)
     if all(t == 5 for t in tones):
         y, sr = speaker.say(tokens, base_speed)
-        return y, sr, "natural", None
+        return y, sr, "natural", None, None
+    if len(tones) == 1:
+        base = tokens[0].rstrip("12345")
+        trained = lexicon.best_tones(base)
+        if tones[0] not in trained:
+            # never heard in training: only a pitch-edited take sounds right
+            made = pitch_edit(speaker, base, tones[0], trained[:2], base_speed)
+            if made is None:
+                raise SystemExit(f"ERROR: no usable take of {base} in any tone")
+            return made
     best = None
     for k in range(TAKES):
         y, sr = speaker.say(tokens, base_speed * (1.0, 0.92, 1.08)[k % 3])
@@ -563,28 +603,23 @@ def make_take(speaker, tokens):
             break
     key, y, sr, score = best
     if score is not None and score > GOOD:
-        return y, sr, "natural", score
+        return y, sr, "natural", score, None
     if len(tones) == 1:
-        # pitch-edit the clearest take of this syllable in the 1st or 4th tone
+        # pitch-edit the clearest take of this syllable in a level or
+        # falling tone (the easiest to pitch-edit), if trained, else any
         base = tokens[0].rstrip("12345")
-        sources = []
-        for t in (1, 4):
-            for _ in range(TAKES):
-                ys, srs = speaker.say([f"{base}{t}", "."], base_speed)
-                m = tone_score(ys, srs, [t])
-                if m is not None:
-                    sources.append((m, ys, srs))
-        if sources:
-            _, ys, srs = max(sources, key=lambda s: s[0])
-            y2, sr2 = retone(ys, srs, tones[0])
-            return y2, sr2, "pitch-edited", tone_score(y2, sr2, tones)
+        trained = lexicon.best_tones(base)
+        sources = [t for t in (1, 4) if t in trained] or trained[:2]
+        made = pitch_edit(speaker, base, tones[0], sources, base_speed)
+        if made:
+            return made
     elif score is not None:
         fixed = fix_phrase(y, sr, tones)
         if fixed:
             s2 = tone_score(*fixed, tones)
             if s2 is not None and s2 > score:
-                return *fixed, "pitch-edited", s2
-    return y, sr, "unchecked" if score is None else "best-effort", score
+                return *fixed, "pitch-edited", s2, None
+    return y, sr, "unchecked" if score is None else "best-effort", score, None
 
 
 def to_mp3(samples, sr, out):
@@ -606,9 +641,27 @@ def build_audio(items, force=False):
     manifest = {k: v for k, v in manifest.items() if isinstance(v, dict)}
     lexicon = CorpusLexicon()
     wanted = {iid: " ".join(audio_tokens(item, lexicon)) for iid, item in items.items()}
+    untrained = []
+    for iid, toks in wanted.items():
+        syl = [t for t in toks.split() if t[0].isalpha()]
+        bad = [t for t in syl if t[-1].isdigit() and not lexicon.trained(t)]
+        if len(syl) > 1 and bad:
+            untrained.append(f"ERROR {iid}: the voice never learned {', '.join(bad)}; "
+                             "pick another word or add a \"say\" override")
+    if untrained:
+        raise SystemExit("\n".join(untrained))
 
-    todo = [i for i, toks in wanted.items()
-            if force or manifest.get(i, {}).get("tokens") != toks or not (AUDIO / f"{i}.mp3").exists()]
+    def stale(iid):
+        made = manifest.get(iid, {})
+        toks = wanted[iid].split()
+        if made.get("tokens") != wanted[iid] or not (AUDIO / f"{iid}.mp3").exists():
+            return True
+        # single syllables made before untrained tokens were avoided: said
+        # with an untrained token, or pitch-edited from one
+        return (len(toks) == 2 and toks[0][-1].isdigit() and "from" not in made
+                and (made["method"] == "pitch-edited" or not lexicon.trained(toks[0])))
+
+    todo = [i for i in wanted if force or stale(i)]
     speaker = Speaker() if todo else None
     done = {}   # tokens -> id already made in this run (same sound, same file)
     for n, iid in enumerate(todo, 1):
@@ -617,13 +670,16 @@ def build_audio(items, force=False):
             (AUDIO / f"{iid}.mp3").write_bytes((AUDIO / f"{done[toks]}.mp3").read_bytes())
             manifest[iid] = {**manifest[done[toks]]}
         else:
-            y, sr, method, score = make_take(speaker, toks.split())
+            y, sr, method, score, source = make_take(speaker, toks.split(), lexicon)
             to_mp3(y, sr, AUDIO / f"{iid}.mp3")
             manifest[iid] = {"tokens": toks, "method": method,
                              "score": None if score is None else round(score, 1)}
+            if source:
+                manifest[iid]["from"] = source
             done[toks] = iid
         m = manifest[iid]
-        print(f"[{n}/{len(todo)}] {iid}: {toks}  ({m['method']}, {m['score']})")
+        src = f" from {m['from']}" if "from" in m else ""
+        print(f"[{n}/{len(todo)}] {iid}: {toks}  ({m['method']}{src}, {m['score']})")
 
     for f in AUDIO.glob("*.mp3"):  # remove audio for deleted items
         if f.stem not in wanted:
