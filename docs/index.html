@@ -302,7 +302,7 @@ function wordFor(w) {   // the word (or sound) item a tile or chip can play
 const audioCache = {};
 let current = null, seqToken = 0;
 function audioFor(id) {
-  if (!audioCache[id]) { audioCache[id] = new Audio(`audio/${id}.mp3`); audioCache[id].preload = "auto"; }
+  if (!audioCache[id]) { audioCache[id] = new Audio(`audio/${id}.mp3${byId[id] ? `?v=${byId[id].v}` : ""}`); audioCache[id].preload = "auto"; }
   return audioCache[id];
 }
 function stopAudio() {

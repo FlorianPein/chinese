@@ -27,6 +27,7 @@ made by pitch-editing the same syllable in its best-trained tone (fó -> fō);
 words and phrases must not use such tokens at all (the build stops).
 """
 
+import hashlib
 import json
 import re
 import subprocess
@@ -741,6 +742,8 @@ def build_cards(chart, topics, lessons, items, plan):
                 # only uses items whose audio has the same tones as the writing
                 "syllables": [[b.replace("v", "ü"), t, br] for (b, t), br in zip(written, breaks)],
                 "heardAsWritten": written == heard,
+                # changes with the audio file, so browsers don't keep an old copy
+                "v": hashlib.md5((AUDIO / f"{iid}.mp3").read_bytes()).hexdigest()[:8],
             }
             for key in ("literal", "note", "audio_note"):
                 if key in item:

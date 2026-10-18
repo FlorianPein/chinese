@@ -3231,6 +3231,7 @@
     ]
    ],
    "heardAsWritten": true,
+   "v": "a052fcb4",
    "note": "Low 3rd tone. The w is a short u gliding into the o, like English war (without the r)."
   },
   {
@@ -3248,6 +3249,7 @@
     ]
    ],
    "heardAsWritten": true,
+   "v": "a4934827",
    "note": "A strong puff of air on the p, then a sharp fall."
   },
   {
@@ -3265,6 +3267,7 @@
     ]
    ],
    "heardAsWritten": true,
+   "v": "47bd7592",
    "note": "High and flat."
   },
   {
@@ -3282,6 +3285,7 @@
     ]
    ],
    "heardAsWritten": true,
+   "v": "5de77864",
    "note": "Rising, like a surprised What?"
   },
   {
@@ -3298,7 +3302,8 @@
      0
     ]
    ],
-   "heardAsWritten": true
+   "heardAsWritten": true,
+   "v": "445396bb"
   },
   {
    "id": "s-po1",
@@ -3314,7 +3319,8 @@
      0
     ]
    ],
-   "heardAsWritten": true
+   "heardAsWritten": true,
+   "v": "01b140bb"
   },
   {
    "id": "s-mo1",
@@ -3330,7 +3336,8 @@
      0
     ]
    ],
-   "heardAsWritten": true
+   "heardAsWritten": true,
+   "v": "47bd7592"
   },
   {
    "id": "s-fo1",
@@ -3346,7 +3353,8 @@
      0
     ]
    ],
-   "heardAsWritten": true
+   "heardAsWritten": true,
+   "v": "037eba7a"
   },
   {
    "id": "s-wo1",
@@ -3362,7 +3370,8 @@
      0
     ]
    ],
-   "heardAsWritten": true
+   "heardAsWritten": true,
+   "v": "641b3587"
   },
   {
    "id": "s-bo4",
@@ -3378,7 +3387,8 @@
      0
     ]
    ],
-   "heardAsWritten": true
+   "heardAsWritten": true,
+   "v": "95352f90"
   },
   {
    "id": "s-po4",
@@ -3394,7 +3404,8 @@
      0
     ]
    ],
-   "heardAsWritten": true
+   "heardAsWritten": true,
+   "v": "a4934827"
   },
   {
    "id": "s-bo2",
@@ -3410,7 +3421,8 @@
      0
     ]
    ],
-   "heardAsWritten": true
+   "heardAsWritten": true,
+   "v": "8c1d76d2"
   },
   {
    "id": "s-mo2",
@@ -3426,7 +3438,8 @@
      0
     ]
    ],
-   "heardAsWritten": true
+   "heardAsWritten": true,
+   "v": "31448649"
   },
   {
    "id": "s-mo3",
@@ -3442,7 +3455,8 @@
      0
     ]
    ],
-   "heardAsWritten": true
+   "heardAsWritten": true,
+   "v": "2a8fff17"
   },
   {
    "id": "s-mo4",
@@ -3458,7 +3472,8 @@
      0
     ]
    ],
-   "heardAsWritten": true
+   "heardAsWritten": true,
+   "v": "99324700"
   },
   {
    "id": "s-po2",
@@ -3474,7 +3489,8 @@
      0
     ]
    ],
-   "heardAsWritten": true
+   "heardAsWritten": true,
+   "v": "c0ccdd3c"
   },
   {
    "id": "s-fo2",
@@ -3490,7 +3506,8 @@
      0
     ]
    ],
-   "heardAsWritten": true
+   "heardAsWritten": true,
+   "v": "36540491"
   },
   {
    "id": "s-bo3",
@@ -3506,7 +3523,8 @@
      0
     ]
    ],
-   "heardAsWritten": true
+   "heardAsWritten": true,
+   "v": "3c9ce930"
   },
   {
    "id": "s-po3",
@@ -3522,7 +3540,8 @@
      0
     ]
    ],
-   "heardAsWritten": true
+   "heardAsWritten": true,
+   "v": "ce8567ad"
   },
   {
    "id": "s-fo3",
@@ -3538,7 +3557,8 @@
      0
     ]
    ],
-   "heardAsWritten": true
+   "heardAsWritten": true,
+   "v": "01b5f2df"
   },
   {
    "id": "s-fo4",
@@ -3554,7 +3574,8 @@
      0
     ]
    ],
-   "heardAsWritten": true
+   "heardAsWritten": true,
+   "v": "cd060086"
   },
   {
    "id": "s-wo2",
@@ -3570,7 +3591,8 @@
      0
     ]
    ],
-   "heardAsWritten": true
+   "heardAsWritten": true,
+   "v": "e0a28fd7"
   },
   {
    "id": "s-wo3",
@@ -3586,7 +3608,8 @@
      0
     ]
    ],
-   "heardAsWritten": true
+   "heardAsWritten": true,
+   "v": "a052fcb4"
   },
   {
    "id": "s-wo4",
@@ -3602,7 +3625,8 @@
      0
     ]
    ],
-   "heardAsWritten": true
+   "heardAsWritten": true,
+   "v": "6a16695e"
   },
   {
    "id": "e",
@@ -3619,6 +3643,7 @@
     ]
    ],
    "heardAsWritten": true,
+   "v": "ce254d76",
    "note": "The Chinese e (a deep uh), with a sharp fall."
   },
   {
@@ -3641,6 +3666,7 @@
     ]
    ],
    "heardAsWritten": true,
+   "v": "eb1e8084",
    "note": "de is short and light: the neutral tone. It works like English 's: wǒ de = I's = my."
   },
   {
@@ -3668,6 +3694,7 @@
     ]
    ],
    "heardAsWritten": true,
+   "v": "367d2bb7",
    "literal": "I / hungry / (it's changed)",
    "note": "le at the end says something has changed: you weren't hungry before, now you are."
   },
@@ -3691,6 +3718,7 @@
     ]
    ],
    "heardAsWritten": true,
+   "v": "6ede9565",
    "literal": "I / (what about?)",
    "note": "ne after a word asks: what about …?"
   },
@@ -3708,7 +3736,8 @@
      0
     ]
    ],
-   "heardAsWritten": true
+   "heardAsWritten": true,
+   "v": "60bb7af9"
   },
   {
    "id": "s-e2",
@@ -3724,7 +3753,8 @@
      0
     ]
    ],
-   "heardAsWritten": true
+   "heardAsWritten": true,
+   "v": "c2b677ad"
   },
   {
    "id": "s-e3",
@@ -3740,7 +3770,8 @@
      0
     ]
    ],
-   "heardAsWritten": true
+   "heardAsWritten": true,
+   "v": "334d7f8b"
   },
   {
    "id": "s-e4",
@@ -3756,7 +3787,8 @@
      0
     ]
    ],
-   "heardAsWritten": true
+   "heardAsWritten": true,
+   "v": "ce254d76"
   },
   {
    "id": "s-de2",
@@ -3772,7 +3804,8 @@
      0
     ]
    ],
-   "heardAsWritten": true
+   "heardAsWritten": true,
+   "v": "737db440"
   },
   {
    "id": "s-te2",
@@ -3788,7 +3821,8 @@
      0
     ]
    ],
-   "heardAsWritten": true
+   "heardAsWritten": true,
+   "v": "b435fa20"
   },
   {
    "id": "s-de4",
@@ -3804,7 +3838,8 @@
      0
     ]
    ],
-   "heardAsWritten": true
+   "heardAsWritten": true,
+   "v": "cc40d4a3"
   },
   {
    "id": "s-te4",
@@ -3820,7 +3855,8 @@
      0
     ]
    ],
-   "heardAsWritten": true
+   "heardAsWritten": true,
+   "v": "f2ce4244"
   },
   {
    "id": "s-ne4",
@@ -3836,7 +3872,8 @@
      0
     ]
    ],
-   "heardAsWritten": true
+   "heardAsWritten": true,
+   "v": "22e9b709"
   },
   {
    "id": "s-le4",
@@ -3852,7 +3889,8 @@
      0
     ]
    ],
-   "heardAsWritten": true
+   "heardAsWritten": true,
+   "v": "d742c1c1"
   },
   {
    "id": "s-de3",
@@ -3868,7 +3906,8 @@
      0
     ]
    ],
-   "heardAsWritten": true
+   "heardAsWritten": true,
+   "v": "a4cd0d6d"
   },
   {
    "id": "s-ne2",
@@ -3884,7 +3923,8 @@
      0
     ]
    ],
-   "heardAsWritten": true
+   "heardAsWritten": true,
+   "v": "17d719e0"
   },
   {
    "id": "s-ne3",
@@ -3900,7 +3940,8 @@
      0
     ]
    ],
-   "heardAsWritten": true
+   "heardAsWritten": true,
+   "v": "32bba0da"
   },
   {
    "id": "s-le2",
@@ -3916,7 +3957,8 @@
      0
     ]
    ],
-   "heardAsWritten": true
+   "heardAsWritten": true,
+   "v": "f5ef08de"
   },
   {
    "id": "s-le3",
@@ -3932,7 +3974,8 @@
      0
     ]
    ],
-   "heardAsWritten": true
+   "heardAsWritten": true,
+   "v": "c23f1299"
   },
   {
    "id": "s-de1",
@@ -3948,7 +3991,8 @@
      0
     ]
    ],
-   "heardAsWritten": true
+   "heardAsWritten": true,
+   "v": "0ac5cda4"
   },
   {
    "id": "s-te1",
@@ -3964,7 +4008,8 @@
      0
     ]
    ],
-   "heardAsWritten": true
+   "heardAsWritten": true,
+   "v": "43f58051"
   },
   {
    "id": "s-te3",
@@ -3980,7 +4025,8 @@
      0
     ]
    ],
-   "heardAsWritten": true
+   "heardAsWritten": true,
+   "v": "43912e03"
   },
   {
    "id": "s-ne1",
@@ -3996,7 +4042,8 @@
      0
     ]
    ],
-   "heardAsWritten": true
+   "heardAsWritten": true,
+   "v": "f5d90024"
   },
   {
    "id": "s-le1",
@@ -4012,7 +4059,8 @@
      0
     ]
    ],
-   "heardAsWritten": true
+   "heardAsWritten": true,
+   "v": "55cf7922"
   },
   {
    "id": "he",
@@ -4029,6 +4077,7 @@
     ]
    ],
    "heardAsWritten": true,
+   "v": "1dc67797",
    "note": "High and flat. The h is rough, from the back of the mouth, like German ach."
   },
   {
@@ -4046,6 +4095,7 @@
     ]
    ],
    "heardAsWritten": true,
+   "v": "cff5c59f",
    "note": "Rising. It joins two nouns (me and you), not two sentences."
   },
   {
@@ -4063,6 +4113,7 @@
     ]
    ],
    "heardAsWritten": true,
+   "v": "29b613b4",
    "note": "Low 3rd tone, with a strong puff on the k."
   },
   {
@@ -4085,6 +4136,7 @@
     ]
    ],
    "heardAsWritten": true,
+   "v": "22b6caf3",
    "note": "The second ge is light: neutral tone. The g has no puff of air."
   },
   {
@@ -4112,6 +4164,7 @@
     ]
    ],
    "heardAsWritten": false,
+   "v": "865996ae",
    "literal": "I / thirsty / (it's changed)",
    "note": "Built like Wǒ è le. Two 3rd tones in a row: the first one rises, so wǒ kě is said wó kě."
   },
@@ -4145,6 +4198,7 @@
     ]
    ],
    "heardAsWritten": true,
+   "v": "29373343",
    "literal": "I / and / older brother",
    "note": "No word for my is needed: family members go without de."
   },
@@ -4162,7 +4216,8 @@
      0
     ]
    ],
-   "heardAsWritten": true
+   "heardAsWritten": true,
+   "v": "9e3bb6cd"
   },
   {
    "id": "s-ke1",
@@ -4178,7 +4233,8 @@
      0
     ]
    ],
-   "heardAsWritten": true
+   "heardAsWritten": true,
+   "v": "0f1d05a6"
   },
   {
    "id": "s-ge4",
@@ -4194,7 +4250,8 @@
      0
     ]
    ],
-   "heardAsWritten": true
+   "heardAsWritten": true,
+   "v": "b7f5673f"
   },
   {
    "id": "s-ke4",
@@ -4210,7 +4267,8 @@
      0
     ]
    ],
-   "heardAsWritten": true
+   "heardAsWritten": true,
+   "v": "f582efc9"
   },
   {
    "id": "s-ge2",
@@ -4226,7 +4284,8 @@
      0
     ]
    ],
-   "heardAsWritten": true
+   "heardAsWritten": true,
+   "v": "fa57e6ff"
   },
   {
    "id": "s-ke2",
@@ -4242,7 +4301,8 @@
      0
     ]
    ],
-   "heardAsWritten": true
+   "heardAsWritten": true,
+   "v": "909f8db7"
   },
   {
    "id": "s-he1",
@@ -4258,7 +4318,8 @@
      0
     ]
    ],
-   "heardAsWritten": true
+   "heardAsWritten": true,
+   "v": "1dc67797"
   },
   {
    "id": "s-he2",
@@ -4274,7 +4335,8 @@
      0
     ]
    ],
-   "heardAsWritten": true
+   "heardAsWritten": true,
+   "v": "cff5c59f"
   },
   {
    "id": "s-he3",
@@ -4290,7 +4352,8 @@
      0
     ]
    ],
-   "heardAsWritten": true
+   "heardAsWritten": true,
+   "v": "ce0775bd"
   },
   {
    "id": "s-he4",
@@ -4306,7 +4369,8 @@
      0
     ]
    ],
-   "heardAsWritten": true
+   "heardAsWritten": true,
+   "v": "7ec0270d"
   },
   {
    "id": "s-ge3",
@@ -4322,7 +4386,8 @@
      0
     ]
    ],
-   "heardAsWritten": true
+   "heardAsWritten": true,
+   "v": "46512a46"
   },
   {
    "id": "s-ke3",
@@ -4338,7 +4403,8 @@
      0
     ]
    ],
-   "heardAsWritten": true
+   "heardAsWritten": true,
+   "v": "29b613b4"
   },
   {
    "id": "se",
@@ -4355,6 +4421,7 @@
     ]
    ],
    "heardAsWritten": true,
+   "v": "0f55dd07",
    "note": "A sharp s, like German ß. On its own it's mostly in names of colours later on."
   },
   {
@@ -4372,6 +4439,7 @@
     ]
    ],
    "heardAsWritten": true,
+   "v": "b7f5673f",
    "note": "Chinese puts a counting word between a number and a thing: three ge people. In speech it's usually light: ge."
   },
   {
@@ -4389,6 +4457,7 @@
     ]
    ],
    "heardAsWritten": true,
+   "v": "f582efc9",
    "note": "Falling, with a puff on the k. Don't mix it up with kě (thirsty)."
   },
   {
@@ -4405,7 +4474,8 @@
      0
     ]
    ],
-   "heardAsWritten": true
+   "heardAsWritten": true,
+   "v": "d5b8d5b0"
   },
   {
    "id": "s-ze4",
@@ -4421,7 +4491,8 @@
      0
     ]
    ],
-   "heardAsWritten": true
+   "heardAsWritten": true,
+   "v": "09a0216b"
   },
   {
    "id": "s-ce4",
@@ -4437,7 +4508,8 @@
      0
     ]
    ],
-   "heardAsWritten": true
+   "heardAsWritten": true,
+   "v": "4a80f734"
   },
   {
    "id": "s-se4",
@@ -4453,7 +4525,8 @@
      0
     ]
    ],
-   "heardAsWritten": true
+   "heardAsWritten": true,
+   "v": "0f55dd07"
   },
   {
    "id": "s-ze1",
@@ -4469,7 +4542,8 @@
      0
     ]
    ],
-   "heardAsWritten": true
+   "heardAsWritten": true,
+   "v": "b9d259b2"
   },
   {
    "id": "s-ze3",
@@ -4485,7 +4559,8 @@
      0
     ]
    ],
-   "heardAsWritten": true
+   "heardAsWritten": true,
+   "v": "e402d183"
   },
   {
    "id": "s-ce1",
@@ -4501,7 +4576,8 @@
      0
     ]
    ],
-   "heardAsWritten": true
+   "heardAsWritten": true,
+   "v": "8032face"
   },
   {
    "id": "s-ce2",
@@ -4517,7 +4593,8 @@
      0
     ]
    ],
-   "heardAsWritten": true
+   "heardAsWritten": true,
+   "v": "7c03b97d"
   },
   {
    "id": "s-ce3",
@@ -4533,7 +4610,8 @@
      0
     ]
    ],
-   "heardAsWritten": true
+   "heardAsWritten": true,
+   "v": "a34fd5dd"
   },
   {
    "id": "s-se1",
@@ -4549,7 +4627,8 @@
      0
     ]
    ],
-   "heardAsWritten": true
+   "heardAsWritten": true,
+   "v": "abf341a1"
   },
   {
    "id": "s-se2",
@@ -4565,7 +4644,8 @@
      0
     ]
    ],
-   "heardAsWritten": true
+   "heardAsWritten": true,
+   "v": "e0f520ad"
   },
   {
    "id": "s-se3",
@@ -4581,7 +4661,8 @@
      0
     ]
    ],
-   "heardAsWritten": true
+   "heardAsWritten": true,
+   "v": "f8c22c13"
   },
   {
    "id": "zhe",
@@ -4598,6 +4679,7 @@
     ]
    ],
    "heardAsWritten": true,
+   "v": "0ef1b3ce",
    "note": "Tongue curled back, no puff, sharp fall."
   },
   {
@@ -4615,6 +4697,7 @@
     ]
    ],
    "heardAsWritten": true,
+   "v": "8d4d5285",
    "note": "Tongue curled back, with a puff: like English ch, then a deep e. Any vehicle: car, bus, bike."
   },
   {
@@ -4632,6 +4715,7 @@
     ]
    ],
    "heardAsWritten": true,
+   "v": "48d05d3a",
    "note": "The English r of run, with a little buzz. Not a German r."
   },
   {
@@ -4654,6 +4738,7 @@
     ]
    ],
    "heardAsWritten": true,
+   "v": "d29c4694",
    "note": "zhè + the counting word ge (light). Many people say zhèige."
   },
   {
@@ -4681,6 +4766,7 @@
     ]
    ],
    "heardAsWritten": true,
+   "v": "bb7c0866",
    "literal": "I / 's / car"
   },
   {
@@ -4708,6 +4794,7 @@
     ]
    ],
    "heardAsWritten": true,
+   "v": "3f66689e",
    "literal": "this one / (what about?)",
    "note": "ne again: what about …? Point at something and ask."
   },
@@ -4725,7 +4812,8 @@
      0
     ]
    ],
-   "heardAsWritten": true
+   "heardAsWritten": true,
+   "v": "0ef1b3ce"
   },
   {
    "id": "s-che4",
@@ -4741,7 +4829,8 @@
      0
     ]
    ],
-   "heardAsWritten": true
+   "heardAsWritten": true,
+   "v": "e28f459c"
   },
   {
    "id": "s-she4",
@@ -4757,7 +4846,8 @@
      0
     ]
    ],
-   "heardAsWritten": true
+   "heardAsWritten": true,
+   "v": "66f119fa"
   },
   {
    "id": "s-re4",
@@ -4773,7 +4863,8 @@
      0
     ]
    ],
-   "heardAsWritten": true
+   "heardAsWritten": true,
+   "v": "48d05d3a"
   },
   {
    "id": "s-zhe1",
@@ -4789,7 +4880,8 @@
      0
     ]
    ],
-   "heardAsWritten": true
+   "heardAsWritten": true,
+   "v": "3edc8e45"
   },
   {
    "id": "s-che1",
@@ -4805,7 +4897,8 @@
      0
     ]
    ],
-   "heardAsWritten": true
+   "heardAsWritten": true,
+   "v": "8d4d5285"
   },
   {
    "id": "s-she1",
@@ -4821,7 +4914,8 @@
      0
     ]
    ],
-   "heardAsWritten": true
+   "heardAsWritten": true,
+   "v": "f701bed1"
   },
   {
    "id": "s-re1",
@@ -4837,7 +4931,8 @@
      0
     ]
    ],
-   "heardAsWritten": true
+   "heardAsWritten": true,
+   "v": "546f0210"
   },
   {
    "id": "s-zhe2",
@@ -4853,7 +4948,8 @@
      0
     ]
    ],
-   "heardAsWritten": true
+   "heardAsWritten": true,
+   "v": "6e7a7d38"
   },
   {
    "id": "s-zhe3",
@@ -4869,7 +4965,8 @@
      0
     ]
    ],
-   "heardAsWritten": true
+   "heardAsWritten": true,
+   "v": "5a53dbec"
   },
   {
    "id": "s-che2",
@@ -4885,7 +4982,8 @@
      0
     ]
    ],
-   "heardAsWritten": true
+   "heardAsWritten": true,
+   "v": "f15de66d"
   },
   {
    "id": "s-che3",
@@ -4901,7 +4999,8 @@
      0
     ]
    ],
-   "heardAsWritten": true
+   "heardAsWritten": true,
+   "v": "491d3d8a"
   },
   {
    "id": "s-she2",
@@ -4917,7 +5016,8 @@
      0
     ]
    ],
-   "heardAsWritten": true
+   "heardAsWritten": true,
+   "v": "443340dd"
   },
   {
    "id": "s-she3",
@@ -4933,7 +5033,8 @@
      0
     ]
    ],
-   "heardAsWritten": true
+   "heardAsWritten": true,
+   "v": "88b9b2d3"
   },
   {
    "id": "s-re2",
@@ -4949,7 +5050,8 @@
      0
     ]
    ],
-   "heardAsWritten": true
+   "heardAsWritten": true,
+   "v": "19b4216a"
   },
   {
    "id": "s-re3",
@@ -4965,7 +5067,8 @@
      0
     ]
    ],
-   "heardAsWritten": true
+   "heardAsWritten": true,
+   "v": "9fe68a12"
   },
   {
    "id": "qi",
@@ -4982,6 +5085,7 @@
     ]
    ],
    "heardAsWritten": true,
+   "v": "affe2172",
    "note": "High and flat, with a puff on the q: like English cheese, with the tongue flat."
   },
   {
@@ -4999,6 +5103,7 @@
     ]
    ],
    "heardAsWritten": true,
+   "v": "41bd3fc2",
    "note": "Asks for a small number. It needs a counting word after it: jǐ ge (P08)."
   },
   {
@@ -5016,6 +5121,7 @@
     ]
    ],
    "heardAsWritten": true,
+   "v": "7bac4231",
    "note": "x is the German ch of ich. Low 3rd tone."
   },
   {
@@ -5038,6 +5144,7 @@
     ]
    ],
    "heardAsWritten": true,
+   "v": "62ed928f",
    "note": "Two puffs: q, then ch. chē alone is any vehicle; qìchē is a car."
   },
   {
@@ -5065,6 +5172,7 @@
     ]
    ],
    "heardAsWritten": false,
+   "v": "6aed287e",
    "literal": "I / wash / car",
    "note": "Two 3rd tones: wǒ xǐ is said wó xǐ. The same words work for now, every day and later: Chinese verbs don't change."
   },
@@ -5082,7 +5190,8 @@
      0
     ]
    ],
-   "heardAsWritten": true
+   "heardAsWritten": true,
+   "v": "1f69f075"
   },
   {
    "id": "s-qi1",
@@ -5098,7 +5207,8 @@
      0
     ]
    ],
-   "heardAsWritten": true
+   "heardAsWritten": true,
+   "v": "affe2172"
   },
   {
    "id": "s-xi1",
@@ -5114,7 +5224,8 @@
      0
     ]
    ],
-   "heardAsWritten": true
+   "heardAsWritten": true,
+   "v": "a2d810d9"
   },
   {
    "id": "s-ji4",
@@ -5130,7 +5241,8 @@
      0
     ]
    ],
-   "heardAsWritten": true
+   "heardAsWritten": true,
+   "v": "8a0a365b"
   },
   {
    "id": "s-qi4",
@@ -5146,7 +5258,8 @@
      0
     ]
    ],
-   "heardAsWritten": true
+   "heardAsWritten": true,
+   "v": "c03f0677"
   },
   {
    "id": "s-xi4",
@@ -5162,7 +5275,8 @@
      0
     ]
    ],
-   "heardAsWritten": true
+   "heardAsWritten": true,
+   "v": "b16a95c4"
   },
   {
    "id": "s-ji2",
@@ -5178,7 +5292,8 @@
      0
     ]
    ],
-   "heardAsWritten": true
+   "heardAsWritten": true,
+   "v": "87d6f2f5"
   },
   {
    "id": "s-qi2",
@@ -5194,7 +5309,8 @@
      0
     ]
    ],
-   "heardAsWritten": true
+   "heardAsWritten": true,
+   "v": "cd8659e3"
   },
   {
    "id": "s-xi2",
@@ -5210,7 +5326,8 @@
      0
     ]
    ],
-   "heardAsWritten": true
+   "heardAsWritten": true,
+   "v": "5ca738ec"
   },
   {
    "id": "s-xi3",
@@ -5226,7 +5343,8 @@
      0
     ]
    ],
-   "heardAsWritten": true
+   "heardAsWritten": true,
+   "v": "7bac4231"
   },
   {
    "id": "s-ji3",
@@ -5242,7 +5360,8 @@
      0
     ]
    ],
-   "heardAsWritten": true
+   "heardAsWritten": true,
+   "v": "41bd3fc2"
   },
   {
    "id": "s-qi3",
@@ -5258,7 +5377,8 @@
      0
     ]
    ],
-   "heardAsWritten": true
+   "heardAsWritten": true,
+   "v": "2a9e09a1"
   },
   {
    "id": "kele",
@@ -5280,6 +5400,7 @@
     ]
    ],
    "heardAsWritten": true,
+   "v": "e4e28813",
    "note": "A puff on the k, none on the l. Low, then falling. Literally: can + happy."
   },
   {
@@ -5302,6 +5423,7 @@
     ]
    ],
    "heardAsWritten": true,
+   "v": "cf3006b5",
    "note": "qi is light here. Later: bú kèqi, you're welcome (literally: don't be polite)."
   },
   {
@@ -5334,6 +5456,7 @@
     ]
    ],
    "heardAsWritten": true,
+   "v": "6f66431a",
    "literal": "I / drink / cola",
    "note": "Ordering is that simple: I + drink + the drink."
   },
@@ -5367,6 +5490,7 @@
     ]
    ],
    "heardAsWritten": true,
+   "v": "9f31a263",
    "literal": "older brother / polite",
    "note": "No word for is: Chinese puts the describing word straight after the person."
   },
@@ -5390,6 +5514,7 @@
     ]
    ],
    "heardAsWritten": true,
+   "v": "73451d3d",
    "note": "Falling, then a light de. Flat tongue on the j."
   },
   {
@@ -5412,6 +5537,7 @@
     ]
    ],
    "heardAsWritten": true,
+   "v": "b1a8b0c8",
    "note": "jǐ (how many) + the counting word ge, said light. For small numbers, up to about ten."
   },
   {
@@ -5439,6 +5565,7 @@
     ]
    ],
    "heardAsWritten": true,
+   "v": "f14374bc",
    "literal": "I / remember"
   },
   {
@@ -5461,6 +5588,7 @@
     ]
    ],
    "heardAsWritten": true,
+   "v": "2106d17b",
    "literal": "seven / (counting word)",
    "note": "The answer to jǐ ge: put the number where jǐ was."
   }
