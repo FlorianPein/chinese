@@ -1283,7 +1283,8 @@ function route() {
   updateStat();
 }
 
-fetch("cards.json")
+// no-cache: always check for a newer course, so a rebuilt course shows up straight away
+fetch("cards.json", { cache: "no-cache" })
   .then(r => r.json())
   .then(d => {
     DATA = d;
