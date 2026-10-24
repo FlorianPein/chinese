@@ -4,7 +4,7 @@
 
 Every syllable of Mandarin, with the lesson that teaches it (the small number). **Bold** means you've done that lesson. Initials go down, finals go across, like the [Yabla chart](https://chinese.yabla.com/chinese-pinyin-chart.php).
 
-24 lessons · 404 syllables · 2 lessons done · [lesson order](#lesson-order) · [words you've seen](WORDS.md)
+24 lessons · 404 syllables · 2 lessons done · [lesson order](#lesson-order)
 
 ### Simple and compound finals
 
@@ -83,63 +83,63 @@ Every syllable of Mandarin, with the lesson that teaches it (the small number). 
 
 ## Lesson order
 
-Each lesson teaches one or more blocks of the chart and 2–5 words that use only sounds you know by then. Early lessons take one block each, because everything is new. Later ones combine blocks once the initials and the type of final are familiar. Words of lessons that aren't built yet are *candidates* and may still change.
+Each lesson teaches one or more blocks of the chart, only sounds and tones, no words. Early lessons take one block each, because everything is new. Later ones combine blocks once the initials and the type of final are familiar.
 
 ### One group of initials per lesson
 
-| # | Syllables | New tones | Focus | Words | Status |
-|---|---|---|---|---|---|
-| [P01](lessons/P01.md) | bo po mo fo · o · wo | 1st, 2nd, 3rd, 4th | All four tones, side by side; b vs p (the puff of air); the o that sounds like wo | wǒ (I, me), pò (broken), mō (to touch, to feel), fó (Buddha) | ✅ done 2026-10-18 |
-| [P02](lessons/P02.md) | de te ne le · me · e | neutral | The vowel e; d vs t; the 2nd tone against the 3rd; the light neutral tone | è (hungry), wǒ de (my, mine) | ✅ done 2026-10-18 |
-| [P03](lessons/P03.md) | ge ke he |  | g vs k; the rough h; the 1st tone against the 4th | hē (to drink), hé (and), kě (thirsty), gēge (older brother) | [ready](https://florianpein.github.io/chinese/#lesson/P03) |
-| [P04](lessons/P04.md) | ze ce se |  | z = a soft German z (ts), c = ts with a puff, s always sharp; z vs c vs d and t | sè (colour), gè (counting word for people and things), kè (class, lesson) | [ready](https://florianpein.github.io/chinese/#lesson/P04) |
-| [P05](lessons/P05.md) | zhe che she re |  | The tongue curled back; ze vs zhe, se vs she | zhè (this), chē (vehicle, car), rè (hot), zhège (this one) | [ready](https://florianpein.github.io/chinese/#lesson/P05) |
-| [P06](lessons/P06.md) | ji qi xi |  | The flat tongue; j vs q; xi vs se vs she | qī (seven), jǐ (how many), xǐ (to wash), qìchē (automobile, car) | [ready](https://florianpein.github.io/chinese/#lesson/P06) |
+| # | Syllables | Focus | Status |
+|---|---|---|---|
+| [P01](lessons/P01.md) | bo po mo fo · o · wo | All four tones, side by side; b vs p (the puff of air); the o that sounds like wo | ✅ done 2026-10-18 |
+| [P02](lessons/P02.md) | de te ne le · me · e | The vowel e; d vs t; the 2nd tone against the 3rd | ✅ done 2026-10-18 |
+| [P03](lessons/P03.md) | ge ke he | g vs k; the rough h; the 4th tone against the 3rd and the 1st | [ready](https://florianpein.github.io/chinese/#lesson/P03) |
+| [P04](lessons/P04.md) | ze ce se | z = a soft German z (ts), c = ts with a puff, s always sharp; z vs c vs d and t | [ready](https://florianpein.github.io/chinese/#lesson/P04) |
+| [P05](lessons/P05.md) | zhe che she re | The tongue curled back; ze vs zhe, se vs she | [ready](https://florianpein.github.io/chinese/#lesson/P05) |
+| [P06](lessons/P06.md) | ji qi xi | The flat tongue; j vs q; xi vs se vs she | [ready](https://florianpein.github.io/chinese/#lesson/P06) |
 
 ### Recap
 
-| # | Syllables | New tones | Focus | Words | Status |
-|---|---|---|---|---|---|
-| [P07](lessons/P07.md) | recap, no new sounds |  | b/p, d/t, g/k, z/c, zh/ch, j/q mixed, all four tones | kělè (cola), kèqi (polite) | [ready](https://florianpein.github.io/chinese/#lesson/P07) |
-| [P08](lessons/P08.md) | recap, no new sounds |  | z/zh/j, c/ch/q, s/sh/x and r mixed, all four tones, faster | jìde (to remember), jǐ ge (how many of them?) | [ready](https://florianpein.github.io/chinese/#lesson/P08) |
+| # | Syllables | Focus | Status |
+|---|---|---|---|
+| [P07](lessons/P07.md) | recap, no new sounds | b/p, d/t, g/k, z/c, zh/ch, j/q mixed, all four tones | [ready](https://florianpein.github.io/chinese/#lesson/P07) |
+| [P08](lessons/P08.md) | recap, no new sounds | z/zh/j, c/ch/q, s/sh/x and r mixed, all four tones, faster | [ready](https://florianpein.github.io/chinese/#lesson/P08) |
 
 ### Simple finals, mixed
 
-| # | Syllables | New tones | Focus | Words | Status |
-|---|---|---|---|---|---|
-| P09 | a · ba pa ma fa · da ta na la · ga ka ha · za ca sa · zha cha sha |  | The a row everywhere; a vs e (da/de, ga/ge, zha/zhe) | *bàba, māma, tā, chá, nǎ* | planned |
-| P10 | zi ci si · zhi chi shi ri · er |  | Three kinds of i; z/zh/j side by side; the r-sound er | *sì, shì, chī, èr* | planned |
-| P11 | yi · bi pi mi · di ti ni li · wu · bu pu mu fu · du tu nu lu · gu ku hu |  | i vs u; bù becomes bú before a 4th tone | *nǐ, yī, bù, wǔ, dìdi* | planned |
-| P12 | zu cu su · zhu chu shu ru · yu · nü lü · ju qu xu |  | u vs ü; after j q x the u is always ü | *yú, qù, shū, zhù* | planned |
+| # | Syllables | Focus | Status |
+|---|---|---|---|
+| P09 | a · ba pa ma fa · da ta na la · ga ka ha · za ca sa · zha cha sha | The a row everywhere; a vs e (da/de, ga/ge, zha/zhe) | planned |
+| P10 | zi ci si · zhi chi shi ri · er | Three kinds of i; z/zh/j side by side; the r-sound er | planned |
+| P11 | yi · bi pi mi · di ti ni li · wu · bu pu mu fu · du tu nu lu · gu ku hu | i vs u | planned |
+| P12 | zu cu su · zhu chu shu ru · yu · nü lü · ju qu xu | u vs ü; after j q x the u is always ü | planned |
 
 ### ai ei ao ou, mixed
 
-| # | Syllables | New tones | Focus | Words | Status |
-|---|---|---|---|---|---|
-| P13 | ai · bai pai mai · dai tai nai lai · gai kai hai · ei · bei pei mei fei · dei nei lei · gei hei |  | ai (English eye) against ei (English day) | *lái, mǎi, mài, méi, gěi* | planned |
-| P14 | ao · bao pao mao · dao tao nao lao · gao kao hao · ou · pou mou fou · dou tou lou · gou kou hou |  | ao (English how) against ou (English go); two 3rd tones in a row | *hǎo, dōu, gǒu, lǎoshī* | planned |
-| P15 | zai cai sai · zhai chai shai · zei · zhei shei · zao cao sao · zhao chao shao rao · zou cou sou · zhou chou shou rou |  | z c s against zh ch sh with all four finals | *zài, cài, shéi, zǒu, zhǎo* | planned |
+| # | Syllables | Focus | Status |
+|---|---|---|---|
+| P13 | ai · bai pai mai · dai tai nai lai · gai kai hai · ei · bei pei mei fei · dei nei lei · gei hei | ai (English eye) against ei (English day) | planned |
+| P14 | ao · bao pao mao · dao tao nao lao · gao kao hao · ou · pou mou fou · dou tou lou · gou kou hou | ao (English how) against ou (English go) | planned |
+| P15 | zai cai sai · zhai chai shai · zei · zhei shei · zao cao sao · zhao chao shao rao · zou cou sou · zhou chou shou rou | z c s against zh ch sh with all four finals | planned |
 
 ### -n and -ng, mixed
 
-| # | Syllables | New tones | Focus | Words | Status |
-|---|---|---|---|---|---|
-| P16 | an · ban pan man fan · dan tan nan lan · gan kan han · ang · bang pang mang fang · dang tang nang lang · gang kang hang |  | The endings -n and -ng | *kàn, fàn, nán, máng, bāng* | planned |
-| P17 | zan can san · zhan chan shan ran · zang cang sang · zhang chang shang rang · dong tong nong long · gong kong hong · zong cong song · zhong chong rong |  | an vs ang vs ong; ong sounds like German ung | *sān, shàng, chīfàn, dǒng, hóng* | planned |
-| P18 | en · ben pen men fen · nen · gen ken hen · zen cen sen · zhen chen shen ren · eng · beng peng meng feng · deng teng neng leng · geng keng heng · zeng ceng seng · zheng cheng sheng reng |  | en against eng across the whole chart | *hěn, rén, shénme, néng, lěng* | planned |
+| # | Syllables | Focus | Status |
+|---|---|---|---|
+| P16 | an · ban pan man fan · dan tan nan lan · gan kan han · ang · bang pang mang fang · dang tang nang lang · gang kang hang | The endings -n and -ng | planned |
+| P17 | zan can san · zhan chan shan ran · zang cang sang · zhang chang shang rang · dong tong nong long · gong kong hong · zong cong song · zhong chong rong | an vs ang vs ong; ong sounds like German ung | planned |
+| P18 | en · ben pen men fen · nen · gen ken hen · zen cen sen · zhen chen shen ren · eng · beng peng meng feng · deng teng neng leng · geng keng heng · zeng ceng seng · zheng cheng sheng reng | en against eng across the whole chart | planned |
 
 ### Finals starting with i, mixed
 
-| # | Syllables | New tones | Focus | Words | Status |
-|---|---|---|---|---|---|
-| P19 | ya · dia lia · jia qia xia · ye · bie pie mie · die tie nie lie · jie qie xie · yao · biao piao miao · diao tiao niao liao · jiao qiao xiao |  | i gliding into a, e and ao; the e in ie is like German e in jetzt | *jiā, xièxie, yě, jiào, xiǎo* | planned |
-| P20 | you · miu · diu niu liu · jiu qiu xiu · yan · bian pian mian · dian tian nian lian · jian qian xian |  | iu is short for iou; ian sounds like ien | *yǒu, jiǔ, liù, tiān, qián* | planned |
-| P21 | yin · bin pin min · nin lin · jin qin xin · ying · bing ping ming · ding ting ning ling · jing qing xing · yang · niang liang · jiang qiang xiang · yong · jiong qiong xiong |  | in vs ing; iang vs iong | *nín, míngzi, tīng, xiǎng, liǎng* | planned |
+| # | Syllables | Focus | Status |
+|---|---|---|---|
+| P19 | ya · dia lia · jia qia xia · ye · bie pie mie · die tie nie lie · jie qie xie · yao · biao piao miao · diao tiao niao liao · jiao qiao xiao | i gliding into a, e and ao; the e in ie is like German e in jetzt | planned |
+| P20 | you · miu · diu niu liu · jiu qiu xiu · yan · bian pian mian · dian tian nian lian · jian qian xian | iu is short for iou; ian sounds like ien | planned |
+| P21 | yin · bin pin min · nin lin · jin qin xin · ying · bing ping ming · ding ting ning ling · jing qing xing · yang · niang liang · jiang qiang xiang · yong · jiong qiong xiong | in vs ing; iang vs iong | planned |
 
 ### Finals starting with u and ü, mixed
 
-| # | Syllables | New tones | Focus | Words | Status |
-|---|---|---|---|---|---|
-| P22 | wa · gua kua hua · zhua chua shua · duo tuo nuo luo · guo kuo huo · zuo cuo suo · zhuo chuo shuo ruo · wai · guai kuai huai · zhuai chuai shuai |  | u gliding into a, o and ai (you know wo from P01) | *huā, shuō, duō, kuài, Zhōngguó* | planned |
-| P23 | wei · dui tui · gui kui hui · zui cui sui · zhui chui shui rui · wan · duan tuan nuan luan · guan kuan huan · zuan cuan suan · zhuan chuan shuan ruan · wen · dun tun lun · gun kun hun · zun cun sun · zhun chun shun run |  | ui is short for uei, un for uen | *duì, shuǐ, wèn, wǎn, xǐhuan* | planned |
-| P24 | wang · guang kuang huang · zhuang chuang shuang · weng · yue · nüe lüe · jue que xue · yuan · juan quan xuan · yun · jun qun xun |  | u vs ü: wan/yuan, wen/yun; the last finals | *xué, yuè, yuǎn, chuáng, juéde* | planned |
+| # | Syllables | Focus | Status |
+|---|---|---|---|
+| P22 | wa · gua kua hua · zhua chua shua · duo tuo nuo luo · guo kuo huo · zuo cuo suo · zhuo chuo shuo ruo · wai · guai kuai huai · zhuai chuai shuai | u gliding into a, o and ai (you know wo from P01) | planned |
+| P23 | wei · dui tui · gui kui hui · zui cui sui · zhui chui shui rui · wan · duan tuan nuan luan · guan kuan huan · zuan cuan suan · zhuan chuan shuan ruan · wen · dun tun lun · gun kun hun · zun cun sun · zhun chun shun run | ui is short for uei, un for uen | planned |
+| P24 | wang · guang kuang huang · zhuang chuang shuang · weng · yue · nüe lüe · jue que xue · yuan · juan quan xuan · yun · jun qun xun | u vs ü: wan/yuan, wen/yun; the last finals | planned |

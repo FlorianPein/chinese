@@ -1,29 +1,22 @@
 {
   "lesson": "P02",
-  "goal": "Hear de te ne le in all four tones, hear d from t and the 2nd tone from the 3rd, meet the light neutral tone, and say I'm hungry.",
-  "items": [
-    {"id": "e", "kind": "word", "pinyin": "è", "english": "hungry", "hanzi": "饿", "note": "The Chinese e (a deep uh), with a sharp fall."},
-    {"id": "wode", "kind": "word", "pinyin": "wǒ de", "english": "my, mine", "hanzi": "我的", "note": "de is short and light: the neutral tone. It works like English 's: wǒ de = I's = my."},
-    {"id": "wo-e-le", "kind": "phrase", "pinyin": "Wǒ è le.", "english": "I'm hungry (now).", "literal": "I / hungry / (it's changed)", "hanzi": "我饿了。", "note": "le at the end says something has changed: you weren't hungry before, now you are."},
-    {"id": "wo-ne", "kind": "phrase", "pinyin": "Wǒ ne?", "english": "And me? / What about me?", "literal": "I / (what about?)", "hanzi": "我呢？", "note": "ne after a word asks: what about …?"}
-  ],
-  "sounds": {
-    "s-e4": "hungry"
-  },
+  "goal": "Hear de te ne le and e in all four tones, hear d from t, and hear the 2nd tone from the 3rd, alone and in pairs.",
+  "items": [],
   "steps": [
     {"type": "intro", "title": "Warm-up",
      "text": "First a quick look back: **b p m f** with **o**, in all four tones.",
      "rows": [["s-bo1", "s-bo2", "s-bo3", "s-bo4"], ["s-po1", "s-po2", "s-po3", "s-po4"], ["s-mo1", "s-mo2", "s-mo3", "s-mo4"], ["s-fo1", "s-fo2", "s-fo3", "s-fo4"]]},
     {"type": "hear", "play": "s-po4", "options": ["bò", "pò"]},
-    {"type": "meaning", "item": "wo", "from": "audio", "options": ["wo", "po", "mo"]},
     {"type": "tone", "play": "s-fo2", "options": [1, 2, 3, 4]},
-    {"type": "meaning", "item": "fo", "from": "audio", "options": ["fo", "mo", "po"]},
+    {"type": "odd", "play": "s-mo3", "odd": "s-mo2"},
+    {"type": "order", "sounds": ["s-wo3", "s-po4"], "options": ["wǒ pò", "wò pǒ", "wǒ pó", "wó pò"]},
 
     {"type": "intro", "title": "A new vowel: e",
-     "text": "The Chinese **e** isn't the e of English *bed* or German *Bett*.\n\nSay **o**, then keep your tongue where it is and spread your lips into a smile. What comes out is a deep *uh*, a bit like English *duh*, or *her* in British English without the r.\n\nTop row: **e** in the four tones. Below: **wo** against **e**.",
+     "text": "The Chinese **e** isn't the e of English *bed* or German *Bett*.\n\nSay **o**, then keep your tongue where it is and spread your lips into a smile. What comes out is a deep *uh*, a bit like English *duh*, or *her* in British English without the r.\n\nTop row: **e** in the four tones. Below: **wo** against **e**.\n\n(After the lips there's also **me**, but only as a light, toneless little word. You'll hear it later.)",
      "rows": [["s-e1", "s-e2", "s-e3", "s-e4"], ["s-wo1", "s-e1"], ["s-wo4", "s-e4"]]},
     {"type": "hear", "play": "s-e4", "options": ["wò", "è"]},
     {"type": "same", "pair": ["s-wo1", "s-e1"]},
+    {"type": "odd", "play": "s-e2", "odd": "s-wo2"},
 
     {"type": "intro", "title": "d and t: the puff again",
      "text": "It works like b and p: **t** has a strong puff of air (English *top*), **d** has none (the *t* in English *stop*).\n\n**n** and **l** are the same as in English and German.",
@@ -31,9 +24,10 @@
     {"type": "hear", "play": "s-te4", "options": ["dè", "tè"]},
     {"type": "same", "pair": ["s-de2", "s-te2"]},
     {"type": "hear", "play": "s-le4", "options": ["nè", "lè", "dè"]},
+    {"type": "odd", "play": "s-de1", "odd": "s-te1"},
 
     {"type": "intro", "title": "2nd or 3rd?",
-     "text": "The pair beginners mix up most is the **2nd** tone (rising) and the **3rd** (low). Said on its own, the 3rd tone can rise a little at the end, so both seem to go up.\n\nListen to where they **start**: the 2nd starts in the middle and climbs straight up, like a surprised *What?* The 3rd first sinks low and stays there, like a doubtful *Hmm…*\n\nEach row is 2nd, then 3rd.",
+     "text": "The pair beginners mix up most is the **2nd** tone (rising) and the **3rd** (low). Said on its own, the 3rd tone comes back up at the end, so both seem to go up.\n\nListen to where they **start**: the 2nd starts in the middle and climbs straight up, like a surprised *What?* The 3rd first sinks low and stays there a while, like a doubtful *Hmm…*\n\nEach row is 2nd, then 3rd.",
      "rows": [["s-de2", "s-de3"], ["s-ne2", "s-ne3"], ["s-mo2", "s-mo3"]]},
     {"type": "same", "pair": ["s-le2", "s-le3"]},
     {"type": "chart", "title": "Your second block of the chart",
@@ -49,19 +43,19 @@
     {"type": "hear", "play": "s-ne2", "options": ["dé", "té", "né", "lé"]},
     {"type": "type", "item": "s-de3", "from": "audio"},
 
-    {"type": "new", "item": "e"},
-    {"type": "meaning", "item": "e", "from": "audio", "options": ["e", "wo", "po"]},
-    {"type": "new", "item": "wode"},
-    {"type": "intro", "title": "The neutral tone",
-     "text": "Some syllables have no tone of their own. They're said short and light, straight after the syllable before, so you only hear them inside a word or sentence. This is the **neutral tone**. It has no mark; as a number it's **5** (or no number at all).\n\n**de, le, ne** and **me** are mostly little grammar words, and they're nearly always neutral. Listen to **wǒ**, then **wǒ de**: the de is quick and light.",
-     "rows": [["wo", "wode"]]},
-    {"type": "new", "item": "wo-e-le"},
-    {"type": "new", "item": "wo-ne"},
-    {"type": "meaning", "item": "wo-e-le", "from": "audio", "options": ["wo-e-le", "wo-ne", "wode"]},
-    {"type": "pinyin", "item": "e", "options": ["è", "é", "ò"]},
-    {"type": "match", "items": ["e", "wode", "wo", "po", "mo"]},
-    {"type": "hear", "play": "po", "options": ["bò", "pò", "tè"]},
-    {"type": "meaning", "item": "wo-ne", "from": "audio", "options": ["wo-ne", "wode", "wo-e-le"]},
-    {"type": "type", "item": "e", "from": "audio"}
+    {"type": "intro", "title": "Rising and low, in a row",
+     "text": "Now the 2nd and the 3rd tone one after the other. In each pair, listen for the one that climbs **straight away** (2nd) and the one that sinks first (3rd).\n\nPlay each row with ▶.",
+     "rows": [["s-de2", "s-de3"], ["s-ne3", "s-ne2"], ["s-e2", "s-e3"]]},
+    {"type": "order", "sounds": ["s-ne2", "s-ne3"], "options": ["né ně", "ně né", "né nè", "nē ně"]},
+    {"type": "order", "sounds": ["s-le3", "s-de2"], "options": ["lě dé", "lé dě", "lě dè", "lè dé"]},
+    {"type": "odd", "play": "s-e3", "odd": "s-e2"},
+    {"type": "tone", "play": "s-e3", "options": [1, 2, 3, 4]},
+    {"type": "tone", "play": "s-e2", "options": [1, 2, 3, 4]},
+    {"type": "hear", "play": "s-te2", "options": ["dé", "té"]},
+    {"type": "odd", "play": "s-ne4", "odd": "s-le4"},
+    {"type": "order", "sounds": ["s-te1", "s-de4", "s-e3"], "options": ["tē dè ě", "dē tè ě", "tē dè è", "tē dé ě"]},
+    {"type": "match", "mode": "sound", "items": ["s-e1", "s-le2", "s-de3", "s-te4"]},
+    {"type": "same", "pair": ["s-te3", "s-de3"]},
+    {"type": "type", "item": "s-e4", "from": "audio"}
   ]
 }

@@ -1,12 +1,7 @@
 {
   "lesson": "P08",
-  "goal": "Hear the three tongue positions apart (z/zh/j, c/ch/q, s/sh/x) and r in a random mix, and ask and answer how many.",
-  "items": [
-    {"id": "jide", "kind": "word", "pinyin": "jìde", "english": "to remember", "hanzi": "记得", "note": "Falling, then a light de. Flat tongue on the j."},
-    {"id": "ji-ge", "kind": "word", "pinyin": "jǐ ge", "english": "how many of them?", "hanzi": "几个", "note": "jǐ (how many) + the counting word ge, said light. For small numbers, up to about ten."},
-    {"id": "wo-jide", "kind": "phrase", "pinyin": "Wǒ jìde.", "english": "I remember.", "literal": "I / remember", "hanzi": "我记得。"},
-    {"id": "qi-ge", "kind": "phrase", "pinyin": "Qī ge.", "english": "Seven (of them).", "literal": "seven / (counting word)", "hanzi": "七个。", "note": "The answer to jǐ ge: put the number where jǐ was."}
-  ],
+  "goal": "Hear the three tongue positions apart (z/zh/j, c/ch/q, s/sh/x) and r, in a random mix, alone and in a row, with all four tones.",
+  "items": [],
   "steps": [
     {"type": "intro", "title": "Recap: three tongue positions",
      "text": "No new sounds today. Mandarin has three tongue positions where English and German have about one:\n\n- **z c s**: tip of the tongue at the teeth. Bright and hissing.\n- **zh ch sh r**: tip curled back. Dark and hushing.\n- **j q x**: tip down, tongue flat. Soft, with a little *y* in it, like German *ich*.\n\nEach row is one sound in the three positions.",
@@ -46,19 +41,21 @@
     {"type": "type", "item": "s-zhe1", "from": "audio"},
     {"type": "type", "item": "s-xi4", "from": "audio"},
 
-    {"type": "new", "item": "jide"},
-    {"type": "new", "item": "wo-jide"},
-    {"type": "new", "item": "ji-ge"},
-    {"type": "new", "item": "qi-ge"},
-    {"type": "intro", "title": "How many? Seven.",
-     "text": "Question and answer have the same shape: **jǐ ge?** (how many?) and **qī ge** (seven). The number simply takes the place of jǐ.",
-     "rows": [["ji-ge", "qi-ge"]]},
-    {"type": "meaning", "item": "ji-ge", "from": "audio", "options": ["ji-ge", "qi-ge", "zhege"]},
-    {"type": "meaning", "item": "wo-jide", "from": "audio", "options": ["wo-jide", "wo-xi-che", "wo-he-kele"]},
-    {"type": "pinyin", "item": "jide", "options": ["jìde", "qìde", "jǐde"]},
-    {"type": "match", "items": ["jide", "ji-ge", "zhe", "xi", "keqi"]},
-    {"type": "meaning", "item": "qi-ge", "from": "audio", "options": ["qi-ge", "ji-ge", "zhege-ne"]},
-    {"type": "hear", "play": "jide", "options": ["jìde", "qìde", "xìde"]},
-    {"type": "type", "item": "jide", "from": "english"}
+{"type": "intro", "title": "Three in a row",
+     "text": "The three positions one after another, then mixed with other sounds and all four tones. Trust your first impression.\n\nPlay each row with ▶.",
+     "rows": [["s-ze1", "s-zhe1", "s-ji1"], ["s-ce4", "s-che4", "s-qi4"], ["s-se3", "s-she3", "s-xi3"]]},
+    {"type": "odd", "play": "s-zhe4", "odd": "s-ze4"},
+    {"type": "odd", "play": "s-she3", "odd": "s-se3"},
+    {"type": "order", "sounds": ["s-ji3", "s-ge4"], "options": ["jǐ gè", "qǐ gè", "jǐ kè", "jì gě"]},
+    {"type": "order", "sounds": ["s-qi1", "s-ge4"], "options": ["qī gè", "jī gè", "qī kè", "qì gē"]},
+    {"type": "order", "sounds": ["s-xi2", "s-re4"], "options": ["xí rè", "xí lè", "shé rè", "xǐ rè"]},
+    {"type": "order", "sounds": ["s-ze1", "s-zhe2", "s-ji3"], "options": ["zē zhé jǐ", "zhē zé jǐ", "zē zhé qǐ", "zē jí zhě"]},
+    {"type": "hear", "play": "s-re3", "options": ["rě", "lě", "shě"]},
+    {"type": "same", "pair": ["s-se1", "s-xi1"]},
+    {"type": "odd", "play": "s-ce2", "odd": "s-che2"},
+    {"type": "tone", "play": "s-xi2", "options": [1, 2, 3, 4]},
+    {"type": "order", "sounds": ["s-she4", "s-se1", "s-xi3", "s-re2"], "options": ["shè sē xǐ ré", "sè shē xǐ ré", "shè sē xì ré", "shè sē xǐ lé"]},
+    {"type": "match", "mode": "sound", "items": ["s-se1", "s-xi2", "s-she3", "s-ze4"]},
+    {"type": "type", "item": "s-ce3", "from": "audio"}
   ]
 }

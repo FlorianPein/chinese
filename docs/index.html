@@ -92,6 +92,8 @@ input[type=text]:focus { outline: 2px solid var(--accent); outline-offset: 1px; 
 .result.no { color: var(--bad); }
 .options { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 20px; }
 .options.one { grid-template-columns: 1fr; }
+.options.three { grid-template-columns: repeat(3, 1fr); }
+.options .btn.playing { outline: 2px solid var(--accent); }
 .options .btn { font-size: 1.35rem; padding: 14px 8px; }
 .options.text .btn { font-size: 1.05rem; }
 .btn.right { border-color: var(--good); background: color-mix(in srgb, var(--good) 15%, var(--surface)); }
@@ -237,9 +239,7 @@ details.later .list { margin-top: 10px; }
   </header>
   <nav>
     <a href="#learn" data-tab="learn">Learn</a>
-    <a href="#review" data-tab="review">Review</a>
-    <a href="#words" data-tab="words">Words</a>
-    <a href="#tones" data-tab="tones">Tones</a>
+    <a href="#practice" data-tab="practice">Practice</a>
     <a href="#listen" data-tab="listen">Listen</a>
     <a href="#settings" data-tab="settings" title="Settings">⚙︎</a>
   </nav>
@@ -251,8 +251,9 @@ details.later .list { margin-top: 10px; }
 
 // ---------- storage (per browser; synced through GitHub, or export/import to move between devices) ----------
 const KEY = "pinyin-flashcards-v1";
-const DEFAULT_STATE = { unlocked: [], cards: {}, lessons: {}, removedLessons: {}, log: [], settings: { newPerDay: 15, numbers: true }, newToday: { day: "", count: 0 } };
-// Activity log for "Copy progress for Claude": finished lessons, wrong answers, flashcard grades.
+// cards: word flashcards from an earlier version of the course, kept so older copies of the app still sync
+const DEFAULT_STATE = { unlocked: [], cards: {}, lessons: {}, removedLessons: {}, log: [], settings: { numbers: true } };
+// Activity log for "Copy progress for Claude": finished lessons, wrong answers, practice rounds.
 const LOG_MAX = 3000;
 function logEvent(e) {
   state.log.push({ d: new Date().toISOString().slice(0, 19), ...e });
@@ -397,16 +398,16 @@ function syncStatus() {
 function refreshAfterSync() {
   updateStat();
   const tab = location.hash.slice(1).split("/")[0] || "learn";
-  if (["learn", "words", "settings"].includes(tab)) route();   // never in the middle of a lesson or review
+  if (["learn", "settings"].includes(tab)) route();   // never in the middle of a lesson or practice
 }
-// every lesson that's done has its words in the reviews; lessons that no longer exist are dropped
+// every lesson that's done has its sounds in Practice; lessons that no longer exist are dropped
 function tidyLessons() {
   const ids = new Set(DATA.lessons.map(l => l.id));
   state.unlocked = state.unlocked.filter(id => ids.has(id));
   for (const id of Object.keys(state.lessons)) if (ids.has(id)) markLessonDone(id);
 }
 document.addEventListener("visibilitychange", () => {
-  if (document.visibilityState === "hidden") { if (syncTimer) syncNow(); }   // about to close: send what's pending
+  if (document.visibilityState === "hidden") { flushPractice(); if (syncTimer) syncNow(); }   // about to close: send what's pending
   else if (!syncCfg.last || Date.now() - Date.parse(syncCfg.last) > 60000) syncNow();
 });
 
@@ -463,12 +464,12 @@ function play(id, slow) {
   current = a;
   a.play().catch(() => {});
 }
-async function playSeq(ids) {   // a row of sounds, one after another
+async function playSeq(ids, marks) {   // a row of sounds, one after another; marks[n] lights up while ids[n] plays
   stopAudio();
   const my = seqToken;
-  for (const id of ids) {
+  for (const [n, id] of ids.entries()) {
     if (my !== seqToken) return;
-    const btn = view.querySelector(`.syl[data-play="${id}"], .ccell[data-play="${id}"]`);
+    const btn = marks ? marks[n] : view.querySelector(`.syl[data-play="${id}"], .ccell[data-play="${id}"]`);
     if (btn) btn.classList.add("playing");
     await new Promise(done => {
       const a = audioFor(id);
@@ -494,96 +495,20 @@ function toneSvg(tone, w) {
   return `<svg width="${w}" height="${w * 0.75}" viewBox="0 0 40 30" aria-hidden="true">${grid}${shape}</svg>`;
 }
 
-// ---------- spaced repetition ----------
-const TYPES = ["read", "listen", "write"];   // pinyin→meaning, audio→meaning, meaning→pinyin
-const DAY = 86400000;
+// ---------- lessons done ----------
 const today = () => new Date().toISOString().slice(0, 10);
-const startOfToday = () => { const d = new Date(); d.setHours(0, 0, 0, 0); return d.getTime(); };
+const DAY = 86400000;
 
 function unlockedItems() {
   const on = new Set(state.unlocked);
   return DATA.items.filter(i => on.has(i.lesson));
 }
-function allCardIds() {
-  const ids = [];
-  for (const item of unlockedItems()) if (item.kind !== "sound") for (const t of TYPES) ids.push(`${item.id}:${t}`);
-  return ids;
-}
-function isDue(c) { return c && c.due <= Date.now(); }
-function canIntroduce(cardId) {
-  // listen/write cards for an item only start once its read card has been seen
-  const [itemId, type] = cardId.split(":");
-  return type === "read" || !!state.cards[`${itemId}:read`];
-}
-function newLeftToday() {
-  if (state.newToday.day !== today()) state.newToday = { day: today(), count: 0 };
-  return Math.max(0, state.settings.newPerDay - state.newToday.count);
-}
-function counts() {
-  let due = 0, fresh = 0;
-  for (const id of allCardIds()) {
-    const c = state.cards[id];
-    if (c) { if (isDue(c)) due++; } else if (canIntroduce(id)) fresh++;
-  }
-  return { due, fresh: Math.min(fresh, newLeftToday()) };
-}
-function nextCard(exclude) {
-  const ids = allCardIds();
-  // 1. due cards, most overdue first
-  const due = ids.filter(id => isDue(state.cards[id]) && id !== exclude)
-                 .sort((a, b) => state.cards[a].due - state.cards[b].due);
-  if (due.length) return due[0];
-  // 2. new cards in course order; an item's listen and write cards follow
-  //    a few cards after its read card, so new words get practised three ways
-  if (newLeftToday() > 0) {
-    const order = id => ids.indexOf(id) / TYPES.length + TYPES.indexOf(id.split(":")[1]) * 3;
-    const fresh = ids.filter(id => !state.cards[id] && canIntroduce(id) && id !== exclude);
-    fresh.sort((a, b) => order(a) - order(b));
-    if (fresh.length) return fresh[0];
-  }
-  // 3. a card just failed, if it's the only one left
-  if (exclude && isDue(state.cards[exclude])) return exclude;
-  return null;
-}
-function grade(cardId, g) {   // g: 1 again, 2 hard, 3 good, 4 easy
-  let c = state.cards[cardId];
-  if (!c) {
-    c = { interval: 0, ease: 2.5, reps: 0, lapses: 0, due: 0 };
-    newLeftToday(); state.newToday.count++;
-  }
-  if (g === 1) {
-    c.lapses++; c.ease = Math.max(1.3, c.ease - 0.2); c.interval = 0;
-    c.due = Date.now() + 60 * 1000;          // again in about a minute
-  } else {
-    if (g === 2) { c.interval = Math.max(1, Math.round(c.interval * 1.2)); c.ease = Math.max(1.3, c.ease - 0.15); }
-    if (g === 3) c.interval = c.interval < 1 ? 1 : c.interval < 3 ? 3 : Math.round(c.interval * c.ease);
-    if (g === 4) { c.interval = c.interval < 1 ? 3 : Math.round(c.interval * c.ease * 1.3); c.ease += 0.15; }
-    c.reps++;
-    c.due = startOfToday() + c.interval * DAY;
-  }
-  c.at = nowIso();
-  state.cards[cardId] = c;
-  logEvent({ t: "review", card: cardId, grade: ["", "again", "hard", "good", "easy"][g] });
-  save();
-}
-function intervalLabel(cardId, g) {
-  const c = state.cards[cardId] || { interval: 0, ease: 2.5 };
-  if (g === 1) return "1 min";
-  let d = g === 2 ? Math.max(1, Math.round(c.interval * 1.2))
-        : g === 3 ? (c.interval < 1 ? 1 : c.interval < 3 ? 3 : Math.round(c.interval * c.ease))
-        : (c.interval < 1 ? 3 : Math.round(c.interval * c.ease * 1.3));
-  return d < 30 ? `${d} d` : d < 365 ? `${Math.round(d / 30)} mo` : `${(d / 365).toFixed(1)} y`;
-}
 function markLessonDone(id) {
-  // its words and phrases join the reviews, first due tomorrow (the lesson was the first practice)
+  // its sounds join Practice
   if (!state.unlocked.includes(id)) {
     const on = new Set([...state.unlocked, id]);
     state.unlocked = DATA.lessons.map(l => l.id).filter(x => on.has(x));
   }
-  for (const item of DATA.items.filter(i => i.lesson === id && i.kind !== "sound"))
-    for (const t of TYPES)
-      if (!state.cards[`${item.id}:${t}`])
-        state.cards[`${item.id}:${t}`] = { interval: 1, ease: 2.5, reps: 1, lapses: 0, due: startOfToday() + DAY };
 }
 
 // ---------- rendering helpers ----------
@@ -619,8 +544,8 @@ function sylRow(ids, onId) {
     ids.length > 1 ? `<button class="btn icon" data-seq="${ids.join(" ")}" title="Play the whole row">▶</button>` : ""}</div>`;
 }
 function updateStat() {
-  const { due } = counts();
-  $("#stat").textContent = state.unlocked.length ? `${due} due` : "";
+  const done = DATA.lessons.filter(l => state.lessons[l.id]).length;
+  $("#stat").textContent = done ? `${done} of ${DATA.plan.length} lessons` : "";
 }
 let keyHandler = null;
 document.addEventListener("keydown", e => {
@@ -662,18 +587,13 @@ function progressReport() {
     top.forEach(([k, n]) => lines.push(`- ${n}× ${k}`));
   }
 
-  const reviews = state.log.filter(e => e.t === "review");
-  if (reviews.length) {
+  flushPractice();
+  const rounds = state.log.filter(e => e.t === "practice");
+  if (rounds.length) {
     const week = new Date(Date.now() - 7 * DAY).toISOString().slice(0, 16);
-    const again = {};
-    for (const e of reviews) if (e.grade === "again") again[e.card] = (again[e.card] || 0) + 1;
-    const hard = Object.entries(again).sort((a, b) => b[1] - a[1]).slice(0, 10);
-    const { due } = counts();
-    lines.push("", `**Flashcards:** ${reviews.length} reviews in total, ${reviews.filter(e => e.d > week).length} in the last 7 days, ${due} due now.`);
-    if (hard.length) lines.push(`Forgotten most often: ${hard.map(([c, n]) => {
-      const [id, type] = c.split(":");
-      return `${byId[id] ? byId[id].pinyin : id} (${type}) ${n}×`;
-    }).join(", ")}`);
+    const sum = list => list.reduce((a, e) => [a[0] + e.right, a[1] + e.total], [0, 0]);
+    const [r, n] = sum(rounds), [rw, nw] = sum(rounds.filter(e => e.d > week));
+    lines.push("", `**Practice:** ${n} questions in total (${Math.round(100 * r / n)}% right), ${nw} in the last 7 days${nw ? ` (${Math.round(100 * rw / nw)}% right)` : ""}.`);
   }
 
   const data = { v: 1, copied: now, since, lessons: state.lessons, log: fresh };
@@ -702,10 +622,9 @@ async function copyProgress() {
 function renderLearn() {
   keyHandler = null;
   const next = DATA.lessons.find(l => !state.lessons[l.id]);
-  const { due } = counts();
-  const banner = due > 0 ? `<div class="card banner"><div><b>${due} cards to review</b>
-      <div class="muted small">${due > 40 ? "Clear some of these before a new lesson." : "A quick review first keeps it all fresh."}</div></div>
-      <a class="btn primary" href="#review">Review</a></div>` : "";
+  const banner = state.unlocked.length ? `<div class="card banner"><div><b>Warm up first</b>
+      <div class="muted small">A few minutes of Practice with the sounds you know.</div></div>
+      <a class="btn" href="#practice">Practice</a></div>` : "";
   const row = p => {
     if (!p.built) return `<div class="lrow planned"><span class="ic">${+p.id.slice(1)}</span>
       <div class="main"><div class="t">${esc(p.title)}</div><div class="muted small">${esc(p.focus)}</div></div></div>`;
@@ -731,12 +650,12 @@ function renderLearn() {
 }
 
 // ---------- Lesson player ----------
-const EXERCISES = new Set(["hear", "tone", "same", "audio", "meaning", "pinyin", "match", "build", "type"]);
+const EXERCISES = new Set(["hear", "tone", "same", "odd", "order", "audio", "meaning", "pinyin", "match", "build", "type"]);
 const soundId = (base, tone) => `s-${base.replace("ü", "v")}${tone}`;
 const chartIds = s => s.syllables.flatMap(b => s.tones.map(t => soundId(b, t)));
 let L = null;   // the running lesson
 function stepAudio(s) {
-  const ids = [s.item, s.play, ...(s.items || []), ...(s.pair || []), ...(["meaning", "audio"].includes(s.type) ? s.options : []),
+  const ids = [s.item, s.play, s.odd, ...(s.items || []), ...(s.pair || []), ...(s.sounds || []), ...(["meaning", "audio"].includes(s.type) ? s.options : []),
                ...(s.rows || []).flat(), ...(s.type === "chart" ? chartIds(s) : [])];
   return ids.filter(id => id && byId[id]);
 }
@@ -794,11 +713,14 @@ function logMistake(entry) {
   const s = entry.s, g = entry.given;
   const it = byId[s.item || s.play];
   const want = s.pair ? s.pair.map(id => byId[id].pinyin).join(" / ") + (byId[s.pair[0]].pinyin === byId[s.pair[1]].pinyin ? " (same)" : " (different)")
+             : s.type === "odd" ? `${byId[s.play].pinyin} ×2, odd one ${byId[s.odd].pinyin}`
+             : s.type === "order" ? s.sounds.map(id => byId[id].pinyin).join(" ")
              : s.type === "match" ? s.items.map(id => byId[id].pinyin).join(", ")
              : it ? it.pinyin + (s.type === "meaning" ? ` = ${it.english}` : "") : "";
   const got = g === undefined ? "" : s.type === "tone" ? TONE_NAME[g]
             : s.type === "meaning" ? (byId[g] ? byId[g].english : g)
             : s.type === "audio" ? (byId[g] ? byId[g].pinyin : g)
+            : s.type === "odd" ? `picked ${byId[entry.seq[g]].pinyin}`
             : s.type === "same" ? (g === "same" ? "said same" : "said different") : String(g);
   logEvent({ t: "mistake", lesson: L.lesson.id, step: entry.i, type: s.type, want, got, retry: entry.tries });
 }
@@ -819,7 +741,7 @@ function choose(entry, isRight, after) {
   keyHandler = e => {
     const n = +e.key;
     if (n >= 1 && n <= btns.length) pick(btns[n - 1]);
-    else if (e.key === "p" && entry.seq) playSeq(entry.seq);
+    else if (e.key === "p" && entry.seq) playSeq(entry.seq, entry.marks);
     else if (e.key === "p" && entry.audio) play(entry.audio);
   };
 }
@@ -851,6 +773,32 @@ const STEPS = {
     choose(entry, k => (k === "same") === isSame, ok => judge(entry, ok, {
       title: ok ? `✓ Correct: ${isSame ? "the same" : "different"}` : `✗ They were ${isSame ? "the same" : "different"}`,
       reveal: `<div class="fbans">${[a, b].map(x => `<b>${esc(byId[x].pinyin)}</b><button class="btn icon" data-play="${x}" title="Play">🔊</button>`).join("")}</div>` }));
+  },
+  odd(s, entry) {
+    // three sounds, two of them the same: which one is different?
+    const pos = Math.floor(Math.random() * 3), ids = [s.play, s.play, s.play];
+    ids[pos] = s.odd;
+    entry.seq = ids;
+    $("#card").innerHTML = `<span class="tag">odd one out</span><div class="prompt">Three sounds. Which one is different?</div>
+      <div class="row"><button class="btn bigplay" id="again" title="Play all three again">🔊 🔊 🔊</button></div>
+      <div class="options three">${ids.map((_, n) => `<button class="btn" data-k="${n}">${n + 1}</button>`).join("")}</div>`;
+    entry.marks = [...view.querySelectorAll("[data-k]")];
+    $("#again").onclick = () => playSeq(ids, entry.marks);
+    playSeq(ids, entry.marks);
+    choose(entry, k => +k === pos, ok => judge(entry, ok, {
+      reveal: `<div class="fbans">${ids.map((x, n) => `<b>${n + 1}: ${esc(byId[x].pinyin)}</b><button class="btn icon" data-play="${x}" title="Play">🔊</button>`).join("")}</div>` }));
+  },
+  order(s, entry) {
+    // two to four sounds in a row: which Pinyin says them, in that order?
+    const right = s.sounds.map(id => byId[id].pinyin).join(" ");
+    entry.seq = s.sounds;
+    $("#card").innerHTML = `<span class="tag">listen</span><div class="prompt">${["", "", "Two", "Three", "Four"][s.sounds.length]} sounds in a row. What do you hear?</div>
+      <div class="row"><button class="btn bigplay" data-seq="${s.sounds.join(" ")}" title="Play again">${"🔊 ".repeat(s.sounds.length).trim()}</button></div>
+      <div class="options${s.options.length === 3 ? " one" : ""}">${shuffle(s.options).map(o =>
+        `<button class="btn" data-k="${esc(o)}">${esc(o)}</button>`).join("")}</div>`;
+    playSeq(s.sounds);
+    choose(entry, k => k === right, ok => judge(entry, ok, {
+      reveal: `<div class="fbans"><b>${esc(right)}</b><button class="btn icon" data-seq="${s.sounds.join(" ")}" title="Play">🔊</button></div>` }));
   },
   audio(s, entry) {
     // see the Pinyin, listen to the options, pick the one that says it
@@ -1092,7 +1040,6 @@ function finishLesson() {
   markLessonDone(lesson.id);
   logEvent({ t: "lesson", lesson: lesson.id, score: accuracy, minutes, wrong: L.wrong.size, exercises });
   save(); updateStat();
-  const learned = DATA.items.filter(i => i.lesson === lesson.id && i.kind !== "sound");
   const next = DATA.lessons.find(l => !state.lessons[l.id]);
   L = null;
   keyHandler = null;
@@ -1101,184 +1048,111 @@ function finishLesson() {
     <div class="muted">${esc(lesson.id)}: ${esc(lesson.title)}</div>
     <div class="done-stats"><div><b>${accuracy}%</b><span class="small muted">right first time</span></div>
       <div><b>${minutes} min</b><span class="small muted">time</span></div>
-      <div><b>${learned.length}</b><span class="small muted">words &amp; phrases</span></div></div>
-    <p class="muted small">${prev ? "" : "They're now in your reviews, first due tomorrow, and in <a href=\"#words\" style=\"color:var(--accent)\">Words</a>. "}
+      <div><b>${exercises}</b><span class="small muted">exercises</span></div></div>
+    <p class="muted small">${prev ? "" : "Its sounds are now in <a href=\"#practice\" style=\"color:var(--accent)\">Practice</a>. "}
       <a href="${GITHUB}lessons/${lesson.file}" target="_blank" rel="noopener" style="color:var(--accent)">Lesson notes ↗</a></p>
     <div class="row"><button class="btn" data-copy-progress>📋 Copy progress for Claude</button></div><div data-copy-msg class="muted small"></div>
     <div class="row">${next ? `<a class="btn primary" href="#lesson/${next.id}">Next lesson</a>` : ""}
       <a class="btn${next ? "" : " primary"}" href="#learn">Back to lessons</a></div></div>`;
 }
 
-// ---------- Review ----------
-let session = { done: 0, lastFailed: null };
-function renderReview() {
+// ---------- Practice: an endless listening drill with the sounds of the lessons you've done ----------
+// Each question is one of: which tone, which syllable (from ones with the same tone), same or different.
+// A sound you get wrong comes back a few questions later. Every 10 answers go into the log for Claude.
+const practice = { right: 0, total: 0, again: [], batch: { right: 0, total: 0 } };
+const finalOf = base => base.replace(/^(zh|ch|sh|[bpmfdtnlgkhzcsrjqxwy])/, "");
+const pickOne = a => a[Math.floor(Math.random() * a.length)];
+function flushPractice() {
+  if (!practice.batch.total) return;
+  logEvent({ t: "practice", ...practice.batch });
+  practice.batch = { right: 0, total: 0 };
+  save();
+}
+// other sounds in the same tone, the ones with the same final first (bō pō mō fō, not bō jī)
+function neighbours(item, pool) {
+  const [base, tone] = item.syllables[0];
+  const others = shuffle(pool.filter(i => i.syllables[0][1] === tone && i.syllables[0][0] !== base));
+  return [...others.filter(i => finalOf(i.syllables[0][0]) === finalOf(base)),
+          ...others.filter(i => finalOf(i.syllables[0][0]) !== finalOf(base))];
+}
+function renderPractice() {
   keyHandler = null;
-  if (!state.unlocked.length) {
-    view.innerHTML = `<div class="card center"><p><b>Nothing to review yet.</b></p>
-      <p class="muted">Finish a lesson in <a href="#learn">Learn</a>. Its words and phrases then come back here as flashcards,
-      spaced out so you remember them.</p></div>`;
+  const pool = unlockedItems().filter(i => i.kind === "sound" && i.syllables[0][1] !== 5);
+  if (pool.length < 4) {
+    view.innerHTML = `<div class="card center"><p><b>Nothing to practise yet.</b></p>
+      <p class="muted">Finish a lesson in <a href="#learn">Learn</a>. Its sounds then come back here in a mixed listening drill:
+      which tone, which sound, same or different.</p></div>`;
     return;
   }
-  const cardId = nextCard(session.lastFailed);
-  session.lastFailed = null;
-  const { due, fresh } = counts();
-  const total = session.done + due + fresh;
-  const bar = `<div class="progress"><div style="width:${total ? 100 * session.done / total : 100}%"></div></div>`;
-  if (!cardId) {
-    view.innerHTML = bar + `<div class="card center"><p style="font-size:2rem;margin:0">🎉</p>
-      <p><b>All done for now.</b></p><p class="muted">${session.done ? `You reviewed ${session.done} cards. ` : ""}
-      Come back tomorrow, do the next <a href="#learn">lesson</a>, or practise in <a href="#tones">Tones</a>.</p></div>`;
-    return;
-  }
-  const [itemId, type] = cardId.split(":");
-  const item = byId[itemId];
-  const isNew = !state.cards[cardId];
-  const head = `<div class="center"><span class="tag">${isNew ? "new · " : ""}${
-    { read: "read", listen: "listen", write: "say it in Pinyin" }[type]}</span>
-    <span class="tag">${esc(item.lesson)}</span></div>`;
-  let revealed = false;
-
-  const gradeRow = (suggest) => `<div class="grades">
-      ${[["again", 1, "Again"], ["hard", 2, "Hard"], ["good", 3, "Good"], ["easy", 4, "Easy"]].map(([cls, g, label]) =>
-        `<button class="btn ${cls}${suggest === g ? " primary" : ""}" data-grade="${g}">${label}<small>${intervalLabel(cardId, g)}</small></button>`).join("")}
-    </div><div class="kbd center">Keys: 1–4 to grade · P to play</div>`;
-
-  function finish(g) {
-    grade(cardId, g);
-    session.done++;
-    if (g === 1) session.lastFailed = cardId;
-    updateStat();
-    renderReview();
-  }
-  function wireGrades() {
-    view.querySelectorAll("[data-grade]").forEach(b => b.onclick = () => finish(+b.dataset.grade));
-  }
-
-  if (type === "read" || type === "listen") {
-    const front = type === "read"
-      ? pinyinBlock(item) + `<div class="prompt">What does it mean?</div>`
-      : `<div class="py">🎧</div><div class="prompt">Listen. What does it mean?</div>`;
-    view.innerHTML = bar + `<div class="card center">${head}${front}
-      <div class="row">${audioButtons(itemId)}<button class="btn primary" id="show">Show answer</button></div>
-      <div id="back"></div></div>`;
-    if (type === "listen") play(itemId);
-    const reveal = () => {
-      if (revealed) return; revealed = true;
-      $("#show").remove();
-      $("#back").innerHTML = `<hr>${type === "listen" ? pinyinBlock(item) : ""}${meaningBlock(item)}${gradeRow()}`;
-      if (type === "read") play(itemId);
-      wireGrades();
-    };
-    $("#show").onclick = reveal;
-    keyHandler = e => {
-      if (e.key === " " || e.key === "Enter") { e.preventDefault(); reveal(); }
-      else if (e.key === "p") play(itemId);
-      else if (revealed && "1234".includes(e.key)) finish(+e.key);
-    };
+  const back = practice.again.findIndex(a => a.at <= practice.total);
+  const item = back >= 0 ? byId[practice.again.splice(back, 1)[0].id] : pickOne(pool);
+  const [base, tone] = item.syllables[0];
+  const near = neighbours(item, pool);
+  const r = Math.random();
+  const kind = r < 0.4 || !near.length ? "tone" : r < 0.75 ? "hear" : "same";
+  let other = item, prompt, options, isRight, playIds;
+  if (kind === "tone") {
+    prompt = "Which tone is it?";
+    options = [1, 2, 3, 4].map(t => [String(t), `${toneSvg(t, 44)}<span>${TONE_NAME[t]}</span>`]);
+    isRight = k => +k === tone;
+    playIds = [item.id];
+  } else if (kind === "hear") {
+    prompt = "What do you hear?";
+    options = shuffle([item, ...near.slice(0, 3)]).map(i => [i.id, esc(i.pinyin)]);
+    isRight = k => k === item.id;
+    playIds = [item.id];
   } else {
-    view.innerHTML = bar + `<div class="card center">${head}
-      <div class="big-en">${esc(item.english)}</div>
-      ${item.literal ? `<div class="lit">literally: ${esc(item.literal)}</div>` : ""}
-      <input type="text" id="answer" placeholder="nǐ hǎo  or  ni3 hao3" autocomplete="off" autocapitalize="off" spellcheck="false">
-      <div class="row"><button class="btn" id="dunno">Show me</button><button class="btn primary" id="check">Check</button></div>
-      <div id="back"></div></div>`;
-    const input = $("#answer");
-    input.focus();
-    const check = (gaveUp) => {
-      if (revealed) return; revealed = true;
-      const verdict = gaveUp ? "no" : checkAnswer(input.value, item);
-      const msg = { ok: "✓ Correct", tones: "Almost: the tones aren't right", no: gaveUp ? "Here it is:" : "✗ Not quite" }[verdict];
-      $("#back").innerHTML = `<div class="result ${verdict === "ok" ? "ok" : "no"}">${msg}</div>
-        ${pinyinBlock(item)}${item.note ? `<div class="note">${esc(item.note)}</div>` : ""}
-        ${item.audio_note ? `<div class="note">🔊 ${esc(item.audio_note)}</div>` : ""}
-        <div class="row">${audioButtons(itemId)}</div>${gradeRow(verdict === "ok" ? 3 : 1)}`;
-      $(".row").remove();
-      input.disabled = true;
-      play(itemId);
-      wireGrades();
-    };
-    $("#check").onclick = () => check(false);
-    $("#dunno").onclick = () => check(true);
-    input.addEventListener("keydown", e => { if (e.key === "Enter") { e.preventDefault(); check(false); } });
-    keyHandler = e => {
-      if (e.key === "p") play(itemId);
-      else if (revealed && "1234".includes(e.key)) finish(+e.key);
-    };
+    // half the time the same sound twice; otherwise another tone, or another syllable in the same tone
+    const tones = pool.filter(i => i.syllables[0][0] === base && i.id !== item.id);
+    other = Math.random() < 0.5 ? item : Math.random() < 0.5 && tones.length ? pickOne(tones) : near[0];
+    prompt = "Two sounds. Are they the same?";
+    options = [["same", "Same"], ["diff", "Different"]];
+    isRight = k => (k === "same") === (other === item);
+    playIds = shuffle([item.id, other.id]);
   }
-}
-
-// ---------- Tones quiz ----------
-let toneScore = { right: 0, total: 0 };
-const TONE_MARK = ["", "\u0304", "\u0301", "\u030c", "\u0300", ""];
-function markSyllable(base, tone) {
-  // tone mark goes on a, else e or o, else the last vowel (iu → u, ui → i)
-  let s = base.replace("v", "ü");
-  let i = s.search(/[ae]/);
-  if (i < 0) i = s.indexOf("ou") >= 0 ? s.indexOf("o") : -1;
-  if (i < 0) { const m = [...s.matchAll(/[iouü]/g)]; i = m.length ? m[m.length - 1].index : -1; }
-  if (i < 0) return s;
-  return (s.slice(0, i + 1) + TONE_MARK[tone] + s.slice(i + 1)).normalize("NFC");
-}
-const writeSyllables = syl => syl.map(([b, t, br]) => (br ? " " : "") + markSyllable(b, t)).join("");
-function renderTones() {
-  keyHandler = null;
-  const pool = unlockedItems().filter(i => i.heardAsWritten && i.syllables.length <= 3 && i.syllables.some(s => s[1] !== 5));
-  if (pool.length < 2) {
-    view.innerHTML = `<div class="card center"><p class="muted">Finish a lesson in
-      <a href="#learn">Learn</a> to practise hearing tones here.</p></div>`;
-    return;
-  }
-  // only the tones you've met so far
-  const known = [...new Set(pool.flatMap(i => i.syllables.map(s => s[1])).filter(t => t !== 5))];
-  const item = pool[Math.floor(Math.random() * pool.length)];
-  const right = item.syllables;
-  // build up to 3 wrong options by changing the tone of one or two syllables
-  const options = new Map([[writeSyllables(right), true]]);
-  for (let tries = 0; options.size < 4 && tries < 200; tries++) {
-    const alt = right.map(s => [...s]);
-    const toned = alt.map((s, i) => s[1] === 5 ? -1 : i).filter(i => i >= 0);
-    const changes = Math.min(toned.length, 1 + Math.floor(Math.random() * 2));
-    for (let k = 0; k < changes; k++) {
-      const i = toned[Math.floor(Math.random() * toned.length)];
-      alt[i][1] = known[Math.floor(Math.random() * known.length)];
-    }
-    const w = writeSyllables(alt);
-    if (!options.has(w)) options.set(w, false);
-  }
-  const shuffled = [...options.entries()].sort(() => Math.random() - 0.5);
   view.innerHTML = `<div class="card center">
-    <span class="tag">which tones do you hear?</span>
-    <span class="tag" id="score">${toneScore.right} / ${toneScore.total}</span>
-    <div class="row">${audioButtons(item.id)}</div>
-    <div class="options">${shuffled.map(([w, ok], i) =>
-      `<button class="btn" data-ok="${ok}" data-i="${i}">${esc(w)}</button>`).join("")}</div>
+    <span class="tag">${kind === "same" ? "same or different" : "listen"}</span> <span class="tag" id="score">${practice.right} / ${practice.total}</span>
+    <div class="prompt">${prompt}</div>
+    <div class="row"><button class="btn bigplay" data-seq="${playIds.join(" ")}" title="Play again">${playIds.map(() => "🔊").join(" ")}</button>
+      ${playIds.length === 1 ? `<button class="btn icon" data-slow="${item.id}" title="Play slowly">🐢</button>` : ""}</div>
+    <div class="options">${options.map(([k, html]) => `<button class="btn${kind === "tone" ? " tonebtn" : ""}" data-k="${k}">${html}</button>`).join("")}</div>
     <div id="back"></div></div>`;
-  play(item.id);
+  playSeq(playIds);
+  const btns = [...view.querySelectorAll("[data-k]")];
   let answered = false;
-  const answer = btn => {
+  const answer = b => {
     if (answered) return; answered = true;
-    const ok = btn.dataset.ok === "true";
-    toneScore.total++; if (ok) toneScore.right++;
-    $("#score").textContent = `${toneScore.right} / ${toneScore.total}`;
-    view.querySelectorAll(".options .btn").forEach(b => {
-      if (b.dataset.ok === "true") b.classList.add("right");
-      else if (b === btn) b.classList.add("wrong");
-    });
+    const ok = isRight(b.dataset.k);
+    btns.forEach(x => { x.disabled = true; if (isRight(x.dataset.k)) x.classList.add("right"); });
+    if (!ok) {
+      b.classList.add("wrong");
+      practice.again.push({ id: item.id, at: practice.total + 4 });
+      const pair = playIds.map(id => byId[id].pinyin).join(" / ");
+      logEvent(kind === "tone" ? { t: "mistake", lesson: "practice", type: "tone", want: item.pinyin, got: TONE_NAME[b.dataset.k] }
+             : kind === "hear" ? { t: "mistake", lesson: "practice", type: "hear", want: item.pinyin, got: byId[b.dataset.k].pinyin }
+             : { t: "mistake", lesson: "practice", type: "same", want: `${pair} (${other === item ? "same" : "different"})`,
+                 got: b.dataset.k === "same" ? "said same" : "said different" });
+    }
+    practice.total++; practice.batch.total++;
+    if (ok) { practice.right++; practice.batch.right++; }
+    if (practice.batch.total >= 10) flushPractice(); else save();
+    $("#score").textContent = `${practice.right} / ${practice.total}`;
     $("#back").innerHTML = `<div class="result ${ok ? "ok" : "no"}">${ok ? "✓ Right" : "✗ Not this time"}</div>
-      ${pinyinBlock(item)}${meaningBlock(item)}
+      <div class="fbans" style="justify-content:center">${[...new Set(playIds)].map(id =>
+        `<b>${esc(byId[id].pinyin)}</b><button class="btn icon" data-play="${id}" title="Play">🔊</button>`).join("")}</div>
       <div class="row"><button class="btn primary" id="next">Next</button></div>`;
-    $("#next").onclick = renderTones;
+    $("#next").onclick = renderPractice;
     $("#next").focus();
   };
-  view.querySelectorAll(".options .btn").forEach(b => b.onclick = () => answer(b));
+  btns.forEach(b => b.onclick = () => answer(b));
   keyHandler = e => {
-    if (e.key === "p") play(item.id);
-    else if (!answered && "1234".includes(e.key)) { const b = view.querySelector(`.options [data-i="${+e.key - 1}"]`); if (b) answer(b); }
-    else if (answered && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); renderTones(); }
+    const n = +e.key;
+    if (e.key === "p") playSeq(playIds);
+    else if (!answered && n >= 1 && n <= btns.length) answer(btns[n - 1]);
+    else if (answered && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); renderPractice(); }
   };
 }
 
-// ---------- Words (everything from the lessons you've done) ----------
 const itemList = list => `<div class="list">${list.map(i => `
   <div class="item"><div class="main">
     <div class="p">${esc(i.pinyin)}</div>
@@ -1287,20 +1161,6 @@ const itemList = list => `<div class="list">${list.map(i => `
     ${i.literal ? `<div class="l">literally: ${esc(i.literal)}</div>` : ""}
     ${i.audio_note ? `<div class="note small">🔊 ${esc(i.audio_note)}</div>` : ""}
   </div><div class="btns">${audioButtons(i.id)}</div></div>`).join("")}</div>`;
-function renderWords() {
-  keyHandler = null;
-  const done = DATA.lessons.filter(l => state.lessons[l.id]);
-  if (!done.length) {
-    view.innerHTML = `<div class="card center"><p><b>No words yet.</b></p>
-      <p class="muted">Every word and phrase you meet in a lesson shows up here once you've finished the lesson.</p></div>`;
-    return;
-  }
-  const seen = DATA.items.filter(i => i.kind !== "sound" && state.lessons[i.lesson]);
-  const n = k => seen.filter(i => i.kind === k).length;
-  view.innerHTML = `<div class="card"><b>${n("word")} words</b> and <b>${n("phrase")} phrases</b> seen, from ${done.length} lesson${done.length > 1 ? "s" : ""}.
-      <div class="muted small">Newest first. They're all in your <a href="#review" style="color:var(--accent)">reviews</a>.</div></div>` +
-    [...done].reverse().map(l => `<h2>${esc(l.id)} · ${esc(l.title)}</h2>${itemList(seen.filter(i => i.lesson === l.id))}`).join("");
-}
 
 // ---------- Listen (all audio of a lesson) ----------
 function renderListen(lessonId) {
@@ -1326,18 +1186,17 @@ function renderListen(lessonId) {
 function renderSettings() {
   keyHandler = null;
   view.innerHTML = `<h2 style="margin-top:0">Lessons done</h2>
-    <p class="muted small" style="margin-top:0">Lessons you finish are ticked automatically. Ticking one by hand also adds its words to your reviews.</p>
+    <p class="muted small" style="margin-top:0">Lessons you finish are ticked automatically. Ticking one by hand also adds its sounds to Practice.</p>
     <div class="list">${DATA.lessons.map(l => `<label class="lesson"><input type="checkbox" data-lesson="${l.id}" ${state.lessons[l.id] ? "checked" : ""}>
         <div class="main"><div class="t">${esc(l.id)}: ${esc(l.title)}</div></div>
         <a href="${GITHUB}lessons/${l.file}" target="_blank" rel="noopener">notes ↗</a></label>`).join("")}</div>
     <h2>Settings</h2>
     <div class="card">
-      <div class="setting"><span>New review cards per day</span><input type="number" id="newPerDay" min="0" max="200" value="${state.settings.newPerDay}"></div>
       <div class="setting"><span>Show tone numbers under Pinyin</span><input type="checkbox" id="numbers" ${state.settings.numbers ? "checked" : ""}></div>
     </div>
     <h2>Sync between devices</h2>
     <div class="card">${syncCfg.token ? `
-      <p style="margin-top:0">This ${esc(syncCfg.device || "device")} syncs with <b>${esc(syncCfg.repo)}</b> (branch <code>${SYNC_BRANCH}</code>): lessons, flashcards and mistakes.</p>
+      <p style="margin-top:0">This ${esc(syncCfg.device || "device")} syncs with <b>${esc(syncCfg.repo)}</b> (branch <code>${SYNC_BRANCH}</code>): lessons, practice and mistakes.</p>
       <p class="muted small" data-sync-status>${syncStatus()}</p>
       <div class="row" style="justify-content:flex-start;margin-top:0">
         <button class="btn primary" id="syncNow">Sync now</button><button class="btn" id="syncOff">Disconnect</button></div>` : `
@@ -1352,7 +1211,7 @@ function renderSettings() {
     </div>
     <h2>Your progress</h2>
     <div class="card">
-      <p class="muted small" style="margin-top:0"><b>For Claude:</b> copy your progress and paste it into a chat with Claude. It's a short summary (lessons, mistakes, flashcards) that Claude uses to adapt the next lessons.</p>
+      <p class="muted small" style="margin-top:0"><b>For Claude:</b> copy your progress and paste it into a chat with Claude. It's a short summary (lessons, mistakes, practice) that Claude uses to adapt the next lessons.</p>
       <div class="row" style="justify-content:flex-start;margin-top:0"><button class="btn primary" data-copy-progress>📋 Copy progress for Claude</button></div>
       <div data-copy-msg class="muted small"></div>
       <hr>
@@ -1376,7 +1235,6 @@ function renderSettings() {
     }
     save(); updateStat();
   });
-  $("#newPerDay").onchange = e => { state.settings.newPerDay = Math.max(0, +e.target.value || 0); save(); updateStat(); };
   $("#numbers").onchange = e => { state.settings.numbers = e.target.checked; save(); };
   $("#export").onclick = () => {
     const a = document.createElement("a");
@@ -1387,7 +1245,7 @@ function renderSettings() {
   $("#import").onchange = async e => {
     try {
       const s = JSON.parse(await e.target.files[0].text());
-      if (!s.cards || !s.unlocked) throw new Error();
+      if (!s.lessons || !s.unlocked) throw new Error();
       state = { ...structuredClone(DEFAULT_STATE), ...s }; save(); updateStat(); renderSettings();
       alert("Progress imported.");
     } catch { alert("That file doesn't look like an exported progress file."); }
@@ -1413,12 +1271,14 @@ function renderSettings() {
 
 // ---------- routing ----------
 function route() {
-  const [tab, arg] = (location.hash.slice(1) || "learn").split("/");
+  let [tab, arg] = (location.hash.slice(1) || "learn").split("/");
+  if (["review", "words", "tones"].includes(tab)) tab = "practice";   // tabs of an earlier version
   stopAudio();
+  if (tab !== "practice") flushPractice();
   if (tab !== "lesson") L = null;
   document.body.classList.toggle("inlesson", tab === "lesson");
   document.querySelectorAll("nav a").forEach(a => a.classList.toggle("on", a.dataset.tab === tab));
-  ({ learn: renderLearn, review: renderReview, words: renderWords, tones: renderTones, listen: () => renderListen(arg),
+  ({ learn: renderLearn, practice: renderPractice, listen: () => renderListen(arg),
      settings: renderSettings, lesson: () => startLesson(arg) }[tab] || renderLearn)();
   updateStat();
 }

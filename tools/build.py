@@ -58,9 +58,9 @@ VOCODER = CACHE / "vocos-22khz-univ.onnx"
 ALL_TONES = [1, 2, 3, 4]
 TONE_NAMES = {1: "1st tone", 2: "2nd tone", 3: "3rd tone", 4: "4th tone", 5: "neutral tone"}
 SOUND_ID = re.compile(r"^s-([a-zv]+)([1-5])$")
-EXERCISES = {"hear", "tone", "same", "audio", "meaning", "pinyin", "match", "build", "type"}
+EXERCISES = {"hear", "tone", "same", "odd", "order", "audio", "meaning", "pinyin", "match", "build", "type"}
 # rough seconds per step, for the time estimate
-SECONDS = {"intro": 35, "chart": 40, "new": 20, "hear": 10, "tone": 8, "same": 10, "audio": 15,
+SECONDS = {"intro": 35, "chart": 40, "new": 20, "hear": 10, "tone": 8, "same": 10, "odd": 14, "order": 14, "audio": 15,
            "meaning": 10, "pinyin": 10, "match": 30, "build": 20, "type": 15, "speak": 25}
 
 
@@ -80,13 +80,14 @@ def chart_ids(step):
 def step_refs(step):
     """Item and sound ids a step refers to (not counting answer options that are plain Pinyin)."""
     refs = []
-    for key in ("item", "play"):
+    for key in ("item", "play", "odd"):
         if key in step:
             refs.append(step[key])
     if step["type"] in ("meaning", "audio"):
         refs += step.get("options", [])
     refs += step.get("items", [])
     refs += step.get("pair", [])
+    refs += step.get("sounds", [])
     for row in step.get("rows", []):
         refs += row
     if step["type"] == "chart":
@@ -106,8 +107,7 @@ def load_course():
         for entry in topic["lessons"]:
             lid = entry["id"]
             path = DATA / f"{lid}.json"
-            planned = {**entry, "topic": topic["id"], "built": path.exists(),
-                       "tones": entry.get("tones", []), "words": entry.get("words", [])}
+            planned = {**entry, "topic": topic["id"], "built": path.exists(), "tones": entry.get("tones", [])}
             plan.append(planned)
             if not path.exists():
                 continue
@@ -207,6 +207,21 @@ def check(lessons, items):
             elif t == "same":
                 if len(step.get("pair", [])) != 2 or any(items[r]["kind"] != "sound" for r in step["pair"]):
                     errors.append(f"{where}: 'pair' must be two sounds")
+            elif t == "odd":
+                if any(items[r]["kind"] != "sound" for r in (step.get("play"), step.get("odd"))):
+                    errors.append(f"{where}: 'play' and 'odd' must be two sounds")
+                elif items[step["play"]]["pinyin"] == items[step["odd"]]["pinyin"]:
+                    errors.append(f"{where}: the odd one out sounds the same as the others")
+            elif t == "order":
+                sounds = step.get("sounds", [])
+                right = " ".join(items[r]["pinyin"] for r in sounds)
+                if not 2 <= len(sounds) <= 4 or any(items[r]["kind"] != "sound" for r in sounds):
+                    errors.append(f"{where}: 'sounds' must be 2–4 sounds")
+                elif right not in opts:
+                    errors.append(f"{where}: options don't include {right!r}")
+                for o in opts:
+                    if len(o.split()) != len(sounds):
+                        errors.append(f"{where}: option {o!r} doesn't have {len(sounds)} syllables")
             elif t == "audio":
                 if step["item"] not in opts:
                     errors.append(f"{where}: options don't include {step['item']!r}")
@@ -275,9 +290,11 @@ def check(lessons, items):
     return errors, warnings
 
 
-def check_plan(chart, plan, items):
+def check_plan(chart, plan, items, lessons):
     """The chart side of the course: every chart cell is taught exactly once,
-    and words only use syllables and tones taught by then."""
+    and the sounds a lesson plays (and its words, if it has any) only use
+    syllables and tones taught by then."""
+    steps = {l["id"]: l["steps"] for l in lessons}
     errors = []
     taught = {}
     known, tones = set(), set()
@@ -297,18 +314,16 @@ def check_plan(chart, plan, items):
             known |= set(syls)
         tones |= set(entry["tones"])
         entry["known"], entry["known_tones"] = set(known), set(tones)
-        if entry["built"]:
-            words = [(i["id"], i["pinyin"]) for i in items.values() if i.get("lesson") == lid and i["kind"] != "sound"]
-        else:
-            words = [(w, w) for w in entry["words"]]
-            if not 2 <= len(words) <= 5:
-                errors.append(f"{lid}: plan 2–5 new words (has {len(words)})")
+        words = [(i["id"], i["pinyin"]) for i in items.values() if i.get("lesson") == lid and i["kind"] != "sound"]
         for wid, text in words:
             for base, tone in pinyin.syllables(pinyin.parse(text)):
                 if base not in known:
                     errors.append(f"{lid}/{wid}: {pinyin.mark(base, tone)!r} uses a syllable not taught yet")
                 elif tone not in tones:
                     errors.append(f"{lid}/{wid}: {pinyin.mark(base, tone)!r} uses tone {tone} before it's taught")
+        for sid in sorted({r for st in steps.get(lid, []) for r in step_refs(st) if SOUND_ID.match(r)}):
+            if SOUND_ID.match(sid).group(1) not in known:
+                errors.append(f"{lid}: plays {sid!r}, a syllable not taught yet")
     if plan and not set(ALL_TONES) <= set(plan[0]["tones"]):
         errors.append(f"{plan[0]['id']}: the first lesson teaches all four tones together")
     for cell in chart.all_cells():
@@ -868,6 +883,7 @@ def build_notes(chart, topics, lessons, items, plan):
             md += ["## Repeated from earlier lessons", "",
                    ", ".join(f"**{items[r]['pinyin']}** ({items[r]['english']})" for r in reviewed), ""]
         kinds = {"hear": "pick what you hear", "tone": "name the tone", "same": "same or different?",
+                 "odd": "odd one out", "order": "sounds in a row",
                  "audio": "pick the sound that matches the Pinyin", "meaning": "pick the meaning",
                  "pinyin": "pick the Pinyin", "match": "match pairs", "build": "build the sentence",
                  "type": "type the Pinyin", "speak": "say it aloud (record and compare)"}
@@ -895,7 +911,7 @@ def build_chart_page(chart, topics, plan, items):
           "**Bold** means you've done that lesson. Initials go down, finals go across, "
           "like the [Yabla chart](https://chinese.yabla.com/chinese-pinyin-chart.php).", "",
           f"{len(plan)} lessons · {sum(len(chart.syllables(c)) for c in chart.all_cells())} syllables · "
-          f"{len(done)} lessons done · [lesson order](#lesson-order) · [words you've seen](WORDS.md)", ""]
+          f"{len(done)} lessons done · [lesson order](#lesson-order)", ""]
     for family, finals in chart.families:
         md += [f"### {family}", "", "| | " + " | ".join(f"**{f}**" for f in finals) + " |",
                "|---" * (len(finals) + 1) + "|"]
@@ -917,62 +933,31 @@ def build_chart_page(chart, topics, plan, items):
         md.append("")
 
     md += ["## Lesson order", "",
-           "Each lesson teaches one or more blocks of the chart and 2–5 words that use only sounds you know by then. "
+           "Each lesson teaches one or more blocks of the chart, only sounds and tones, no words. "
            "Early lessons take one block each, because everything is new. Later ones combine blocks once "
-           "the initials and the type of final are familiar. Words of lessons that aren't built yet are "
-           "*candidates* and may still change.", ""]
-    tone_short = {1: "1st", 2: "2nd", 3: "3rd", 4: "4th", 5: "neutral"}
+           "the initials and the type of final are familiar.", ""]
     for topic in topics:
         md += [f"### {topic['title']}", "",
-               "| # | Syllables | New tones | Focus | Words | Status |", "|---|---|---|---|---|---|"]
+               "| # | Syllables | Focus | Status |", "|---|---|---|---|"]
         for e in (e for e in plan if e["topic"] == topic["id"]):
             lid = e["id"]
             if e["built"]:
-                ws = ", ".join(f"{i['pinyin']} ({i['english']})" for i in items.values()
-                               if i.get("lesson") == lid and i["kind"] == "word")
                 status = f"✅ done {done[lid]}" if lid in done else f"[ready]({APP_URL}#lesson/{lid})"
                 name = f"[{lid}](lessons/{lid}.md)"
             else:
-                ws = "*" + ", ".join(e["words"]) + "*"
                 status = "planned"
                 name = lid
-            tones = ", ".join(tone_short[t] for t in e["tones"])
-            md.append(f"| {name} | {cell_text(chart, e['cells'])} | {tones} | {e['focus']} | {ws} | {status} |")
+            md.append(f"| {name} | {cell_text(chart, e['cells'])} | {e['focus']} | {status} |")
         md.append("")
     (ROOT / "CHART.md").write_text("\n".join(md))
     print("Chart: CHART.md")
-
-
-def build_words_page(lessons, items):
-    """WORDS.md: every word and phrase taught so far, and which ones you've seen."""
-    done = load_progress()
-    seen = [i for i in items.values() if i["kind"] != "sound" and i["lesson"] in done]
-    waiting = [i for i in items.values() if i["kind"] != "sound" and i["lesson"] not in done]
-    md = ["# Words", "",
-          "<!-- Generated by tools/build.py from data/ and data/progress.json. Edit those, not this file. -->", "",
-          "Every word and phrase from the lessons. A lesson's words count as **seen** once the lesson is "
-          "marked done in `data/progress.json` (tell Claude *I finished P01*). "
-          "The app keeps its own list under **Words**.", "",
-          f"**Seen:** {sum(i['kind'] == 'word' for i in seen)} words, {sum(i['kind'] == 'phrase' for i in seen)} phrases · "
-          f"**In ready lessons, not seen yet:** {sum(i['kind'] == 'word' for i in waiting)} words, "
-          f"{sum(i['kind'] == 'phrase' for i in waiting)} phrases", ""]
-    for lesson in lessons:
-        lid = lesson["id"]
-        own = [items[x] for x in lesson["own"] if items[x]["kind"] != "sound"]
-        status = f"seen {done[lid]}" if lid in done else "not seen yet"
-        md += [f"## [{lid}](lessons/{lid}.md): {lesson['title']} ({status})", "",
-               "| Pinyin | Numbers | Meaning | Kind |", "|---|---|---|---|"]
-        md += [f"| **{i['pinyin']}** | {pinyin.to_numbers(i['pinyin'])} | {i['english']} | {i['kind']} |" for i in own]
-        md.append("")
-    (ROOT / "WORDS.md").write_text("\n".join(md))
-    print(f"Words: WORDS.md ({len(seen)} seen)")
 
 
 def main():
     cmd = sys.argv[1] if len(sys.argv) > 1 else "all"
     chart, topics, lessons, items, plan = load_course()
     errors, warnings = check(lessons, items)
-    errors += check_plan(chart, plan, items)
+    errors += check_plan(chart, plan, items, lessons)
     for w in warnings:
         print("WARNING", w)
     for e in errors:
@@ -989,7 +974,6 @@ def main():
         build_cards(chart, topics, lessons, items, plan)
         build_notes(chart, topics, lessons, items, plan)
         build_chart_page(chart, topics, plan, items)
-        build_words_page(lessons, items)
 
 
 if __name__ == "__main__":

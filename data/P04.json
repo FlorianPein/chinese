@@ -1,22 +1,15 @@
 {
   "lesson": "P04",
-  "goal": "Hear ze ce se in all four tones, hear z from c and both from d and t, and learn 3 words that all have the 4th tone.",
-  "items": [
-    {"id": "se", "kind": "word", "pinyin": "sè", "english": "colour", "hanzi": "色", "note": "A sharp s, like German ß. On its own it's mostly in names of colours later on."},
-    {"id": "ge", "kind": "word", "pinyin": "gè", "english": "counting word for people and things", "hanzi": "个", "note": "Chinese puts a counting word between a number and a thing: three ge people. In speech it's usually light: ge."},
-    {"id": "ke", "kind": "word", "pinyin": "kè", "english": "class, lesson", "hanzi": "课", "note": "Falling, with a puff on the k. Don't mix it up with kě (thirsty)."}
-  ],
-  "sounds": {
-    "s-se4": "colour", "s-ge4": "counting word", "s-ke4": "class, lesson"
-  },
+  "goal": "Hear ze ce se in all four tones, and hear z from c and s, and both from d and t.",
+  "items": [],
   "steps": [
     {"type": "intro", "title": "Warm-up",
      "text": "A quick look back at P03: **ge ke he** in all four tones.",
      "rows": [["s-ge1", "s-ge2", "s-ge3", "s-ge4"], ["s-ke1", "s-ke2", "s-ke3", "s-ke4"], ["s-he1", "s-he2", "s-he3", "s-he4"]]},
     {"type": "hear", "play": "s-ke1", "options": ["gē", "kē"]},
     {"type": "tone", "play": "s-he4", "options": [1, 2, 3, 4]},
-    {"type": "meaning", "item": "he-and", "from": "audio", "options": ["he-and", "he", "gege"]},
-    {"type": "meaning", "item": "wo-ke-le", "from": "audio", "options": ["wo-ke-le", "wo-e-le", "wo-he-gege"]},
+    {"type": "odd", "play": "s-ke3", "odd": "s-ke4"},
+    {"type": "order", "sounds": ["s-he1", "s-ge4"], "options": ["hē gè", "hè gē", "hē gě", "kē gè"]},
 
     {"type": "intro", "title": "z: a soft ts",
      "text": "Today: the tongue tip at the teeth, **z c s**, with **e** again.\n\n**z** is a *ts*, like the German *z* in *Zeit*, or the *ts* in English *cats*. It's soft, with **no puff** of air: closer to the *ds* in English *kids*. It's never the buzzing English *z* of *zoo*.\n\nTop row: **ze** in two tones. Below: **de** against **ze**.",
@@ -30,7 +23,7 @@
     {"type": "same", "pair": ["s-ze4", "s-ce4"]},
 
     {"type": "intro", "title": "s: always sharp",
-     "text": "**s** is always a sharp, hissing s, as in English *see* or German *ß* and *ss* (*Straße*, *muss*). It's never the soft German s of *Sonne* or *Rose*, even at the start of a word.\n\nThe row: **se**, **ce**, **ze**.",
+     "text": "**s** is always a sharp, hissing s, as in English *see* or German *ß* and *ss* (*Straße*, *muss*). It's never the soft German s of *Sonne* or *Rose*, even at the start of a syllable.\n\nThe row: **se**, **ce**, **ze**.",
      "rows": [["s-se4", "s-ce4", "s-ze4"]]},
     {"type": "hear", "play": "s-se4", "options": ["zè", "cè", "sè"]},
     {"type": "hear", "play": "s-te4", "options": ["tè", "cè"]},
@@ -48,18 +41,20 @@
     {"type": "same", "pair": ["s-se2", "s-se3"]},
     {"type": "type", "item": "s-ze4", "from": "audio"},
 
-    {"type": "new", "item": "se"},
-    {"type": "new", "item": "ge"},
-    {"type": "new", "item": "ke"},
-    {"type": "intro", "title": "Three words, one tone",
-     "text": "All three new words have the **4th tone**: **sè**, **gè**, **kè**. Here only the initial tells them apart: a sharp s, a g without a puff, a k with one.",
-     "rows": [["se", "ge", "ke"]]},
-    {"type": "meaning", "item": "ke", "from": "audio", "options": ["ke", "ge", "se"]},
-    {"type": "meaning", "item": "se", "from": "audio", "options": ["se", "e", "ke-thirsty"]},
-    {"type": "pinyin", "item": "ke", "options": ["kè", "gè", "kě"]},
-    {"type": "match", "items": ["se", "ge", "ke", "he", "gege"]},
-    {"type": "hear", "play": "ge", "options": ["gè", "kè", "zè"]},
-    {"type": "meaning", "item": "ke-thirsty", "from": "pinyin", "options": ["ke-thirsty", "ke", "he"]},
-    {"type": "type", "item": "se", "from": "audio"}
+    {"type": "intro", "title": "Same tone, different start",
+     "text": "In each row the tone stays the same and only the initial changes. Listen to the very start of each sound: soft **z**, puffed **c**, sharp **s**, and **d** and **t** from P02 to compare.",
+     "rows": [["s-ze4", "s-ce4", "s-se4"], ["s-de4", "s-ze4"], ["s-te4", "s-ce4"]]},
+    {"type": "odd", "play": "s-ce4", "odd": "s-ze4"},
+    {"type": "odd", "play": "s-se1", "odd": "s-ce1"},
+    {"type": "order", "sounds": ["s-ze4", "s-ce4"], "options": ["zè cè", "cè zè", "zè sè", "dè tè"]},
+    {"type": "order", "sounds": ["s-se3", "s-ce2"], "options": ["sě cé", "cě sé", "sě cè", "sè cé"]},
+    {"type": "hear", "play": "s-ce1", "options": ["zē", "cē", "sē", "tē"]},
+    {"type": "tone", "play": "s-se3", "options": [1, 2, 3, 4]},
+    {"type": "tone", "play": "s-ze4", "options": [1, 2, 3, 4]},
+    {"type": "odd", "play": "s-te2", "odd": "s-ce2"},
+    {"type": "order", "sounds": ["s-de1", "s-ze3", "s-ce4"], "options": ["dē zě cè", "zē dě cè", "dē zě sè", "dē cě zè"]},
+    {"type": "match", "mode": "sound", "items": ["s-se1", "s-ze2", "s-ce3", "s-de4"]},
+    {"type": "same", "pair": ["s-ce3", "s-ce4"]},
+    {"type": "type", "item": "s-se4", "from": "audio"}
   ]
 }

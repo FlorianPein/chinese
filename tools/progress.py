@@ -4,13 +4,13 @@
     python tools/progress.py --github       # what the app synced to the progress branch
 
 - data/progress.json gets the lessons done (date, best score, times), which
-  build.py uses for WORDS.md and CHART.md. Pastes from different devices add
+  build.py uses for CHART.md. Pastes from different devices add
   up: a lesson recorded before is kept, even if this paste doesn't have it
 - data/progress-log.jsonl gets every new log entry (finished lessons, wrong
-  answers, flashcard grades), without duplicates
+  answers, practice rounds), without duplicates
 - prints a summary of weak spots over the whole log, for PROGRESS.md
 
-Run tools/build.py afterwards to update WORDS.md and CHART.md.
+Run tools/build.py afterwards to update CHART.md.
 """
 
 import json
@@ -83,9 +83,10 @@ def main():
         tones = Counter(e["want"].split()[0] + " → " + e["got"] for e in misses if e["type"] == "tone")
         if tones:
             print("Tone confusions:", ", ".join(f"{k} ({n}×)" for k, n in tones.most_common(8)))
-    again = Counter(e["card"] for e in log if e["t"] == "review" and e["grade"] == "again")
-    if again:
-        print("\nFlashcards forgotten most:", ", ".join(f"{c} ({n}×)" for c, n in again.most_common(10)))
+    rounds = [e for e in log if e["t"] == "practice"]
+    if rounds:
+        right, total = sum(e["right"] for e in rounds), sum(e["total"] for e in rounds)
+        print(f"\nPractice: {total} questions, {round(100 * right / total)}% right")
 
 
 if __name__ == "__main__":
