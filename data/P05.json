@@ -1,25 +1,15 @@
 {
   "lesson": "P05",
-  "goal": "Hear zhe che she re in all four tones, hear ze from zhe and se from she, and say this one and my car.",
-  "items": [
-    {"id": "zhe", "kind": "word", "pinyin": "zhè", "english": "this", "hanzi": "这", "note": "Tongue curled back, no puff, sharp fall."},
-    {"id": "che", "kind": "word", "pinyin": "chē", "english": "vehicle, car", "hanzi": "车", "note": "Tongue curled back, with a puff: like English ch, then a deep e. Any vehicle: car, bus, bike."},
-    {"id": "re", "kind": "word", "pinyin": "rè", "english": "hot", "hanzi": "热", "note": "The English r of run, with a little buzz. Not a German r."},
-    {"id": "zhege", "kind": "word", "pinyin": "zhège", "english": "this one", "hanzi": "这个", "note": "zhè + the counting word ge (light). Many people say zhèige."},
-    {"id": "wo-de-che", "kind": "phrase", "pinyin": "Wǒ de chē", "english": "my car", "literal": "I / 's / car", "hanzi": "我的车"},
-    {"id": "zhege-ne", "kind": "phrase", "pinyin": "Zhège ne?", "english": "And this one? / What about this one?", "literal": "this one / (what about?)", "hanzi": "这个呢？", "note": "ne again: what about …? Point at something and ask."}
-  ],
-  "sounds": {
-    "s-zhe4": "this", "s-che1": "vehicle, car", "s-re4": "hot"
-  },
+  "goal": "Hear zhe che she re in all four tones, hear ze from zhe, se from she and re from le.",
+  "items": [],
   "steps": [
     {"type": "intro", "title": "Warm-up",
      "text": "A quick look back at P04: **ze ce se** in all four tones.",
      "rows": [["s-ze1", "s-ze2", "s-ze3", "s-ze4"], ["s-ce1", "s-ce2", "s-ce3", "s-ce4"], ["s-se1", "s-se2", "s-se3", "s-se4"]]},
     {"type": "hear", "play": "s-ce4", "options": ["zè", "cè", "sè"]},
     {"type": "tone", "play": "s-ze2", "options": [1, 2, 3, 4]},
-    {"type": "meaning", "item": "ke", "from": "audio", "options": ["ke", "ke-thirsty", "ge"]},
-    {"type": "meaning", "item": "wo-he-gege", "from": "audio", "options": ["wo-he-gege", "wo-ke-le", "gege"]},
+    {"type": "odd", "play": "s-se4", "odd": "s-ce4"},
+    {"type": "order", "sounds": ["s-ze3", "s-ce1"], "options": ["zě cē", "cě zē", "zě cè", "zè cē"]},
 
     {"type": "intro", "title": "The tongue curled back",
      "text": "Today: **zh ch sh r**. For all four, curl the tip of your tongue up and back, behind the bump above your top teeth. That gives them a darker, hollow sound.\n\n- **zh** like the *j* in English *jam*, without the buzz; German *dsch*.\n- **ch** like English *church*, with a puff; German *tsch*.\n- **sh** like English *shoe*, German *sch*.\n- **r** like the English *r* in *run*, with a little buzz, a bit like the *s* in *pleasure*. Never a German r.\n\nThey're written with two letters but are one sound each.",
@@ -48,19 +38,20 @@
     {"type": "tone", "play": "s-ke1", "options": [1, 2, 3, 4]},
     {"type": "type", "item": "s-che4", "from": "audio"},
 
-    {"type": "new", "item": "zhe"},
-    {"type": "new", "item": "che"},
-    {"type": "meaning", "item": "che", "from": "audio", "options": ["che", "zhe", "ke"]},
-    {"type": "new", "item": "re"},
-    {"type": "hear", "play": "re", "options": ["rè", "lè", "shè"]},
-    {"type": "new", "item": "zhege"},
-    {"type": "new", "item": "wo-de-che"},
-    {"type": "new", "item": "zhege-ne"},
-    {"type": "meaning", "item": "zhege-ne", "from": "audio", "options": ["zhege-ne", "wo-ne", "wo-de-che"]},
-    {"type": "pinyin", "item": "zhe", "options": ["zhè", "zè", "chè"]},
-    {"type": "match", "items": ["zhe", "che", "re", "zhege", "e"]},
-    {"type": "meaning", "item": "re", "from": "audio", "options": ["re", "e", "ke-thirsty"]},
-    {"type": "meaning", "item": "wo-de-che", "from": "audio", "options": ["wo-de-che", "wo-he-gege", "zhege"]},
-    {"type": "type", "item": "che", "from": "english"}
+    {"type": "intro", "title": "Bright or dark",
+     "text": "Pairs in a row: one with the tongue at the teeth, one curled back. **z c s** are bright and hissing, **zh ch sh** dark and hushing.\n\nAnd **r** against **l**: for l the tongue tip touches behind the top teeth; for r it's curled back and doesn't touch anything.",
+     "rows": [["s-ze1", "s-zhe1"], ["s-she3", "s-se3"], ["s-re2", "s-le2"]]},
+    {"type": "odd", "play": "s-zhe4", "odd": "s-ze4"},
+    {"type": "odd", "play": "s-she2", "odd": "s-se2"},
+    {"type": "order", "sounds": ["s-se1", "s-she1"], "options": ["sē shē", "shē sē", "sē sè", "cē chē"]},
+    {"type": "order", "sounds": ["s-che4", "s-ce4"], "options": ["chè cè", "cè chè", "chè cě", "zhè zè"]},
+    {"type": "hear", "play": "s-re2", "options": ["ré", "lé", "shé"]},
+    {"type": "same", "pair": ["s-re3", "s-le3"]},
+    {"type": "tone", "play": "s-re3", "options": [1, 2, 3, 4]},
+    {"type": "odd", "play": "s-che3", "odd": "s-zhe3"},
+    {"type": "order", "sounds": ["s-zhe1", "s-re2", "s-she4"], "options": ["zhē ré shè", "zē ré sè", "zhē lé shè", "zhē ré shě"]},
+    {"type": "match", "mode": "sound", "items": ["s-ze1", "s-zhe2", "s-se3", "s-she4"]},
+    {"type": "hear", "play": "s-zhe3", "options": ["zě", "zhě", "zhè", "chě"]},
+    {"type": "type", "item": "s-zhe4", "from": "audio"}
   ]
 }

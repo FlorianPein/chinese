@@ -1,12 +1,7 @@
 {
   "lesson": "P07",
-  "goal": "Hear the puff of air in all six pairs (b/p, d/t, g/k, z/c, zh/ch, j/q) in a random mix, and learn cola and polite.",
-  "items": [
-    {"id": "kele", "kind": "word", "pinyin": "kělè", "english": "cola", "hanzi": "可乐", "note": "A puff on the k, none on the l. Low, then falling. Literally: can + happy."},
-    {"id": "keqi", "kind": "word", "pinyin": "kèqi", "english": "polite", "hanzi": "客气", "note": "qi is light here. Later: bú kèqi, you're welcome (literally: don't be polite)."},
-    {"id": "wo-he-kele", "kind": "phrase", "pinyin": "Wǒ hē kělè.", "english": "I'll have a cola. / I drink cola.", "literal": "I / drink / cola", "hanzi": "我喝可乐。", "note": "Ordering is that simple: I + drink + the drink."},
-    {"id": "gege-keqi", "kind": "phrase", "pinyin": "Gēge kèqi.", "english": "My brother is polite.", "literal": "older brother / polite", "hanzi": "哥哥客气。", "note": "No word for is: Chinese puts the describing word straight after the person."}
-  ],
+  "goal": "Hear the puff of air in all six pairs (b/p, d/t, g/k, z/c, zh/ch, j/q) in a random mix, alone and in a row, with all four tones.",
+  "items": [],
   "steps": [
     {"type": "intro", "title": "Recap: the puff of air",
      "text": "No new sounds today. You've met six pairs that differ only in a **puff of air**: the second of each pair has one, the first doesn't.\n\nHand in front of your mouth: b d g z zh j stay still, p t k c ch q blow. This lesson mixes them all up, in all four tones.",
@@ -43,19 +38,19 @@
     {"type": "type", "item": "s-ke4", "from": "audio"},
     {"type": "type", "item": "s-qi2", "from": "audio"},
 
-    {"type": "new", "item": "kele"},
-    {"type": "new", "item": "keqi"},
-    {"type": "intro", "title": "kě, kè, kè",
-     "text": "Three words start with **k**: **kě** (thirsty), **kè** (class) and **kèqi** (polite), and **kělè** starts with kě. Listen for the tone of the first syllable: low, or falling?",
-     "rows": [["ke-thirsty", "kele"], ["ke", "keqi"]]},
-    {"type": "new", "item": "wo-he-kele"},
-    {"type": "new", "item": "gege-keqi"},
-    {"type": "meaning", "item": "kele", "from": "audio", "options": ["kele", "keqi", "ke"]},
-    {"type": "meaning", "item": "wo-he-kele", "from": "audio", "options": ["wo-he-kele", "wo-ke-le", "wo-xi-che"]},
-    {"type": "pinyin", "item": "keqi", "options": ["kèqi", "gèqi", "kèji"]},
-    {"type": "match", "items": ["kele", "keqi", "he", "qiche", "gege"]},
-    {"type": "meaning", "item": "gege-keqi", "from": "audio", "options": ["gege-keqi", "wo-he-gege", "zhege-ne"]},
-    {"type": "hear", "play": "kele", "options": ["kělè", "gělè", "kěnè"]},
-    {"type": "type", "item": "kele", "from": "english"}
+{"type": "intro", "title": "Puff in a row",
+     "text": "Now pairs and threes in a row, puff and no puff mixed, in all four tones. Listen to the start of each sound for the puff, then to its pitch.\n\nPlay each row with ▶.",
+     "rows": [["s-bo1", "s-po1", "s-bo4"], ["s-te2", "s-de2", "s-te3"], ["s-ke1", "s-ge3", "s-ke4"]]},
+    {"type": "odd", "play": "s-de4", "odd": "s-te4"},
+    {"type": "odd", "play": "s-qi2", "odd": "s-ji2"},
+    {"type": "order", "sounds": ["s-ke3", "s-le4"], "options": ["kě lè", "gě lè", "kè lě", "kě nè"]},
+    {"type": "order", "sounds": ["s-ke4", "s-qi1"], "options": ["kè qī", "gè qī", "kè jī", "kě qī"]},
+    {"type": "order", "sounds": ["s-po1", "s-te2", "s-ke3"], "options": ["pō té kě", "bō dé gě", "pō dé kě", "pō té kè"]},
+    {"type": "odd", "play": "s-zhe3", "odd": "s-che3"},
+    {"type": "hear", "play": "s-ce3", "options": ["zě", "cě", "zhě", "chě"]},
+    {"type": "same", "pair": ["s-po3", "s-po4"]},
+    {"type": "order", "sounds": ["s-ji4", "s-de3"], "options": ["jì dě", "qì dě", "jì tě", "jǐ dè"]},
+    {"type": "match", "mode": "sound", "items": ["s-ge1", "s-ce2", "s-bo3", "s-te4"]},
+    {"type": "type", "item": "s-te4", "from": "audio"}
   ]
 }

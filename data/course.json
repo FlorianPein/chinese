@@ -1,5 +1,5 @@
 {
- "about": "The course follows the Pinyin chart. Each lesson teaches one or more chart entries (a final with a group of initials, e.g. a:bpmf = ba pa ma fa) and may introduce tones; recap lessons (no cells) only mix earlier ones. A lesson's words may only use syllables and tones taught up to and including that lesson; tools/build.py checks this. Lessons with a data/<id>.json file are built; the others are planned, and their 'words' are candidates.",
+ "about": "The course follows the Pinyin chart. Each lesson teaches one or more chart entries (a final with a group of initials, e.g. a:bpmf = ba pa ma fa) and P01 introduces all four tones; recap lessons (no cells) only mix earlier ones. For now the lessons teach only sounds and tones, no words. Lessons with a data/<id>.json file are built; the others are planned.",
 
  "groups": [
   {"id": "none", "name": "no initial", "initials": [""]},
@@ -24,86 +24,64 @@
   {"id": "T01", "title": "One group of initials per lesson", "lessons": [
    {"id": "P01", "title": "bo po mo fo · wo", "cells": ["o:bpmf", "o:none", "uo:none"], "tones": [1, 2, 3, 4],
     "focus": "All four tones, side by side; b vs p (the puff of air); the o that sounds like wo"},
-   {"id": "P02", "title": "de te ne le · me · e", "cells": ["e:dtnl", "e:bpmf", "e:none"], "tones": [5],
-    "focus": "The vowel e; d vs t; the 2nd tone against the 3rd; the light neutral tone"},
+   {"id": "P02", "title": "de te ne le · me · e", "cells": ["e:dtnl", "e:bpmf", "e:none"],
+    "focus": "The vowel e; d vs t; the 2nd tone against the 3rd"},
    {"id": "P03", "title": "ge ke he", "cells": ["e:gkh"],
-    "focus": "g vs k; the rough h; the 1st tone against the 4th",
-    "words": ["hē", "hé", "kě", "gēge"]},
+    "focus": "g vs k; the rough h; the 4th tone against the 3rd and the 1st"},
    {"id": "P04", "title": "ze ce se", "cells": ["e:zcs"],
-    "focus": "z = a soft German z (ts), c = ts with a puff, s always sharp; z vs c vs d and t",
-    "words": ["sè", "gè", "kè"]},
+    "focus": "z = a soft German z (ts), c = ts with a puff, s always sharp; z vs c vs d and t"},
    {"id": "P05", "title": "zhe che she re", "cells": ["e:zhchshr"],
-    "focus": "The tongue curled back; ze vs zhe, se vs she",
-    "words": ["zhè", "chē", "rè", "zhège"]},
+    "focus": "The tongue curled back; ze vs zhe, se vs she"},
    {"id": "P06", "title": "ji qi xi", "cells": ["i:jqx"],
-    "focus": "The flat tongue; j vs q; xi vs se vs she",
-    "words": ["qī", "jǐ", "xǐ", "qìchē"]}
+    "focus": "The flat tongue; j vs q; xi vs se vs she"}
   ]},
   {"id": "T02", "title": "Recap", "lessons": [
    {"id": "P07", "title": "Recap: the puff of air", "cells": [],
-    "focus": "b/p, d/t, g/k, z/c, zh/ch, j/q mixed, all four tones",
-    "words": ["kělè", "kèqi"]},
+    "focus": "b/p, d/t, g/k, z/c, zh/ch, j/q mixed, all four tones"},
    {"id": "P08", "title": "Recap: z, zh or j?", "cells": [],
-    "focus": "z/zh/j, c/ch/q, s/sh/x and r mixed, all four tones, faster",
-    "words": ["jìde", "jǐ ge"]}
+    "focus": "z/zh/j, c/ch/q, s/sh/x and r mixed, all four tones, faster"}
   ]},
   {"id": "T03", "title": "Simple finals, mixed", "lessons": [
    {"id": "P09", "title": "ba da ga za zha · a", "cells": ["a:none", "a:bpmf", "a:dtnl", "a:gkh", "a:zcs", "a:zhchshr"],
-    "focus": "The a row everywhere; a vs e (da/de, ga/ge, zha/zhe)",
-    "words": ["bàba", "māma", "tā", "chá", "nǎ"]},
+    "focus": "The a row everywhere; a vs e (da/de, ga/ge, zha/zhe)"},
    {"id": "P10", "title": "zi zhi ji · ci chi qi · si shi xi · er", "cells": ["-i:zcs", "-i:zhchshr", "er:none"],
-    "focus": "Three kinds of i; z/zh/j side by side; the r-sound er",
-    "words": ["sì", "shì", "chī", "èr"]},
+    "focus": "Three kinds of i; z/zh/j side by side; the r-sound er"},
    {"id": "P11", "title": "bi di yi · bu du gu wu", "cells": ["i:none", "i:bpmf", "i:dtnl", "u:none", "u:bpmf", "u:dtnl", "u:gkh"],
-    "focus": "i vs u; bù becomes bú before a 4th tone",
-    "words": ["nǐ", "yī", "bù", "wǔ", "dìdi"]},
+    "focus": "i vs u"},
    {"id": "P12", "title": "zu zhu ju · lu lü · wu yu", "cells": ["u:zcs", "u:zhchshr", "ü:none", "ü:dtnl", "ü:jqx"],
-    "focus": "u vs ü; after j q x the u is always ü",
-    "words": ["yú", "qù", "shū", "zhù"]}
+    "focus": "u vs ü; after j q x the u is always ü"}
   ]},
   {"id": "T04", "title": "ai ei ao ou, mixed", "lessons": [
    {"id": "P13", "title": "ai vs ei", "cells": ["ai:none", "ai:bpmf", "ai:dtnl", "ai:gkh", "ei:none", "ei:bpmf", "ei:dtnl", "ei:gkh"],
-    "focus": "ai (English eye) against ei (English day)",
-    "words": ["lái", "mǎi", "mài", "méi", "gěi"]},
+    "focus": "ai (English eye) against ei (English day)"},
    {"id": "P14", "title": "ao vs ou", "cells": ["ao:none", "ao:bpmf", "ao:dtnl", "ao:gkh", "ou:none", "ou:bpmf", "ou:dtnl", "ou:gkh"],
-    "focus": "ao (English how) against ou (English go); two 3rd tones in a row",
-    "words": ["hǎo", "dōu", "gǒu", "lǎoshī"]},
+    "focus": "ao (English how) against ou (English go)"},
    {"id": "P15", "title": "zai zhai · zei shei · zao zhao · zou zhou", "cells": ["ai:zcs", "ai:zhchshr", "ei:zcs", "ei:zhchshr", "ao:zcs", "ao:zhchshr", "ou:zcs", "ou:zhchshr"],
-    "focus": "z c s against zh ch sh with all four finals",
-    "words": ["zài", "cài", "shéi", "zǒu", "zhǎo"]}
+    "focus": "z c s against zh ch sh with all four finals"}
   ]},
   {"id": "T05", "title": "-n and -ng, mixed", "lessons": [
    {"id": "P16", "title": "an vs ang", "cells": ["an:none", "an:bpmf", "an:dtnl", "an:gkh", "ang:none", "ang:bpmf", "ang:dtnl", "ang:gkh"],
-    "focus": "The endings -n and -ng",
-    "words": ["kàn", "fàn", "nán", "máng", "bāng"]},
+    "focus": "The endings -n and -ng"},
    {"id": "P17", "title": "san shan · sang shang · song zhong", "cells": ["an:zcs", "an:zhchshr", "ang:zcs", "ang:zhchshr", "ong:dtnl", "ong:gkh", "ong:zcs", "ong:zhchshr"],
-    "focus": "an vs ang vs ong; ong sounds like German ung",
-    "words": ["sān", "shàng", "chīfàn", "dǒng", "hóng"]},
+    "focus": "an vs ang vs ong; ong sounds like German ung"},
    {"id": "P18", "title": "en vs eng", "cells": ["en:none", "en:bpmf", "en:dtnl", "en:gkh", "en:zcs", "en:zhchshr", "eng:none", "eng:bpmf", "eng:dtnl", "eng:gkh", "eng:zcs", "eng:zhchshr"],
-    "focus": "en against eng across the whole chart",
-    "words": ["hěn", "rén", "shénme", "néng", "lěng"]}
+    "focus": "en against eng across the whole chart"}
   ]},
   {"id": "T06", "title": "Finals starting with i, mixed", "lessons": [
    {"id": "P19", "title": "ya ye yao", "cells": ["ia:none", "ia:dtnl", "ia:jqx", "ie:none", "ie:bpmf", "ie:dtnl", "ie:jqx", "iao:none", "iao:bpmf", "iao:dtnl", "iao:jqx"],
-    "focus": "i gliding into a, e and ao; the e in ie is like German e in jetzt",
-    "words": ["jiā", "xièxie", "yě", "jiào", "xiǎo"]},
+    "focus": "i gliding into a, e and ao; the e in ie is like German e in jetzt"},
    {"id": "P20", "title": "you yan", "cells": ["iu:none", "iu:bpmf", "iu:dtnl", "iu:jqx", "ian:none", "ian:bpmf", "ian:dtnl", "ian:jqx"],
-    "focus": "iu is short for iou; ian sounds like ien",
-    "words": ["yǒu", "jiǔ", "liù", "tiān", "qián"]},
+    "focus": "iu is short for iou; ian sounds like ien"},
    {"id": "P21", "title": "yin ying · yang yong", "cells": ["in:none", "in:bpmf", "in:dtnl", "in:jqx", "ing:none", "ing:bpmf", "ing:dtnl", "ing:jqx", "iang:none", "iang:dtnl", "iang:jqx", "iong:none", "iong:jqx"],
-    "focus": "in vs ing; iang vs iong",
-    "words": ["nín", "míngzi", "tīng", "xiǎng", "liǎng"]}
+    "focus": "in vs ing; iang vs iong"}
   ]},
   {"id": "T07", "title": "Finals starting with u and ü, mixed", "lessons": [
    {"id": "P22", "title": "wa wo wai", "cells": ["ua:none", "ua:gkh", "ua:zhchshr", "uo:dtnl", "uo:gkh", "uo:zcs", "uo:zhchshr", "uai:none", "uai:gkh", "uai:zhchshr"],
-    "focus": "u gliding into a, o and ai (you know wo from P01)",
-    "words": ["huā", "shuō", "duō", "kuài", "Zhōngguó"]},
+    "focus": "u gliding into a, o and ai (you know wo from P01)"},
    {"id": "P23", "title": "wei wan wen", "cells": ["ui:none", "ui:dtnl", "ui:gkh", "ui:zcs", "ui:zhchshr", "uan:none", "uan:dtnl", "uan:gkh", "uan:zcs", "uan:zhchshr", "un:none", "un:dtnl", "un:gkh", "un:zcs", "un:zhchshr"],
-    "focus": "ui is short for uei, un for uen",
-    "words": ["duì", "shuǐ", "wèn", "wǎn", "xǐhuan"]},
+    "focus": "ui is short for uei, un for uen"},
    {"id": "P24", "title": "wang weng · yue yuan yun", "cells": ["uang:none", "uang:gkh", "uang:zhchshr", "ueng:none", "üe:none", "üe:dtnl", "üe:jqx", "üan:none", "üan:jqx", "ün:none", "ün:jqx"],
-    "focus": "u vs ü: wan/yuan, wen/yun; the last finals",
-    "words": ["xué", "yuè", "yuǎn", "chuáng", "juéde"]}
+    "focus": "u vs ü: wan/yuan, wen/yun; the last finals"}
   ]}
  ]
 }

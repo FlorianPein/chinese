@@ -1,15 +1,7 @@
 {
   "lesson": "P01",
-  "goal": "Hear bo po mo fo and wo in all four tones, hear b from p, and learn 4 words: one in each tone.",
-  "items": [
-    {"id": "wo", "kind": "word", "pinyin": "wǒ", "english": "I, me", "hanzi": "我", "note": "Low 3rd tone. The w is a short u gliding into the o, like English war (without the r)."},
-    {"id": "po", "kind": "word", "pinyin": "pò", "english": "broken", "hanzi": "破", "note": "A strong puff of air on the p, then a sharp fall."},
-    {"id": "mo", "kind": "word", "pinyin": "mō", "english": "to touch, to feel", "hanzi": "摸", "note": "High and flat."},
-    {"id": "fo", "kind": "word", "pinyin": "fó", "english": "Buddha", "hanzi": "佛", "note": "Rising, like a surprised What?"}
-  ],
-  "sounds": {
-    "s-mo1": "to touch", "s-po4": "broken", "s-wo3": "I, me", "s-fo2": "Buddha"
-  },
+  "goal": "Hear bo po mo fo and wo in all four tones, hear b from p, and tell the four tones apart, one at a time and two or three in a row.",
+  "items": [],
   "steps": [
     {"type": "intro", "title": "The Pinyin chart",
      "text": "Every Chinese syllable is built the same way: an **initial** (the consonant at the start), a **final** (the rest) and a **tone** (the pitch).\n\nThe Pinyin chart lists all of them, about 400. Each of the first lessons teaches one group of initials.\n\nToday: the lips, **b p m f**, with the final **o**. After b p m f the o has a little *w* in front: **bo** sounds like *b-wo*. The o itself is open, like British English *law* or German *Sonne*, but longer.\n\nWith no initial, the w is written out: **wo**.",
@@ -20,9 +12,10 @@
     {"type": "hear", "play": "s-po1", "options": ["bō", "pō"]},
     {"type": "same", "pair": ["s-bo4", "s-po4"]},
     {"type": "hear", "play": "s-bo2", "options": ["bó", "pó", "mó"]},
+    {"type": "odd", "play": "s-bo1", "odd": "s-po1"},
 
     {"type": "intro", "title": "Every syllable has a tone",
-     "text": "A tone is a pitch shape. Change the tone and you get a different word. Here is **mo** in the four tones. Just listen.\n\nYou'll always practise all four together: hearing them side by side is how you learn to tell them apart.",
+     "text": "A tone is a pitch shape. Change the tone and you get a different syllable, with a different meaning. Here is **mo** in the four tones. Just listen.\n\nYou'll always practise all four together: hearing them side by side is how you learn to tell them apart.",
      "rows": [["s-mo1", "s-mo2", "s-mo3", "s-mo4"]]},
     {"type": "intro", "tone": 1, "title": "1st tone: high and flat",
      "text": "Start high and hold it, like singing one note.\n\nEnglish: the *Aaah* at the doctor's. German: a sung *Laaa*.\n\nThe mark is a flat line: **ō**. As a number: **o1**. The top row has all four tones to compare.",
@@ -31,10 +24,10 @@
      "text": "Start in the middle and go up, like a surprised *What?* German: *Was?*, or *Ja?* answering the phone.\n\nThe mark rises from left to right: **ó**. As a number: **o2**.",
      "rows": [["s-mo1", "s-mo2", "s-mo3", "s-mo4"], ["s-bo2", "s-po2", "s-mo2", "s-fo2"]]},
     {"type": "intro", "tone": 3, "title": "3rd tone: low",
-     "text": "Drop your voice low and keep it relaxed. A bit creaky is fine.\n\nEnglish: a low, doubtful *Hmm…* German: a reluctant *Na ja…*\n\nSaid on its own it often rises a little at the end. Inside a sentence it mostly just stays **low**, so think *low*, not *down-up*.\n\nThe mark is a little valley: **ǒ**. As a number: **o3**.",
+     "text": "Drop your voice low and keep it relaxed. A bit creaky is fine.\n\nEnglish: a low, doubtful *Hmm…* German: a reluctant *Na ja…*\n\nSaid on its own it dips and comes back up at the end, and it's the longest tone. Inside a sentence it mostly just stays **low**, so think *low*, not *down-up*.\n\nThe mark is a little valley: **ǒ**. As a number: **o3**.",
      "rows": [["s-mo1", "s-mo2", "s-mo3", "s-mo4"], ["s-bo3", "s-po3", "s-mo3", "s-fo3"]]},
     {"type": "intro", "tone": 4, "title": "4th tone: a sharp fall",
-     "text": "Start high and drop fast, like a firm *No!* German: *Nein!* or *Doch!*\n\nThe mark falls from left to right: **ò**. As a number: **o4**.",
+     "text": "Start high and drop fast, like a firm *No!* German: *Nein!* or *Doch!* It's the shortest tone.\n\nThe mark falls from left to right: **ò**. As a number: **o4**.",
      "rows": [["s-mo1", "s-mo2", "s-mo3", "s-mo4"], ["s-bo4", "s-po4", "s-mo4", "s-fo4"]]},
     {"type": "same", "pair": ["s-mo2", "s-mo3"]},
     {"type": "chart", "title": "Your first block of the chart",
@@ -50,22 +43,25 @@
     {"type": "hear", "play": "s-mo2", "options": ["mō", "mó", "mǒ", "mò"]},
     {"type": "type", "item": "s-po4", "from": "audio"},
 
-    {"type": "new", "item": "wo"},
-    {"type": "tone", "play": "wo", "options": [1, 2, 3, 4]},
-    {"type": "new", "item": "po"},
-    {"type": "meaning", "item": "po", "from": "audio", "options": ["po", "wo"]},
-    {"type": "new", "item": "mo"},
-    {"type": "hear", "play": "mo", "options": ["mō", "mó", "mǒ", "mò"]},
-    {"type": "new", "item": "fo"},
-    {"type": "intro", "title": "Four words, four tones",
-     "text": "Your four words each have a different tone: **mō** (1st, high), **fó** (2nd, rising), **wǒ** (3rd, low), **pò** (4th, falling). Play the row and listen to the four shapes.",
-     "rows": [["mo", "fo", "wo", "po"]]},
-    {"type": "meaning", "item": "fo", "from": "audio", "options": ["fo", "po", "mo"]},
-    {"type": "same", "pair": ["s-fo2", "s-fo3"]},
-    {"type": "match", "items": ["wo", "po", "mo", "fo"]},
-    {"type": "meaning", "item": "wo", "from": "audio", "options": ["wo", "mo", "po"]},
-    {"type": "pinyin", "item": "mo", "options": ["mō", "mǒ", "mò"]},
-    {"type": "hear", "play": "fo", "options": ["fō", "fó", "fǒ", "fò"]},
-    {"type": "type", "item": "wo", "from": "audio"}
+    {"type": "intro", "title": "wo: the o on its own",
+     "text": "With no initial in front, the o of bo po mo fo is written **wo**: the little *w* you hear after b p m f, now on its own. It sounds like English *war* without the r.\n\nTop row: **wo** in the four tones. Below: **mo** against **wo**, and **bo** against **wo**.",
+     "rows": [["s-wo1", "s-wo2", "s-wo3", "s-wo4"], ["s-mo3", "s-wo3"], ["s-bo4", "s-wo4"]]},
+    {"type": "tone", "play": "s-wo3", "options": [1, 2, 3, 4]},
+    {"type": "hear", "play": "s-wo4", "options": ["mò", "wò", "bò"]},
+
+    {"type": "intro", "title": "Tones in a row",
+     "text": "In real speech, syllables come one after another, and you have to catch each tone on the way. Now you'll hear two or three sounds in a row and pick the Pinyin that says them, in that order.\n\nFollow the shape of each one: high, rising, low or falling. Play each row with ▶.",
+     "rows": [["s-mo1", "s-mo3"], ["s-po2", "s-po4"], ["s-fo1", "s-fo2", "s-fo4"]]},
+    {"type": "order", "sounds": ["s-mo1", "s-mo3"], "options": ["mō mǒ", "mǒ mō", "mó mǒ", "mō mò"]},
+    {"type": "odd", "play": "s-fo2", "odd": "s-fo3"},
+    {"type": "order", "sounds": ["s-po4", "s-po2"], "options": ["pò pó", "pó pò", "pò pǒ", "bò bó"]},
+    {"type": "tone", "play": "s-fo2", "options": [1, 2, 3, 4]},
+    {"type": "odd", "play": "s-mo1", "odd": "s-mo4"},
+    {"type": "same", "pair": ["s-wo2", "s-wo3"]},
+    {"type": "order", "sounds": ["s-bo1", "s-po3", "s-mo4"], "options": ["bō pǒ mò", "pō bǒ mò", "bō pǒ mó", "bō pò mǒ"]},
+    {"type": "hear", "play": "s-fo2", "options": ["fō", "fó", "fǒ", "fò"]},
+    {"type": "odd", "play": "s-po3", "odd": "s-bo3"},
+    {"type": "match", "mode": "sound", "items": ["s-wo1", "s-fo2", "s-bo3", "s-mo4"]},
+    {"type": "type", "item": "s-wo3", "from": "audio"}
   ]
 }
