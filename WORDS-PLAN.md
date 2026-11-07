@@ -43,6 +43,9 @@ This changes two decisions in [PLAN.md](PLAN.md#decisions): *Words: none for now
         nǐ hǎo
          你好
    hello
+   ┃ Nǐ hǎo, wǒ jiào Xiǎomíng.
+   ┃ 你好，我叫小明。
+   ┃ Hello, I'm Xiaoming.
    ───────────
    Said "ní hǎo": two 3rd tones in a row, the first becomes a 2nd.
    你 = you · 好 = good
@@ -51,7 +54,9 @@ This changes two decisions in [PLAN.md](PLAN.md#decisions): *Words: none for now
      1 min        10 min       3 d       7 d          14 d
 ```
 
-- **English** meaning, plus an optional note (tone changes, a German or English comparison, what the characters mean, an example for words like 的 or 了 that don't translate on their own)
+- **English** meaning
+- **An example sentence**: Pinyin, characters and English, with the word underlined in both the Pinyin and the characters. Short, everyday sentences, mostly built from common words.
+- An optional note (tone changes, a German or English comparison, what the characters mean, an example for words like 的 or 了 that don't translate on their own)
 - **Five buttons**, each showing **when the word comes back** if you pick it. Keys **1–5** on a computer.
 
 ---
@@ -169,6 +174,7 @@ New file `data/words.json`, ordered by **how common the word is in everyday spee
 - **Cleaned up:** left out are names, swear words, subtitle artefacts (我要, 我会 are "I want", "I will", not words), written-only words (之, 于, 而), 儿 forms the voice can't say (哪儿: 哪里 is in), and most action-film words (枪, 尸体, 监狱). Words that only make sense together stay together (谢谢, 对不起, 没关系).
 - **First batch: 533 words**, then more in batches of about 500 when you get near the end
 - **English and notes written for learning:** short meanings, the tone changes, and an example where the word alone doesn't say much (的, 了, 吧, 呢)
+- **An example sentence for every word**, written in Pinyin the way the words' own Pinyin is written: tone marks without the 3rd-tone change, but with the changes of 一 and 不 (yí ge, bú shì), and light syllables unmarked (péngyou)
 
 One entry:
 
@@ -179,6 +185,7 @@ One entry:
   "pinyin": "nǐ hǎo",
   "english": "hello",
   "note": "Two 3rd tones: said ní hǎo.",
+  "example": {"hanzi": "你好，我叫小明。", "pinyin": "Nǐ hǎo, wǒ jiào Xiǎomíng.", "english": "Hello, I'm Xiaoming."},
   "rank": 188
 }
 ```
@@ -187,9 +194,9 @@ One entry:
 
 ### Build (`tools/build.py`)
 
-- **Checks:** every word has characters, Pinyin with valid tone marks and English; ids are unique; one syllable per character; the voice can say every syllable (same rule as for lesson words)
+- **Checks:** every word has characters, Pinyin with valid tone marks and English; ids are unique; one syllable per character; the voice can say every syllable (same rule as for lesson words). The example sentence has all three parts, one syllable per character, and contains the word with the word's own Pinyin (only 一 and 不 may change tone, and a syllable may be light, as in 三个 sān ge)
 - **Audio:** one MP3 per word from the same offline voice, with the spoken tone changes (*nǐ hǎo* → *ní hǎo*, *bù shì* → *bú shì*), tone-checked like the lesson audio, in `docs/audio/w-<code points>.mp3` (你好 → `w-4f60-597d.mp3`). In words like *wǒmen* the voice doesn't stop between syllables, so the check splits the word evenly to measure each tone; that's only used to pick the best take. Light (neutral) syllables aren't checked. Where no take clearly has the right tones (35 of 533 words), the card says *The recording may not have every tone right: go by the Pinyin.*
-- **Output:** `docs/words.json`, loaded by the Words tab
+- **Output:** `docs/words.json`, loaded by the Words tab. Each example gets the place of the word in the characters and in the Pinyin, so the card can underline it
 
 ---
 

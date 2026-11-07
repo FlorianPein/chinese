@@ -228,6 +228,11 @@ details.later .list { margin-top: 10px; }
 .wcard .py { margin-top: 10px; }
 .wcard .hz { font-size: 2.6rem; line-height: 1.3; margin-top: 8px; font-family: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif; }
 .wcard .parts { color: var(--muted); font-size: .9rem; margin-top: 6px; }
+.wex { margin: 14px auto 4px; padding: 10px 14px; border-left: 3px solid var(--accent); background: var(--surface-2); border-radius: 8px; text-align: left; max-width: 26rem; }
+.wex-py { font-size: 1.05rem; }
+.wex-hz { font-size: 1.35rem; margin-top: 2px; font-family: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif; }
+.wex-en { color: var(--muted); margin-top: 4px; }
+.wex b { font-weight: 700; text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 3px; }
 .grades.five { grid-template-columns: repeat(5, 1fr); gap: 6px; }
 .grades.five .btn { font-size: .82rem; padding: 8px 2px; min-height: 58px; }
 .grades .btn.g1 { border-color: var(--bad); }
@@ -727,6 +732,14 @@ function nextWord() {
   renderWordCard();
   if (state.settings.autoplay) play(W.byHanzi[next.word].audio);
 }
+// the example sentence on the back of a word card, the word itself highlighted
+function exampleBlock(ex) {
+  const [a, b, c, d] = ex.mark;
+  const hl = (t, i, j) => `${esc(t.slice(0, i))}<b>${esc(t.slice(i, j))}</b>${esc(t.slice(j))}`;
+  return `<div class="wex"><div class="wex-py">${hl(ex.pinyin, c, d)}</div>
+    <div class="wex-hz" lang="zh-CN">${hl(ex.hanzi, a, b)}</div>
+    <div class="wex-en">${esc(ex.english)}</div></div>`;
+}
 function renderWordCard() {
   const s = W.session, h = s.current.word, w = W.byHanzi[h], card = state.words[h];
   const n = SRS.counts(W.list, state.words, Date.now());
@@ -742,6 +755,7 @@ function renderWordCard() {
       ${pinyinBlock(w)}
       <div class="hz" lang="zh-CN">${esc(w.hanzi)}</div>
       ${s.flipped ? `<hr><div class="big-en">${esc(w.english)}</div>
+        ${w.example ? exampleBlock(w.example) : ""}
         ${w.parts ? `<div class="parts" lang="zh-CN">${esc(w.parts)}</div>` : ""}
         ${w.note ? `<div class="note">${esc(w.note)}</div>` : ""}
         ${w.audio_note ? `<div class="note">${esc(w.audio_note)}</div>` : ""}`

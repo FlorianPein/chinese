@@ -42,7 +42,7 @@ More lessons are added as you go (next: P09, *ba da ga za zha*). Every lesson us
 |-----|--------------|
 | **Learn** | The lessons in chart order. Tap the next one to start. Planned lessons are shown greyed out. |
 | **Practice** | An endless listening drill with the sounds of the lessons you've finished: which tone, which sound, or same or different. A sound you get wrong comes back a few questions later. |
-| **Words** | Flashcards of the most common words, Anki-style. You hear the word and see its Pinyin and characters; tap for the English, then pick *Don't know*, *Barely know*, *Know*, *Safely know* or *Securely know*. Each button shows when the word comes back. New words come in among the old ones: the fewer old words are due, the more new ones. Details in [WORDS-PLAN.md](WORDS-PLAN.md). |
+| **Words** | Flashcards of the most common words, Anki-style. You hear the word and see its Pinyin and characters; tap for the English and an example sentence (Pinyin, characters, English), then pick *Don't know*, *Barely know*, *Know*, *Safely know* or *Securely know*. Each button shows when the word comes back. New words come in among the old ones: the fewer old words are due, the more new ones. Details in [WORDS-PLAN.md](WORDS-PLAN.md). |
 | **Listen** | All audio of a lesson: every sound in each tone. 🐢 plays slowly. |
 | **⚙︎** | **Copy progress for Claude**, mark lessons as done, settings, export/import your progress (it's stored per browser). |
 

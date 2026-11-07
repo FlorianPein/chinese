@@ -34,6 +34,7 @@ import subprocess
 import sys
 import tarfile
 import tempfile
+import unicodedata
 import urllib.request
 from pathlib import Path
 
@@ -182,7 +183,50 @@ def check_words(words):
         if len(syl) != len(w["hanzi"]):
             errors.append(f"{where}: {len(syl)} syllables in {w['pinyin']!r} "
                           f"for {len(w['hanzi'])} characters")
+            continue
+        if "example" in w:
+            try:
+                example_mark(w)
+            except ValueError as e:
+                errors.append(f"{where}: example: {e}")
     return errors
+
+
+def example_mark(w):
+    """Where the word is in its example sentence, so the card can highlight it:
+    [start, end] in the characters and [start, end] in the Pinyin. Checks the
+    example on the way: all three parts there, one syllable per character, and
+    the word in it with its own Pinyin (yī and bù may change tone)."""
+    ex = w["example"]
+    if not all(ex.get(k) for k in ("hanzi", "pinyin", "english")):
+        raise ValueError("needs hanzi, pinyin and english")
+    hz, py = ex["hanzi"], unicodedata.normalize("NFC", ex["pinyin"])
+    if not re.fullmatch(r"[一-鿿，。？！：；、]+", hz):
+        raise ValueError(f"{hz!r}: Chinese characters and Chinese punctuation only")
+    # each syllable's place in the Pinyin text
+    spans = []
+    for m in re.finditer(r"[^\W\d_]+", py):
+        letters, _ = pinyin._letters_and_tones(m.group())
+        parts = pinyin._split_word(letters)
+        if parts is None or len(letters) != len(m.group()):
+            raise ValueError(f"can't split {m.group()!r} into Pinyin syllables")
+        pos = m.start()
+        for part in parts:
+            spans.append((pos, pos + len(part)))
+            pos += len(part)
+    chars = re.findall(r"[一-鿿]", hz)
+    if len(spans) != len(chars):
+        raise ValueError(f"{len(spans)} syllables in {py!r} for {len(chars)} characters")
+    start = hz.find(w["hanzi"])
+    if start < 0:
+        raise ValueError(f"{w['hanzi']} isn't in {hz!r}")
+    first = len(re.findall(r"[一-鿿]", hz[:start]))
+    n = len(w["hanzi"])
+    said = pinyin.syllables(pinyin.parse(py[spans[first][0]:spans[first + n - 1][1]]))
+    for (b1, t1), (b2, t2) in zip(pinyin.syllables(pinyin.parse(w["pinyin"])), said):
+        if b1 != b2 or (t1 != t2 and b1 not in ("yi", "bu") and t2 != 5):
+            raise ValueError(f"{w['hanzi']} is {w['pinyin']!r} but the example has {py!r}")
+    return [start, start + n, spans[first][0], spans[first + n - 1][1]]
 
 
 def tiles(text):
@@ -878,6 +922,8 @@ def build_words(words):
         for key in ("note", "audio_note"):
             if key in w:
                 card[key] = w[key]
+        if "example" in w:
+            card["example"] = {**w["example"], "mark": example_mark(w)}
         if manifest.get(iid, {}).get("method") == "best-effort" and "audio_note" not in card:
             card["audio_note"] = "The recording may not have every tone right: go by the Pinyin."
         # what each character means, where it's a flashcard word of its own
