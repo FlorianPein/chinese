@@ -1,4 +1,4 @@
-sherpa-onnx>=1.12
+sherpa-onnx>=1.12,<1.13   # 2.0 skips every take of more than one syllable (silence)
 numpy
 soundfile
 praat-parselmouth
