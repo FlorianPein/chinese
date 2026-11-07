@@ -1,9 +1,339 @@
 {
  "v": 1,
- "updated": "2026-11-07T18:41:58.607Z",
- "lessons": {},
- "removedLessons": {},
- "cards": {},
+ "updated": "2026-11-07T18:50:46.934Z",
+ "lessons": {
+  "P01": {
+   "done": "2026-10-18",
+   "last": "2026-10-18",
+   "best": 61,
+   "times": 1
+  },
+  "P02": {
+   "done": "2026-10-20",
+   "last": "2026-10-20",
+   "at": "2026-10-20T21:43:34.565Z",
+   "best": 81,
+   "times": 1
+  },
+  "P03": {
+   "done": "2026-10-20",
+   "last": "2026-10-24",
+   "at": "2026-10-24T19:05:11.133Z",
+   "best": 70,
+   "times": 2
+  }
+ },
+ "removedLessons": {
+  "P04": "2026-10-24T22:19:13.050Z"
+ },
+ "cards": {
+  "wo:read": {
+   "interval": 3,
+   "ease": 2.65,
+   "reps": 2,
+   "lapses": 0,
+   "due": 1793055600000,
+   "at": "2026-10-24T18:51:59.946Z"
+  },
+  "wo:listen": {
+   "interval": 3,
+   "ease": 2.5,
+   "reps": 2,
+   "lapses": 0,
+   "due": 1793055600000,
+   "at": "2026-10-24T18:52:04.480Z"
+  },
+  "wo:write": {
+   "interval": 1,
+   "ease": 2.35,
+   "reps": 2,
+   "lapses": 0,
+   "due": 1792882800000,
+   "at": "2026-10-24T18:52:14.303Z"
+  },
+  "po:read": {
+   "interval": 1,
+   "ease": 2.35,
+   "reps": 2,
+   "lapses": 0,
+   "due": 1792882800000,
+   "at": "2026-10-24T18:52:25.117Z"
+  },
+  "po:listen": {
+   "interval": 1,
+   "ease": 2.35,
+   "reps": 2,
+   "lapses": 0,
+   "due": 1792882800000,
+   "at": "2026-10-24T18:52:29.732Z"
+  },
+  "po:write": {
+   "interval": 1,
+   "ease": 2.35,
+   "reps": 2,
+   "lapses": 0,
+   "due": 1792882800000,
+   "at": "2026-10-24T18:52:40.590Z"
+  },
+  "mo:read": {
+   "interval": 1,
+   "ease": 2.35,
+   "reps": 2,
+   "lapses": 0,
+   "due": 1792882800000,
+   "at": "2026-10-24T18:52:48.362Z"
+  },
+  "mo:listen": {
+   "interval": 1,
+   "ease": 2.35,
+   "reps": 2,
+   "lapses": 0,
+   "due": 1792882800000,
+   "at": "2026-10-24T18:52:50.854Z"
+  },
+  "mo:write": {
+   "interval": 1,
+   "ease": 2.35,
+   "reps": 2,
+   "lapses": 0,
+   "due": 1792882800000,
+   "at": "2026-10-24T18:52:55.762Z"
+  },
+  "fo:read": {
+   "interval": 3,
+   "ease": 2.65,
+   "reps": 2,
+   "lapses": 0,
+   "due": 1793055600000,
+   "at": "2026-10-24T18:53:02.127Z"
+  },
+  "fo:listen": {
+   "interval": 1,
+   "ease": 2.35,
+   "reps": 2,
+   "lapses": 0,
+   "due": 1792882800000,
+   "at": "2026-10-24T18:53:07.689Z"
+  },
+  "fo:write": {
+   "interval": 1,
+   "ease": 2.35,
+   "reps": 2,
+   "lapses": 0,
+   "due": 1792882800000,
+   "at": "2026-10-24T18:53:11.228Z"
+  },
+  "e:read": {
+   "interval": 1,
+   "ease": 2.5,
+   "reps": 1,
+   "lapses": 0,
+   "due": 1792537200000
+  },
+  "e:listen": {
+   "interval": 1,
+   "ease": 2.5,
+   "reps": 1,
+   "lapses": 0,
+   "due": 1792537200000
+  },
+  "e:write": {
+   "interval": 1,
+   "ease": 2.5,
+   "reps": 1,
+   "lapses": 0,
+   "due": 1792537200000
+  },
+  "wode:read": {
+   "interval": 1,
+   "ease": 2.5,
+   "reps": 1,
+   "lapses": 0,
+   "due": 1792537200000
+  },
+  "wode:listen": {
+   "interval": 1,
+   "ease": 2.5,
+   "reps": 1,
+   "lapses": 0,
+   "due": 1792537200000
+  },
+  "wode:write": {
+   "interval": 1,
+   "ease": 2.5,
+   "reps": 1,
+   "lapses": 0,
+   "due": 1792537200000
+  },
+  "wo-e-le:read": {
+   "interval": 1,
+   "ease": 2.5,
+   "reps": 1,
+   "lapses": 0,
+   "due": 1792537200000
+  },
+  "wo-e-le:listen": {
+   "interval": 1,
+   "ease": 2.5,
+   "reps": 1,
+   "lapses": 0,
+   "due": 1792537200000
+  },
+  "wo-e-le:write": {
+   "interval": 1,
+   "ease": 2.5,
+   "reps": 1,
+   "lapses": 0,
+   "due": 1792537200000
+  },
+  "wo-ne:read": {
+   "interval": 1,
+   "ease": 2.5,
+   "reps": 1,
+   "lapses": 0,
+   "due": 1792537200000
+  },
+  "wo-ne:listen": {
+   "interval": 1,
+   "ease": 2.5,
+   "reps": 1,
+   "lapses": 0,
+   "due": 1792537200000
+  },
+  "wo-ne:write": {
+   "interval": 1,
+   "ease": 2.5,
+   "reps": 1,
+   "lapses": 0,
+   "due": 1792537200000
+  },
+  "he:read": {
+   "interval": 1,
+   "ease": 2.5,
+   "reps": 1,
+   "lapses": 0,
+   "due": 1792537200000
+  },
+  "he:listen": {
+   "interval": 1,
+   "ease": 2.5,
+   "reps": 1,
+   "lapses": 0,
+   "due": 1792537200000
+  },
+  "he:write": {
+   "interval": 1,
+   "ease": 2.5,
+   "reps": 1,
+   "lapses": 0,
+   "due": 1792537200000
+  },
+  "he-and:read": {
+   "interval": 1,
+   "ease": 2.5,
+   "reps": 1,
+   "lapses": 0,
+   "due": 1792537200000
+  },
+  "he-and:listen": {
+   "interval": 1,
+   "ease": 2.5,
+   "reps": 1,
+   "lapses": 0,
+   "due": 1792537200000
+  },
+  "he-and:write": {
+   "interval": 1,
+   "ease": 2.5,
+   "reps": 1,
+   "lapses": 0,
+   "due": 1792537200000
+  },
+  "ke-thirsty:read": {
+   "interval": 1,
+   "ease": 2.5,
+   "reps": 1,
+   "lapses": 0,
+   "due": 1792537200000
+  },
+  "ke-thirsty:listen": {
+   "interval": 1,
+   "ease": 2.5,
+   "reps": 1,
+   "lapses": 0,
+   "due": 1792537200000
+  },
+  "ke-thirsty:write": {
+   "interval": 1,
+   "ease": 2.5,
+   "reps": 1,
+   "lapses": 0,
+   "due": 1792537200000
+  },
+  "gege:read": {
+   "interval": 1,
+   "ease": 2.5,
+   "reps": 1,
+   "lapses": 0,
+   "due": 1792537200000
+  },
+  "gege:listen": {
+   "interval": 1,
+   "ease": 2.5,
+   "reps": 1,
+   "lapses": 0,
+   "due": 1792537200000
+  },
+  "gege:write": {
+   "interval": 1,
+   "ease": 2.5,
+   "reps": 1,
+   "lapses": 0,
+   "due": 1792537200000
+  },
+  "wo-ke-le:read": {
+   "interval": 1,
+   "ease": 2.5,
+   "reps": 1,
+   "lapses": 0,
+   "due": 1792537200000
+  },
+  "wo-ke-le:listen": {
+   "interval": 1,
+   "ease": 2.5,
+   "reps": 1,
+   "lapses": 0,
+   "due": 1792537200000
+  },
+  "wo-ke-le:write": {
+   "interval": 1,
+   "ease": 2.5,
+   "reps": 1,
+   "lapses": 0,
+   "due": 1792537200000
+  },
+  "wo-he-gege:read": {
+   "interval": 1,
+   "ease": 2.5,
+   "reps": 1,
+   "lapses": 0,
+   "due": 1792537200000
+  },
+  "wo-he-gege:listen": {
+   "interval": 1,
+   "ease": 2.5,
+   "reps": 1,
+   "lapses": 0,
+   "due": 1792537200000
+  },
+  "wo-he-gege:write": {
+   "interval": 1,
+   "ease": 2.5,
+   "reps": 1,
+   "lapses": 0,
+   "due": 1792537200000
+  }
+ },
  "words": {
   "的": {
    "step": 1,
@@ -182,8 +512,964 @@
    "at": "2026-11-07T18:26:52"
   }
  },
- "unlocked": [],
+ "unlocked": [
+  "P01",
+  "P02",
+  "P03"
+ ],
  "log": [
+  {
+   "d": "2026-10-18T19:05:57",
+   "t": "mistake",
+   "lesson": "P01",
+   "step": 10,
+   "type": "same",
+   "want": "mó / mǒ (different)",
+   "got": "said same",
+   "retry": 0
+  },
+  {
+   "d": "2026-10-18T19:06:55",
+   "t": "mistake",
+   "lesson": "P01",
+   "step": 13,
+   "type": "tone",
+   "want": "pó",
+   "got": "3rd tone",
+   "retry": 0
+  },
+  {
+   "d": "2026-10-18T19:07:00",
+   "t": "mistake",
+   "lesson": "P01",
+   "step": 14,
+   "type": "tone",
+   "want": "fō",
+   "got": "4th tone",
+   "retry": 0
+  },
+  {
+   "d": "2026-10-18T19:07:30",
+   "t": "mistake",
+   "lesson": "P01",
+   "step": 16,
+   "type": "tone",
+   "want": "bǒ",
+   "got": "2nd tone",
+   "retry": 0
+  },
+  {
+   "d": "2026-10-18T19:09:31",
+   "t": "mistake",
+   "lesson": "P01",
+   "step": 20,
+   "type": "type",
+   "want": "pò",
+   "got": "po2",
+   "retry": 0
+  },
+  {
+   "d": "2026-10-18T19:12:05",
+   "t": "mistake",
+   "lesson": "P01",
+   "step": 29,
+   "type": "meaning",
+   "want": "fó = Buddha",
+   "got": "to touch, to feel",
+   "retry": 0
+  },
+  {
+   "d": "2026-10-18T19:12:40",
+   "t": "mistake",
+   "lesson": "P01",
+   "step": 33,
+   "type": "pinyin",
+   "want": "mō",
+   "got": "mǒ",
+   "retry": 0
+  },
+  {
+   "d": "2026-10-18T19:12:50",
+   "t": "mistake",
+   "lesson": "P01",
+   "step": 34,
+   "type": "hear",
+   "want": "fó",
+   "got": "fò",
+   "retry": 0
+  },
+  {
+   "d": "2026-10-18T19:13:03",
+   "t": "mistake",
+   "lesson": "P01",
+   "step": 35,
+   "type": "type",
+   "want": "wǒ",
+   "got": "mo4",
+   "retry": 0
+  },
+  {
+   "d": "2026-10-18T19:13:30",
+   "t": "mistake",
+   "lesson": "P01",
+   "step": 13,
+   "type": "tone",
+   "want": "pó",
+   "got": "3rd tone",
+   "retry": 1
+  },
+  {
+   "d": "2026-10-18T19:13:35",
+   "t": "mistake",
+   "lesson": "P01",
+   "step": 14,
+   "type": "tone",
+   "want": "fō",
+   "got": "4th tone",
+   "retry": 1
+  },
+  {
+   "d": "2026-10-18T19:14:00",
+   "t": "mistake",
+   "lesson": "P01",
+   "step": 20,
+   "type": "type",
+   "want": "pò",
+   "got": "po1",
+   "retry": 1
+  },
+  {
+   "d": "2026-10-18T19:14:15",
+   "t": "mistake",
+   "lesson": "P01",
+   "step": 33,
+   "type": "pinyin",
+   "want": "mō",
+   "got": "mǒ",
+   "retry": 1
+  },
+  {
+   "d": "2026-10-18T19:14:59",
+   "t": "mistake",
+   "lesson": "P01",
+   "step": 14,
+   "type": "tone",
+   "want": "fō",
+   "got": "4th tone",
+   "retry": 2
+  },
+  {
+   "d": "2026-10-18T19:15:15",
+   "t": "mistake",
+   "lesson": "P01",
+   "step": 20,
+   "type": "type",
+   "want": "pò",
+   "got": "po1",
+   "retry": 2
+  },
+  {
+   "d": "2026-10-18T19:15:28",
+   "t": "mistake",
+   "lesson": "P01",
+   "step": 33,
+   "type": "pinyin",
+   "want": "mō",
+   "got": "mǒ",
+   "retry": 2
+  },
+  {
+   "d": "2026-10-18T19:15:29",
+   "t": "lesson",
+   "lesson": "P01",
+   "score": 61,
+   "minutes": 17,
+   "wrong": 9,
+   "exercises": 23
+  },
+  {
+   "d": "2026-10-20T21:34:32",
+   "t": "mistake",
+   "lesson": "P02",
+   "step": 2,
+   "type": "meaning",
+   "want": "wǒ = I, me",
+   "got": "broken",
+   "retry": 0
+  },
+  {
+   "d": "2026-10-20T21:34:46",
+   "t": "mistake",
+   "lesson": "P02",
+   "step": 3,
+   "type": "tone",
+   "want": "fó",
+   "got": "4th tone",
+   "retry": 0
+  },
+  {
+   "d": "2026-10-20T21:38:04",
+   "t": "mistake",
+   "lesson": "P02",
+   "step": 15,
+   "type": "tone",
+   "want": "ně",
+   "got": "2nd tone",
+   "retry": 0
+  },
+  {
+   "d": "2026-10-20T21:38:11",
+   "t": "mistake",
+   "lesson": "P02",
+   "step": 16,
+   "type": "tone",
+   "want": "té",
+   "got": "4th tone",
+   "retry": 0
+  },
+  {
+   "d": "2026-10-20T21:42:21",
+   "t": "mistake",
+   "lesson": "P02",
+   "step": 32,
+   "type": "match",
+   "want": "è, wǒ de, wǒ, pò, mō",
+   "got": "1 wrong tap",
+   "retry": 0
+  },
+  {
+   "d": "2026-10-20T21:43:00",
+   "t": "mistake",
+   "lesson": "P02",
+   "step": 3,
+   "type": "tone",
+   "want": "fó",
+   "got": "1st tone",
+   "retry": 1
+  },
+  {
+   "d": "2026-10-20T21:43:22",
+   "t": "mistake",
+   "lesson": "P02",
+   "step": 16,
+   "type": "tone",
+   "want": "té",
+   "got": "1st tone",
+   "retry": 1
+  },
+  {
+   "d": "2026-10-20T21:43:29",
+   "t": "mistake",
+   "lesson": "P02",
+   "step": 3,
+   "type": "tone",
+   "want": "fó",
+   "got": "1st tone",
+   "retry": 2
+  },
+  {
+   "d": "2026-10-20T21:43:34",
+   "t": "lesson",
+   "lesson": "P02",
+   "score": 81,
+   "minutes": 11,
+   "wrong": 5,
+   "exercises": 26
+  },
+  {
+   "d": "2026-10-20T21:46:15",
+   "t": "mistake",
+   "lesson": "P03",
+   "step": 3,
+   "type": "meaning",
+   "want": "Wǒ è le. = I'm hungry (now).",
+   "got": "And me? / What about me?",
+   "retry": 0
+  },
+  {
+   "d": "2026-10-20T21:47:49",
+   "t": "mistake",
+   "lesson": "P03",
+   "step": 9,
+   "type": "type",
+   "want": "è",
+   "got": "e3",
+   "retry": 0
+  },
+  {
+   "d": "2026-10-20T21:49:08",
+   "t": "mistake",
+   "lesson": "P03",
+   "step": 11,
+   "type": "hear",
+   "want": "kè",
+   "got": "gè",
+   "retry": 0
+  },
+  {
+   "d": "2026-10-20T21:49:15",
+   "t": "mistake",
+   "lesson": "P03",
+   "step": 12,
+   "type": "same",
+   "want": "gé / ké (different)",
+   "got": "said same",
+   "retry": 0
+  },
+  {
+   "d": "2026-10-20T21:52:03",
+   "t": "mistake",
+   "lesson": "P03",
+   "step": 23,
+   "type": "tone",
+   "want": "lè",
+   "got": "2nd tone",
+   "retry": 0
+  },
+  {
+   "d": "2026-10-20T21:53:46",
+   "t": "mistake",
+   "lesson": "P03",
+   "step": 26,
+   "type": "hear",
+   "want": "gé",
+   "got": "gè",
+   "retry": 0
+  },
+  {
+   "d": "2026-10-20T21:54:08",
+   "t": "mistake",
+   "lesson": "P03",
+   "step": 27,
+   "type": "type",
+   "want": "kè",
+   "got": "ke3",
+   "retry": 0
+  },
+  {
+   "d": "2026-10-20T21:56:36",
+   "t": "mistake",
+   "lesson": "P03",
+   "step": 37,
+   "type": "meaning",
+   "want": "Wǒ kě le. = I'm thirsty (now).",
+   "got": "I'm hungry (now).",
+   "retry": 0
+  },
+  {
+   "d": "2026-10-20T21:57:29",
+   "t": "mistake",
+   "lesson": "P03",
+   "step": 42,
+   "type": "type",
+   "want": "hē",
+   "got": "he2",
+   "retry": 0
+  },
+  {
+   "d": "2026-10-20T21:57:42",
+   "t": "mistake",
+   "lesson": "P03",
+   "step": 3,
+   "type": "meaning",
+   "want": "Wǒ è le. = I'm hungry (now).",
+   "got": "And me? / What about me?",
+   "retry": 1
+  },
+  {
+   "d": "2026-10-20T21:58:04",
+   "t": "mistake",
+   "lesson": "P03",
+   "step": 9,
+   "type": "type",
+   "want": "è",
+   "got": "e3",
+   "retry": 1
+  },
+  {
+   "d": "2026-10-20T21:58:27",
+   "t": "mistake",
+   "lesson": "P03",
+   "step": 23,
+   "type": "tone",
+   "want": "lè",
+   "got": "2nd tone",
+   "retry": 1
+  },
+  {
+   "d": "2026-10-20T21:58:36",
+   "t": "mistake",
+   "lesson": "P03",
+   "step": 26,
+   "type": "hear",
+   "want": "gé",
+   "got": "gē",
+   "retry": 1
+  },
+  {
+   "d": "2026-10-20T21:58:49",
+   "t": "mistake",
+   "lesson": "P03",
+   "step": 27,
+   "type": "type",
+   "want": "kè",
+   "got": "ke3",
+   "retry": 1
+  },
+  {
+   "d": "2026-10-20T21:59:08",
+   "t": "mistake",
+   "lesson": "P03",
+   "step": 42,
+   "type": "type",
+   "want": "hē",
+   "got": "ke4",
+   "retry": 1
+  },
+  {
+   "d": "2026-10-20T21:59:13",
+   "t": "mistake",
+   "lesson": "P03",
+   "step": 3,
+   "type": "meaning",
+   "want": "Wǒ è le. = I'm hungry (now).",
+   "got": "And me? / What about me?",
+   "retry": 2
+  },
+  {
+   "d": "2026-10-20T21:59:44",
+   "t": "mistake",
+   "lesson": "P03",
+   "step": 23,
+   "type": "tone",
+   "want": "lè",
+   "got": "2nd tone",
+   "retry": 2
+  },
+  {
+   "d": "2026-10-20T22:00:12",
+   "t": "lesson",
+   "lesson": "P03",
+   "score": 70,
+   "minutes": 15,
+   "wrong": 9,
+   "exercises": 30
+  },
+  {
+   "d": "2026-10-24T18:51:59",
+   "t": "review",
+   "card": "wo:read",
+   "grade": "easy"
+  },
+  {
+   "d": "2026-10-24T18:52:04",
+   "t": "review",
+   "card": "wo:listen",
+   "grade": "good"
+  },
+  {
+   "d": "2026-10-24T18:52:14",
+   "t": "review",
+   "card": "wo:write",
+   "grade": "hard"
+  },
+  {
+   "d": "2026-10-24T18:52:25",
+   "t": "review",
+   "card": "po:read",
+   "grade": "hard"
+  },
+  {
+   "d": "2026-10-24T18:52:29",
+   "t": "review",
+   "card": "po:listen",
+   "grade": "hard"
+  },
+  {
+   "d": "2026-10-24T18:52:40",
+   "t": "review",
+   "card": "po:write",
+   "grade": "hard"
+  },
+  {
+   "d": "2026-10-24T18:52:48",
+   "t": "review",
+   "card": "mo:read",
+   "grade": "hard"
+  },
+  {
+   "d": "2026-10-24T18:52:50",
+   "t": "review",
+   "card": "mo:listen",
+   "grade": "hard"
+  },
+  {
+   "d": "2026-10-24T18:52:55",
+   "t": "review",
+   "card": "mo:write",
+   "grade": "hard"
+  },
+  {
+   "d": "2026-10-24T18:53:02",
+   "t": "review",
+   "card": "fo:read",
+   "grade": "easy"
+  },
+  {
+   "d": "2026-10-24T18:53:07",
+   "t": "review",
+   "card": "fo:listen",
+   "grade": "hard"
+  },
+  {
+   "d": "2026-10-24T18:53:11",
+   "t": "review",
+   "card": "fo:write",
+   "grade": "hard"
+  },
+  {
+   "d": "2026-10-24T18:55:26",
+   "t": "mistake",
+   "lesson": "P03",
+   "step": 3,
+   "type": "meaning",
+   "want": "Wǒ è le. = I'm hungry (now).",
+   "got": "And me? / What about me?",
+   "retry": 0
+  },
+  {
+   "d": "2026-10-24T18:55:29",
+   "t": "mistake",
+   "lesson": "P03",
+   "step": 4,
+   "type": "meaning",
+   "want": "Wǒ ne? = And me? / What about me?",
+   "got": "I'm hungry (now).",
+   "retry": 0
+  },
+  {
+   "d": "2026-10-24T18:56:10",
+   "t": "mistake",
+   "lesson": "P03",
+   "step": 7,
+   "type": "audio",
+   "want": "nè",
+   "got": "ně",
+   "retry": 0
+  },
+  {
+   "d": "2026-10-24T18:56:35",
+   "t": "mistake",
+   "lesson": "P03",
+   "step": 9,
+   "type": "type",
+   "want": "è",
+   "got": "e3",
+   "retry": 0
+  },
+  {
+   "d": "2026-10-24T18:58:32",
+   "t": "mistake",
+   "lesson": "P03",
+   "step": 15,
+   "type": "same",
+   "want": "kē / hē (different)",
+   "got": "said same",
+   "retry": 0
+  },
+  {
+   "d": "2026-10-24T18:59:34",
+   "t": "mistake",
+   "lesson": "P03",
+   "step": 20,
+   "type": "tone",
+   "want": "hē",
+   "got": "4th tone",
+   "retry": 0
+  },
+  {
+   "d": "2026-10-24T18:59:54",
+   "t": "mistake",
+   "lesson": "P03",
+   "step": 23,
+   "type": "tone",
+   "want": "lè",
+   "got": "1st tone",
+   "retry": 0
+  },
+  {
+   "d": "2026-10-24T19:00:05",
+   "t": "mistake",
+   "lesson": "P03",
+   "step": 24,
+   "type": "audio",
+   "want": "kē",
+   "got": "gē",
+   "retry": 0
+  },
+  {
+   "d": "2026-10-24T19:00:36",
+   "t": "mistake",
+   "lesson": "P03",
+   "step": 25,
+   "type": "match",
+   "want": "gē, ké, hě, tè",
+   "got": "1 wrong tap",
+   "retry": 0
+  },
+  {
+   "d": "2026-10-24T19:00:47",
+   "t": "mistake",
+   "lesson": "P03",
+   "step": 26,
+   "type": "hear",
+   "want": "gé",
+   "got": "gē",
+   "retry": 0
+  },
+  {
+   "d": "2026-10-24T19:01:02",
+   "t": "mistake",
+   "lesson": "P03",
+   "step": 27,
+   "type": "type",
+   "want": "kè",
+   "got": "ke3",
+   "retry": 0
+  },
+  {
+   "d": "2026-10-24T19:02:05",
+   "t": "mistake",
+   "lesson": "P03",
+   "step": 37,
+   "type": "meaning",
+   "want": "Wǒ kě le. = I'm thirsty (now).",
+   "got": "I'm hungry (now).",
+   "retry": 0
+  },
+  {
+   "d": "2026-10-24T19:02:25",
+   "t": "mistake",
+   "lesson": "P03",
+   "step": 39,
+   "type": "match",
+   "want": "hē, hé, kě, gēge, è",
+   "got": "2 wrong taps",
+   "retry": 0
+  },
+  {
+   "d": "2026-10-24T19:02:45",
+   "t": "mistake",
+   "lesson": "P03",
+   "step": 42,
+   "type": "type",
+   "want": "hē",
+   "got": "ke2",
+   "retry": 0
+  },
+  {
+   "d": "2026-10-24T19:02:50",
+   "t": "mistake",
+   "lesson": "P03",
+   "step": 3,
+   "type": "meaning",
+   "want": "Wǒ è le. = I'm hungry (now).",
+   "got": "And me? / What about me?",
+   "retry": 1
+  },
+  {
+   "d": "2026-10-24T19:03:00",
+   "t": "mistake",
+   "lesson": "P03",
+   "step": 7,
+   "type": "audio",
+   "want": "nè",
+   "got": "ně",
+   "retry": 1
+  },
+  {
+   "d": "2026-10-24T19:03:28",
+   "t": "mistake",
+   "lesson": "P03",
+   "step": 20,
+   "type": "tone",
+   "want": "hē",
+   "got": "2nd tone",
+   "retry": 1
+  },
+  {
+   "d": "2026-10-24T19:03:34",
+   "t": "mistake",
+   "lesson": "P03",
+   "step": 23,
+   "type": "tone",
+   "want": "lè",
+   "got": "2nd tone",
+   "retry": 1
+  },
+  {
+   "d": "2026-10-24T19:04:01",
+   "t": "mistake",
+   "lesson": "P03",
+   "step": 26,
+   "type": "hear",
+   "want": "gé",
+   "got": "gē",
+   "retry": 1
+  },
+  {
+   "d": "2026-10-24T19:04:19",
+   "t": "mistake",
+   "lesson": "P03",
+   "step": 27,
+   "type": "type",
+   "want": "kè",
+   "got": "he1",
+   "retry": 1
+  },
+  {
+   "d": "2026-10-24T19:04:24",
+   "t": "mistake",
+   "lesson": "P03",
+   "step": 37,
+   "type": "meaning",
+   "want": "Wǒ kě le. = I'm thirsty (now).",
+   "got": "I'm hungry (now).",
+   "retry": 1
+  },
+  {
+   "d": "2026-10-24T19:04:43",
+   "t": "mistake",
+   "lesson": "P03",
+   "step": 7,
+   "type": "audio",
+   "want": "nè",
+   "got": "ně",
+   "retry": 2
+  },
+  {
+   "d": "2026-10-24T19:04:47",
+   "t": "mistake",
+   "lesson": "P03",
+   "step": 20,
+   "type": "tone",
+   "want": "hē",
+   "got": "2nd tone",
+   "retry": 2
+  },
+  {
+   "d": "2026-10-24T19:04:50",
+   "t": "mistake",
+   "lesson": "P03",
+   "step": 23,
+   "type": "tone",
+   "want": "lè",
+   "got": "2nd tone",
+   "retry": 2
+  },
+  {
+   "d": "2026-10-24T19:05:00",
+   "t": "mistake",
+   "lesson": "P03",
+   "step": 26,
+   "type": "hear",
+   "want": "gé",
+   "got": "gè",
+   "retry": 2
+  },
+  {
+   "d": "2026-10-24T19:05:06",
+   "t": "mistake",
+   "lesson": "P03",
+   "step": 27,
+   "type": "type",
+   "want": "kè",
+   "got": "ke1",
+   "retry": 2
+  },
+  {
+   "d": "2026-10-24T19:05:11",
+   "t": "lesson",
+   "lesson": "P03",
+   "score": 53,
+   "minutes": 11,
+   "wrong": 14,
+   "exercises": 30
+  },
+  {
+   "d": "2026-10-24T22:08:24",
+   "t": "mistake",
+   "lesson": "practice",
+   "type": "tone",
+   "want": "fǒ",
+   "got": "4th tone"
+  },
+  {
+   "d": "2026-10-24T22:08:36",
+   "t": "mistake",
+   "lesson": "practice",
+   "type": "tone",
+   "want": "dě",
+   "got": "2nd tone"
+  },
+  {
+   "d": "2026-10-24T22:08:49",
+   "t": "mistake",
+   "lesson": "practice",
+   "type": "tone",
+   "want": "kē",
+   "got": "2nd tone"
+  },
+  {
+   "d": "2026-10-24T22:09:23",
+   "t": "mistake",
+   "lesson": "practice",
+   "type": "tone",
+   "want": "dé",
+   "got": "1st tone"
+  },
+  {
+   "d": "2026-10-24T22:09:23",
+   "t": "practice",
+   "right": 6,
+   "total": 10
+  },
+  {
+   "d": "2026-10-24T22:10:08",
+   "t": "mistake",
+   "lesson": "practice",
+   "type": "tone",
+   "want": "hé",
+   "got": "4th tone"
+  },
+  {
+   "d": "2026-10-24T22:10:21",
+   "t": "mistake",
+   "lesson": "practice",
+   "type": "tone",
+   "want": "fó",
+   "got": "1st tone"
+  },
+  {
+   "d": "2026-10-24T22:10:42",
+   "t": "mistake",
+   "lesson": "practice",
+   "type": "hear",
+   "want": "hé",
+   "got": "é"
+  },
+  {
+   "d": "2026-10-24T22:10:50",
+   "t": "practice",
+   "right": 7,
+   "total": 10
+  },
+  {
+   "d": "2026-10-24T22:11:02",
+   "t": "mistake",
+   "lesson": "practice",
+   "type": "tone",
+   "want": "té",
+   "got": "1st tone"
+  },
+  {
+   "d": "2026-10-24T22:11:14",
+   "t": "mistake",
+   "lesson": "practice",
+   "type": "tone",
+   "want": "hé",
+   "got": "4th tone"
+  },
+  {
+   "d": "2026-10-24T22:11:21",
+   "t": "mistake",
+   "lesson": "practice",
+   "type": "tone",
+   "want": "dé",
+   "got": "3rd tone"
+  },
+  {
+   "d": "2026-10-24T22:12:16",
+   "t": "mistake",
+   "lesson": "practice",
+   "type": "tone",
+   "want": "nē",
+   "got": "2nd tone"
+  },
+  {
+   "d": "2026-10-24T22:12:16",
+   "t": "practice",
+   "right": 6,
+   "total": 10
+  },
+  {
+   "d": "2026-10-24T22:12:47",
+   "t": "mistake",
+   "lesson": "practice",
+   "type": "hear",
+   "want": "dě",
+   "got": "gě"
+  },
+  {
+   "d": "2026-10-24T22:12:58",
+   "t": "mistake",
+   "lesson": "practice",
+   "type": "tone",
+   "want": "nē",
+   "got": "2nd tone"
+  },
+  {
+   "d": "2026-10-24T22:13:23",
+   "t": "mistake",
+   "lesson": "practice",
+   "type": "hear",
+   "want": "dě",
+   "got": "hě"
+  },
+  {
+   "d": "2026-10-24T22:13:33",
+   "t": "mistake",
+   "lesson": "practice",
+   "type": "hear",
+   "want": "nē",
+   "got": "lē"
+  },
+  {
+   "d": "2026-10-24T22:13:42",
+   "t": "mistake",
+   "lesson": "practice",
+   "type": "tone",
+   "want": "wò",
+   "got": "2nd tone"
+  },
+  {
+   "d": "2026-10-24T22:13:53",
+   "t": "practice",
+   "right": 5,
+   "total": 10
+  },
+  {
+   "d": "2026-10-24T22:14:47",
+   "t": "mistake",
+   "lesson": "practice",
+   "type": "tone",
+   "want": "ké",
+   "got": "4th tone"
+  },
+  {
+   "d": "2026-10-24T22:15:10",
+   "t": "mistake",
+   "lesson": "practice",
+   "type": "tone",
+   "want": "dē",
+   "got": "4th tone"
+  },
+  {
+   "d": "2026-10-24T22:15:22",
+   "t": "practice",
+   "right": 8,
+   "total": 10
+  },
   {
    "d": "2026-11-07T17:41:49",
    "t": "words",
