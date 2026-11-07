@@ -140,6 +140,51 @@ def load_course():
     return chart, topics, lessons, items, plan
 
 
+def word_id(hanzi):
+    """Audio id of a flashcard word: w- plus its characters as hex code points
+    (你好 -> w-4f60-597d), so file names stay plain ASCII."""
+    return "w-" + "-".join(f"{ord(c):x}" for c in hanzi)
+
+
+def load_words():
+    """The flashcard words (data/words.json), most common first, as items
+    keyed by audio id. The app keys progress by the characters."""
+    path = DATA / "words.json"
+    if not path.exists():
+        return {}
+    words = {}
+    for n, w in enumerate(json.loads(path.read_text())["words"], 1):
+        words[word_id(w.get("hanzi", ""))] = {**w, "id": word_id(w.get("hanzi", "")),
+                                              "kind": "word", "order": n}
+    return words
+
+
+def check_words(words):
+    errors, seen = [], set()
+    for iid, w in words.items():
+        where = f"words.json #{w['order']} {w.get('hanzi', '?')}"
+        missing = [k for k in ("hanzi", "pinyin", "english", "rank") if not w.get(k)]
+        if missing:
+            errors.append(f"{where}: missing {', '.join(missing)}")
+            continue
+        if w["hanzi"] in seen:
+            errors.append(f"{where}: listed twice")
+        seen.add(w["hanzi"])
+        if not re.fullmatch(r"[一-鿿]+", w["hanzi"]):
+            errors.append(f"{where}: hanzi must be Chinese characters only")
+            continue
+        try:
+            syl = pinyin.syllables(pinyin.parse(w["pinyin"]))
+            pinyin.tts_tokens(say_segments(w))
+        except ValueError as e:
+            errors.append(f"{where}: {e}")
+            continue
+        if len(syl) != len(w["hanzi"]):
+            errors.append(f"{where}: {len(syl)} syllables in {w['pinyin']!r} "
+                          f"for {len(w['hanzi'])} characters")
+    return errors
+
+
 def tiles(text):
     """'Hǎo, wǒ hē.' -> ['hǎo', 'wǒ', 'hē'] (the word tiles of a build exercise)."""
     words = re.findall(r"[^\s,.!?:;，。！？：；]+", text)
@@ -361,6 +406,9 @@ class CorpusLexicon:
     that character instead, which the model says with a natural, light tone.
     """
     RARE = 5
+    # Tokens in few lexicon words that are still common in the recordings, and
+    # whose takes measure right: 您 (nín) is in only two words (您, 您好).
+    KNOWN_GOOD = {"nin2"}
 
     def __init__(self):
         download_models()
@@ -376,12 +424,12 @@ class CorpusLexicon:
 
     def trained(self, token):
         """Whether the model learned this token well enough to say it."""
-        return self.counts.get(token, 0) >= self.RARE
+        return self.counts.get(token, 0) >= self.RARE or token in self.KNOWN_GOOD
 
     def best_tones(self, base):
         """The base's well-trained tones, most common first."""
         return sorted((t for t in (1, 2, 3, 4) if self.trained(f"{base}{t}")),
-                      key=lambda t: -self.counts[f"{base}{t}"])
+                      key=lambda t: -self.counts.get(f"{base}{t}", 0))
 
     def labels(self, chars):
         """Corpus token for each character (longest word match first)."""
@@ -466,13 +514,21 @@ def tone_margin(c, tone, alone):
     return 0.0  # neutral: not checked
 
 
-def tone_score(samples, sr, tones):
+def tone_score(samples, sr, tones, rough=False):
     """Smallest tone margin over the syllables, or None if the syllables
-    can't be told apart in the pitch track."""
+    can't be told apart in the pitch track. With rough=True, a word whose
+    syllables run into each other (wǒmen, zhīdào: no break in the voice) is
+    split into equal parts, one per syllable: good enough to pick the best
+    of several takes, not for pitch editing."""
+    import numpy as np
     _, f0 = pitch_track(samples, sr)
     if len(tones) == 1:
         return tone_margin(contour(f0), tones[0], True) if (f0 > 0).sum() >= 5 else None
     runs = voiced_runs(f0)
+    if len(runs) != len(tones) and rough and runs:
+        start, end = runs[0][0], runs[-1][1]
+        cuts = np.linspace(start, end, len(tones) + 1).round().astype(int)
+        runs = [(a, b) for a, b in zip(cuts, cuts[1:]) if (f0[a:b] > 0).sum() >= 3]
     if len(runs) != len(tones):
         return None
     margins = [tone_margin(contour(f0[a:b]), t, False) for (a, b), t in zip(runs, tones) if t != 5]
@@ -610,10 +666,15 @@ def pitch_edit(speaker, base, tone, sources, speed):
     return y2, sr2, "pitch-edited", tone_score(y2, sr2, [tone]), src
 
 
-def make_take(speaker, tokens, lexicon):
+def make_take(speaker, tokens, lexicon, heard=None):
     """Best of up to TAKES takes, pitch-edited if none has the right tones.
-    Returns (samples, sr, method, score, source token if pitch-edited)."""
+    `heard`: the tones to check, if not those of the tokens (a neutral
+    syllable said with its corpus label, like 朋友 peng2 you3, is said lightly
+    and isn't checked). Returns (samples, sr, method, score, source token if
+    pitch-edited)."""
     tones = [int(t[-1]) if t[-1].isdigit() else 5 for t in tokens if t[0].isalpha()]
+    if heard and len(heard) == len(tones):
+        tones = heard
     base_speed = SPEED.get(len(tones), 1.0)
     if all(t == 5 for t in tones):
         y, sr = speaker.say(tokens, base_speed)
@@ -638,14 +699,17 @@ def make_take(speaker, tokens, lexicon):
     for k in range(TAKES):
         y, sr = speaker.say(tokens, base_speed * (1.0, 0.92, 1.08)[k % 3])
         score = tone_score(y, sr, tones)
+        rough = score is None and len(tones) > 1
+        if rough:
+            score = tone_score(y, sr, tones, rough=True)
         key = -99 if score is None else score
         if best is None or key > best[0]:
-            best = (key, y, sr, score)
+            best = (key, y, sr, score, rough)
         if score is not None and score > GOOD + 0.3:
             break
-    key, y, sr, score = best
+    key, y, sr, score, rough = best
     if score is not None and score > GOOD:
-        return y, sr, "natural", score, None
+        return y, sr, "natural (split evenly)" if rough else "natural", score, None
     if len(tones) == 1:
         # pitch-edit the clearest take of this syllable in a level or
         # falling tone (the easiest to pitch-edit), if trained, else any
@@ -655,7 +719,7 @@ def make_take(speaker, tokens, lexicon):
         made = pitch_edit(speaker, base, tones[0], sources, base_speed)
         if made:
             return made
-    elif score is not None:
+    elif score is not None and not rough:
         fixed = fix_phrase(y, sr, tones)
         if fixed:
             s2 = tone_score(*fixed, tones)
@@ -712,7 +776,9 @@ def build_audio(items, force=False):
             (AUDIO / f"{iid}.mp3").write_bytes((AUDIO / f"{done[toks]}.mp3").read_bytes())
             manifest[iid] = {**manifest[done[toks]]}
         else:
-            y, sr, method, score, source = make_take(speaker, toks.split(), lexicon)
+            heard = None if items[iid]["kind"] == "sound" else \
+                [s[2] for s in say_segments(items[iid]) if s[0] == "syl"]
+            y, sr, method, score, source = make_take(speaker, toks.split(), lexicon, heard)
             to_mp3(y, sr, AUDIO / f"{iid}.mp3")
             manifest[iid] = {"tokens": toks, "method": method,
                              "score": None if score is None else round(score, 1)}
@@ -793,6 +859,35 @@ def build_cards(chart, topics, lessons, items, plan):
     DOCS.mkdir(exist_ok=True)
     (DOCS / "cards.json").write_text(json.dumps(out, ensure_ascii=False, indent=1) + "\n")
     print(f"Cards: {len(out['items'])} items, {len(lessons)} lessons.")
+
+
+def short_gloss(english):
+    """'good, well; OK' -> 'good' (for the character breakdown of a word)."""
+    return re.split(r"[;,]", english)[0].strip()
+
+
+def build_words(words):
+    """docs/words.json: the flashcard words for the Words tab, in order."""
+    single = {w["hanzi"]: w for w in words.values() if len(w["hanzi"]) == 1}
+    manifest = json.loads((AUDIO / "manifest.json").read_text())
+    out = []
+    for iid, w in sorted(words.items(), key=lambda kv: kv[1]["order"]):
+        card = {"hanzi": w["hanzi"], "pinyin": w["pinyin"], "numbers": pinyin.to_numbers(w["pinyin"]),
+                "english": w["english"], "audio": iid,
+                "v": hashlib.md5((AUDIO / f"{iid}.mp3").read_bytes()).hexdigest()[:8]}
+        for key in ("note", "audio_note"):
+            if key in w:
+                card[key] = w[key]
+        if manifest.get(iid, {}).get("method") == "best-effort" and "audio_note" not in card:
+            card["audio_note"] = "The recording may not have every tone right: go by the Pinyin."
+        # what each character means, where it's a flashcard word of its own
+        parts = [f"{c} = {short_gloss(single[c]['english'])}" for c in w["hanzi"] if c in single]
+        if len(w["hanzi"]) > 1 and parts:
+            card["parts"] = " · ".join(parts)
+        out.append(card)
+    (DOCS / "words.json").write_text(
+        "{\"words\": [\n" + ",\n".join(json.dumps(c, ensure_ascii=False) for c in out) + "\n]}\n")
+    print(f"Words: {len(out)} flashcards.")
 
 
 def py(text):
@@ -956,8 +1051,10 @@ def build_chart_page(chart, topics, plan, items):
 def main():
     cmd = sys.argv[1] if len(sys.argv) > 1 else "all"
     chart, topics, lessons, items, plan = load_course()
+    words = load_words()
     errors, warnings = check(lessons, items)
     errors += check_plan(chart, plan, items, lessons)
+    errors += check_words(words)
     for w in warnings:
         print("WARNING", w)
     for e in errors:
@@ -968,9 +1065,11 @@ def main():
     for lesson in lessons:
         n_ex = sum(1 for s in lesson["steps"] if s["type"] in EXERCISES)
         print(f"  {lesson['id']}: {len(lesson['steps'])} steps, {n_ex} exercises, ~{minutes(lesson['steps'])} min")
+    print(f"Words: {len(words)} flashcards checked")
     if cmd in ("all", "audio"):
-        build_audio(items, force="--force" in sys.argv)
+        build_audio({**items, **words}, force="--force" in sys.argv)
     if cmd in ("all", "cards"):
+        build_words(words)
         build_cards(chart, topics, lessons, items, plan)
         build_notes(chart, topics, lessons, items, plan)
         build_chart_page(chart, topics, plan, items)

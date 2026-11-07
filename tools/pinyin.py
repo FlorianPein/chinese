@@ -56,17 +56,31 @@ def _letters_and_tones(text):
     return "".join(letters), tones
 
 
-def _split_word(word):
-    """Split a run of letters into syllables (longest match with backtracking)."""
+def _splits(word):
+    """Every way to split a run of letters into syllables, longest first."""
     if not word:
-        return []
+        yield []
+        return
     for n in range(min(6, len(word)), 0, -1):
         head = word[:n]
         if head in ALL_SYLLABLES:
-            rest = _split_word(word[n:])
-            if rest is not None:
-                return [head] + rest
-    return None
+            for rest in _splits(word[n:]):
+                yield [head] + rest
+
+
+def _split_word(word):
+    """Split a run of letters into syllables. Written Pinyin puts an apostrophe
+    before a syllable starting with a, o or e (xī'ān), so a split without such
+    a syllable inside the word wins: kěnéng is kě·néng, not kěn·éng. Among
+    equals, the longest first syllable wins."""
+    best = None
+    for parts in _splits(word):
+        cost = sum(p[0] in "aoe" for p in parts[1:])
+        if best is None or cost < best[0]:
+            best = (cost, parts)
+            if cost == 0:
+                break
+    return None if best is None else best[1]
 
 
 def parse(text):
