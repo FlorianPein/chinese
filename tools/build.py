@@ -666,10 +666,15 @@ def pitch_edit(speaker, base, tone, sources, speed):
     return y2, sr2, "pitch-edited", tone_score(y2, sr2, [tone]), src
 
 
-def make_take(speaker, tokens, lexicon):
+def make_take(speaker, tokens, lexicon, heard=None):
     """Best of up to TAKES takes, pitch-edited if none has the right tones.
-    Returns (samples, sr, method, score, source token if pitch-edited)."""
+    `heard`: the tones to check, if not those of the tokens (a neutral
+    syllable said with its corpus label, like 朋友 peng2 you3, is said lightly
+    and isn't checked). Returns (samples, sr, method, score, source token if
+    pitch-edited)."""
     tones = [int(t[-1]) if t[-1].isdigit() else 5 for t in tokens if t[0].isalpha()]
+    if heard and len(heard) == len(tones):
+        tones = heard
     base_speed = SPEED.get(len(tones), 1.0)
     if all(t == 5 for t in tones):
         y, sr = speaker.say(tokens, base_speed)
@@ -771,7 +776,9 @@ def build_audio(items, force=False):
             (AUDIO / f"{iid}.mp3").write_bytes((AUDIO / f"{done[toks]}.mp3").read_bytes())
             manifest[iid] = {**manifest[done[toks]]}
         else:
-            y, sr, method, score, source = make_take(speaker, toks.split(), lexicon)
+            heard = None if items[iid]["kind"] == "sound" else \
+                [s[2] for s in say_segments(items[iid]) if s[0] == "syl"]
+            y, sr, method, score, source = make_take(speaker, toks.split(), lexicon, heard)
             to_mp3(y, sr, AUDIO / f"{iid}.mp3")
             manifest[iid] = {"tokens": toks, "method": method,
                              "score": None if score is None else round(score, 1)}
@@ -862,6 +869,7 @@ def short_gloss(english):
 def build_words(words):
     """docs/words.json: the flashcard words for the Words tab, in order."""
     single = {w["hanzi"]: w for w in words.values() if len(w["hanzi"]) == 1}
+    manifest = json.loads((AUDIO / "manifest.json").read_text())
     out = []
     for iid, w in sorted(words.items(), key=lambda kv: kv[1]["order"]):
         card = {"hanzi": w["hanzi"], "pinyin": w["pinyin"], "numbers": pinyin.to_numbers(w["pinyin"]),
@@ -870,6 +878,8 @@ def build_words(words):
         for key in ("note", "audio_note"):
             if key in w:
                 card[key] = w[key]
+        if manifest.get(iid, {}).get("method") == "best-effort" and "audio_note" not in card:
+            card["audio_note"] = "The recording may not have every tone right: go by the Pinyin."
         # what each character means, where it's a flashcard word of its own
         parts = [f"{c} = {short_gloss(single[c]['english'])}" for c in w["hanzi"] if c in single]
         if len(w["hanzi"]) > 1 and parts:
