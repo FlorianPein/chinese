@@ -11,3 +11,8 @@
 {"d": "2026-10-18T20:58:02", "got": "e3", "lesson": "P02", "retry": 1, "step": 35, "t": "mistake", "type": "type", "want": "è"}
 {"d": "2026-10-18T20:58:12", "got": "e3", "lesson": "P02", "retry": 2, "step": 35, "t": "mistake", "type": "type", "want": "è"}
 {"d": "2026-10-18T20:58:18", "exercises": 26, "lesson": "P02", "minutes": 15, "score": 62, "t": "lesson", "wrong": 10}
+{"d": "2026-11-07T17:41:49", "grades": [2, 1, 1, 7, 0], "new": 10, "t": "words", "total": 11}
+{"d": "2026-11-07T17:54:14", "grades": [1, 0, 0, 0, 0], "new": 1, "t": "words", "total": 1}
+{"d": "2026-11-07T18:16:38", "grades": [7, 2, 4, 1, 0], "new": 6, "t": "words", "total": 14}
+{"d": "2026-11-07T18:24:15", "grades": [2, 0, 2, 0, 0], "new": 1, "t": "words", "total": 4}
+{"d": "2026-11-07T18:27:31", "grades": [5, 2, 4, 0, 0], "new": 4, "t": "words", "total": 11}
