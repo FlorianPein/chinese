@@ -6,6 +6,7 @@ My course for learning Mandarin Chinese through **Pinyin**, without characters f
 - **[CHART.md](CHART.md)**: the Pinyin chart with the lesson for every syllable, and the order of all 24 lessons
 - **[PLAN.md](PLAN.md)**: how the course works, the slide types, the first lessons in detail, future plans
 - **[PROGRESS.md](PROGRESS.md)**: what's done and what needs more practice
+- **[WORDS-PLAN.md](WORDS-PLAN.md)**: plan for Anki-style word flashcards (not built yet)
 
 ## Daily routine
 
