@@ -7,7 +7,9 @@
   build.py uses for CHART.md. Pastes from different devices add
   up: a lesson recorded before is kept, even if this paste doesn't have it
 - data/progress-log.jsonl gets every new log entry (finished lessons, wrong
-  answers, practice rounds), without duplicates
+  answers, practice rounds, batches of word flashcard answers), without duplicates
+- data/progress.json also gets the latest word flashcard summary: how many
+  words were seen, and how often each word was forgotten (Don't know)
 - prints a summary of weak spots over the whole log, for PROGRESS.md
 
 Run tools/build.py afterwards to update CHART.md.
@@ -39,8 +41,11 @@ def from_github():
         sys.exit("No progress branch on GitHub yet: connect sync in the app first (README: Sync between devices).")
     synced = json.loads(subprocess.run(["git", "show", "FETCH_HEAD:progress.json"], cwd=root, check=True,
                                        capture_output=True, text=True).stdout)
+    cards = synced.get("words", {})
+    words = {"seen": len(cards),
+             "forgotten": {w: c["lapses"] for w, c in cards.items() if c.get("lapses", 0) >= 2}}
     return {"copied": synced.get("updated", "")[:16].replace("T", " "),
-            "lessons": synced.get("lessons", {}), "log": synced.get("log", [])}
+            "lessons": synced.get("lessons", {}), "words": words, "log": synced.get("log", [])}
 
 
 def main():
@@ -64,6 +69,14 @@ def main():
         lessons[lid] = merged
     progress["lessons"] = dict(sorted(lessons.items()))
     progress["done"] = {lid: st["done"] for lid, st in progress["lessons"].items()}
+    if data.get("words", {}).get("seen"):
+        # the newest summary wins: a word's lapses only grow
+        old_words = progress.get("words", {})
+        forgotten = {**old_words.get("forgotten", {})}
+        for w, n in data["words"].get("forgotten", {}).items():
+            forgotten[w] = max(n, forgotten.get(w, 0))
+        progress["words"] = {"seen": max(data["words"]["seen"], old_words.get("seen", 0)),
+                             "forgotten": dict(sorted(forgotten.items(), key=lambda kv: -kv[1]))}
     progress["copied"] = max(progress.get("copied", ""), data["copied"])
     PROGRESS.write_text(json.dumps(progress, ensure_ascii=False, indent=1) + "\n")
 
@@ -87,6 +100,16 @@ def main():
     if rounds:
         right, total = sum(e["right"] for e in rounds), sum(e["total"] for e in rounds)
         print(f"\nPractice: {total} questions, {round(100 * right / total)}% right")
+    batches = [e for e in log if e["t"] == "words"]
+    words = progress.get("words")
+    if batches or words:
+        grades = [sum(e["grades"][i] for e in batches) for i in range(5)]
+        names = ["Don't know", "Barely know", "Know", "Safely know", "Securely know"]
+        print(f"\nWords: {words['seen'] if words else '?'} seen; {sum(grades)} answers logged "
+              f"({', '.join(f'{n} {g}' for n, g in zip(names, grades))})")
+        if words and words["forgotten"]:
+            hard = [f"{w} {n}×" + (" ⚑" if n >= 6 else "") for w, n in list(words["forgotten"].items())[:20]]
+            print("Often forgotten:", ", ".join(hard))
 
 
 if __name__ == "__main__":

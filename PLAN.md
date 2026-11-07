@@ -2,9 +2,9 @@
 
 **Learner:** total beginner; explanations in English, pronunciation compared to English *and* German
 **Goal:** talking to people. The first step is to hear and say every sound of Mandarin
-**Script:** Pinyin only (no characters for now)
+**Script:** Pinyin in the lessons; characters with Pinyin in the word flashcards
 **Time:** one lesson is about 10–12 min; skip days, or do several lessons at once
-**Focus for now:** listening only: telling the tones and the sounds apart. No words yet
+**Focus for now:** the lessons are listening only: telling the tones and the sounds apart. Words are learned alongside, as flashcards in the **Words** tab
 
 ### Decisions
 
@@ -13,13 +13,13 @@
 | Course structure | For now the lessons work through the **Pinyin chart** (like the [Yabla chart](https://chinese.yabla.com/chinese-pinyin-chart.php)). First **one group of initials per lesson** (P01–P06), then **two recap lessons**, then **mixed lessons** that combine several groups and finals and get faster. Everything else is in [future plans](#6-future-plans) |
 | Lesson size | P01–P08: one group of initials with one final (e.g. *bo po mo fo*). From P09: 3–15 chart blocks around one contrast (e.g. *an vs ang* everywhere). About 37 short steps |
 | Exercises | All **listening**: which tone, which sound, same or different, odd one out, two to four sounds in a row, match the sounds, write what you hear. Speaking comes back later |
-| Words | **None for now** (decided 2026-10-24): the lessons are only sounds and tones, and the time words took goes into extra listening exercises. Words come back with the conversation units |
+| Words | **Not in the lessons for now** (decided 2026-10-24): the lessons are only sounds and tones. Words are learned in the app's **Words** tab instead (from 2026-11-07): Anki-style flashcards of the most common words, see [WORDS-PLAN.md](WORDS-PLAN.md) |
 | Repetition | From the 2nd lesson on, every lesson starts with a warm-up on earlier sounds and mixes them into its exercises. Finished lessons' sounds go into the app's **Practice** drill |
 | Where lessons happen | In the web app ([Learn tab](https://florianpein.github.io/chinese/)). Each lesson also has generated notes in `lessons/` |
 | Your answers | Mostly buttons. When you type, `ma1` and `mā` both work; neutral tone is `5` or no number |
 | Tones | **All four, always together.** P01 teaches all four at once, and every chart and tone question in every lesson has all four, so you always hear the contrasts. The build enforces this |
 | Sound comparisons | English *and* German |
-| Characters | Stored in the data, hidden everywhere for now |
+| Characters | Shown on the word flashcards, under the Pinyin. Hidden in the lessons for now |
 
 ---
 
@@ -164,6 +164,7 @@ All eight are listening only: no words, no speaking. Each has the same parts: a 
 
 - **In the lessons:** every lesson after P01 starts with a warm-up on the sounds of the lesson before, and mixes older sounds into its exercises.
 - **Practice:** the app's **Practice** tab is an endless listening drill with the sounds of every lesson you've finished: which tone, which sound (from others with the same tone, similar ones first), or same or different. A sound you get wrong comes back a few questions later.
+- **Words:** the **Words** tab brings each word back when it's about to be forgotten: soon if you didn't know it, months later if you knew it securely ([WORDS-PLAN.md](WORDS-PLAN.md)).
 - **Weak spots** (sounds and tones that keep going wrong) go in [PROGRESS.md](PROGRESS.md), and the next lessons repeat them more.
 - **How Claude learns your progress:** the app keeps a log of finished lessons (with scores), every wrong answer (what was asked and what you picked, in lessons and in Practice) and how many Practice questions you answered. **⚙︎ → Copy progress for Claude** (also on the *Lesson complete* screen) copies a short summary plus the new log entries; paste it into a chat, or turn on sync. Claude merges it with `tools/progress.py` into `data/progress.json` and `data/progress-log.jsonl`, updates PROGRESS.md, and plans the next lessons around your mistakes.
 
@@ -173,10 +174,11 @@ All eight are listening only: no words, no speaking. Each has the same parts: a 
 
 | Tool | What it is |
 |------|------------|
-| **Web app** (`docs/`, GitHub Pages) | **Learn**: the lessons in chart order. **Practice**: a listening drill with the sounds you've learned. **Listen**: all audio of a lesson. Progress is saved in your browser and can be synced through GitHub (⚙︎) |
+| **Web app** (`docs/`, GitHub Pages) | **Learn**: the lessons in chart order. **Practice**: a listening drill with the sounds you've learned. **Words**: flashcards of the most common words. **Listen**: all audio of a lesson. Progress is saved in your browser and can be synced through GitHub (⚙︎) |
 | **Course** (`data/course.json`) | The chart (initial groups, finals) and all 24 lessons: blocks, focus |
 | **Lessons** (`data/P01.json`, …) | A built lesson's exact slides (and its words, once there are any) |
-| **Progress** (`data/progress.json`) | The lessons you've done, for CHART.md |
+| **Words** (`data/words.json`) | The flashcard words, most common first ([WORDS-PLAN.md](WORDS-PLAN.md)) |
+| **Progress** (`data/progress.json`) | The lessons you've done, for CHART.md; how often each flashcard word was forgotten |
 | **Build** (`tools/build.py`) | Checks everything (each chart block taught once, no lesson plays a syllable before it's taught, every tone question has all four tones, …), makes the audio, writes the app data, lesson notes and CHART.md |
 | **Audio** (`docs/audio/`) | One MP3 per sound, made offline and tone-checked |
 

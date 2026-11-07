@@ -6,15 +6,15 @@ My course for learning Mandarin Chinese through **Pinyin**, without characters f
 - **[CHART.md](CHART.md)**: the Pinyin chart with the lesson for every syllable, and the order of all 24 lessons
 - **[PLAN.md](PLAN.md)**: how the course works, the slide types, the first lessons in detail, future plans
 - **[PROGRESS.md](PROGRESS.md)**: what's done and what needs more practice
-- **[WORDS-PLAN.md](WORDS-PLAN.md)**: plan for Anki-style word flashcards (not built yet)
+- **[WORDS-PLAN.md](WORDS-PLAN.md)**: how the word flashcards work: when a word comes back, how new words are mixed in, where the words come from
 
 ## Daily routine
 
 | Day type | What to do |
 |----------|------------|
-| Normal (10–15 min) | A few minutes of Practice, then 1 lesson |
-| Busy (2–5 min) | Practice only |
-| Free (30 min+) | Practice, then 2–3 lessons |
+| Normal (15–25 min) | Words, a few minutes of Practice, then 1 lesson |
+| Busy (2–5 min) | Words or Practice |
+| Free (30 min+) | Words, Practice, then 2–3 lessons |
 | Back after a break | Practice, then the last lesson again |
 
 If a lesson came out below about 70% right first time, do it again before the next one.
@@ -42,10 +42,11 @@ More lessons are added as you go (next: P09, *ba da ga za zha*). Every lesson us
 |-----|--------------|
 | **Learn** | The lessons in chart order. Tap the next one to start. Planned lessons are shown greyed out. |
 | **Practice** | An endless listening drill with the sounds of the lessons you've finished: which tone, which sound, or same or different. A sound you get wrong comes back a few questions later. |
+| **Words** | Flashcards of the most common words, Anki-style. You hear the word and see its Pinyin and characters; tap for the English, then pick *Don't know*, *Barely know*, *Know*, *Safely know* or *Securely know*. Each button shows when the word comes back. New words come in among the old ones: the fewer old words are due, the more new ones. Details in [WORDS-PLAN.md](WORDS-PLAN.md). |
 | **Listen** | All audio of a lesson: every sound in each tone. 🐢 plays slowly. |
 | **⚙︎** | **Copy progress for Claude**, mark lessons as done, settings, export/import your progress (it's stored per browser). |
 
-On a computer: number keys pick an answer, Enter continues, P replays the audio.
+On a computer: number keys pick an answer, Enter continues, P replays the audio. In Words: Space shows the answer, 1–5 are the five buttons.
 
 ## How Pinyin is written here
 
@@ -66,8 +67,11 @@ On a computer: number keys pick an answer, Enter continues, P replays the audio.
 
 ```sh
 pip install -r tools/requirements.txt   # once; also needs ffmpeg
-python tools/build.py                   # check, make audio, write docs/cards.json, lessons/*.md, CHART.md
+python tools/build.py                   # check, make audio, write docs/cards.json, docs/words.json, lessons/*.md, CHART.md
+node tools/test_srs.js                  # check the flashcard rules (when a word comes back, the mix of new words)
 ```
+
+The flashcard words are in `data/words.json`, most common first. The build checks each one (characters, Pinyin, one syllable per character, the voice can say it) and makes its audio like the lesson audio.
 
 The check catches mistakes such as a chart block missing or taught twice, a lesson playing a syllable that hasn't been taught yet, a tone question without all four tones, or an answer missing from its options. Everything the build writes is committed, so the app needs nothing generated at run time.
 
@@ -75,7 +79,7 @@ Audio comes from an offline Mandarin voice ([Matcha-TTS](https://github.com/k2-f
 
 ## Sync between devices
 
-The app saves your progress in the browser. With sync on, it also keeps it in `progress.json` on a branch of this repo called `progress`. Each device merges that file with its own progress when the app opens, a few seconds after each change, and when you leave the app. So your phone and computer stay in step, and Claude can read your progress without a paste. Nothing done on either device is lost: lessons are combined, and the logs of mistakes and practice are joined. Settings stay per device.
+The app saves your progress in the browser. With sync on, it also keeps it in `progress.json` on a branch of this repo called `progress`. Each device merges that file with its own progress when the app opens, a few seconds after each change, and when you leave the app. So your phone and computer stay in step (lessons, practice and words), and Claude can read your progress without a paste. Nothing done on either device is lost: lessons are combined, and the logs of mistakes and practice are joined. Settings stay per device.
 
 The repo is public, so anyone could see `progress.json` (scores, mistakes and practice results), but nothing else about you.
 

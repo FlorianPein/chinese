@@ -2,7 +2,7 @@
 
 A new part of the app for learning the **most common Chinese words**: you hear the word and see it in Pinyin and characters, tap to see the English, then say how well you knew it. That answer decides when the word comes back.
 
-Status: **plan only**, nothing built yet.
+Status: **built**: the **Words** tab in the app. [Section 7](#7-whats-where) says where everything is.
 
 ---
 
@@ -15,7 +15,7 @@ A new **Words** tab in the existing app (`docs/index.html`), between *Practice* 
 - syncs between devices through the `progress` branch, like lessons
 - appears in **Copy progress for Claude**, so Claude can see which words keep going wrong
 
-This changes two decisions in [PLAN.md](PLAN.md#decisions): *Words: none for now* and *Characters: hidden everywhere*. They're updated when the tab is built. The sound lessons carry on as they are; words run alongside them.
+This changes two decisions in [PLAN.md](PLAN.md#decisions): *Words: none for now* and *Characters: hidden everywhere*. Both are updated there. The sound lessons carry on as they are; words run alongside them.
 
 ---
 
@@ -165,9 +165,9 @@ Because the mix is counted after every card, it shifts by itself: a session that
 
 New file `data/words.json`, ordered by **how common the word is in everyday speech**.
 
-- **Order from a frequency list of spoken Mandarin.** The suggestion is [SUBTLEX-CH](https://www.ugent.be/pp/experimentele-psychologie/en/research/documents/subtlexch), word counts from film and TV subtitles. It's close to how people talk, and its top words are things like 的, 我, 你, 是, 了, 不, 在, 他, 我们, 好, 有, 这, 就, 什么, 一个.
-- **Cleaned up:** names, rare forms and duplicates are left out; words that only make sense together are kept together (谢谢, 对不起, 没关系).
-- **First batch: the 500 most common words** (they cover a large part of everyday speech), then more in batches of 500 when you get near the end
+- **Order from a word count of film and TV subtitles**: [OpenSubtitles 2018](https://github.com/hermitdave/FrequencyWords) (CC BY-SA 4.0), with traditional forms merged into simplified. It's close to how people talk: its top words are 的, 我, 你, 了, 是, 在, 我们, 他, 吗, 不, 什么, 好, 有, 就, 吧. (The first idea was SUBTLEX-CH, also a subtitle count, but its website can't be reached from the build machine.)
+- **Cleaned up:** left out are names, swear words, subtitle artefacts (我要, 我会 are "I want", "I will", not words), written-only words (之, 于, 而), 儿 forms the voice can't say (哪儿: 哪里 is in), and most action-film words (枪, 尸体, 监狱). Words that only make sense together stay together (谢谢, 对不起, 没关系).
+- **First batch: 533 words**, then more in batches of about 500 when you get near the end
 - **English and notes written for learning:** short meanings, the tone changes, and an example where the word alone doesn't say much (的, 了, 吧, 呢)
 
 One entry:
@@ -178,16 +178,17 @@ One entry:
   "hanzi": "你好",
   "pinyin": "nǐ hǎo",
   "english": "hello",
-  "note": "Said \"ní hǎo\": two 3rd tones in a row, the first becomes a 2nd.",
-  "parts": "你 = you · 好 = good",
-  "rank": 58
+  "note": "Two 3rd tones: said ní hǎo.",
+  "rank": 188
 }
 ```
+
+`rank` is the word's place in the subtitle count; the order of the list is the order new words come in. What each character means (你 = you · 好 = good) is added by the build, from the words that are single characters.
 
 ### Build (`tools/build.py`)
 
 - **Checks:** every word has characters, Pinyin with valid tone marks and English; ids are unique; one syllable per character; the voice can say every syllable (same rule as for lesson words)
-- **Audio:** one MP3 per word from the same offline voice, with the spoken tone changes (*nǐ hǎo* → *ní hǎo*, *bù shì* → *bú shì*), tone-checked like the lesson audio, in `docs/audio/w-<id>.mp3`
+- **Audio:** one MP3 per word from the same offline voice, with the spoken tone changes (*nǐ hǎo* → *ní hǎo*, *bù shì* → *bú shì*), tone-checked like the lesson audio, in `docs/audio/w-<code points>.mp3` (你好 → `w-4f60-597d.mp3`). In words like *wǒmen* the voice doesn't stop between syllables, so the check splits the word evenly to measure each tone; that's only used to pick the best take.
 - **Output:** `docs/words.json`, loaded by the Words tab
 
 ---
@@ -198,7 +199,7 @@ Per word, in the existing progress state, under a new key `words` (the old `card
 
 ```json
 "words": {
-  "nihao": { "step": 3, "due": "2026-11-14", "learning": 0, "reps": 4, "lapses": 0, "at": "2026-11-07T18:02:11" }
+  "你好": { "step": 3, "due": "2026-11-14", "learning": 0, "reps": 4, "lapses": 0, "at": "2026-11-07T18:02:11" }
 }
 ```
 
@@ -206,24 +207,25 @@ Per word, in the existing progress state, under a new key `words` (the old `card
 |-------|---------|
 | `step` | the step on the ladder (1 = 1 d … 9 = 1 yr) |
 | `due` | the day it's next shown |
-| `learning` | when it's waiting its 1 or 10 minutes: the time it's back (else 0) |
+| `learning` | when it's waiting its 1 or 10 minutes: the time it's back, in ms (else 0) |
 | `reps`, `lapses` | how often reviewed, how often *Don't know* |
 | `at` | time of the last change, for sync |
 
 - **Sync:** `words` is added to the synced keys. When two devices disagree about a word, the later `at` wins.
-- **Log:** each answer adds `{t: "word", id, g}` (g = 1–5) to the activity log, so **Copy progress for Claude** can report hard words, and `tools/progress.py` can list them in PROGRESS.md.
+- **Log:** answers go into the activity log in batches of 20, `{t: "words", total, grades: [how many of each button], new}`, so a long session doesn't push the lesson mistakes out of the log. Hard words come from each word's `lapses`: **Copy progress for Claude** lists the words forgotten twice or more, and `tools/progress.py` keeps them in `data/progress.json`.
 
 ---
 
-## 7. Steps to build it
+## 7. What's where
 
-| Step | What | Done when |
-|------|------|-----------|
-| 1 | `data/words.json` with the first 500 words; checks and audio in `tools/build.py` | build passes, every word has tone-checked audio |
-| 2 | The scheduler: the ladder and the button table from section 3 as data, one function `schedule(word, button, today)`, and the mix from section 4 | a test script checks every cell of the table in section 3, the example, and the mix |
-| 3 | The **Words** tab: card, flip, five buttons with their times, the endless queue, the summary when you stop | a full session works on the phone and with keys 1–5 |
-| 4 | Sync, log and **Copy progress for Claude**; hard words in `tools/progress.py` | progress made on the phone shows up on the computer |
-| 5 | Settings (autoplay, tone numbers); README and PLAN.md decisions | docs describe the tab |
+| Part | File |
+|------|------|
+| The words | `data/words.json` |
+| Checks, audio, app data (`docs/words.json`) | `tools/build.py` |
+| When a word comes back, which card is next | `docs/srs.js` |
+| Test of every rule and every cell of the table in section 3 | `node tools/test_srs.js` |
+| The Words tab | `docs/index.html` |
+| Words in Claude's progress summary | `tools/progress.py` |
 
 ### Later, if useful
 
