@@ -1,12 +1,13 @@
 {
  "v": 1,
- "updated": "2026-11-08T14:53:10.333Z",
+ "updated": "2026-11-08T15:21:40.212Z",
  "lessons": {
   "P01": {
    "done": "2026-10-18",
-   "last": "2026-10-18",
-   "best": 61,
-   "times": 1
+   "last": "2026-11-08",
+   "at": "2026-11-08T15:21:34.677Z",
+   "best": 70,
+   "times": 2
   },
   "P02": {
    "done": "2026-10-20",
@@ -1916,6 +1917,195 @@
    ],
    "new": 0,
    "practice": true
+  },
+  {
+   "d": "2026-11-08T15:15:19",
+   "t": "mistake",
+   "lesson": "P01",
+   "step": 13,
+   "type": "tone",
+   "want": "mò",
+   "got": "2nd tone",
+   "retry": 0
+  },
+  {
+   "d": "2026-11-08T15:15:48",
+   "t": "mistake",
+   "lesson": "P01",
+   "step": 17,
+   "type": "tone",
+   "want": "bǒ",
+   "got": "2nd tone",
+   "retry": 0
+  },
+  {
+   "d": "2026-11-08T15:16:24",
+   "t": "mistake",
+   "lesson": "P01",
+   "step": 20,
+   "type": "hear",
+   "want": "mó",
+   "got": "mò",
+   "retry": 0
+  },
+  {
+   "d": "2026-11-08T15:17:16",
+   "t": "mistake",
+   "lesson": "P01",
+   "step": 23,
+   "type": "tone",
+   "want": "wǒ",
+   "got": "4th tone",
+   "retry": 0
+  },
+  {
+   "d": "2026-11-08T15:17:49",
+   "t": "mistake",
+   "lesson": "P01",
+   "step": 26,
+   "type": "order",
+   "want": "mō mǒ",
+   "got": "mó mǒ",
+   "retry": 0
+  },
+  {
+   "d": "2026-11-08T15:18:33",
+   "t": "mistake",
+   "lesson": "P01",
+   "step": 29,
+   "type": "tone",
+   "want": "fó",
+   "got": "4th tone",
+   "retry": 0
+  },
+  {
+   "d": "2026-11-08T15:19:19",
+   "t": "mistake",
+   "lesson": "P01",
+   "step": 33,
+   "type": "hear",
+   "want": "fó",
+   "got": "fò",
+   "retry": 0
+  },
+  {
+   "d": "2026-11-08T15:19:57",
+   "t": "mistake",
+   "lesson": "P01",
+   "step": 36,
+   "type": "type",
+   "want": "wǒ",
+   "got": "mo1",
+   "retry": 0
+  },
+  {
+   "d": "2026-11-08T15:20:05",
+   "t": "mistake",
+   "lesson": "P01",
+   "step": 13,
+   "type": "tone",
+   "want": "mò",
+   "got": "2nd tone",
+   "retry": 1
+  },
+  {
+   "d": "2026-11-08T15:20:13",
+   "t": "mistake",
+   "lesson": "P01",
+   "step": 17,
+   "type": "tone",
+   "want": "bǒ",
+   "got": "2nd tone",
+   "retry": 1
+  },
+  {
+   "d": "2026-11-08T15:20:29",
+   "t": "mistake",
+   "lesson": "P01",
+   "step": 23,
+   "type": "tone",
+   "want": "wǒ",
+   "got": "4th tone",
+   "retry": 1
+  },
+  {
+   "d": "2026-11-08T15:20:35",
+   "t": "mistake",
+   "lesson": "P01",
+   "step": 26,
+   "type": "order",
+   "want": "mō mǒ",
+   "got": "mó mǒ",
+   "retry": 1
+  },
+  {
+   "d": "2026-11-08T15:20:44",
+   "t": "mistake",
+   "lesson": "P01",
+   "step": 29,
+   "type": "tone",
+   "want": "fó",
+   "got": "1st tone",
+   "retry": 1
+  },
+  {
+   "d": "2026-11-08T15:20:56",
+   "t": "mistake",
+   "lesson": "P01",
+   "step": 36,
+   "type": "type",
+   "want": "wǒ",
+   "got": "mo3",
+   "retry": 1
+  },
+  {
+   "d": "2026-11-08T15:21:05",
+   "t": "mistake",
+   "lesson": "P01",
+   "step": 13,
+   "type": "tone",
+   "want": "mò",
+   "got": "1st tone",
+   "retry": 2
+  },
+  {
+   "d": "2026-11-08T15:21:15",
+   "t": "mistake",
+   "lesson": "P01",
+   "step": 23,
+   "type": "tone",
+   "want": "wǒ",
+   "got": "2nd tone",
+   "retry": 2
+  },
+  {
+   "d": "2026-11-08T15:21:23",
+   "t": "mistake",
+   "lesson": "P01",
+   "step": 29,
+   "type": "tone",
+   "want": "fó",
+   "got": "4th tone",
+   "retry": 2
+  },
+  {
+   "d": "2026-11-08T15:21:33",
+   "t": "mistake",
+   "lesson": "P01",
+   "step": 36,
+   "type": "type",
+   "want": "wǒ",
+   "got": "mo2",
+   "retry": 2
+  },
+  {
+   "d": "2026-11-08T15:21:34",
+   "t": "lesson",
+   "lesson": "P01",
+   "score": 70,
+   "minutes": 9,
+   "wrong": 8,
+   "exercises": 27
   }
  ]
 }
