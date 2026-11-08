@@ -183,5 +183,61 @@ test("when only waiting words are left, the soonest comes anyway", () => {
   assert.equal(SRS.pickNext(WORDS, cards, T0 + 3 * MIN, { sinceNew: 0, recent: [] }), null);
 });
 
+// a session from scratch: answer every card with grade(word, kind) until nothing is left
+function session(cards, now, grade) {
+  const s = { sinceNew: 0, recent: [] }, shown = [];
+  for (let next; (next = SRS.pickNext(WORDS, cards, now, s)) && shown.length < 200; ) {
+    cards[next.word] = SRS.answer(cards[next.word], grade(next.word, next.kind), now);
+    shown.push(next.word);
+    s.sinceNew = next.kind === "new" ? 0 : s.sinceNew + 1;
+    s.recent = [next.word, ...s.recent].slice(0, SRS.MIN_GAP);
+    now += 2 * MIN;
+  }
+  return shown;
+}
+
+test("open words: at most 5 Don't know words, then no new words until you know some on a later day", () => {
+  const cards = {};
+  // every new word: Don't know, then Know on the repeat
+  const shown = session(cards, T0, (w, kind) => kind === "new" ? 1 : 3);
+  assert.deepEqual([...new Set(shown)], ["w0", "w1", "w2", "w3", "w4"], "only 5 words, cycled");
+  assert.ok(shown.length > 5, "the 5 come back in the session");
+  assert.equal(SRS.counts(WORDS, cards, T0 + 60 * MIN).open, 5);
+  assert.equal(SRS.counts(WORDS, cards, T0 + 60 * MIN).newAllowed, false);
+  // next day: knowing 2 of them frees 2 places, the other 3 stay open
+  const next = session(cards, at(1), (w, kind) => kind === "new" ? 1 : ["w0", "w1"].includes(w) ? 3 : 2);
+  assert.ok(next.includes("w5") && next.includes("w6") && !next.includes("w7"), next.join(" "));
+  assert.equal(SRS.counts(WORDS, cards, at(1) + 60 * MIN).open, 5);
+});
+
+test("open words: words you know at once, or Barely know, don't count", () => {
+  const cards = {};
+  session(cards, T0, (w, kind) => kind === "new" ? (w === "w9" ? 1 : 2) : 3);
+  assert.deepEqual(Object.keys(cards).filter(w => cards[w].miss), ["w9"]);
+  assert.ok(Object.keys(cards).length > 50, "new words keep coming");
+});
+
+test("open words: Don't know on a learned word opens it, Know on a later day closes it", () => {
+  let c = SRS.answer(waiting(30), 1, T0);
+  c = SRS.answer(c, 4, T0 + 2 * MIN);
+  assert.ok(SRS.isOpen(c), "still open after Know in the same session");
+  c = SRS.answer(c, 3, at(1));
+  assert.ok(!SRS.isOpen(c));
+});
+
+test("open words: cards from before the change count when still on step 1", () => {
+  const old = { step: 1, due: SRS.dayOf(at(1)), learning: 0, reps: 1, lapses: 0 };
+  assert.ok(SRS.isOpen(old));
+  assert.ok(!SRS.isOpen({ ...old, step: 2 }));
+  assert.ok(!SRS.isOpen(SRS.answer(old, 3, at(1))));
+});
+
+test("due words: open words first", () => {
+  const cards = deck(30);
+  cards.w20.miss = true;
+  cards.w3.due = SRS.dayOf(at(-9));
+  assert.equal(SRS.pickNext(WORDS, cards, T0, { sinceNew: 1, recent: [] }).word, "w20");
+});
+
 console.log(failed ? `\n${failed} failed` : "\nAll passed");
 process.exit(failed ? 1 : 0);

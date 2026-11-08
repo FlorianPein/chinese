@@ -158,7 +158,7 @@ New words keep coming **as long as you keep going**, mixed in among the old word
 | 1–4 | every 2nd card |
 | 0 | only new words |
 
-**One brake:** while 5 or more words are waiting their 1 or 10 minutes (ones you just got wrong), no new words come in until those are cleared.
+**One brake: at most 5 open words.** A word is *open* from the moment you say *Don't know* until you pick *Know* or better when it comes back **on a later day** (picking *Know* on the repeat in the same session only finishes it for today). Words waiting their 1 or 10 minutes count as open too. While 5 words are open, no new words come in: the open ones cycle (again after 1 minute, then the next day) until you know some of them, and each one you know lets one new word in. Among due words, the open ones come first. If only open words are left and none is due, the session ends; the tab says why.
 
 Because the mix is counted after every card, it shifts by itself: a session that starts with 60 due words is almost all review, and as you work them down, more and more new words come in. A day with lots of new words fills the next days with reviews, and those days then automatically bring fewer new ones.
 
@@ -216,6 +216,7 @@ Per word, in the existing progress state, under a new key `words` (the old `card
 | `due` | the day it's next shown |
 | `learning` | when it's waiting its 1 or 10 minutes: the time it's back, in ms (else 0) |
 | `reps`, `lapses` | how often reviewed, how often *Don't know* |
+| `miss` | open: said *Don't know*, not yet known on a later day ([section 4](#4-new-words-mixed-in-with-old-ones)). Cards from before this field count as open while on step 1 |
 | `at` | time of the last change, for sync |
 
 - **Sync:** `words` is added to the synced keys. When two devices disagree about a word, the later `at` wins.
