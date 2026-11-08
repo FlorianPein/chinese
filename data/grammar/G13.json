@@ -1,0 +1,43 @@
+{
+ "goal": "Say when something happens: 我今天很忙, 我明天去.",
+ "extra": ["明天"],
+ "blocks": [
+  {"text": "Words for *when* (今天 today, 明天 tomorrow, 现在 now) go **before** the verb: right after the person, or at the very start. Never at the end, as in English *I'm busy today*."},
+  {"pattern": "A + time + verb", "english": "or: time + A + verb"},
+  {"ex": [
+   ["我[今天]很忙。", "Wǒ [jīntiān] hěn máng.", "I'm busy today."],
+   ["[今天]我很忙。", "[Jīntiān] wǒ hěn máng.", "Today I'm busy.", "Both orders are fine. At the start, the time gets a bit more weight."],
+   ["他[现在]不在。", "Tā [xiànzài] bú zài.", "He isn't here right now."],
+   ["你[明天]来吗？", "Nǐ [míngtiān] lái ma?", "Are you coming tomorrow?"],
+   ["[现在]几点？", "[Xiànzài] jǐ diǎn?", "What time is it now?"]
+  ]},
+  {"wrong": [
+   ["我很忙今天。", "Wǒ hěn máng jīntiān.", "Time goes before the verb: 我今天很忙."],
+   ["我去明天。", "Wǒ qù míngtiān.", "Say 我明天去."]
+  ]},
+  {"h": "Who, when, where, what"},
+  {"text": "With a time and a place, the time comes first: *who, when, where, what*. German is close: *Ich arbeite heute zu Hause*."},
+  {"pattern": "A + time + 在 place + verb", "english": "A does it then, there"},
+  {"ex": [
+   ["我[今天]在家工作。", "Wǒ [jīntiān] zài jiā gōngzuò.", "I'm working at home today."],
+   ["他[明天]在这里工作。", "Tā [míngtiān] zài zhèlǐ gōngzuò.", "He's working here tomorrow.", "There's no *will*: 明天 already says it's in the future."]
+  ]},
+  {"tip": "Chinese verbs don't show the time. Time words like 今天 and 明天, and words like 了 (G17), do that job."}
+ ],
+ "exercises": [
+  {"order": ["我今天很忙。", "Wǒ jīntiān hěn máng.", "I'm busy today."], "also": ["今天我很忙。"]},
+  {"pick": "I'm going tomorrow.", "options": [
+   ["我明天去。", "Wǒ míngtiān qù."],
+   ["我去明天。", "Wǒ qù míngtiān."],
+   ["明天去我。", "Míngtiān qù wǒ."]
+  ], "explain": "The time goes before the verb."},
+  {"order": ["我今天在家工作。", "Wǒ jīntiān zài jiā gōngzuò.", "I'm working at home today."], "also": ["今天我在家工作。"]},
+  {"gap": ["他＿不在。", "Tā ＿ bú zài.", "He isn't here right now."], "options": [["现在", "xiànzài"], ["明天", "míngtiān"]]},
+  {"meaning": ["你明天来吗？", "Nǐ míngtiān lái ma?"], "options": ["Are you coming tomorrow?", "Did you come yesterday?", "Are you coming today?"]},
+  {"pick": "What time is it now?", "options": [
+   ["现在几点？", "Xiànzài jǐ diǎn?"],
+   ["几点现在？", "Jǐ diǎn xiànzài?"],
+   ["现在几点吗？", "Xiànzài jǐ diǎn ma?"]
+  ], "explain": "The time word goes first, and 几 already makes a question: no 吗."}
+ ]
+}

@@ -242,6 +242,57 @@ details.later .list { margin-top: 10px; }
 .wtop .btn { min-height: 40px; padding: 6px 12px; }
 .hardlist .item .p { font-size: 1.05rem; }
 .hardlist .item .hz { font-size: 1.3rem; margin-right: 6px; }
+/* grammar */
+.hzf { font-family: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif; }
+.gsession h2.gtitle { font-size: 1.45rem; color: var(--text); margin: 10px 0 4px; }
+.gsession .ggoal { color: var(--muted); margin: 0 0 6px; }
+.gsession h3 { font-size: 1.1rem; margin: 26px 0 6px; }
+.gsession p { margin: 8px 0; }
+.gpat { margin: 14px 0; padding: 12px 14px; border: 1px dashed var(--accent); border-radius: 12px; text-align: center; }
+.gpat-f { font-size: 1.2rem; font-weight: 600; }
+.gpat-f .hzf { color: var(--accent); }
+.gpat-en { color: var(--muted); font-size: .9rem; margin-top: 2px; }
+.gex { display: flex; gap: 10px; align-items: flex-start; margin: 10px 0; padding: 10px 12px; background: var(--surface-2); border-radius: 10px; border-left: 3px solid var(--accent); }
+.gex .btns { display: flex; flex-direction: column; gap: 4px; flex: none; }
+.gex .btn { min-height: 38px; padding: 4px 9px; }
+.gex .main { flex: 1; min-width: 0; }
+.gex-py { font-size: 1.08rem; overflow-wrap: anywhere; }
+.gex-hz { font-size: 1.35rem; line-height: 1.4; }
+.gex-en { color: var(--muted); }
+.gex-note { color: var(--warn); font-size: .88rem; margin-top: 4px; }
+.gex b { font-weight: 700; color: var(--accent); }
+.gex.bad { border-left-color: var(--bad); background: color-mix(in srgb, var(--bad) 7%, var(--surface)); }
+.gex.bad .gx { flex: none; width: 30px; text-align: center; color: var(--bad); font-weight: 700; font-size: 1.2rem; }
+.gex.bad .gex-py, .gex.bad .gex-hz { text-decoration: line-through; text-decoration-color: color-mix(in srgb, var(--bad) 60%, transparent); }
+.gex.bad .gex-why { margin-top: 4px; }
+.gtip { margin: 16px 0 6px; padding: 10px 12px; border-radius: 10px; background: color-mix(in srgb, var(--warn) 12%, var(--surface)); font-size: .95rem; }
+.gtip p { margin: 0; }
+details.gwords { margin: 10px 0 4px; border: 1px solid var(--border); border-radius: 10px; padding: 8px 12px; }
+details.gwords summary { cursor: pointer; font-weight: 600; font-size: .95rem; }
+.gwlist { display: flex; flex-direction: column; gap: 2px; margin-top: 8px; }
+.gw { display: grid; grid-template-columns: 5.5em 1fr auto; gap: 2px 10px; align-items: center; padding: 5px 0; border-top: 1px solid var(--border); }
+.gw .w { display: flex; flex-direction: column; line-height: 1.25; }
+.gw .w .hzf { font-size: 1.2rem; }
+.gw .w .p { font-weight: 600; font-size: .9rem; }
+.gw .e { font-size: .9rem; min-width: 0; line-height: 1.3; }
+.gw .s { display: block; font-size: .75rem; color: var(--muted); }
+.gw .s.ok { color: var(--good); }
+.gw .s.new { color: var(--accent); }
+.gw .btn { min-height: 34px; padding: 2px 8px; }
+.gq-sent { margin: 14px 0 4px; }
+.gq-sent .py { font-size: 1.35rem; font-weight: 600; margin: 0; }
+.gq-sent .hzf { font-size: 1.6rem; margin-top: 2px; }
+.gq-gap { display: inline-block; min-width: 2.2em; border-bottom: 2px solid var(--accent); }
+.options .btn.gopt { display: flex; flex-direction: column; align-items: center; gap: 2px; font-size: 1.2rem; }
+.options .btn.gopt small { font-size: .85rem; color: var(--muted); font-weight: 400; }
+.options .btn.gsent { display: flex; flex-direction: column; gap: 2px; text-align: left; font-size: 1.05rem; align-items: flex-start; }
+.options .btn.gsent .hzf { font-size: 1.25rem; }
+.tile.gtile { display: inline-flex; flex-direction: column; align-items: center; line-height: 1.2; }
+.tile.gtile small { font-weight: 400; font-size: .95rem; }
+.fbsent { margin: 4px 0 6px; }
+.fbsent .p { font-weight: 600; font-size: 1.1rem; }
+.fbsent .hzf { font-size: 1.25rem; }
+.fbexplain { margin: 4px 0 12px; font-size: .95rem; }
 @media (max-width: 420px) {
   .py { font-size: 1.7rem; }
   .kbd { display: none; }
@@ -260,6 +311,7 @@ details.later .list { margin-top: 10px; }
     <a href="#learn" data-tab="learn">Learn</a>
     <a href="#practice" data-tab="practice">Practice</a>
     <a href="#words" data-tab="words">Words</a>
+    <a href="#grammar" data-tab="grammar">Grammar</a>
     <a href="#listen" data-tab="listen">Listen</a>
     <a href="#settings" data-tab="settings" title="Settings">⚙︎</a>
   </nav>
@@ -274,7 +326,8 @@ details.later .list { margin-top: 10px; }
 const KEY = "pinyin-flashcards-v1";
 // cards: word flashcards from an earlier version of the course, kept so older copies of the app still sync
 // words: progress of each word flashcard, by its characters (see srs.js)
-const DEFAULT_STATE = { unlocked: [], cards: {}, words: {}, lessons: {}, removedLessons: {}, log: [], settings: { numbers: true, autoplay: true } };
+// grammar: grammar sessions checked, by topic id ({done, last, best, times, at})
+const DEFAULT_STATE = { unlocked: [], cards: {}, words: {}, grammar: {}, lessons: {}, removedLessons: {}, log: [], settings: { numbers: true, autoplay: true } };
 // Activity log for "Copy progress for Claude": finished lessons, wrong answers, practice rounds.
 const LOG_MAX = 3000;
 function logEvent(e) {
@@ -296,7 +349,7 @@ const nowIso = () => new Date().toISOString();
 // ---------- sync between devices, through a file on a branch of the GitHub repo ----------
 // The token stays in this browser (its own key, so Export never contains it).
 const SYNC_KEY = "pinyin-sync", SYNC_BRANCH = "progress", SYNC_FILE = "progress.json";
-const SHARED = ["lessons", "removedLessons", "cards", "words", "unlocked", "log"];   // settings stay per device
+const SHARED = ["lessons", "removedLessons", "cards", "words", "grammar", "unlocked", "log"];   // settings stay per device
 let syncCfg = (() => { try { return JSON.parse(localStorage.getItem(SYNC_KEY)) || {}; } catch (e) { return {}; } })();
 let syncTimer = null, syncing = null, syncAgain = false;
 function saveSyncCfg() { try { localStorage.setItem(SYNC_KEY, JSON.stringify(syncCfg)); } catch (e) { /* ignore */ } }
@@ -312,7 +365,7 @@ const pickShared = st => Object.fromEntries(SHARED.map(k => [k, st[k] || (k === 
 
 // Nothing done on either device is lost: lessons are combined (a lesson unticked
 // later than it was done stays removed), each flashcard keeps its latest review,
-// each word keeps its latest answer, and the logs are joined.
+// each word keeps its latest answer, grammar sessions are combined, and the logs are joined.
 function mergeState(a, b) {
   const removed = { ...(b.removedLessons || {}) };
   for (const [id, at] of Object.entries(a.removedLessons || {})) if (!removed[id] || at > removed[id]) removed[id] = at;
@@ -337,6 +390,12 @@ function mergeState(a, b) {
     const o = words[w];
     if (!o || (c.at || "") > (o.at || "") || (c.at === o.at && c.reps > o.reps)) words[w] = c;
   }
+  const ga = a.grammar || {}, gb = b.grammar || {}, grammar = {};
+  for (const id of new Set([...Object.keys(ga), ...Object.keys(gb)])) {
+    const x = ga[id], y = gb[id];
+    grammar[id] = x && y ? { done: x.done < y.done ? x.done : y.done, last: x.last > y.last ? x.last : y.last,
+                             best: Math.max(x.best, y.best), times: Math.max(x.times, y.times), at: x.at > y.at ? x.at : y.at } : x || y;
+  }
   const unlocked = [...new Set([...(a.unlocked || []), ...(b.unlocked || [])])].filter(id => !removed[id]);
   const seen = new Set(), log = [];
   for (const e of [...(b.log || []), ...(a.log || [])]) {
@@ -344,7 +403,7 @@ function mergeState(a, b) {
     if (!seen.has(k)) { seen.add(k); log.push(e); }
   }
   log.sort((x, y) => x.d < y.d ? -1 : x.d > y.d ? 1 : 0);
-  return { lessons, removedLessons: removed, cards, words, unlocked, log: log.slice(-LOG_MAX) };
+  return { lessons, removedLessons: removed, cards, words, grammar, unlocked, log: log.slice(-LOG_MAX) };
 }
 
 async function gh(path, opts = {}) {
@@ -425,7 +484,7 @@ function syncStatus() {
 function refreshAfterSync() {
   updateStat();
   const tab = location.hash.slice(1).split("/")[0] || "learn";
-  if (["learn", "settings"].includes(tab) || (tab === "words" && !W.session)) route();   // never in the middle of a lesson, practice or words
+  if (["learn", "settings"].includes(tab) || (tab === "words" && !W.session) || (tab === "grammar" && !G.quiz)) route();   // never in the middle of a lesson, practice, words or a grammar check
 }
 // every lesson that's done has its sounds in Practice; lessons that no longer exist are dropped
 function tidyLessons() {
@@ -645,7 +704,16 @@ function progressReport() {
       `${show(h)} ${c.lapses}×${c.lapses >= SRS.HARD ? " ⚑" : ""}`).join(", ")}`);
   }
 
-  const data = { v: 1, copied: now, since, lessons: state.lessons, words, log: fresh };
+  const gdone = Object.entries(state.grammar).sort();
+  if (gdone.length) {
+    lines.push("", `**Grammar done:** ${gdone.map(([id, st]) => `${id} (${st.done}, best ${st.best}%, ${st.times}×)`).join(", ")}`);
+    const checks = fresh.filter(e => e.t === "grammar");
+    if (checks.length) lines.push(`Since last copy: ${checks.map(e => `${e.id} ${e.score}%`).join(", ")}`);
+    const wrong = checks.flatMap(e => (e.wrong || []).map(w => `${e.id} ${w}`));
+    if (wrong.length) { lines.push("Grammar mistakes since last copy:"); wrong.slice(0, 20).forEach(w => lines.push(`- ${w}`)); }
+  }
+
+  const data = { v: 1, copied: now, since, lessons: state.lessons, words, grammar: state.grammar, log: fresh };
   lines.push("", "```json", JSON.stringify(data), "```");
   return lines.join("\n");
 }
@@ -845,6 +913,245 @@ function renderWordsDone(allDone) {
       <button class="btn primary wide" id="wBack">Back</button>
     </div>`;
   $("#wBack").onclick = back;
+}
+
+// ---------- Grammar: one topic per session, in HSK order (docs/grammar.json, built from data/grammar/) ----------
+const G = { plan: [], sessions: {}, loading: null, quiz: null };
+function loadGrammar() {
+  if (!G.loading) G.loading = fetch("grammar.json", { cache: "no-cache" }).then(r => r.json()).then(d => {
+    G.plan = d.plan;
+    const reg = x => { if (x && x.audio) byId[x.audio] = byId[x.audio] || { v: x.v }; };
+    for (const s of d.sessions) {
+      G.sessions[s.id] = s;
+      s.blocks.forEach(b => (b.ex || []).forEach(reg));
+      s.exercises.forEach(q => reg(q.sentence));
+      s.words.forEach(reg);
+    }
+  }).catch(e => { G.loading = null; throw e; });
+  return G.loading;
+}
+const onGrammarTab = () => (location.hash.slice(1) || "learn").split("/")[0] === "grammar";
+// **bold** and *italic* inside a line
+const inline = t => esc(t).replace(/\*\*(.+?)\*\*/g, "<b>$1</b>").replace(/\*(.+?)\*/g, "<i>$1</i>");
+// Chinese characters inside English text get the Chinese font
+const zh = html => html.replace(/[一-鿿，。？！、＿]+/g, m => `<span class="hzf" lang="zh-CN">${m}</span>`);
+// text with [start, end] ranges in bold (the grammar point of an example)
+function marked(text, ranges) {
+  let out = "", pos = 0;
+  for (const [a, b] of [...ranges].sort((x, y) => x[0] - y[0])) { out += esc(text.slice(pos, a)) + `<b>${esc(text.slice(a, b))}</b>`; pos = b; }
+  return out + esc(text.slice(pos));
+}
+
+function renderGrammar(id, sub) {
+  if (!G.plan.length) {
+    keyHandler = null;
+    view.innerHTML = `<div class="card center muted">Loading grammar…</div>`;
+    loadGrammar().then(() => { if (onGrammarTab()) renderGrammar(id, sub); })
+      .catch(() => { if (onGrammarTab()) view.innerHTML = `<div class="card center muted">Couldn't load the grammar. Check your connection and open the tab again.</div>`; });
+    return;
+  }
+  const s = G.sessions[id];
+  if (s && sub === "check") return startGrammarQuiz(s);
+  if (s) return renderGrammarSession(s);
+  renderGrammarList();
+}
+
+function renderGrammarList() {
+  keyHandler = null;
+  const next = G.plan.find(t => t.built && !state.grammar[t.id]);
+  const row = (t, n) => {
+    const head = `<div class="t">${zh(esc(t.title))}</div><div class="muted small">${zh(esc(t.focus))}</div>`;
+    if (!t.built) return `<div class="lrow planned"><span class="ic">${n}</span><div class="main">${head}</div></div>`;
+    const s = G.sessions[t.id], st = state.grammar[t.id];
+    const seen = s.words.filter(w => state.words[w.hanzi]).length;
+    return `<a class="lrow${st ? " done" : ""}${t === next ? " next" : ""}" href="#grammar/${t.id}">
+      <span class="ic">${st ? "✓" : n}</span>
+      <div class="main">${head}<div class="muted small">${st ? `Best ${st.best}% · ` : ""}${seen} of ${s.words.length} words seen in Words</div></div>
+      <span class="go">${t === next ? "Start" : st ? "Again" : "Open"}</span></a>`;
+  };
+  const levels = [...new Set(G.plan.map(t => t.hsk))];
+  view.innerHTML = `<div class="card" style="padding:14px 16px"><b>One topic per session</b>
+      <div class="muted small">In the order of the HSK levels. Each session explains one topic with examples you can play, then checks it with a few questions. The examples use words from <b>Words</b>: early topics only the most common ones, later topics words further down the list.</div></div>` +
+    levels.map(h => {
+      const ts = G.plan.filter(t => t.hsk === h);
+      const list = `<div class="list">${ts.map(t => row(t, G.plan.indexOf(t) + 1)).join("")}</div>`;
+      return ts.some(t => t.built) ? `<div class="topic"><h2>HSK ${h}</h2>${list}</div>`
+        : `<details class="later"><summary>HSK ${h} · ${ts.length} topics, coming later</summary>${list}</details>`;
+    }).join("");
+}
+
+function exampleHtml(x) {
+  const hz = (x.mark || []).map(m => [m[0], m[1]]), py = (x.mark || []).map(m => [m[2], m[3]]);
+  return `<div class="gex"><div class="btns"><button class="btn" data-play="${x.audio}" title="Play">🔊</button>
+      <button class="btn" data-slow="${x.audio}" title="Slowly">🐢</button></div>
+    <div class="main"><div class="gex-py">${marked(x.pinyin, py)}</div>${state.settings.numbers ? `<div class="num">${esc(x.numbers)}</div>` : ""}
+      <div class="gex-hz hzf" lang="zh-CN">${marked(x.hanzi, hz)}</div><div class="gex-en">${esc(x.english)}</div>
+      ${x.note ? `<div class="gex-note">${zh(inline(x.note))}</div>` : ""}</div></div>`;
+}
+const wrongHtml = x => `<div class="gex bad"><span class="gx" title="wrong">✗</span>
+  <div class="main"><div class="gex-py">${esc(x.pinyin)}</div><div class="gex-hz hzf" lang="zh-CN">${esc(x.hanzi)}</div>
+    <div class="gex-why">${zh(inline(x.why))}</div></div></div>`;
+// the words of a session: seen in Words, or still to come there
+function grammarWords(s) {
+  const seen = s.words.filter(w => state.words[w.hanzi]).length;
+  const status = w => state.words[w.hanzi] ? `<span class="s ok">✓ seen</span>`
+    : w.new ? `<span class="s new">new here</span>` : w.pos ? `<span class="s">#${w.pos} in Words</span>` : `<span class="s">not in Words</span>`;
+  return `<details class="gwords"><summary>Words in this session: ${seen} of ${s.words.length} seen</summary>
+    <div class="gwlist">${s.words.map(w => `<div class="gw"><div class="w"><span class="hzf" lang="zh-CN">${esc(w.hanzi)}</span>
+      <span class="p">${esc(w.pinyin)}</span></div><div class="e">${esc(w.english)}${status(w)}</div>
+      <button class="btn" data-play="${w.audio}" title="Play">🔊</button></div>`).join("")}</div>
+    <p class="muted small" style="margin-bottom:0"><b>✓ seen</b>: you've had it in Words. <b>#</b>: its place in the word list, so it comes up in Words later. <b>New here</b>: a word this session brings in early.</p></details>`;
+}
+function renderGrammarSession(s) {
+  const st = state.grammar[s.id];
+  const blocks = s.blocks.map(b => b.h ? `<h3>${zh(esc(b.h))}</h3>`
+    : b.text ? zh(fmt(b.text))
+    : b.pattern ? `<div class="gpat"><div class="gpat-f">${zh(esc(b.pattern))}</div>${b.english ? `<div class="gpat-en">${esc(b.english)}</div>` : ""}</div>`
+    : b.tip ? `<div class="gtip">${zh(fmt("💡 " + b.tip))}</div>`
+    : b.ex ? b.ex.map(exampleHtml).join("")
+    : b.wrong ? b.wrong.map(wrongHtml).join("") : "").join("");
+  view.innerHTML = `<div class="wtop"><a class="btn" href="#grammar">← All topics</a>
+      <span class="muted small">${st ? `✓ done · best ${st.best}%` : ""}</span></div>
+    <div class="card gsession"><span class="tag">HSK ${s.hsk} · ${s.id}</span>
+      <h2 class="gtitle">${zh(esc(s.title))}</h2><p class="ggoal">${zh(inline(s.goal))}</p>
+      ${grammarWords(s)}${blocks}</div>
+    <div class="footer"><a class="btn primary wide" href="#grammar/${s.id}/check">Check yourself: ${s.exercises.length} questions</a></div>`;
+  keyHandler = e => { if (e.key === "Enter") location.hash = `#grammar/${s.id}/check`; };
+  window.scrollTo(0, 0);
+}
+
+// The check at the end of a session. A question answered wrong comes back once at the end;
+// the score counts the questions right the first time.
+function startGrammarQuiz(s) {
+  G.quiz = { s, queue: s.exercises.map((q, i) => ({ q, i, tries: 0 })), pos: 0, wrong: new Set(), notes: [] };
+  s.exercises.forEach(q => audioFor(q.sentence.audio));   // preload
+  renderGrammarQ();
+}
+function renderGrammarQ() {
+  keyHandler = null;
+  const Q = G.quiz;
+  if (Q.pos >= Q.queue.length) return finishGrammarQuiz();
+  const entry = Q.queue[Q.pos];
+  view.innerHTML = `<div class="ltop"><button class="btn ghost" id="quit" title="Back to the explanation">✕</button>
+      <div class="progress"><div style="width:${100 * Q.pos / Q.queue.length}%"></div></div></div>
+    <div class="card step" id="card"></div><div class="footer" id="footer"></div>`;
+  $("#quit").onclick = () => { location.hash = `#grammar/${Q.s.id}`; };
+  window.scrollTo(0, 0);
+  GQ[entry.q.type](entry.q, entry);
+}
+function nextGrammarQ() { stopAudio(); G.quiz.pos++; renderGrammarQ(); }
+const grammarReveal = q => { const x = q.sentence; return `<div class="fbsent">
+  <div class="p">${esc(x.pinyin)} <button class="btn icon" data-play="${x.audio}" title="Play (P)">🔊</button></div>
+  <div class="hzf" lang="zh-CN">${esc(x.hanzi)}</div><div class="muted">${esc(x.english)}</div></div>
+  ${q.explain ? `<div class="fbexplain">${zh(inline(q.explain))}</div>` : ""}`; };
+function grammarJudge(entry, ok, playId) {
+  const Q = G.quiz, q = entry.q;
+  if (!ok) {
+    if (!Q.wrong.has(entry.i)) {
+      const g = entry.given, o = q.options && q.options[+g];
+      const got = q.type === "order" ? g : q.type === "meaning" ? o : q.type === "gap" ? `${o.hanzi} ${o.pinyin}` : o.hanzi;
+      Q.notes.push(`${q.type}: ${q.sentence.hanzi} (${q.sentence.english}) → ${got}`);
+    }
+    Q.wrong.add(entry.i);
+    if (entry.tries < 1) Q.queue.push({ ...entry, tries: entry.tries + 1 });
+  }
+  const f = $("#footer");
+  f.className = "footer " + (ok ? "ok" : "no");
+  f.innerHTML = `<div class="fbhead">${ok ? "✓ Correct!" : "✗ Not quite"}</div>${grammarReveal(q)}
+    <button class="btn primary wide" id="go">Continue</button>`;
+  $("#go").onclick = nextGrammarQ;
+  $("#go").focus();
+  if (playId) play(playId);
+  keyHandler = e => {
+    if (e.key === "Enter" || e.key === " ") { e.preventDefault(); nextGrammarQ(); }
+    else if (e.key === "p" || e.key === "P") play(q.sentence.audio);
+  };
+}
+const GQ = {
+  order(q, entry) {
+    const x = q.sentence, tiles = x.tiles, plain = h => h.replace(/[，。？！：；、]/g, "");
+    let bank = shuffle(tiles.map((t, k) => k));
+    for (let n = 0; n < 5 && bank.every((k, i) => tiles[k][0] === tiles[i][0]); n++) bank = shuffle(bank);   // not already in order
+    const chosen = [];
+    $("#card").innerHTML = `<span class="tag">put the words in order</span><div class="big-en">${esc(x.english)}</div>
+      <div class="answer" id="ans"></div><div class="bank" id="bank"></div>`;
+    const tile = (k, cls, attr) => `<button class="tile gtile${cls}" ${attr}>${esc(tiles[k][1])}<small class="hzf" lang="zh-CN">${esc(tiles[k][0])}</small></button>`;
+    const audioOf = h => (G.quiz.s.words.find(w => w.hanzi === h) || {}).audio;
+    let done = false;
+    const go = footerButton("Check", () => check(), true);
+    const draw = () => {
+      $("#ans").innerHTML = chosen.map((k, n) => tile(k, "", `data-n="${n}"`)).join("");
+      $("#bank").innerHTML = bank.map(k => tile(k, chosen.includes(k) ? " used" : "", `data-k="${k}"`)).join("");
+      $("#ans").querySelectorAll(".tile").forEach(t => t.onclick = () => { if (!done) { chosen.splice(+t.dataset.n, 1); draw(); } });
+      $("#bank").querySelectorAll(".tile").forEach(t => t.onclick = () => {
+        const k = +t.dataset.k;
+        if (done || chosen.includes(k)) return;
+        chosen.push(k);
+        if (audioOf(tiles[k][0])) play(audioOf(tiles[k][0]));
+        draw();
+      });
+      go.disabled = !chosen.length;
+    };
+    const check = () => {
+      if (done || !chosen.length) return; done = true;
+      const given = chosen.map(k => tiles[k][0]).join("");
+      entry.given = given;
+      grammarJudge(entry, chosen.length === tiles.length && [x.hanzi, ...q.also].some(h => plain(h) === given), x.audio);
+    };
+    draw();
+    keyHandler = e => { if (e.key === "Enter") check(); else if (e.key === "Backspace" && chosen.length && !done) { chosen.pop(); draw(); } };
+  },
+  gap(q, entry) {
+    const opts = shuffle(q.options.map((o, k) => ({ ...o, k })));
+    const [hzA, hzB] = q.hanzi.split("＿"), [pyA, pyB] = q.pinyin.split("＿");
+    $("#card").innerHTML = `<span class="tag">fill the gap</span><div class="big-en">${esc(q.english)}</div>
+      <div class="gq-sent"><div class="py">${esc(pyA)}<span class="gq-gap">&nbsp;</span>${esc(pyB)}</div>
+        <div class="hzf" lang="zh-CN">${esc(hzA)}<span class="gq-gap">&nbsp;</span>${esc(hzB)}</div></div>
+      <div class="options${opts.length === 3 ? " three" : ""}">${opts.map(o =>
+        `<button class="btn gopt" data-k="${o.k}"><span class="hzf" lang="zh-CN">${esc(o.hanzi)}</span><small>${esc(o.pinyin)}</small></button>`).join("")}</div>`;
+    choose(entry, k => k === "0", ok => grammarJudge(entry, ok, q.sentence.audio));
+  },
+  pick(q, entry) {
+    const opts = shuffle(q.options.map((o, k) => ({ ...o, k })));
+    $("#card").innerHTML = `<span class="tag">which is right?</span><div class="big-en">${esc(q.english)}</div>
+      <div class="options one">${opts.map(o =>
+        `<button class="btn gsent" data-k="${o.k}"><span>${esc(o.pinyin)}</span><span class="hzf" lang="zh-CN">${esc(o.hanzi)}</span></button>`).join("")}</div>`;
+    choose(entry, k => k === "0", ok => grammarJudge(entry, ok, q.sentence.audio));
+  },
+  meaning(q, entry) {
+    const x = q.sentence, opts = shuffle(q.options.map((o, k) => ({ o, k })));
+    entry.audio = x.audio;
+    $("#card").innerHTML = `<span class="tag">what does it mean?</span>${bigPlay(x.audio)}
+      <div class="gq-sent"><div class="py">${esc(x.pinyin)}</div><div class="hzf" lang="zh-CN">${esc(x.hanzi)}</div></div>
+      <div class="options one text">${opts.map(({ o, k }) => `<button class="btn" data-k="${k}">${esc(o)}</button>`).join("")}</div>`;
+    play(x.audio);
+    choose(entry, k => k === "0", ok => grammarJudge(entry, ok, null));
+  },
+};
+function finishGrammarQuiz() {
+  const Q = G.quiz, s = Q.s, n = s.exercises.length;
+  if (!Q.finished) {   // record once
+    Q.finished = true;
+    Q.score = Math.round(100 * (n - Q.wrong.size) / n);
+    const st = state.grammar[s.id], at = nowIso();
+    state.grammar[s.id] = st ? { ...st, last: today(), best: Math.max(st.best, Q.score), times: st.times + 1, at }
+                             : { done: today(), last: today(), best: Q.score, times: 1, at };
+    logEvent({ t: "grammar", id: s.id, score: Q.score, wrong: Q.notes });
+    save();
+  }
+  stopAudio();
+  const i = G.plan.findIndex(t => t.id === s.id), next = G.plan.slice(i + 1).find(t => t.built);
+  view.innerHTML = `<div class="card center"><span class="tag">HSK ${s.hsk} · ${s.id}</span><h3>${zh(esc(s.title))}</h3>
+      <div class="done-stats">
+        <div><b>${Q.score}%</b><span class="muted small">right first time</span></div>
+        <div><b>${n - Q.wrong.size} of ${n}</b><span class="muted small">questions</span></div>
+        <div><b>${state.grammar[s.id].best}%</b><span class="muted small">your best</span></div>
+      </div>
+      <p class="muted">${Q.score >= 80 ? "Well done." : "Read the explanation again, and check yourself once more, maybe tomorrow."}</p>
+      ${next ? `<a class="btn primary wide" href="#grammar/${next.id}"><span>Next: ${zh(esc(next.title))}</span></a>` : ""}
+      <div class="row"><a class="btn" href="#grammar/${s.id}">Read again</a><a class="btn" href="#grammar">All topics</a></div>
+    </div>`;
+  keyHandler = e => { if (e.key === "Enter" && next) location.hash = `#grammar/${next.id}`; };
 }
 
 // ---------- Learn: the lesson path ----------
@@ -1502,15 +1809,16 @@ function renderSettings() {
 
 // ---------- routing ----------
 function route() {
-  let [tab, arg] = (location.hash.slice(1) || "learn").split("/");
+  let [tab, arg, sub] = (location.hash.slice(1) || "learn").split("/");
   if (["review", "tones"].includes(tab)) tab = "practice";   // tabs of an earlier version
   stopAudio();
   if (tab !== "practice") flushPractice();
   if (tab !== "words") { flushWords(); W.session = null; }
   if (tab !== "lesson") L = null;
-  document.body.classList.toggle("inlesson", tab === "lesson");
+  if (tab !== "grammar" || sub !== "check") G.quiz = null;
+  document.body.classList.toggle("inlesson", tab === "lesson" || (tab === "grammar" && sub === "check"));
   document.querySelectorAll("nav a").forEach(a => a.classList.toggle("on", a.dataset.tab === tab));
-  ({ learn: renderLearn, practice: renderPractice, words: renderWords, listen: () => renderListen(arg),
+  ({ learn: renderLearn, practice: renderPractice, words: renderWords, grammar: () => renderGrammar(arg, sub), listen: () => renderListen(arg),
      settings: renderSettings, lesson: () => startLesson(arg) }[tab] || renderLearn)();
   updateStat();
 }

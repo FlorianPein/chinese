@@ -1,0 +1,43 @@
+{
+ "goal": "Ask yes-no questions and answer them.",
+ "blocks": [
+  {"text": "To turn a statement into a yes-no question, add 吗 (ma) at the end. Nothing else moves: no swapping like *Are you…?* or *Bist du…?*"},
+  {"pattern": "statement + 吗？", "english": "a yes-no question"},
+  {"ex": [
+   ["你是学生[吗]？", "Nǐ shì xuésheng [ma]?", "Are you a student?"],
+   ["他是老师[吗]？", "Tā shì lǎoshī [ma]?", "Is he a teacher?"],
+   ["你知道[吗]？", "Nǐ zhīdào [ma]?", "Do you know?"],
+   ["你去[吗]？", "Nǐ qù [ma]?", "Are you going?"],
+   ["你有时间[吗]？", "Nǐ yǒu shíjiān [ma]?", "Do you have time?"],
+   ["你好[吗]？", "Nǐ hǎo [ma]?", "How are you?", "Literally *Are you good?*"]
+  ]},
+  {"tip": "吗 is light: short, without a tone of its own. The question is in the word 吗, so your voice doesn't have to go up at the end."},
+  {"h": "Answering: repeat the verb"},
+  {"text": "Chinese has no one word for *yes* or *no*. Answer with the verb of the question: 是 or 不是, 去 or 不去, 知道 or 不知道. When someone checks a fact, 对 (duì, *right*) also works as *yes*."},
+  {"ex": [
+   ["你去吗？", "Nǐ qù ma?", "Are you going?"],
+   ["[去]。", "[Qù].", "Yes (I'm going)."],
+   ["[不去]。", "[Bú qù].", "No (I'm not going)."],
+   ["你知道吗？", "Nǐ zhīdào ma?", "Do you know?"],
+   ["[不知道]。", "[Bù zhīdào].", "No, I don't know."],
+   ["你是老师吗？", "Nǐ shì lǎoshī ma?", "Are you a teacher?"],
+   ["[对]，我是老师。", "[Duì], wǒ shì lǎoshī.", "Yes, I'm a teacher."]
+  ]},
+  {"h": "吗 always goes last"},
+  {"wrong": [
+   ["你吗是学生？", "Nǐ ma shì xuésheng?", "吗 goes at the very end: 你是学生吗？"]
+  ]}
+ ],
+ "exercises": [
+  {"order": ["你是老师吗？", "Nǐ shì lǎoshī ma?", "Are you a teacher?"]},
+  {"gap": ["你知道＿？", "Nǐ zhīdào ＿?", "Do you know?"], "options": [["吗", "ma"], ["是", "shì"], ["不", "bù"]]},
+  {"pick": "Is he a student?", "options": [
+   ["他是学生吗？", "Tā shì xuésheng ma?"],
+   ["吗他是学生？", "Ma tā shì xuésheng?"],
+   ["他吗是学生？", "Tā ma shì xuésheng?"]
+  ], "explain": "吗 goes at the very end, nothing else moves."},
+  {"meaning": ["你去吗？", "Nǐ qù ma?"], "options": ["Are you going?", "You're going.", "I'm not going."]},
+  {"meaning": ["对，我是学生。", "Duì, wǒ shì xuésheng."], "options": ["Yes, I'm a student.", "No, I'm not a student.", "Are you a student?"]},
+  {"order": ["你有时间吗？", "Nǐ yǒu shíjiān ma?", "Do you have time?"]}
+ ]
+}

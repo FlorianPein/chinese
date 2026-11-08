@@ -20,6 +20,7 @@
 | Tones | **All four, always together.** P01 teaches all four at once, and every chart and tone question in every lesson has all four, so you always hear the contrasts. The build enforces this |
 | Sound comparisons | English *and* German |
 | Characters | Shown on the word flashcards, under the Pinyin. Hidden in the lessons for now |
+| Grammar | In the app's **Grammar** tab (from 2026-11-08): one topic per session, in HSK order, explained in English (with German where it helps), example sentences with audio, then a short check. Sentences only use words from the word list, rarer words only in later topics. See [GRAMMAR.md](GRAMMAR.md) |
 
 ---
 

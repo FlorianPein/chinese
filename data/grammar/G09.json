@@ -1,0 +1,53 @@
+{
+ "goal": "Say where someone or something is, and where something happens: 我在家, 我在家工作.",
+ "extra": ["家"],
+ "blocks": [
+  {"text": "在 (zài) says where someone or something is: *to be at, to be in*. For places it takes the place of 是."},
+  {"pattern": "A + 在 + place", "english": "A is at / in the place"},
+  {"ex": [
+   ["我[在]这里。", "Wǒ [zài] zhèlǐ.", "I'm here."],
+   ["他[在]家。", "Tā [zài] jiā.", "He's at home."],
+   ["妈妈[在]那里。", "Māma [zài] nàlǐ.", "Mum is over there."]
+  ]},
+  {"wrong": [
+   ["我是这里。", "Wǒ shì zhèlǐ.", "For places, use 在: 我在这里."]
+  ]},
+  {"h": "Where? 在哪里"},
+  {"ex": [
+   ["你[在哪里]？", "Nǐ [zài nǎlǐ]?", "Where are you?"],
+   ["我的钱[在哪里]？", "Wǒ de qián [zài nǎlǐ]?", "Where's my money?", "In the north of China you'll also hear 哪儿 (nǎr)."]
+  ]},
+  {"h": "Not there: 不在"},
+  {"ex": [
+   ["他[不在]。", "Tā [bú zài].", "He isn't here. / He's not in.", "On the phone: *He's not in.*"],
+   ["我[不在]家。", "Wǒ [bú zài] jiā.", "I'm not at home."]
+  ]},
+  {"h": "Doing something somewhere"},
+  {"text": "When something happens at a place, 在 + place comes **before** the verb: *I at home work*, not *I work at home*."},
+  {"pattern": "A + 在 + place + verb", "english": "A does it at the place"},
+  {"ex": [
+   ["我[在家]工作。", "Wǒ [zài jiā] gōngzuò.", "I work at home."],
+   ["妈妈[在那里]等。", "Māma [zài nàlǐ] děng.", "Mum is waiting over there."]
+  ]},
+  {"wrong": [
+   ["我工作在家。", "Wǒ gōngzuò zài jiā.", "The place goes before the verb: 我在家工作."]
+  ]},
+  {"tip": "在 before a verb without a place means *to be doing* (他在工作, *he's working*). That's G23."}
+ ],
+ "exercises": [
+  {"order": ["你在哪里？", "Nǐ zài nǎlǐ?", "Where are you?"]},
+  {"pick": "I'm at home.", "options": [
+   ["我在家。", "Wǒ zài jiā."],
+   ["我是家。", "Wǒ shì jiā."],
+   ["我家是。", "Wǒ jiā shì."]
+  ], "explain": "Where someone is: 在, not 是."},
+  {"order": ["我在家工作。", "Wǒ zài jiā gōngzuò.", "I work at home."]},
+  {"gap": ["他不＿这里。", "Tā bú ＿ zhèlǐ.", "He isn't here."], "options": [["在", "zài"], ["是", "shì"], ["有", "yǒu"]]},
+  {"meaning": ["我的钱在哪里？", "Wǒ de qián zài nǎlǐ?"], "options": ["Where's my money?", "My money is here.", "Do you have money?"]},
+  {"pick": "He works there.", "options": [
+   ["他在那里工作。", "Tā zài nàlǐ gōngzuò."],
+   ["他工作在那里。", "Tā gōngzuò zài nàlǐ."],
+   ["他那里在工作。", "Tā nàlǐ zài gōngzuò."]
+  ], "explain": "在 + place comes before the verb."}
+ ]
+}

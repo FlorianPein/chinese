@@ -1,0 +1,51 @@
+{
+ "goal": "Ask *how*: 这个怎么说？ 你怎么样？",
+ "extra": ["怎么办"],
+ "blocks": [
+  {"text": "怎么 (zěnme) before a verb asks *how* to do something."},
+  {"pattern": "怎么 + verb", "english": "how (to) …"},
+  {"ex": [
+   ["这个[怎么]说？", "Zhège [zěnme] shuō?", "How do you say this?"],
+   ["这个[怎么]做？", "Zhège [zěnme] zuò?", "How do you do this?"],
+   ["我们[怎么]去？", "Wǒmen [zěnme] qù?", "How do we get there?"],
+   ["你[怎么]知道？", "Nǐ [zěnme] zhīdào?", "How do you know?"]
+  ]},
+  {"wrong": [
+   ["你说怎么？", "Nǐ shuō zěnme?", "怎么 goes before the verb: 你怎么说？ (For *what did you say?*, it's 你说什么？)"]
+  ]},
+  {"h": "How come?"},
+  {"text": "Said with surprise or worry, 怎么 means *how come, why*."},
+  {"ex": [
+   ["你[怎么]不吃？", "Nǐ [zěnme] bù chī?", "Why aren't you eating?"],
+   ["你[怎么]在这里？", "Nǐ [zěnme] zài zhèlǐ?", "What are you doing here?", "Literally *How come you're here?*"]
+  ]},
+  {"h": "怎么样: how is it? how about…?"},
+  {"text": "怎么样 (zěnmeyàng) goes at the end. It asks how something is, or suggests something: *how about it?* Answer with an adjective: 很好, 不太好, 太好了!"},
+  {"pattern": "… 怎么样？", "english": "How is …? How about …?"},
+  {"ex": [
+   ["你[怎么样]？", "Nǐ [zěnmeyàng]?", "How are you doing?"],
+   ["你的工作[怎么样]？", "Nǐ de gōngzuò [zěnmeyàng]?", "How's your work going?"],
+   ["这个[怎么样]？", "Zhège [zěnmeyàng]?", "What about this one?"],
+   ["我们一起去，[怎么样]？", "Wǒmen yìqǐ qù, [zěnmeyàng]?", "Let's go together, how about it?"]
+  ]},
+  {"h": "怎么办: what now?"},
+  {"ex": [
+   ["[怎么办]？", "[Zěnme bàn]?", "What do we do now?"],
+   ["我不知道[怎么办]。", "Wǒ bù zhīdào [zěnme bàn].", "I don't know what to do."]
+  ]}
+ ],
+ "exercises": [
+  {"order": ["这个怎么说？", "Zhège zěnme shuō?", "How do you say this?"]},
+  {"gap": ["你的工作＿？", "Nǐ de gōngzuò ＿?", "How's your work going?"], "options": [["怎么样", "zěnmeyàng"], ["怎么", "zěnme"], ["什么", "shénme"]],
+   "explain": "At the end, *how is it?* is 怎么样. 怎么 needs a verb after it."},
+  {"meaning": ["你怎么不吃？", "Nǐ zěnme bù chī?"], "options": ["Why aren't you eating?", "How do you eat this?", "What are you eating?"]},
+  {"pick": "Let's go together, how about it?", "options": [
+   ["我们一起去，怎么样？", "Wǒmen yìqǐ qù, zěnmeyàng?"],
+   ["我们怎么样一起去？", "Wǒmen zěnmeyàng yìqǐ qù?"],
+   ["怎么样我们一起去？", "Zěnmeyàng wǒmen yìqǐ qù?"]
+  ], "explain": "怎么样 goes at the end, after the suggestion."},
+  {"order": ["我不知道怎么办。", "Wǒ bù zhīdào zěnme bàn.", "I don't know what to do."]},
+  {"gap": ["这个＿做？", "Zhège ＿ zuò?", "How do you do this?"], "options": [["怎么", "zěnme"], ["怎么样", "zěnmeyàng"], ["什么", "shénme"]],
+   "explain": "Before a verb, *how* is 怎么."}
+ ]
+}
