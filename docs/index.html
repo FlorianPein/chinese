@@ -699,7 +699,7 @@ function renderWords() {
   }
   if (W.session) return renderWordCard();
   const n = SRS.counts(W.list, state.words, Date.now());
-  const anything = n.due || n.learning || n.fresh;
+  const anything = n.due || n.learning || n.newAllowed;
   keyHandler = e => { if (anything && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); startWords(); } };
   const hard = hardWords();
   view.innerHTML = `<div class="card center">
@@ -708,9 +708,10 @@ function renderWords() {
         <div><b>${n.learning}</b><span class="muted small">to try again</span></div>
         <div><b>${n.learned}</b><span class="muted small">of ${W.list.length} seen</span></div>
       </div>
-      <button class="btn primary wide" id="wStart" ${anything ? "" : "disabled"}>${n.due || n.learning ? "Start" : n.fresh ? "Start with new words" : "All done"}</button>
+      <button class="btn primary wide" id="wStart" ${anything ? "" : "disabled"}>${n.due || n.learning ? "Start" : n.newAllowed ? "Start with new words" : "All done"}</button>
       <p class="muted small" style="margin-bottom:0">${anything
-        ? "Hear the word, see it in Pinyin and characters, tap for the English, then say how well you knew it. New words come in among the old ones: the fewer old words are due, the more new ones. Stop whenever you like."
+        ? `Hear the word, see it in Pinyin and characters, tap for the English, then say how well you knew it. New words come in among the old ones: the fewer old words are due, the more new ones. At most ${SRS.MAX_OPEN} words you didn't know are open at a time: new words wait until you know some of them on a later day. Stop whenever you like.`
+        : n.fresh ? `${openNote(n)} Next: ${n.tomorrow} due by tomorrow.`
         : `You've seen every word and none is due. Next: ${n.tomorrow} due by tomorrow.`}</p>
     </div>${hard.length ? `<h2>Hard words ⚑</h2>
     <p class="muted small" style="margin-top:0">Words you've marked <i>Don't know</i> ${SRS.HARD} times or more. They're listed in <b>Copy progress for Claude</b>.</p>
@@ -719,6 +720,8 @@ function renderWords() {
       <div class="btns"><button class="btn" data-play="${w.audio}" title="Play">🔊</button></div></div>`; }).join("")}</div>` : ""}`;
   if (anything) $("#wStart").onclick = startWords;
 }
+// why no new words come: the open words (Don't know, not yet known on a later day)
+const openNote = n => `New words wait: ${n.open} words you didn't know are still open. Once you know some of them when they come back, new ones come in.`;
 function startWords() {
   W.session = { sinceNew: 0, recent: [], current: null, flipped: false, done: 0, known: 0, fresh: 0 };
   nextWord();
@@ -805,6 +808,7 @@ function renderWordsDone(allDone) {
         <div><b>${s.fresh}</b><span class="muted small">new words</span></div>
       </div>
       <p class="muted">${n.due || n.learning ? `Still waiting: ${[n.due && `${n.due} due`, n.learning && `${n.learning} to try again`].filter(Boolean).join(", ")}. They come first next time. ` : ""}By tomorrow: ${n.tomorrow} due.</p>
+      ${n.fresh && !n.newAllowed ? `<p class="muted small">${openNote(n)}</p>` : ""}
       <button class="btn primary wide" id="wBack">Back</button>
     </div>`;
   $("#wBack").onclick = back;
