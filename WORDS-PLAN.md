@@ -164,6 +164,15 @@ Because the mix is counted after every card, it shifts by itself: a session that
 
 **Top of the tab:** `Due 18 · Learning 2 · Learned 240 of 2000` and a **Start** button. You can stop any time; the screen then shows how many you did and how many are due tomorrow.
 
+### Practising today's *Know* words
+
+Below the Start button: **Practise today's *Know* words (N)**. It shows the words you picked **Know** for today **and** that come back **tomorrow** (both must hold), in random order, so you can go over them again the same day.
+
+- **Know, Safely know, Securely know** change nothing: the word doesn't move up and still comes back tomorrow.
+- **Don't know** and **Barely know** count as usual, so a word can go down: *Don't know* counts as forgotten and makes the word open again. The word then comes back in the practice after a few others until you know it.
+- The buttons show when the word comes back (*1 d* for Know and better).
+- Practice answers go into the log in their own batches (`practice: true`), apart from the reviews.
+
 ---
 
 ## 5. The words: most common first
@@ -216,6 +225,7 @@ Per word, in the existing progress state, under a new key `words` (the old `card
 | `due` | the day it's next shown |
 | `learning` | when it's waiting its 1 or 10 minutes: the time it's back, in ms (else 0) |
 | `reps`, `lapses` | how often reviewed, how often *Don't know* |
+| `last` | the last button picked (1–5), to find today's *Know* words for practice |
 | `miss` | open: said *Don't know*, not yet known on a later day ([section 4](#4-new-words-mixed-in-with-old-ones)). Cards from before this field count as open while on step 1 |
 | `at` | time of the last change, for sync |
 

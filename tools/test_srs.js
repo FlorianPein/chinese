@@ -239,5 +239,41 @@ test("due words: open words first", () => {
   assert.equal(SRS.pickNext(WORDS, cards, T0, { sinceNew: 1, recent: [] }).word, "w20");
 });
 
+// ---- practice: today's Know words once more ----
+test("practice: the words picked Know today that come back tomorrow", () => {
+  const cards = {
+    know: SRS.answer(null, 3, T0),                                    // new, Know: tomorrow
+    safely: SRS.answer(null, 4, T0),                                  // 3 d
+    again: SRS.answer(SRS.answer(null, 1, T0), 3, T0 + 2 * MIN),      // Don't know, then Know: tomorrow
+    againSafely: SRS.answer(SRS.answer(null, 1, T0), 4, T0 + 2 * MIN),// tomorrow, but Safely know
+    waiting: SRS.answer(null, 1, T0),                                 // still waiting its minute
+    yesterday: SRS.answer(null, 3, at(-1)),                           // Know yesterday: due today
+    older: SRS.answer(SRS.answer(null, 3, at(-3)), 3, at(-2)),        // Know 2 days ago, 3 d: due tomorrow
+  };
+  assert.deepEqual(SRS.practiceWords(Object.keys(cards), cards, T0 + 5 * MIN), ["know", "again"]);
+  // cards from before `last` was stored: answered today, back tomorrow
+  const old = { ...cards.know }; delete old.last;
+  assert.deepEqual(SRS.practiceWords(["old"], { old }, T0 + 5 * MIN), ["old"]);
+});
+
+test("practice: Know or better changes nothing, Don't know and Barely know go down", () => {
+  const card = SRS.answer(null, 3, T0);
+  for (const g of [3, 4, 5]) {
+    assert.strictEqual(SRS.practice(card, g, T0 + MIN), card, `${SRS.GRADES[g - 1]} leaves it`);
+    assert.equal(SRS.practicePreview(card, g), "1 d");
+  }
+  let c = SRS.practice(card, 1, T0 + MIN);
+  assert.equal(c.learning, T0 + 2 * MIN, "Don't know: once more in the practice");
+  assert.ok(SRS.isOpen(c), "and the word is open again");
+  assert.equal(c.lapses, 1, "counts as forgotten");
+  c = SRS.practice(c, 5, T0 + 3 * MIN);
+  assert.equal(c.learning, 0);
+  assert.equal(c.step, 1);
+  assert.equal(daysUntil(c, T0), 1, "back tomorrow, not later");
+  c = SRS.practice(card, 2, T0 + MIN);
+  assert.equal(c.learning, T0 + 11 * MIN, "Barely know: once more in the practice");
+  assert.equal(SRS.practice(c, 3, T0 + 12 * MIN).step, 1);
+});
+
 console.log(failed ? `\n${failed} failed` : "\nAll passed");
 process.exit(failed ? 1 : 0);
