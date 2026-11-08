@@ -9,6 +9,7 @@
 //   reps, lapses   real reviews, and how many of them were Don't know
 //   miss      true from a Don't know until a later real review gets Know or better
 //             (cards from before this field: a word still on step 1 counts)
+//   last      the last button picked (1–5), for practice (see practiceWords)
 //   at        time of the last change (for sync: the later one wins)
 (function (root) {
 "use strict";
@@ -72,8 +73,32 @@ function answer(card, grade, now) {
     c.learning = 0;
     c.due = addDays(today, LADDER[c.step - 1]);   // late or not: counted from today
   }
+  c.last = grade;
   c.at = new Date(now).toISOString().slice(0, 19);
   return c;
+}
+
+// Practice: the words you picked Know for today that come back tomorrow, to go
+// over them again the same day. (Cards from before `last` was stored count if
+// their last answer was today and they come back tomorrow.)
+function practiceWords(words, cards, now) {
+  const today = dayOf(now), tomorrow = addDays(today, 1);
+  return words.filter(w => {
+    const c = cards[w];
+    return !!c && !c.learning && c.due === tomorrow && (c.last ?? 3) === 3 &&
+           !!c.at && dayOf(Date.parse(c.at + "Z")) === today;
+  });
+}
+
+// A practice answer never moves a word up: Know or better leaves it as it is.
+// Don't know and Barely know count as usual, so a word can go down; it then comes
+// back in the practice until you know it (which, like any repeat, doesn't climb).
+function practice(card, grade, now) {
+  if (grade >= 3 && !card.learning) return card;
+  return answer(card, grade, now);
+}
+function practicePreview(card, grade) {
+  return grade >= 3 && !card.learning ? LABELS[card.step - 1] : preview(card, grade);
 }
 
 // what a button would do, for its label: "1 min", "10 min", "3 d" …
@@ -133,7 +158,7 @@ function counts(words, cards, now) {
            tomorrow: words.filter(w => cards[w] && (cards[w].learning || cards[w].due <= tomorrow)).length };
 }
 
-const SRS = { LADDER, LABELS, GRADES, HARD, MIN_GAP, MAX_OPEN, isOpen, nextStep, answer, preview, newEvery, pickNext, counts, dayOf, addDays };
+const SRS = { LADDER, LABELS, GRADES, HARD, MIN_GAP, MAX_OPEN, isOpen, nextStep, answer, preview, practiceWords, practice, practicePreview, newEvery, pickNext, counts, dayOf, addDays };
 if (typeof module !== "undefined") module.exports = SRS;
 else root.SRS = SRS;
 })(this);

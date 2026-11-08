@@ -100,13 +100,15 @@ def main():
     if rounds:
         right, total = sum(e["right"] for e in rounds), sum(e["total"] for e in rounds)
         print(f"\nPractice: {total} questions, {round(100 * right / total)}% right")
-    batches = [e for e in log if e["t"] == "words"]
+    batches = [e for e in log if e["t"] == "words" and not e.get("practice")]
+    practised = sum(e["total"] for e in log if e["t"] == "words" and e.get("practice"))
     words = progress.get("words")
     if batches or words:
         grades = [sum(e["grades"][i] for e in batches) for i in range(5)]
         names = ["Don't know", "Barely know", "Know", "Safely know", "Securely know"]
         print(f"\nWords: {words['seen'] if words else '?'} seen; {sum(grades)} answers logged "
-              f"({', '.join(f'{n} {g}' for n, g in zip(names, grades))})")
+              f"({', '.join(f'{n} {g}' for n, g in zip(names, grades))})"
+              + (f"; {practised} practice answers (today's Know words again)" if practised else ""))
         if words and words["forgotten"]:
             hard = [f"{w} {n}×" + (" ⚑" if n >= 6 else "") for w, n in list(words["forgotten"].items())[:20]]
             print("Often forgotten:", ", ".join(hard))
