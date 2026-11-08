@@ -34,6 +34,8 @@ zhuan zhuang zhui zhun zhuo zi zong zou zu zuan zui zun zuo
 # Valid Pinyin syllables the model can't say. Items using them need a "say" override.
 SYLLABLES_NOT_IN_MODEL = {"shei", "zhei", "kei", "sei", "cei", "tei", "nen", "dei"} - SYLLABLES
 ALL_SYLLABLES = SYLLABLES | SYLLABLES_NOT_IN_MODEL
+# In sentences, such syllables are said the other common way (谁 shéi -> shuí).
+SAY_AS = {"shei": "shui"}
 
 TONE_MARKS = {"\u0304": 1, "\u0301": 2, "\u030c": 3, "\u0300": 4}
 PUNCT = {",": ",", "，": ",", ".": ".", "。": ".", "!": "!", "！": "!",

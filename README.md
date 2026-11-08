@@ -7,6 +7,7 @@ My course for learning Mandarin Chinese through **Pinyin**, without characters f
 - **[PLAN.md](PLAN.md)**: how the course works, the slide types, the first lessons in detail, future plans
 - **[PROGRESS.md](PROGRESS.md)**: what's done and what needs more practice
 - **[WORDS-PLAN.md](WORDS-PLAN.md)**: how the word flashcards work: when a word comes back, how new words are mixed in, where the words come from
+- **[GRAMMAR.md](GRAMMAR.md)**: the grammar topics in HSK order, one per session, and which are built
 
 ## Daily routine
 
@@ -14,7 +15,7 @@ My course for learning Mandarin Chinese through **Pinyin**, without characters f
 |----------|------------|
 | Normal (15–25 min) | Words, a few minutes of Practice, then 1 lesson |
 | Busy (2–5 min) | Words or Practice |
-| Free (30 min+) | Words, Practice, then 2–3 lessons |
+| Free (30 min+) | Words, Practice, then 2–3 lessons, or 1 grammar session |
 | Back after a break | Practice, then the last lesson again |
 
 If a lesson came out below about 70% right first time, do it again before the next one.
@@ -43,6 +44,7 @@ More lessons are added as you go (next: P09, *ba da ga za zha*). Every lesson us
 | **Learn** | The lessons in chart order. Tap the next one to start. Planned lessons are shown greyed out. |
 | **Practice** | An endless listening drill with the sounds of the lessons you've finished: which tone, which sound, or same or different. A sound you get wrong comes back a few questions later. |
 | **Words** | Flashcards of the most common words, Anki-style. You hear the word and see its Pinyin and characters; tap for the English and an example sentence (Pinyin, characters, English), then pick *Don't know*, *Barely know*, *Know*, *Safely know* or *Securely know*. Each button shows when the word comes back. New words come in among the old ones: the fewer old words are due, the more new ones. **Practise today's *Know* words** goes over the words you picked *Know* for today that come back tomorrow, without moving them up. Details in [WORDS-PLAN.md](WORDS-PLAN.md). |
+| **Grammar** | Chinese grammar, **one topic per session**, in HSK order (19 HSK 1 topics built, HSK 2 and 3 planned). Each session explains its topic with example sentences you can play (🔊, 🐢 slowly), the grammar point highlighted, and wrong sentences marked ✗ with why. Then **Check yourself**: 6 questions (put the words in order, fill the gap, which sentence is right, what it means); a wrong one comes back once at the end. The sentences only use words from Words, the further on the topic, the further down the word list; *Words in this session* shows which ones you've already seen there. Topics and order in [GRAMMAR.md](GRAMMAR.md). |
 | **Listen** | All audio of a lesson: every sound in each tone. 🐢 plays slowly. |
 | **⚙︎** | **Copy progress for Claude**, mark lessons as done, settings, export/import your progress (it's stored per browser). |
 
@@ -72,6 +74,8 @@ node tools/test_srs.js                  # check the flashcard rules (when a word
 ```
 
 The flashcard words are in `data/words.json`, most common first. The build checks each one (characters, Pinyin, one syllable per character, the voice can say it) and makes its audio like the lesson audio.
+
+The grammar topics are listed in `data/grammar.json` (HSK order); a topic is built once it has `data/grammar/<id>.json` (format at the top of `tools/grammar.py`). The build checks every sentence: one syllable per character, and cut into words that are all in the word list with the same Pinyin there. Each topic may use the word list up to a limit that grows from the 170 most common words (G01) to all of them (the last topic); a session can bring in at most 6 further words as `extra`. It makes audio for every example and question sentence, writes `docs/grammar.json` and [GRAMMAR.md](GRAMMAR.md).
 
 The check catches mistakes such as a chart block missing or taught twice, a lesson playing a syllable that hasn't been taught yet, a tone question without all four tones, or an answer missing from its options. Everything the build writes is committed, so the app needs nothing generated at run time.
 
@@ -106,3 +110,4 @@ Open a session in this repo and ask, for example:
 - *"Quiz me on everything so far. I'll answer like ma1."*
 - *"Drill b vs p and d vs t."*
 - *"Build the next lesson."*
+- *"Build the next grammar topics."* (HSK 2 and 3 are planned in `data/grammar.json`)

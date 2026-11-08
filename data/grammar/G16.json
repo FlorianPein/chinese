@@ -1,0 +1,48 @@
+{
+ "goal": "Say *A and B* and *with someone*: 爸爸和妈妈, 我跟他一起去.",
+ "blocks": [
+  {"text": "和 (hé) means *and*, but only between people or things: 我和你 *you and me*, 这个和那个 *this one and that one*. It never joins two sentences."},
+  {"pattern": "A 和 B", "english": "A and B (people or things)"},
+  {"ex": [
+   ["我[和]他是朋友。", "Wǒ [hé] tā shì péngyou.", "He and I are friends."],
+   ["爸爸[和]妈妈都在家。", "Bàba [hé] māma dōu zài jiā.", "Dad and Mum are both at home."],
+   ["我要这个[和]那个。", "Wǒ yào zhège [hé] nàge.", "I want this one and that one."]
+  ]},
+  {"h": "Not between sentences"},
+  {"text": "To join two sentences, put them side by side with a comma, often with 也 (G15)."},
+  {"ex": [
+   ["我很忙，他[也]很忙。", "Wǒ hěn máng, tā [yě] hěn máng.", "I'm busy, and he's busy too."]
+  ]},
+  {"wrong": [
+   ["我很忙和他很忙。", "Wǒ hěn máng hé tā hěn máng.", "和 doesn't join sentences: 我很忙，他也很忙."]
+  ]},
+  {"h": "With: 和, 跟 + 一起"},
+  {"text": "和 + person + verb is doing something *with* someone, often with 一起 (yìqǐ, *together*). 跟 (gēn) works the same and is more common in speech."},
+  {"pattern": "A + 和 / 跟 + B + 一起 + verb", "english": "A does it with B"},
+  {"ex": [
+   ["我[和]你一起去。", "Wǒ [hé] nǐ yìqǐ qù.", "I'll go with you."],
+   ["我[跟]他一起工作。", "Wǒ [gēn] tā yìqǐ gōngzuò.", "I work with him."]
+  ]},
+  {"h": "Three or more"},
+  {"text": "Put a list comma (、) between the first ones, and 和 before the last."},
+  {"ex": [
+   ["我、你[和]他都是学生。", "Wǒ, nǐ [hé] tā dōu shì xuésheng.", "You, he and I are all students."]
+  ]}
+ ],
+ "exercises": [
+  {"order": ["爸爸和妈妈都在家。", "Bàba hé māma dōu zài jiā.", "Dad and Mum are both at home."], "also": ["妈妈和爸爸都在家。"]},
+  {"pick": "I'm busy, and he's busy too.", "options": [
+   ["我很忙，他也很忙。", "Wǒ hěn máng, tā yě hěn máng."],
+   ["我很忙和他很忙。", "Wǒ hěn máng hé tā hěn máng."],
+   ["我很忙，和他也很忙。", "Wǒ hěn máng, hé tā yě hěn máng."]
+  ], "explain": "和 doesn't join sentences. Use a comma and 也."},
+  {"gap": ["我＿他是朋友。", "Wǒ ＿ tā shì péngyou.", "He and I are friends."], "options": [["和", "hé"], ["是", "shì"], ["也", "yě"]]},
+  {"meaning": ["我跟他一起工作。", "Wǒ gēn tā yìqǐ gōngzuò."], "options": ["I work with him.", "He and I don't work.", "I work for him."]},
+  {"order": ["我要这个和那个。", "Wǒ yào zhège hé nàge.", "I want this one and that one."], "also": ["我要那个和这个。"]},
+  {"pick": "I'll go with you.", "options": [
+   ["我和你一起去。", "Wǒ hé nǐ yìqǐ qù."],
+   ["我去和你一起。", "Wǒ qù hé nǐ yìqǐ."],
+   ["我一起和你去。", "Wǒ yìqǐ hé nǐ qù."]
+  ], "explain": "和 + person + 一起, then the verb."}
+ ]
+}

@@ -7,6 +7,7 @@ Updated after lessons and chat sessions. Lessons you've done are also recorded i
 - **Next lesson:** [P03: ge ke he](https://florianpein.github.io/chinese/#lesson/P03) ([notes](lessons/P03.md)), which starts with the 3rd vs the 4th tone and ends with them in a row
 - **Milestone in progress:** all four tones, and one group of initials per lesson (P01–P06)
 - **Words:** 22 of 533 seen (first session 2026-11-07), next ones due tomorrow
+- **Grammar:** none done yet; start with [G01: 是, A is B](https://florianpein.github.io/chinese/#grammar/G01) ([all topics](GRAMMAR.md))
 - **Last progress copied:** 2026-11-07 18:43 UTC (computer, words only)
 
 The course was restructured around the Pinyin chart on 2026-10-18. Nothing had been done in the earlier versions, so nothing carries over. P01 was done on the phone, P02 on the computer: the app keeps progress per device, and pastes from each are merged here.

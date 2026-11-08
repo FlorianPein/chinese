@@ -1,0 +1,50 @@
+{
+ "goal": "Say what you want and like to do: 我想去, 我喜欢工作.",
+ "blocks": [
+  {"text": "想 (xiǎng), 要 (yào) and 喜欢 (xǐhuan) go straight before another verb. There's no *to* in between, just like German *Ich will gehen*."},
+  {"pattern": "A + 想 / 要 / 喜欢 + verb", "english": "A would like to / wants to / likes to …"},
+  {"h": "想: would like to"},
+  {"ex": [
+   ["我[想]去。", "Wǒ [xiǎng] qù.", "I'd like to go."],
+   ["你[想]吃什么？", "Nǐ [xiǎng] chī shénme?", "What would you like to eat?"],
+   ["我[想]走。", "Wǒ [xiǎng] zǒu.", "I want to leave."]
+  ]},
+  {"h": "要: want to, have to, going to"},
+  {"text": "要 is firmer than 想: *want to*, *need to*, or a plan, *going to*. Before a thing, it's *to want*: 要什么 *want what*."},
+  {"ex": [
+   ["我[要]找他。", "Wǒ [yào] zhǎo tā.", "I'm going to find him."],
+   ["我[要]工作。", "Wǒ [yào] gōngzuò.", "I have to work."],
+   ["你[要]什么？", "Nǐ [yào] shénme?", "What do you want?"]
+  ]},
+  {"h": "喜欢: like (doing)"},
+  {"ex": [
+   ["我[喜欢]你。", "Wǒ [xǐhuan] nǐ.", "I like you."],
+   ["我[喜欢]工作。", "Wǒ [xǐhuan] gōngzuò.", "I like working."],
+   ["你[喜欢]做什么？", "Nǐ [xǐhuan] zuò shénme?", "What do you like doing?"]
+  ]},
+  {"h": "Not: 不想, 不喜欢, and careful with 不要"},
+  {"text": "Before a verb, 不要 means *don't!* (G30). For *I don't want to*, say 不想."},
+  {"ex": [
+   ["我[不想]去。", "Wǒ [bù xiǎng] qù.", "I don't want to go."],
+   ["[不要]走！", "[Bú yào] zǒu!", "Don't go!"],
+   ["我[不喜欢]这个。", "Wǒ [bù xǐhuan] zhège.", "I don't like this one."]
+  ]},
+  {"wrong": [
+   ["我去想。", "Wǒ qù xiǎng.", "想 comes first, then what you want to do: 我想去."]
+  ]},
+  {"tip": "想 on its own also means *to think* and *to miss*: 我想你, *I miss you*."}
+ ],
+ "exercises": [
+  {"order": ["你想吃什么？", "Nǐ xiǎng chī shénme?", "What would you like to eat?"]},
+  {"gap": ["我不＿去。", "Wǒ bù ＿ qù.", "I don't want to go."], "options": [["想", "xiǎng"], ["要", "yào"], ["喜欢", "xǐhuan"]],
+   "explain": "不要去 would be *don't go!* For *I don't want to*, say 不想."},
+  {"pick": "I like working.", "options": [
+   ["我喜欢工作。", "Wǒ xǐhuan gōngzuò."],
+   ["我工作喜欢。", "Wǒ gōngzuò xǐhuan."],
+   ["喜欢我工作。", "Xǐhuan wǒ gōngzuò."]
+  ], "explain": "喜欢 comes first, then what you like doing."},
+  {"meaning": ["不要走！", "Bú yào zǒu!"], "options": ["Don't go!", "I don't want to go.", "Do you want to go?"]},
+  {"order": ["我要找他。", "Wǒ yào zhǎo tā.", "I'm going to find him."]},
+  {"meaning": ["我想你。", "Wǒ xiǎng nǐ."], "options": ["I miss you.", "I like you.", "I want to go."]}
+ ]
+}

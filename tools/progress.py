@@ -9,7 +9,8 @@
 - data/progress-log.jsonl gets every new log entry (finished lessons, wrong
   answers, practice rounds, batches of word flashcard answers), without duplicates
 - data/progress.json also gets the latest word flashcard summary: how many
-  words were seen, and how often each word was forgotten (Don't know)
+  words were seen, and how often each word was forgotten (Don't know), and
+  the grammar sessions checked (date, best score, times)
 - prints a summary of weak spots over the whole log, for PROGRESS.md
 
 Run tools/build.py afterwards to update CHART.md.
@@ -45,7 +46,8 @@ def from_github():
     words = {"seen": len(cards),
              "forgotten": {w: c["lapses"] for w, c in cards.items() if c.get("lapses", 0) >= 2}}
     return {"copied": synced.get("updated", "")[:16].replace("T", " "),
-            "lessons": synced.get("lessons", {}), "words": words, "log": synced.get("log", [])}
+            "lessons": synced.get("lessons", {}), "words": words, "grammar": synced.get("grammar", {}),
+            "log": synced.get("log", [])}
 
 
 def main():
@@ -77,6 +79,17 @@ def main():
             forgotten[w] = max(n, forgotten.get(w, 0))
         progress["words"] = {"seen": max(data["words"]["seen"], old_words.get("seen", 0)),
                              "forgotten": dict(sorted(forgotten.items(), key=lambda kv: -kv[1]))}
+    grammar = progress.get("grammar", {})
+    for gid, st in data.get("grammar", {}).items():
+        old = grammar.get(gid, {})
+        merged = {k: v for k, v in {**old, **st}.items() if k != "at"}
+        for key, pick in (("done", min), ("last", max), ("best", max), ("times", max)):
+            vals = [x[key] for x in (old, st) if x.get(key) is not None]
+            if vals:
+                merged[key] = pick(vals)
+        grammar[gid] = merged
+    if grammar:
+        progress["grammar"] = dict(sorted(grammar.items()))
     progress["copied"] = max(progress.get("copied", ""), data["copied"])
     PROGRESS.write_text(json.dumps(progress, ensure_ascii=False, indent=1) + "\n")
 
@@ -112,6 +125,12 @@ def main():
         if words and words["forgotten"]:
             hard = [f"{w} {n}×" + (" ⚑" if n >= 6 else "") for w, n in list(words["forgotten"].items())[:20]]
             print("Often forgotten:", ", ".join(hard))
+    checks = [e for e in log if e["t"] == "grammar"]
+    if progress.get("grammar"):
+        print("\nGrammar:", ", ".join(f"{g} best {st['best']}% ({st['times']}×)" for g, st in progress["grammar"].items()))
+        for e in checks[-10:]:
+            for w in e.get("wrong", []):
+                print(f"  {e['id']} {w}")
 
 
 if __name__ == "__main__":

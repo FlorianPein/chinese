@@ -1,0 +1,48 @@
+{
+ "goal": "Say how someone or something is: 我很好, 他很忙.",
+ "extra": ["忙", "高兴"],
+ "blocks": [
+  {"text": "Words like *good, busy, big* (adjectives) work like verbs in Chinese. 好 isn't just *good*, it's *to be good*, so there's no 是. But a bare 我好 sounds like a comparison (*I'm the good one*), so a plain statement puts 很 (hěn) in front."},
+  {"pattern": "A + 很 + adjective", "english": "A is …"},
+  {"ex": [
+   ["我[很]好。", "Wǒ [hěn] hǎo.", "I'm fine.", "Three 3rd tones in a row: the first two are said as 2nd tones, wó hén hǎo."],
+   ["他[很]忙。", "Tā [hěn] máng.", "He's busy."],
+   ["我[很]高兴。", "Wǒ [hěn] gāoxìng.", "I'm happy."],
+   ["这个[很]大。", "Zhège [hěn] dà.", "This one is big."],
+   ["人[很]多。", "Rén [hěn] duō.", "There are a lot of people.", "Literally *people are many*: 多 is an adjective, too."]
+  ]},
+  {"text": "很 means *very*, but here it's mostly glue: 我很好 is just *I'm fine*. To really mean *very*, stress 很, or say 非常 (fēicháng)."},
+  {"ex": [
+   ["他[非常]忙。", "Tā [fēicháng] máng.", "He's very busy."]
+  ]},
+  {"h": "No 是 before adjectives"},
+  {"wrong": [
+   ["我是很好。", "Wǒ shì hěn hǎo.", "是 links two nouns (G01). Adjectives don't need it: 我很好."],
+   ["她是忙。", "Tā shì máng.", "Say 她很忙."]
+  ]},
+  {"h": "Not, and questions"},
+  {"text": "For *not*, 不 takes the place of 很. In a 吗 question, 很 usually drops out too."},
+  {"ex": [
+   ["我[不]忙。", "Wǒ [bù] máng.", "I'm not busy."],
+   ["这个[不]大。", "Zhège [bú] dà.", "This one isn't big."],
+   ["你忙[吗]？", "Nǐ máng [ma]?", "Are you busy?"]
+  ]},
+  {"tip": "Think of 忙 as *to be busy* and 高兴 as *to be happy*. Then 我很忙 is simply *I (very) am-busy*."}
+ ],
+ "exercises": [
+  {"order": ["我很高兴。", "Wǒ hěn gāoxìng.", "I'm happy."]},
+  {"pick": "He's busy.", "options": [
+   ["他很忙。", "Tā hěn máng."],
+   ["他是忙。", "Tā shì máng."],
+   ["他是很忙。", "Tā shì hěn máng."]
+  ], "explain": "Adjectives don't take 是: 他很忙."},
+  {"gap": ["这个＿大。", "Zhège ＿ dà.", "This one is big."], "options": [["很", "hěn"], ["是", "shì"], ["吗", "ma"]]},
+  {"meaning": ["我不忙。", "Wǒ bù máng."], "options": ["I'm not busy.", "I'm very busy.", "Are you busy?"]},
+  {"order": ["你忙吗？", "Nǐ máng ma?", "Are you busy?"]},
+  {"pick": "There are a lot of people.", "options": [
+   ["人很多。", "Rén hěn duō."],
+   ["人是多。", "Rén shì duō."],
+   ["多是人。", "Duō shì rén."]
+  ], "explain": "多 (many) is an adjective: 人很多."}
+ ]
+}

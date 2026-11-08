@@ -1,0 +1,45 @@
+{
+ "goal": "Say *also* and *all*: 我也是学生, 我们都很忙.",
+ "blocks": [
+  {"text": "也 (yě, *also, too*) and 都 (dōu, *all, both*) go right **before the verb** or adjective. Never at the start or the end of the sentence."},
+  {"h": "也: also, too, either"},
+  {"pattern": "A + 也 + verb", "english": "A also …"},
+  {"ex": [
+   ["我[也]是学生。", "Wǒ [yě] shì xuésheng.", "I'm a student too."],
+   ["我[也]很忙。", "Wǒ [yě] hěn máng.", "I'm busy too."],
+   ["我[也]想去。", "Wǒ [yě] xiǎng qù.", "I want to go too."],
+   ["他[也]不知道。", "Tā [yě] bù zhīdào.", "He doesn't know either.", "也不 = not either."]
+  ]},
+  {"wrong": [
+   ["也我是学生。", "Yě wǒ shì xuésheng.", "也 goes after the person, before the verb: 我也是学生."],
+   ["我是学生也。", "Wǒ shì xuésheng yě.", "Not at the end either: 我也是学生."]
+  ]},
+  {"h": "都: all, both"},
+  {"text": "都 sums up the people or things **before** it: 我们都 *all of us*, 他们都 *all of them*."},
+  {"pattern": "A + 都 + verb", "english": "all of A …"},
+  {"ex": [
+   ["我们[都]是学生。", "Wǒmen [dōu] shì xuésheng.", "We're all students."],
+   ["这些[都]是我的。", "Zhèxiē [dōu] shì wǒ de.", "These are all mine."],
+   ["[大家]都很好。", "[Dàjiā] dōu hěn hǎo.", "Everyone is fine.", "大家 = everyone. *All the people* isn't 都人: 都 looks back."],
+   ["他们[都不]在。", "Tāmen [dōu bú] zài.", "None of them is here.", "都不 = all not = none."]
+  ]},
+  {"h": "Both: 也都"},
+  {"text": "Together, 也 comes first."},
+  {"ex": [
+   ["我们[也都]很好。", "Wǒmen [yě dōu] hěn hǎo.", "We're all fine too."]
+  ]}
+ ],
+ "exercises": [
+  {"order": ["我也是学生。", "Wǒ yě shì xuésheng.", "I'm a student too."]},
+  {"pick": "We're all busy.", "options": [
+   ["我们都很忙。", "Wǒmen dōu hěn máng."],
+   ["都我们很忙。", "Dōu wǒmen hěn máng."],
+   ["我们很忙都。", "Wǒmen hěn máng dōu."]
+  ], "explain": "都 goes after the people it sums up, right before 很忙."},
+  {"gap": ["他＿不知道。", "Tā ＿ bù zhīdào.", "He doesn't know either."], "options": [["也", "yě"], ["都", "dōu"], ["很", "hěn"]]},
+  {"meaning": ["他们都不在。", "Tāmen dōu bú zài."], "options": ["None of them is here.", "Not all of them are here.", "They're all here."],
+   "explain": "都不 = all not = none."},
+  {"order": ["我们也都很好。", "Wǒmen yě dōu hěn hǎo.", "We're all fine too."]},
+  {"gap": ["大家＿很好。", "Dàjiā ＿ hěn hǎo.", "Everyone is fine."], "options": [["都", "dōu"], ["也", "yě"], ["是", "shì"]]}
+ ]
+}

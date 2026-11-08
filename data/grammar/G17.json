@@ -1,0 +1,50 @@
+{
+ "goal": "Say that something happened, or didn't: 我吃了, 我没吃.",
+ "blocks": [
+  {"text": "Chinese verbs don't change for the past. Instead, 了 (le) after a verb says the action happened or is done: 我吃了 *I ate, I've eaten*."},
+  {"pattern": "A + verb + 了", "english": "A did it / has done it"},
+  {"ex": [
+   ["我吃[了]。", "Wǒ chī [le].", "I've eaten."],
+   ["他来[了]。", "Tā lái [le].", "He's come. / He's here."],
+   ["我知道[了]。", "Wǒ zhīdào [le].", "Got it. / I see.", "Literally *now I know*."],
+   ["你去[了]吗？", "Nǐ qù [le] ma?", "Did you go?"]
+  ]},
+  {"h": "Verb + 了 + how many, what"},
+  {"text": "With an amount, or a question word, 了 goes right after the verb."},
+  {"ex": [
+   ["我买[了]两个。", "Wǒ mǎi [le] liǎng ge.", "I bought two."],
+   ["他说[了]什么？", "Tā shuō [le] shénme?", "What did he say?"]
+  ]},
+  {"h": "Didn't: 没 + verb, and no 了"},
+  {"text": "For *didn't* or *haven't*, put 没 (méi) or 没有 before the verb, and leave out 了. Not 不: 不 is for now and later (G04)."},
+  {"pattern": "A + 没 + verb", "english": "A didn't do it / hasn't done it"},
+  {"ex": [
+   ["我[没]吃。", "Wǒ [méi] chī.", "I haven't eaten. / I didn't eat."],
+   ["他[没]来。", "Tā [méi] lái.", "He didn't come."],
+   ["我[没有]看到。", "Wǒ [méiyǒu] kàndào.", "I didn't see it."]
+  ]},
+  {"wrong": [
+   ["我没吃了。", "Wǒ méi chī le.", "No 了 with 没: 我没吃."]
+  ]},
+  {"h": "Asking"},
+  {"text": "Ask with 了吗, or with 了没有 at the end (*…or not?*)."},
+  {"ex": [
+   ["你吃[了吗]？", "Nǐ chī [le ma]?", "Have you eaten?", "Also a friendly greeting around mealtimes."],
+   ["他来[了没有]？", "Tā lái [le méiyǒu]?", "Has he come yet?"]
+  ]},
+  {"tip": "了 has a second job, *now it's different* (我不想去了, *I don't want to go any more*). That's G21. For now: 了 after a verb = it happened."}
+ ],
+ "exercises": [
+  {"pick": "I didn't eat.", "options": [
+   ["我没吃。", "Wǒ méi chī."],
+   ["我没吃了。", "Wǒ méi chī le."],
+   ["我不吃了。", "Wǒ bù chī le."]
+  ], "explain": "No 了 with 没. (我不吃了 means *I'm not eating any more*.)"},
+  {"order": ["他说了什么？", "Tā shuō le shénme?", "What did he say?"]},
+  {"gap": ["他＿来。", "Tā ＿ lái.", "He didn't come."], "options": [["没", "méi"], ["不", "bù"], ["了", "le"]],
+   "explain": "*Didn't* is 没. 他不来 is *he isn't coming*."},
+  {"meaning": ["你吃了吗？", "Nǐ chī le ma?"], "options": ["Have you eaten?", "Do you want to eat?", "What did you eat?"]},
+  {"order": ["我买了两个。", "Wǒ mǎi le liǎng ge.", "I bought two."]},
+  {"gap": ["我知道＿。", "Wǒ zhīdào ＿.", "Got it."], "options": [["了", "le"], ["吗", "ma"], ["呢", "ne"]]}
+ ]
+}

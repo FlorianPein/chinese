@@ -1,0 +1,46 @@
+{
+ "goal": "Say what isn't so, or what you don't do: 我不知道, 我不去.",
+ "blocks": [
+  {"text": "不 (bù) makes a verb or an adjective negative. It goes right before the word it negates."},
+  {"pattern": "不 + verb or adjective", "english": "not …"},
+  {"ex": [
+   ["我[不]知道。", "Wǒ [bù] zhīdào.", "I don't know."],
+   ["他[不]来。", "Tā [bù] lái.", "He isn't coming."],
+   ["我[不]喜欢。", "Wǒ [bù] xǐhuan.", "I don't like it."],
+   ["这个[不]好。", "Zhège [bù] hǎo.", "This one isn't good."]
+  ]},
+  {"h": "bù or bú?"},
+  {"text": "不 is a 4th tone, **bù**. Before another 4th tone it becomes a 2nd tone, **bú**, because two falling tones in a row are hard to say. Here the change is written in the Pinyin, and you hear it in the audio."},
+  {"ex": [
+   ["[不]是。", "[Bú] shì.", "No, it isn't.", "是 is a 4th tone, so bú."],
+   ["我[不]去。", "Wǒ [bú] qù.", "I'm not going.", "去 is a 4th tone, so bú."],
+   ["[不]要，谢谢。", "[Bú] yào, xièxie.", "No, thanks.", "要 is a 4th tone, so bú. 不要 = don't want."],
+   ["他[不]来。", "Tā [bù] lái.", "He isn't coming.", "来 is a 2nd tone: 不 stays bù."]
+  ]},
+  {"h": "Now, usually, later"},
+  {"text": "不 says something isn't so, or that you don't (or won't) do it: now, usually, or later. Two cases are different: *didn't* in the past is 没 (G17), and *don't have* is 没有, never 不有 (G08)."},
+  {"ex": [
+   ["他[不]吃。", "Tā [bù] chī.", "He doesn't eat it. / He won't eat it."]
+  ]},
+  {"h": "Before the verb, not after"},
+  {"wrong": [
+   ["我知道不。", "Wǒ zhīdào bù.", "不 goes before the verb: 我不知道."],
+   ["我不有时间。", "Wǒ bù yǒu shíjiān.", "有 takes 没, not 不: 我没有时间 (G08)."]
+  ]},
+  {"tip": "To answer *no*, say 不 + the verb of the question: 不去, 不是, 不知道 (G02)."}
+ ],
+ "exercises": [
+  {"order": ["我不知道。", "Wǒ bù zhīdào.", "I don't know."]},
+  {"gap": ["我＿去。", "Wǒ ＿ qù.", "I'm not going."], "options": [["不", "bú"], ["不", "bù"]],
+   "explain": "去 is a 4th tone, so 不 is said bú."},
+  {"pick": "I don't know.", "options": [
+   ["我不知道。", "Wǒ bù zhīdào."],
+   ["我知道不。", "Wǒ zhīdào bù."],
+   ["不我知道。", "Bù wǒ zhīdào."]
+  ], "explain": "不 goes right before the verb."},
+  {"meaning": ["他不来。", "Tā bù lái."], "options": ["He isn't coming.", "He's coming.", "Is he coming?"]},
+  {"gap": ["这个＿好。", "Zhège ＿ hǎo.", "This one isn't good."], "options": [["不", "bù"], ["不", "bú"]],
+   "explain": "好 is a 3rd tone, so 不 stays bù."},
+  {"order": ["我不喜欢这个。", "Wǒ bù xǐhuan zhège.", "I don't like this one."]}
+ ]
+}

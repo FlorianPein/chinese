@@ -1,0 +1,49 @@
+{
+ "goal": "Ask *what* and *who*: 这是什么？ 他是谁？",
+ "extra": ["名字", ["小明", "Xiǎomíng", "Xiaoming (a name)"]],
+ "blocks": [
+  {"text": "Questions with 什么 (shénme, *what*) and 谁 (shéi, *who*) keep the normal word order. The question word goes exactly where the answer will go, not to the front as in English and German."},
+  {"pattern": "他是谁？ → 他是我朋友。", "english": "Who is he? → He's my friend."},
+  {"ex": [
+   ["这是[什么]？", "Zhè shì [shénme]?", "What's this?"],
+   ["你说[什么]？", "Nǐ shuō [shénme]?", "What did you say?"],
+   ["你要[什么]？", "Nǐ yào [shénme]?", "What do you want?"],
+   ["他是[谁]？", "Tā shì [shéi]?", "Who is he?", "谁 is also said shuí. The audio says shuí."],
+   ["[谁]知道？", "[Shéi] zhīdào?", "Who knows?"],
+   ["你找[谁]？", "Nǐ zhǎo [shéi]?", "Who are you looking for?"]
+  ]},
+  {"h": "The answer goes in the same place"},
+  {"ex": [
+   ["你叫[什么]名字？", "Nǐ jiào [shénme] míngzi?", "What's your name?", "Literally *You're called what name?*"],
+   ["我叫[小明]。", "Wǒ jiào [Xiǎomíng].", "I'm called Xiaoming."]
+  ]},
+  {"h": "什么 + noun"},
+  {"text": "什么 also goes before a noun: 什么东西 *what thing*, 什么问题 *what question*."},
+  {"ex": [
+   ["这是[什么]东西？", "Zhè shì [shénme] dōngxi?", "What (thing) is this?"],
+   ["你有[什么]问题？", "Nǐ yǒu [shénme] wèntí?", "What's your question?"]
+  ]},
+  {"h": "Whose: 谁的"},
+  {"ex": [
+   ["这是[谁的]钱？", "Zhè shì [shéi de] qián?", "Whose money is this?"]
+  ]},
+  {"h": "No 吗, no moving"},
+  {"text": "什么 and 谁 already make a question, so there's no 吗."},
+  {"wrong": [
+   ["什么这是？", "Shénme zhè shì?", "The question word stays where the answer goes: 这是什么？"],
+   ["这是什么吗？", "Zhè shì shénme ma?", "Already a question: no 吗."]
+  ]}
+ ],
+ "exercises": [
+  {"order": ["你叫什么名字？", "Nǐ jiào shénme míngzi?", "What's your name?"]},
+  {"pick": "Who is she?", "options": [
+   ["她是谁？", "Tā shì shéi?"],
+   ["她是谁吗？", "Tā shì shéi ma?"],
+   ["谁她是？", "Shéi tā shì?"]
+  ], "explain": "No 吗 with 谁, and 谁 goes where the answer goes: 她是我朋友 → 她是谁？"},
+  {"gap": ["这是＿？", "Zhè shì ＿?", "What's this?"], "options": [["什么", "shénme"], ["谁", "shéi"], ["吗", "ma"]]},
+  {"meaning": ["这是谁的钱？", "Zhè shì shéi de qián?"], "options": ["Whose money is this?", "Who is this?", "Is this your money?"]},
+  {"order": ["你找谁？", "Nǐ zhǎo shéi?", "Who are you looking for?"]},
+  {"gap": ["你说＿？", "Nǐ shuō ＿?", "What did you say?"], "options": [["什么", "shénme"], ["谁", "shéi"], ["的", "de"]]}
+ ]
+}

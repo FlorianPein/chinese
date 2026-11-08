@@ -1,0 +1,52 @@
+{
+ "goal": "Count people and things, and ask how many: 三个孩子, 几个, 多少钱.",
+ "extra": [["二", "èr", "two (counting)"], ["三", "sān", "three"], ["五", "wǔ", "five"], ["几", "jǐ", "how many (a few)"], "多少"],
+ "blocks": [
+  {"text": "The numbers one to ten: 一 yī, 二 èr, 三 sān, 四 sì, 五 wǔ, 六 liù, 七 qī, 八 bā, 九 jiǔ, 十 shí."},
+  {"h": "Number + measure word + noun"},
+  {"text": "Between a number and a noun, Chinese always puts a **measure word**, like *a cup of* or *a piece of* in English, but every time. The most common one, and the one that's never wrong in speech, is 个 (ge)."},
+  {"pattern": "number + 个 + noun", "english": "three children: 三个孩子"},
+  {"ex": [
+   ["我有[一个]问题。", "Wǒ yǒu [yí ge] wèntí.", "I have a question.", "一个 is said yí ge: 个 is really a 4th tone, so 一 becomes yí."],
+   ["他有[三个]孩子。", "Tā yǒu [sān ge] háizi.", "He has three children."],
+   ["我们有[五个]人。", "Wǒmen yǒu [wǔ ge] rén.", "There are five of us."]
+  ]},
+  {"wrong": [
+   ["我有三孩子。", "Wǒ yǒu sān háizi.", "A measure word is needed: 三个孩子."]
+  ]},
+  {"h": "Two things: 两, not 二"},
+  {"text": "For two of something, say 两 (liǎng): 两个人. 二 (èr) is for counting out loud, inside longer numbers and for *second*."},
+  {"ex": [
+   ["这里有[两个]人。", "Zhèlǐ yǒu [liǎng ge] rén.", "There are two people here."]
+  ]},
+  {"wrong": [
+   ["我有二个孩子。", "Wǒ yǒu èr ge háizi.", "For two of something, say 两: 两个孩子."]
+  ]},
+  {"h": "How many? 几 and 多少"},
+  {"text": "几 (jǐ) asks *how many* when you expect a small number (under about ten). It takes 个 like a number does. 多少 (duōshao) works for any amount, and can go without 个."},
+  {"ex": [
+   ["你有[几]个孩子？", "Nǐ yǒu [jǐ] ge háizi?", "How many children do you have?"],
+   ["你有[多少]钱？", "Nǐ yǒu [duōshao] qián?", "How much money do you have?"],
+   ["[多少]钱？", "[Duōshao] qián?", "How much is it?", "The question for prices."]
+  ]},
+  {"h": "Which one? 哪个"},
+  {"text": "个 also goes after 这, 那 (G07) and 哪 (nǎ, *which*)."},
+  {"ex": [
+   ["你要[哪个]？", "Nǐ yào [nǎ ge]?", "Which one do you want?"]
+  ]},
+  {"tip": "一 changes its tone like 不: yī on its own and when counting, yí before a 4th tone (yí ge), yì before the other tones (yì tiān, *one day*)."}
+ ],
+ "exercises": [
+  {"pick": "I have two children.", "options": [
+   ["我有两个孩子。", "Wǒ yǒu liǎng ge háizi."],
+   ["我有二个孩子。", "Wǒ yǒu èr ge háizi."],
+   ["我有孩子两个。", "Wǒ yǒu háizi liǎng ge."]
+  ], "explain": "Two of something is 两, and number + 个 go before the noun: 两个孩子."},
+  {"gap": ["他有三＿朋友。", "Tā yǒu sān ＿ péngyou.", "He has three friends."], "options": [["个", "ge"], ["的", "de"], ["是", "shì"]]},
+  {"order": ["你有几个孩子？", "Nǐ yǒu jǐ ge háizi?", "How many children do you have?"]},
+  {"meaning": ["多少钱？", "Duōshao qián?"], "options": ["How much is it?", "How many people?", "Do you have money?"]},
+  {"gap": ["你要＿个？", "Nǐ yào ＿ ge?", "Which one do you want?"], "options": [["哪", "nǎ"], ["那", "nà"], ["什么", "shénme"]],
+   "explain": "哪 (nǎ, 3rd tone) asks *which*. 那 (nà, 4th tone) is *that*."},
+  {"order": ["我有一个问题。", "Wǒ yǒu yí ge wèntí.", "I have a question."]}
+ ]
+}

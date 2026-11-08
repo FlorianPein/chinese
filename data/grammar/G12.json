@@ -1,0 +1,38 @@
+{
+ "goal": "Say what you can do: 我会说中文, 你能来吗？",
+ "extra": [["中文", "Zhōngwén", "Chinese (language)"], ["英文", "Yīngwén", "English (language)"]],
+ "blocks": [
+  {"text": "会 (huì) and 能 (néng) both mean *can*, but for different reasons. Both go right before the verb."},
+  {"h": "会: can, because you learned it"},
+  {"text": "会 is for skills: languages, cooking, driving, swimming. German has the same word for it: *Ich kann Chinesisch*."},
+  {"ex": [
+   ["我[会]说中文。", "Wǒ [huì] shuō Zhōngwén.", "I can speak Chinese."],
+   ["你[会]说英文吗？", "Nǐ [huì] shuō Yīngwén ma?", "Can you speak English?"],
+   ["我[不会]。", "Wǒ [bú huì].", "I can't. (I never learned how.)"]
+  ]},
+  {"h": "能: can, because you're able to or allowed"},
+  {"text": "能 is about the situation: you have the time, you're well enough, it's allowed."},
+  {"ex": [
+   ["你[能]来吗？", "Nǐ [néng] lái ma?", "Can you come?"],
+   ["我今天[不能]去。", "Wǒ jīntiān [bù néng] qù.", "I can't go today."],
+   ["我[能]看看吗？", "Wǒ [néng] kànkan ma?", "Can I have a look?"]
+  ]},
+  {"wrong": [
+   ["我会中文说。", "Wǒ huì Zhōngwén shuō.", "会 goes right before the verb: 我会说中文."]
+  ]},
+  {"tip": "会 also means *will* (他会来的, *he'll come*). That's G56."}
+ ],
+ "exercises": [
+  {"gap": ["我＿说中文。", "Wǒ ＿ shuō Zhōngwén.", "I can speak Chinese."], "options": [["会", "huì"], ["是", "shì"], ["在", "zài"]]},
+  {"gap": ["你今天＿来吗？", "Nǐ jīntiān ＿ lái ma?", "Can you come today?"], "options": [["能", "néng"], ["会", "huì"]],
+   "explain": "Coming today isn't a skill you learn: 能. (你今天会来吗 would be *Will you come today?*)"},
+  {"order": ["你会说英文吗？", "Nǐ huì shuō Yīngwén ma?", "Can you speak English?"]},
+  {"meaning": ["我不会。", "Wǒ bú huì."], "options": ["I can't. (I never learned how.)", "I'm not going.", "I don't know him."]},
+  {"pick": "I can't go today.", "options": [
+   ["我今天不能去。", "Wǒ jīntiān bù néng qù."],
+   ["我今天去不能。", "Wǒ jīntiān qù bù néng."],
+   ["不能我今天去。", "Bù néng wǒ jīntiān qù."]
+  ], "explain": "不能 goes right before the verb."},
+  {"order": ["我能看看吗？", "Wǒ néng kànkan ma?", "Can I have a look?"]}
+ ]
+}

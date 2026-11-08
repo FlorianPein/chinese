@@ -1,0 +1,39 @@
+{
+ "goal": "Say *too…*, *so…!* and *not very*: 太好了, 太大了, 不太好.",
+ "blocks": [
+  {"text": "太 (tài) + adjective + 了 means *too…*, or *so…!* when it's something nice. It's stronger than 很 (G03) and shows how you feel."},
+  {"pattern": "太 + adjective + 了", "english": "too … / so …!"},
+  {"ex": [
+   ["[太]好[了]！", "[Tài] hǎo [le]!", "Great!"],
+   ["我[太]高兴[了]。", "Wǒ [tài] gāoxìng [le].", "I'm so happy."],
+   ["这个[太]大[了]。", "Zhège [tài] dà [le].", "This one is too big."],
+   ["你[太]快[了]。", "Nǐ [tài] kuài [le].", "You're too fast."],
+   ["[太]多[了]！", "[Tài] duō [le]!", "That's too much!"]
+  ]},
+  {"text": "Without 了 it sounds unfinished: say 太好了, not just 太好."},
+  {"wrong": [
+   ["太好！", "Tài hǎo!", "Add 了: 太好了！"]
+  ]},
+  {"h": "不太: not very"},
+  {"text": "不太 + adjective, without 了, is a gentle *not very*. It's how people say something isn't good without sounding harsh."},
+  {"pattern": "不太 + adjective", "english": "not very …"},
+  {"ex": [
+   ["我[不太]好。", "Wǒ [bú tài] hǎo.", "I'm not so good."],
+   ["这个[不太]大。", "Zhège [bú tài] dà.", "This one isn't very big."],
+   ["我[不太]明白。", "Wǒ [bú tài] míngbai.", "I don't quite understand."]
+  ]},
+  {"tip": "不太 is said bú tài: 太 is a 4th tone (G04)."}
+ ],
+ "exercises": [
+  {"gap": ["这个太大＿。", "Zhège tài dà ＿.", "This one is too big."], "options": [["了", "le"], ["吗", "ma"], ["很", "hěn"]]},
+  {"order": ["我太高兴了。", "Wǒ tài gāoxìng le.", "I'm so happy."]},
+  {"pick": "I don't quite understand.", "options": [
+   ["我不太明白。", "Wǒ bú tài míngbai."],
+   ["我太不明白。", "Wǒ tài bù míngbai."],
+   ["我不明白太。", "Wǒ bù míngbai tài."]
+  ], "explain": "*Not very* is 不太, before the word."},
+  {"meaning": ["太多了！", "Tài duō le!"], "options": ["That's too much!", "Not many.", "Is that a lot?"]},
+  {"order": ["我不太好。", "Wǒ bú tài hǎo.", "I'm not so good."]},
+  {"gap": ["＿好了！", "＿ hǎo le!", "Great!"], "options": [["太", "Tài"], ["很", "Hěn"], ["不", "Bù"]]}
+ ]
+}

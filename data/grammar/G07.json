@@ -1,0 +1,44 @@
+{
+ "goal": "Point at things and places: 这个, 那个, 这里, 那里.",
+ "blocks": [
+  {"text": "这 (zhè) is *this*, 那 (nà) is *that*. On their own they start a sentence: 这是… *This is…*, 那是… *That is…*"},
+  {"ex": [
+   ["[这]是我朋友。", "[Zhè] shì wǒ péngyou.", "This is my friend."],
+   ["[那]是什么？", "[Nà] shì shénme?", "What's that?"]
+  ]},
+  {"h": "这个, 那个: this one, that one"},
+  {"text": "Before a noun, or for *this one*, add 个 (ge): 这个人 *this person*, 那个东西 *that thing*. 个 is a measure word (G10). In speech you'll often hear zhèige and nèige."},
+  {"pattern": "这个 / 那个 + noun", "english": "this … / that …"},
+  {"ex": [
+   ["[这个]人是谁？", "[Zhège] rén shì shéi?", "Who is this person?"],
+   ["我要[那个]。", "Wǒ yào [nàge].", "I want that one."],
+   ["[这个]问题很好。", "[Zhège] wèntí hěn hǎo.", "This is a good question.", "Literally *this question is good*."]
+  ]},
+  {"wrong": [
+   ["我要那。", "Wǒ yào nà.", "After a verb, say 那个: 我要那个."]
+  ]},
+  {"h": "这些, 那些: these, those"},
+  {"ex": [
+   ["[这些]是我的。", "[Zhèxiē] shì wǒ de.", "These are mine."],
+   ["[那些]人是谁？", "[Nàxiē] rén shì shéi?", "Who are those people?"]
+  ]},
+  {"h": "这里, 那里: here, there"},
+  {"ex": [
+   ["[这里]很好。", "[Zhèlǐ] hěn hǎo.", "It's nice here."],
+   ["[那里]人很多。", "[Nàlǐ] rén hěn duō.", "There are a lot of people there."]
+  ]},
+  {"tip": "这 (zhè) has the tongue curled back for zh (P05), 那 (nà) the tongue tip behind the teeth for n. Both are 4th tones. Don't mix up 那 with 哪 (nǎ, *which*, G10): same sound, but a 3rd tone."}
+ ],
+ "exercises": [
+  {"pick": "I want this one.", "options": [
+   ["我要这个。", "Wǒ yào zhège."],
+   ["我要这。", "Wǒ yào zhè."],
+   ["我要个这。", "Wǒ yào ge zhè."]
+  ], "explain": "After a verb, *this one* is 这个."},
+  {"gap": ["＿是什么？", "＿ shì shénme?", "What's that?"], "options": [["那", "Nà"], ["那里", "Nàlǐ"], ["这里", "Zhèlǐ"]]},
+  {"order": ["这个人是谁？", "Zhège rén shì shéi?", "Who is this person?"]},
+  {"meaning": ["那些是我的。", "Nàxiē shì wǒ de."], "options": ["Those are mine.", "That's mine.", "These are mine."]},
+  {"order": ["那里人很多。", "Nàlǐ rén hěn duō.", "There are a lot of people there."]},
+  {"gap": ["我要＿。", "Wǒ yào ＿.", "I want that one."], "options": [["那个", "nàge"], ["那", "nà"], ["那里", "nàlǐ"]]}
+ ]
+}

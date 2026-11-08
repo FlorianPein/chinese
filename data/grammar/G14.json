@@ -1,0 +1,40 @@
+{
+ "goal": "Ask *and you?* and *where is…?* with 呢.",
+ "blocks": [
+  {"text": "呢 (ne) after a person or thing asks *and…?* or *what about…?*: the same question as before, now about someone else."},
+  {"pattern": "A 呢？", "english": "And A? What about A?"},
+  {"ex": [
+   ["我很好，你[呢]？", "Wǒ hěn hǎo, nǐ [ne]?", "I'm fine, and you?"],
+   ["我是学生，你[呢]？", "Wǒ shì xuésheng, nǐ [ne]?", "I'm a student, and you?"],
+   ["我不去，他[呢]？", "Wǒ bú qù, tā [ne]?", "I'm not going. What about him?"]
+  ]},
+  {"h": "Where is…?"},
+  {"text": "Without a question before it, A 呢 asks *where is A?*"},
+  {"ex": [
+   ["妈妈[呢]？", "Māma [ne]?", "Where's Mum?"],
+   ["我的钱[呢]？", "Wǒ de qián [ne]?", "Where's my money?"]
+  ]},
+  {"h": "A softer question"},
+  {"text": "At the end of a question with 什么, 谁, 怎么 and so on, 呢 makes it softer, a bit like *then* or *I wonder*. It never goes with 吗."},
+  {"ex": [
+   ["你在做什么[呢]？", "Nǐ zài zuò shénme [ne]?", "What are you up to?"],
+   ["他是谁[呢]？", "Tā shì shéi [ne]?", "Who is he, I wonder?"]
+  ]},
+  {"wrong": [
+   ["你好吗呢？", "Nǐ hǎo ma ne?", "吗 and 呢 never go together."]
+  ]},
+  {"tip": "呢 is light, like 吗: short, with no tone of its own."}
+ ],
+ "exercises": [
+  {"gap": ["我很忙，你＿？", "Wǒ hěn máng, nǐ ＿?", "I'm busy, and you?"], "options": [["呢", "ne"], ["吗", "ma"], ["的", "de"]]},
+  {"order": ["我是学生，你呢？", "Wǒ shì xuésheng, nǐ ne?", "I'm a student, and you?"]},
+  {"meaning": ["我的钱呢？", "Wǒ de qián ne?"], "options": ["Where's my money?", "Is this my money?", "I have no money."]},
+  {"pick": "I'm not going. What about you?", "options": [
+   ["我不去，你呢？", "Wǒ bú qù, nǐ ne?"],
+   ["我不去，你吗？", "Wǒ bú qù, nǐ ma?"],
+   ["我不去，呢你？", "Wǒ bú qù, ne nǐ?"]
+  ], "explain": "*And you?* is 你呢？ 吗 needs a whole sentence before it."},
+  {"meaning": ["妈妈呢？", "Māma ne?"], "options": ["Where's Mum?", "Is that Mum?", "Mum is here."]},
+  {"order": ["你在做什么呢？", "Nǐ zài zuò shénme ne?", "What are you up to?"]}
+ ]
+}

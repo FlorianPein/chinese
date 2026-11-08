@@ -1,0 +1,47 @@
+{
+ "goal": "Say who someone is: 我是学生, 他不是老师.",
+ "extra": [["学生", "xuésheng", "student"], "老师"],
+ "blocks": [
+  {"text": "To say who or what someone is, put 是 (shì) between the two: **A 是 B**. It's *am, is, are* in English, *bin, ist, sind* in German."},
+  {"pattern": "A + 是 + B", "english": "A is B"},
+  {"ex": [
+   ["我[是]学生。", "Wǒ [shì] xuésheng.", "I'm a student."],
+   ["他[是]老师。", "Tā [shì] lǎoshī.", "He's a teacher."],
+   ["我们[是]朋友。", "Wǒmen [shì] péngyou.", "We're friends."],
+   ["她[是]我妈妈。", "Tā [shì] wǒ māma.", "She's my mum.", "我妈妈 = my mum (more in G05)."]
+  ]},
+  {"h": "是 never changes"},
+  {"text": "Chinese verbs have no endings: 是 is the same for *I, you, he, we, they*, and the same for *was* and *will be*. There's no word for *a* or *the* either, and no plural ending: 孩子 is *child* or *children*."},
+  {"ex": [
+   ["你[是]学生。", "Nǐ [shì] xuésheng.", "You're a student."],
+   ["他们[是]孩子。", "Tāmen [shì] háizi.", "They're children."]
+  ]},
+  {"h": "Not: 不是"},
+  {"text": "For *is not*, put 不 (bù) before 是. Before 是 it's said **bú**, because 是 is a 4th tone (G04 explains this)."},
+  {"pattern": "A + 不是 + B", "english": "A isn't B"},
+  {"ex": [
+   ["我[不是]老师。", "Wǒ [bú shì] lǎoshī.", "I'm not a teacher."],
+   ["她[不是]我妈妈。", "Tā [bú shì] wǒ māma.", "She isn't my mum."],
+   ["他[不是]我先生。", "Tā [bú shì] wǒ xiānsheng.", "He isn't my husband.", "先生 = Mr, sir, or husband."]
+  ]},
+  {"h": "Only between two nouns"},
+  {"text": "是 links two *things*: people, jobs, names. It doesn't go before words like *good, busy, big*. Those work differently (G03)."},
+  {"wrong": [
+   ["我是很好。", "Wǒ shì hěn hǎo.", "For *I'm fine*, say 我很好, without 是 (G03)."]
+  ]},
+  {"tip": "他 (he) and 她 (she) are both said tā. Only the character tells them apart."}
+ ],
+ "exercises": [
+  {"order": ["我是学生。", "Wǒ shì xuésheng.", "I'm a student."]},
+  {"pick": "He isn't a teacher.", "options": [
+   ["他不是老师。", "Tā bú shì lǎoshī."],
+   ["他是不老师。", "Tā shì bù lǎoshī."],
+   ["他不老师是。", "Tā bù lǎoshī shì."]
+  ], "explain": "不 goes right before 是: 不是."},
+  {"gap": ["我们＿朋友。", "Wǒmen ＿ péngyou.", "We're friends."], "options": [["是", "shì"], ["很", "hěn"], ["不", "bù"]],
+   "explain": "Between two nouns (我们 and 朋友): 是."},
+  {"meaning": ["她不是我妈妈。", "Tā bú shì wǒ māma."], "options": ["She isn't my mum.", "She's my mum.", "I'm not her mum."]},
+  {"order": ["他们不是孩子。", "Tāmen bú shì háizi.", "They aren't children."]},
+  {"meaning": ["我们是朋友。", "Wǒmen shì péngyou."], "options": ["We're friends.", "We aren't friends.", "You're my friend."]}
+ ]
+}

@@ -1,0 +1,51 @@
+{
+ "goal": "Say what you have and what there is: 我有时间, 这里没有人.",
+ "extra": ["有没有"],
+ "blocks": [
+  {"text": "有 (yǒu) means *to have*."},
+  {"pattern": "A + 有 + B", "english": "A has B"},
+  {"ex": [
+   ["我[有]时间。", "Wǒ [yǒu] shíjiān.", "I have time."],
+   ["他[有]两个孩子。", "Tā [yǒu] liǎng ge háizi.", "He has two children."],
+   ["你[有]钱吗？", "Nǐ [yǒu] qián ma?", "Do you have money?"]
+  ]},
+  {"h": "There is: place + 有"},
+  {"text": "有 is also *there is, there are*. The place comes first: 这里有人 is *there's someone here*, literally *here has people*. German *es gibt* works the same way, without a *there*."},
+  {"ex": [
+   ["这里[有]人吗？", "Zhèlǐ [yǒu] rén ma?", "Is anyone here? / Is this seat taken?"],
+   ["那里[有]很多东西。", "Nàlǐ [yǒu] hěn duō dōngxi.", "There's a lot of stuff there."]
+  ]},
+  {"h": "Not: 没有, never 不有"},
+  {"text": "有 is the one verb that doesn't take 不. Its *not* is 没 (méi): 没有 is *don't have* or *there isn't*. In speech 有 often drops: 没钱 = 没有钱."},
+  {"pattern": "A + 没有 + B", "english": "A doesn't have B"},
+  {"ex": [
+   ["我[没有]时间。", "Wǒ [méiyǒu] shíjiān.", "I don't have time."],
+   ["这里[没有]人。", "Zhèlǐ [méiyǒu] rén.", "There's nobody here."],
+   ["[没有]问题。", "[Méiyǒu] wèntí.", "No problem."],
+   ["我[没]钱。", "Wǒ [méi] qián.", "I have no money."]
+  ]},
+  {"wrong": [
+   ["我不有时间。", "Wǒ bù yǒu shíjiān.", "Never 不有: 我没有时间."]
+  ]},
+  {"h": "Asking: 吗 or 有没有"},
+  {"text": "Ask with 吗, or with 有没有, *have or not have*, which needs no 吗. The answer is 有 or 没有."},
+  {"ex": [
+   ["你[有没有]时间？", "Nǐ [yǒu méiyǒu] shíjiān?", "Do you have time?"],
+   ["[有]。", "[Yǒu].", "Yes (I do)."],
+   ["[没有]。", "[Méiyǒu].", "No (I don't)."]
+  ]}
+ ],
+ "exercises": [
+  {"pick": "I don't have money.", "options": [
+   ["我没有钱。", "Wǒ méiyǒu qián."],
+   ["我不有钱。", "Wǒ bù yǒu qián."],
+   ["我有不钱。", "Wǒ yǒu bù qián."]
+  ], "explain": "有 takes 没, never 不."},
+  {"order": ["这里有人吗？", "Zhèlǐ yǒu rén ma?", "Is anyone here?"]},
+  {"gap": ["我＿有时间。", "Wǒ ＿ yǒu shíjiān.", "I don't have time."], "options": [["没", "méi"], ["不", "bù"], ["很", "hěn"]]},
+  {"meaning": ["没有问题。", "Méiyǒu wèntí."], "options": ["No problem.", "There's a problem.", "Is there a problem?"]},
+  {"order": ["你有没有钱？", "Nǐ yǒu méiyǒu qián?", "Do you have money?"]},
+  {"gap": ["那里＿很多人。", "Nàlǐ ＿ hěn duō rén.", "There are a lot of people there."], "options": [["有", "yǒu"], ["是", "shì"], ["在", "zài"]],
+   "explain": "*There is / there are* is 有, with the place first."}
+ ]
+}

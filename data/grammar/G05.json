@@ -1,0 +1,46 @@
+{
+ "goal": "Say whose something is: 我的钱, 你的朋友, 这是我的.",
+ "blocks": [
+  {"text": "的 (de) links an owner to what's theirs, like *'s* in English: 我的 = *my*, 你的 = *your*, 他的 = *his*, 妈妈的 = *Mum's*."},
+  {"pattern": "owner + 的 + thing", "english": "owner's thing"},
+  {"ex": [
+   ["这是我[的]钱。", "Zhè shì wǒ [de] qián.", "This is my money."],
+   ["他是我[的]朋友。", "Tā shì wǒ [de] péngyou.", "He's my friend."],
+   ["这是你[的]东西吗？", "Zhè shì nǐ [de] dōngxi ma?", "Is this your stuff?"],
+   ["这是我们[的]问题。", "Zhè shì wǒmen [de] wèntí.", "This is our problem."],
+   ["这是妈妈[的]钱。", "Zhè shì māma [de] qián.", "This is Mum's money."]
+  ]},
+  {"h": "Mine, yours"},
+  {"text": "Leave out the thing when it's clear: 我的 alone is *mine*."},
+  {"ex": [
+   ["这是我[的]。", "Zhè shì wǒ [de].", "This is mine."],
+   ["这个是你[的]吗？", "Zhège shì nǐ [de] ma?", "Is this one yours?"]
+  ]},
+  {"h": "Family and close people: no 的"},
+  {"text": "After a pronoun, 的 usually drops out before family and close people: 我妈妈 *my mum*, 我爸爸 *my dad*, 我朋友 *my friend*. With things, keep it: 我的钱."},
+  {"ex": [
+   ["她是[我妈妈]。", "Tā shì [wǒ māma].", "She's my mum."],
+   ["这是[我爸爸]。", "Zhè shì [wǒ bàba].", "This is my dad."]
+  ]},
+  {"wrong": [
+   ["这是我钱。", "Zhè shì wǒ qián.", "With things, keep 的: 我的钱."]
+  ]},
+  {"tip": "的 is light: short, with almost no weight. It's the most common word in Chinese."}
+ ],
+ "exercises": [
+  {"order": ["这是我的钱。", "Zhè shì wǒ de qián.", "This is my money."]},
+  {"gap": ["他是我＿朋友。", "Tā shì wǒ ＿ péngyou.", "He's my friend."], "options": [["的", "de"], ["是", "shì"], ["吗", "ma"]]},
+  {"meaning": ["这是你的吗？", "Zhè shì nǐ de ma?"], "options": ["Is this yours?", "Is this you?", "This is yours."]},
+  {"pick": "This is Mum's money.", "options": [
+   ["这是妈妈的钱。", "Zhè shì māma de qián."],
+   ["这是的妈妈钱。", "Zhè shì de māma qián."],
+   ["这的是妈妈钱。", "Zhè de shì māma qián."]
+  ], "explain": "Owner, then 的, then the thing: 妈妈的钱."},
+  {"pick": "This is mine.", "options": [
+   ["这是我的。", "Zhè shì wǒ de."],
+   ["这是我。", "Zhè shì wǒ."],
+   ["这的是我。", "Zhè de shì wǒ."]
+  ], "explain": "这是我 means *This is me*. *Mine* is 我的."},
+  {"order": ["她是我妈妈。", "Tā shì wǒ māma.", "She's my mum."]}
+ ]
+}
