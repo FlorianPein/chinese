@@ -203,6 +203,18 @@ test("study: the Don't know words first (set aside ones first), then new words",
   assert.ok(SRS.studyWords(WORDS, cards).every(w => cards[w]), "enough Don't know words: no new ones");
 });
 
+test("study: words you've studied don't come back to the table until the next Don't know", () => {
+  const cards = deck(20);
+  for (const w of ["w2", "w5", "w8"]) cards[w] = SRS.answer(cards[w], 1, T0);   // Don't know once: open
+  assert.deepEqual(SRS.studyWords(WORDS, cards).slice(0, 4), ["w2", "w5", "w8", "w20"]);
+  studyAll(cards, T0 + MIN);
+  assert.ok(SRS.isOpen(cards.w2), "still open: not yet known on a later day");
+  assert.deepEqual(SRS.studyWords(WORDS, cards), WORDS.slice(27, 37), "next table: only new words");
+  cards.w5 = SRS.answer(cards.w5, 3, T0 + 2 * MIN);                         // Know on the repeat
+  cards.w5 = SRS.answer(cards.w5, 1, at(1));                                // Don't know again the next day
+  assert.deepEqual(SRS.studyWords(WORDS, cards).slice(0, 2), ["w5", "w27"]);
+});
+
 test("set aside: Don't know twice takes a word out of the sessions until you study it", () => {
   const cards = deck(3);
   // w0: Don't know, and again Don't know when it comes back

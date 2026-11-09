@@ -152,15 +152,19 @@ function pickNext(words, cards, now, session) {
   return waiting ? { word: waiting, kind: "again" } : null;
 }
 
-// The Study table: first the words you said Don't know to (the ones set aside
-// first, then the other open ones), then new words, most common first, up to n.
+// A word to study: one you said Don't know to and haven't studied since (dk counts
+// the Don't know answers since it was last studied; cards studied before never were).
+const needsStudy = c => !!c && missed(c) && ((c.dk || 0) > 0 || !c.studied);
+
+// The Study table: first the words you said Don't know to and haven't studied since
+// (the ones set aside first), then new words, most common first, up to n.
 function studyWords(words, cards, n = STUDY_SIZE) {
   const parked = [], open = [], fresh = [];
   for (const w of words) {
     const c = cards[w];
     if (!c) fresh.push(w);
     else if (isParked(c)) parked.push(w);
-    else if (missed(c)) open.push(w);
+    else if (needsStudy(c)) open.push(w);
   }
   return [...parked, ...open, ...fresh].slice(0, n);
 }
