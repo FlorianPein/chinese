@@ -293,5 +293,13 @@ test("practice: Know or better changes nothing, Don't know and Barely know go do
   assert.equal(SRS.practice(c, 3, T0 + 12 * MIN).step, 1);
 });
 
+// the app loads srs.js as srs.js?v=<start of its sha1>, so phones don't keep an old copy
+test("index.html loads this version of srs.js", () => {
+  const fs = require("fs"), path = require("path"), crypto = require("crypto");
+  const v = crypto.createHash("sha1").update(fs.readFileSync(path.join(__dirname, "../docs/srs.js"))).digest("hex").slice(0, 8);
+  const html = fs.readFileSync(path.join(__dirname, "../docs/index.html"), "utf8");
+  assert.ok(html.includes(`<script src="srs.js?v=${v}">`), `set <script src="srs.js?v=${v}"> in docs/index.html`);
+});
+
 console.log(failed ? `\n${failed} failed` : "\nAll passed");
 process.exit(failed ? 1 : 0);
