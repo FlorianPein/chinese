@@ -158,7 +158,7 @@ A word you say *Don't know* to **twice** is **set aside**: it no longer comes up
 
 The **Study** button on the Words tab shows a table of the **next 10 words** to learn: Pinyin, characters, English and a 🔊 to hear each one.
 
-1. First the words you said *Don't know* to: the ones set aside first, then the other open ones
+1. First the words you said *Don't know* to and haven't studied since: the ones set aside first, then the others. A word you've studied stays out of the table until you say *Don't know* to it again
 2. If there are fewer than 10 of those, new words fill the table, most common first
 
 When you've learnt them, tap **I've studied these**:
