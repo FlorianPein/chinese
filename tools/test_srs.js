@@ -116,7 +116,7 @@ test("hard word after 6 Don't know", () => {
   assert.equal(c.lapses, SRS.HARD);
 });
 
-// ---- section 4: the mix ----
+// ---- section 4: sessions, and the Study table ----
 const WORDS = Array.from({ length: 300 }, (_, i) => `w${i}`);
 function deck(nDue, nLearning = 0) {
   const cards = {};
@@ -124,37 +124,31 @@ function deck(nDue, nLearning = 0) {
   WORDS.slice(nDue, nDue + nLearning).forEach(w => cards[w] = { step: 1, due: SRS.dayOf(T0), learning: T0 + 10 * MIN, reps: 1, lapses: 0 });
   return cards;
 }
-// how many of the next n picks are new words, without answering (the due count stays the same)
-function newShare(cards, n) {
-  const session = { sinceNew: 0, recent: [] };
-  let fresh = 0;
-  for (let i = 0; i < n; i++) {
-    const next = SRS.pickNext(WORDS, cards, T0, session);
-    if (next.kind === "new") { fresh++; session.sinceNew = 0; } else session.sinceNew++;
+// a session: answer every card with grade(word, kind) until nothing is left
+function session(cards, now, grade) {
+  const s = { recent: [] }, shown = [];
+  for (let next; (next = SRS.pickNext(WORDS, cards, now, s)) && shown.length < 200; ) {
+    cards[next.word] = SRS.answer(cards[next.word], grade(next.word, next.kind), now);
+    shown.push(next.word);
+    s.recent = [next.word, ...s.recent].slice(0, SRS.MIN_GAP);
+    now += 2 * MIN;
   }
-  return fresh;
+  return shown;
 }
+const studyAll = (cards, now) => { for (const w of SRS.studyWords(WORDS, cards)) cards[w] = SRS.study(cards[w], now); };
 
-test("mix: 1 new word in every N cards, by how many are due", () => {
-  for (const [due, every] of [[60, 20], [50, 20], [49, 10], [20, 10], [19, 5], [10, 5], [9, 3], [5, 3], [4, 2], [1, 2]]) {
-    assert.equal(SRS.newEvery(due), every, `${due} due`);
-    assert.equal(newShare(deck(due), 60), 60 / every, `${due} due: new words in 60 cards`);
-  }
-});
-
-test("mix: nothing due means only new words", () => {
-  assert.equal(newShare(deck(0), 30), 30);
-});
-
-test("mix: no new words while 5 wrong ones are waiting", () => {
-  assert.equal(newShare(deck(3, 5), 20), 0);
-  assert.ok(newShare(deck(3, 4), 20) > 0);
+test("sessions never bring new words", () => {
+  assert.equal(SRS.pickNext(WORDS, {}, T0, { recent: [] }), null, "nothing studied: nothing to do");
+  const cards = deck(5);
+  const shown = session(cards, T0, () => 3);
+  assert.deepEqual(shown, ["w0", "w1", "w2", "w3", "w4"]);
+  assert.equal(Object.keys(cards).length, 5);
 });
 
 test("a wrong word comes back first once its minutes are up, not straight after itself", () => {
   const cards = deck(30);
   cards.w0 = SRS.answer(cards.w0, 1, T0);
-  const session = { sinceNew: 0, recent: [] };
+  const session = { recent: [] };
   assert.notEqual(SRS.pickNext(WORDS, cards, T0 + 30000, session).word, "w0", "not before 1 min");
   assert.equal(SRS.pickNext(WORDS, cards, T0 + MIN, session).word, "w0");
   assert.notEqual(SRS.pickNext(WORDS, cards, T0 + MIN, { ...session, recent: ["w0"] }).word, "w0",
@@ -164,57 +158,74 @@ test("a wrong word comes back first once its minutes are up, not straight after 
 test("due words: the longest waiting first", () => {
   const cards = deck(30);
   cards.w20.due = SRS.dayOf(at(-9));
-  assert.equal(SRS.pickNext(WORDS, cards, T0, { sinceNew: 0, recent: [] }).word, "w20");
+  assert.equal(SRS.pickNext(WORDS, cards, T0, { recent: [] }).word, "w20");
 });
 
-test("new words come in order, most common first", () => {
-  const cards = deck(0);
-  assert.equal(SRS.pickNext(WORDS, cards, T0, { sinceNew: 0, recent: [] }).word, "w0");
-  cards.w0 = SRS.answer(null, 3, T0);
-  assert.equal(SRS.pickNext(WORDS, cards, T0, { sinceNew: 0, recent: [] }).word, "w1");
+test("due words: open words first, then words just studied, then the longest waiting", () => {
+  const cards = deck(30);
+  cards.w3.due = SRS.dayOf(at(-9));
+  cards.w100 = SRS.study(null, T0);
+  cards.w20.miss = true;
+  assert.deepEqual(SRS.pickNext(WORDS, cards, T0, { recent: [] }), { word: "w20", kind: "due" });
+  delete cards.w20.miss;
+  assert.deepEqual(SRS.pickNext(WORDS, cards, T0, { recent: [] }), { word: "w100", kind: "new" });
 });
 
 test("when only waiting words are left, the soonest comes anyway", () => {
   const cards = {};
   for (const w of WORDS) cards[w] = { step: 3, due: SRS.dayOf(at(5)), learning: 0, reps: 1, lapses: 0 };
   cards.w7 = SRS.answer(cards.w7, 2, T0);
-  assert.equal(SRS.pickNext(WORDS, cards, T0 + MIN, { sinceNew: 0, recent: [] }).word, "w7");
+  assert.equal(SRS.pickNext(WORDS, cards, T0 + MIN, { recent: [] }).word, "w7");
   cards.w7 = SRS.answer(cards.w7, 3, T0 + 2 * MIN);
-  assert.equal(SRS.pickNext(WORDS, cards, T0 + 3 * MIN, { sinceNew: 0, recent: [] }), null);
+  assert.equal(SRS.pickNext(WORDS, cards, T0 + 3 * MIN, { recent: [] }), null);
 });
 
-// a session from scratch: answer every card with grade(word, kind) until nothing is left
-function session(cards, now, grade) {
-  const s = { sinceNew: 0, recent: [] }, shown = [];
-  for (let next; (next = SRS.pickNext(WORDS, cards, now, s)) && shown.length < 200; ) {
-    cards[next.word] = SRS.answer(cards[next.word], grade(next.word, next.kind), now);
-    shown.push(next.word);
-    s.sinceNew = next.kind === "new" ? 0 : s.sinceNew + 1;
-    s.recent = [next.word, ...s.recent].slice(0, SRS.MIN_GAP);
-    now += 2 * MIN;
-  }
-  return shown;
-}
-
-test("open words: at most 5 Don't know words, then no new words until you know some on a later day", () => {
+test("study: new words, most common first, come into the next session as new words", () => {
   const cards = {};
-  // every new word: Don't know, then Know on the repeat
-  const shown = session(cards, T0, (w, kind) => kind === "new" ? 1 : 3);
-  assert.deepEqual([...new Set(shown)], ["w0", "w1", "w2", "w3", "w4"], "only 5 words, cycled");
-  assert.ok(shown.length > 5, "the 5 come back in the session");
-  assert.equal(SRS.counts(WORDS, cards, T0 + 60 * MIN).open, 5);
-  assert.equal(SRS.counts(WORDS, cards, T0 + 60 * MIN).newAllowed, false);
-  // next day: knowing 2 of them frees 2 places, the other 3 stay open
-  const next = session(cards, at(1), (w, kind) => kind === "new" ? 1 : ["w0", "w1"].includes(w) ? 3 : 2);
-  assert.ok(next.includes("w5") && next.includes("w6") && !next.includes("w7"), next.join(" "));
-  assert.equal(SRS.counts(WORDS, cards, at(1) + 60 * MIN).open, 5);
+  assert.deepEqual(SRS.studyWords(WORDS, cards), WORDS.slice(0, 10));
+  studyAll(cards, T0);
+  const kinds = [];
+  session(cards, T0 + MIN, (w, kind) => (kinds.push(kind), 3));
+  assert.deepEqual(kinds, Array(10).fill("new"));
+  assert.deepEqual(Object.keys(cards), WORDS.slice(0, 10), "no other words");
+  assert.ok(Object.values(cards).every(c => c.step === 1 && c.reps === 1 && daysUntil(c, T0) === 1), "Know on a new word: 1 d");
+  assert.deepEqual(SRS.studyWords(WORDS, cards), WORDS.slice(10, 20), "next time: the next 10");
 });
 
-test("open words: words you know at once, or Barely know, don't count", () => {
-  const cards = {};
-  session(cards, T0, (w, kind) => kind === "new" ? (w === "w9" ? 1 : 2) : 3);
-  assert.deepEqual(Object.keys(cards).filter(w => cards[w].miss), ["w9"]);
-  assert.ok(Object.keys(cards).length > 50, "new words keep coming");
+test("study: the Don't know words first (set aside ones first), then new words", () => {
+  const cards = deck(20);
+  cards.w4 = SRS.answer(cards.w4, 1, T0);                       // Don't know once: open
+  cards.w9 = SRS.answer(SRS.answer(cards.w9, 1, T0), 1, T0 + 2 * MIN);   // twice: set aside
+  cards.w12 = SRS.answer(cards.w12, 2, T0);                     // Barely know: not in the table
+  assert.deepEqual(SRS.studyWords(WORDS, cards), ["w9", "w4", ...WORDS.slice(20, 28)]);
+  for (let i = 0; i < 12; i++) cards[`w${30 + i}`] = { step: 1, due: SRS.dayOf(at(1)), learning: 0, reps: 1, lapses: 0 };   // open (step 1)
+  assert.equal(SRS.studyWords(WORDS, cards).length, 10, "10 at most");
+  assert.ok(SRS.studyWords(WORDS, cards).every(w => cards[w]), "enough Don't know words: no new ones");
+});
+
+test("set aside: Don't know twice takes a word out of the sessions until you study it", () => {
+  const cards = deck(3);
+  // w0: Don't know, and again Don't know when it comes back
+  session(cards, T0, w => w === "w0" && !SRS.isParked(cards.w0) ? 1 : 3);
+  assert.ok(SRS.isParked(cards.w0));
+  assert.equal(cards.w0.dk, 2);
+  assert.equal(SRS.counts(WORDS, cards, T0 + 30 * MIN).parked, 1);
+  assert.deepEqual(session(cards, at(3), () => 3), ["w1", "w2"], "3 days later: w0 doesn't come");
+  assert.equal(SRS.studyWords(WORDS, cards)[0], "w0");
+  studyAll(cards, at(3));
+  assert.ok(!SRS.isParked(cards.w0));
+  assert.equal(SRS.pickNext(WORDS, cards, at(3), { recent: [] }).word, "w0", "studied: back in the session");
+});
+
+test("set aside: also over two days, but Know on a later day starts the count again", () => {
+  let c = SRS.answer(waiting(7), 1, T0);
+  c = SRS.answer(c, 3, T0 + 2 * MIN);
+  assert.equal(c.dk, 1);
+  const twice = SRS.answer(c, 1, at(1));
+  assert.ok(SRS.isParked(twice), "Don't know again the next day");
+  c = SRS.answer(c, 3, at(1));                                  // known on a later day
+  assert.equal(c.dk, 0);
+  assert.ok(!SRS.isParked(SRS.answer(c, 1, at(2))));
 });
 
 test("open words: Don't know on a learned word opens it, Know on a later day closes it", () => {
@@ -232,13 +243,6 @@ test("open words: cards from before the change count when still on step 1", () =
   assert.ok(!SRS.isOpen(SRS.answer(old, 3, at(1))));
 });
 
-test("due words: open words first", () => {
-  const cards = deck(30);
-  cards.w20.miss = true;
-  cards.w3.due = SRS.dayOf(at(-9));
-  assert.equal(SRS.pickNext(WORDS, cards, T0, { sinceNew: 1, recent: [] }).word, "w20");
-});
-
 // ---- practice: today's Know words once more ----
 test("practice: the words picked Know today that come back tomorrow", () => {
   const cards = {
@@ -254,6 +258,8 @@ test("practice: the words picked Know today that come back tomorrow", () => {
   // cards from before `last` was stored: answered today, back tomorrow
   const old = { ...cards.know }; delete old.last;
   assert.deepEqual(SRS.practiceWords(["old"], { old }, T0 + 5 * MIN), ["old"]);
+  // not words set aside
+  assert.deepEqual(SRS.practiceWords(["know"], { know: { ...cards.know, dk: 2 } }, T0 + 5 * MIN), []);
 });
 
 test("practice: Know or better changes nothing, Don't know and Barely know go down", () => {

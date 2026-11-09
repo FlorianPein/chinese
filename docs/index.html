@@ -242,6 +242,15 @@ details.later .list { margin-top: 10px; }
 .wtop .btn { min-height: 40px; padding: 6px 12px; }
 .hardlist .item .p { font-size: 1.05rem; }
 .hardlist .item .hz { font-size: 1.3rem; margin-right: 6px; }
+table.study { width: 100%; border-collapse: collapse; margin: 4px 0 14px; }
+table.study th { text-align: left; font-size: .8rem; font-weight: 600; color: var(--muted); padding: 4px 6px; border-bottom: 1px solid var(--border); }
+table.study td { padding: 8px 6px; border-bottom: 1px solid var(--border); vertical-align: middle; }
+table.study .hz { font-size: 1.35rem; white-space: nowrap; }
+table.study .py { font-size: 1.05rem; white-space: nowrap; }
+table.study .why { display: block; font-size: .75rem; color: var(--muted); }
+table.study .why.dk { color: var(--bad); }
+table.study td.pl { width: 1%; }
+table.study td.pl .btn { min-height: 36px; padding: 4px 9px; }
 /* grammar */
 .hzf { font-family: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif; }
 .gsession h2.gtitle { font-size: 1.45rem; color: var(--text); margin: 10px 0 4px; }
@@ -688,8 +697,8 @@ function progressReport() {
   if (seen.length) {
     const show = h => W.byHanzi[h] ? `${h} ${W.byHanzi[h].pinyin}` : h;
     const n = W.list.length ? SRS.counts(W.list, state.words, Date.now()) : null;
-    if (n) Object.assign(words, { of: W.list.length, due: n.due });
-    lines.push("", `**Words:** ${seen.length} seen${n ? ` of ${W.list.length}, ${n.due} due now` : ""}.`);
+    if (n) Object.assign(words, { of: W.list.length, due: n.due, parked: n.parked });
+    lines.push("", `**Words:** ${seen.length} seen${n ? ` of ${W.list.length}, ${n.due} due now${n.parked ? `, ${n.parked} set aside until studied (Don't know twice)` : ""}` : ""}.`);
     const batches = fresh.filter(e => e.t === "words" && !e.practice);
     const practised = fresh.filter(e => e.t === "words" && e.practice).reduce((a, e) => a + e.total, 0);
     if (batches.length) {
@@ -762,32 +771,40 @@ function flushWords() {
 }
 const hardWords = () => W.list.filter(h => (state.words[h]?.lapses || 0) >= SRS.HARD);
 
-function renderWords() {
+function renderWords(sub) {
   if (!W.list.length) {
     keyHandler = null;
     view.innerHTML = `<div class="card center muted">Loading words…</div>`;
-    loadWords().then(() => { if (onWordsTab()) renderWords(); })
+    loadWords().then(() => { if (onWordsTab()) renderWords(sub); })
       .catch(() => { if (onWordsTab()) view.innerHTML = `<div class="card center muted">Couldn't load the words. Check your connection and open the tab again.</div>`; });
     return;
   }
   if (W.session) return renderWordCard();
+  if (sub === "study") return renderStudy();
   const n = SRS.counts(W.list, state.words, Date.now());
-  const anything = n.due || n.learning || n.newAllowed;
+  const anything = n.due || n.learning;
   keyHandler = e => { if (anything && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); startWords(); } };
   const hard = hardWords();
   const practice = SRS.practiceWords(W.list, state.words, Date.now()).length;
+  const toStudy = SRS.studyWords(W.list, state.words);
+  const dk = toStudy.filter(h => state.words[h]).length;
   view.innerHTML = `<div class="card center">
       <div class="done-stats" style="margin-top:0">
         <div><b>${n.due}</b><span class="muted small">due now</span></div>
         <div><b>${n.learning}</b><span class="muted small">to try again</span></div>
         <div><b>${n.learned}</b><span class="muted small">of ${W.list.length} seen</span></div>
       </div>
-      <button class="btn primary wide" id="wStart" ${anything ? "" : "disabled"}>${n.due || n.learning ? "Start" : n.newAllowed ? "Start with new words" : "All done"}</button>
+      <button class="btn primary wide" id="wStart" ${anything ? "" : "disabled"}>${anything ? "Start" : "All done"}</button>
       <p class="muted small" style="margin-bottom:0">${anything
-        ? `Hear the word, see it in Pinyin and characters, tap for the English, then say how well you knew it. New words come in among the old ones: the fewer old words are due, the more new ones. At most ${SRS.MAX_OPEN} words you didn't know are open at a time: new words wait until you know some of them on a later day. Stop whenever you like.`
-        : n.fresh ? `${openNote(n)} Next: ${n.tomorrow} due by tomorrow.`
-        : `You've seen every word and none is due. Next: ${n.tomorrow} due by tomorrow.`}</p>
-    </div>${practice ? `<div class="card center" style="margin-top:14px">
+        ? `Hear the word, see it in Pinyin and characters, tap for the English, then say how well you knew it. Only words you've studied or seen before: new words come in through <b>Study</b>. Stop whenever you like.`
+        : `Nothing due right now. Next: ${n.tomorrow} due by tomorrow.${toStudy.length ? " Study new words to have more to review." : ""}`}${n.parked
+        ? ` <b>${n.parked} ${n.parked === 1 ? "word is" : "words are"} set aside</b>: you said <i>Don't know</i> ${SRS.PARK_AT} times, so ${n.parked === 1 ? "it comes" : "they come"} back once you've studied ${n.parked === 1 ? "it" : "them"}.` : ""}</p>
+    </div>${toStudy.length ? `<div class="card center" style="margin-top:14px">
+      <a class="btn wide${anything ? "" : " primary"}" id="wStudy" href="#words/study">Study (${toStudy.length} words)</a>
+      <p class="muted small" style="margin-bottom:0">A table of the next ${toStudy.length} words to learn and what they mean: ${dk
+        ? `first the ${dk} ${dk === 1 ? "word" : "words"} you said <i>Don't know</i> to${dk < toStudy.length ? ", then new words" : ""}`
+        : "new words, most common first"}. When you've learnt them, they come into the next session.</p>
+    </div>` : ""}${practice ? `<div class="card center" style="margin-top:14px">
       <button class="btn wide" id="wPractice">Practise today's <i>Know</i> words (${practice})</button>
       <p class="muted small" style="margin-bottom:0">Go over the words you picked <i>Know</i> for today and that come back tomorrow. Knowing them now doesn't move them up; <i>Don't know</i> or <i>Barely know</i> counts as usual, so a word can go down.</p>
     </div>` : ""}${hard.length ? `<h2>Hard words ⚑</h2>
@@ -798,10 +815,37 @@ function renderWords() {
   if (anything) $("#wStart").onclick = startWords;
   if (practice) $("#wPractice").onclick = startPractice;
 }
-// why no new words come: the open words (Don't know, not yet known on a later day)
-const openNote = n => `New words wait: ${n.open} words you didn't know are still open. Once you know some of them when they come back, new ones come in.`;
+// Study: the next words to learn in a table (the Don't know words first, then new
+// words); "Done" brings them into the sessions (SRS.study)
+function renderStudy() {
+  const list = W.studyList = SRS.studyWords(W.list, state.words);
+  const back = () => { location.hash = "#words"; };
+  if (!list.length) return back();
+  const why = h => { const c = state.words[h];
+    return !c ? `<span class="why">new</span>` : SRS.isParked(c) ? `<span class="why dk">Don't know ${c.dk}× · set aside</span>` : `<span class="why dk">Don't know</span>`; };
+  keyHandler = e => { if (e.key === "Escape") back(); };
+  view.innerHTML = `<div class="wtop"><a class="btn" href="#words">← Back</a><span class="muted small">${list.length} words to study</span></div>
+    <div class="card">
+      <table class="study"><thead><tr><th>Pinyin</th><th>Characters</th><th>English</th><th></th></tr></thead><tbody>
+      ${list.map(h => { const w = W.byHanzi[h]; return `<tr>
+        <td class="py">${esc(w.pinyin)}</td>
+        <td class="hz" lang="zh-CN">${esc(h)}</td>
+        <td>${esc(w.english)}${why(h)}</td>
+        <td class="pl"><button class="btn" data-play="${w.audio}" title="Play">🔊</button></td></tr>`; }).join("")}
+      </tbody></table>
+      <button class="btn primary wide" id="wStudied">I've studied these</button>
+      <p class="muted small" style="margin-bottom:0">Tap 🔊 to hear a word. When you know them, tap the button: new words come into your next session (<b>Start</b>), and words set aside come back.</p>
+    </div>`;
+  $("#wStudied").onclick = () => {
+    const now = Date.now();
+    for (const h of W.studyList) state.words[h] = SRS.study(state.words[h], now);
+    logEvent({ t: "study", total: W.studyList.length, new: W.studyList.filter(h => !state.words[h].reps).length });
+    save();
+    back();
+  };
+}
 function startWords() {
-  W.session = { sinceNew: 0, recent: [], current: null, flipped: false, done: 0, known: 0, fresh: 0 };
+  W.session = { recent: [], current: null, flipped: false, done: 0, known: 0, fresh: 0 };
   nextWord();
 }
 // practice: today's Know words once more, in random order (see SRS.practiceWords)
@@ -869,7 +913,7 @@ function renderWordCard() {
   };
 }
 function gradeWord(grade) {
-  const s = W.session, h = s.current.word, isNew = !state.words[h];
+  const s = W.session, h = s.current.word, isNew = !state.words[h]?.reps;
   if (s.practice) {
     const c = state.words[h] = SRS.practice(state.words[h], grade, Date.now());
     save();
@@ -877,7 +921,7 @@ function gradeWord(grade) {
     s.done++;
     if (grade >= 3) s.known++;
     // not known yet: once more after a few other words
-    if (c.learning) s.queue.splice(Math.min(SRS.MIN_GAP, s.queue.length), 0, h);
+    if (c.learning && !SRS.isParked(c)) s.queue.splice(Math.min(SRS.MIN_GAP, s.queue.length), 0, h);
     return nextWord();
   }
   state.words[h] = SRS.answer(state.words[h], grade, Date.now());
@@ -886,7 +930,6 @@ function gradeWord(grade) {
   s.done++;
   if (grade >= 3) s.known++;
   if (isNew) s.fresh++;
-  s.sinceNew = s.current.kind === "new" ? 0 : s.sinceNew + 1;
   s.recent = [h, ...s.recent].slice(0, SRS.MIN_GAP);
   nextWord();
 }
@@ -909,7 +952,7 @@ function renderWordsDone(allDone) {
       </div>
       ${s.practice ? `<p class="muted small">Practice doesn't move words up: they still come back tomorrow.</p>` : ""}
       <p class="muted">${n.due || n.learning ? `Still waiting: ${[n.due && `${n.due} due`, n.learning && `${n.learning} to try again`].filter(Boolean).join(", ")}. They come first next time. ` : ""}By tomorrow: ${n.tomorrow} due.</p>
-      ${n.fresh && !n.newAllowed ? `<p class="muted small">${openNote(n)}</p>` : ""}
+      ${n.parked ? `<p class="muted small">${n.parked} ${n.parked === 1 ? "word is" : "words are"} set aside after <i>Don't know</i> ${SRS.PARK_AT} times: study ${n.parked === 1 ? "it" : "them"} in <b>Study</b> to bring ${n.parked === 1 ? "it" : "them"} back.</p>` : ""}
       <button class="btn primary wide" id="wBack">Back</button>
     </div>`;
   $("#wBack").onclick = back;
@@ -1818,7 +1861,7 @@ function route() {
   if (tab !== "grammar" || sub !== "check") G.quiz = null;
   document.body.classList.toggle("inlesson", tab === "lesson" || (tab === "grammar" && sub === "check"));
   document.querySelectorAll("nav a").forEach(a => a.classList.toggle("on", a.dataset.tab === tab));
-  ({ learn: renderLearn, practice: renderPractice, words: renderWords, grammar: () => renderGrammar(arg, sub), listen: () => renderListen(arg),
+  ({ learn: renderLearn, practice: renderPractice, words: () => renderWords(arg), grammar: () => renderGrammar(arg, sub), listen: () => renderListen(arg),
      settings: renderSettings, lesson: () => startLesson(arg) }[tab] || renderLearn)();
   updateStat();
 }

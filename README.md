@@ -6,7 +6,7 @@ My course for learning Mandarin Chinese through **Pinyin**, without characters f
 - **[CHART.md](CHART.md)**: the Pinyin chart with the lesson for every syllable, and the order of all 24 lessons
 - **[PLAN.md](PLAN.md)**: how the course works, the slide types, the first lessons in detail, future plans
 - **[PROGRESS.md](PROGRESS.md)**: what's done and what needs more practice
-- **[WORDS-PLAN.md](WORDS-PLAN.md)**: how the word flashcards work: when a word comes back, how new words are mixed in, where the words come from
+- **[WORDS-PLAN.md](WORDS-PLAN.md)**: how the word flashcards work: when a word comes back, how new words come in through Study, where the words come from
 - **[GRAMMAR.md](GRAMMAR.md)**: the grammar topics in HSK order, one per session, and which are built
 
 ## Daily routine
@@ -43,7 +43,7 @@ More lessons are added as you go (next: P09, *ba da ga za zha*). Every lesson us
 |-----|--------------|
 | **Learn** | The lessons in chart order. Tap the next one to start. Planned lessons are shown greyed out. |
 | **Practice** | An endless listening drill with the sounds of the lessons you've finished: which tone, which sound, or same or different. A sound you get wrong comes back a few questions later. |
-| **Words** | Flashcards of the most common words, Anki-style. You hear the word and see its Pinyin and characters; tap for the English and an example sentence (Pinyin, characters, English), then pick *Don't know*, *Barely know*, *Know*, *Safely know* or *Securely know*. Each button shows when the word comes back. New words come in among the old ones: the fewer old words are due, the more new ones. **Practise today's *Know* words** goes over the words you picked *Know* for today that come back tomorrow, without moving them up. Details in [WORDS-PLAN.md](WORDS-PLAN.md). |
+| **Words** | Flashcards of the most common words, Anki-style. You hear the word and see its Pinyin and characters; tap for the English and an example sentence (Pinyin, characters, English), then pick *Don't know*, *Barely know*, *Know*, *Safely know* or *Securely know*. Each button shows when the word comes back. Sessions never bring new words: **Study** shows a table of the next 10 words to learn (first the ones you said *Don't know* to, then new words), and once you've studied them they come into your sessions. A word you say *Don't know* to twice is set aside until you study it. **Practise today's *Know* words** goes over the words you picked *Know* for today that come back tomorrow, without moving them up. Details in [WORDS-PLAN.md](WORDS-PLAN.md). |
 | **Grammar** | Chinese grammar, **one topic per session**, in HSK order (19 HSK 1 topics built, HSK 2 and 3 planned). Each session explains its topic with example sentences you can play (🔊, 🐢 slowly), the grammar point highlighted, and wrong sentences marked ✗ with why. Then **Check yourself**: 6 questions (put the words in order, fill the gap, which sentence is right, what it means); a wrong one comes back once at the end. The sentences only use words from Words, the further on the topic, the further down the word list; *Words in this session* shows which ones you've already seen there. Topics and order in [GRAMMAR.md](GRAMMAR.md). |
 | **Listen** | All audio of a lesson: every sound in each tone. 🐢 plays slowly. |
 | **⚙︎** | **Copy progress for Claude**, mark lessons as done, settings, export/import your progress (it's stored per browser). |
@@ -70,7 +70,7 @@ On a computer: number keys pick an answer, Enter continues, P replays the audio.
 ```sh
 pip install -r tools/requirements.txt   # once; also needs ffmpeg
 python tools/build.py                   # check, make audio, write docs/cards.json, docs/words.json, lessons/*.md, CHART.md
-node tools/test_srs.js                  # check the flashcard rules (when a word comes back, the mix of new words)
+node tools/test_srs.js                  # check the flashcard rules (when a word comes back, sessions, Study)
 ```
 
 The flashcard words are in `data/words.json`, most common first. The build checks each one (characters, Pinyin, one syllable per character, the voice can say it) and makes its audio like the lesson audio.

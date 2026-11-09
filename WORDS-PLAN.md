@@ -106,7 +106,7 @@ Find the word's current wait on the left; the row shows when it comes back for e
 | **8 mo** | 1 min, then 1 d | 10 min, then 2 mo | 4 mo | 8 mo | 1 yr |
 | **1 yr** | 1 min, then 1 d | 10 min, then 4 mo | 8 mo | 1 yr | 1 yr |
 
-*"1 min, then 1 d"*: the word comes back about 1 minute later in the same session (after 3–5 other cards), and keeps coming back until you pick *Know* or higher. Then it's done for today and returns after the second time.
+*"1 min, then 1 d"*: the word comes back about 1 minute later in the same session (after 3–5 other cards), and keeps coming back until you pick *Know* or higher. Then it's done for today and returns after the second time. A second *Don't know* sets the word aside until you study it ([section 4](#words-set-aside-dont-know-twice)).
 
 ### Rules
 
@@ -138,38 +138,45 @@ A word you've marked *Don't know* **6 times** becomes a **hard word** (Anki call
 
 ---
 
-## 4. New words mixed in with old ones
+## 4. Sessions, and studying new words
 
-New words keep coming **as long as you keep going**, mixed in among the old words. How many depends on how many old words are **due right now**: many due means almost no new words, few due means many new words, none due means only new words.
+**A session never brings new words.** It only asks words you've studied or seen before. New words come in through the **Study** table.
 
 **Order of the next card:**
 
 1. A word you just got wrong whose 1 or 10 minutes are up
-2. Otherwise, by the mix below: a due word (the one waiting longest first) or a new word (most common first)
+2. A due word: first the *open* ones (you said *Don't know* and haven't known them on a later day yet), then words you've just studied, then the one waiting longest
+3. If only words waiting their minutes are left, the one that's back soonest
 
-**The mix** (counted again after every card):
+When nothing is due, the session ends.
 
-| Old words due now | New words |
-|-------------------|-----------|
-| 50 or more | 1 in every 20 cards |
-| 20–49 | 1 in every 10 cards |
-| 10–19 | 1 in every 5 cards |
-| 5–9 | 1 in every 3 cards |
-| 1–4 | every 2nd card |
-| 0 | only new words |
+### Words set aside: *Don't know* twice
 
-**One brake: at most 5 open words.** A word is *open* from the moment you say *Don't know* until you pick *Know* or better when it comes back **on a later day** (picking *Know* on the repeat in the same session only finishes it for today). Words waiting their 1 or 10 minutes count as open too. While 5 words are open, no new words come in: the open ones cycle (again after 1 minute, then the next day) until you know some of them, and each one you know lets one new word in. Among due words, the open ones come first. If only open words are left and none is due, the session ends; the tab says why.
+A word you say *Don't know* to **twice** is **set aside**: it no longer comes up in sessions (or in the practice of today's *Know* words) until you study it. Both times count, whether in the same session (the repeat after 1 minute) or on different days. The count starts again when you study the word, or when you pick *Know* or better on a later day.
 
-Because the mix is counted after every card, it shifts by itself: a session that starts with 60 due words is almost all review, and as you work them down, more and more new words come in. A day with lots of new words fills the next days with reviews, and those days then automatically bring fewer new ones.
+### Study
 
-**Top of the tab:** `Due 18 · Learning 2 · Learned 240 of 2000` and a **Start** button. You can stop any time; the screen then shows how many you did and how many are due tomorrow.
+The **Study** button on the Words tab shows a table of the **next 10 words** to learn: Pinyin, characters, English and a 🔊 to hear each one.
+
+1. First the words you said *Don't know* to: the ones set aside first, then the other open ones
+2. If there are fewer than 10 of those, new words fill the table, most common first
+
+When you've learnt them, tap **I've studied these**:
+
+- the **new words** come into your sessions: due straight away, so the next **Start** asks them (the open words first). They show *New word*, and the buttons work as for any new word (*Know*: 1 d, *Safely know*: 3 d, …)
+- the **words set aside** come back into your sessions, and their *Don't know* count starts again
+- the step is logged as `{t: "study", total, new}`
+
+So you decide how many new words you take on: each Study brings at most 10, and while you have 10 words you don't know, it brings none.
+
+**Top of the tab:** how many words are due, waiting to be tried again and seen, a **Start** button, how many words are set aside, and the **Study** button. You can stop any time; the screen then shows how many you did and how many are due tomorrow.
 
 ### Practising today's *Know* words
 
 Below the Start button: **Practise today's *Know* words (N)**. It shows the words you picked **Know** for today **and** that come back **tomorrow** (both must hold), in random order, so you can go over them again the same day.
 
 - **Know, Safely know, Securely know** change nothing: the word doesn't move up and still comes back tomorrow.
-- **Don't know** and **Barely know** count as usual, so a word can go down: *Don't know* counts as forgotten and makes the word open again. The word then comes back in the practice after a few others until you know it.
+- **Don't know** and **Barely know** count as usual, so a word can go down: *Don't know* counts as forgotten and makes the word open again. The word then comes back in the practice after a few others until you know it, unless it's now set aside (*Don't know* twice).
 - The buttons show when the word comes back (*1 d* for Know and better).
 - Practice answers go into the log in their own batches (`practice: true`), apart from the reviews.
 
@@ -226,7 +233,9 @@ Per word, in the existing progress state, under a new key `words` (the old `card
 | `learning` | when it's waiting its 1 or 10 minutes: the time it's back, in ms (else 0) |
 | `reps`, `lapses` | how often reviewed, how often *Don't know* |
 | `last` | the last button picked (1–5), to find today's *Know* words for practice |
-| `miss` | open: said *Don't know*, not yet known on a later day ([section 4](#4-new-words-mixed-in-with-old-ones)). Cards from before this field count as open while on step 1 |
+| `miss` | open: said *Don't know*, not yet known on a later day ([section 4](#4-sessions-and-studying-new-words)). Cards from before this field count as open while on step 1 |
+| `dk` | *Don't know* answers since the word was last studied or known on a later day; at 2 it's set aside |
+| `studied` | the day it was last studied in the Study table. A studied word you haven't reviewed yet is on `step` 0 |
 | `at` | time of the last change, for sync |
 
 - **Sync:** `words` is added to the synced keys. When two devices disagree about a word, the later `at` wins.
