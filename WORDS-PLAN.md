@@ -43,19 +43,20 @@ This changes two decisions in [PLAN.md](PLAN.md#decisions): *Words: none for now
         nǐ hǎo
          你好
    hello
-   ┃ Nǐ hǎo, wǒ jiào Xiǎomíng.
-   ┃ 你好，我叫小明。
+   ┃ Nǐ hǎo, wǒ jiào Xiǎomíng.   🔊
+   ┃ 你好，我叫小明。              🐢
    ┃ Hello, I'm Xiaoming.
    ───────────
+   [你 nǐ you] [好 hǎo good]      ← tap one to hear it
    Said "ní hǎo": two 3rd tones in a row, the first becomes a 2nd.
-   你 = you · 好 = good
 
   [Don't know] [Barely know] [Know] [Safely know] [Securely know]
      1 min        10 min       3 d       7 d          14 d
 ```
 
 - **English** meaning
-- **An example sentence**: Pinyin, characters and English, with the word underlined in both the Pinyin and the characters. Short, everyday sentences, mostly built from common words.
+- **An example sentence**: Pinyin, characters and English, with the word underlined in both the Pinyin and the characters. Short, everyday sentences, mostly built from common words. 🔊 plays the sentence, 🐢 slowly.
+- **What each character means**, where it's a word of its own (你 = you · 好 = good): one button per character, tap it to hear it.
 - An optional note (tone changes, a German or English comparison, what the characters mean, an example for words like 的 or 了 that don't translate on their own)
 - **Five buttons**, each showing **when the word comes back** if you pick it. Keys **1–5** on a computer.
 
@@ -212,6 +213,7 @@ One entry:
 
 - **Checks:** every word has characters, Pinyin with valid tone marks and English; ids are unique; one syllable per character; the voice can say every syllable (same rule as for lesson words). The example sentence has all three parts, one syllable per character, and contains the word with the word's own Pinyin (only 一 and 不 may change tone, and a syllable may be light, as in 三个 sān ge)
 - **Audio:** one MP3 per word from the same offline voice, with the spoken tone changes (*nǐ hǎo* → *ní hǎo*, *bù shì* → *bú shì*), tone-checked like the lesson audio, in `docs/audio/w-<code points>.mp3` (你好 → `w-4f60-597d.mp3`). In words like *wǒmen* the voice doesn't stop between syllables, so the check splits the word evenly to measure each tone; that's only used to pick the best take. Light (neutral) syllables aren't checked. Where no take clearly has the right tones (35 of 533 words), the card says *The recording may not have every tone right: go by the Pinyin.*
+- **Audio of the example sentences:** one MP3 per sentence, made like the grammar sentences (`docs/audio/g-<hash>.mp3`; a sentence in both shares the file). Where the voice never learned a spoken tone change (*gěi wǒ* → *géi wǒ*), it says that syllable with its written tone.
 - **Output:** `docs/words.json`, loaded by the Words tab. Each example gets the place of the word in the characters and in the Pinyin, so the card can underline it
 
 ---
