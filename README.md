@@ -2,7 +2,7 @@
 
 My course for learning Mandarin Chinese through **Pinyin**, without characters for now. It works through the **Pinyin chart**: first one group of initials per lesson (*bo po mo fo*, *de te ne le*, …), then mixed lessons that go faster. For now it's **only sounds and tones, no words**: every lesson is listening, hearing the four tones and the sounds apart.
 
-- **[Open the app](https://florianpein.github.io/chinese/)**: lessons, a listening drill and all audio (works on your phone)
+- **[Open the app](https://florianpein.github.io/chinese/)**: the sounds explained and to listen to, listening exercises, words and grammar (works on your phone)
 - **[CHART.md](CHART.md)**: the Pinyin chart with the lesson for every syllable, and the order of all 24 lessons
 - **[PLAN.md](PLAN.md)**: how the course works, the slide types, the first lessons in detail, future plans
 - **[PROGRESS.md](PROGRESS.md)**: what's done and what needs more practice
@@ -13,27 +13,27 @@ My course for learning Mandarin Chinese through **Pinyin**, without characters f
 
 | Day type | What to do |
 |----------|------------|
-| Normal (15–25 min) | Words, a few minutes of Practice, then 1 lesson |
-| Busy (2–5 min) | Words or Practice |
-| Free (30 min+) | Words, Practice, then 2–3 lessons, or 1 grammar session |
-| Back after a break | Practice, then the last lesson again |
+| Normal (15–25 min) | Words, a round of *All lessons you've done*, then the next lesson: read it in Sounds, then 1–2 rounds of its exercises |
+| Busy (2–5 min) | Words or a round of *All lessons you've done* |
+| Free (30 min+) | Words, *All lessons you've done*, then 2–3 lessons, or 1 grammar session |
+| Back after a break | *All lessons you've done*, then the last lesson's page in Sounds and a round of its exercises |
 
-If a lesson came out below about 70% right first time, do it again before the next one.
+If a round came out below about 70% right first time, do another round (it's different each time) before the next lesson.
 
 ## Lessons
 
-Each lesson teaches part of the chart in about 37 short steps (10–12 min), almost all of them listening exercises: which tone, which sound, same or different, odd one out, two to four sounds in a row, match the sounds, type what you hear. From the 2nd lesson on, each one starts with a warm-up on the sounds before. Do them in the app; the notes are a summary to read.
+Each lesson teaches part of the chart. In the app it has two parts: its page in **Sounds** explains the new sounds and tones (with a diagram where a sound is hard to make) and has all of them to listen to; its round in **Exercises** is 20 listening exercises, picked at random from the lesson's sounds and the ones they're compared with, so it's different every time: which tone, which sound, same or different, odd one out, two to four sounds in a row, match the sounds, type what you hear. The notes are a summary to read.
 
 | Lesson | Block | Sounds | Tones | Notes |
 |--------|-------|--------|-------|-------|
-| [P01](https://florianpein.github.io/chinese/#lesson/P01) | bo po mo fo · wo | b vs p | all four, then two and three in a row | [notes](lessons/P01.md) |
-| [P02](https://florianpein.github.io/chinese/#lesson/P02) | de te ne le · e | the vowel e; d vs t | 2nd vs 3rd, alone and in pairs | [notes](lessons/P02.md) |
-| [P03](https://florianpein.github.io/chinese/#lesson/P03) | ge ke he | g vs k; the rough h | 4th vs 3rd and 1st, alone and in a row | [notes](lessons/P03.md) |
-| [P04](https://florianpein.github.io/chinese/#lesson/P04) | ze ce se | z vs c vs s; z/c vs d/t | same tone, different initial | [notes](lessons/P04.md) |
-| [P05](https://florianpein.github.io/chinese/#lesson/P05) | zhe che she re | z vs zh, s vs sh, r vs l | all four | [notes](lessons/P05.md) |
-| [P06](https://florianpein.github.io/chinese/#lesson/P06) | ji qi xi | j vs q; x vs s and sh | all four, up to four in a row | [notes](lessons/P06.md) |
-| [P07](https://florianpein.github.io/chinese/#lesson/P07) | recap: the puff of air | b/p d/t g/k z/c zh/ch j/q | all four, mixed | [notes](lessons/P07.md) |
-| [P08](https://florianpein.github.io/chinese/#lesson/P08) | recap: z, zh or j? | z/zh/j c/ch/q s/sh/x, r | all four, faster | [notes](lessons/P08.md) |
+| [P01](https://florianpein.github.io/chinese/#sounds/P01) | bo po mo fo · wo | b vs p | all four, then two and three in a row | [notes](lessons/P01.md) |
+| [P02](https://florianpein.github.io/chinese/#sounds/P02) | de te ne le · e | the vowel e; d vs t | 2nd vs 3rd, alone and in pairs | [notes](lessons/P02.md) |
+| [P03](https://florianpein.github.io/chinese/#sounds/P03) | ge ke he | g vs k; the rough h | 4th vs 3rd and 1st, alone and in a row | [notes](lessons/P03.md) |
+| [P04](https://florianpein.github.io/chinese/#sounds/P04) | ze ce se | z vs c vs s; z/c vs d/t | same tone, different initial | [notes](lessons/P04.md) |
+| [P05](https://florianpein.github.io/chinese/#sounds/P05) | zhe che she re | z vs zh, s vs sh, r vs l | all four | [notes](lessons/P05.md) |
+| [P06](https://florianpein.github.io/chinese/#sounds/P06) | ji qi xi | j vs q; x vs s and sh | all four, up to four in a row | [notes](lessons/P06.md) |
+| [P07](https://florianpein.github.io/chinese/#sounds/P07) | recap: the puff of air | b/p d/t g/k z/c zh/ch j/q | all four, mixed | [notes](lessons/P07.md) |
+| [P08](https://florianpein.github.io/chinese/#sounds/P08) | recap: z, zh or j? | z/zh/j c/ch/q s/sh/x, r | all four, faster | [notes](lessons/P08.md) |
 
 More lessons are added as you go (next: P09, *ba da ga za zha*). Every lesson uses all four tones. The whole order is in [CHART.md](CHART.md#lesson-order).
 
@@ -41,11 +41,10 @@ More lessons are added as you go (next: P09, *ba da ga za zha*). Every lesson us
 
 | Tab | What it does |
 |-----|--------------|
-| **Learn** | The lessons in chart order. Tap the next one to start. Planned lessons are shown greyed out. |
-| **Practice** | An endless listening drill with the sounds of the lessons you've finished: which tone, which sound, or same or different. A sound you get wrong comes back a few questions later. |
+| **Sounds** | The lessons in chart order, to read and listen to: each one's explanations, diagrams of how to make the harder sounds (the puff of air, the 3rd tone, where the tongue goes for z c s, zh ch sh r, j q x and g k h), and every sound in all four tones (a row or column header ▶ plays the whole line). Planned lessons are shown greyed out. |
+| **Exercises** | Listening exercises, a new random round of 20 each time. **All lessons you've done** mixes the sounds of every lesson you've finished; **one lesson** practises just that lesson's sounds. A wrong one comes back at the end of the round. Finishing a lesson's first round ticks it as done and brings its sounds into *All lessons you've done*. |
 | **Words** | Flashcards of the most common words, Anki-style. You hear the word and see its Pinyin and characters; tap for the English and an example sentence (Pinyin, characters, English, with 🔊 to hear it) and what each character means (tap one to hear it), then pick *Don't know*, *Barely know*, *Know*, *Safely know* or *Securely know*. Each button shows when the word comes back. Sessions never bring new words: **Study** shows a table of the next 10 words to learn (first the ones you said *Don't know* to, then new words), and once you've studied them they come into your sessions. A word you say *Don't know* to twice is set aside until you study it. **Practise today's *Know* words** goes over the words you picked *Know* for today that come back tomorrow, without moving them up. Details in [WORDS-PLAN.md](WORDS-PLAN.md). |
 | **Grammar** | Chinese grammar, **one topic per session**, in HSK order (19 HSK 1 topics built, HSK 2 and 3 planned). Each session explains its topic with example sentences you can play (🔊, 🐢 slowly), the grammar point highlighted, and wrong sentences marked ✗ with why. Then **Check yourself**: 6 questions (put the words in order, fill the gap, which sentence is right, what it means); a wrong one comes back once at the end. The sentences only use words from Words, the further on the topic, the further down the word list; *Words in this session* shows which ones you've already seen there. Topics and order in [GRAMMAR.md](GRAMMAR.md). |
-| **Listen** | All audio of a lesson: every sound in each tone. 🐢 plays slowly. |
 | **⚙︎** | **Copy progress for Claude**, mark lessons as done, settings, export/import your progress (it's stored per browser). |
 
 On a computer: number keys pick an answer, Enter continues, P replays the audio. In Words: Space shows the answer, 1–5 are the five buttons.

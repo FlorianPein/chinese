@@ -91,17 +91,17 @@ Each lesson teaches one or more blocks of the chart, only sounds and tones, no w
 |---|---|---|---|
 | [P01](lessons/P01.md) | bo po mo fo · o · wo | All four tones, side by side; b vs p (the puff of air); the o that sounds like wo | ✅ done 2026-10-18 |
 | [P02](lessons/P02.md) | de te ne le · me · e | The vowel e; d vs t; the 2nd tone against the 3rd | ✅ done 2026-10-18 |
-| [P03](lessons/P03.md) | ge ke he | g vs k; the rough h; the 4th tone against the 3rd and the 1st | [ready](https://florianpein.github.io/chinese/#lesson/P03) |
-| [P04](lessons/P04.md) | ze ce se | z = a soft German z (ts), c = ts with a puff, s always sharp; z vs c vs d and t | [ready](https://florianpein.github.io/chinese/#lesson/P04) |
-| [P05](lessons/P05.md) | zhe che she re | The tongue curled back; ze vs zhe, se vs she | [ready](https://florianpein.github.io/chinese/#lesson/P05) |
-| [P06](lessons/P06.md) | ji qi xi | The flat tongue; j vs q; xi vs se vs she | [ready](https://florianpein.github.io/chinese/#lesson/P06) |
+| [P03](lessons/P03.md) | ge ke he | g vs k; the rough h; the 4th tone against the 3rd and the 1st | [ready](https://florianpein.github.io/chinese/#sounds/P03) |
+| [P04](lessons/P04.md) | ze ce se | z = a soft German z (ts), c = ts with a puff, s always sharp; z vs c vs d and t | [ready](https://florianpein.github.io/chinese/#sounds/P04) |
+| [P05](lessons/P05.md) | zhe che she re | The tongue curled back; ze vs zhe, se vs she | [ready](https://florianpein.github.io/chinese/#sounds/P05) |
+| [P06](lessons/P06.md) | ji qi xi | The flat tongue; j vs q; xi vs se vs she | [ready](https://florianpein.github.io/chinese/#sounds/P06) |
 
 ### Recap
 
 | # | Syllables | Focus | Status |
 |---|---|---|---|
-| [P07](lessons/P07.md) | recap, no new sounds | b/p, d/t, g/k, z/c, zh/ch, j/q mixed, all four tones | [ready](https://florianpein.github.io/chinese/#lesson/P07) |
-| [P08](lessons/P08.md) | recap, no new sounds | z/zh/j, c/ch/q, s/sh/x and r mixed, all four tones, faster | [ready](https://florianpein.github.io/chinese/#lesson/P08) |
+| [P07](lessons/P07.md) | recap, no new sounds | b/p, d/t, g/k, z/c, zh/ch, j/q mixed, all four tones | [ready](https://florianpein.github.io/chinese/#sounds/P07) |
+| [P08](lessons/P08.md) | recap, no new sounds | z/zh/j, c/ch/q, s/sh/x and r mixed, all four tones, faster | [ready](https://florianpein.github.io/chinese/#sounds/P08) |
 
 ### Simple finals, mixed
 
