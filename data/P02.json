@@ -26,7 +26,7 @@
     {"type": "hear", "play": "s-le4", "options": ["nè", "lè", "dè"]},
     {"type": "odd", "play": "s-de1", "odd": "s-te1"},
 
-    {"type": "intro", "title": "2nd or 3rd?",
+    {"type": "intro", "title": "2nd or 3rd?", "figure": "tone3",
      "text": "The pair beginners mix up most is the **2nd** tone (rising) and the **3rd** (low). Said on its own, the 3rd tone comes back up at the end, so both seem to go up.\n\nListen to where they **start**: the 2nd starts in the middle and climbs straight up, like a surprised *What?* The 3rd first sinks low and stays there a while, like a doubtful *Hmm…*\n\nEach row is 2nd, then 3rd.",
      "rows": [["s-de2", "s-de3"], ["s-ne2", "s-ne3"], ["s-mo2", "s-mo3"]]},
     {"type": "same", "pair": ["s-le2", "s-le3"]},

@@ -11,7 +11,7 @@
     {"type": "odd", "play": "s-se4", "odd": "s-ce4"},
     {"type": "order", "sounds": ["s-ze3", "s-ce1"], "options": ["zě cē", "cě zē", "zě cè", "zè cē"]},
 
-    {"type": "intro", "title": "The tongue curled back",
+    {"type": "intro", "title": "The tongue curled back", "figure": "curled",
      "text": "Today: **zh ch sh r**. For all four, curl the tip of your tongue up and back, behind the bump above your top teeth. That gives them a darker, hollow sound.\n\n- **zh** like the *j* in English *jam*, without the buzz; German *dsch*.\n- **ch** like English *church*, with a puff; German *tsch*.\n- **sh** like English *shoe*, German *sch*.\n- **r** like the English *r* in *run*, with a little buzz, a bit like the *s* in *pleasure*. Never a German r.\n\nThey're written with two letters but are one sound each.",
      "rows": [["s-zhe4", "s-che4", "s-she4", "s-re4"], ["s-zhe1", "s-che1", "s-she1", "s-re1"]]},
     {"type": "hear", "play": "s-che4", "options": ["zhè", "chè"]},

@@ -11,7 +11,7 @@
     {"type": "odd", "play": "s-ke3", "odd": "s-ke4"},
     {"type": "order", "sounds": ["s-he1", "s-ge4"], "options": ["hē gè", "hè gē", "hē gě", "kē gè"]},
 
-    {"type": "intro", "title": "z: a soft ts",
+    {"type": "intro", "title": "z: a soft ts", "figure": "teeth",
      "text": "Today: the tongue tip at the teeth, **z c s**, with **e** again.\n\n**z** is a *ts*, like the German *z* in *Zeit*, or the *ts* in English *cats*. It's soft, with **no puff** of air: closer to the *ds* in English *kids*. It's never the buzzing English *z* of *zoo*.\n\nTop row: **ze** in two tones. Below: **de** against **ze**.",
      "rows": [["s-ze2", "s-ze4"], ["s-de2", "s-ze2"]]},
     {"type": "hear", "play": "s-ze2", "options": ["dé", "zé"]},

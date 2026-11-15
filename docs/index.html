@@ -309,6 +309,35 @@ details.gwords summary { cursor: pointer; font-weight: 600; font-size: .95rem; }
 .fbsent .p { font-weight: 600; font-size: 1.1rem; }
 .fbsent .hzf { font-size: 1.25rem; }
 .fbexplain { margin: 4px 0 12px; font-size: .95rem; }
+/* sounds: explanations, figures */
+.sec h3 { margin: 4px 0 6px; }
+h2.ltitle { margin: 4px 0 2px; font-size: 1.5rem; color: var(--text); text-transform: none; letter-spacing: 0; }
+.sec .text p:first-child { margin-top: 0; }
+.sec .chart { margin-top: 10px; }
+.lnav { display: flex; gap: 6px; flex-wrap: wrap; margin: 0 0 14px; }
+.lnav .btn { padding: 6px 10px; min-height: 0; font-size: .85rem; }
+.lrow .acts { display: flex; gap: 6px; flex: none; }
+.lrow .acts .btn { padding: 8px 12px; }
+.lead { font-size: .95rem; }
+/* figures */
+.fig { display: flex; justify-content: center; gap: 10px; margin: 14px 0 6px; }
+.fig figure { margin: 0; flex: 1; max-width: 260px; text-align: center; }
+.fig.n2 figure { max-width: 220px; }
+.fig svg { width: 100%; height: auto; display: block; }
+.fig.n1 svg { max-width: 230px; margin: 0 auto; }
+.fig figcaption { font-size: .82rem; color: var(--muted); line-height: 1.35; margin-top: 4px; }
+.fig figcaption b { color: var(--text); }
+.fig .fo { fill: none; stroke: var(--muted); stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+.fig .ft { fill: var(--surface); stroke: var(--muted); stroke-width: 1.6; }
+.fig .tongue { fill: color-mix(in srgb, var(--accent) 28%, var(--surface)); stroke: var(--accent); stroke-width: 1.6; }
+.fig .spot { fill: none; stroke: var(--accent); stroke-width: 2.6; }
+.fig .candle { fill: var(--surface-2); stroke: var(--muted); stroke-width: 1.4; }
+.fig .wick { stroke: var(--text); stroke-width: 1.6; }
+.fig .flame { fill: #e8a33d; stroke: #c9771f; stroke-width: 1; }
+.fig .air { fill: none; stroke: var(--accent); stroke-width: 1.8; stroke-linecap: round; }
+.fig .grid { stroke: var(--muted); stroke-opacity: .25; stroke-width: 1; }
+.fig .pitch { fill: none; stroke: var(--accent); stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+.fig .pitch2 { stroke: var(--muted); stroke-width: 4; stroke-linecap: round; stroke-dasharray: 1 7; }
 @media (max-width: 420px) {
   .py { font-size: 1.7rem; }
   .kbd { display: none; }
@@ -324,11 +353,10 @@ details.gwords summary { cursor: pointer; font-weight: 600; font-size: .95rem; }
     <span class="stat" id="stat"></span>
   </header>
   <nav>
-    <a href="#learn" data-tab="learn">Learn</a>
-    <a href="#practice" data-tab="practice">Practice</a>
+    <a href="#sounds" data-tab="sounds">Sounds</a>
+    <a href="#exercises" data-tab="exercises">Exercises</a>
     <a href="#words" data-tab="words">Words</a>
     <a href="#grammar" data-tab="grammar">Grammar</a>
-    <a href="#listen" data-tab="listen">Listen</a>
     <a href="#settings" data-tab="settings" title="Settings">⚙︎</a>
   </nav>
   <main id="view"></main>
@@ -499,17 +527,17 @@ function syncStatus() {
 }
 function refreshAfterSync() {
   updateStat();
-  const tab = location.hash.slice(1).split("/")[0] || "learn";
-  if (["learn", "settings"].includes(tab) || (tab === "words" && !W.session) || (tab === "grammar" && !G.quiz)) route();   // never in the middle of a lesson, practice, words or a grammar check
+  const [tab, arg] = (location.hash.slice(1) || "sounds").split("/");
+  if (["sounds", "settings"].includes(tab) || (tab === "exercises" && !arg) || (tab === "words" && !W.session) || (tab === "grammar" && !G.quiz)) route();   // never in the middle of a round, words or a grammar check
 }
-// every lesson that's done has its sounds in Practice; lessons that no longer exist are dropped
+// every lesson that's done has its sounds in Exercises (all lessons done); lessons that no longer exist are dropped
 function tidyLessons() {
   const ids = new Set(DATA.lessons.map(l => l.id));
   state.unlocked = state.unlocked.filter(id => ids.has(id));
   for (const id of Object.keys(state.lessons)) if (ids.has(id)) markLessonDone(id);
 }
 document.addEventListener("visibilitychange", () => {
-  if (document.visibilityState === "hidden") { flushPractice(); flushWords(); if (syncTimer) syncNow(); }   // about to close: send what's pending
+  if (document.visibilityState === "hidden") { flushWords(); if (syncTimer) syncNow(); }   // about to close: send what's pending
   else if (!syncCfg.last || Date.now() - Date.parse(syncCfg.last) > 60000) syncNow();
 });
 
@@ -566,6 +594,35 @@ function audioFor(id) {   // fetch a sound ahead of time
 let seqToken = 0, req = null, endWait = null;   // req: what's playing {src, id, rate, retried}
 function finished() { const f = endWait; endWait = null; if (f) f(); }
 player.addEventListener("ended", finished);
+// Browsers only let a page start sound after a tap, and iPhones only count a tap
+// on the page itself: a sound that starts after the page changes (a new
+// question, a new tab) is blocked until the player has once been started by a
+// tap. So the first tap anywhere starts it (with silence), and a sound that was
+// blocked is played then.
+let unlocked = false, blocked = null;
+player.addEventListener("playing", () => { unlocked = true; });
+const SILENCE = (() => {   // 0.05 s of silence as a WAV file
+  const n = 400, b = new DataView(new ArrayBuffer(44 + n));
+  [..."RIFF"].forEach((c, i) => b.setUint8(i, c.charCodeAt(0))); b.setUint32(4, 36 + n, true);
+  [..."WAVEfmt "].forEach((c, i) => b.setUint8(8 + i, c.charCodeAt(0)));
+  b.setUint32(16, 16, true); b.setUint16(20, 1, true); b.setUint16(22, 1, true);
+  b.setUint32(24, 8000, true); b.setUint32(28, 8000, true); b.setUint16(32, 1, true); b.setUint16(34, 8, true);
+  [..."data"].forEach((c, i) => b.setUint8(36 + i, c.charCodeAt(0))); b.setUint32(40, n, true);
+  for (let i = 0; i < n; i++) b.setUint8(44 + i, 128);
+  return URL.createObjectURL(new Blob([b], { type: "audio/wav" }));
+})();
+function wasBlocked(e, retry) {
+  if (e && e.name === "NotAllowedError") { blocked = retry; unlocked = false; }
+}
+function onGesture(e) {
+  if (unlocked || !player.paused) return;
+  const again = blocked;
+  blocked = null;
+  // a tap on a play button plays its own sound; a tap anywhere else plays what was blocked
+  if (again && !(e.target.closest && e.target.closest("[data-play], [data-slow], [data-seq], #again"))) again();
+  else if (!again) { req = null; player.src = SILENCE; player.play().then(() => { unlocked = true; }).catch(() => {}); }
+}
+["click", "keydown", "touchend"].forEach(t => document.addEventListener(t, onGesture, true));
 player.addEventListener("error", () => {
   // a sound that didn't load (bad connection): once more straight from the server
   if (req && req.id && !req.retried) {
@@ -592,7 +649,7 @@ function stopAudio() {
 function play(id, slow) {
   if (!id) return;
   stopAudio();
-  startId(id, slow ? 0.7 : 1).catch(() => {});
+  startId(id, slow ? 0.7 : 1).catch(e => wasBlocked(e, () => play(id, slow)));
 }
 // play and wait until it has finished (or was stopped)
 function playToEnd(id, src) {
@@ -608,12 +665,17 @@ async function playSeq(ids, marks) {   // a row of sounds, one after another; ma
   for (const [n, id] of ids.entries()) {
     if (my !== seqToken) return;
     const btn = marks ? marks[n] : view.querySelector(`.syl[data-play="${id}"], .ccell[data-play="${id}"]`);
+    let stop = false;
     await new Promise(done => {
       endWait = done;
       if (btn) btn.classList.add("playing");
-      startId(id, 1).catch(e => { if (endWait === done && e.name !== "AbortError") finished(); });
+      startId(id, 1).catch(e => {
+        if (e.name === "NotAllowedError") { stop = true; wasBlocked(e, () => playSeq(ids, marks)); }
+        if (endWait === done && e.name !== "AbortError") finished();
+      });
     });
     if (btn) btn.classList.remove("playing");
+    if (stop) return;
     if (my !== seqToken) return;
     await new Promise(r => setTimeout(r, 250));
   }
@@ -631,6 +693,59 @@ function toneSvg(tone, w) {
     : `<circle cx="20" cy="${y(2.5)}" r="3.2" fill="currentColor"/>`;
   return `<svg width="${w}" height="${w * 0.75}" viewBox="0 0 40 30" aria-hidden="true">${grid}${shape}</svg>`;
 }
+
+// ---------- figures: how to make the harder sounds and the 3rd tone ----------
+// The mouth from the side, facing left: lips, teeth, the ridge behind the top
+// teeth, the hard and the soft palate, the throat. The tongue changes per sound;
+// a ring marks where it does the work.
+const MOUTH_PARTS = `
+  <path d="M30 40 C 20 44, 13 52, 12 60 C 11 66, 14 70, 22 71 L 30 70" class="fo"/>
+  <path d="M30 61 L 38 61 L 37 77 C 35 79, 32 79, 31 77 Z" class="ft"/>
+  <path d="M38 61 C 42 60, 46 54, 52 53 C 66 49, 92 45, 114 47 C 128 48, 140 55, 146 64 C 149 70, 149 76, 146 80 C 144 82, 141 81, 141 78 C 141 73, 140 68, 136 64" class="fo"/>
+  <path d="M160 46 C 162 70, 162 110, 160 158" class="fo"/>
+  <path d="M30 104 C 16 104, 10 98, 12 90 C 14 84, 20 82, 30 84" class="fo"/>
+  <path d="M31 85 L 37 85 L 38 101 L 31 101 C 30 96, 30 90, 31 85 Z" class="ft"/>
+  <path d="M38 102 C 52 116, 84 128, 130 158" class="fo"/>`;
+const TONGUE = {
+  // tip at the back of the top teeth, body low
+  teeth: ["M40 99 C 38 92, 36 84, 37 79 C 39 76, 43 76, 48 76 C 64 74, 86 72, 106 72 C 124 73, 136 82, 141 98 C 145 114, 146 136, 148 158 L 122 158 C 100 136, 72 120, 46 106 C 42 104, 40 102, 40 99 Z", 38, 77],
+  // tip curled up and back, behind the ridge; the middle hollow
+  curled: ["M42 100 C 42 92, 44 78, 48 68 C 50 61, 55 57, 60 58 C 63 59, 63 63, 60 66 C 58 70, 62 74, 72 75 C 90 76, 112 74, 128 80 C 138 86, 142 100, 144 114 C 146 130, 147 144, 148 158 L 122 158 C 100 136, 72 120, 48 107 C 44 105, 42 103, 42 100 Z", 58, 58],
+  // tip down behind the bottom teeth, the front of the tongue up at the hard palate
+  flat: ["M40 99 C 38 94, 38 89, 40 87 C 44 80, 52 68, 64 60 C 76 54, 94 53, 110 58 C 126 64, 136 78, 140 96 C 144 112, 146 136, 148 158 L 122 158 C 100 136, 72 120, 46 106 C 42 104, 40 102, 40 99 Z", 80, 54],
+  // tip low, the back of the tongue up at the soft palate
+  back: ["M40 99 C 38 94, 39 89, 42 87 C 52 82, 66 80, 82 79 C 100 78, 114 70, 124 62 C 132 57, 140 60, 142 72 C 144 88, 146 120, 148 158 L 122 158 C 100 136, 72 120, 46 106 C 42 104, 40 102, 40 99 Z", 130, 58],
+};
+const mouthSvg = kind => { const [d, x, y] = TONGUE[kind];
+  return `<svg viewBox="6 26 160 136" aria-hidden="true"><path d="${d}" class="tongue"/>${MOUTH_PARTS}<circle cx="${x}" cy="${y}" r="5.5" class="spot"/></svg>`; };
+// b vs p: a candle in front of the lips; the puff of p blows the flame sideways
+const candleSvg = puff => `<svg viewBox="0 20 90 92" aria-hidden="true">
+  <path d="M10 40 C 4 46, 4 54, 12 56 C 4 60, 4 68, 10 72" class="fo"/>
+  ${puff ? `<path d="M18 50 q 6 -3 12 0 t 12 0" class="air"/><path d="M18 58 q 6 -3 12 0 t 12 0" class="air"/>` : ""}
+  <rect x="48" y="62" width="14" height="46" rx="2" class="candle"/><line x1="55" y1="62" x2="55" y2="56" class="wick"/>
+  ${puff ? `<path d="M55 56 C 66 54, 78 48, 82 42 C 72 44, 62 46, 55 56 Z" class="flame"/>`
+         : `<path d="M55 56 C 49 50, 50 40, 55 30 C 60 40, 61 50, 55 56 Z" class="flame"/>`}</svg>`;
+// the 3rd tone: on its own it dips and comes back up; before another tone it only stays low
+function pitchSvg(pts, then) {
+  const y = L => 92 - (L - 1) * 17;
+  return `<svg viewBox="0 18 120 84" aria-hidden="true">
+    ${[1, 2, 3, 4, 5].map(L => `<line x1="4" x2="116" y1="${y(L)}" y2="${y(L)}" class="grid"/>`).join("")}
+    <polyline points="${pts.map(([x, L]) => `${x},${y(L)}`).join(" ")}" class="pitch"/>
+    ${then ? `<line x1="${then[0]}" x2="${then[1]}" y1="${y(then[2])}" y2="${y(then[3])}" class="pitch2"/>` : ""}</svg>`;
+}
+// each figure: panels of [drawing, caption]
+const FIGURES = {
+  puff: [[candleSvg(false), "<b>b</b>: no puff, the flame stays still"], [candleSvg(true), "<b>p</b>: a puff of air blows it sideways"]],
+  tone3: [[pitchSvg([[10, 2.4], [40, 1.1], [62, 1.2], [110, 4]]), "<b>On its own</b>: down low, then back up"],
+          [pitchSvg([[10, 2.4], [46, 1.1], [76, 1]], [88, 112, 4, 4]), "<b>Before another tone</b>: it just stays low"]],
+  teeth: [[mouthSvg("teeth"), "<b>z c s</b>: the tip of the tongue at the back of the top teeth"]],
+  curled: [[mouthSvg("curled"), "<b>zh ch sh r</b>: the tip curled up and back, behind the bump above the top teeth"]],
+  flat: [[mouthSvg("flat"), "<b>j q x</b>: the tip down behind the bottom teeth, the front of the tongue up against the roof of the mouth"]],
+  back: [[mouthSvg("back"), "<b>g k h</b>: the back of the tongue up at the soft back of the roof of the mouth; for <b>h</b> it doesn't quite touch, the air scrapes through"]],
+  three: [[mouthSvg("teeth"), "<b>z c s</b>: tip at the teeth"], [mouthSvg("curled"), "<b>zh ch sh r</b>: tip curled back"], [mouthSvg("flat"), "<b>j q x</b>: tip down, tongue flat and high"]],
+};
+const figureHtml = name => FIGURES[name] ? `<div class="fig n${FIGURES[name].length}">${FIGURES[name].map(([svg, cap]) =>
+  `<figure>${svg}<figcaption>${cap}</figcaption></figure>`).join("")}</div>` : "";
 
 // ---------- lessons done ----------
 const today = () => new Date().toISOString().slice(0, 10);
@@ -724,13 +839,12 @@ function progressReport() {
     top.forEach(([k, n]) => lines.push(`- ${n}× ${k}`));
   }
 
-  flushPractice();
   const rounds = state.log.filter(e => e.t === "practice");
   if (rounds.length) {
     const week = new Date(Date.now() - 7 * DAY).toISOString().slice(0, 16);
     const sum = list => list.reduce((a, e) => [a[0] + e.right, a[1] + e.total], [0, 0]);
     const [r, n] = sum(rounds), [rw, nw] = sum(rounds.filter(e => e.d > week));
-    lines.push("", `**Practice:** ${n} questions in total (${Math.round(100 * r / n)}% right), ${nw} in the last 7 days${nw ? ` (${Math.round(100 * rw / nw)}% right)` : ""}.`);
+    lines.push("", `**Exercises, all lessons mixed:** ${n} questions in total (${Math.round(100 * r / n)}% right), ${nw} in the last 7 days${nw ? ` (${Math.round(100 * rw / nw)}% right)` : ""}.`);
   }
 
   flushWords();
@@ -1249,62 +1363,83 @@ function finishGrammarQuiz() {
   keyHandler = e => { if (e.key === "Enter" && next) location.hash = `#grammar/${next.id}`; };
 }
 
-// ---------- Learn: the lesson path ----------
-function renderLearn() {
+// ---------- Sounds: each lesson's explanations and all its sounds, to read and listen ----------
+function renderSounds(id) {
+  const lesson = DATA.lessons.find(l => l.id === id);
+  if (lesson) return renderSoundsLesson(lesson);
   keyHandler = null;
   const next = DATA.lessons.find(l => !state.lessons[l.id]);
-  const banner = state.unlocked.length ? `<div class="card banner"><div><b>Warm up first</b>
-      <div class="muted small">A few minutes of Practice with the sounds you know.</div></div>
-      <a class="btn" href="#practice">Practice</a></div>` : "";
   const row = p => {
     if (!p.built) return `<div class="lrow planned"><span class="ic">${+p.id.slice(1)}</span>
       <div class="main"><div class="t">${esc(p.title)}</div><div class="muted small">${esc(p.focus)}</div></div></div>`;
     const l = DATA.lessons.find(x => x.id === p.id), st = state.lessons[p.id];
     const cls = st ? "done" : l === next ? "next" : "";
-    return `<a class="lrow ${cls}" href="#lesson/${p.id}">
-      <span class="ic">${st ? "✓" : l === next ? "▶" : +p.id.slice(1)}</span>
+    return `<a class="lrow ${cls}" href="#sounds/${p.id}">
+      <span class="ic">${st ? "✓" : +p.id.slice(1)}</span>
       <div class="main"><div class="t">${esc(l.title)}</div>
         <div class="muted small">${esc(l.focus)}</div>
-        <div class="muted small">${esc(p.id)} · ~${l.minutes} min${st ? ` · done, best ${st.best}%` : ""}</div></div>
-      <span class="go">${st ? "Again" : "Start"}</span></a>`;
+        <div class="muted small">${esc(p.id)} · ${esc(p.chart)}${st ? " · done" : ""}</div></div>
+      <span class="go">Read</span></a>`;
   };
   const topics = DATA.topics.map(t => ({ ...t, rows: DATA.plan.filter(p => p.topic === t.id) }));
   const started = topics.filter(t => t.rows.some(p => p.built));
   const later = topics.filter(t => !t.rows.some(p => p.built));
-  view.innerHTML = banner + started.map(t => `<div class="topic">
+  view.innerHTML = `<p class="muted lead" style="margin-top:0">How Mandarin sounds, lesson by lesson, along the Pinyin chart: what to listen for, how to make each sound, and every sound in all four tones. Then practise them in <a href="#exercises" style="color:var(--accent)">Exercises</a>.</p>` +
+    started.map(t => `<div class="topic">
       <h2>${esc(t.title)}</h2>
       <div class="muted small" style="margin-bottom:10px">${t.rows.filter(p => p.built).length} of ${t.rows.length} lessons ready</div>
       <div class="list">${t.rows.map(row).join("")}</div></div>`).join("") +
     (later.length ? `<details class="later"><summary>Coming later: ${later.reduce((n, t) => n + t.rows.length, 0)} more lessons</summary>${
       later.map(t => `<div class="topic"><h2>${esc(t.title)}</h2><div class="list">${t.rows.map(row).join("")}</div></div>`).join("")}</details>` : "") +
-    `<p class="muted small center" style="margin-top:24px">The lessons follow the Pinyin chart. More are added as you go.</p>`;
+    `<p class="muted small center" style="margin-top:24px">More lessons are added as you go.</p>`;
+}
+// a chart step as a table: syllables down, tones across; a row or column header plays the whole line
+const chartGrid = s => `<div class="chart" style="grid-template-columns: auto repeat(${s.tones.length}, 1fr)"><span></span>${
+  s.tones.map(t => `<button class="chead" data-seq="${s.syllables.map(b => soundId(b, t)).join(" ")}" title="Play the column">${toneSvg(t, 34)}<span>${TONE_NAME[t]}</span></button>`).join("")}${
+  s.syllables.map(b => `<button class="rhead" data-seq="${s.tones.map(t => soundId(b, t)).join(" ")}" title="Play the row">${esc(b)} ▶</button>` +
+    s.tones.map(t => `<button class="ccell" data-play="${soundId(b, t)}">${esc(byId[soundId(b, t)].pinyin)}</button>`).join("")).join("")}</div>`;
+function renderSoundsLesson(l) {
+  keyHandler = null;
+  const n = DATA.lessons.indexOf(l), prev = DATA.lessons[n - 1], next = DATA.lessons[n + 1];
+  // the explanations and the chart; the warm-up only repeats the lesson before
+  const secs = l.steps.filter(s => s.type === "chart" || (s.type === "intro" && s.title !== "Warm-up"));
+  const section = s => `<div class="card sec">${s.tone ? `<div class="tonebig">${toneSvg(s.tone, 90)}</div>` : ""}
+    <h3>${esc(s.title)}</h3>${s.text ? `<div class="text">${fmt(s.text)}</div>` : ""}${s.figure ? figureHtml(s.figure) : ""}
+    ${(s.rows || []).map(r => sylRow(r)).join("")}${s.type === "chart" ? chartGrid(s) : ""}</div>`;
+  // sounds of the lesson not shown above, one row per syllable
+  const shown = new Set(secs.flatMap(s => [...(s.rows || []).flat(), ...(s.type === "chart" ? chartIds(s) : [])]));
+  const more = {};
+  for (const i of lessonTaught(l).filter(i => !shown.has(i.id))) (more[i.syllables[0][0]] ||= []).push(i.id);
+  const st = state.lessons[l.id];
+  view.innerHTML = `<div class="wtop"><a class="btn" href="#sounds">← All lessons</a>
+      <span class="muted small">${esc(l.id)}${st ? ` · ✓ done, best ${st.best}%` : ""}</span></div>
+    <h2 class="ltitle">${esc(l.title)}</h2><p class="muted" style="margin-top:0">${esc(l.focus)}</p>
+    <div class="list">${secs.map(section).join("")}${Object.keys(more).length ? `<div class="card sec"><h3>More sounds of this lesson</h3>${
+      Object.values(more).map(ids => sylRow(ids.sort())).join("")}</div>` : ""}
+    <div class="card center"><a class="btn primary wide" href="#exercises/${l.id}">Exercises for ${esc(l.id)}</a>
+      <p class="muted small" style="margin-bottom:0">${ROUND} listening exercises on these sounds, different every time.
+      <a href="${GITHUB}lessons/${l.file}" target="_blank" rel="noopener" style="color:var(--accent)">Lesson notes ↗</a></p></div></div>
+    <div class="row">${prev ? `<a class="btn" href="#sounds/${prev.id}">← ${esc(prev.id)}</a>` : ""}${next ? `<a class="btn" href="#sounds/${next.id}">${esc(next.id)} →</a>` : ""}</div>`;
+  window.scrollTo(0, 0);
 }
 
 // ---------- Lesson player ----------
-const EXERCISES = new Set(["hear", "tone", "same", "odd", "order", "audio", "meaning", "pinyin", "match", "build", "type"]);
 const soundId = (base, tone) => `s-${base.replace("ü", "v")}${tone}`;
 const chartIds = s => s.syllables.flatMap(b => s.tones.map(t => soundId(b, t)));
-let L = null;   // the running lesson
+let L = null;   // the running round of exercises
 function stepAudio(s) {
   const ids = [s.item, s.play, s.odd, ...(s.items || []), ...(s.pair || []), ...(s.sounds || []), ...(["meaning", "audio"].includes(s.type) ? s.options : []),
                ...(s.rows || []).flat(), ...(s.type === "chart" ? chartIds(s) : [])];
   return ids.filter(id => id && byId[id]);
 }
-function startLesson(id) {
-  const lesson = DATA.lessons.find(l => l.id === id);
-  if (!lesson) { location.hash = "#learn"; return; }
-  L = { lesson, queue: lesson.steps.map((s, i) => ({ s, i, tries: 0 })), pos: 0, wrong: new Set(), started: Date.now() };
-  for (const s of lesson.steps) stepAudio(s).forEach(audioFor);   // preload
-  renderStep();
-}
 function renderStep() {
   keyHandler = null;
-  if (L.pos >= L.queue.length) return finishLesson();
+  if (L.pos >= L.queue.length) return finishRound();
   const entry = L.queue[L.pos];
   view.innerHTML = `<div class="ltop"><button class="btn ghost" id="quit" title="Quit lesson">✕</button>
       <div class="progress"><div style="width:${100 * L.pos / L.queue.length}%"></div></div></div>
     <div class="card step" id="card"></div><div class="footer" id="footer"></div>`;
-  $("#quit").onclick = () => { if (confirm("Quit this lesson? You can start it again any time.")) { L = null; location.hash = "#learn"; } };
+  $("#quit").onclick = () => { if (confirm("Stop this round? Nothing is saved until the end of a round.")) { L = null; location.hash = "#exercises"; } };
   window.scrollTo(0, 0);
   STEPS[entry.s.type](entry.s, entry);
 }
@@ -1321,7 +1456,7 @@ function continueFooter(text = "Continue") {
   keyHandler = e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); nextStep(); } };
 }
 const answerLine = item => `<div class="fbans"><b>${esc(item.pinyin)}</b><span>${esc(label(item))}</span>${audioButtons(item.id)}</div>`;
-// Show right/wrong. A wrong exercise comes back at the end of the lesson (up to twice).
+// Show right/wrong. A wrong exercise comes back at the end of the round (up to twice).
 function judge(entry, ok, { title, reveal = "", playId = null, requeue = true } = {}) {
   if (!ok) {
     logMistake(entry);
@@ -1353,7 +1488,7 @@ function logMistake(entry) {
             : s.type === "audio" ? (byId[g] ? byId[g].pinyin : g)
             : s.type === "odd" ? `picked ${byId[entry.seq[g]].pinyin}`
             : s.type === "same" ? (g === "same" ? "said same" : "said different") : String(g);
-  logEvent({ t: "mistake", lesson: L.lesson.id, step: entry.i, type: s.type, want, got, retry: entry.tries });
+  logEvent({ t: "mistake", lesson: L.lesson ? L.lesson.id : "practice", type: s.type, want, got, retry: entry.tries });
 }
 // Multiple choice: buttons with data-k; isRight(k) says which is correct.
 function choose(entry, isRight, after) {
@@ -1386,12 +1521,7 @@ const STEPS = {
     continueFooter();
   },
   chart(s) {
-    // syllables down, tones across; a row or column header plays the whole line
-    $("#card").innerHTML = `<span class="tag">the chart</span><h3>${esc(s.title)}</h3>${s.text ? `<div class="text">${fmt(s.text)}</div>` : ""}
-      <div class="chart" style="grid-template-columns: auto repeat(${s.tones.length}, 1fr)"><span></span>${
-        s.tones.map(t => `<button class="chead" data-seq="${s.syllables.map(b => soundId(b, t)).join(" ")}" title="Play the column">${toneSvg(t, 34)}<span>${TONE_NAME[t]}</span></button>`).join("")}${
-        s.syllables.map(b => `<button class="rhead" data-seq="${s.tones.map(t => soundId(b, t)).join(" ")}" title="Play the row">${esc(b)} ▶</button>` +
-          s.tones.map(t => `<button class="ccell" data-play="${soundId(b, t)}">${esc(byId[soundId(b, t)].pinyin)}</button>`).join("")).join("")}</div>`;
+    $("#card").innerHTML = `<span class="tag">the chart</span><h3>${esc(s.title)}</h3>${s.text ? `<div class="text">${fmt(s.text)}</div>` : ""}${chartGrid(s)}`;
     continueFooter();
   },
   same(s, entry) {
@@ -1659,46 +1789,20 @@ function recorder(id) {
   };
 }
 
-function finishLesson() {
-  const { lesson } = L;
-  const exercises = lesson.steps.filter(s => EXERCISES.has(s.type)).length;
-  const accuracy = Math.round(100 * (exercises - L.wrong.size) / Math.max(1, exercises));
-  const minutes = Math.max(1, Math.round((Date.now() - L.started) / 60000));
-  const prev = state.lessons[lesson.id];
-  state.lessons[lesson.id] = { done: prev ? prev.done : today(), last: today(), at: nowIso(),
-                               best: Math.max(prev ? prev.best : 0, accuracy), times: (prev ? prev.times : 0) + 1 };
-  delete state.removedLessons[lesson.id];
-  markLessonDone(lesson.id);
-  logEvent({ t: "lesson", lesson: lesson.id, score: accuracy, minutes, wrong: L.wrong.size, exercises });
-  save(); updateStat();
-  const next = DATA.lessons.find(l => !state.lessons[l.id]);
-  L = null;
-  keyHandler = null;
-  view.innerHTML = `<div class="card center" style="margin-top:24px">
-    <p style="font-size:2.4rem;margin:0">🎉</p><h3 style="margin:6px 0">Lesson complete!</h3>
-    <div class="muted">${esc(lesson.id)}: ${esc(lesson.title)}</div>
-    <div class="done-stats"><div><b>${accuracy}%</b><span class="small muted">right first time</span></div>
-      <div><b>${minutes} min</b><span class="small muted">time</span></div>
-      <div><b>${exercises}</b><span class="small muted">exercises</span></div></div>
-    <p class="muted small">${prev ? "" : "Its sounds are now in <a href=\"#practice\" style=\"color:var(--accent)\">Practice</a>. "}
-      <a href="${GITHUB}lessons/${lesson.file}" target="_blank" rel="noopener" style="color:var(--accent)">Lesson notes ↗</a></p>
-    <div class="row"><button class="btn" data-copy-progress>📋 Copy progress for Claude</button></div><div data-copy-msg class="muted small"></div>
-    <div class="row">${next ? `<a class="btn primary" href="#lesson/${next.id}">Next lesson</a>` : ""}
-      <a class="btn${next ? "" : " primary"}" href="#learn">Back to lessons</a></div></div>`;
-}
-
-// ---------- Practice: an endless listening drill with the sounds of the lessons you've done ----------
-// Each question is one of: which tone, which syllable (from ones with the same tone), same or different.
-// A sound you get wrong comes back a few questions later. Every 10 answers go into the log for Claude.
-const practice = { right: 0, total: 0, again: [], batch: { right: 0, total: 0 } };
+// ---------- Exercises: a new random round each time, for one lesson or all lessons done ----------
+const ROUND = 20;   // exercises in a round (tools/build.py says the same in the lesson notes)
 const finalOf = base => base.replace(/^(zh|ch|sh|[bpmfdtnlgkhzcsrjqxwy])/, "");
 const pickOne = a => a[Math.floor(Math.random() * a.length)];
-function flushPractice() {
-  if (!practice.batch.total) return;
-  logEvent({ t: "practice", ...practice.batch });
-  practice.batch = { right: 0, total: 0 };
-  save();
+const isToneSound = i => i && i.kind === "sound" && i.syllables[0][1] !== 5;
+const uniqItems = list => [...new Map(list.map(i => [i.id, i])).values()];
+// the sounds a lesson teaches: its chart and its own sounds
+function lessonTaught(l) {
+  const ids = new Set(DATA.items.filter(i => i.lesson === l.id).map(i => i.id));
+  l.steps.filter(s => s.type === "chart").forEach(s => chartIds(s).forEach(id => ids.add(id)));
+  return [...ids].map(id => byId[id]).filter(isToneSound);
 }
+// every sound the lesson plays: also the ones it compares them with (ze against zhe) and the warm-up
+const lessonPlays = l => uniqItems(l.steps.flatMap(stepAudio).map(id => byId[id]).filter(isToneSound));
 // other sounds in the same tone, the ones with the same final first (bō pō mō fō, not bō jī)
 function neighbours(item, pool) {
   const [base, tone] = item.syllables[0];
@@ -1706,118 +1810,138 @@ function neighbours(item, pool) {
   return [...others.filter(i => finalOf(i.syllables[0][0]) === finalOf(base)),
           ...others.filter(i => finalOf(i.syllables[0][0]) !== finalOf(base))];
 }
-function renderPractice() {
-  keyHandler = null;
-  const pool = unlockedItems().filter(i => i.kind === "sound" && i.syllables[0][1] !== 5);
-  if (pool.length < 4) {
-    view.innerHTML = `<div class="card center"><p><b>Nothing to practise yet.</b></p>
-      <p class="muted">Finish a lesson in <a href="#learn">Learn</a>. Its sounds then come back here in a mixed listening drill:
-      which tone, which sound, same or different.</p></div>`;
-    return;
-  }
-  const back = practice.again.findIndex(a => a.at <= practice.total);
-  const item = back >= 0 ? byId[practice.again.splice(back, 1)[0].id] : pickOne(pool);
-  const [base, tone] = item.syllables[0];
-  const near = neighbours(item, pool);
-  const r = Math.random();
-  const kind = r < 0.4 || !near.length ? "tone" : r < 0.75 ? "hear" : "same";
-  let other = item, prompt, options, isRight, playIds;
-  if (kind === "tone") {
-    prompt = "Which tone is it?";
-    options = [1, 2, 3, 4].map(t => [String(t), `${toneSvg(t, 44)}<span>${TONE_NAME[t]}</span>`]);
-    isRight = k => +k === tone;
-    playIds = [item.id];
-  } else if (kind === "hear") {
-    prompt = "What do you hear?";
-    options = shuffle([item, ...near.slice(0, 3)]).map(i => [i.id, esc(i.pinyin)]);
-    isRight = k => k === item.id;
-    playIds = [item.id];
-  } else {
-    // half the time the same sound twice; otherwise another tone, or another syllable in the same tone
-    const tones = pool.filter(i => i.syllables[0][0] === base && i.id !== item.id);
-    other = Math.random() < 0.5 ? item : Math.random() < 0.5 && tones.length ? pickOne(tones) : near[0];
-    prompt = "Two sounds. Are they the same?";
-    options = [["same", "Same"], ["diff", "Different"]];
-    isRight = k => (k === "same") === (other === item);
-    playIds = shuffle([item.id, other.id]);
-  }
-  view.innerHTML = `<div class="card center">
-    <span class="tag">${kind === "same" ? "same or different" : "listen"}</span> <span class="tag" id="score">${practice.right} / ${practice.total}</span>
-    <div class="prompt">${prompt}</div>
-    <div class="row"><button class="btn bigplay" data-seq="${playIds.join(" ")}" title="Play again">${playIds.map(() => "🔊").join(" ")}</button>
-      ${playIds.length === 1 ? `<button class="btn icon" data-slow="${item.id}" title="Play slowly">🐢</button>` : ""}</div>
-    <div class="options">${options.map(([k, html]) => `<button class="btn${kind === "tone" ? " tonebtn" : ""}" data-k="${k}">${html}</button>`).join("")}</div>
-    <div id="back"></div></div>`;
-  playSeq(playIds);
-  const btns = [...view.querySelectorAll("[data-k]")];
-  let answered = false;
-  const answer = b => {
-    if (answered) return; answered = true;
-    const ok = isRight(b.dataset.k);
-    btns.forEach(x => { x.disabled = true; if (isRight(x.dataset.k)) x.classList.add("right"); });
-    if (!ok) {
-      b.classList.add("wrong");
-      practice.again.push({ id: item.id, at: practice.total + 4 });
-      const pair = playIds.map(id => byId[id].pinyin).join(" / ");
-      logEvent(kind === "tone" ? { t: "mistake", lesson: "practice", type: "tone", want: item.pinyin, got: TONE_NAME[b.dataset.k] }
-             : kind === "hear" ? { t: "mistake", lesson: "practice", type: "hear", want: item.pinyin, got: byId[b.dataset.k].pinyin }
-             : { t: "mistake", lesson: "practice", type: "same", want: `${pair} (${other === item ? "same" : "different"})`,
-                 got: b.dataset.k === "same" ? "said same" : "said different" });
-    }
-    practice.total++; practice.batch.total++;
-    if (ok) { practice.right++; practice.batch.right++; }
-    if (practice.batch.total >= 10) flushPractice(); else save();
-    $("#score").textContent = `${practice.right} / ${practice.total}`;
-    $("#back").innerHTML = `<div class="result ${ok ? "ok" : "no"}">${ok ? "✓ Right" : "✗ Not this time"}</div>
-      <div class="fbans" style="justify-content:center">${[...new Set(playIds)].map(id =>
-        `<b>${esc(byId[id].pinyin)}</b><button class="btn icon" data-play="${id}" title="Play">🔊</button>`).join("")}</div>
-      <div class="row"><button class="btn primary" id="next">Next</button></div>`;
-    $("#next").onclick = renderPractice;
-    $("#next").focus();
+// A round of n exercises at random: what to listen to (targets), and what it can be
+// confused with (pool, which includes the targets).
+function makeRound(targets, pool, n = ROUND) {
+  const toneMates = it => shuffle(pool.filter(i => i.syllables[0][0] === it.syllables[0][0] && i.id !== it.id));
+  // something that sounds close: the same syllable in another tone, or another syllable in the same tone
+  const close = it => { const a = neighbours(it, pool).slice(0, 3), b = toneMates(it);
+    return Math.random() < 0.5 ? a[0] || b[0] : b[0] || a[0]; };
+  const distinct = list => { const seen = new Set(); return list.filter(i => i && !seen.has(i.pinyin) && seen.add(i.pinyin)); };
+  const similar = (it, k) => distinct([...neighbours(it, pool).slice(0, 4), ...toneMates(it).slice(0, 2)])
+    .filter(i => i.pinyin !== it.pinyin).sort(() => Math.random() - 0.5).slice(0, k);
+  const recent = [];
+  const target = () => {
+    let it = pickOne(targets);
+    for (let k = 0; k < 8 && recent.includes(it.id); k++) it = pickOne(targets);
+    recent.unshift(it.id); recent.length = Math.min(recent.length, Math.min(4, targets.length - 1));
+    return it;
   };
-  btns.forEach(b => b.onclick = () => answer(b));
-  keyHandler = e => {
-    const n = +e.key;
-    if (e.key === "p") playSeq(playIds);
-    else if (!answered && n >= 1 && n <= btns.length) answer(btns[n - 1]);
-    else if (answered && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); renderPractice(); }
+  const make = {
+    tone: it => ({ type: "tone", play: it.id, options: [1, 2, 3, 4] }),
+    hear: it => { const o = similar(it, Math.random() < 0.5 ? 2 : 3);
+      return o.length && { type: "hear", play: it.id, options: [it, ...o].map(i => i.pinyin) }; },
+    same: it => { const o = Math.random() < 0.5 ? it : close(it);
+      return o && { type: "same", pair: shuffle([it.id, o.id]) }; },
+    odd: it => { const o = close(it); return o && { type: "odd", play: it.id, odd: o.id }; },
+    order: it => {
+      const k = Math.random() < 0.55 ? 2 : Math.random() < 0.75 ? 3 : 4;
+      const sounds = [it];
+      while (sounds.length < k) { const x = pickOne(targets); if (x.id !== sounds[sounds.length - 1].id) sounds.push(x); }
+      const right = sounds.map(i => i.pinyin).join(" "), options = new Set([right]);
+      for (let tries = 0; options.size < 4 && tries < 40; tries++) {
+        const j = Math.floor(Math.random() * k), x = close(sounds[j]);
+        if (x) options.add(sounds.map((i, m) => (m === j ? x : i).pinyin).join(" "));
+      }
+      return options.size >= 3 && { type: "order", sounds: sounds.map(i => i.id), options: [...options] };
+    },
+    audio: it => { const o = similar(it, 2); return o.length === 2 && { type: "audio", item: it.id, options: [it, ...o].map(i => i.id) }; },
+    match: it => { const o = similar(it, 3); return o.length === 3 && { type: "match", mode: "sound", items: [it, ...o].map(i => i.id) }; },
+    type: it => ({ type: "type", item: it.id, from: "audio" }),
   };
+  const weights = { tone: 20, hear: 22, same: 13, odd: 11, order: 15, audio: 8, match: 4, type: 7 };
+  const total = Object.values(weights).reduce((a, b) => a + b);
+  const steps = [];
+  let matches = 0, guard = 0;
+  while (steps.length < n && guard++ < n * 20) {
+    let r = Math.random() * total, kind = "tone";
+    for (const [k, w] of Object.entries(weights)) { if ((r -= w) < 0) { kind = k; break; } }
+    if (kind === "match" && matches) continue;
+    const step = make[kind](target());
+    if (!step) continue;
+    if (kind === "match") matches++;
+    steps.push(step);
+  }
+  return steps;
 }
-
-const itemList = list => `<div class="list">${list.map(i => `
-  <div class="item"><div class="main">
-    <div class="p">${esc(i.pinyin)}</div>
-    ${state.settings.numbers ? `<div class="num">${esc(i.numbers)}</div>` : ""}
-    <div class="e">${esc(i.english)}</div>
-    ${i.literal ? `<div class="l">literally: ${esc(i.literal)}</div>` : ""}
-    ${i.audio_note ? `<div class="note small">🔊 ${esc(i.audio_note)}</div>` : ""}
-  </div><div class="btns">${audioButtons(i.id)}</div></div>`).join("")}</div>`;
-
-// ---------- Listen (all audio of a lesson) ----------
-function renderListen(lessonId) {
+// what a round is made of: one lesson (id), or every lesson done ("all")
+function roundSounds(id) {
+  if (id === "all") {
+    const sounds = uniqItems(DATA.lessons.filter(l => state.lessons[l.id]).flatMap(lessonTaught));
+    return { targets: sounds, pool: sounds };
+  }
+  const l = DATA.lessons.find(x => x.id === id);
+  if (!l) return null;
+  const targets = lessonTaught(l);
+  return { lesson: l, targets, pool: uniqItems([...targets, ...lessonPlays(l)]) };
+}
+function startRound(id) {
+  const r = roundSounds(id);
+  if (!r || r.targets.length < 4) { location.hash = "#exercises"; return; }
+  const steps = makeRound(r.targets, r.pool);
+  L = { id, lesson: r.lesson || null, steps, queue: steps.map((s, i) => ({ s, i, tries: 0 })), pos: 0, wrong: new Set(), started: Date.now() };
+  for (const s of steps) stepAudio(s).forEach(audioFor);   // fetch ahead
+  renderStep();
+}
+function finishRound() {
+  const { lesson, id } = L;
+  const exercises = L.steps.length;
+  const right = exercises - L.wrong.size;
+  const accuracy = Math.round(100 * right / Math.max(1, exercises));
+  const minutes = Math.max(1, Math.round((Date.now() - L.started) / 60000));
+  const prev = lesson && state.lessons[lesson.id];
+  if (lesson) {
+    state.lessons[lesson.id] = { done: prev ? prev.done : today(), last: today(), at: nowIso(),
+                                 best: Math.max(prev ? prev.best : 0, accuracy), times: (prev ? prev.times : 0) + 1 };
+    delete state.removedLessons[lesson.id];
+    markLessonDone(lesson.id);
+    logEvent({ t: "lesson", lesson: lesson.id, score: accuracy, minutes, wrong: L.wrong.size, exercises });
+  } else logEvent({ t: "practice", right, total: exercises });
+  save(); updateStat();
+  const next = lesson && DATA.lessons.find(l => !state.lessons[l.id]);
+  L = null;
+  keyHandler = e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); startRound(id); } };
+  view.innerHTML = `<div class="card center" style="margin-top:24px">
+    <p style="font-size:2.4rem;margin:0">🎉</p><h3 style="margin:6px 0">Round done!</h3>
+    <div class="muted">${lesson ? `${esc(lesson.id)}: ${esc(lesson.title)}` : "All lessons you've done"}</div>
+    <div class="done-stats"><div><b>${accuracy}%</b><span class="small muted">right first time</span></div>
+      <div><b>${minutes} min</b><span class="small muted">time</span></div>
+      <div><b>${exercises}</b><span class="small muted">exercises</span></div></div>
+    ${lesson && !prev ? `<p class="muted small">Its sounds are now in <b>All lessons you've done</b>.</p>` : ""}
+    <div class="row"><button class="btn primary" id="again">Another round</button>
+      <a class="btn" href="#exercises">Back to exercises</a></div>
+    ${next ? `<div class="row"><a class="btn" href="#sounds/${next.id}">Next lesson: read ${esc(next.id)}</a></div>` : ""}
+    <div class="row"><button class="btn" data-copy-progress>📋 Copy progress for Claude</button></div><div data-copy-msg class="muted small"></div></div>`;
+  $("#again").onclick = () => startRound(id);
+}
+function renderExercises() {
   keyHandler = null;
-  const lesson = DATA.lessons.find(l => l.id === lessonId) || DATA.lessons[0];
-  const items = DATA.items.filter(i => i.lesson === lesson.id);
-  const group = (kind, title) => {
-    const list = items.filter(i => i.kind === kind);
-    return list.length ? `<h2>${title}</h2>${itemList(list)}` : "";
+  const done = DATA.lessons.filter(l => state.lessons[l.id]);
+  const sounds = roundSounds("all").targets.length;
+  const next = DATA.lessons.find(l => !state.lessons[l.id]);
+  const row = l => {
+    const st = state.lessons[l.id], cls = st ? "done" : l === next ? "next" : "";
+    return `<div class="lrow ${cls}"><span class="ic">${st ? "✓" : +l.id.slice(1)}</span>
+      <div class="main"><div class="t">${esc(l.title)}</div>
+        <div class="muted small">${esc(l.id)}${st ? ` · best ${st.best}% · ${st.times}×` : l === next ? " · next" : ""}</div></div>
+      <div class="acts"><a class="btn" href="#sounds/${l.id}" title="Read the explanations">📖</a>
+        <a class="btn${l === next ? " primary" : ""}" href="#exercises/${l.id}">Start</a></div></div>`;
   };
-  const sounds = {};
-  for (const i of items.filter(i => i.kind === "sound")) (sounds[i.syllables[0][0]] ||= []).push(i.id);
-  const soundHtml = Object.keys(sounds).length ? `<h2>Sounds in every tone</h2><div class="card" style="padding:12px 8px">${
-    Object.values(sounds).map(ids => sylRow(ids.sort())).join("")}</div>` : "";
-  view.innerHTML = `<div class="list">${DATA.lessons.length > 1 ? `<div class="row" style="margin:0">${
-      DATA.lessons.map(l => `<a class="btn${l.id === lesson.id ? " primary" : ""}" href="#listen/${l.id}">${esc(l.id)}</a>`).join("")}</div>` : ""}
-    <div class="card"><div class="t"><b>${esc(lesson.id)}: ${esc(lesson.title)}</b></div>
-      <a class="small" style="color:var(--accent)" href="${GITHUB}lessons/${lesson.file}" target="_blank" rel="noopener">Lesson notes ↗</a></div>
-    </div>${group("word", "Words")}${group("phrase", "Phrases")}${soundHtml}`;
+  view.innerHTML = `<div class="card banner"><div><b>All lessons you've done</b>
+      <div class="muted small">${done.length >= 1 && sounds >= 4
+        ? `${done.length} ${done.length === 1 ? "lesson" : "lessons"}, ${sounds} sounds, mixed: which tone, which sound, same or different, sounds in a row.`
+        : "Finish a lesson below first. Its sounds then come in here, mixed with every lesson you do after it."}</div></div>
+      ${done.length && sounds >= 4 ? `<a class="btn primary" href="#exercises/all">Start</a>` : ""}</div>
+    <h2>One lesson</h2>
+    <p class="muted small" style="margin-top:0">Each round is ${ROUND} listening exercises, picked at random from the lesson's sounds, so it's different every time. A wrong one comes back at the end. Read the lesson in <a href="#sounds" style="color:var(--accent)">Sounds</a> (📖) before its first round.</p>
+    <div class="list">${DATA.lessons.map(row).join("")}</div>`;
 }
 
 // ---------- Settings ----------
 function renderSettings() {
   keyHandler = null;
   view.innerHTML = `<h2 style="margin-top:0">Lessons done</h2>
-    <p class="muted small" style="margin-top:0">Lessons you finish are ticked automatically. Ticking one by hand also adds its sounds to Practice.</p>
+    <p class="muted small" style="margin-top:0">A lesson is ticked when you finish its first round of exercises. Ticking one by hand also adds its sounds to <b>All lessons you've done</b> in Exercises.</p>
     <div class="list">${DATA.lessons.map(l => `<label class="lesson"><input type="checkbox" data-lesson="${l.id}" ${state.lessons[l.id] ? "checked" : ""}>
         <div class="main"><div class="t">${esc(l.id)}: ${esc(l.title)}</div></div>
         <a href="${GITHUB}lessons/${l.file}" target="_blank" rel="noopener">notes ↗</a></label>`).join("")}</div>
@@ -1904,17 +2028,18 @@ function renderSettings() {
 
 // ---------- routing ----------
 function route() {
-  let [tab, arg, sub] = (location.hash.slice(1) || "learn").split("/");
-  if (["review", "tones"].includes(tab)) tab = "practice";   // tabs of an earlier version
+  let [tab, arg, sub] = (location.hash.slice(1) || "sounds").split("/");
+  // links of earlier versions: the lesson path, a lesson, the listening pages, the practice drill
+  const old = { learn: ["sounds"], lesson: ["sounds", arg], listen: ["sounds", arg], practice: ["exercises", "all"], review: ["exercises", "all"], tones: ["exercises", "all"] }[tab];
+  if (old) { location.replace("#" + old.filter(Boolean).join("/")); return; }
   stopAudio();
-  if (tab !== "practice") flushPractice();
   if (tab !== "words") { flushWords(); W.session = null; }
-  if (tab !== "lesson") L = null;
+  if (tab !== "exercises" || !arg) L = null;
   if (tab !== "grammar" || sub !== "check") G.quiz = null;
-  document.body.classList.toggle("inlesson", tab === "lesson" || (tab === "grammar" && sub === "check"));
+  document.body.classList.toggle("inlesson", (tab === "exercises" && !!arg) || (tab === "grammar" && sub === "check"));
   document.querySelectorAll("nav a").forEach(a => a.classList.toggle("on", a.dataset.tab === tab));
-  ({ learn: renderLearn, practice: renderPractice, words: () => renderWords(arg), grammar: () => renderGrammar(arg, sub), listen: () => renderListen(arg),
-     settings: renderSettings, lesson: () => startLesson(arg) }[tab] || renderLearn)();
+  ({ sounds: () => renderSounds(arg), exercises: () => arg ? startRound(arg) : renderExercises(), words: () => renderWords(arg),
+     grammar: () => renderGrammar(arg, sub), settings: renderSettings }[tab] || renderSounds)();
   updateStat();
 }
 

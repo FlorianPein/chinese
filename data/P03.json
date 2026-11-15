@@ -25,7 +25,7 @@
     {"type": "hear", "play": "s-ke4", "options": ["gè", "kè"]},
     {"type": "same", "pair": ["s-ge2", "s-ke2"]},
 
-    {"type": "intro", "title": "h: rough, from the back",
+    {"type": "intro", "title": "h: rough, from the back", "figure": "back",
      "text": "The Chinese **h** is made further back than an English h, with a bit of friction. It's close to the German *ch* in *ach* or *Bach* (not the soft one in *ich*), just a little lighter. English has nothing like it; Scottish *loch* comes close.\n\nTop row: **he** in the four tones. Below: **ke** against **he**.",
      "rows": [["s-he1", "s-he2", "s-he3", "s-he4"], ["s-ke1", "s-he1"], ["s-ke4", "s-he4"]]},
     {"type": "hear", "play": "s-he4", "options": ["gè", "kè", "hè"]},

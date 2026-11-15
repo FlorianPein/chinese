@@ -14,8 +14,8 @@
 | Lesson size | P01–P08: one group of initials with one final (e.g. *bo po mo fo*). From P09: 3–15 chart blocks around one contrast (e.g. *an vs ang* everywhere). About 37 short steps |
 | Exercises | All **listening**: which tone, which sound, same or different, odd one out, two to four sounds in a row, match the sounds, write what you hear. Speaking comes back later |
 | Words | **Not in the lessons for now** (decided 2026-10-24): the lessons are only sounds and tones. Words are learned in the app's **Words** tab instead (from 2026-11-07): Anki-style flashcards of the most common words, see [WORDS-PLAN.md](WORDS-PLAN.md) |
-| Repetition | From the 2nd lesson on, every lesson starts with a warm-up on earlier sounds and mixes them into its exercises. Finished lessons' sounds go into the app's **Practice** drill |
-| Where lessons happen | In the web app ([Learn tab](https://florianpein.github.io/chinese/)). Each lesson also has generated notes in `lessons/` |
+| Repetition | From the 2nd lesson on, every lesson starts with a warm-up on earlier sounds and mixes them into its exercises. Finished lessons' sounds go into the app's **Exercises → All lessons you've done**, a new random round each time |
+| Where lessons happen | In the web app: read a lesson in the **Sounds** tab (explanations, diagrams, all its sounds), then do rounds of its listening exercises in the **Exercises** tab, picked at random each time (from 2026-11-15). Each lesson also has generated notes in `lessons/` |
 | Your answers | Mostly buttons. When you type, `ma1` and `mā` both work; neutral tone is `5` or no number |
 | Tones | **All four, always together.** P01 teaches all four at once, and every chart and tone question in every lesson has all four, so you always hear the contrasts. The build enforces this |
 | Sound comparisons | English *and* German |
@@ -74,6 +74,8 @@ What each lesson drills is adjusted to what you find hard (see `PROGRESS.md`).
 ## 2. Slide types
 
 A lesson is a sequence of slides. Some teach, most are exercises. Every slide that shows a sound can play it.
+
+Since 2026-11-15 the app uses them in two places. The **teaching slides** (except the warm-up) make up the lesson's page in the **Sounds** tab, in order; a tip can carry a `figure`, a diagram of how to make the sound (`puff`: b vs p; `tone3`: the 3rd tone alone and before another tone; `teeth`, `curled`, `flat`, `back`: where the tongue goes for z c s, zh ch sh r, j q x, g k h; `three`: the three tongue positions side by side). The **exercises** in the **Exercises** tab are made at random each time, of the types below: about what the lesson teaches (its chart and its own sounds), with options from every sound the lesson's slides play, so the contrasts written into the lesson (ze against zhe) come back. The exercise slides written in the lesson file decide which sounds are compared; the build still checks them.
 
 ### Teaching slides
 
@@ -164,10 +166,10 @@ All eight are listening only: no words, no speaking. Each has the same parts: a 
 ## 4. Repetition and tracking progress
 
 - **In the lessons:** every lesson after P01 starts with a warm-up on the sounds of the lesson before, and mixes older sounds into its exercises.
-- **Practice:** the app's **Practice** tab is an endless listening drill with the sounds of every lesson you've finished: which tone, which sound (from others with the same tone, similar ones first), or same or different. A sound you get wrong comes back a few questions later.
+- **Exercises:** every round is new: 20 exercises picked at random. **All lessons you've done** mixes the sounds of every lesson you've finished, with similar sounds as the other options (same tone and same final first, or the same syllable in another tone). A wrong one comes back at the end of the round.
 - **Words:** the **Words** tab brings each word back when it's about to be forgotten: soon if you didn't know it, months later if you knew it securely ([WORDS-PLAN.md](WORDS-PLAN.md)).
 - **Weak spots** (sounds and tones that keep going wrong) go in [PROGRESS.md](PROGRESS.md), and the next lessons repeat them more.
-- **How Claude learns your progress:** the app keeps a log of finished lessons (with scores), every wrong answer (what was asked and what you picked, in lessons and in Practice) and how many Practice questions you answered. **⚙︎ → Copy progress for Claude** (also on the *Lesson complete* screen) copies a short summary plus the new log entries; paste it into a chat, or turn on sync. Claude merges it with `tools/progress.py` into `data/progress.json` and `data/progress-log.jsonl`, updates PROGRESS.md, and plans the next lessons around your mistakes.
+- **How Claude learns your progress:** the app keeps a log of finished lessons (with scores), every wrong answer (what was asked and what you picked, in a lesson's rounds and in *All lessons you've done*) and how many questions of *All lessons you've done* you answered. **⚙︎ → Copy progress for Claude** (also on the *Round done* screen) copies a short summary plus the new log entries; paste it into a chat, or turn on sync. Claude merges it with `tools/progress.py` into `data/progress.json` and `data/progress-log.jsonl`, updates PROGRESS.md, and plans the next lessons around your mistakes.
 
 ---
 
@@ -175,7 +177,7 @@ All eight are listening only: no words, no speaking. Each has the same parts: a 
 
 | Tool | What it is |
 |------|------------|
-| **Web app** (`docs/`, GitHub Pages) | **Learn**: the lessons in chart order. **Practice**: a listening drill with the sounds you've learned. **Words**: flashcards of the most common words. **Listen**: all audio of a lesson. Progress is saved in your browser and can be synced through GitHub (⚙︎) |
+| **Web app** (`docs/`, GitHub Pages) | **Sounds**: the lessons in chart order, to read and listen to. **Exercises**: random rounds of listening exercises, per lesson or all lessons done. **Words**: flashcards of the most common words. **Grammar**: one topic per session. Progress is saved in your browser and can be synced through GitHub (⚙︎) |
 | **Course** (`data/course.json`) | The chart (initial groups, finals) and all 24 lessons: blocks, focus |
 | **Lessons** (`data/P01.json`, …) | A built lesson's exact slides (and its words, once there are any) |
 | **Words** (`data/words.json`) | The flashcard words, most common first ([WORDS-PLAN.md](WORDS-PLAN.md)) |
@@ -219,7 +221,7 @@ Moved out of the course for now. They come back once the chart is done (or earli
 **Other sound topics:**
 - **Tone pairs:** the 20 combinations of two tones in a word (*xièxie*, *lǎoshī*, *péngyou*), as drills
 - **Tone changes in depth:** 3+3, *bù*, *yī*, as separate practice lessons
-- **Chart checkpoints:** a short review lesson after each topic, if Practice isn't enough
+- **Chart checkpoints:** a short review lesson after each topic, if *All lessons you've done* isn't enough
 
 **Later still:** characters, chat role-plays with Claude, an in-app chart of every syllable with audio.
 
@@ -231,12 +233,12 @@ The first versions of the tone lessons (A01-L01, A01-L02) and of U01-L01 are in 
 
 | Day type | What to do |
 |----------|------------|
-| **Normal day (10–15 min)** | A few minutes of Practice, then 1 lesson |
-| **Busy day (2–5 min)** | Practice only |
-| **Free day (30 min+)** | Practice, then 2–3 lessons |
-| **Back after a break** | Practice, then the last lesson again |
+| **Normal day (10–15 min)** | A round of *All lessons you've done*, then 1 lesson: read it in Sounds, then 1–2 rounds of its exercises |
+| **Busy day (2–5 min)** | A round of *All lessons you've done* |
+| **Free day (30 min+)** | *All lessons you've done*, then 2–3 lessons |
+| **Back after a break** | *All lessons you've done*, then the last lesson's page and a round of its exercises |
 
-Rule of thumb: **if a lesson came out below about 70% right first time, do it again before the next one.**
+Rule of thumb: **if a round came out below about 70% right first time, do another round (it's different each time) before the next lesson.**
 
 - **After P01:** all four tones. **After P03:** the hardest tone contrasts (2nd/3rd, 1st/4th).
 - **After P06:** every initial, including z c s, zh ch sh r and j q x. **After P08:** you can hear them apart in a random mix.

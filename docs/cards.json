@@ -289,6 +289,7 @@
     {
      "type": "intro",
      "title": "b and p: the puff of air",
+     "figure": "puff",
      "text": "Hold your hand in front of your mouth.\n\n**p** comes with a strong puff of air, like English *pie* or a firm German *P*.\n\n**b** has no puff. It isn't a buzzing English *b* either: think of the *p* in English *spy*, or a soft southern German *b*.\n\n**m** and **f** are the same as in English and German.",
      "rows": [
       [
@@ -387,6 +388,7 @@
      "type": "intro",
      "tone": 3,
      "title": "3rd tone: low",
+     "figure": "tone3",
      "text": "Drop your voice low and keep it relaxed. A bit creaky is fine.\n\nEnglish: a low, doubtful *Hmm…* German: a reluctant *Na ja…*\n\nSaid on its own it dips and comes back up at the end, and it's the longest tone. Inside a sentence it mostly just stays **low**, so think *low*, not *down-up*.\n\nThe mark is a little valley: **ǒ**. As a number: **o3**.",
      "rows": [
       [
@@ -855,6 +857,7 @@
     {
      "type": "intro",
      "title": "2nd or 3rd?",
+     "figure": "tone3",
      "text": "The pair beginners mix up most is the **2nd** tone (rising) and the **3rd** (low). Said on its own, the 3rd tone comes back up at the end, so both seem to go up.\n\nListen to where they **start**: the 2nd starts in the middle and climbs straight up, like a surprised *What?* The 3rd first sinks low and stays there a while, like a doubtful *Hmm…*\n\nEach row is 2nd, then 3rd.",
      "rows": [
       [
@@ -1259,6 +1262,7 @@
     {
      "type": "intro",
      "title": "h: rough, from the back",
+     "figure": "back",
      "text": "The Chinese **h** is made further back than an English h, with a bit of friction. It's close to the German *ch* in *ach* or *Bach* (not the soft one in *ich*), just a little lighter. English has nothing like it; Scottish *loch* comes close.\n\nTop row: **he** in the four tones. Below: **ke** against **he**.",
      "rows": [
       [
@@ -1601,6 +1605,7 @@
     {
      "type": "intro",
      "title": "z: a soft ts",
+     "figure": "teeth",
      "text": "Today: the tongue tip at the teeth, **z c s**, with **e** again.\n\n**z** is a *ts*, like the German *z* in *Zeit*, or the *ts* in English *cats*. It's soft, with **no puff** of air: closer to the *ds* in English *kids*. It's never the buzzing English *z* of *zoo*.\n\nTop row: **ze** in two tones. Below: **de** against **ze**.",
      "rows": [
       [
@@ -1987,6 +1992,7 @@
     {
      "type": "intro",
      "title": "The tongue curled back",
+     "figure": "curled",
      "text": "Today: **zh ch sh r**. For all four, curl the tip of your tongue up and back, behind the bump above your top teeth. That gives them a darker, hollow sound.\n\n- **zh** like the *j* in English *jam*, without the buzz; German *dsch*.\n- **ch** like English *church*, with a puff; German *tsch*.\n- **sh** like English *shoe*, German *sch*.\n- **r** like the English *r* in *run*, with a little buzz, a bit like the *s* in *pleasure*. Never a German r.\n\nThey're written with two letters but are one sound each.",
      "rows": [
       [
@@ -2383,6 +2389,7 @@
     {
      "type": "intro",
      "title": "A new vowel: i",
+     "figure": "flat",
      "text": "Today: the tongue flat, **j q x**, with the final **i**.\n\nThis **i** is the plain *ee* of English *see*, German *Liebe*. Lips spread, tongue high.\n\nFor **j q x**, keep the tip of your tongue down behind your lower teeth and press the middle of the tongue up. That's what *flat* means here. They sound soft and bright, almost like they have a little *y* in them.",
      "rows": [
       [
@@ -2464,6 +2471,7 @@
     {
      "type": "intro",
      "title": "Three ways to say ts and ch",
+     "figure": "three",
      "text": "You now know three tongue positions: at the teeth (**z c s**), curled back (**zh ch sh**), flat (**j q x**). Each row is one sound in all three positions. P08 practises them side by side.",
      "rows": [
       [
@@ -2737,6 +2745,7 @@
     {
      "type": "intro",
      "title": "Recap: the puff of air",
+     "figure": "puff",
      "text": "No new sounds today. You've met six pairs that differ only in a **puff of air**: the second of each pair has one, the first doesn't.\n\nHand in front of your mouth: b d g z zh j stay still, p t k c ch q blow. This lesson mixes them all up, in all four tones.",
      "rows": [
       [
@@ -3130,6 +3139,7 @@
     {
      "type": "intro",
      "title": "Recap: three tongue positions",
+     "figure": "three",
      "text": "No new sounds today. Mandarin has three tongue positions where English and German have about one:\n\n- **z c s**: tip of the tongue at the teeth. Bright and hissing.\n- **zh ch sh r**: tip curled back. Dark and hushing.\n- **j q x**: tip down, tongue flat. Soft, with a little *y* in it, like German *ich*.\n\nEach row is one sound in the three positions.",
      "rows": [
       [
