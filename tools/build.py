@@ -230,6 +230,19 @@ def example_mark(w):
     return [start, start + n, spans[first][0], spans[first + n - 1][1]]
 
 
+def example_items(words):
+    """Audio items for the example sentences on the word cards, keyed like the
+    grammar sentences (the same sentence in both shares one file)."""
+    out = {}
+    for w in words.values():
+        if "example" in w:
+            ex = w["example"]
+            py = unicodedata.normalize("NFC", ex["pinyin"])
+            sid = grammar.sentence_id(ex["hanzi"], py)
+            out[sid] = {"id": sid, "kind": "sentence", "hanzi": ex["hanzi"], "pinyin": py}
+    return out
+
+
 def tiles(text):
     """'Hǎo, wǒ hē.' -> ['hǎo', 'wǒ', 'hē'] (the word tiles of a build exercise)."""
     words = re.findall(r"[^\s,.!?:;，。！？：；]+", text)
@@ -507,6 +520,15 @@ def audio_tokens(item, lexicon):
             _, base, tone = segments[i]
             if tone == 5 and lexicon.rare(base) and label and label[:-1] == base:
                 segments[i] = ("syl", base, int(label[-1]))
+    if item["kind"] == "sentence":
+        # a tone change the voice never learned (gěi wǒ -> géi wǒ): in a
+        # sentence it's said with the written tone instead
+        segments = list(segments)
+        written = [s for s in pinyin.parse(item["pinyin"]) if s[0] == "syl"]
+        for i, w in zip(syl, written):
+            _, base, tone = segments[i]
+            if tone != w[2] and tone != 5 and not lexicon.trained(f"{base}{tone}") and lexicon.trained(f"{base}{w[2]}"):
+                segments[i] = ("syl", base, w[2])
     return pinyin.tts_tokens(segments)
 
 
@@ -928,13 +950,16 @@ def build_words(words):
             if key in w:
                 card[key] = w[key]
         if "example" in w:
-            card["example"] = {**w["example"], "mark": example_mark(w)}
+            sid = grammar.sentence_id(w["example"]["hanzi"], unicodedata.normalize("NFC", w["example"]["pinyin"]))
+            card["example"] = {**w["example"], "mark": example_mark(w), "audio": sid, "v": audio_version(sid)}
         if manifest.get(iid, {}).get("method") == "best-effort" and "audio_note" not in card:
             card["audio_note"] = "The recording may not have every tone right: go by the Pinyin."
         # what each character means, where it's a flashcard word of its own
-        parts = [f"{c} = {short_gloss(single[c]['english'])}" for c in w["hanzi"] if c in single]
+        # (with its audio, so each one can be played)
+        parts = [{"hanzi": c, "pinyin": single[c]["pinyin"], "english": short_gloss(single[c]["english"]),
+                  "audio": word_id(c), "v": audio_version(word_id(c))} for c in w["hanzi"] if c in single]
         if len(w["hanzi"]) > 1 and parts:
-            card["parts"] = " · ".join(parts)
+            card["parts"] = parts
         out.append(card)
     (DOCS / "words.json").write_text(
         "{\"words\": [\n" + ",\n".join(json.dumps(c, ensure_ascii=False) for c in out) + "\n]}\n")
@@ -1173,7 +1198,7 @@ def main():
         print(f"  {s['id']}: {len(s['blocks'])} blocks, {len(s['exercises'])} exercises, "
               f"{len(s['words'])} words (word list up to #{s['limit']}{'; new: ' + ' '.join(new) if new else ''})")
     if cmd in ("all", "audio"):
-        build_audio({**items, **words, **g_items}, force="--force" in sys.argv)
+        build_audio({**items, **words, **g_items, **example_items(words)}, force="--force" in sys.argv)
     if cmd in ("all", "cards"):
         build_grammar(g_plan, g_built)
         build_words(words)

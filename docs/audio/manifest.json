@@ -1,23 +1,148 @@
 {
+ "g-000d7fa4b8": {
+  "tokens": "ta1 zong3 shi4 chi2 dao4 .",
+  "method": "best-effort",
+  "score": -0.3
+ },
  "g-010799cfa1": {
   "tokens": "zhe4 li2 you3 ren2 ma ?",
   "method": "best-effort",
   "score": -0.9
+ },
+ "g-0140435bb9": {
+  "tokens": "wo3 mei2 kan4 jian4 ta1 .",
+  "method": "best-effort",
+  "score": -1.8
+ },
+ "g-017ed06b14": {
+  "tokens": "ni3 hui4 xie3 han4 zi4 ma ?",
+  "method": "best-effort",
+  "score": -0.4
+ },
+ "g-01a8849f7f": {
+  "tokens": "ni2 ji3 sui4 le ?",
+  "method": "natural (split evenly)",
+  "score": 1.3
+ },
+ "g-020d167f0f": {
+  "tokens": "ting1 shuo1 ni3 yao4 jie2 hun1 le !",
+  "method": "best-effort",
+  "score": -1.9
  },
  "g-03d6ee3d92": {
   "tokens": "ta1 ming2 tian1 zai4 zhe4 li3 gong1 zuo4 .",
   "method": "best-effort",
   "score": -2.1
  },
+ "g-040e6bb344": {
+  "tokens": "ni3 guo4 lai2 !",
+  "method": "natural (split evenly)",
+  "score": 1.3
+ },
+ "g-059cf4af7d": {
+  "tokens": "wo2 deng3 le san1 tian1 .",
+  "method": "natural (split evenly)",
+  "score": 1.1
+ },
+ "g-05f4039601": {
+  "tokens": "zhe4 ge4 jia1 huo zhen1 you3 yi4 si1 .",
+  "method": "best-effort",
+  "score": -4.8
+ },
+ "g-061a53754f": {
+  "tokens": "ta1 tu1 ran2 chu1 xian4 le .",
+  "method": "best-effort",
+  "score": -1.4
+ },
+ "g-06484d6f26": {
+  "tokens": "ni2 ke2 yi3 zuo4 gong1 gong4 qi4 che1 huo4 di4 tie3 .",
+  "method": "best-effort",
+  "score": -3.3
+ },
+ "g-0650c7d422": {
+  "tokens": "wo3 men shi4 hao3 peng2 you3 .",
+  "method": "best-effort",
+  "score": -5.6
+ },
+ "g-06cb389606": {
+  "tokens": "bie2 dan1 xin1 .",
+  "method": "natural (split evenly)",
+  "score": 0.9
+ },
+ "g-06dceaf470": {
+  "tokens": "ni3 neng2 zheng4 ming2 ma ?",
+  "method": "best-effort",
+  "score": 0.1
+ },
+ "g-073e9f3736": {
+  "tokens": "li2 xiao2 jie3 shi4 wo3 de tong2 shi4 .",
+  "method": "best-effort",
+  "score": -2.0
+ },
+ "g-07d0f1a81d": {
+  "tokens": "wo2 mei3 tian1 dou1 he1 ka1 fei1 .",
+  "method": "best-effort",
+  "score": -1.3
+ },
  "g-07da4af3ee": {
   "tokens": "wo3 yao4 zhao3 ta1 .",
   "method": "best-effort",
   "score": -2.8
  },
+ "g-07e6602fd0": {
+  "tokens": "ni3 xian1 zou3 ba .",
+  "method": "pitch-edited",
+  "score": 1.2
+ },
+ "g-08587dbb0e": {
+  "tokens": "wo2 xiang2 mai3 xin1 yi1 fu2 .",
+  "method": "best-effort",
+  "score": -1.0
+ },
+ "g-085b1fd796": {
+  "tokens": "ming2 tian1 jian4 !",
+  "method": "natural",
+  "score": 0.9
+ },
+ "g-089205167e": {
+  "tokens": "ni3 shi4 shui2 ?",
+  "method": "pitch-edited",
+  "score": 0.7
+ },
+ "g-089fb7d0d1": {
+  "tokens": "jin1 wan2 ni2 you3 kong4 ma ?",
+  "method": "best-effort",
+  "score": -4.3
+ },
+ "g-08ff1e4ac3": {
+  "tokens": "ni2 you3 mei2 you2 bi3 ?",
+  "method": "best-effort",
+  "score": -3.3
+ },
+ "g-093a507658": {
+  "tokens": "ta1 men mai3 le yi2 tao4 xin1 fang2 zi .",
+  "method": "best-effort",
+  "score": -3.8
+ },
+ "g-0a7cf9fa64": {
+  "tokens": "jiu4 ming4 !",
+  "method": "best-effort",
+  "score": 0.5
+ },
  "g-0ae15c5c31": {
   "tokens": "ni3 shi4 xue2 sheng1 .",
   "method": "pitch-edited",
   "score": 1.1
+ },
+ "g-0ae42adcc4": {
+  "tokens": "yin1 wei4 xia4 yu3 , wo3 mei2 qu4 .",
+  "method": "best-effort",
+  "score": -6.0
+ },
+ "g-0b7a712596": {
+  "tokens": "hen3 gao1 xing4 ren4 shi ni3 .",
+  "method": "best-effort",
+  "score": -0.5
  },
  "g-0bd711fec3": {
   "tokens": "zhe4 shi4 wo3 de .",
@@ -39,53 +164,313 @@
   "method": "best-effort",
   "score": -1.3
  },
+ "g-0c50d487b0": {
+  "tokens": "ta1 zhang4 fu1 shi4 jing3 cha2 .",
+  "method": "pitch-edited",
+  "score": 2.1
+ },
+ "g-0c58ea6b01": {
+  "tokens": "wo2 ma3 shang4 hui2 lai2 .",
+  "method": "best-effort",
+  "score": -2.1
+ },
+ "g-0cb4a14d71": {
+  "tokens": "ta1 chu1 men2 le .",
+  "method": "best-effort",
+  "score": -3.2
+ },
  "g-0ceff63feb": {
   "tokens": "da4 jia1 dou1 hen2 hao3 .",
   "method": "natural",
   "score": 0.6
+ },
+ "g-0d20a49f50": {
+  "tokens": "xing2 , mei2 wen4 ti2 .",
+  "method": "best-effort",
+  "score": -2.8
  },
  "g-0d4444a453": {
   "tokens": "wo3 de qian2 ne ?",
   "method": "natural (split evenly)",
   "score": 1.4
  },
+ "g-0d649e7909": {
+  "tokens": "ni3 shuo1 xia4 qu4 .",
+  "method": "pitch-edited",
+  "score": 2.4
+ },
+ "g-0e4353f62b": {
+  "tokens": "ni3 ting1 dao4 le ma ?",
+  "method": "natural (split evenly)",
+  "score": 0.9
+ },
+ "g-0e6812cdee": {
+  "tokens": "ta1 zai4 yi1 yuan4 gong1 zuo4 .",
+  "method": "best-effort",
+  "score": -1.3
+ },
+ "g-0e71a31421": {
+  "tokens": "ni3 zai4 na2 li3 gong1 zuo4 ?",
+  "method": "best-effort",
+  "score": -2.4
+ },
+ "g-0f67686c3f": {
+  "tokens": "ni2 zen3 me zhe4 me kuai4 ?",
+  "method": "best-effort",
+  "score": -3.3
+ },
+ "g-0f73673350": {
+  "tokens": "wo3 bing4 le , suo2 yi3 mei2 lai2 .",
+  "method": "best-effort",
+  "score": -1.3
+ },
+ "g-0f9d7e7f1c": {
+  "tokens": "wo2 mai3 le yi4 xie1 shui2 guo3 .",
+  "method": "best-effort",
+  "score": -3.5
+ },
+ "g-0fdf65c9ab": {
+  "tokens": "ma1 ma , wo3 e4 le .",
+  "method": "best-effort",
+  "score": -1.1
+ },
  "g-0ff9e68bbc": {
   "tokens": "ren2 hen3 duo1 .",
   "method": "best-effort",
   "score": -1.7
+ },
+ "g-10274043cc": {
+  "tokens": "bao3 bei4 , bie2 ku1 le .",
+  "method": "natural (split evenly)",
+  "score": 1.3
+ },
+ "g-10acec404c": {
+  "tokens": "ni3 hai2 ji4 de wo3 ma ?",
+  "method": "best-effort",
+  "score": -0.2
+ },
+ "g-10d37ec69b": {
+  "tokens": "ni3 de fang2 jian1 hen3 gan1 jing4 .",
+  "method": "best-effort",
+  "score": -2.5
+ },
+ "g-11a0aa4c68": {
+  "tokens": "ni2 zhun3 bei4 hao3 le ma ?",
+  "method": "best-effort",
+  "score": -3.4
+ },
+ "g-11ae43b00a": {
+  "tokens": "hai2 hao2 ni3 lai2 le .",
+  "method": "best-effort",
+  "score": -6.4
+ },
+ "g-11e79ca1ee": {
+  "tokens": "na4 ge4 nv3 hai2 hen2 ke3 ai4 .",
+  "method": "best-effort",
+  "score": -4.7
+ },
+ "g-11f9ecd07d": {
+  "tokens": "chi1 fan4 hou4 wo3 men qu4 san4 bu4 .",
+  "method": "best-effort",
+  "score": -0.6
+ },
+ "g-13185ac398": {
+  "tokens": "bie2 gao4 su4 ren4 he2 ren2 .",
+  "method": "best-effort",
+  "score": -5.3
+ },
+ "g-13334e95a5": {
+  "tokens": "ma2 fan2 ni3 le .",
+  "method": "best-effort",
+  "score": -1.5
  },
  "g-136942d0dd": {
   "tokens": "wo3 yao4 gong1 zuo4 .",
   "method": "best-effort",
   "score": -3.5
  },
+ "g-139af6545e": {
+  "tokens": "ta1 pao3 de hen3 kuai4 .",
+  "method": "best-effort",
+  "score": 0.4
+ },
+ "g-13b452a49b": {
+  "tokens": "da4 jia1 hao3 !",
+  "method": "natural",
+  "score": 1.1
+ },
+ "g-13eb2c51b0": {
+  "tokens": "ni2 dong3 wo3 de yi4 si1 ma ?",
+  "method": "best-effort",
+  "score": -2.8
+ },
+ "g-1447fe850d": {
+  "tokens": "wo3 yao4 yi4 bei1 shui3 .",
+  "method": "best-effort",
+  "score": -4.5
+ },
+ "g-14cdf8af66": {
+  "tokens": "yao4 shi xia4 yu2 zen3 me ban4 ?",
+  "method": "best-effort",
+  "score": -0.6
+ },
+ "g-15050ac273": {
+  "tokens": "na4 li2 hen2 leng3 .",
+  "method": "natural (split evenly)",
+  "score": 1.5
+ },
+ "g-154bec3a66": {
+  "tokens": "wo3 jue2 ding4 qu4 zhong1 guo2 .",
+  "method": "pitch-edited",
+  "score": 0.6
+ },
+ "g-1566f59512": {
+  "tokens": "nv3 shi4 men , xian1 sheng1 men !",
+  "method": "natural (split evenly)",
+  "score": 0.8
+ },
  "g-156f05a509": {
   "tokens": "wo3 bu4 xi3 huan1 .",
   "method": "pitch-edited",
   "score": 1.4
+ },
+ "g-15c02fb258": {
+  "tokens": "wo3 bang1 ni3 na2 .",
+  "method": "best-effort",
+  "score": 0.0
+ },
+ "g-15e3246556": {
+  "tokens": "ta1 de yang4 zi mei2 bian4 .",
+  "method": "best-effort",
+  "score": -0.2
+ },
+ "g-16293e3129": {
+  "tokens": "ta1 de2 dao4 le yi2 ge4 hao3 gong1 zuo4 .",
+  "method": "best-effort",
+  "score": -2.6
+ },
+ "g-1632f0cb78": {
+  "tokens": "zhi4 shao3 yao4 liang3 ge4 xiao3 shi2 .",
+  "method": "best-effort",
+  "score": -1.7
  },
  "g-1656586060": {
   "tokens": "wo3 bu2 qu4 .",
   "method": "pitch-edited",
   "score": 1.7
  },
+ "g-16baef6dee": {
+  "tokens": "zhi3 yao4 ni3 kai1 xin1 jiu4 hao3 .",
+  "method": "best-effort",
+  "score": -0.3
+ },
+ "g-17060f2340": {
+  "tokens": "wo3 kan4 dao4 ta1 le .",
+  "method": "best-effort",
+  "score": -0.4
+ },
+ "g-1888ebf373": {
+  "tokens": "ni2 you3 shen2 me ji4 hua4 ?",
+  "method": "best-effort",
+  "score": -4.9
+ },
+ "g-18a291f94f": {
+  "tokens": "wo3 quan2 bu4 dou1 chi1 wan2 le .",
+  "method": "best-effort",
+  "score": -6.3
+ },
+ "g-18e607e390": {
+  "tokens": "ni3 shuo1 sha2 ?",
+  "method": "natural",
+  "score": 0.7
+ },
+ "g-18f511e79f": {
+  "tokens": "qing3 zuo4 .",
+  "method": "natural",
+  "score": 0.9
+ },
  "g-1946dfe58f": {
   "tokens": "wo3 mei2 you3 qian2 .",
   "method": "natural (split evenly)",
   "score": 0.6
+ },
+ "g-19f9fad2b3": {
+  "tokens": "wo3 jie1 shou4 ni3 de dao4 qian4 .",
+  "method": "best-effort",
+  "score": -3.9
+ },
+ "g-1b38473288": {
+  "tokens": "qing3 kai1 men2 .",
+  "method": "best-effort",
+  "score": -0.7
+ },
+ "g-1b8cd5c046": {
+  "tokens": "ta1 men jie2 hun1 le .",
+  "method": "natural (split evenly)",
+  "score": 1.1
+ },
+ "g-1c12bbf851": {
+  "tokens": "fei1 chang2 gan3 xie4 !",
+  "method": "pitch-edited",
+  "score": 1.8
+ },
+ "g-1c25b37acf": {
+  "tokens": "wo2 bao3 zheng4 bu2 gao4 su4 bie2 ren2 .",
+  "method": "best-effort",
+  "score": -3.9
  },
  "g-1c3fe6fc69": {
   "tokens": "wo2 you3 shi2 jian1 .",
   "method": "natural (split evenly)",
   "score": 0.9
  },
+ "g-1d26a9756b": {
+  "tokens": "qi2 ta1 ren2 ne ?",
+  "method": "best-effort",
+  "score": -1.0
+ },
  "g-1d3d0a0dca": {
   "tokens": "wo3 bu2 hui4 .",
   "method": "pitch-edited",
   "score": 1.9
  },
+ "g-1e7a30a99c": {
+  "tokens": "ta1 shang4 che1 le .",
+  "method": "best-effort",
+  "score": 0.5
+ },
+ "g-1e7e3c05a0": {
+  "tokens": "qing3 jin4 lai2 .",
+  "method": "best-effort",
+  "score": 0.2
+ },
+ "g-1ea084c0b9": {
+  "tokens": "ta1 shi4 wo3 de gou3 .",
+  "method": "natural (split evenly)",
+  "score": 1.5
+ },
  "g-1eab209058": {
   "tokens": "ni2 you3 mei2 you3 shi2 jian1 ?",
+  "method": "best-effort",
+  "score": -2.2
+ },
+ "g-1f04da5e21": {
+  "tokens": "hui4 yi4 jie2 shu4 le .",
+  "method": "best-effort",
+  "score": 0.2
+ },
+ "g-1f2aa182d1": {
+  "tokens": "ni3 jin1 tian1 zhen1 piao4 liang4 .",
+  "method": "natural (split evenly)",
+  "score": 0.7
+ },
+ "g-1ff941f868": {
+  "tokens": "ni3 hai2 yao4 bie2 de ma ?",
+  "method": "best-effort",
+  "score": 0.4
+ },
+ "g-211254ddcb": {
+  "tokens": "ta1 er2 zi wu3 sui4 .",
   "method": "best-effort",
   "score": -2.2
  },
@@ -99,60 +484,220 @@
   "method": "pitch-edited",
   "score": 1.6
  },
+ "g-229cea6c12": {
+  "tokens": "wo3 men zuo4 fei1 ji1 qu4 bei3 jing1 .",
+  "method": "best-effort",
+  "score": -2.5
+ },
+ "g-22cecb8123": {
+  "tokens": "zhe4 ge4 cai4 bu2 cuo4 .",
+  "method": "pitch-edited",
+  "score": 1.2
+ },
+ "g-22fe537bcb": {
+  "tokens": "wang2 fu1 ren2 , huan1 ying2 nin2 !",
+  "method": "best-effort",
+  "score": -6.2
+ },
  "g-245f8b92a8": {
   "tokens": "ta1 shi4 shui2 ne ?",
   "method": "best-effort",
   "score": -2.5
+ },
+ "g-24c011cc9f": {
+  "tokens": "ni3 lai2 le , tai4 hao3 le !",
+  "method": "best-effort",
+  "score": -1.4
+ },
+ "g-254543e2a6": {
+  "tokens": "qing3 hui2 da2 wo3 de wen4 ti2 .",
+  "method": "best-effort",
+  "score": -5.7
  },
  "g-259f463434": {
   "tokens": "wo2 hen3 mang2 , ni3 ne ?",
   "method": "natural (split evenly)",
   "score": 1.6
  },
+ "g-25ef79dd72": {
+  "tokens": "wo3 jia1 you3 yi4 zhi1 gou3 .",
+  "method": "best-effort",
+  "score": -0.3
+ },
+ "g-2627ab995e": {
+  "tokens": "gei3 ni3 .",
+  "method": "best-effort",
+  "score": -1.5
+ },
+ "g-264743be9e": {
+  "tokens": "ni2 mai3 le shen2 me dong1 xi1 ?",
+  "method": "best-effort",
+  "score": -2.3
+ },
+ "g-2668de831b": {
+  "tokens": "zhua1 zhu4 wo3 de shou3 .",
+  "method": "natural (split evenly)",
+  "score": 1.3
+ },
  "g-2683b64912": {
   "tokens": "zhe4 ge4 bu4 hao3 .",
   "method": "pitch-edited",
   "score": 0.7
+ },
+ "g-268b431fab": {
+  "tokens": "bie2 guan3 bie2 ren2 zen3 me shuo1 .",
+  "method": "best-effort",
+  "score": -3.0
+ },
+ "g-269f1ae7de": {
+  "tokens": "mei2 guan1 xi4 , wo3 bu2 jie4 yi4 .",
+  "method": "best-effort",
+  "score": -1.0
+ },
+ "g-277d418620": {
+  "tokens": "wo3 de che1 huai4 le .",
+  "method": "natural (split evenly)",
+  "score": 0.9
  },
  "g-2870045775": {
   "tokens": "zhe4 shi4 wo3 peng2 you3 .",
   "method": "best-effort",
   "score": -0.6
  },
+ "g-2903613660": {
+  "tokens": "ta1 mu3 qin1 shi4 lao3 shi1 .",
+  "method": "best-effort",
+  "score": 0.0
+ },
+ "g-2a4f05c3a7": {
+  "tokens": "gai1 ni3 le .",
+  "method": "best-effort",
+  "score": -2.9
+ },
+ "g-2a7eb0e9a1": {
+  "tokens": "yi4 zhi2 wang3 qian2 zou3 .",
+  "method": "best-effort",
+  "score": -1.4
+ },
  "g-2ae053f1b3": {
   "tokens": "wo3 mei2 you3 kan4 dao4 .",
   "method": "best-effort",
   "score": -5.6
+ },
+ "g-2af274637c": {
+  "tokens": "ni3 chu1 lai2 yi2 xia4 .",
+  "method": "natural (split evenly)",
+  "score": 1.5
+ },
+ "g-2b7e972b5d": {
+  "tokens": "bie2 wang4 le dai4 san3 .",
+  "method": "natural (split evenly)",
+  "score": 1.2
+ },
+ "g-2b94b6b506": {
+  "tokens": "rang4 wo2 xiang3 xiang3 .",
+  "method": "best-effort",
+  "score": -0.6
+ },
+ "g-2bb4b6d4a3": {
+  "tokens": "wei4 le jian4 kang1 , ta1 mei3 tian1 pao3 bu4 .",
+  "method": "best-effort",
+  "score": -5.0
  },
  "g-2bd81c3466": {
   "tokens": "ni3 chi1 le ma ?",
   "method": "natural (split evenly)",
   "score": 1.5
  },
+ "g-2c664fa8d0": {
+  "tokens": "ta1 zai4 mei3 guo2 gong1 zuo4 .",
+  "method": "natural (split evenly)",
+  "score": 1.3
+ },
  "g-2c99c19803": {
   "tokens": "ta1 shi4 shui2 ?",
   "method": "natural",
   "score": 1.3
+ },
+ "g-2cc6084f84": {
+  "tokens": "wo3 xian1 zou3 le .",
+  "method": "best-effort",
+  "score": -1.7
  },
  "g-2cce01777e": {
   "tokens": "wo2 xiang2 ni3 .",
   "method": "best-effort",
   "score": -0.9
  },
+ "g-2d1463aa3d": {
+  "tokens": "qing2 da3 kai1 chuang1 hu4 .",
+  "method": "best-effort",
+  "score": 0.4
+ },
+ "g-2d1cc591ad": {
+  "tokens": "wo3 hui4 bao3 hu4 ni3 .",
+  "method": "best-effort",
+  "score": 0.4
+ },
+ "g-2dcf7440a4": {
+  "tokens": "ni3 wei4 shen2 me bu4 lai2 ?",
+  "method": "best-effort",
+  "score": -1.8
+ },
+ "g-2e03ac4596": {
+  "tokens": "ta1 hen3 xiang4 ta1 ma1 ma .",
+  "method": "best-effort",
+  "score": -0.4
+ },
+ "g-2e3a5ccffd": {
+  "tokens": "hen3 gao1 xing4 jian4 dao4 ni3 .",
+  "method": "best-effort",
+  "score": -1.5
+ },
  "g-2e8f49d20d": {
   "tokens": "ni2 xiang3 chi1 shen2 me ?",
   "method": "best-effort",
   "score": -6.4
+ },
+ "g-2e97066a0d": {
+  "tokens": "jin1 tian1 hen2 leng3 , duo1 chuan1 dian3 .",
+  "method": "best-effort",
+  "score": -8.5
  },
  "g-2ed4784d6f": {
   "tokens": "na4 li2 you2 hen3 duo1 dong1 xi1 .",
   "method": "best-effort",
   "score": -1.9
  },
+ "g-2f9fdf6d96": {
+  "tokens": "ni2 xiang3 yao4 shen2 me ?",
+  "method": "best-effort",
+  "score": -2.0
+ },
+ "g-2fc77f18e8": {
+  "tokens": "ta1 hen3 kuai4 jiu4 hui2 lai2 .",
+  "method": "best-effort",
+  "score": -5.2
+ },
+ "g-2fd7785e96": {
+  "tokens": "bie2 wang4 le .",
+  "method": "natural (split evenly)",
+  "score": 1.1
+ },
  "g-30a1805662": {
   "tokens": "ta1 shi4 xue2 sheng1 ma ?",
   "method": "natural (split evenly)",
   "score": 2.3
+ },
+ "g-313c252135": {
+  "tokens": "zhe4 ge4 ting2 hao3 de .",
+  "method": "natural",
+  "score": 2.5
+ },
+ "g-3148ff53be": {
+  "tokens": "wo3 mi2 lu4 le .",
+  "method": "natural (split evenly)",
+  "score": 1.4
  },
  "g-329b1cf142": {
   "tokens": "ma1 ma zai4 na4 li2 deng3 .",
@@ -164,15 +709,95 @@
   "method": "natural",
   "score": 1.5
  },
+ "g-32bfbdc010": {
+  "tokens": "wo3 ba4 ba shi4 lao3 shi1 .",
+  "method": "natural",
+  "score": 0.8
+ },
+ "g-338a54d5cb": {
+  "tokens": "jin1 tian1 te4 bie2 leng3 .",
+  "method": "best-effort",
+  "score": -0.6
+ },
+ "g-33a6290e32": {
+  "tokens": "zhen1 qi2 guai4 .",
+  "method": "pitch-edited",
+  "score": 1.1
+ },
+ "g-33a76523fe": {
+  "tokens": "ta1 tong1 guo4 le kao3 shi4 .",
+  "method": "natural (split evenly)",
+  "score": 1.9
+ },
+ "g-33ddd99961": {
+  "tokens": "ru2 guo3 xia4 yu3 , wo3 men jiu4 bu2 qu4 le .",
+  "method": "best-effort",
+  "score": -7.2
+ },
+ "g-3439c3014b": {
+  "tokens": "you3 shi2 jian1 de hua4 , lai2 wo3 jia1 ba .",
+  "method": "best-effort",
+  "score": -1.6
+ },
+ "g-350c3f0632": {
+  "tokens": "wo2 you2 dian3 lei4 .",
+  "method": "best-effort",
+  "score": -1.3
+ },
+ "g-3540d888ac": {
+  "tokens": "na4 me wo3 men zou3 ba .",
+  "method": "natural (split evenly)",
+  "score": 1.1
+ },
+ "g-359a15d528": {
+  "tokens": "wo3 yao4 zhao3 lv4 shi1 .",
+  "method": "best-effort",
+  "score": 0.3
+ },
+ "g-35aaf30e75": {
+  "tokens": "ming2 tian1 zen3 me yang4 ?",
+  "method": "best-effort",
+  "score": -6.0
+ },
  "g-35e3c21658": {
   "tokens": "ta1 fei1 chang2 mang2 .",
   "method": "best-effort",
   "score": -3.0
  },
+ "g-360f21bc6e": {
+  "tokens": "xi2 shou3 jian1 zai4 na4 bian1 .",
+  "method": "best-effort",
+  "score": -2.9
+ },
+ "g-363f27359b": {
+  "tokens": "dang1 ran2 ke2 yi3 .",
+  "method": "best-effort",
+  "score": -1.5
+ },
+ "g-365c337d79": {
+  "tokens": "ta1 hai2 zai4 shui4 jiao4 .",
+  "method": "pitch-edited",
+  "score": 1.7
+ },
+ "g-366aca53d6": {
+  "tokens": "zong2 you3 yi4 tian1 ni3 hui4 ming2 bai2 de .",
+  "method": "best-effort",
+  "score": -3.3
+ },
  "g-371637acd1": {
   "tokens": "ta1 bu4 lai2 .",
   "method": "best-effort",
   "score": 0.4
+ },
+ "g-3768029fe0": {
+  "tokens": "ni3 lai2 wo3 jia1 ba .",
+  "method": "natural (split evenly)",
+  "score": 1.0
+ },
+ "g-37d81ae23e": {
+  "tokens": "gan3 xie4 da4 jia1 de bang1 zhu4 .",
+  "method": "best-effort",
+  "score": -1.8
  },
  "g-385512adbd": {
   "tokens": "wo3 men yi4 qi3 qu4 , zen3 me yang4 ?",
@@ -184,20 +809,95 @@
   "method": "best-effort",
   "score": -3.3
  },
+ "g-3992baaf93": {
+  "tokens": "ming2 tian1 hui4 xia4 yu3 .",
+  "method": "natural (split evenly)",
+  "score": 1.1
+ },
  "g-3a0e346bc6": {
   "tokens": "ni3 shi4 xue2 sheng1 ma ?",
   "method": "best-effort",
   "score": 0.5
+ },
+ "g-3a3d6f53b6": {
+  "tokens": "wo3 lai2 chu2 li3 .",
+  "method": "best-effort",
+  "score": -0.7
+ },
+ "g-3babdd443a": {
+  "tokens": "zhe4 ben3 shu1 hen2 you3 qu4 .",
+  "method": "best-effort",
+  "score": 0.1
  },
  "g-3cc76173e7": {
   "tokens": "wo3 zai4 zhe4 li3 .",
   "method": "natural (split evenly)",
   "score": 1.2
  },
+ "g-3d3fbcb575": {
+  "tokens": "ni3 qu4 guo4 na3 xie1 guo2 jia1 ?",
+  "method": "best-effort",
+  "score": -3.0
+ },
+ "g-3d7902ddb7": {
+  "tokens": "zhe4 hen3 zhong4 yao4 .",
+  "method": "best-effort",
+  "score": -4.5
+ },
+ "g-3ddceadf7b": {
+  "tokens": "huo4 xu3 ta1 shi4 dui4 de .",
+  "method": "pitch-edited",
+  "score": 2.1
+ },
+ "g-3e8ea57713": {
+  "tokens": "wo3 yi2 ding4 neng2 zuo4 dao4 .",
+  "method": "best-effort",
+  "score": -4.7
+ },
+ "g-3ea58d801b": {
+  "tokens": "na4 ge4 ren2 shi4 shui2 ?",
+  "method": "best-effort",
+  "score": -0.3
+ },
+ "g-3faedb002f": {
+  "tokens": "xie4 xie4 ni3 lai2 kan4 wo3 .",
+  "method": "best-effort",
+  "score": -0.8
+ },
+ "g-3fc3a05ecd": {
+  "tokens": "fa1 sheng1 le shen2 me ?",
+  "method": "best-effort",
+  "score": -1.0
+ },
+ "g-3fe7d735b8": {
+  "tokens": "wo3 men chi1 fan4 ba .",
+  "method": "natural (split evenly)",
+  "score": 1.2
+ },
+ "g-3ff451423a": {
+  "tokens": "wo2 you3 shi4 .",
+  "method": "best-effort",
+  "score": -0.9
+ },
  "g-419d85b0fb": {
   "tokens": "ta1 bu2 zai4 zhe4 li3 .",
   "method": "best-effort",
   "score": 0.0
+ },
+ "g-41f6607284": {
+  "tokens": "ta1 shen4 zhi4 bu4 zhi1 dao4 wo3 de ming2 zi .",
+  "method": "best-effort",
+  "score": -5.0
+ },
+ "g-420a4ef41d": {
+  "tokens": "wo3 ren4 wei2 ta1 shi4 dui4 de .",
+  "method": "best-effort",
+  "score": -1.1
+ },
+ "g-42aefb2826": {
+  "tokens": "xi2 shou3 jian1 zai4 na2 li3 ?",
+  "method": "best-effort",
+  "score": -4.6
  },
  "g-4325ceb8cc": {
   "tokens": "ni2 you3 shen2 me wen4 ti2 ?",
@@ -209,6 +909,21 @@
   "method": "natural (split evenly)",
   "score": 1.1
  },
+ "g-43a9ed71ee": {
+  "tokens": "wo3 yao4 liang3 ge4 .",
+  "method": "natural (split evenly)",
+  "score": 1.4
+ },
+ "g-44195fd4ac": {
+  "tokens": "ni3 yuan4 yi4 jia4 gei3 wo3 ma ?",
+  "method": "best-effort",
+  "score": -4.7
+ },
+ "g-44313084de": {
+  "tokens": "zhe4 jian4 yi1 fu2 hen2 hao3 kan4 .",
+  "method": "best-effort",
+  "score": -1.0
+ },
  "g-447caef220": {
   "tokens": "ni3 de gong1 zuo4 zen3 me yang4 ?",
   "method": "best-effort",
@@ -219,40 +934,120 @@
   "method": "pitch-edited",
   "score": 1.4
  },
+ "g-4522b40e1d": {
+  "tokens": "mei3 ge4 ren2 dou1 you3 zi4 ji3 de xiang2 fa3 .",
+  "method": "best-effort",
+  "score": -3.0
+ },
  "g-4548f87050": {
   "tokens": "wo3 jin1 tian1 bu4 neng2 qu4 .",
   "method": "best-effort",
   "score": -2.2
+ },
+ "g-45b1ccb4e9": {
+  "tokens": "zhe4 jia1 fan4 guan2 hen3 pian2 yi , er2 qie2 hen2 hao3 chi1 .",
+  "method": "best-effort",
+  "score": -6.7
+ },
+ "g-46854cc513": {
+  "tokens": "wo2 you3 yi2 ge4 hao3 xiao1 xi1 .",
+  "method": "best-effort",
+  "score": -0.3
  },
  "g-479460b87b": {
   "tokens": "ta1 bu2 shi4 wo3 xian1 sheng1 .",
   "method": "best-effort",
   "score": -2.7
  },
+ "g-47e789d956": {
+  "tokens": "wo3 tou2 teng2 .",
+  "method": "natural",
+  "score": 0.9
+ },
+ "g-482b6b1dbb": {
+  "tokens": "ni3 yao4 cha2 hai2 shi ka1 fei1 ?",
+  "method": "best-effort",
+  "score": -0.4
+ },
  "g-48a102f8e4": {
   "tokens": "wo3 bu2 shi4 lao3 shi1 .",
   "method": "natural (split evenly)",
   "score": 0.9
+ },
+ "g-497e130fa9": {
+  "tokens": "ta1 you2 hen3 duo1 peng2 you3 .",
+  "method": "best-effort",
+  "score": -5.9
  },
  "g-497fdfc0ed": {
   "tokens": "ta1 shuo1 le shen2 me ?",
   "method": "best-effort",
   "score": -1.2
  },
+ "g-498aa5cfcc": {
+  "tokens": "ni3 neng2 bang1 wo3 ma ?",
+  "method": "best-effort",
+  "score": 0.3
+ },
+ "g-49d14036f7": {
+  "tokens": "wo2 deng3 le liang3 ge4 xiao3 shi2 .",
+  "method": "best-effort",
+  "score": -1.4
+ },
+ "g-49dc1b18a8": {
+  "tokens": "ma3 shang4 jiu4 hao3 .",
+  "method": "best-effort",
+  "score": -1.7
+ },
  "g-4a3608ac29": {
   "tokens": "zhe4 ge4 zen3 me yang4 ?",
   "method": "best-effort",
   "score": -5.9
+ },
+ "g-4a5c21529f": {
+  "tokens": "zhe4 shi4 yi2 ge4 hao3 ji1 hui4 .",
+  "method": "best-effort",
+  "score": -0.5
  },
  "g-4ace6f9fd6": {
   "tokens": "wo3 zai4 jia1 gong1 zuo4 .",
   "method": "pitch-edited",
   "score": 2.6
  },
+ "g-4b408ef282": {
+  "tokens": "wo3 gen1 ben3 bu2 ren4 shi ta1 .",
+  "method": "best-effort",
+  "score": -4.9
+ },
+ "g-4be60606fd": {
+  "tokens": "ni3 men hao3 !",
+  "method": "natural (split evenly)",
+  "score": 1.2
+ },
+ "g-4c3276ea2b": {
+  "tokens": "ni3 zai4 kai1 wan2 xiao4 ba ?",
+  "method": "best-effort",
+  "score": -1.1
+ },
+ "g-4d0231843a": {
+  "tokens": "ta1 shuo1 hua4 hen3 kuai4 .",
+  "method": "natural",
+  "score": 0.9
+ },
+ "g-4dd5a5112a": {
+  "tokens": "yi2 qie4 dou1 hui4 hao3 de .",
+  "method": "natural",
+  "score": 1.2
+ },
  "g-4ddfffe520": {
   "tokens": "ni2 xi3 huan1 zuo4 shen2 me ?",
   "method": "best-effort",
   "score": -1.6
+ },
+ "g-4e22f04626": {
+  "tokens": "ni3 qu4 guo4 zhong1 guo2 ma ?",
+  "method": "best-effort",
+  "score": -1.0
  },
  "g-4e7d63543a": {
   "tokens": "bu2 qu4 .",
@@ -264,6 +1059,11 @@
   "method": "pitch-edited",
   "score": 1.2
  },
+ "g-4f039c5fcb": {
+  "tokens": "nan2 dao4 ni3 bu4 zhi1 dao4 ma ?",
+  "method": "best-effort",
+  "score": -0.3
+ },
  "g-4f2fa922b1": {
   "tokens": "wo3 bu4 xiang3 qu4 .",
   "method": "pitch-edited",
@@ -274,10 +1074,20 @@
   "method": "best-effort",
   "score": -7.3
  },
+ "g-4fbcb08374": {
+  "tokens": "wo3 de fang2 jian1 hen2 xiao3 .",
+  "method": "natural (split evenly)",
+  "score": 1.2
+ },
  "g-4fe3463c6f": {
   "tokens": "ta1 zai4 na4 li3 gong1 zuo4 .",
   "method": "best-effort",
   "score": -0.6
+ },
+ "g-4ff7d23a0c": {
+  "tokens": "hao3 a !",
+  "method": "natural (split evenly)",
+  "score": 1.0
  },
  "g-4ffdf77d1b": {
   "tokens": "you3 .",
@@ -285,10 +1095,65 @@
   "score": 2.7,
   "from": "you3"
  },
+ "g-502067af73": {
+  "tokens": "wo2 zhi3 qu4 guo4 yi2 ci4 .",
+  "method": "best-effort",
+  "score": -1.1
+ },
+ "g-502ae729c8": {
+  "tokens": "sheng1 ming4 hen2 bao3 gui4 .",
+  "method": "best-effort",
+  "score": -0.6
+ },
+ "g-50d8d49cc0": {
+  "tokens": "zhe4 shi4 wo3 jia1 .",
+  "method": "best-effort",
+  "score": 0.5
+ },
+ "g-51060b4143": {
+  "tokens": "wo3 wan2 quan2 tong2 yi4 .",
+  "method": "best-effort",
+  "score": -1.0
+ },
+ "g-5161859985": {
+  "tokens": "zhe4 shi4 yi4 ben3 guan1 yu2 zhong1 guo2 de shu1 .",
+  "method": "best-effort",
+  "score": -3.4
+ },
+ "g-5177bbbd31": {
+  "tokens": "bu2 yao4 fang4 qi4 !",
+  "method": "best-effort",
+  "score": -1.8
+ },
+ "g-51920bc876": {
+  "tokens": "bu2 yong4 xie4 .",
+  "method": "natural (split evenly)",
+  "score": 1.0
+ },
  "g-51ca342eec": {
   "tokens": "wo3 yao4 na4 ge4 .",
   "method": "best-effort",
   "score": -1.4
+ },
+ "g-520001f546": {
+  "tokens": "dang1 shi2 wo2 hen3 hai4 pa4 .",
+  "method": "pitch-edited",
+  "score": 1.2
+ },
+ "g-52db31e132": {
+  "tokens": "wo3 ai4 ni3 .",
+  "method": "natural (split evenly)",
+  "score": 1.7
+ },
+ "g-53283ed992": {
+  "tokens": "wo3 zheng4 zai4 chi1 fan4 .",
+  "method": "best-effort",
+  "score": 0.1
+ },
+ "g-532cbe4175": {
+  "tokens": "bai4 tuo1 , bang1 bang1 wo3 ba !",
+  "method": "best-effort",
+  "score": -2.3
  },
  "g-532e77675d": {
   "tokens": "zhe4 ge4 tai4 da4 le .",
@@ -300,20 +1165,45 @@
   "method": "natural (split evenly)",
   "score": 1.4
  },
+ "g-5459af864d": {
+  "tokens": "ni3 gan4 ma2 bu4 shuo1 hua4 ?",
+  "method": "best-effort",
+  "score": -3.2
+ },
  "g-5479ba22a1": {
   "tokens": "wo3 jin1 tian1 zai4 jia1 gong1 zuo4 .",
   "method": "best-effort",
   "score": -1.2
+ },
+ "g-54ecd9aa8c": {
+  "tokens": "shi4 jie4 hen3 da4 .",
+  "method": "pitch-edited",
+  "score": 2.0
  },
  "g-55535a123d": {
   "tokens": "ni2 zen3 me bu4 chi1 ?",
   "method": "best-effort",
   "score": -2.2
  },
+ "g-558232e358": {
+  "tokens": "ni3 bi4 xu1 qu4 .",
+  "method": "pitch-edited",
+  "score": 1.0
+ },
+ "g-5698b579de": {
+  "tokens": "na4 xie1 shu1 shi4 shui2 de ?",
+  "method": "best-effort",
+  "score": -5.7
+ },
  "g-56bdec1b1c": {
   "tokens": "wo3 he2 ni3 yi4 qi3 qu4 .",
   "method": "best-effort",
   "score": -2.8
+ },
+ "g-56df987571": {
+  "tokens": "wo2 li2 jie2 ni3 de gan3 shou4 .",
+  "method": "best-effort",
+  "score": -2.2
  },
  "g-5717321f2a": {
   "tokens": "ta1 lai2 le mei2 you3 ?",
@@ -330,23 +1220,103 @@
   "method": "best-effort",
   "score": -1.2
  },
+ "g-57b6ac2e7e": {
+  "tokens": "wo3 fu4 mu3 zhu4 zai4 ying1 guo2 .",
+  "method": "best-effort",
+  "score": -7.1
+ },
+ "g-5829f1b61c": {
+  "tokens": "na4 ge4 nv3 ren2 shi4 shui2 ?",
+  "method": "best-effort",
+  "score": -0.6
+ },
+ "g-5889c5f127": {
+  "tokens": "wo2 xiang3 qu4 , dan4 mei2 you3 shi2 jian1 .",
+  "method": "best-effort",
+  "score": -3.6
+ },
  "g-58ed1c7172": {
   "tokens": "ni3 yao4 na3 ge4 ?",
   "method": "best-effort",
   "score": -0.4
+ },
+ "g-58f06bfdd9": {
+  "tokens": "ta1 shi4 wo3 zhen1 zheng4 de peng2 you3 .",
+  "method": "best-effort",
+  "score": -3.0
+ },
+ "g-5a168eb799": {
+  "tokens": "ni3 zhi1 dao4 yuan2 yin1 ma ?",
+  "method": "natural (split evenly)",
+  "score": 1.0
+ },
+ "g-5a284fb4af": {
+  "tokens": "xiang4 zuo2 zou3 .",
+  "method": "natural",
+  "score": 1.3
+ },
+ "g-5a8cb315de": {
+  "tokens": "jin1 tian1 ji3 hao4 ?",
+  "method": "pitch-edited",
+  "score": 1.1
  },
  "g-5ae81dfb99": {
   "tokens": "wo2 mai3 le liang3 ge4 .",
   "method": "best-effort",
   "score": -2.0
  },
+ "g-5c118e86a2": {
+  "tokens": "you3 ren2 zai4 ma ?",
+  "method": "natural (split evenly)",
+  "score": 1.0
+ },
  "g-5c26f9fc57": {
   "tokens": "ta1 bu2 zai4 .",
   "method": "pitch-edited",
   "score": 1.9
  },
+ "g-5c6b4293f5": {
+  "tokens": "wo3 men chu1 qu4 zou3 zou3 ba .",
+  "method": "best-effort",
+  "score": -2.9
+ },
+ "g-5d75a99708": {
+  "tokens": "bie2 na4 yang4 zuo4 .",
+  "method": "natural (split evenly)",
+  "score": 1.0
+ },
+ "g-5da5a821a3": {
+  "tokens": "mei2 wen4 ti2 .",
+  "method": "best-effort",
+  "score": -3.3
+ },
+ "g-5dadfc7396": {
+  "tokens": "wo3 bu4 xiang3 shi1 qu4 ni3 .",
+  "method": "best-effort",
+  "score": -1.3
+ },
+ "g-5dcda8a6e2": {
+  "tokens": "wo2 you3 yi2 ge4 ge1 ge1 , hai2 you3 yi2 ge4 mei4 mei4 .",
+  "method": "best-effort",
+  "score": -2.4
+ },
+ "g-5deb5cb5f1": {
+  "tokens": "wo3 men de xiang2 fa3 bu4 tong2 .",
+  "method": "best-effort",
+  "score": -5.7
+ },
+ "g-5e66867874": {
+  "tokens": "zhe4 ge4 wen4 ti2 ru2 he2 jie3 jue2 ?",
+  "method": "best-effort",
+  "score": -5.3
+ },
  "g-5ec77009fc": {
   "tokens": "zhe4 ge4 shi4 ni3 de ma ?",
+  "method": "natural (split evenly)",
+  "score": 0.9
+ },
+ "g-5ee6bb0426": {
+  "tokens": "wo3 wei4 ni3 gao1 xing4 .",
   "method": "natural (split evenly)",
   "score": 0.9
  },
@@ -354,6 +1324,31 @@
   "tokens": "wo2 ye2 hen3 mang2 .",
   "method": "natural (split evenly)",
   "score": 0.7
+ },
+ "g-5f354ef0c5": {
+  "tokens": "san1 nian2 qian2 wo3 qu4 guo4 bei3 jing1 .",
+  "method": "best-effort",
+  "score": -2.9
+ },
+ "g-5f72f80937": {
+  "tokens": "ta1 fu4 qin1 shi4 yi1 sheng1 .",
+  "method": "best-effort",
+  "score": -0.0
+ },
+ "g-6026ecd351": {
+  "tokens": "wo3 mei2 shi4 .",
+  "method": "natural (split evenly)",
+  "score": 1.5
+ },
+ "g-6082cd39db": {
+  "tokens": "ni2 you3 ren4 he2 wen4 ti2 , dou1 ke2 yi3 wen4 wo3 .",
+  "method": "best-effort",
+  "score": -4.2
+ },
+ "g-6092729cdb": {
+  "tokens": "wo3 men ming2 tian1 huo4 zhe3 hou4 tian1 qu4 .",
+  "method": "natural (split evenly)",
+  "score": 1.7
  },
  "g-6155a36d61": {
   "tokens": "ni2 zhao3 shui2 ?",
@@ -365,25 +1360,135 @@
   "method": "best-effort",
   "score": -3.9
  },
+ "g-6286f8b809": {
+  "tokens": "you3 hua4 jiu4 shuo1 ma .",
+  "method": "best-effort",
+  "score": -0.9
+ },
+ "g-62e034b2c8": {
+  "tokens": "ni3 de xiang2 fa3 shi4 shen2 me ?",
+  "method": "best-effort",
+  "score": -3.5
+ },
  "g-62ed82d1ef": {
   "tokens": "ta1 bu2 shi4 wo3 ma1 ma .",
   "method": "best-effort",
   "score": 0.0
+ },
+ "g-63b401e768": {
+  "tokens": "ta1 de qi1 zi shi4 yi1 sheng1 .",
+  "method": "best-effort",
+  "score": -0.8
+ },
+ "g-63b6952757": {
+  "tokens": "yi1 jia1 yi1 deng3 yu2 er4 .",
+  "method": "best-effort",
+  "score": -0.7
+ },
+ "g-63baabb7d0": {
+  "tokens": "kuai4 xia4 lai2 !",
+  "method": "best-effort",
+  "score": -1.1
+ },
+ "g-64011b1f57": {
+  "tokens": "wo3 men ying2 le !",
+  "method": "natural (split evenly)",
+  "score": 1.7
+ },
+ "g-64289491a7": {
+  "tokens": "ta1 xue2 xi2 hen2 nu3 li4 .",
+  "method": "best-effort",
+  "score": -1.7
+ },
+ "g-647c69a818": {
+  "tokens": "ni3 que4 ding4 ma ?",
+  "method": "best-effort",
+  "score": -1.4
+ },
+ "g-66892eece3": {
+  "tokens": "wo3 mei2 dai4 qian2 .",
+  "method": "best-effort",
+  "score": -0.4
+ },
+ "g-66b576c7a6": {
+  "tokens": "wo3 men jin4 qu4 ba .",
+  "method": "natural (split evenly)",
+  "score": 0.6
+ },
+ "g-66e7708f35": {
+  "tokens": "ni3 shuo1 de dui4 .",
+  "method": "natural",
+  "score": 1.1
+ },
+ "g-67c6338a64": {
+  "tokens": "huan1 ying2 lai2 zhong1 guo2 !",
+  "method": "best-effort",
+  "score": -4.3
+ },
+ "g-67f119ee94": {
+  "tokens": "wo2 ye3 shi4 .",
+  "method": "best-effort",
+  "score": -1.3
+ },
+ "g-67f4b32c65": {
+  "tokens": "kan4 lai2 ta1 bu2 hui4 lai2 le .",
+  "method": "best-effort",
+  "score": -7.2
  },
  "g-6a5be09dff": {
   "tokens": "wo3 ming2 tian1 qu4 .",
   "method": "natural (split evenly)",
   "score": 1.1
  },
+ "g-6ae6372c74": {
+  "tokens": "ni3 duo1 da4 ?",
+  "method": "best-effort",
+  "score": 0.6
+ },
+ "g-6b10c4d703": {
+  "tokens": "wo2 you3 yi2 ge4 ge1 ge1 .",
+  "method": "best-effort",
+  "score": 0.0
+ },
+ "g-6b32e88961": {
+  "tokens": "qian2 gou4 ma ?",
+  "method": "natural (split evenly)",
+  "score": 0.9
+ },
  "g-6bfd2f277f": {
   "tokens": "na4 xie1 shi4 wo3 de .",
   "method": "best-effort",
   "score": -0.2
  },
+ "g-6c224cfb83": {
+  "tokens": "wo3 jia1 you3 si4 kou3 ren2 .",
+  "method": "best-effort",
+  "score": -2.4
+ },
+ "g-6c974c1102": {
+  "tokens": "ta1 ke3 neng2 bu4 lai2 le .",
+  "method": "best-effort",
+  "score": -7.4
+ },
+ "g-6d87130476": {
+  "tokens": "ta1 jin4 ru4 le fang2 jian1 .",
+  "method": "best-effort",
+  "score": 0.6
+ },
  "g-6dad0a0209": {
   "tokens": "qu4 .",
   "method": "natural",
   "score": 3.1
+ },
+ "g-6edabe71f4": {
+  "tokens": "ni3 neng2 tiao4 duo1 gao1 ?",
+  "method": "natural (split evenly)",
+  "score": 1.0
+ },
+ "g-6f4bbe4105": {
+  "tokens": "wo3 men qu4 kan4 dian4 ying3 ba .",
+  "method": "best-effort",
+  "score": -3.2
  },
  "g-6fc31c1e3d": {
   "tokens": "wo2 you2 liang3 ge4 hai2 zi .",
@@ -395,20 +1500,65 @@
   "method": "natural (split evenly)",
   "score": 2.7
  },
+ "g-700d293961": {
+  "tokens": "ta1 gei3 wo3 men dai4 lai2 le hen3 duo1 kuai4 le4 .",
+  "method": "best-effort",
+  "score": -2.9
+ },
  "g-708c2dede5": {
   "tokens": "ta1 lai2 le .",
   "method": "best-effort",
   "score": -3.6
+ },
+ "g-70abb1f179": {
+  "tokens": "ta1 yi3 jing1 li2 kai1 le .",
+  "method": "best-effort",
+  "score": -2.4
+ },
+ "g-70cc3feaca": {
+  "tokens": "ni3 jue2 de zen3 me yang4 ?",
+  "method": "best-effort",
+  "score": -5.1
+ },
+ "g-70e6590f40": {
+  "tokens": "bao4 qian4 , rang4 ni2 jiu2 deng3 le .",
+  "method": "best-effort",
+  "score": -3.0
+ },
+ "g-713b59665c": {
+  "tokens": "ni3 neng2 bang1 wo3 fan1 yi4 yi2 xia4 ma ?",
+  "method": "best-effort",
+  "score": -0.8
  },
  "g-713f9df895": {
   "tokens": "ta1 shi4 shui2 ?",
   "method": "natural",
   "score": 1.3
  },
+ "g-71e9dbb8b5": {
+  "tokens": "zuo2 wan2 ni3 qu4 na2 li3 le ?",
+  "method": "best-effort",
+  "score": -3.8
+ },
  "g-7222e3116e": {
   "tokens": "ni3 ming2 tian1 lai2 ma ?",
   "method": "best-effort",
   "score": -1.0
+ },
+ "g-72387ecd7e": {
+  "tokens": "ta1 xiang3 cheng2 wei2 yi4 ming2 lao3 shi1 .",
+  "method": "best-effort",
+  "score": -1.9
+ },
+ "g-723c393404": {
+  "tokens": "wo3 men gan4 ba !",
+  "method": "natural (split evenly)",
+  "score": 1.4
+ },
+ "g-7322f4849e": {
+  "tokens": "wo3 hai2 mei2 shui4 .",
+  "method": "best-effort",
+  "score": 0.5
  },
  "g-73932c974c": {
   "tokens": "wo2 ye3 shi4 xue2 sheng1 .",
@@ -420,6 +1570,11 @@
   "method": "natural",
   "score": 2.0
  },
+ "g-7445eddcbb": {
+  "tokens": "wo3 bu4 xi3 huan1 zhe4 zhong3 yin1 yue4 .",
+  "method": "best-effort",
+  "score": -1.5
+ },
  "g-74eb7c0dee": {
   "tokens": "ni2 you3 duo1 shao3 qian2 ?",
   "method": "best-effort",
@@ -429,6 +1584,31 @@
   "tokens": "mei2 you3 .",
   "method": "best-effort",
   "score": -1.8
+ },
+ "g-7570c76aa6": {
+  "tokens": "zhe4 ge4 di4 fang1 hen3 piao4 liang4 .",
+  "method": "best-effort",
+  "score": -3.6
+ },
+ "g-75a02c1746": {
+  "tokens": "zan2 men zou3 ba .",
+  "method": "natural (split evenly)",
+  "score": 2.0
+ },
+ "g-7606ca999e": {
+  "tokens": "qing3 ji4 xu4 .",
+  "method": "pitch-edited",
+  "score": 2.6
+ },
+ "g-766af156dd": {
+  "tokens": "zhe4 li2 hen3 wei1 xian3 .",
+  "method": "natural (split evenly)",
+  "score": 0.9
+ },
+ "g-7773b990f8": {
+  "tokens": "zhe4 bu2 shi4 ni3 de cuo4 .",
+  "method": "natural (split evenly)",
+  "score": 1.8
  },
  "g-778c7e0973": {
   "tokens": "ni2 you3 mei2 you3 qian2 ?",
@@ -440,60 +1620,245 @@
   "method": "best-effort",
   "score": -4.7
  },
+ "g-78fc0b37e0": {
+  "tokens": "deng3 deng3 wo3 !",
+  "method": "best-effort",
+  "score": 0.1
+ },
  "g-797716e65c": {
   "tokens": "tai4 duo1 le !",
   "method": "best-effort",
   "score": 0.2
+ },
+ "g-7983302687": {
+  "tokens": "wo2 xiang3 qu4 , ke3 mei2 you3 qian2 .",
+  "method": "best-effort",
+  "score": -3.8
+ },
+ "g-7afc21e0ce": {
+  "tokens": "ni3 de ming2 zi hen2 hao3 ting1 .",
+  "method": "best-effort",
+  "score": -3.6
  },
  "g-7cfe2133c0": {
   "tokens": "ta1 shi4 wo3 de peng2 you3 .",
   "method": "best-effort",
   "score": -1.8
  },
+ "g-7d890bd2c4": {
+  "tokens": "ta1 liu2 xia4 le yi4 feng1 xin4 .",
+  "method": "best-effort",
+  "score": -2.9
+ },
  "g-7d9c432c6b": {
   "tokens": "wo2 hen2 hao3 , ni3 ne ?",
   "method": "natural (split evenly)",
   "score": 1.3
+ },
+ "g-7da43969f1": {
+  "tokens": "ta1 men shi4 xiong1 di4 .",
+  "method": "best-effort",
+  "score": -1.2
+ },
+ "g-7da77ac21e": {
+  "tokens": "ye2 xu3 ta1 wang4 le .",
+  "method": "natural (split evenly)",
+  "score": 1.1
+ },
+ "g-7dbcebbf4b": {
+  "tokens": "wo3 xiang1 xin4 ni3 .",
+  "method": "natural (split evenly)",
+  "score": 1.0
+ },
+ "g-7f43527ee7": {
+  "tokens": "ni3 zhu4 zai4 na2 li3 ?",
+  "method": "best-effort",
+  "score": -2.7
  },
  "g-7f7df88883": {
   "tokens": "zhe4 xie1 dou1 shi4 wo3 de .",
   "method": "natural (split evenly)",
   "score": 0.7
  },
+ "g-7f8ea395ad": {
+  "tokens": "mei2 shen2 me , bie2 dan1 xin1 .",
+  "method": "best-effort",
+  "score": 0.6
+ },
+ "g-7fb6043abd": {
+  "tokens": "wo2 zhi3 shi4 wen4 wen4 er2 yi3 .",
+  "method": "best-effort",
+  "score": -1.4
+ },
  "g-8035f668cc": {
   "tokens": "bu2 shi4 .",
   "method": "natural",
   "score": 1.6
+ },
+ "g-8080b28a11": {
+  "tokens": "ni3 zui4 jin4 zen3 me yang4 ?",
+  "method": "best-effort",
+  "score": -3.0
+ },
+ "g-810e6b2a43": {
+  "tokens": "zhe4 zhi1 xiao2 gou3 zhen1 ke3 ai4 .",
+  "method": "pitch-edited",
+  "score": 1.3
+ },
+ "g-817d2fa768": {
+  "tokens": "bie2 la1 wo3 !",
+  "method": "natural (split evenly)",
+  "score": 0.7
+ },
+ "g-818d5089d7": {
+  "tokens": "sui1 ran2 hen3 lei4 , dan4 shi4 hen3 kai1 xin1 .",
+  "method": "best-effort",
+  "score": -6.4
+ },
+ "g-82acd19cf3": {
+  "tokens": "ni3 shou1 dao4 wo3 de xin4 xi1 le ma ?",
+  "method": "best-effort",
+  "score": -0.4
  },
  "g-82b207c609": {
   "tokens": "zhe4 ge4 wen4 ti2 hen2 hao3 .",
   "method": "best-effort",
   "score": -1.3
  },
+ "g-8336c3f0f5": {
+  "tokens": "zhe4 ge4 zi4 zen3 me du2 ?",
+  "method": "best-effort",
+  "score": -0.4
+ },
+ "g-83c999ce63": {
+  "tokens": "ta1 shi4 yi1 sheng1 .",
+  "method": "best-effort",
+  "score": -0.1
+ },
+ "g-83dff02b58": {
+  "tokens": "wo2 zhi3 he1 le yi4 bei1 .",
+  "method": "best-effort",
+  "score": -3.1
+ },
+ "g-842c377cce": {
+  "tokens": "zhe4 shi4 shen2 me yi4 si1 ?",
+  "method": "best-effort",
+  "score": -0.7
+ },
+ "g-842dc9e8e6": {
+  "tokens": "ni3 shen1 ti2 hao3 ma ?",
+  "method": "best-effort",
+  "score": -0.9
+ },
+ "g-84e174e761": {
+  "tokens": "shui4 jiao4 zhi1 qian2 bie2 he1 ka1 fei1 .",
+  "method": "pitch-edited",
+  "score": 0.6
+ },
+ "g-86cef21473": {
+  "tokens": "wan3 shang ni3 zuo4 shen2 me ?",
+  "method": "best-effort",
+  "score": -6.1
+ },
+ "g-870b21edf4": {
+  "tokens": "kuai4 lai2 !",
+  "method": "natural (split evenly)",
+  "score": 2.2
+ },
  "g-871517cb67": {
   "tokens": "wo3 yao4 zhe4 ge4 .",
   "method": "best-effort",
   "score": -5.3
+ },
+ "g-871f7c51ae": {
+  "tokens": "shui3 bian4 cheng2 le bing1 .",
+  "method": "best-effort",
+  "score": -1.1
+ },
+ "g-88534371a1": {
+  "tokens": "zhe4 bu2 shi4 wo3 de .",
+  "method": "natural (split evenly)",
+  "score": 2.3
+ },
+ "g-88d2ed3f9e": {
+  "tokens": "wo2 xiang3 qu4 , bu2 guo4 jin1 tian1 mei2 kong4 .",
+  "method": "best-effort",
+  "score": -3.7
+ },
+ "g-88ee005a95": {
+  "tokens": "wo3 fa1 xian4 qian2 bao1 bu2 jian4 le .",
+  "method": "best-effort",
+  "score": -0.5
  },
  "g-88f7771ff9": {
   "tokens": "wo3 bu2 qu4 , ta1 ne ?",
   "method": "natural (split evenly)",
   "score": 1.8
  },
+ "g-8903006807": {
+  "tokens": "ta1 hui2 zhong1 guo2 le .",
+  "method": "best-effort",
+  "score": -6.4
+ },
+ "g-8a76fec242": {
+  "tokens": "dian4 ying3 kai1 shi3 le .",
+  "method": "best-effort",
+  "score": -2.9
+ },
+ "g-8a8b6bac12": {
+  "tokens": "zhe4 ge4 hao3 , dan4 shi4 tai4 gui4 le .",
+  "method": "best-effort",
+  "score": -0.7
+ },
+ "g-8ad8ff7dd0": {
+  "tokens": "ni3 cai1 wo3 shi4 shui2 ?",
+  "method": "pitch-edited",
+  "score": 1.9
+ },
  "g-8b1a9d7022": {
   "tokens": "wo3 mei2 chi1 .",
   "method": "natural (split evenly)",
   "score": 1.9
+ },
+ "g-8bf5d662bd": {
+  "tokens": "zhe4 shi4 ge4 mi4 mi4 .",
+  "method": "best-effort",
+  "score": -1.8
+ },
+ "g-8c4c7a1ac0": {
+  "tokens": "gei3 wo2 jiang3 ge4 gu4 shi ba .",
+  "method": "natural",
+  "score": 1.0
  },
  "g-8c8549dbe4": {
   "tokens": "wo3 neng2 kan4 kan4 ma ?",
   "method": "natural (split evenly)",
   "score": 0.7
  },
+ "g-8cd43b614d": {
+  "tokens": "wo2 ke2 yi3 jin4 lai2 ma ?",
+  "method": "best-effort",
+  "score": -1.9
+ },
+ "g-8d33a97a05": {
+  "tokens": "zhi2 dao4 xian4 zai4 wo3 hai2 ji4 de .",
+  "method": "best-effort",
+  "score": -3.5
+ },
  "g-8d8bc65239": {
   "tokens": "wo3 bu2 tai4 ming2 bai2 .",
   "method": "best-effort",
   "score": -2.2
+ },
+ "g-8db6864129": {
+  "tokens": "wo2 xiang3 yao4 zi4 you2 .",
+  "method": "best-effort",
+  "score": -7.3
+ },
+ "g-8e200b5d8a": {
+  "tokens": "qi2 shi2 wo3 bu4 xi3 huan1 chi1 la4 de .",
+  "method": "best-effort",
+  "score": -2.1
  },
  "g-8e87c92fe5": {
   "tokens": "wo2 you3 yi2 ge4 wen4 ti2 .",
@@ -505,15 +1870,50 @@
   "method": "best-effort",
   "score": -0.1
  },
+ "g-900fa2d12c": {
+  "tokens": "suo2 you3 ren2 dou1 dao4 le .",
+  "method": "best-effort",
+  "score": -4.8
+ },
+ "g-907b2fa9ca": {
+  "tokens": "zhe4 shi4 wo3 di4 yi1 ci4 lai2 zhong1 guo2 .",
+  "method": "best-effort",
+  "score": -5.8
+ },
  "g-908be586a2": {
   "tokens": "ta1 xian4 zai4 bu2 zai4 .",
   "method": "natural (split evenly)",
   "score": 1.2
  },
+ "g-909ee8ad5a": {
+  "tokens": "wo2 tao3 yan4 xia4 yu3 tian1 .",
+  "method": "best-effort",
+  "score": -0.4
+ },
+ "g-90e1200d15": {
+  "tokens": "ni3 shi4 wo3 wei2 yi1 de peng2 you3 .",
+  "method": "best-effort",
+  "score": -3.4
+ },
+ "g-90efb7e47a": {
+  "tokens": "wo3 ting1 dao4 yi2 ge4 qi2 guai4 de sheng1 yin1 .",
+  "method": "best-effort",
+  "score": -3.9
+ },
+ "g-917414a805": {
+  "tokens": "xia4 ge4 xing1 qi1 jian4 .",
+  "method": "natural (split evenly)",
+  "score": 1.6
+ },
  "g-91e4990116": {
   "tokens": "jin1 tian1 wo2 hen3 mang2 .",
   "method": "natural (split evenly)",
   "score": 0.9
+ },
+ "g-92a9769987": {
+  "tokens": "li3 mian4 you3 ren2 ma ?",
+  "method": "best-effort",
+  "score": -0.9
  },
  "g-92ba747f4b": {
   "tokens": "wo3 jin1 tian1 hen3 mang2 .",
@@ -525,15 +1925,60 @@
   "method": "natural (split evenly)",
   "score": 1.3
  },
+ "g-92f3e2cf64": {
+  "tokens": "ke2 yi3 bang1 wo3 men pai1 zhang1 zhao4 ma ?",
+  "method": "best-effort",
+  "score": -4.4
+ },
+ "g-941a44aaa7": {
+  "tokens": "zhe4 shi4 wo3 de xin1 shou3 ji1 .",
+  "method": "best-effort",
+  "score": -8.5
+ },
+ "g-944b510e67": {
+  "tokens": "bu4 xing2 , tai4 wei1 xian3 le .",
+  "method": "best-effort",
+  "score": -3.3
+ },
  "g-945f9c0f83": {
   "tokens": "wo3 chi1 le .",
   "method": "natural (split evenly)",
   "score": 1.8
  },
+ "g-947e741e0f": {
+  "tokens": "yi2 gong4 duo1 shao3 qian2 ?",
+  "method": "best-effort",
+  "score": -2.2
+ },
+ "g-9557eebcd3": {
+  "tokens": "wo2 zao3 shang qi1 dian2 qi3 chuang2 .",
+  "method": "pitch-edited",
+  "score": 0.8
+ },
+ "g-95c2270c77": {
+  "tokens": "shi4 ni3 ya !",
+  "method": "natural (split evenly)",
+  "score": 1.8
+ },
+ "g-96143236ce": {
+  "tokens": "ni3 dao4 di2 xiang3 yao4 shen2 me ?",
+  "method": "best-effort",
+  "score": -4.8
+ },
  "g-966961bcdc": {
   "tokens": "wo3 tai4 gao1 xing4 le .",
   "method": "natural (split evenly)",
   "score": 0.7
+ },
+ "g-9679c2d570": {
+  "tokens": "jiu4 suan4 xia4 yu3 , wo2 ye3 yao4 qu4 .",
+  "method": "best-effort",
+  "score": -5.8
+ },
+ "g-968ae100af": {
+  "tokens": "guo4 qu4 de shi4 jiu4 bie2 xiang3 le .",
+  "method": "best-effort",
+  "score": -1.6
  },
  "g-96cdde1bd5": {
   "tokens": "zhe4 ge4 zen3 me zuo4 ?",
@@ -550,15 +1995,40 @@
   "method": "natural",
   "score": 1.3
  },
+ "g-97540f9aa4": {
+  "tokens": "wo3 men qu4 da3 lan2 qiu2 ba .",
+  "method": "best-effort",
+  "score": -3.3
+ },
+ "g-975cf65e01": {
+  "tokens": "wo2 xiang3 bang1 ni3 , ke3 shi4 wo3 mei2 you3 shi2 jian1 .",
+  "method": "best-effort",
+  "score": -3.2
+ },
  "g-975e9c6c6f": {
   "tokens": "zhe4 ge4 bu2 tai4 da4 .",
   "method": "pitch-edited",
   "score": 0.8
  },
+ "g-97d5e5b48d": {
+  "tokens": "wo2 you3 yi2 ge4 ban4 fa3 .",
+  "method": "best-effort",
+  "score": 0.3
+ },
  "g-982562b5bf": {
   "tokens": "wo3 bu4 xi3 huan1 zhe4 ge4 .",
   "method": "pitch-edited",
   "score": 1.3
+ },
+ "g-9831d8f4b0": {
+  "tokens": "wo3 men wan2 ge4 you2 xi4 ba .",
+  "method": "natural (split evenly)",
+  "score": 0.7
+ },
+ "g-98ae5db761": {
+  "tokens": "ni3 shi4 bu2 shi4 lei4 le ?",
+  "method": "best-effort",
+  "score": -3.1
  },
  "g-98ebdbfdb9": {
   "tokens": "zhe4 shi4 wo3 de qian2 .",
@@ -570,20 +2040,100 @@
   "method": "pitch-edited",
   "score": 1.1
  },
+ "g-991e0baed3": {
+  "tokens": "bie2 pao3 !",
+  "method": "natural",
+  "score": 3.2
+ },
  "g-994633169f": {
   "tokens": "ni3 qu4 le ma ?",
   "method": "best-effort",
   "score": -0.5
+ },
+ "g-996f4d0f8f": {
+  "tokens": "wo3 hui4 shuo1 yi4 dian3 zhong1 wen2 .",
+  "method": "best-effort",
+  "score": -6.5
+ },
+ "g-99e65ec1bc": {
+  "tokens": "yi3 hou4 zai4 shuo1 ba .",
+  "method": "natural",
+  "score": 1.1
+ },
+ "g-99ffc2e62b": {
+  "tokens": "wo3 men zuo4 di4 tie3 qu4 ba .",
+  "method": "best-effort",
+  "score": -3.3
+ },
+ "g-9a46e293be": {
+  "tokens": "ni2 xiang3 he1 shen2 me ?",
+  "method": "best-effort",
+  "score": -3.6
+ },
+ "g-9a6a87fbdb": {
+  "tokens": "ge4 wei4 , zao3 shang hao3 !",
+  "method": "best-effort",
+  "score": -1.4
+ },
+ "g-9a7be9691f": {
+  "tokens": "ta1 shi4 wo3 de hao3 peng2 you3 .",
+  "method": "best-effort",
+  "score": -3.7
+ },
+ "g-9a8d67e170": {
+  "tokens": "wo2 xi3 huan1 ting1 yin1 yue4 .",
+  "method": "natural (split evenly)",
+  "score": 1.2
+ },
+ "g-9b421ca9f1": {
+  "tokens": "wo3 bu2 hui4 you2 yong3 .",
+  "method": "natural (split evenly)",
+  "score": 1.2
+ },
+ "g-9b48403727": {
+  "tokens": "ta1 de yan3 jing1 hen3 da4 .",
+  "method": "natural (split evenly)",
+  "score": 1.4
  },
  "g-9b51a0897b": {
   "tokens": "ta1 men bu2 shi4 hai2 zi .",
   "method": "best-effort",
   "score": -6.4
  },
+ "g-9c8130265a": {
+  "tokens": "wo3 chi1 fan4 le .",
+  "method": "natural (split evenly)",
+  "score": 1.0
+ },
+ "g-9c912158c1": {
+  "tokens": "qing2 deng3 yi2 xia4 .",
+  "method": "best-effort",
+  "score": -2.3
+ },
+ "g-9cc48ec299": {
+  "tokens": "wo3 shuo1 qing1 chu3 le ma ?",
+  "method": "natural (split evenly)",
+  "score": 1.1
+ },
  "g-9cc6931383": {
   "tokens": "zhe4 shi4 shen2 me dong1 xi1 ?",
   "method": "best-effort",
   "score": -0.6
+ },
+ "g-9cc7447f8f": {
+  "tokens": "wo2 lao3 le .",
+  "method": "best-effort",
+  "score": -2.7
+ },
+ "g-9dc42de372": {
+  "tokens": "ta1 men shi4 shui2 ?",
+  "method": "best-effort",
+  "score": -0.1
+ },
+ "g-9e257b70c7": {
+  "tokens": "ta1 nv3 er2 hen3 cong1 ming2 .",
+  "method": "best-effort",
+  "score": -0.9
  },
  "g-9e66075d2b": {
   "tokens": "ba4 ba he2 ma1 ma dou1 zai4 jia1 .",
@@ -594,6 +2144,61 @@
   "tokens": "na4 li2 you2 hen3 duo1 ren2 .",
   "method": "best-effort",
   "score": -2.1
+ },
+ "g-9ef5a7bb14": {
+  "tokens": "xiao3 xin1 , di4 shang hen3 hua2 .",
+  "method": "pitch-edited",
+  "score": 1.7
+ },
+ "g-9fa6463d1b": {
+  "tokens": "wo2 yi3 jing1 chi1 le .",
+  "method": "best-effort",
+  "score": 0.1
+ },
+ "g-9faf9d8944": {
+  "tokens": "you3 xie1 ren2 bu4 xi3 huan1 mao1 .",
+  "method": "best-effort",
+  "score": -0.1
+ },
+ "g-a01930d76e": {
+  "tokens": "ni2 deng3 le duo1 jiu3 ?",
+  "method": "best-effort",
+  "score": -1.1
+ },
+ "g-a07367cc2c": {
+  "tokens": "suo2 you3 de ren2 dou1 lai2 le .",
+  "method": "best-effort",
+  "score": -6.5
+ },
+ "g-a085e3d6f9": {
+  "tokens": "wo3 cong2 ying1 guo2 lai2 .",
+  "method": "best-effort",
+  "score": -3.5
+ },
+ "g-a13a43cac0": {
+  "tokens": "ni3 hui4 shuo1 zhong1 wen2 ma ?",
+  "method": "best-effort",
+  "score": -3.6
+ },
+ "g-a15cfc46d6": {
+  "tokens": "gao4 su4 wo3 ba .",
+  "method": "best-effort",
+  "score": -0.2
+ },
+ "g-a22ebe990d": {
+  "tokens": "bu4 hao3 yi4 si1 , wo3 lai2 wan3 le .",
+  "method": "best-effort",
+  "score": -0.2
+ },
+ "g-a29dd9d1ed": {
+  "tokens": "wo3 e4 si3 le .",
+  "method": "natural (split evenly)",
+  "score": 0.9
+ },
+ "g-a2e3ef1f91": {
+  "tokens": "mei2 cuo4 , jiu4 shi4 zhe4 yang4 .",
+  "method": "best-effort",
+  "score": -4.8
  },
  "g-a3f9a9a3ef": {
   "tokens": "zhe4 shi4 shen2 me ?",
@@ -610,35 +2215,155 @@
   "method": "best-effort",
   "score": -3.4
  },
+ "g-a4eb6d3901": {
+  "tokens": "bie2 zhan4 zai4 na4 li3 .",
+  "method": "best-effort",
+  "score": -2.2
+ },
+ "g-a50ffde051": {
+  "tokens": "wo2 gan3 dao4 hen3 lei4 .",
+  "method": "natural (split evenly)",
+  "score": 1.0
+ },
  "g-a5aa64ec6e": {
   "tokens": "zhe4 shi4 ma1 ma de qian2 .",
   "method": "best-effort",
   "score": -2.1
+ },
+ "g-a60dcf3dd0": {
+  "tokens": "zhe4 shi4 wo3 tai4 tai4 .",
+  "method": "best-effort",
+  "score": -1.3
  },
  "g-a625e3905e": {
   "tokens": "na4 shi4 shen2 me ?",
   "method": "best-effort",
   "score": -1.4
  },
+ "g-a63f72220e": {
+  "tokens": "bi3 sai4 ji2 dian3 kai1 shi3 ?",
+  "method": "best-effort",
+  "score": -1.9
+ },
  "g-a8648d8021": {
   "tokens": "mei2 you3 wen4 ti2 .",
   "method": "best-effort",
   "score": -7.7
+ },
+ "g-a87db4e115": {
+  "tokens": "ni3 zui4 hao2 zao2 dian3 shui4 .",
+  "method": "pitch-edited",
+  "score": 1.1
+ },
+ "g-a8c70d3e22": {
+  "tokens": "zhu4 ni3 cheng2 gong1 !",
+  "method": "natural (split evenly)",
+  "score": 0.9
+ },
+ "g-a8df656eb6": {
+  "tokens": "wo3 men lia3 yi2 yang4 gao1 .",
+  "method": "best-effort",
+  "score": -1.6
+ },
+ "g-a8e93e77e1": {
+  "tokens": "jin1 tian1 tian1 qi4 bu4 hao3 .",
+  "method": "natural (split evenly)",
+  "score": 0.8
+ },
+ "g-a90c2af903": {
+  "tokens": "zhe4 que4 shi2 shi4 ge4 wen4 ti2 .",
+  "method": "best-effort",
+  "score": -5.6
  },
  "g-a969eb040e": {
   "tokens": "wo2 ye2 xiang3 qu4 .",
   "method": "best-effort",
   "score": -2.6
  },
+ "g-ab66d4f3ff": {
+  "tokens": "wo3 men yi4 qi3 qu4 ba .",
+  "method": "best-effort",
+  "score": -3.1
+ },
+ "g-abb7c02f9e": {
+  "tokens": "ni3 tong2 yi4 ma ?",
+  "method": "best-effort",
+  "score": 0.6
+ },
  "g-ac1af04da5": {
   "tokens": "zhe4 shi4 ni3 de dong1 xi1 ma ?",
   "method": "best-effort",
   "score": -1.2
  },
+ "g-ac825d29dc": {
+  "tokens": "wo3 men dou1 hen2 hao3 .",
+  "method": "natural (split evenly)",
+  "score": 0.9
+ },
+ "g-ad02c6ad08": {
+  "tokens": "mao1 zhua1 lao2 shu3 .",
+  "method": "natural (split evenly)",
+  "score": 0.6
+ },
+ "g-ad0929eb84": {
+  "tokens": "wo3 bu4 xiang3 shang1 hai4 ni3 .",
+  "method": "best-effort",
+  "score": 0.2
+ },
+ "g-ad2bde1254": {
+  "tokens": "wo3 yao4 hui2 jia1 le .",
+  "method": "best-effort",
+  "score": -0.7
+ },
+ "g-ade7ebd78f": {
+  "tokens": "zhe4 shi4 zui4 hao3 de fang1 shi4 .",
+  "method": "pitch-edited",
+  "score": 2.1
+ },
  "g-ae70ada2a1": {
   "tokens": "ni3 shuo1 shen2 me ?",
   "method": "best-effort",
   "score": -3.2
+ },
+ "g-ae765b08f1": {
+  "tokens": "wo3 dao4 le .",
+  "method": "natural (split evenly)",
+  "score": 2.8
+ },
+ "g-aebad56a9e": {
+  "tokens": "wo2 xiang3 qu4 kan4 yi1 sheng1 .",
+  "method": "best-effort",
+  "score": -3.7
+ },
+ "g-af7973a946": {
+  "tokens": "ni2 da3 suan4 qu4 na2 li3 ?",
+  "method": "best-effort",
+  "score": -0.5
+ },
+ "g-af85df77fe": {
+  "tokens": "wo3 men zhi3 neng2 kao4 zi4 ji3 .",
+  "method": "natural (split evenly)",
+  "score": 0.8
+ },
+ "g-afad5db4dd": {
+  "tokens": "bie2 hai4 pa4 .",
+  "method": "natural",
+  "score": 2.0
+ },
+ "g-b0744f8b96": {
+  "tokens": "wo2 xi3 huan1 zhe4 li3 de sheng1 huo2 .",
+  "method": "best-effort",
+  "score": -2.7
+ },
+ "g-b08788851e": {
+  "tokens": "qing2 ba3 men2 guan1 shang .",
+  "method": "best-effort",
+  "score": -0.3
+ },
+ "g-b0dc54ef4a": {
+  "tokens": "wo2 zhi2 you3 yi2 ge4 mei4 mei4 .",
+  "method": "best-effort",
+  "score": -2.9
  },
  "g-b117c4b481": {
   "tokens": "wo3 jiao4 xiao3 ming2 .",
@@ -650,35 +2375,215 @@
   "method": "best-effort",
   "score": -7.5
  },
+ "g-b24676668a": {
+  "tokens": "ni3 zai4 gan4 shen2 me ?",
+  "method": "best-effort",
+  "score": -3.3
+ },
+ "g-b24959d10c": {
+  "tokens": "chi1 fan4 shi2 bie2 shuo1 hua4 .",
+  "method": "best-effort",
+  "score": -3.3
+ },
+ "g-b2528cf58b": {
+  "tokens": "wo3 bu2 hui4 gai3 bian4 zhu3 yi4 de .",
+  "method": "best-effort",
+  "score": -1.3
+ },
+ "g-b25a2216f3": {
+  "tokens": "ni3 you4 chi2 dao4 le .",
+  "method": "best-effort",
+  "score": -1.7
+ },
+ "g-b26c98138a": {
+  "tokens": "wo3 wu2 fa3 xiang1 xin4 .",
+  "method": "best-effort",
+  "score": -4.5
+ },
+ "g-b2b061804c": {
+  "tokens": "bao3 chi2 lian2 xi4 !",
+  "method": "best-effort",
+  "score": 0.1
+ },
+ "g-b54ad0d668": {
+  "tokens": "hao2 hao3 xiu1 xi1 .",
+  "method": "pitch-edited",
+  "score": 1.9
+ },
  "g-b5774fb239": {
   "tokens": "wo3 men you2 wu3 ge4 ren2 .",
   "method": "best-effort",
   "score": -7.2
+ },
+ "g-b654bad12b": {
+  "tokens": "wo2 hen2 liao2 jie3 ta1 .",
+  "method": "best-effort",
+  "score": -3.3
+ },
+ "g-b6709b076a": {
+  "tokens": "ba3 shu1 fang4 zai4 zhuo1 zi shang .",
+  "method": "best-effort",
+  "score": 0.2
+ },
+ "g-b676a0dede": {
+  "tokens": "wai4 mian4 xia4 yu3 le .",
+  "method": "best-effort",
+  "score": -1.5
+ },
+ "g-b680fbc193": {
+  "tokens": "wo3 ceng2 jing1 zai4 bei3 jing1 zhu4 guo4 .",
+  "method": "pitch-edited",
+  "score": 1.0
+ },
+ "g-b7e5058f20": {
+  "tokens": "xia4 ke4 zhi1 hou4 wo3 men qu4 chi1 fan4 .",
+  "method": "best-effort",
+  "score": -12.4
+ },
+ "g-b8aba8ef62": {
+  "tokens": "ni3 zai4 zuo4 shen2 me ?",
+  "method": "best-effort",
+  "score": -4.0
+ },
+ "g-b9a0abd69a": {
+  "tokens": "wo2 yong2 yuan3 ai4 ni3 .",
+  "method": "best-effort",
+  "score": -0.7
+ },
+ "g-ba7a901612": {
+  "tokens": "wo2 xi3 huan1 zhe4 ge4 .",
+  "method": "natural",
+  "score": 2.1
+ },
+ "g-baa8af55b6": {
+  "tokens": "wo2 yi3 wei2 ni2 zou3 le .",
+  "method": "best-effort",
+  "score": 0.0
+ },
+ "g-baad7bfa24": {
+  "tokens": "wo3 zai4 kan4 dian4 shi4 .",
+  "method": "best-effort",
+  "score": -0.9
+ },
+ "g-bb70bbe24a": {
+  "tokens": "chu2 le ta1 , da4 jia1 dou1 lai2 le .",
+  "method": "best-effort",
+  "score": -5.3
+ },
+ "g-bb8d339dbc": {
+  "tokens": "hao3 xiang4 yao4 xia4 yu3 le .",
+  "method": "best-effort",
+  "score": -1.8
+ },
+ "g-bb8fef41f4": {
+  "tokens": "wo3 de qian2 bei4 tou1 le .",
+  "method": "best-effort",
+  "score": -0.3
+ },
+ "g-bbb6269531": {
+  "tokens": "ni3 qu4 na2 li3 ?",
+  "method": "best-effort",
+  "score": -3.4
+ },
+ "g-bc1ce13938": {
+  "tokens": "wo3 zi4 ji3 lai2 .",
+  "method": "best-effort",
+  "score": -2.0
  },
  "g-bc7850eb6c": {
   "tokens": "wo3 bu2 qu4 , ni3 ne ?",
   "method": "natural (split evenly)",
   "score": 1.4
  },
+ "g-bcfa05149c": {
+  "tokens": "ta1 shi2 dian3 cai2 qi3 chuang2 .",
+  "method": "pitch-edited",
+  "score": 1.5
+ },
+ "g-bd290647b7": {
+  "tokens": "dui4 bu4 qi3 , wo3 cuo4 le .",
+  "method": "best-effort",
+  "score": -0.6
+ },
+ "g-bd826780ff": {
+  "tokens": "ni3 kan4 jian4 wo3 de shou3 ji1 le ma ?",
+  "method": "best-effort",
+  "score": -1.0
+ },
+ "g-bd8af2f33b": {
+  "tokens": "wo2 ma3 shang4 jiu4 lai2 .",
+  "method": "best-effort",
+  "score": -3.3
+ },
  "g-bde04726e0": {
   "tokens": "zhe4 shi4 ni3 de ma ?",
   "method": "best-effort",
   "score": -0.7
+ },
+ "g-bf1aeb656f": {
+  "tokens": "wo3 song4 ni3 hui2 jia1 .",
+  "method": "natural (split evenly)",
+  "score": 1.1
  },
  "g-bf237ee081": {
   "tokens": "wo3 men dou1 shi4 xue2 sheng1 .",
   "method": "best-effort",
   "score": 0.3
  },
+ "g-c02910a042": {
+  "tokens": "wo2 zhao3 dao4 le !",
+  "method": "best-effort",
+  "score": -2.0
+ },
+ "g-c0511b154e": {
+  "tokens": "wo2 zheng3 ge4 zhou1 mo4 dou1 zai4 jia1 .",
+  "method": "best-effort",
+  "score": -4.3
+ },
+ "g-c0a799f512": {
+  "tokens": "wo3 men pai1 zhang1 zhao4 pian4 ba .",
+  "method": "best-effort",
+  "score": -6.3
+ },
+ "g-c0b7286d03": {
+  "tokens": "mai3 xie1 shui2 guo3 ba .",
+  "method": "pitch-edited",
+  "score": 1.7
+ },
+ "g-c0d0f11e44": {
+  "tokens": "hai2 zi men zai4 wai4 mian4 wan2 .",
+  "method": "best-effort",
+  "score": -5.5
+ },
+ "g-c115a414a5": {
+  "tokens": "ni3 shen2 me shi2 hou4 hui2 lai2 ?",
+  "method": "best-effort",
+  "score": -3.8
+ },
  "g-c1c8adb7e8": {
   "tokens": "ta1 men shi4 hai2 zi .",
   "method": "best-effort",
   "score": -6.2
  },
+ "g-c222dae200": {
+  "tokens": "ta1 hai2 huo2 zhe !",
+  "method": "pitch-edited",
+  "score": 1.7
+ },
  "g-c2a67d4b09": {
   "tokens": "zhe4 li3 mei2 you3 ren2 .",
   "method": "best-effort",
   "score": -3.0
+ },
+ "g-c2b642f08f": {
+  "tokens": "ni2 hao3 , wo3 jiao4 xiao3 ming2 .",
+  "method": "best-effort",
+  "score": -0.3
+ },
+ "g-c2b6f8b070": {
+  "tokens": "zhe4 li2 hen3 an1 quan2 .",
+  "method": "best-effort",
+  "score": -1.9
  },
  "g-c376dceb9e": {
   "tokens": "wo3 mei2 qian2 .",
@@ -690,25 +2595,80 @@
   "method": "best-effort",
   "score": -0.6
  },
+ "g-c5047a05e0": {
+  "tokens": "ni3 xu1 yao4 bang1 zhu4 ma ?",
+  "method": "natural (split evenly)",
+  "score": 1.2
+ },
  "g-c5190b9ba9": {
   "tokens": "wo3 men shi4 peng2 you3 .",
   "method": "best-effort",
   "score": -2.5
+ },
+ "g-c5f1346190": {
+  "tokens": "ta1 men shi4 wo3 de mao1 .",
+  "method": "natural (split evenly)",
+  "score": 0.6
  },
  "g-c60c774e81": {
   "tokens": "na4 xie1 ren2 shi4 shui2 ?",
   "method": "best-effort",
   "score": -1.1
  },
+ "g-c6667aeaa6": {
+  "tokens": "ta1 men you2 liang3 ge4 hai2 zi .",
+  "method": "best-effort",
+  "score": -6.1
+ },
  "g-c6e100eb58": {
   "tokens": "shui2 zhi1 dao4 ?",
   "method": "natural",
   "score": 1.1
  },
+ "g-c714497cc6": {
+  "tokens": "jin1 tian1 wan2 de hen3 kai1 xin1 .",
+  "method": "best-effort",
+  "score": -2.6
+ },
+ "g-c7a84b82d7": {
+  "tokens": "hao3 , zai4 jian4 !",
+  "method": "natural",
+  "score": 1.6
+ },
+ "g-c7d6d5362d": {
+  "tokens": "zhe4 shi4 wo3 men zhi1 jian1 de mi4 mi4 .",
+  "method": "best-effort",
+  "score": -3.2
+ },
+ "g-c814a79d3c": {
+  "tokens": "ta1 men shi4 jie3 mei4 .",
+  "method": "best-effort",
+  "score": -1.8
+ },
+ "g-c85f2a940c": {
+  "tokens": "bie2 zhe4 yang4 .",
+  "method": "best-effort",
+  "score": -0.6
+ },
  "g-c8adfdf488": {
   "tokens": "wo3 he2 ta1 shi4 peng2 you3 .",
   "method": "best-effort",
   "score": -5.9
+ },
+ "g-c8b2ad59ff": {
+  "tokens": "nin2 gui4 xing4 ?",
+  "method": "natural",
+  "score": 0.6
+ },
+ "g-c8d547b9eb": {
+  "tokens": "zhe4 shi4 zui4 hou4 yi2 ci4 .",
+  "method": "best-effort",
+  "score": -4.5
+ },
+ "g-c99ca94c6d": {
+  "tokens": "ta1 jing1 chang2 bang1 zhu4 bie2 ren2 .",
+  "method": "best-effort",
+  "score": -5.7
  },
  "g-c9a45334c5": {
   "tokens": "zhe4 ge4 bu2 da4 .",
@@ -719,6 +2679,11 @@
   "tokens": "wo2 hen3 gao1 xing4 .",
   "method": "natural (split evenly)",
   "score": 0.8
+ },
+ "g-ca14921be1": {
+  "tokens": "wo3 hui4 zhao4 gu4 hao3 zi4 ji3 de .",
+  "method": "pitch-edited",
+  "score": 2.2
  },
  "g-ca39879ff3": {
   "tokens": "na4 li3 ren2 hen3 duo1 .",
@@ -735,6 +2700,21 @@
   "method": "best-effort",
   "score": 0.6
  },
+ "g-cbf0a1deb8": {
+  "tokens": "ni3 men lia3 qu4 na2 li3 ?",
+  "method": "best-effort",
+  "score": -3.2
+ },
+ "g-cc00292ac7": {
+  "tokens": "zhe4 li3 mai4 ka1 fei1 ma ?",
+  "method": "best-effort",
+  "score": -0.8
+ },
+ "g-ccc4d15ff6": {
+  "tokens": "ta1 de yao1 qiu2 tai4 gao1 le .",
+  "method": "best-effort",
+  "score": -2.8
+ },
  "g-cd256707d2": {
   "tokens": "ni3 hui4 shuo1 ying1 wen2 ma ?",
   "method": "best-effort",
@@ -745,20 +2725,110 @@
   "method": "best-effort",
   "score": -1.3
  },
+ "g-cd80a14392": {
+  "tokens": "ni3 xiao4 shen2 me ?",
+  "method": "best-effort",
+  "score": -2.7
+ },
+ "g-cd89778b45": {
+  "tokens": "wo3 bu4 he1 ka1 fei1 .",
+  "method": "pitch-edited",
+  "score": 1.3
+ },
+ "g-cda1c3f64a": {
+  "tokens": "xie4 xie4 ni3 bang1 mang2 .",
+  "method": "best-effort",
+  "score": -2.3
+ },
+ "g-cdb7ff3da8": {
+  "tokens": "zhe4 ge4 geng4 hao3 .",
+  "method": "natural",
+  "score": 1.6
+ },
+ "g-cdc5d5eb28": {
+  "tokens": "zhe4 ci4 wo2 qing3 ke4 .",
+  "method": "natural (split evenly)",
+  "score": 1.5
+ },
  "g-cde617546c": {
   "tokens": "ta1 men dou1 bu2 zai4 .",
   "method": "best-effort",
   "score": -4.1
+ },
+ "g-cdf333677a": {
+  "tokens": "wo3 xi1 wang4 neng2 gou4 bang1 dao4 ni3 .",
+  "method": "best-effort",
+  "score": -0.6
  },
  "g-ce0f47ba0d": {
   "tokens": "wo3 men dou1 hen3 mang2 .",
   "method": "natural (split evenly)",
   "score": 0.6
  },
+ "g-ce12e279d3": {
+  "tokens": "ni2 gei3 wo3 bi4 zui3 !",
+  "method": "best-effort",
+  "score": -0.3
+ },
+ "g-ce5f3ee230": {
+  "tokens": "jiu4 shi4 ta1 !",
+  "method": "pitch-edited",
+  "score": 2.6
+ },
+ "g-cf345a4680": {
+  "tokens": "kuai4 jiao4 jing3 cha2 !",
+  "method": "natural",
+  "score": 0.7
+ },
+ "g-cf57f5129c": {
+  "tokens": "wo3 men de xue2 xiao4 hen3 da4 .",
+  "method": "best-effort",
+  "score": -2.6
+ },
+ "g-cf8a86f028": {
+  "tokens": "zhu4 yi4 an1 quan2 .",
+  "method": "best-effort",
+  "score": -4.7
+ },
+ "g-cf8b00418c": {
+  "tokens": "wo2 yi3 qian2 zhu4 zai4 zhe4 li3 .",
+  "method": "best-effort",
+  "score": -1.9
+ },
+ "g-cf975f3274": {
+  "tokens": "wei2 , ni2 hao3 !",
+  "method": "natural",
+  "score": 2.7
+ },
+ "g-d0185d329e": {
+  "tokens": "ni3 zhen1 hao3 !",
+  "method": "pitch-edited",
+  "score": 1.8
+ },
+ "g-d03fd0dcc4": {
+  "tokens": "wang2 xian1 sheng1 zai4 ma ?",
+  "method": "natural (split evenly)",
+  "score": 2.0
+ },
+ "g-d084c367e4": {
+  "tokens": "wo3 men zhi3 neng2 deng3 .",
+  "method": "natural (split evenly)",
+  "score": 0.7
+ },
  "g-d0ed7bedcd": {
   "tokens": "ta1 ye3 bu4 zhi1 dao4 .",
   "method": "best-effort",
   "score": -3.6
+ },
+ "g-d0f32ca73b": {
+  "tokens": "zhe4 li3 ren2 hen3 duo1 .",
+  "method": "best-effort",
+  "score": -1.1
+ },
+ "g-d172438fe2": {
+  "tokens": "ni2 gan3 jue2 zen3 me yang4 ?",
+  "method": "best-effort",
+  "score": -5.5
  },
  "g-d1bf2d22e7": {
   "tokens": "zen3 me ban4 ?",
@@ -770,6 +2840,11 @@
   "method": "best-effort",
   "score": -2.2
  },
+ "g-d2b7f6bfbc": {
+  "tokens": "ta1 hui4 qi2 ma3 .",
+  "method": "natural",
+  "score": 0.9
+ },
  "g-d3ddcd1883": {
   "tokens": "zhe4 xie1 shi4 wo3 de .",
   "method": "best-effort",
@@ -779,6 +2854,16 @@
   "tokens": "ni3 neng2 lai2 ma ?",
   "method": "best-effort",
   "score": -0.5
+ },
+ "g-d3ed4ca993": {
+  "tokens": "zhe4 shi4 wo3 de shu1 .",
+  "method": "best-effort",
+  "score": -0.4
+ },
+ "g-d40ba68c4f": {
+  "tokens": "ni2 gao3 cuo4 le .",
+  "method": "natural (split evenly)",
+  "score": 1.3
  },
  "g-d45aa829e6": {
   "tokens": "ta1 shi4 wo3 ma1 ma .",
@@ -790,10 +2875,35 @@
   "method": "natural (split evenly)",
   "score": 1.3
  },
+ "g-d54c9c3608": {
+  "tokens": "ta1 shi4 wo3 peng2 you3 .",
+  "method": "best-effort",
+  "score": -3.8
+ },
+ "g-d5c50324b1": {
+  "tokens": "ma1 ma hen3 dan1 xin1 ni3 .",
+  "method": "best-effort",
+  "score": -4.1
+ },
+ "g-d6b23ec6e9": {
+  "tokens": "qing2 jiang3 man4 yi4 dian3 .",
+  "method": "best-effort",
+  "score": -1.6
+ },
  "g-d6d87141d8": {
   "tokens": "ta1 shi4 lao3 shi1 .",
   "method": "natural (split evenly)",
   "score": 1.2
+ },
+ "g-d6e2fb2f91": {
+  "tokens": "ni3 bu4 neng2 zou3 .",
+  "method": "natural (split evenly)",
+  "score": 0.6
+ },
+ "g-d70c165a48": {
+  "tokens": "wo3 cong2 lai2 mei2 qu4 guo4 .",
+  "method": "best-effort",
+  "score": -3.9
  },
  "g-d7620fd9a8": {
   "tokens": "bu2 yao4 zou3 !",
@@ -802,6 +2912,11 @@
  },
  "g-d7e7f84c1a": {
   "tokens": "wo3 men zen3 me qu4 ?",
+  "method": "natural (split evenly)",
+  "score": 1.2
+ },
+ "g-d8023f81a9": {
+  "tokens": "wo3 chi1 wan2 le .",
   "method": "natural (split evenly)",
   "score": 1.2
  },
@@ -815,6 +2930,36 @@
   "method": "natural (split evenly)",
   "score": 0.6
  },
+ "g-d8d4748ddf": {
+  "tokens": "ta1 zai4 fang2 jian1 li3 .",
+  "method": "natural (split evenly)",
+  "score": 0.7
+ },
+ "g-d93bd5bdcd": {
+  "tokens": "jin1 tian1 tian1 qi4 hen2 hao3 .",
+  "method": "natural",
+  "score": 0.9
+ },
+ "g-d96e980438": {
+  "tokens": "wo2 ke2 yi3 wen4 ni3 yi2 ge4 wen4 ti2 ma ?",
+  "method": "best-effort",
+  "score": -4.7
+ },
+ "g-d9e5e0b38e": {
+  "tokens": "ta1 zai4 yi4 jia1 da4 gong1 si1 gong1 zuo4 .",
+  "method": "best-effort",
+  "score": -1.7
+ },
+ "g-dad6fa068c": {
+  "tokens": "wa1 , tai4 piao4 liang4 le !",
+  "method": "best-effort",
+  "score": -3.1
+ },
+ "g-db19e1197a": {
+  "tokens": "wo3 hui2 dao4 jia1 le .",
+  "method": "natural (split evenly)",
+  "score": 1.2
+ },
  "g-db645ca0ec": {
   "tokens": "ni3 yao4 shen2 me ?",
   "method": "best-effort",
@@ -825,10 +2970,40 @@
   "method": "best-effort",
   "score": -2.1
  },
+ "g-dba161b10a": {
+  "tokens": "wo3 ge1 ge1 bi2 wo3 da4 san1 sui4 .",
+  "method": "best-effort",
+  "score": -1.4
+ },
+ "g-dbb4fd42dd": {
+  "tokens": "jie2 guo2 zen3 me yang4 ?",
+  "method": "best-effort",
+  "score": -5.7
+ },
  "g-dc2f334223": {
   "tokens": "ni3 shi4 lao3 shi1 ma ?",
   "method": "best-effort",
   "score": -0.4
+ },
+ "g-dc66c3c2bf": {
+  "tokens": "wo3 de shou3 ji1 diao4 le .",
+  "method": "best-effort",
+  "score": -0.4
+ },
+ "g-dd0b1622e3": {
+  "tokens": "wo2 yi3 jing1 wan2 cheng2 le zuo4 ye4 .",
+  "method": "best-effort",
+  "score": -3.8
+ },
+ "g-dd55a9dbbe": {
+  "tokens": "kuai4 dian3 , yao4 chi2 dao4 le !",
+  "method": "best-effort",
+  "score": -2.2
+ },
+ "g-ddecd6f9a8": {
+  "tokens": "xian4 zai4 qing2 kuang4 zen3 me yang4 ?",
+  "method": "best-effort",
+  "score": -6.0
  },
  "g-de25f0f77d": {
   "tokens": "ta1 bu2 shi4 lao3 shi1 .",
@@ -840,10 +3015,25 @@
   "method": "best-effort",
   "score": -2.9
  },
+ "g-ded624bed5": {
+  "tokens": "ni3 de dian4 hua4 xiang3 le .",
+  "method": "best-effort",
+  "score": -5.0
+ },
+ "g-df34a0149e": {
+  "tokens": "wo2 xi3 huan1 chi1 ping2 guo3 .",
+  "method": "best-effort",
+  "score": -0.0
+ },
  "g-df49bfafa2": {
   "tokens": "ta1 zai4 jia1 .",
   "method": "pitch-edited",
   "score": 2.4
+ },
+ "g-e015da874b": {
+  "tokens": "qing3 jin4 !",
+  "method": "pitch-edited",
+  "score": 3.7
  },
  "g-e05f9f5c8a": {
   "tokens": "ni3 mang2 ma ?",
@@ -855,15 +3045,45 @@
   "method": "best-effort",
   "score": -3.3
  },
+ "g-e0ee05d222": {
+  "tokens": "lao3 shi1 , wo2 you3 ge4 wen4 ti2 .",
+  "method": "best-effort",
+  "score": -5.2
+ },
+ "g-e146130dec": {
+  "tokens": "wo3 gang1 gang1 dao4 .",
+  "method": "pitch-edited",
+  "score": 1.4
+ },
+ "g-e198a67e8d": {
+  "tokens": "wo3 ting1 bu4 dong3 ta1 de hua4 .",
+  "method": "best-effort",
+  "score": -3.0
+ },
  "g-e1afef3e14": {
   "tokens": "xian4 zai4 ji2 dian3 ?",
   "method": "best-effort",
   "score": 0.2
  },
+ "g-e1d0760d5a": {
+  "tokens": "wo3 men hui2 qu4 ba .",
+  "method": "natural (split evenly)",
+  "score": 1.8
+ },
  "g-e1deeeefc9": {
   "tokens": "ni2 you3 shi2 jian1 ma ?",
   "method": "best-effort",
   "score": -1.7
+ },
+ "g-e1f1fbbf6b": {
+  "tokens": "ni3 ying1 gai1 xiu1 xi1 yi2 xia4 .",
+  "method": "best-effort",
+  "score": -1.4
+ },
+ "g-e2629031ab": {
+  "tokens": "ta1 de tou2 fa4 hen3 chang2 .",
+  "method": "pitch-edited",
+  "score": 0.8
  },
  "g-e282619848": {
   "tokens": "zhe4 shi4 wo3 men de wen4 ti2 .",
@@ -875,25 +3095,165 @@
   "method": "natural (split evenly)",
   "score": 1.7
  },
+ "g-e48d46b9c3": {
+  "tokens": "wo2 lao3 po2 zuo4 fan4 hen2 hao3 chi1 .",
+  "method": "best-effort",
+  "score": -1.7
+ },
  "g-e49b94be89": {
   "tokens": "ni2 zen3 me yang4 ?",
   "method": "best-effort",
   "score": -5.4
+ },
+ "g-e4ce4401f7": {
+  "tokens": "ta1 lian2 fan4 dou1 mei2 chi1 .",
+  "method": "best-effort",
+  "score": -3.3
+ },
+ "g-e5447ed12e": {
+  "tokens": "wo2 zhi3 shi4 kai1 wan2 xiao4 .",
+  "method": "best-effort",
+  "score": -5.7
+ },
+ "g-e5a408fad4": {
+  "tokens": "ni3 kan4 qi3 lai2 hen3 lei4 .",
+  "method": "best-effort",
+  "score": 0.0
+ },
+ "g-e60f6b76bc": {
+  "tokens": "wo3 men kan4 kan4 ba .",
+  "method": "best-effort",
+  "score": -2.9
+ },
+ "g-e6495421d0": {
+  "tokens": "ba4 , ni3 zai4 na2 li3 ?",
+  "method": "best-effort",
+  "score": -3.5
+ },
+ "g-e71528351f": {
+  "tokens": "zhe4 hen2 jian3 dan1 .",
+  "method": "best-effort",
+  "score": -1.7
  },
  "g-e7459b3003": {
   "tokens": "wo3 bu4 mang2 .",
   "method": "natural (split evenly)",
   "score": 1.0
  },
+ "g-e74f215516": {
+  "tokens": "wo3 bu4 xi3 huan1 na4 zhong3 ren2 .",
+  "method": "best-effort",
+  "score": -3.0
+ },
+ "g-e7711c0acc": {
+  "tokens": "wo2 ke2 yi3 yong4 ni3 de dian4 hua4 ma ?",
+  "method": "best-effort",
+  "score": -3.2
+ },
+ "g-e7cbe5bc14": {
+  "tokens": "wo3 zai4 jia1 dai1 le yi4 tian1 .",
+  "method": "best-effort",
+  "score": -5.4
+ },
+ "g-e7f4f9cc9d": {
+  "tokens": "wo3 men de guan1 xi4 hen2 hao3 .",
+  "method": "natural (split evenly)",
+  "score": 1.2
+ },
+ "g-e80bc31dd9": {
+  "tokens": "zhe4 ge4 fang2 jian1 hen3 da4 .",
+  "method": "best-effort",
+  "score": -3.3
+ },
  "g-e87cfd2291": {
   "tokens": "ni3 zai4 zuo4 shen2 me ne ?",
   "method": "best-effort",
   "score": -4.4
  },
+ "g-e88225754e": {
+  "tokens": "na4 ge4 nan2 ren2 hen3 gao1 .",
+  "method": "best-effort",
+  "score": -4.0
+ },
+ "g-e8b53b6b52": {
+  "tokens": "zhe4 xie1 shi4 ni3 de ma ?",
+  "method": "best-effort",
+  "score": 0.2
+ },
+ "g-e8cee27887": {
+  "tokens": "ni3 gang1 cai2 shuo1 shen2 me ?",
+  "method": "best-effort",
+  "score": -4.8
+ },
+ "g-e92835d9df": {
+  "tokens": "tai4 gui4 le !",
+  "method": "natural (split evenly)",
+  "score": 2.2
+ },
+ "g-e9e1f68f3e": {
+  "tokens": "hao3 la , bie2 ku1 le .",
+  "method": "natural (split evenly)",
+  "score": 1.6
+ },
+ "g-eacfb41e63": {
+  "tokens": "zhe4 jian4 shi4 qing2 hen3 zhong4 yao4 .",
+  "method": "best-effort",
+  "score": -3.6
+ },
+ "g-eada1d36bc": {
+  "tokens": "ni3 gen1 wo3 lai2 .",
+  "method": "best-effort",
+  "score": -0.1
+ },
  "g-eaf5308a3d": {
   "tokens": "wo3 bu2 tai4 hao3 .",
   "method": "best-effort",
   "score": -0.5
+ },
+ "g-eb0f766895": {
+  "tokens": "wan3 an1 , ming2 tian1 jian4 .",
+  "method": "pitch-edited",
+  "score": 2.1
+ },
+ "g-eb49a521bf": {
+  "tokens": "wo3 men tan2 tan2 ba .",
+  "method": "natural (split evenly)",
+  "score": 1.4
+ },
+ "g-ebb72aae12": {
+  "tokens": "wan3 shang gei3 wo2 da3 dian4 hua4 .",
+  "method": "best-effort",
+  "score": -0.8
+ },
+ "g-ebbde07c0e": {
+  "tokens": "hao2 zhu3 yi4 !",
+  "method": "natural (split evenly)",
+  "score": 1.1
+ },
+ "g-ebcfab2fd9": {
+  "tokens": "jin1 tian1 shi4 xing1 qi1 yi1 .",
+  "method": "natural (split evenly)",
+  "score": 1.0
+ },
+ "g-ebf40bc513": {
+  "tokens": "ni3 jin1 tian1 zen3 me zhe4 me gao1 xing4 ?",
+  "method": "best-effort",
+  "score": -2.1
+ },
+ "g-ec78213998": {
+  "tokens": "xian4 zai4 san1 dian3 .",
+  "method": "pitch-edited",
+  "score": 1.0
+ },
+ "g-ecfacafb13": {
+  "tokens": "ta1 xiang3 dang1 yi1 sheng1 .",
+  "method": "best-effort",
+  "score": -2.0
+ },
+ "g-ed10f018b0": {
+  "tokens": "ni3 ting1 wo2 jie3 shi4 .",
+  "method": "best-effort",
+  "score": 0.6
  },
  "g-ed80ac7a04": {
   "tokens": "wo2 xiang2 zou3 .",
@@ -905,6 +3265,11 @@
   "method": "pitch-edited",
   "score": 1.3
  },
+ "g-edec3f521e": {
+  "tokens": "qing2 wang3 zhe4 bian1 zou3 .",
+  "method": "best-effort",
+  "score": -3.0
+ },
  "g-eea99c8f14": {
   "tokens": "wo3 men ye3 dou1 hen2 hao3 .",
   "method": "best-effort",
@@ -915,20 +3280,135 @@
   "method": "natural",
   "score": 1.3
  },
+ "g-efcf0f7c16": {
+  "tokens": "ma1 , wo3 hui2 lai2 le !",
+  "method": "best-effort",
+  "score": -3.6
+ },
+ "g-f0a7046d47": {
+  "tokens": "wo3 men xiu1 xi1 yi2 xia4 ba .",
+  "method": "best-effort",
+  "score": -1.1
+ },
+ "g-f0c400db12": {
+  "tokens": "ni3 jin1 tian1 lai2 de zhen1 zao3 .",
+  "method": "best-effort",
+  "score": 0.5
+ },
+ "g-f0c8ba7848": {
+  "tokens": "wo3 men xian4 zai4 zen3 me ban4 ?",
+  "method": "best-effort",
+  "score": -5.2
+ },
+ "g-f0f5681d0c": {
+  "tokens": "wo3 bu2 zai4 xiang1 xin4 ta1 le .",
+  "method": "best-effort",
+  "score": -2.5
+ },
  "g-f1a19c03bb": {
   "tokens": "zhe4 li2 you2 liang3 ge4 ren2 .",
   "method": "best-effort",
   "score": -4.1
+ },
+ "g-f1ea9c2f4f": {
+  "tokens": "xian1 xi2 shou3 zai4 chi1 fan4 .",
+  "method": "best-effort",
+  "score": -7.4
+ },
+ "g-f2bc6d56fe": {
+  "tokens": "ren2 men dou1 xi3 huan1 ta1 .",
+  "method": "best-effort",
+  "score": -1.9
+ },
+ "g-f3b803e4d2": {
+  "tokens": "zhe4 shi4 zen3 me hui2 shi4 ?",
+  "method": "best-effort",
+  "score": -2.5
+ },
+ "g-f3f9bfb745": {
+  "tokens": "ni3 shi4 zen3 yang4 xue2 zhong1 wen2 de ?",
+  "method": "best-effort",
+  "score": -4.0
+ },
+ "g-f48f404e37": {
+  "tokens": "ni3 mei2 you2 xuan3 ze2 .",
+  "method": "best-effort",
+  "score": -6.4
+ },
+ "g-f531d6d762": {
+  "tokens": "wo3 yao4 san1 ge4 .",
+  "method": "best-effort",
+  "score": -2.1
+ },
+ "g-f53d5c73c4": {
+  "tokens": "kuai4 qi3 lai2 !",
+  "method": "natural (split evenly)",
+  "score": 0.6
+ },
+ "g-f54fee5a83": {
+  "tokens": "shu1 zai4 zhuo1 zi shang4 mian4 .",
+  "method": "best-effort",
+  "score": -1.0
+ },
+ "g-f55cc705a5": {
+  "tokens": "wo3 yi2 ding4 lai2 .",
+  "method": "best-effort",
+  "score": -1.8
+ },
+ "g-f578d04e22": {
+  "tokens": "qing3 zai4 shuo1 yi2 bian4 .",
+  "method": "best-effort",
+  "score": -0.5
  },
  "g-f59d3ab116": {
   "tokens": "wo2 hen2 hao3 .",
   "method": "natural",
   "score": 1.8
  },
+ "g-f5bf0bc1b0": {
+  "tokens": "ni3 can1 jia1 ming2 tian1 de hui4 ma ?",
+  "method": "best-effort",
+  "score": -0.9
+ },
+ "g-f5bf27f850": {
+  "tokens": "zhe4 li2 hen3 an1 jing4 .",
+  "method": "best-effort",
+  "score": 0.2
+ },
+ "g-f5cba130f0": {
+  "tokens": "zhen1 de ma ?",
+  "method": "natural (split evenly)",
+  "score": 1.8
+ },
  "g-f5ff57817d": {
   "tokens": "wo3 shi4 xue2 sheng1 .",
   "method": "pitch-edited",
   "score": 1.6
+ },
+ "g-f6206147ea": {
+  "tokens": "ni3 feng1 le ma ?",
+  "method": "natural (split evenly)",
+  "score": 1.1
+ },
+ "g-f654a4114d": {
+  "tokens": "qiu2 qiu2 ni3 le !",
+  "method": "best-effort",
+  "score": 0.1
+ },
+ "g-f6db816050": {
+  "tokens": "zhe4 ge4 bu4 rong2 yi4 .",
+  "method": "natural (split evenly)",
+  "score": 0.9
+ },
+ "g-f7614843f8": {
+  "tokens": "xi1 wang4 ni2 xi3 huan1 .",
+  "method": "best-effort",
+  "score": 0.2
+ },
+ "g-f7c39a22fc": {
+  "tokens": "wo3 jue2 dui4 bu2 hui4 gao4 su4 bie2 ren2 .",
+  "method": "best-effort",
+  "score": -4.0
  },
  "g-f7e1357c04": {
   "tokens": "ta1 hen3 mang2 .",
@@ -945,25 +3425,95 @@
   "method": "best-effort",
   "score": -5.9
  },
+ "g-f86652adb0": {
+  "tokens": "bu4 guan2 zen3 me yang4 , wo3 dou1 zhi1 chi2 ni3 .",
+  "method": "best-effort",
+  "score": -5.8
+ },
  "g-f8ed0c7c42": {
   "tokens": "zhe4 ge4 zen3 me shuo1 ?",
   "method": "natural (split evenly)",
   "score": 0.8
+ },
+ "g-f924178a90": {
+  "tokens": "men2 kai1 zhe .",
+  "method": "natural",
+  "score": 1.3
+ },
+ "g-f9670b28f9": {
+  "tokens": "ta1 tu1 ran2 ku1 le .",
+  "method": "best-effort",
+  "score": -2.3
  },
  "g-fa2dc328ee": {
   "tokens": "ta1 mei2 lai2 .",
   "method": "best-effort",
   "score": -2.4
  },
+ "g-faaaedb3e0": {
+  "tokens": "wo3 bang1 ni3 .",
+  "method": "best-effort",
+  "score": 0.5
+ },
+ "g-fadb641be6": {
+  "tokens": "wen4 ti2 jie3 jue2 le .",
+  "method": "best-effort",
+  "score": -8.5
+ },
  "g-faebfe5acb": {
   "tokens": "bu4 zhi1 dao4 .",
   "method": "natural (split evenly)",
   "score": 1.0
  },
+ "g-fba63ba616": {
+  "tokens": "ni3 shi4 na3 guo2 ren2 ?",
+  "method": "best-effort",
+  "score": -1.2
+ },
+ "g-fbcf6152a3": {
+  "tokens": "zhe4 zuo4 shan1 hen3 gao1 .",
+  "method": "pitch-edited",
+  "score": 0.6
+ },
+ "g-fbe7f062bb": {
+  "tokens": "wo3 ming2 bai2 le .",
+  "method": "natural (split evenly)",
+  "score": 2.9
+ },
+ "g-fc3933a427": {
+  "tokens": "ta1 ken3 ding4 hui4 lai2 .",
+  "method": "best-effort",
+  "score": -3.7
+ },
+ "g-fd19182ec5": {
+  "tokens": "wo3 men xian1 chi1 fan4 , ran2 hou4 qu4 kan4 dian4 ying3 .",
+  "method": "best-effort",
+  "score": -0.7
+ },
+ "g-fd4987bb1a": {
+  "tokens": "wo3 zui4 xi3 huan1 xia4 tian1 .",
+  "method": "pitch-edited",
+  "score": 1.0
+ },
+ "g-fedf4c148f": {
+  "tokens": "ta1 bi2 wo3 gao1 .",
+  "method": "best-effort",
+  "score": -0.8
+ },
+ "g-ff0325d35b": {
+  "tokens": "wo2 ba2 shou3 ji1 nong4 diu1 le .",
+  "method": "best-effort",
+  "score": -5.8
+ },
  "g-ff3ce2fd5b": {
   "tokens": "wo3 yao4 zhe4 ge4 he2 na4 ge4 .",
   "method": "best-effort",
   "score": -6.2
+ },
+ "g-ff4d2d2a84": {
+  "tokens": "wo3 kan4 yi2 xia4 .",
+  "method": "natural (split evenly)",
+  "score": 1.9
  },
  "g-ffb6fbef78": {
   "tokens": "zhe4 shi4 shui2 de qian2 ?",

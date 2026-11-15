@@ -227,7 +227,14 @@ details.later .list { margin-top: 10px; }
 .wcard { cursor: pointer; min-height: 260px; }
 .wcard .py { margin-top: 10px; }
 .wcard .hz { font-size: 2.6rem; line-height: 1.3; margin-top: 8px; font-family: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif; }
-.wcard .parts { color: var(--muted); font-size: .9rem; margin-top: 6px; }
+.wcard .parts { margin-top: 12px; }
+.wcard .parts .chip { flex-direction: row; gap: 6px; font-size: 1rem; padding: 5px 10px; color: var(--text); }
+.wcard .parts .chip .hzf { font-size: 1.2rem; }
+.wcard .parts .chip small { font-size: .8rem; }
+.wex-top { display: flex; gap: 10px; align-items: flex-start; }
+.wex-top > div { flex: 1; min-width: 0; }
+.wex .btns { display: flex; flex-direction: column; gap: 4px; flex: none; }
+.wex .btns .btn { padding: 6px 10px; }
 .wex { margin: 14px auto 4px; padding: 10px 14px; border-left: 3px solid var(--accent); background: var(--surface-2); border-radius: 8px; text-align: left; max-width: 26rem; }
 .wex-py { font-size: 1.05rem; }
 .wex-hz { font-size: 1.35rem; margin-top: 2px; font-family: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif; }
@@ -539,40 +546,75 @@ function wordFor(w) {   // the word (or sound) item a tile or chip can play
 }
 
 // ---------- audio ----------
-const audioCache = {};
-let current = null, seqToken = 0;
-function audioFor(id) {
-  if (!audioCache[id]) { audioCache[id] = new Audio(`audio/${id}.mp3${byId[id] ? `?v=${byId[id].v}` : ""}`); audioCache[id].preload = "auto"; }
-  return audioCache[id];
+// One <audio> element plays everything. Phones only allow so many players on a
+// page (Chrome on Android refuses new ones after about 75; iOS only lets an
+// element play from code once a tap has started it), so a new player per
+// sound left some sounds silent. Sounds are fetched ahead into memory, so they
+// start at once and don't depend on the connection at the moment you tap.
+const player = new Audio();
+player.preload = "auto";
+const audioUrl = id => `audio/${id}.mp3${byId[id] ? `?v=${byId[id].v}` : ""}`;
+const fetched = new Map(), ready = new Map();   // id -> download; id -> blob URL once there
+function audioFor(id) {   // fetch a sound ahead of time
+  if (!id) return;
+  if (!fetched.has(id)) fetched.set(id, fetch(audioUrl(id))
+    .then(r => { if (!r.ok) throw new Error(r.status); return r.blob(); })
+    .then(b => { ready.set(id, URL.createObjectURL(b)); })
+    .catch(() => { fetched.delete(id); }));   // try again next time
+  return fetched.get(id);
 }
+let seqToken = 0, req = null, endWait = null;   // req: what's playing {src, id, rate, retried}
+function finished() { const f = endWait; endWait = null; if (f) f(); }
+player.addEventListener("ended", finished);
+player.addEventListener("error", () => {
+  // a sound that didn't load (bad connection): once more straight from the server
+  if (req && req.id && !req.retried) {
+    req.retried = true;
+    ready.delete(req.id); fetched.delete(req.id);
+    start({ ...req, src: audioUrl(req.id) + (req.src.startsWith("blob:") ? "" : `${byId[req.id] ? "&" : "?"}r=${Date.now()}`) }).catch(finished);
+  } else finished();
+});
+function start(r) {
+  if (!req || req.src !== r.src || player.error) { player.src = r.src; }
+  else player.currentTime = 0;
+  req = r;
+  player.preservesPitch = true;
+  player.defaultPlaybackRate = r.rate; player.playbackRate = r.rate;
+  return player.play();
+}
+const startId = (id, rate) => { const p = start({ src: ready.get(id) || audioUrl(id), id, rate, retried: false }); audioFor(id); return p; };
 function stopAudio() {
   seqToken++;
-  if (current) current.pause();
+  player.pause();
+  finished();
   document.querySelectorAll(".playing").forEach(e => e.classList.remove("playing"));
 }
 function play(id, slow) {
+  if (!id) return;
   stopAudio();
-  const a = audioFor(id);
-  a.preservesPitch = true;
-  a.playbackRate = slow ? 0.7 : 1;
-  a.currentTime = 0;
-  current = a;
-  a.play().catch(() => {});
+  startId(id, slow ? 0.7 : 1).catch(() => {});
+}
+// play and wait until it has finished (or was stopped)
+function playToEnd(id, src) {
+  stopAudio();
+  return new Promise(done => {
+    endWait = done;
+    (src ? start({ src, rate: 1 }) : startId(id, 1)).catch(e => { if (endWait === done && e.name !== "AbortError") finished(); });
+  });
 }
 async function playSeq(ids, marks) {   // a row of sounds, one after another; marks[n] lights up while ids[n] plays
   stopAudio();
-  const my = seqToken;
+  const my = ++seqToken;
   for (const [n, id] of ids.entries()) {
     if (my !== seqToken) return;
     const btn = marks ? marks[n] : view.querySelector(`.syl[data-play="${id}"], .ccell[data-play="${id}"]`);
-    if (btn) btn.classList.add("playing");
     await new Promise(done => {
-      const a = audioFor(id);
-      a.playbackRate = 1; a.currentTime = 0; current = a;
-      a.onended = done; a.onerror = done;
-      a.play().catch(done);
+      endWait = done;
+      if (btn) btn.classList.add("playing");
+      startId(id, 1).catch(e => { if (endWait === done && e.name !== "AbortError") finished(); });
     });
     if (btn) btn.classList.remove("playing");
+    if (my !== seqToken) return;
     await new Promise(r => setTimeout(r, 250));
   }
 }
@@ -749,7 +791,10 @@ const W = { list: [], byHanzi: {}, loading: null, session: null, batch: null, pb
 function loadWords() {
   if (!W.loading) W.loading = fetch("words.json", { cache: "no-cache" }).then(r => r.json()).then(d => {
     W.list = d.words.map(w => w.hanzi);
-    for (const w of d.words) { W.byHanzi[w.hanzi] = w; byId[w.audio] = { v: w.v }; }
+    for (const w of d.words) {
+      W.byHanzi[w.hanzi] = w; byId[w.audio] = { v: w.v };
+      if (w.example && w.example.audio) byId[w.example.audio] = byId[w.example.audio] || { v: w.example.v };
+    }
   }).catch(e => { W.loading = null; throw e; });
   return W.loading;
 }
@@ -812,6 +857,7 @@ function renderWords(sub) {
     <div class="list hardlist">${hard.map(h => { const w = W.byHanzi[h]; return `<div class="item"><div class="main">
       <div class="p"><span class="hz" lang="zh-CN">${esc(h)}</span>${esc(w.pinyin)}</div><div class="e">${esc(w.english)}</div></div>
       <div class="btns"><button class="btn" data-play="${w.audio}" title="Play">🔊</button></div></div>`; }).join("")}</div>` : ""}`;
+  hard.forEach(h => audioFor(W.byHanzi[h].audio));
   if (anything) $("#wStart").onclick = startWords;
   if (practice) $("#wPractice").onclick = startPractice;
 }
@@ -824,6 +870,7 @@ function renderStudy() {
   const why = h => { const c = state.words[h];
     return !c ? `<span class="why">new</span>` : SRS.isParked(c) ? `<span class="why dk">Don't know ${c.dk}× · set aside</span>` : `<span class="why dk">Don't know</span>`; };
   keyHandler = e => { if (e.key === "Escape") back(); };
+  list.forEach(h => audioFor(W.byHanzi[h].audio));
   view.innerHTML = `<div class="wtop"><a class="btn" href="#words">← Back</a><span class="muted small">${list.length} words to study</span></div>
     <div class="card">
       <table class="study"><thead><tr><th>Pinyin</th><th>Characters</th><th>English</th><th></th></tr></thead><tbody>
@@ -870,8 +917,10 @@ function nextWord() {
 function exampleBlock(ex) {
   const [a, b, c, d] = ex.mark;
   const hl = (t, i, j) => `${esc(t.slice(0, i))}<b>${esc(t.slice(i, j))}</b>${esc(t.slice(j))}`;
-  return `<div class="wex"><div class="wex-py">${hl(ex.pinyin, c, d)}</div>
-    <div class="wex-hz" lang="zh-CN">${hl(ex.hanzi, a, b)}</div>
+  return `<div class="wex"><div class="wex-top"><div><div class="wex-py">${hl(ex.pinyin, c, d)}</div>
+    <div class="wex-hz" lang="zh-CN">${hl(ex.hanzi, a, b)}</div></div>
+    ${ex.audio ? `<div class="btns"><button class="btn" data-play="${ex.audio}" title="Play the sentence">🔊</button>
+      <button class="btn" data-slow="${ex.audio}" title="Slowly">🐢</button></div>` : ""}</div>
     <div class="wex-en">${esc(ex.english)}</div></div>`;
 }
 function renderWordCard() {
@@ -892,7 +941,9 @@ function renderWordCard() {
       <div class="hz" lang="zh-CN">${esc(w.hanzi)}</div>
       ${s.flipped ? `<hr><div class="big-en">${esc(w.english)}</div>
         ${w.example ? exampleBlock(w.example) : ""}
-        ${w.parts ? `<div class="parts" lang="zh-CN">${esc(w.parts)}</div>` : ""}
+        ${typeof w.parts === "string" ? `<div class="chips parts" lang="zh-CN">${esc(w.parts)}</div>` : ""}
+        ${Array.isArray(w.parts) ? `<div class="chips parts">${w.parts.map(x =>
+          `<button class="chip" data-play="${x.audio}" title="Play ${esc(x.pinyin)}"><span class="hzf" lang="zh-CN">${esc(x.hanzi)}</span><span>${esc(x.pinyin)}</span><small>${esc(x.english)}</small></button>`).join("")}</div>` : ""}
         ${w.note ? `<div class="note">${esc(w.note)}</div>` : ""}
         ${w.audio_note ? `<div class="note">${esc(w.audio_note)}</div>` : ""}`
       : `<p class="muted small" style="margin:18px 0 0">Tap to see the English</p>`}
@@ -902,6 +953,7 @@ function renderWordCard() {
           `<button class="btn g${i + 1}" data-grade="${i + 1}">${g}<small>${s.practice ? SRS.practicePreview(card, i + 1) : SRS.preview(card, i + 1)}</small></button>`).join("")}</div>`
       : `<button class="btn primary wide" id="wShow">Show answer</button>`}</div>
     <div class="kbd center">${s.flipped ? "1–5: how well you knew it" : "Space: show answer"} · P: play again</div>`;
+  [w.audio, w.example && w.example.audio, ...(Array.isArray(w.parts) ? w.parts.map(x => x.audio) : [])].forEach(audioFor);
   $("#wStop").onclick = () => renderWordsDone(false);
   $("#wCard").onclick = e => { if (!e.target.closest("button")) flip(); };
   if ($("#wShow")) $("#wShow").onclick = flip;
@@ -1576,7 +1628,7 @@ let rec = null;
 function recorder(id) {
   let url = null;
   const btn = $("#rec"), mine = $("#mine"), both = $("#both");
-  const playUrl = () => new Promise(done => { stopAudio(); const a = new Audio(url); current = a; a.onended = done; a.onerror = done; a.play().catch(done); });
+  const playUrl = () => playToEnd(null, url);
   btn.onclick = async () => {
     if (rec) { rec.stop(); return; }
     let stream;
@@ -1601,7 +1653,7 @@ function recorder(id) {
   };
   mine.onclick = () => playUrl();
   both.onclick = async () => {
-    await new Promise(done => { stopAudio(); const a = audioFor(id); a.playbackRate = 1; a.currentTime = 0; current = a; a.onended = done; a.onerror = done; a.play().catch(done); });
+    await playToEnd(id);
     await new Promise(r => setTimeout(r, 300));
     playUrl();
   };
