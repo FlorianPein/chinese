@@ -1,6 +1,6 @@
 {
  "v": 1,
- "updated": "2026-11-15T16:50:24.788Z",
+ "updated": "2026-11-15T16:55:24.276Z",
  "lessons": {
   "P01": {
    "done": "2026-10-18",
@@ -1194,6 +1194,13 @@
    "best": 100,
    "times": 1,
    "at": "2026-11-12T21:51:56.778Z"
+  },
+  "G06": {
+   "done": "2026-11-15",
+   "last": "2026-11-15",
+   "best": 67,
+   "times": 1,
+   "at": "2026-11-15T16:55:18.674Z"
   }
  },
  "unlocked": [
@@ -3277,6 +3284,16 @@
    ],
    "new": 0,
    "practice": true
+  },
+  {
+   "d": "2026-11-15T16:55:18",
+   "t": "grammar",
+   "id": "G06",
+   "score": 67,
+   "wrong": [
+    "meaning: 这是谁的钱？ (Whose money is this?) → Is this your money?",
+    "gap: 你说什么？ (What did you say?) → 谁 shéi"
+   ]
   }
  ]
 }
