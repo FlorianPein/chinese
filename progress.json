@@ -1,6 +1,6 @@
 {
  "v": 1,
- "updated": "2026-11-15T16:55:24.276Z",
+ "updated": "2026-11-15T17:04:46.231Z",
  "lessons": {
   "P01": {
    "done": "2026-10-18",
@@ -3294,6 +3294,12 @@
     "meaning: 这是谁的钱？ (Whose money is this?) → Is this your money?",
     "gap: 你说什么？ (What did you say?) → 谁 shéi"
    ]
+  },
+  {
+   "d": "2026-11-15T17:04:41",
+   "t": "practice",
+   "right": 1,
+   "total": 1
   }
  ]
 }
