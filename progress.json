@@ -1,13 +1,13 @@
 {
  "v": 1,
- "updated": "2026-11-15T17:41:04.153Z",
+ "updated": "2026-11-15T17:53:34.828Z",
  "lessons": {
   "P01": {
    "done": "2026-10-18",
-   "last": "2026-11-08",
-   "at": "2026-11-08T15:21:34.677Z",
-   "best": 70,
-   "times": 2
+   "last": "2026-11-15",
+   "at": "2026-11-15T17:53:29.295Z",
+   "best": 75,
+   "times": 3
   },
   "P02": {
    "done": "2026-10-20",
@@ -3314,6 +3314,105 @@
    "t": "practice",
    "right": 2,
    "total": 3
+  },
+  {
+   "d": "2026-11-15T17:49:36",
+   "t": "mistake",
+   "lesson": "P01",
+   "type": "tone",
+   "want": "mō",
+   "got": "4th tone",
+   "retry": 0
+  },
+  {
+   "d": "2026-11-15T17:50:06",
+   "t": "mistake",
+   "lesson": "P01",
+   "type": "hear",
+   "want": "wǒ",
+   "got": "wó",
+   "retry": 0
+  },
+  {
+   "d": "2026-11-15T17:50:19",
+   "t": "mistake",
+   "lesson": "P01",
+   "type": "tone",
+   "want": "fǒ",
+   "got": "4th tone",
+   "retry": 0
+  },
+  {
+   "d": "2026-11-15T17:51:27",
+   "t": "mistake",
+   "lesson": "P01",
+   "type": "hear",
+   "want": "wó",
+   "got": "wō",
+   "retry": 0
+  },
+  {
+   "d": "2026-11-15T17:51:33",
+   "t": "mistake",
+   "lesson": "P01",
+   "type": "tone",
+   "want": "bò",
+   "got": "1st tone",
+   "retry": 0
+  },
+  {
+   "d": "2026-11-15T17:52:43",
+   "t": "mistake",
+   "lesson": "P01",
+   "type": "hear",
+   "want": "wǒ",
+   "got": "wó",
+   "retry": 1
+  },
+  {
+   "d": "2026-11-15T17:52:50",
+   "t": "mistake",
+   "lesson": "P01",
+   "type": "tone",
+   "want": "fǒ",
+   "got": "2nd tone",
+   "retry": 1
+  },
+  {
+   "d": "2026-11-15T17:52:57",
+   "t": "mistake",
+   "lesson": "P01",
+   "type": "hear",
+   "want": "wó",
+   "got": "bó",
+   "retry": 1
+  },
+  {
+   "d": "2026-11-15T17:53:04",
+   "t": "mistake",
+   "lesson": "P01",
+   "type": "tone",
+   "want": "bò",
+   "got": "2nd tone",
+   "retry": 1
+  },
+  {
+   "d": "2026-11-15T17:53:11",
+   "t": "mistake",
+   "lesson": "P01",
+   "type": "hear",
+   "want": "wǒ",
+   "got": "wó",
+   "retry": 2
+  },
+  {
+   "d": "2026-11-15T17:53:29",
+   "t": "lesson",
+   "lesson": "P01",
+   "score": 75,
+   "minutes": 4,
+   "wrong": 5,
+   "exercises": 20
   }
  ]
 }
