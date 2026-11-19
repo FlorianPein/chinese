@@ -1171,6 +1171,8 @@ function renderWordsDone(allDone) {
 // another from it until you stop.
 // Progress per sentence, by its audio id: { n: times done, ok: times Got it, last: last answer (1–3), day, at }
 const S = { list: [], loading: null, session: null, batch: null };
+// For now only the easy sentences ("easy" in data/sentences.json); false brings in all the others too
+const S_EASY_ONLY = true;
 const S_GRADES = ["Didn't get it", "Partly", "Got it"];
 const S_GROUPS = {
   new: { name: "New sentences", done: "No more new sentences", hint: "ones you haven't had yet, the easiest first" },
@@ -1179,7 +1181,7 @@ const S_GROUPS = {
 };
 function loadSentences() {
   if (!S.loading) S.loading = Promise.all([loadWords(), fetch("sentences.json", { cache: "no-cache" }).then(r => r.json())]).then(([, d]) => {
-    S.list = d.sentences;
+    S.list = S_EASY_ONLY ? d.sentences.filter(x => x.easy) : d.sentences;
     for (const x of S.list) { x.words = [...new Set(x.tiles.map(t => t[0]))]; byId[x.audio] = byId[x.audio] || { v: x.v }; }
   }).catch(e => { S.loading = null; throw e; });
   return S.loading;
@@ -1250,13 +1252,13 @@ function renderSentences() {
         <button class="btn${dir === "en" ? " on" : ""}" data-dir="en">English → Chinese</button>
       </div>
       <div class="sgroups">${Object.entries(S_GROUPS).map(([k, t], i) => `<button class="btn wide${i === 0 && g.new.length || i === 1 && !g.new.length && g.open.length ? " primary" : ""}" data-group="${k}" ${g[k].length ? "" : "disabled"}>
-        <span>${t.name}<small>${k === "new" && easyLeft ? `${easyLeft} easy ${easyLeft === 1 ? "one" : "ones"} first, then the rest from the easiest` : t.hint}</small></span><b>${g[k].length}</b></button>`).join("")}</div>
+        <span>${t.name}<small>${k === "new" && easyLeft ? S_EASY_ONLY ? "easy ones you haven't had yet" : `${easyLeft} easy ${easyLeft === 1 ? "one" : "ones"} first, then the rest from the easiest` : t.hint}</small></span><b>${g[k].length}</b></button>`).join("")}</div>
       <p class="muted small" style="margin-bottom:0">${ready
         ? `${dir === "zh" ? "Hear and read a sentence and translate it into English" : "Read the English and say the sentence in Chinese"}, then tap to check and say how it went. One sentence after another, until you stop.`
         : `Every sentence is made of words from <b>Words</b>. A sentence comes in here once you've seen all its words there.`}</p>
     </div>
     <div class="card" style="margin-top:14px;padding:14px 16px">
-      <div class="muted small">${ready} of ${S.list.length} sentences use only the ${seen} words you've seen in <b>Words</b>, and every word is in several of them.${soon && next.size
+      <div class="muted small">${ready} of ${S.list.length} ${S_EASY_ONLY ? "easy sentences" : "sentences"} use only the ${seen} words you've seen in <b>Words</b>${S_EASY_ONLY ? "" : ", and every word is in several of them"}.${soon && next.size
         ? ` <b>${soon} more</b> open once you've studied the next ${next.size} new words (<a href="#words/study">Study</a>).` : ""}</div>
     </div>`;
   view.querySelectorAll("[data-dir]").forEach(b => b.onclick = () => { state.settings.sentDir = b.dataset.dir; saveLocal(); renderSentences(); });
