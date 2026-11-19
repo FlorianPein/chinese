@@ -1554,7 +1554,7 @@ function renderSpoonfedCard() {
         <p class="muted small" style="margin:10px 0 0">${x.new.length ? `<span class="newkey">new</span> = first time in the deck. ` : ""}${x.words.some(([h]) => W.byHanzi[h]) ? "🔊: the word is also in Words." : ""}</p>
         ${x.voice ? `<div class="note">The deck has no recording of this sentence: this one is made by the app's voice.</div>` : ""}`
       : `<p class="muted small" style="margin:18px 0 0">Understand it, then tap to see the English</p>`}
-      ${!x.audio ? `<div class="note">No recording of this sentence yet.</div>` : ""}
+      ${!x.audio ? `<div class="note">No recording of this sentence: it has English letters the voice can't say.</div>` : ""}
     </div>
     <div class="footer">${s.flipped
       ? `<div class="grades five" style="margin-top:0">${SRS.GRADES.map((g, i) =>
