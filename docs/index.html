@@ -1173,7 +1173,7 @@ function renderWordsDone(allDone) {
 const S = { list: [], loading: null, session: null, batch: null };
 const S_GRADES = ["Didn't get it", "Partly", "Got it"];
 const S_GROUPS = {
-  new: { name: "New sentences", done: "No more new sentences", hint: "ones you haven't had yet, mixing many different words" },
+  new: { name: "New sentences", done: "No more new sentences", hint: "ones you haven't had yet, the easiest first" },
   open: { name: "Seen, not known yet", done: "No more sentences to go over", hint: "the ones you said <i>Didn't get it</i> or <i>Partly</i> to last time" },
   known: { name: "Known", done: "No more known sentences", hint: "the ones you said <i>Got it</i> to, longest ago first" },
 };
@@ -1194,16 +1194,21 @@ function sentenceGroups() {
   return g;
 }
 // The next sentence of a group, leaving out the ones shown in this session.
-// New: the one whose words you've met least in sentences so far, with a bonus for words still open
-// in Words (Don't know, not yet known on a later day), so each word keeps coming in new sentences.
+// New: the easy sentences first (short and simple, data/sentences.json "easy"), then the rest,
+// easiest first: short ones, with few words that are still open in Words (Don't know, not yet
+// known on a later day). Among sentences about as easy, the one whose words you've met least in
+// sentences so far, so each word keeps coming in new sentences.
 // Seen ones: the one done longest ago.
 function nextSentenceOf(group, shown) {
-  const pool = sentenceGroups()[group].filter(x => !shown.has(x.audio));
+  let pool = sentenceGroups()[group].filter(x => !shown.has(x.audio));
   if (!pool.length) return null;
   if (group !== "new") return pool.reduce((a, b) => (state.sentences[b.audio].at < state.sentences[a.audio].at ? b : a));
+  if (pool.some(x => x.easy)) pool = pool.filter(x => x.easy);
   const met = {};
   for (const x of S.list) if (state.sentences[x.audio] || shown.has(x.audio)) for (const h of x.words) met[h] = (met[h] || 0) + 1;
-  const value = x => x.words.reduce((v, h) => v + (1 + (SRS.isOpen(state.words[h]) ? 1 : 0)) / (1 + (met[h] || 0)), 0) / Math.sqrt(x.words.length);
+  const open = h => SRS.isOpen(state.words[h]) ? 1 : 0;
+  const variety = x => x.words.reduce((v, h) => v + 1 / (1 + (met[h] || 0)), 0) / Math.sqrt(x.words.length);
+  const value = x => variety(x) - 0.25 * x.hanzi.replace(/[，。？！]/g, "").length - 0.5 * x.words.reduce((n, h) => n + open(h), 0);
   let best = null, bv = -1;
   for (const x of pool) { const v = value(x) + Math.random() * 0.05; if (v > bv) { best = x; bv = v; } }
   return best;
@@ -1233,6 +1238,7 @@ function renderSentences() {
   if (S.session) return renderSentenceCard();
   flushSentences();
   const g = sentenceGroups(), ready = g.new.length + g.open.length + g.known.length;
+  const easyLeft = g.new.filter(x => x.easy).length;
   const seen = W.list.filter(h => state.words[h]).length, dir = sentDir();
   // the sentences the next Study in Words would open
   const next = new Set(SRS.studyWords(W.list, state.words).filter(h => !state.words[h]));
@@ -1244,7 +1250,7 @@ function renderSentences() {
         <button class="btn${dir === "en" ? " on" : ""}" data-dir="en">English → Chinese</button>
       </div>
       <div class="sgroups">${Object.entries(S_GROUPS).map(([k, t], i) => `<button class="btn wide${i === 0 && g.new.length || i === 1 && !g.new.length && g.open.length ? " primary" : ""}" data-group="${k}" ${g[k].length ? "" : "disabled"}>
-        <span>${t.name}<small>${t.hint}</small></span><b>${g[k].length}</b></button>`).join("")}</div>
+        <span>${t.name}<small>${k === "new" && easyLeft ? `${easyLeft} easy ${easyLeft === 1 ? "one" : "ones"} first, then the rest from the easiest` : t.hint}</small></span><b>${g[k].length}</b></button>`).join("")}</div>
       <p class="muted small" style="margin-bottom:0">${ready
         ? `${dir === "zh" ? "Hear and read a sentence and translate it into English" : "Read the English and say the sentence in Chinese"}, then tap to check and say how it went. One sentence after another, until you stop.`
         : `Every sentence is made of words from <b>Words</b>. A sentence comes in here once you've seen all its words there.`}</p>
