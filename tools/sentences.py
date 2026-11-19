@@ -22,6 +22,7 @@ wrote: a character with two readings (还 hái / huán, 得 de / děi) gets the
 word list's one.
 
     python tools/sentences.py fill [file]      # add missing Pinyin, then check
+    python tools/sentences.py refill [file]    # write all the Pinyin again (after changing the rules)
     python tools/sentences.py report [file] [--from N] [--to M]
                                                # each sentence's words and level,
                                                # and how often each word is used
@@ -41,6 +42,10 @@ DATA = ROOT / "data"
 MIN_USES = 3      # every word is in at least this many sentences
 SOON = 10         # ...and should be in MIN_USES sentences you can do within 10 words of it
 MAX_CHARS = 16    # characters in a sentence (without punctuation), so it stays short
+# words after which 过 is the verb "to pass, to spend" (我过生日), not 去过 "have been"
+NOT_BEFORE_GUO = {"我", "你", "他", "她", "它", "我们", "你们", "他们", "大家", "谁", "不", "没", "别", "要", "想",
+                  "能", "会", "可以", "还", "也", "都", "就", "再", "又", "才", "先", "怎么", "一起", "得", "该",
+                  "应该", "必须", "需要", "可能", "快", "已经", "一直", "不要", "不想", "不能", "不会", "想要"}
 PUNCT_PY = {"，": ", ", "。": ". ", "？": "? ", "！": "! ", "：": ": ", "；": ", "}
 
 
@@ -75,6 +80,11 @@ def make_pinyin(hz, dic):
             continue
         pys = [dic.entries[w]["pinyin"] for w in part]
         for i, w in enumerate(part):
+            # light: 个 as a measure word (哪个 nǎ ge), 过 after a verb (去过 qù guo)
+            if w == "个" and i > 0:
+                pys[i] = "ge"
+            if w == "过" and i > 0 and part[i - 1] not in NOT_BEFORE_GUO:
+                pys[i] = "guo"
             if w in ("不", "一") and i + 1 < len(part):
                 tone = pinyin.syllables(pinyin.parse(pys[i + 1]))[0][1]
                 pys[i] = {"不": "bú" if tone == 4 else "bù", "一": "yí" if tone == 4 else "yì"}[w]
@@ -146,10 +156,15 @@ def main():
     path = Path(args[0]) if args else DATA / "sentences.json"
     words = load_words()
     data = load(path)
-    if cmd == "fill":
+    if cmd in ("fill", "refill"):   # refill: write the Pinyin of every sentence again
         dic = dictionary(words)
         filled = 0
         for i, row in enumerate(data["sentences"]):
+            if cmd == "refill" and len(row) == 3:
+                new = make_pinyin(row[0], dic)
+                if new != row[1]:
+                    print(f"{row[1]}  ->  {new}")
+                row = data["sentences"][i] = [row[0], row[2]]
             if len(row) == 2:
                 try:
                     data["sentences"][i] = [row[0], make_pinyin(row[0], dic), row[1]]
