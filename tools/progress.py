@@ -10,7 +10,8 @@
   answers, practice rounds, batches of word flashcard answers), without duplicates
 - data/progress.json also gets the latest word flashcard summary: how many
   words were seen, and how often each word was forgotten (Don't know), and
-  the grammar sessions checked (date, best score, times)
+  the grammar sessions checked (date, best score, times), and how many
+  sentences were translated (Sentences tab)
 - prints a summary of weak spots over the whole log, for PROGRESS.md
 
 Run tools/build.py afterwards to update CHART.md.
@@ -45,8 +46,10 @@ def from_github():
     cards = synced.get("words", {})
     words = {"seen": len(cards),
              "forgotten": {w: c["lapses"] for w, c in cards.items() if c.get("lapses", 0) >= 2}}
+    sents = synced.get("sentences", {}).values()
     return {"copied": synced.get("updated", "")[:16].replace("T", " "),
             "lessons": synced.get("lessons", {}), "words": words, "grammar": synced.get("grammar", {}),
+            "sentences": {"done": len(sents), "ok": sum(1 for c in sents if c.get("last") == 3)},
             "log": synced.get("log", [])}
 
 
@@ -90,6 +93,8 @@ def main():
         grammar[gid] = merged
     if grammar:
         progress["grammar"] = dict(sorted(grammar.items()))
+    if data.get("sentences", {}).get("done"):
+        progress["sentences"] = data["sentences"]   # the newest summary wins
     progress["copied"] = max(progress.get("copied", ""), data["copied"])
     PROGRESS.write_text(json.dumps(progress, ensure_ascii=False, indent=1) + "\n")
 
@@ -125,6 +130,15 @@ def main():
         if words and words["forgotten"]:
             hard = [f"{w} {n}×" + (" ⚑" if n >= 6 else "") for w, n in list(words["forgotten"].items())[:20]]
             print("Often forgotten:", ", ".join(hard))
+    rounds = [e for e in log if e["t"] == "sentences"]
+    if rounds or progress.get("sentences"):
+        grades = [sum(e["grades"][i] for e in rounds) for i in range(3)]
+        st = progress.get("sentences", {})
+        print(f"\nSentences: {st.get('done', '?')} translated, {st.get('ok', '?')} got right the last time; "
+              f"{len(rounds)} rounds logged (Didn't get it {grades[0]}, Partly {grades[1]}, Got it {grades[2]})")
+        wrong = [w for e in rounds[-10:] for w in e.get("wrong", [])]
+        if wrong:
+            print("Not (fully) got lately:", " · ".join(dict.fromkeys(wrong)))
     checks = [e for e in log if e["t"] == "grammar"]
     if progress.get("grammar"):
         print("\nGrammar:", ", ".join(f"{g} best {st['best']}% ({st['times']}×)" for g, st in progress["grammar"].items()))

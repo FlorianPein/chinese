@@ -224,6 +224,17 @@ details.later .list { margin-top: 10px; }
 .done-stats div { background: var(--surface-2); border-radius: 12px; padding: 12px 6px; }
 .done-stats b { display: block; font-size: 1.4rem; }
 /* words */
+.scard .spy { font-size: 1.45rem; line-height: 1.35; font-weight: 600; margin-top: 12px; overflow-wrap: anywhere; }
+.scard .shz { font-size: 1.9rem; line-height: 1.35; margin-top: 6px; }
+.scard .big-en { font-size: 1.4rem; line-height: 1.35; }
+.swords .chip { gap: 1px; font-size: 1rem; padding: 5px 10px; color: var(--text); }
+.swords .chip .hzf { font-size: 1.25rem; }
+.swords .chip.weak .hzf { text-decoration: underline; text-decoration-color: var(--warn); text-underline-offset: 4px; }
+.grades.three { grid-template-columns: repeat(3, 1fr); }
+.grades.three .btn { min-height: 52px; }
+.seg { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin: 0 0 12px; }
+.seg .btn { font-size: .9rem; padding: 8px 6px; }
+.seg .btn.on { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 14%, var(--surface)); font-weight: 600; }
 .wcard { cursor: pointer; min-height: 260px; }
 .wcard .py { margin-top: 10px; }
 .wcard .hz { font-size: 2.6rem; line-height: 1.3; margin-top: 8px; font-family: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif; }
@@ -341,8 +352,12 @@ h2.ltitle { margin: 4px 0 2px; font-size: 1.5rem; color: var(--text); text-trans
 @media (max-width: 420px) {
   .py { font-size: 1.7rem; }
   .kbd { display: none; }
-  nav a { font-size: .85rem; }
+  nav { gap: 2px; padding: 3px; }
+  nav a { font-size: .8rem; flex: auto; min-width: 0; }
   .syl { min-width: 56px; padding: 6px 8px; }
+}
+@media (max-width: 360px) {
+  nav a { font-size: .74rem; letter-spacing: -.01em; }
 }
 </style>
 </head>
@@ -356,6 +371,7 @@ h2.ltitle { margin: 4px 0 2px; font-size: 1.5rem; color: var(--text); text-trans
     <a href="#sounds" data-tab="sounds">Sounds</a>
     <a href="#exercises" data-tab="exercises">Exercises</a>
     <a href="#words" data-tab="words">Words</a>
+    <a href="#sentences" data-tab="sentences">Sentences</a>
     <a href="#grammar" data-tab="grammar">Grammar</a>
     <a href="#settings" data-tab="settings" title="Settings">⚙︎</a>
   </nav>
@@ -371,7 +387,8 @@ const KEY = "pinyin-flashcards-v1";
 // cards: word flashcards from an earlier version of the course, kept so older copies of the app still sync
 // words: progress of each word flashcard, by its characters (see srs.js)
 // grammar: grammar sessions checked, by topic id ({done, last, best, times, at})
-const DEFAULT_STATE = { unlocked: [], cards: {}, words: {}, grammar: {}, lessons: {}, removedLessons: {}, log: [], settings: { numbers: true, autoplay: true } };
+// sentences: sentences translated, by audio id ({n, ok, last, day, at}; see the Sentences tab)
+const DEFAULT_STATE = { unlocked: [], cards: {}, words: {}, sentences: {}, grammar: {}, lessons: {}, removedLessons: {}, log: [], settings: { numbers: true, autoplay: true } };
 // Activity log for "Copy progress for Claude": finished lessons, wrong answers, practice rounds.
 const LOG_MAX = 3000;
 function logEvent(e) {
@@ -393,7 +410,7 @@ const nowIso = () => new Date().toISOString();
 // ---------- sync between devices, through a file on a branch of the GitHub repo ----------
 // The token stays in this browser (its own key, so Export never contains it).
 const SYNC_KEY = "pinyin-sync", SYNC_BRANCH = "progress", SYNC_FILE = "progress.json";
-const SHARED = ["lessons", "removedLessons", "cards", "words", "grammar", "unlocked", "log"];   // settings stay per device
+const SHARED = ["lessons", "removedLessons", "cards", "words", "sentences", "grammar", "unlocked", "log"];   // settings stay per device
 let syncCfg = (() => { try { return JSON.parse(localStorage.getItem(SYNC_KEY)) || {}; } catch (e) { return {}; } })();
 let syncTimer = null, syncing = null, syncAgain = false;
 function saveSyncCfg() { try { localStorage.setItem(SYNC_KEY, JSON.stringify(syncCfg)); } catch (e) { /* ignore */ } }
@@ -409,7 +426,7 @@ const pickShared = st => Object.fromEntries(SHARED.map(k => [k, st[k] || (k === 
 
 // Nothing done on either device is lost: lessons are combined (a lesson unticked
 // later than it was done stays removed), each flashcard keeps its latest review,
-// each word keeps its latest answer, grammar sessions are combined, and the logs are joined.
+// each word and sentence keeps its latest answer, grammar sessions are combined, and the logs are joined.
 function mergeState(a, b) {
   const removed = { ...(b.removedLessons || {}) };
   for (const [id, at] of Object.entries(a.removedLessons || {})) if (!removed[id] || at > removed[id]) removed[id] = at;
@@ -434,6 +451,11 @@ function mergeState(a, b) {
     const o = words[w];
     if (!o || (c.at || "") > (o.at || "") || (c.at === o.at && c.reps > o.reps)) words[w] = c;
   }
+  const sentences = { ...(b.sentences || {}) };
+  for (const [id, c] of Object.entries(a.sentences || {})) {
+    const o = sentences[id];
+    if (!o || (c.at || "") > (o.at || "") || (c.at === o.at && c.n > o.n)) sentences[id] = c;
+  }
   const ga = a.grammar || {}, gb = b.grammar || {}, grammar = {};
   for (const id of new Set([...Object.keys(ga), ...Object.keys(gb)])) {
     const x = ga[id], y = gb[id];
@@ -447,7 +469,7 @@ function mergeState(a, b) {
     if (!seen.has(k)) { seen.add(k); log.push(e); }
   }
   log.sort((x, y) => x.d < y.d ? -1 : x.d > y.d ? 1 : 0);
-  return { lessons, removedLessons: removed, cards, words, grammar, unlocked, log: log.slice(-LOG_MAX) };
+  return { lessons, removedLessons: removed, cards, words, sentences, grammar, unlocked, log: log.slice(-LOG_MAX) };
 }
 
 async function gh(path, opts = {}) {
@@ -528,7 +550,7 @@ function syncStatus() {
 function refreshAfterSync() {
   updateStat();
   const [tab, arg] = (location.hash.slice(1) || "sounds").split("/");
-  if (["sounds", "settings"].includes(tab) || (tab === "exercises" && !arg) || (tab === "words" && !W.session) || (tab === "grammar" && !G.quiz)) route();   // never in the middle of a round, words or a grammar check
+  if (["sounds", "settings"].includes(tab) || (tab === "exercises" && !arg) || (tab === "words" && !W.session) || (tab === "sentences" && !S.session) || (tab === "grammar" && !G.quiz)) route();   // never in the middle of a round, words, sentences or a grammar check
 }
 // every lesson that's done has its sounds in Exercises (all lessons done); lessons that no longer exist are dropped
 function tidyLessons() {
@@ -869,6 +891,20 @@ function progressReport() {
       `${show(h)} ${c.lapses}×${c.lapses >= SRS.HARD ? " ⚑" : ""}`).join(", ")}`);
   }
 
+  const sdone = Object.values(state.sentences);
+  const sentences = { done: sdone.length, ok: sdone.filter(c => c.last === 3).length };
+  if (sdone.length) {
+    lines.push("", `**Sentences:** ${sdone.length} translated, ${sentences.ok} got right the last time${S.list.length ? ` (${S.list.filter(sentenceReady).length} of ${S.list.length} ready)` : ""}.`);
+    const rs = fresh.filter(e => e.t === "sentences");
+    if (rs.length) {
+      const g = [0, 0, 0];
+      rs.forEach(e => e.grades.forEach((x, i) => g[i] += x));
+      lines.push(`Since last copy: ${rs.length} rounds, ${S_GRADES.map((x, i) => `${x} ${g[i]}`).join(", ")}.`);
+      const wrong = [...new Set(rs.flatMap(e => e.wrong || []))];
+      if (wrong.length) lines.push(`Sentences not (fully) got: ${wrong.slice(0, 20).join(" · ")}`);
+    }
+  }
+
   const gdone = Object.entries(state.grammar).sort();
   if (gdone.length) {
     lines.push("", `**Grammar done:** ${gdone.map(([id, st]) => `${id} (${st.done}, best ${st.best}%, ${st.times}×)`).join(", ")}`);
@@ -878,7 +914,7 @@ function progressReport() {
     if (wrong.length) { lines.push("Grammar mistakes since last copy:"); wrong.slice(0, 20).forEach(w => lines.push(`- ${w}`)); }
   }
 
-  const data = { v: 1, copied: now, since, lessons: state.lessons, words, grammar: state.grammar, log: fresh };
+  const data = { v: 1, copied: now, since, lessons: state.lessons, words, sentences, grammar: state.grammar, log: fresh };
   lines.push("", "```json", JSON.stringify(data), "```");
   return lines.join("\n");
 }
@@ -1122,6 +1158,190 @@ function renderWordsDone(allDone) {
       <button class="btn primary wide" id="wBack">Back</button>
     </div>`;
   $("#wBack").onclick = back;
+}
+
+// ---------- Sentences: translate whole sentences made of the words you've seen in Words (docs/sentences.json) ----------
+// A sentence is ready once every one of its words has been seen in Words (studied or reviewed).
+// Progress per sentence, by its audio id: { n: times done, ok: times Got it, last: last answer (1–3), day, at }
+const S = { list: [], loading: null, session: null };
+const S_ROUND = 10;            // sentences in a round
+const S_GRADES = ["Didn't get it", "Partly", "Got it"];
+function loadSentences() {
+  if (!S.loading) S.loading = Promise.all([loadWords(), fetch("sentences.json", { cache: "no-cache" }).then(r => r.json())]).then(([, d]) => {
+    S.list = d.sentences;
+    for (const x of S.list) { x.words = [...new Set(x.tiles.map(t => t[0]))]; byId[x.audio] = byId[x.audio] || { v: x.v }; }
+  }).catch(e => { S.loading = null; throw e; });
+  return S.loading;
+}
+const onSentencesTab = () => (location.hash.slice(1) || "sounds").split("/")[0] === "sentences";
+const sentenceReady = x => x.words.every(h => state.words[h]);
+const sentDir = () => state.settings.sentDir === "en" ? "en" : "zh";
+// how many sentences you've done with each word (so a round brings each word in sentences you haven't had)
+function sentenceMeets() {
+  const met = {};
+  for (const x of S.list) if (state.sentences[x.audio]) for (const h of x.words) met[h] = (met[h] || 0) + 1;
+  return met;
+}
+// A round: first sentences you didn't get on an earlier day (up to half the round), then sentences
+// you haven't done, then the ones done longest ago. Among them, each pick goes to the sentence whose
+// words you've met least in sentences so far (counting this round), with a bonus for words that are
+// still open in Words (you said Don't know and haven't known them on a later day yet). So a round
+// mixes many different words, and every word comes back in sentences it hasn't been in before.
+function pickSentences(n = S_ROUND) {
+  const now = Date.now(), day = SRS.dayOf(now), met = sentenceMeets();
+  const ready = S.list.filter(sentenceReady), st = x => state.sentences[x.audio];
+  const again = ready.filter(x => st(x) && st(x).last < 3 && st(x).day < day).sort((a, b) => st(a).day < st(b).day ? -1 : 1);
+  const fresh = ready.filter(x => !st(x));
+  const done = ready.filter(x => st(x) && !again.includes(x) && st(x).day < day).sort((a, b) => st(a).day < st(b).day ? -1 : 1);
+  const weak = h => SRS.isOpen(state.words[h]) ? 1 : 0;
+  const value = x => x.words.reduce((v, h) => v + (1 + weak(h)) / (1 + (met[h] || 0)), 0) / Math.sqrt(x.words.length) + Math.random() * 0.05;
+  const round = again.slice(0, Math.ceil(n / 2));
+  round.forEach(x => x.words.forEach(h => met[h] = (met[h] || 0) + 1));
+  for (const pool of [fresh, done.slice(0, 4 * n)]) {
+    const left = [...pool];
+    while (round.length < n && left.length) {
+      let best = 0;
+      left.forEach((x, i) => { if (value(x) > value(left[best])) best = i; });
+      const [x] = left.splice(best, 1);
+      round.push(x);
+      x.words.forEach(h => met[h] = (met[h] || 0) + 1);
+    }
+  }
+  return shuffle(round);
+}
+function sentenceCounts() {
+  const ready = S.list.filter(sentenceReady), day = SRS.dayOf(Date.now());
+  const st = x => state.sentences[x.audio];
+  // the next Study table in Words: the sentences its new words would open
+  const next = new Set(SRS.studyWords(W.list, state.words).filter(h => !state.words[h]));
+  const soon = S.list.filter(x => !sentenceReady(x) && x.words.every(h => state.words[h] || next.has(h))).length;
+  return { ready: ready.length, total: S.list.length, done: ready.filter(st).length,
+           again: ready.filter(x => st(x) && st(x).last < 3).length,
+           today: ready.filter(x => st(x) && st(x).day === day).length,
+           available: ready.filter(x => !st(x) || st(x).day < day).length, soon, next: next.size };
+}
+
+function renderSentences() {
+  if (!S.list.length) {
+    keyHandler = null;
+    view.innerHTML = `<div class="card center muted">Loading sentences…</div>`;
+    loadSentences().then(() => { if (onSentencesTab()) renderSentences(); })
+      .catch(() => { if (onSentencesTab()) view.innerHTML = `<div class="card center muted">Couldn't load the sentences. Check your connection and open the tab again.</div>`; });
+    return;
+  }
+  if (S.session) return renderSentenceCard();
+  const n = sentenceCounts(), seen = W.list.filter(h => state.words[h]).length, dir = sentDir();
+  const can = n.available > 0;
+  keyHandler = e => { if (can && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); startSentences(); } };
+  view.innerHTML = `<div class="card center">
+      <div class="done-stats" style="margin-top:0">
+        <div><b>${n.ready}</b><span class="muted small">sentences ready</span></div>
+        <div><b>${n.done}</b><span class="muted small">done</span></div>
+        <div><b>${seen}</b><span class="muted small">words seen</span></div>
+      </div>
+      <div class="seg" role="group" aria-label="Translate">
+        <button class="btn${dir === "zh" ? " on" : ""}" data-dir="zh">Chinese → English</button>
+        <button class="btn${dir === "en" ? " on" : ""}" data-dir="en">English → Chinese</button>
+      </div>
+      <button class="btn primary wide" id="sStart" ${can ? "" : "disabled"}>${can ? `Start: ${Math.min(S_ROUND, n.available)} sentences` : n.ready ? "All done for today" : "No sentences yet"}</button>
+      <p class="muted small" style="margin-bottom:0">${n.ready
+        ? `${dir === "zh" ? "Hear and read a sentence, translate it into English" : "Read the English, say the sentence in Chinese"}, then tap to check and say how it went. Each sentence only uses words you've seen in <b>Words</b>, and every word comes back in several different sentences.${n.again ? ` ${n.again} you didn't fully get come back first.` : ""}`
+        : `Every sentence is made of words from <b>Words</b>. A sentence comes in here once you've seen all its words there.`}</p>
+    </div>
+    <div class="card" style="margin-top:14px;padding:14px 16px">
+      <div class="muted small">${n.ready} of ${n.total} sentences use only the ${seen} words you've seen in <b>Words</b>.${n.soon && n.next
+        ? ` <b>${n.soon} more</b> open once you've studied the next ${n.next} new words (<a href="#words/study">Study</a>).` : ""}${n.today ? ` ${n.today} done today.` : ""}</div>
+    </div>`;
+  view.querySelectorAll("[data-dir]").forEach(b => b.onclick = () => { state.settings.sentDir = b.dataset.dir; saveLocal(); renderSentences(); });
+  if (can) $("#sStart").onclick = startSentences;
+}
+function startSentences() {
+  const queue = pickSentences();
+  if (!queue.length) return renderSentences();
+  S.session = { queue, pos: 0, total: queue.length, dir: sentDir(), flipped: false, grades: [0, 0, 0], first: new Set(), wrong: [] };
+  queue.forEach(x => audioFor(x.audio));
+  renderSentenceCard();
+}
+function renderSentenceCard() {
+  const s = S.session, x = s.queue[s.pos], zhFirst = s.dir === "zh", again = s.first.has(x.audio);
+  const flip = () => { if (!s.flipped) { s.flipped = true; renderSentenceCard(); if (!zhFirst) play(x.audio); } };
+  const chinese = `<div class="spy">${esc(x.pinyin)}</div>${state.settings.numbers ? `<div class="num">${esc(x.numbers)}</div>` : ""}
+      <div class="shz hzf" lang="zh-CN">${esc(x.hanzi)}</div>`;
+  const play2 = `<div class="row" style="margin-top:12px"><button class="btn bigplay" data-play="${x.audio}" title="Play again (P)">🔊</button>
+      <button class="btn icon" data-slow="${x.audio}" title="Slowly">🐢</button></div>`;
+  const words = x.tiles.map(([h, said]) => {
+    const w = W.byHanzi[h], weak = SRS.isOpen(state.words[h]);
+    return `<button class="chip${weak ? " weak" : ""}" data-play="${w.audio}" title="Play ${esc(w.pinyin)}${weak ? " (still open in Words)" : ""}">
+      <span class="hzf" lang="zh-CN">${esc(h)}</span><span>${esc(said)}</span><small>${esc(w.english.split(/[;(]/)[0].trim() || w.english)}</small></button>`;
+  }).join("");
+  const front = zhFirst ? `${play2}${chinese}` : `<div class="big-en">${esc(x.english)}</div>`;
+  const back = zhFirst ? `<hr><div class="big-en">${esc(x.english)}</div>` : `<hr>${play2}${chinese}`;
+  view.innerHTML = `<div class="wtop"><button class="btn" id="sStop">✕ Stop</button>
+      <span class="muted small">${s.pos} of ${s.queue.length} done</span></div>
+    <div class="card center wcard scard" id="sCard">
+      <span class="tag">${again ? "Once more" : zhFirst ? "Translate into English" : "Say it in Chinese"}</span>
+      ${front}
+      ${s.flipped ? `${back}<div class="chips swords">${words}</div>
+        <p class="muted small" style="margin:10px 0 0">Tap a word to hear it.${x.tiles.some(([h]) => SRS.isOpen(state.words[h])) ? " Underlined: still open in Words." : ""}</p>`
+      : `<p class="muted small" style="margin:18px 0 0">${zhFirst ? "Translate it in your head or out loud" : "Say it out loud, or write it down"}, then tap to check</p>`}
+    </div>
+    <div class="footer">${s.flipped
+      ? `<div class="grades three" style="margin-top:0">${S_GRADES.map((g, i) => `<button class="btn g${[1, 2, 4][i]}" data-sgrade="${i + 1}">${g}</button>`).join("")}</div>`
+      : `<button class="btn primary wide" id="sShow">Show answer</button>`}</div>
+    <div class="kbd center">${s.flipped ? "1–3: how it went" : "Space: show answer"} · P: play</div>`;
+  if (s.flipped) x.tiles.forEach(([h]) => audioFor(W.byHanzi[h].audio));
+  $("#sStop").onclick = () => finishSentences(false);
+  $("#sCard").onclick = e => { if (!e.target.closest("button")) flip(); };
+  if ($("#sShow")) $("#sShow").onclick = flip;
+  view.querySelectorAll("[data-sgrade]").forEach(b => b.onclick = () => gradeSentence(+b.dataset.sgrade));
+  keyHandler = e => {
+    if ((e.key === "p" || e.key === "P") && (zhFirst || s.flipped)) play(x.audio);
+    else if (!s.flipped && (e.key === " " || e.key === "Enter")) { e.preventDefault(); flip(); }
+    else if (s.flipped && /^[1-3]$/.test(e.key)) gradeSentence(+e.key);
+  };
+  if (zhFirst && !s.flipped && state.settings.autoplay) play(x.audio);
+}
+// The first answer to a sentence in a round is what counts; one you didn't fully get
+// comes back once at the end of the round.
+function gradeSentence(grade) {
+  const s = S.session, x = s.queue[s.pos];
+  stopAudio();
+  if (!s.first.has(x.audio)) {
+    s.first.add(x.audio);
+    s.grades[grade - 1]++;
+    if (grade < 3) s.wrong.push(x.hanzi);
+    const o = state.sentences[x.audio] || { n: 0, ok: 0 };
+    state.sentences[x.audio] = { n: o.n + 1, ok: o.ok + (grade === 3 ? 1 : 0), last: grade,
+                                 day: SRS.dayOf(Date.now()), at: new Date().toISOString().slice(0, 19) };
+    save();
+    if (grade < 3) s.queue.push(x);
+  }
+  s.pos++;
+  s.flipped = false;
+  if (s.pos >= s.queue.length) return finishSentences(true);
+  renderSentenceCard();
+}
+function finishSentences(allDone) {
+  stopAudio();
+  const s = S.session;
+  S.session = null;
+  const done = s.grades.reduce((a, b) => a + b, 0);
+  if (!done) return renderSentences();
+  logEvent({ t: "sentences", dir: s.dir, total: done, grades: s.grades, wrong: s.wrong });
+  save();
+  const back = () => renderSentences();
+  keyHandler = e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); back(); } };
+  view.innerHTML = `<div class="card center">
+      <h3 style="margin-top:0">${allDone ? "Round done" : "Good work"}</h3>
+      <div class="done-stats">
+        <div><b>${s.grades[2]}</b><span class="muted small">got it</span></div>
+        <div><b>${s.grades[1]}</b><span class="muted small">partly</span></div>
+        <div><b>${s.grades[0]}</b><span class="muted small">didn't get it</span></div>
+      </div>
+      <p class="muted">${s.wrong.length ? "The ones you didn't fully get come back first in a round on another day." : "Well done."}</p>
+      <button class="btn primary wide" id="sBack">Back</button>
+    </div>`;
+  $("#sBack").onclick = back;
 }
 
 // ---------- Grammar: one topic per session, in HSK order (docs/grammar.json, built from data/grammar/) ----------
@@ -1948,7 +2168,7 @@ function renderSettings() {
     <h2>Settings</h2>
     <div class="card">
       <div class="setting"><span>Show tone numbers under Pinyin</span><input type="checkbox" id="numbers" ${state.settings.numbers ? "checked" : ""}></div>
-      <div class="setting"><span>Words: play the sound when a card appears</span><input type="checkbox" id="autoplay" ${state.settings.autoplay ? "checked" : ""}></div>
+      <div class="setting"><span>Words and Sentences: play the sound when a card appears</span><input type="checkbox" id="autoplay" ${state.settings.autoplay ? "checked" : ""}></div>
     </div>
     <h2>Sync between devices</h2>
     <div class="card">${syncCfg.token ? `
@@ -2034,11 +2254,13 @@ function route() {
   if (old) { location.replace("#" + old.filter(Boolean).join("/")); return; }
   stopAudio();
   if (tab !== "words") { flushWords(); W.session = null; }
+  if (tab !== "sentences" && S.session) { const s = S.session; S.session = null; if (s.first.size) logEvent({ t: "sentences", dir: s.dir, total: s.first.size, grades: s.grades, wrong: s.wrong }); }
   if (tab !== "exercises" || !arg) L = null;
   if (tab !== "grammar" || sub !== "check") G.quiz = null;
   document.body.classList.toggle("inlesson", (tab === "exercises" && !!arg) || (tab === "grammar" && sub === "check"));
   document.querySelectorAll("nav a").forEach(a => a.classList.toggle("on", a.dataset.tab === tab));
   ({ sounds: () => renderSounds(arg), exercises: () => arg ? startRound(arg) : renderExercises(), words: () => renderWords(arg),
+     sentences: renderSentences,
      grammar: () => renderGrammar(arg, sub), settings: renderSettings }[tab] || renderSounds)();
   updateStat();
 }

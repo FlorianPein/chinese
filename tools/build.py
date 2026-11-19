@@ -41,6 +41,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent))
 import grammar  # noqa: E402
 import pinyin  # noqa: E402
+import sentences  # noqa: E402
 from chart import Chart  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -975,6 +976,16 @@ def audio_version(iid):
     return hashlib.md5((AUDIO / f"{iid}.mp3").read_bytes()).hexdigest()[:8]
 
 
+def build_sentences(built):
+    """docs/sentences.json for the Sentences tab: every sentence with its words and
+    level (the place in the word list of its furthest word), lowest level first."""
+    out = [{k: x[k] for k in ("hanzi", "pinyin", "numbers", "english", "tiles", "level", "audio")}
+           | {"v": audio_version(x["audio"])} for x in sorted(built, key=lambda x: x["level"])]
+    (DOCS / "sentences.json").write_text(
+        "{\"sentences\": [\n" + ",\n".join(json.dumps(x, ensure_ascii=False) for x in out) + "\n]}\n")
+    print(f"Sentences: {len(out)} to translate.")
+
+
 def build_grammar(plan, built):
     """docs/grammar.json for the Grammar tab, and GRAMMAR.md."""
     for s in built:
@@ -1196,10 +1207,21 @@ def main():
         new = [w["hanzi"] for w in s["words"] if w.get("new")]
         print(f"  {s['id']}: {len(s['blocks'])} blocks, {len(s['exercises'])} exercises, "
               f"{len(s['words'])} words (word list up to #{s['limit']}{'; new: ' + ' '.join(new) if new else ''})")
+    by_hanzi = {w["hanzi"]: w for w in words.values()}
+    s_path = DATA / "sentences.json"
+    s_rows = json.loads(s_path.read_text())["sentences"] if s_path.exists() else []
+    s_errors, s_built, s_items, s_uses = sentences.process(s_rows, by_hanzi)
+    s_errors += sentences.coverage_errors(s_uses, by_hanzi)
+    for e in s_errors:
+        print("ERROR sentences", e)
+    if s_errors:
+        sys.exit(1)
+    print(f"Sentences: {len(s_built)} checked, every word in at least {sentences.MIN_USES}")
     if cmd in ("all", "audio"):
-        build_audio({**items, **words, **g_items, **example_items(words)}, force="--force" in sys.argv)
+        build_audio({**items, **words, **g_items, **example_items(words), **s_items}, force="--force" in sys.argv)
     if cmd in ("all", "cards"):
         build_grammar(g_plan, g_built)
+        build_sentences(s_built)
         build_words(words)
         build_cards(chart, topics, lessons, items, plan)
         build_notes(chart, topics, lessons, items, plan)
