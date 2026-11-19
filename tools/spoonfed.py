@@ -200,10 +200,20 @@ def number_pinyin(n):
     return " ".join(parts)
 
 
+def without_erhua(word):
+    """wánr -> wán, yīhuì'r -> yīhuì: the voice can't say the -r ending (erhua)."""
+    word = re.sub(r"['’]r$", "", word)
+    if word.endswith("r") and syllables_of(word) is None and syllables_of(word[:-1]):
+        return word[:-1]
+    return word
+
+
 def spoken_pinyin(py):
-    """The Pinyin as the voice should say it: without the A:/B: labels, numbers in words."""
+    """The Pinyin as the voice should say it: without the A:/B: labels, numbers in words,
+    no -r endings."""
     py = re.sub(r"(^|\n)[AB]:\s*", r"\1", py)
     py = re.sub(r"\d+", lambda m: number_pinyin(int(m.group())), py)
+    py = re.sub(r"[^\W\d_]+(?:['’][^\W\d_]+)*", lambda m: without_erhua(m.group()), py)
     return py.replace("\n", " ")
 
 
