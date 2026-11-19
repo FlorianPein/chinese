@@ -16,3 +16,132 @@
 {"d": "2026-11-07T18:16:38", "grades": [7, 2, 4, 1, 0], "new": 6, "t": "words", "total": 14}
 {"d": "2026-11-07T18:24:15", "grades": [2, 0, 2, 0, 0], "new": 1, "t": "words", "total": 4}
 {"d": "2026-11-07T18:27:31", "grades": [5, 2, 4, 0, 0], "new": 4, "t": "words", "total": 11}
+{"d": "2026-11-07T18:56:06", "grades": [9, 3, 5, 1, 0], "new": 7, "t": "words", "total": 18}
+{"d": "2026-11-07T23:24:30", "grades": [10, 7, 3, 0, 0], "new": 4, "t": "words", "total": 20}
+{"d": "2026-11-07T23:28:06", "grades": [5, 1, 5, 0, 0], "new": 4, "t": "words", "total": 11}
+{"d": "2026-11-08T08:50:14", "grades": [10, 3, 7, 0, 0], "new": 1, "t": "words", "total": 20}
+{"d": "2026-11-08T08:53:20", "grades": [14, 5, 1, 0, 0], "new": 0, "t": "words", "total": 20}
+{"d": "2026-11-08T08:53:55", "grades": [2, 1, 0, 0, 0], "new": 0, "t": "words", "total": 3}
+{"d": "2026-11-08T08:57:09", "grades": [7, 8, 0, 1, 0], "new": 0, "t": "words", "total": 16}
+{"d": "2026-11-08T09:09:09", "grades": [9, 4, 7, 0, 0], "new": 0, "t": "words", "total": 20}
+{"d": "2026-11-08T09:14:07", "grades": [12, 4, 1, 0, 0], "new": 0, "t": "words", "total": 17}
+{"d": "2026-11-08T14:32:45", "grades": [9, 8, 3, 0, 0], "new": 7, "t": "words", "total": 20}
+{"d": "2026-11-08T14:35:39", "grades": [3, 3, 4, 0, 0], "new": 3, "t": "words", "total": 10}
+{"d": "2026-11-08T14:50:40", "grades": [2, 2, 16, 0, 0], "new": 0, "practice": true, "t": "words", "total": 20}
+{"d": "2026-11-08T14:53:04", "grades": [3, 3, 12, 0, 0], "new": 0, "practice": true, "t": "words", "total": 18}
+{"d": "2026-11-08T15:15:19", "got": "2nd tone", "lesson": "P01", "retry": 0, "step": 13, "t": "mistake", "type": "tone", "want": "mò"}
+{"d": "2026-11-08T15:15:48", "got": "2nd tone", "lesson": "P01", "retry": 0, "step": 17, "t": "mistake", "type": "tone", "want": "bǒ"}
+{"d": "2026-11-08T15:16:24", "got": "mò", "lesson": "P01", "retry": 0, "step": 20, "t": "mistake", "type": "hear", "want": "mó"}
+{"d": "2026-11-08T15:17:16", "got": "4th tone", "lesson": "P01", "retry": 0, "step": 23, "t": "mistake", "type": "tone", "want": "wǒ"}
+{"d": "2026-11-08T15:17:49", "got": "mó mǒ", "lesson": "P01", "retry": 0, "step": 26, "t": "mistake", "type": "order", "want": "mō mǒ"}
+{"d": "2026-11-08T15:18:33", "got": "4th tone", "lesson": "P01", "retry": 0, "step": 29, "t": "mistake", "type": "tone", "want": "fó"}
+{"d": "2026-11-08T15:19:19", "got": "fò", "lesson": "P01", "retry": 0, "step": 33, "t": "mistake", "type": "hear", "want": "fó"}
+{"d": "2026-11-08T15:19:57", "got": "mo1", "lesson": "P01", "retry": 0, "step": 36, "t": "mistake", "type": "type", "want": "wǒ"}
+{"d": "2026-11-08T15:20:05", "got": "2nd tone", "lesson": "P01", "retry": 1, "step": 13, "t": "mistake", "type": "tone", "want": "mò"}
+{"d": "2026-11-08T15:20:13", "got": "2nd tone", "lesson": "P01", "retry": 1, "step": 17, "t": "mistake", "type": "tone", "want": "bǒ"}
+{"d": "2026-11-08T15:20:29", "got": "4th tone", "lesson": "P01", "retry": 1, "step": 23, "t": "mistake", "type": "tone", "want": "wǒ"}
+{"d": "2026-11-08T15:20:35", "got": "mó mǒ", "lesson": "P01", "retry": 1, "step": 26, "t": "mistake", "type": "order", "want": "mō mǒ"}
+{"d": "2026-11-08T15:20:44", "got": "1st tone", "lesson": "P01", "retry": 1, "step": 29, "t": "mistake", "type": "tone", "want": "fó"}
+{"d": "2026-11-08T15:20:56", "got": "mo3", "lesson": "P01", "retry": 1, "step": 36, "t": "mistake", "type": "type", "want": "wǒ"}
+{"d": "2026-11-08T15:21:05", "got": "1st tone", "lesson": "P01", "retry": 2, "step": 13, "t": "mistake", "type": "tone", "want": "mò"}
+{"d": "2026-11-08T15:21:15", "got": "2nd tone", "lesson": "P01", "retry": 2, "step": 23, "t": "mistake", "type": "tone", "want": "wǒ"}
+{"d": "2026-11-08T15:21:23", "got": "4th tone", "lesson": "P01", "retry": 2, "step": 29, "t": "mistake", "type": "tone", "want": "fó"}
+{"d": "2026-11-08T15:21:33", "got": "mo2", "lesson": "P01", "retry": 2, "step": 36, "t": "mistake", "type": "type", "want": "wǒ"}
+{"d": "2026-11-08T15:21:34", "exercises": 27, "lesson": "P01", "minutes": 9, "score": 70, "t": "lesson", "wrong": 8}
+{"d": "2026-11-08T15:24:35", "grades": [1, 0, 19, 0, 0], "new": 0, "practice": true, "t": "words", "total": 20}
+{"d": "2026-11-08T15:25:47", "grades": [3, 0, 9, 0, 0], "new": 0, "practice": true, "t": "words", "total": 12}
+{"d": "2026-11-08T18:22:36", "grades": [0, 0, 20, 0, 0], "new": 0, "practice": true, "t": "words", "total": 20}
+{"d": "2026-11-08T18:23:44", "grades": [1, 1, 8, 0, 0], "new": 0, "practice": true, "t": "words", "total": 10}
+{"d": "2026-11-08T23:42:12", "id": "G01", "score": 100, "t": "grammar", "wrong": []}
+{"d": "2026-11-09T21:37:52", "grades": [6, 3, 11, 0, 0], "new": 0, "t": "words", "total": 20}
+{"d": "2026-11-09T21:40:31", "grades": [3, 3, 13, 0, 0], "new": 0, "t": "words", "total": 19}
+{"d": "2026-11-09T21:48:56", "id": "G02", "score": 100, "t": "grammar", "wrong": []}
+{"d": "2026-11-09T21:55:20", "grades": [4, 1, 6, 0, 0], "new": 0, "t": "words", "total": 11}
+{"d": "2026-11-09T22:05:35", "new": 2, "t": "study", "total": 10}
+{"d": "2026-11-09T22:07:00", "grades": [0, 0, 4, 0, 0], "new": 2, "t": "words", "total": 4}
+{"d": "2026-11-09T22:08:07", "grades": [0, 0, 10, 0, 0], "new": 0, "practice": true, "t": "words", "total": 10}
+{"d": "2026-11-09T22:10:32", "new": 2, "t": "study", "total": 10}
+{"d": "2026-11-09T22:13:11", "new": 2, "t": "study", "total": 10}
+{"d": "2026-11-09T22:13:49", "grades": [8, 0, 0, 0, 0], "new": 4, "t": "words", "total": 8}
+{"d": "2026-11-09T22:16:58", "grades": [4, 0, 8, 0, 0], "new": 0, "practice": true, "t": "words", "total": 12}
+{"d": "2026-11-09T22:17:48", "new": 0, "t": "study", "total": 10}
+{"d": "2026-11-09T22:18:04", "new": 0, "t": "study", "total": 10}
+{"d": "2026-11-09T22:18:08", "new": 0, "t": "study", "total": 10}
+{"d": "2026-11-09T22:18:13", "new": 0, "t": "study", "total": 10}
+{"d": "2026-11-09T22:18:37", "new": 0, "t": "study", "total": 10}
+{"d": "2026-11-09T22:18:56", "grades": [12, 0, 0, 0, 0], "new": 0, "t": "words", "total": 12}
+{"d": "2026-11-09T22:20:28", "new": 0, "t": "study", "total": 10}
+{"d": "2026-11-09T22:20:35", "new": 0, "t": "study", "total": 10}
+{"d": "2026-11-09T22:20:39", "new": 0, "t": "study", "total": 10}
+{"d": "2026-11-09T22:24:15", "grades": [12, 0, 0, 0, 0], "new": 0, "t": "words", "total": 12}
+{"d": "2026-11-09T22:24:34", "new": 0, "t": "study", "total": 10}
+{"d": "2026-11-09T22:24:41", "new": 0, "t": "study", "total": 10}
+{"d": "2026-11-09T22:24:43", "new": 0, "t": "study", "total": 10}
+{"d": "2026-11-09T22:42:22", "new": 10, "t": "study", "total": 10}
+{"d": "2026-11-09T22:43:47", "grades": [15, 0, 5, 0, 0], "new": 10, "t": "words", "total": 20}
+{"d": "2026-11-09T22:43:59", "grades": [7, 0, 0, 0, 0], "new": 0, "t": "words", "total": 7}
+{"d": "2026-11-09T23:01:55", "new": 0, "t": "study", "total": 10}
+{"d": "2026-11-09T23:02:53", "grades": [12, 0, 4, 0, 0], "new": 0, "t": "words", "total": 16}
+{"d": "2026-11-09T23:06:02", "grades": [3, 1, 16, 0, 0], "new": 0, "practice": true, "t": "words", "total": 20}
+{"d": "2026-11-10T22:17:17", "grades": [5, 1, 8, 0, 6], "new": 0, "t": "words", "total": 20}
+{"d": "2026-11-10T22:18:41", "grades": [1, 2, 5, 0, 4], "new": 0, "t": "words", "total": 12}
+{"d": "2026-11-10T23:23:47", "new": 0, "t": "study", "total": 10}
+{"d": "2026-11-10T23:31:05", "new": 8, "t": "study", "total": 10}
+{"d": "2026-11-10T23:32:54", "grades": [16, 0, 4, 0, 0], "new": 5, "t": "words", "total": 20}
+{"d": "2026-11-10T23:33:57", "grades": [10, 1, 1, 0, 0], "new": 3, "t": "words", "total": 12}
+{"d": "2026-11-10T23:34:53", "grades": [1, 0, 7, 0, 0], "new": 0, "practice": true, "t": "words", "total": 8}
+{"d": "2026-11-10T23:38:11", "id": "G03", "score": 100, "t": "grammar", "wrong": []}
+{"d": "2026-11-10T23:49:19", "new": 0, "t": "study", "total": 10}
+{"d": "2026-11-10T23:51:01", "grades": [12, 1, 4, 0, 0], "new": 0, "t": "words", "total": 17}
+{"d": "2026-11-11T22:16:35", "grades": [1, 0, 5, 0, 0], "new": 0, "t": "words", "total": 6}
+{"d": "2026-11-11T22:19:44", "grades": [2, 0, 6, 0, 0], "new": 0, "t": "words", "total": 8}
+{"d": "2026-11-11T22:22:04", "grades": [1, 1, 4, 0, 0], "new": 0, "t": "words", "total": 6}
+{"d": "2026-11-11T22:31:20", "id": "G04", "score": 100, "t": "grammar", "wrong": []}
+{"d": "2026-11-12T21:24:48", "grades": [6, 3, 10, 1, 0], "new": 0, "t": "words", "total": 20}
+{"d": "2026-11-12T21:26:56", "grades": [11, 2, 6, 1, 0], "new": 0, "t": "words", "total": 20}
+{"d": "2026-11-12T21:51:56", "id": "G05", "score": 100, "t": "grammar", "wrong": []}
+{"d": "2026-11-12T21:52:35", "grades": [0, 0, 3, 0, 0], "new": 0, "practice": true, "t": "words", "total": 3}
+{"d": "2026-11-13T19:54:45", "grades": [2, 0, 13, 1, 0], "new": 0, "t": "words", "total": 16}
+{"d": "2026-11-14T14:39:34", "grades": [1, 3, 15, 0, 0], "new": 0, "t": "words", "total": 19}
+{"d": "2026-11-14T14:51:05", "new": 0, "t": "study", "total": 10}
+{"d": "2026-11-14T14:52:51", "grades": [4, 1, 8, 0, 0], "new": 0, "t": "words", "total": 13}
+{"d": "2026-11-15T15:55:56", "grades": [6, 1, 13, 0, 0], "new": 0, "t": "words", "total": 20}
+{"d": "2026-11-15T15:58:05", "grades": [1, 0, 8, 3, 0], "new": 0, "t": "words", "total": 12}
+{"d": "2026-11-15T16:15:19", "grades": [1, 0, 4, 0, 0], "new": 0, "practice": true, "t": "words", "total": 5}
+{"d": "2026-11-15T16:20:06", "grades": [0, 0, 4, 0, 0], "new": 0, "practice": true, "t": "words", "total": 4}
+{"d": "2026-11-15T16:30:02", "new": 0, "t": "study", "total": 10}
+{"d": "2026-11-15T16:31:44", "grades": [2, 0, 9, 0, 0], "new": 0, "t": "words", "total": 11}
+{"d": "2026-11-15T16:42:11", "new": 2, "t": "study", "total": 10}
+{"d": "2026-11-15T16:45:05", "grades": [1, 1, 6, 0, 0], "new": 2, "t": "words", "total": 8}
+{"d": "2026-11-15T16:49:16", "grades": [5, 3, 12, 0, 0], "new": 0, "practice": true, "t": "words", "total": 20}
+{"d": "2026-11-15T16:50:19", "grades": [3, 0, 4, 0, 0], "new": 0, "practice": true, "t": "words", "total": 7}
+{"d": "2026-11-15T16:55:18", "id": "G06", "score": 67, "t": "grammar", "wrong": ["meaning: 这是谁的钱？ (Whose money is this?) → Is this your money?", "gap: 你说什么？ (What did you say?) → 谁 shéi"]}
+{"d": "2026-11-15T17:04:41", "right": 1, "t": "practice", "total": 1}
+{"d": "2026-11-15T17:05:03", "got": "2nd tone", "lesson": "practice", "t": "mistake", "type": "tone", "want": "lè"}
+{"d": "2026-11-15T17:05:19", "right": 2, "t": "practice", "total": 3}
+{"d": "2026-11-15T17:49:36", "got": "4th tone", "lesson": "P01", "retry": 0, "t": "mistake", "type": "tone", "want": "mō"}
+{"d": "2026-11-15T17:50:06", "got": "wó", "lesson": "P01", "retry": 0, "t": "mistake", "type": "hear", "want": "wǒ"}
+{"d": "2026-11-15T17:50:19", "got": "4th tone", "lesson": "P01", "retry": 0, "t": "mistake", "type": "tone", "want": "fǒ"}
+{"d": "2026-11-15T17:51:27", "got": "wō", "lesson": "P01", "retry": 0, "t": "mistake", "type": "hear", "want": "wó"}
+{"d": "2026-11-15T17:51:33", "got": "1st tone", "lesson": "P01", "retry": 0, "t": "mistake", "type": "tone", "want": "bò"}
+{"d": "2026-11-15T17:52:43", "got": "wó", "lesson": "P01", "retry": 1, "t": "mistake", "type": "hear", "want": "wǒ"}
+{"d": "2026-11-15T17:52:50", "got": "2nd tone", "lesson": "P01", "retry": 1, "t": "mistake", "type": "tone", "want": "fǒ"}
+{"d": "2026-11-15T17:52:57", "got": "bó", "lesson": "P01", "retry": 1, "t": "mistake", "type": "hear", "want": "wó"}
+{"d": "2026-11-15T17:53:04", "got": "2nd tone", "lesson": "P01", "retry": 1, "t": "mistake", "type": "tone", "want": "bò"}
+{"d": "2026-11-15T17:53:11", "got": "wó", "lesson": "P01", "retry": 2, "t": "mistake", "type": "hear", "want": "wǒ"}
+{"d": "2026-11-15T17:53:29", "exercises": 20, "lesson": "P01", "minutes": 4, "score": 75, "t": "lesson", "wrong": 5}
+{"d": "2026-11-16T20:08:11", "grades": [0, 0, 4, 0, 0], "new": 0, "t": "words", "total": 4}
+{"d": "2026-11-16T20:11:44", "grades": [3, 0, 10, 0, 0], "new": 0, "t": "words", "total": 13}
+{"d": "2026-11-16T20:17:56", "grades": [1, 0, 0, 0, 0], "new": 0, "t": "words", "total": 1}
+{"d": "2026-11-16T20:20:28", "grades": [4, 1, 8, 2, 0], "new": 0, "t": "words", "total": 15}
+{"d": "2026-11-16T20:21:15", "grades": [0, 0, 4, 0, 0], "new": 0, "practice": true, "t": "words", "total": 4}
+{"d": "2026-11-16T22:41:57", "new": 0, "t": "study", "total": 10}
+{"d": "2026-11-16T22:50:10", "new": 10, "t": "study", "total": 10}
+{"d": "2026-11-16T22:52:47", "grades": [13, 1, 6, 0, 0], "new": 9, "t": "words", "total": 20}
+{"d": "2026-11-16T22:53:09", "grades": [4, 0, 2, 0, 0], "new": 1, "t": "words", "total": 6}
+{"d": "2026-11-17T21:27:54", "grades": [4, 0, 15, 1, 0], "new": 0, "t": "words", "total": 20}
+{"d": "2026-11-17T21:29:07", "grades": [3, 2, 5, 0, 0], "new": 0, "t": "words", "total": 10}
+{"d": "2026-11-18T22:43:58", "grades": [5, 0, 12, 2, 1], "new": 0, "t": "words", "total": 20}
+{"d": "2026-11-18T22:44:02", "grades": [2, 0, 0, 0, 0], "new": 0, "t": "words", "total": 2}
+{"d": "2026-11-19T20:38:42", "grades": [3, 0, 17, 0, 0], "new": 0, "t": "words", "total": 20}
+{"d": "2026-11-19T20:39:19", "grades": [0, 0, 5, 0, 0], "new": 0, "t": "words", "total": 5}

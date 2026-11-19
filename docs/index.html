@@ -224,6 +224,21 @@ details.later .list { margin-top: 10px; }
 .done-stats div { background: var(--surface-2); border-radius: 12px; padding: 12px 6px; }
 .done-stats b { display: block; font-size: 1.4rem; }
 /* words */
+.scard .spy { font-size: 1.45rem; line-height: 1.35; font-weight: 600; margin-top: 12px; overflow-wrap: anywhere; }
+.scard .shz { font-size: 1.9rem; line-height: 1.35; margin-top: 6px; }
+.scard .big-en { font-size: 1.4rem; line-height: 1.35; }
+.swords .chip { gap: 1px; font-size: 1rem; padding: 5px 10px; color: var(--text); }
+.swords .chip .hzf { font-size: 1.25rem; }
+.swords .chip.weak .hzf { text-decoration: underline; text-decoration-color: var(--warn); text-underline-offset: 4px; }
+.grades.three { grid-template-columns: repeat(3, 1fr); }
+.sgroups { display: grid; gap: 8px; margin-bottom: 4px; }
+.sgroups .btn { display: flex; justify-content: space-between; align-items: center; text-align: left; }
+.sgroups .btn b { font-size: 1.1rem; }
+.sgroups .btn small { display: block; font-size: .78rem; font-weight: 400; opacity: .8; margin-top: 2px; }
+.grades.three .btn { min-height: 52px; }
+.seg { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin: 0 0 12px; }
+.seg .btn { font-size: .9rem; padding: 8px 6px; }
+.seg .btn.on { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 14%, var(--surface)); font-weight: 600; }
 .wcard { cursor: pointer; min-height: 260px; }
 .wcard .py { margin-top: 10px; }
 .wcard .hz { font-size: 2.6rem; line-height: 1.3; margin-top: 8px; font-family: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif; }
@@ -341,8 +356,12 @@ h2.ltitle { margin: 4px 0 2px; font-size: 1.5rem; color: var(--text); text-trans
 @media (max-width: 420px) {
   .py { font-size: 1.7rem; }
   .kbd { display: none; }
-  nav a { font-size: .85rem; }
+  nav { gap: 2px; padding: 3px; }
+  nav a { font-size: .8rem; flex: auto; min-width: 0; }
   .syl { min-width: 56px; padding: 6px 8px; }
+}
+@media (max-width: 360px) {
+  nav a { font-size: .74rem; letter-spacing: -.01em; }
 }
 </style>
 </head>
@@ -356,6 +375,7 @@ h2.ltitle { margin: 4px 0 2px; font-size: 1.5rem; color: var(--text); text-trans
     <a href="#sounds" data-tab="sounds">Sounds</a>
     <a href="#exercises" data-tab="exercises">Exercises</a>
     <a href="#words" data-tab="words">Words</a>
+    <a href="#sentences" data-tab="sentences">Sentences</a>
     <a href="#grammar" data-tab="grammar">Grammar</a>
     <a href="#settings" data-tab="settings" title="Settings">⚙︎</a>
   </nav>
@@ -371,7 +391,8 @@ const KEY = "pinyin-flashcards-v1";
 // cards: word flashcards from an earlier version of the course, kept so older copies of the app still sync
 // words: progress of each word flashcard, by its characters (see srs.js)
 // grammar: grammar sessions checked, by topic id ({done, last, best, times, at})
-const DEFAULT_STATE = { unlocked: [], cards: {}, words: {}, grammar: {}, lessons: {}, removedLessons: {}, log: [], settings: { numbers: true, autoplay: true } };
+// sentences: sentences translated, by audio id ({n, ok, last, day, at}; see the Sentences tab)
+const DEFAULT_STATE = { unlocked: [], cards: {}, words: {}, sentences: {}, grammar: {}, lessons: {}, removedLessons: {}, log: [], settings: { numbers: true, autoplay: true } };
 // Activity log for "Copy progress for Claude": finished lessons, wrong answers, practice rounds.
 const LOG_MAX = 3000;
 function logEvent(e) {
@@ -393,7 +414,7 @@ const nowIso = () => new Date().toISOString();
 // ---------- sync between devices, through a file on a branch of the GitHub repo ----------
 // The token stays in this browser (its own key, so Export never contains it).
 const SYNC_KEY = "pinyin-sync", SYNC_BRANCH = "progress", SYNC_FILE = "progress.json";
-const SHARED = ["lessons", "removedLessons", "cards", "words", "grammar", "unlocked", "log"];   // settings stay per device
+const SHARED = ["lessons", "removedLessons", "cards", "words", "sentences", "grammar", "unlocked", "log"];   // settings stay per device
 let syncCfg = (() => { try { return JSON.parse(localStorage.getItem(SYNC_KEY)) || {}; } catch (e) { return {}; } })();
 let syncTimer = null, syncing = null, syncAgain = false;
 function saveSyncCfg() { try { localStorage.setItem(SYNC_KEY, JSON.stringify(syncCfg)); } catch (e) { /* ignore */ } }
@@ -409,7 +430,7 @@ const pickShared = st => Object.fromEntries(SHARED.map(k => [k, st[k] || (k === 
 
 // Nothing done on either device is lost: lessons are combined (a lesson unticked
 // later than it was done stays removed), each flashcard keeps its latest review,
-// each word keeps its latest answer, grammar sessions are combined, and the logs are joined.
+// each word and sentence keeps its latest answer, grammar sessions are combined, and the logs are joined.
 function mergeState(a, b) {
   const removed = { ...(b.removedLessons || {}) };
   for (const [id, at] of Object.entries(a.removedLessons || {})) if (!removed[id] || at > removed[id]) removed[id] = at;
@@ -434,6 +455,11 @@ function mergeState(a, b) {
     const o = words[w];
     if (!o || (c.at || "") > (o.at || "") || (c.at === o.at && c.reps > o.reps)) words[w] = c;
   }
+  const sentences = { ...(b.sentences || {}) };
+  for (const [id, c] of Object.entries(a.sentences || {})) {
+    const o = sentences[id];
+    if (!o || (c.at || "") > (o.at || "") || (c.at === o.at && c.n > o.n)) sentences[id] = c;
+  }
   const ga = a.grammar || {}, gb = b.grammar || {}, grammar = {};
   for (const id of new Set([...Object.keys(ga), ...Object.keys(gb)])) {
     const x = ga[id], y = gb[id];
@@ -447,7 +473,7 @@ function mergeState(a, b) {
     if (!seen.has(k)) { seen.add(k); log.push(e); }
   }
   log.sort((x, y) => x.d < y.d ? -1 : x.d > y.d ? 1 : 0);
-  return { lessons, removedLessons: removed, cards, words, grammar, unlocked, log: log.slice(-LOG_MAX) };
+  return { lessons, removedLessons: removed, cards, words, sentences, grammar, unlocked, log: log.slice(-LOG_MAX) };
 }
 
 async function gh(path, opts = {}) {
@@ -528,7 +554,7 @@ function syncStatus() {
 function refreshAfterSync() {
   updateStat();
   const [tab, arg] = (location.hash.slice(1) || "sounds").split("/");
-  if (["sounds", "settings"].includes(tab) || (tab === "exercises" && !arg) || (tab === "words" && !W.session) || (tab === "grammar" && !G.quiz)) route();   // never in the middle of a round, words or a grammar check
+  if (["sounds", "settings"].includes(tab) || (tab === "exercises" && !arg) || (tab === "words" && !W.session) || (tab === "sentences" && !S.session) || (tab === "grammar" && !G.quiz)) route();   // never in the middle of a round, words, sentences or a grammar check
 }
 // every lesson that's done has its sounds in Exercises (all lessons done); lessons that no longer exist are dropped
 function tidyLessons() {
@@ -818,6 +844,7 @@ view.addEventListener("click", e => {
 function progressReport() {
   const now = new Date().toISOString().slice(0, 16).replace("T", " ");
   const since = state.copiedAt || "";
+  flushSentences();
   const fresh = state.log.filter(e => e.d > since);
   const lines = [`## Pinyin progress (copied ${now} UTC${since ? `, new since ${since.replace("T", " ")}` : ""})`, ""];
 
@@ -869,6 +896,20 @@ function progressReport() {
       `${show(h)} ${c.lapses}×${c.lapses >= SRS.HARD ? " ⚑" : ""}`).join(", ")}`);
   }
 
+  const sdone = Object.values(state.sentences);
+  const sentences = { done: sdone.length, ok: sdone.filter(c => c.last === 3).length };
+  if (sdone.length) {
+    lines.push("", `**Sentences:** ${sdone.length} translated, ${sentences.ok} got right the last time${S.list.length ? ` (${S.list.filter(sentenceReady).length} of ${S.list.length} ready)` : ""}.`);
+    const rs = fresh.filter(e => e.t === "sentences");
+    if (rs.length) {
+      const g = [0, 0, 0];
+      rs.forEach(e => e.grades.forEach((x, i) => g[i] += x));
+      lines.push(`Since last copy: ${g.reduce((a, b) => a + b)} answers (${S_GRADES.map((x, i) => `${x} ${g[i]}`).join(", ")}).`);
+      const wrong = [...new Set(rs.flatMap(e => e.wrong || []))];
+      if (wrong.length) lines.push(`Sentences not (fully) got: ${wrong.slice(0, 20).join(" · ")}`);
+    }
+  }
+
   const gdone = Object.entries(state.grammar).sort();
   if (gdone.length) {
     lines.push("", `**Grammar done:** ${gdone.map(([id, st]) => `${id} (${st.done}, best ${st.best}%, ${st.times}×)`).join(", ")}`);
@@ -878,7 +919,7 @@ function progressReport() {
     if (wrong.length) { lines.push("Grammar mistakes since last copy:"); wrong.slice(0, 20).forEach(w => lines.push(`- ${w}`)); }
   }
 
-  const data = { v: 1, copied: now, since, lessons: state.lessons, words, grammar: state.grammar, log: fresh };
+  const data = { v: 1, copied: now, since, lessons: state.lessons, words, sentences, grammar: state.grammar, log: fresh };
   lines.push("", "```json", JSON.stringify(data), "```");
   return lines.join("\n");
 }
@@ -1122,6 +1163,183 @@ function renderWordsDone(allDone) {
       <button class="btn primary wide" id="wBack">Back</button>
     </div>`;
   $("#wBack").onclick = back;
+}
+
+// ---------- Sentences: translate whole sentences made of the words you've seen in Words (docs/sentences.json) ----------
+// A sentence is ready once every one of its words has been seen in Words (studied or reviewed).
+// You pick a group (new sentences, seen but not known yet, known) and get one sentence after
+// another from it until you stop.
+// Progress per sentence, by its audio id: { n: times done, ok: times Got it, last: last answer (1–3), day, at }
+const S = { list: [], loading: null, session: null, batch: null };
+const S_GRADES = ["Didn't get it", "Partly", "Got it"];
+const S_GROUPS = {
+  new: { name: "New sentences", done: "No more new sentences", hint: "ones you haven't had yet, mixing many different words" },
+  open: { name: "Seen, not known yet", done: "No more sentences to go over", hint: "the ones you said <i>Didn't get it</i> or <i>Partly</i> to last time" },
+  known: { name: "Known", done: "No more known sentences", hint: "the ones you said <i>Got it</i> to, longest ago first" },
+};
+function loadSentences() {
+  if (!S.loading) S.loading = Promise.all([loadWords(), fetch("sentences.json", { cache: "no-cache" }).then(r => r.json())]).then(([, d]) => {
+    S.list = d.sentences;
+    for (const x of S.list) { x.words = [...new Set(x.tiles.map(t => t[0]))]; byId[x.audio] = byId[x.audio] || { v: x.v }; }
+  }).catch(e => { S.loading = null; throw e; });
+  return S.loading;
+}
+const onSentencesTab = () => (location.hash.slice(1) || "sounds").split("/")[0] === "sentences";
+const sentenceReady = x => x.words.every(h => state.words[h]);
+const sentDir = () => state.settings.sentDir === "en" ? "en" : "zh";
+const sentenceGroup = x => { const c = state.sentences[x.audio]; return !c ? "new" : c.last === 3 ? "known" : "open"; };
+function sentenceGroups() {
+  const g = { new: [], open: [], known: [] };
+  for (const x of S.list) if (sentenceReady(x)) g[sentenceGroup(x)].push(x);
+  return g;
+}
+// The next sentence of a group, leaving out the ones shown in this session.
+// New: the one whose words you've met least in sentences so far, with a bonus for words still open
+// in Words (Don't know, not yet known on a later day), so each word keeps coming in new sentences.
+// Seen ones: the one done longest ago.
+function nextSentenceOf(group, shown) {
+  const pool = sentenceGroups()[group].filter(x => !shown.has(x.audio));
+  if (!pool.length) return null;
+  if (group !== "new") return pool.reduce((a, b) => (state.sentences[b.audio].at < state.sentences[a.audio].at ? b : a));
+  const met = {};
+  for (const x of S.list) if (state.sentences[x.audio] || shown.has(x.audio)) for (const h of x.words) met[h] = (met[h] || 0) + 1;
+  const value = x => x.words.reduce((v, h) => v + (1 + (SRS.isOpen(state.words[h]) ? 1 : 0)) / (1 + (met[h] || 0)), 0) / Math.sqrt(x.words.length);
+  let best = null, bv = -1;
+  for (const x of pool) { const v = value(x) + Math.random() * 0.05; if (v > bv) { best = x; bv = v; } }
+  return best;
+}
+// answers go into the log for Claude in batches of 20, like the words
+function logSentence(grade, x, mode, dir) {
+  const b = S.batch = S.batch || { mode, dir, total: 0, grades: [0, 0, 0], wrong: [] };
+  b.total++; b.grades[grade - 1]++;
+  if (grade < 3) b.wrong.push(x.hanzi);
+  if (b.total >= 20 || b.mode !== mode || b.dir !== dir) flushSentences();
+}
+function flushSentences() {
+  if (!S.batch) return;
+  logEvent({ t: "sentences", ...S.batch });
+  S.batch = null;
+  save();
+}
+
+function renderSentences() {
+  if (!S.list.length) {
+    keyHandler = null;
+    view.innerHTML = `<div class="card center muted">Loading sentences…</div>`;
+    loadSentences().then(() => { if (onSentencesTab()) renderSentences(); })
+      .catch(() => { if (onSentencesTab()) view.innerHTML = `<div class="card center muted">Couldn't load the sentences. Check your connection and open the tab again.</div>`; });
+    return;
+  }
+  if (S.session) return renderSentenceCard();
+  flushSentences();
+  const g = sentenceGroups(), ready = g.new.length + g.open.length + g.known.length;
+  const seen = W.list.filter(h => state.words[h]).length, dir = sentDir();
+  // the sentences the next Study in Words would open
+  const next = new Set(SRS.studyWords(W.list, state.words).filter(h => !state.words[h]));
+  const soon = S.list.filter(x => !sentenceReady(x) && x.words.every(h => state.words[h] || next.has(h))).length;
+  keyHandler = e => { const k = ["new", "open", "known"][+e.key - 1]; if (k && g[k].length) startSentences(k); };
+  view.innerHTML = `<div class="card center">
+      <div class="seg" role="group" aria-label="Translate">
+        <button class="btn${dir === "zh" ? " on" : ""}" data-dir="zh">Chinese → English</button>
+        <button class="btn${dir === "en" ? " on" : ""}" data-dir="en">English → Chinese</button>
+      </div>
+      <div class="sgroups">${Object.entries(S_GROUPS).map(([k, t], i) => `<button class="btn wide${i === 0 && g.new.length || i === 1 && !g.new.length && g.open.length ? " primary" : ""}" data-group="${k}" ${g[k].length ? "" : "disabled"}>
+        <span>${t.name}<small>${t.hint}</small></span><b>${g[k].length}</b></button>`).join("")}</div>
+      <p class="muted small" style="margin-bottom:0">${ready
+        ? `${dir === "zh" ? "Hear and read a sentence and translate it into English" : "Read the English and say the sentence in Chinese"}, then tap to check and say how it went. One sentence after another, until you stop.`
+        : `Every sentence is made of words from <b>Words</b>. A sentence comes in here once you've seen all its words there.`}</p>
+    </div>
+    <div class="card" style="margin-top:14px;padding:14px 16px">
+      <div class="muted small">${ready} of ${S.list.length} sentences use only the ${seen} words you've seen in <b>Words</b>, and every word is in several of them.${soon && next.size
+        ? ` <b>${soon} more</b> open once you've studied the next ${next.size} new words (<a href="#words/study">Study</a>).` : ""}</div>
+    </div>`;
+  view.querySelectorAll("[data-dir]").forEach(b => b.onclick = () => { state.settings.sentDir = b.dataset.dir; saveLocal(); renderSentences(); });
+  view.querySelectorAll("[data-group]").forEach(b => b.onclick = () => startSentences(b.dataset.group));
+}
+function startSentences(mode) {
+  S.session = { mode, dir: sentDir(), shown: new Set(), current: null, flipped: false, done: 0 };
+  nextSentence();
+}
+function nextSentence() {
+  const s = S.session, x = nextSentenceOf(s.mode, s.shown);
+  if (!x) return renderSentencesDone();
+  s.current = x;
+  s.flipped = false;
+  s.shown.add(x.audio);
+  renderSentenceCard();
+  if (s.dir === "zh" && state.settings.autoplay) play(x.audio);
+  const after = nextSentenceOf(s.mode, s.shown);   // preload the next one
+  if (after) audioFor(after.audio);
+}
+function renderSentenceCard() {
+  const s = S.session, x = s.current, zhFirst = s.dir === "zh";
+  const left = sentenceGroups()[s.mode].filter(y => !s.shown.has(y.audio)).length;
+  const flip = () => { if (!s.flipped) { s.flipped = true; renderSentenceCard(); if (!zhFirst) play(x.audio); } };
+  const chinese = `<div class="spy">${esc(x.pinyin)}</div>${state.settings.numbers ? `<div class="num">${esc(x.numbers)}</div>` : ""}
+      <div class="shz hzf" lang="zh-CN">${esc(x.hanzi)}</div>`;
+  const playBtns = `<div class="row" style="margin-top:12px"><button class="btn bigplay" data-play="${x.audio}" title="Play again (P)">🔊</button>
+      <button class="btn icon" data-slow="${x.audio}" title="Slowly">🐢</button></div>`;
+  const words = x.tiles.map(([h, said]) => {
+    const w = W.byHanzi[h], weak = SRS.isOpen(state.words[h]);
+    return `<button class="chip${weak ? " weak" : ""}" data-play="${w.audio}" title="Play ${esc(w.pinyin)}${weak ? " (still open in Words)" : ""}">
+      <span class="hzf" lang="zh-CN">${esc(h)}</span><span>${esc(said)}</span><small>${esc(w.english.split(/[;(]/)[0].trim() || w.english)}</small></button>`;
+  }).join("");
+  const c = state.sentences[x.audio];
+  const front = zhFirst ? `${playBtns}${chinese}` : `<div class="big-en">${esc(x.english)}</div>`;
+  const back = zhFirst ? `<hr><div class="big-en">${esc(x.english)}</div>` : `<hr>${playBtns}${chinese}`;
+  view.innerHTML = `<div class="wtop"><button class="btn" id="sStop">✕ Stop</button>
+      <span class="muted small">${S_GROUPS[s.mode].name} · ${s.done} done · ${left} left</span></div>
+    <div class="card center wcard scard" id="sCard">
+      <span class="tag">${zhFirst ? "Translate into English" : "Say it in Chinese"}${c ? ` · last time: ${S_GRADES[c.last - 1]}` : ""}</span>
+      ${front}
+      ${s.flipped ? `${back}<div class="chips swords">${words}</div>
+        <p class="muted small" style="margin:10px 0 0">Tap a word to hear it.${x.tiles.some(([h]) => SRS.isOpen(state.words[h])) ? " Underlined: still open in Words." : ""}</p>`
+      : `<p class="muted small" style="margin:18px 0 0">${zhFirst ? "Translate it in your head or out loud" : "Say it out loud, or write it down"}, then tap to check</p>`}
+    </div>
+    <div class="footer">${s.flipped
+      ? `<div class="grades three" style="margin-top:0">${S_GRADES.map((g, i) => `<button class="btn g${[1, 2, 4][i]}" data-sgrade="${i + 1}">${g}</button>`).join("")}</div>`
+      : `<button class="btn primary wide" id="sShow">Show answer</button>`}</div>
+    <div class="kbd center">${s.flipped ? "1–3: how it went" : "Space: show answer"} · P: play</div>`;
+  if (s.flipped) x.tiles.forEach(([h]) => audioFor(W.byHanzi[h].audio));
+  $("#sStop").onclick = stopSentences;
+  $("#sCard").onclick = e => { if (!e.target.closest("button")) flip(); };
+  if ($("#sShow")) $("#sShow").onclick = flip;
+  view.querySelectorAll("[data-sgrade]").forEach(b => b.onclick = () => gradeSentence(+b.dataset.sgrade));
+  keyHandler = e => {
+    if ((e.key === "p" || e.key === "P") && (zhFirst || s.flipped)) play(x.audio);
+    else if (!s.flipped && (e.key === " " || e.key === "Enter")) { e.preventDefault(); flip(); }
+    else if (s.flipped && /^[1-3]$/.test(e.key)) gradeSentence(+e.key);
+  };
+}
+function gradeSentence(grade) {
+  const s = S.session, x = s.current;
+  stopAudio();
+  const o = state.sentences[x.audio] || { n: 0, ok: 0 };
+  state.sentences[x.audio] = { n: o.n + 1, ok: o.ok + (grade === 3 ? 1 : 0), last: grade,
+                               day: SRS.dayOf(Date.now()), at: new Date().toISOString().slice(0, 19) };
+  save();
+  logSentence(grade, x, s.mode, s.dir);
+  s.done++;
+  nextSentence();
+}
+function stopSentences() {
+  stopAudio();
+  S.session = null;
+  flushSentences();
+  renderSentences();
+}
+function renderSentencesDone() {
+  const s = S.session;
+  S.session = null;
+  flushSentences();
+  keyHandler = e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); renderSentences(); } };
+  view.innerHTML = `<div class="card center">
+      <h3 style="margin-top:0">${S_GROUPS[s.mode].done}</h3>
+      <p class="muted">${s.done ? `You did ${s.done} ${s.done === 1 ? "sentence" : "sentences"}. ` : ""}${s.mode === "new"
+        ? "Study more words in <b>Words</b> to open new sentences." : "Pick another group to go on."}</p>
+      <button class="btn primary wide" id="sBack">Back</button>
+    </div>`;
+  $("#sBack").onclick = renderSentences;
 }
 
 // ---------- Grammar: one topic per session, in HSK order (docs/grammar.json, built from data/grammar/) ----------
@@ -1948,7 +2166,7 @@ function renderSettings() {
     <h2>Settings</h2>
     <div class="card">
       <div class="setting"><span>Show tone numbers under Pinyin</span><input type="checkbox" id="numbers" ${state.settings.numbers ? "checked" : ""}></div>
-      <div class="setting"><span>Words: play the sound when a card appears</span><input type="checkbox" id="autoplay" ${state.settings.autoplay ? "checked" : ""}></div>
+      <div class="setting"><span>Words and Sentences: play the sound when a card appears</span><input type="checkbox" id="autoplay" ${state.settings.autoplay ? "checked" : ""}></div>
     </div>
     <h2>Sync between devices</h2>
     <div class="card">${syncCfg.token ? `
@@ -2034,11 +2252,13 @@ function route() {
   if (old) { location.replace("#" + old.filter(Boolean).join("/")); return; }
   stopAudio();
   if (tab !== "words") { flushWords(); W.session = null; }
+  if (tab !== "sentences") { S.session = null; flushSentences(); }
   if (tab !== "exercises" || !arg) L = null;
   if (tab !== "grammar" || sub !== "check") G.quiz = null;
   document.body.classList.toggle("inlesson", (tab === "exercises" && !!arg) || (tab === "grammar" && sub === "check"));
   document.querySelectorAll("nav a").forEach(a => a.classList.toggle("on", a.dataset.tab === tab));
   ({ sounds: () => renderSounds(arg), exercises: () => arg ? startRound(arg) : renderExercises(), words: () => renderWords(arg),
+     sentences: renderSentences,
      grammar: () => renderGrammar(arg, sub), settings: renderSettings }[tab] || renderSounds)();
   updateStat();
 }
