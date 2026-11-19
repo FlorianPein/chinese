@@ -979,7 +979,7 @@ def audio_version(iid):
 def build_sentences(built):
     """docs/sentences.json for the Sentences tab: every sentence with its words and
     level (the place in the word list of its furthest word), lowest level first."""
-    out = [{k: x[k] for k in ("hanzi", "pinyin", "numbers", "english", "tiles", "level", "audio")}
+    out = [{k: x[k] for k in ("hanzi", "pinyin", "numbers", "english", "tiles", "level", "audio", "easy") if k in x}
            | {"v": audio_version(x["audio"])} for x in sorted(built, key=lambda x: x["level"])]
     (DOCS / "sentences.json").write_text(
         "{\"sentences\": [\n" + ",\n".join(json.dumps(x, ensure_ascii=False) for x in out) + "\n]}\n")
@@ -1209,14 +1209,14 @@ def main():
               f"{len(s['words'])} words (word list up to #{s['limit']}{'; new: ' + ' '.join(new) if new else ''})")
     by_hanzi = {w["hanzi"]: w for w in words.values()}
     s_path = DATA / "sentences.json"
-    s_rows = json.loads(s_path.read_text())["sentences"] if s_path.exists() else []
-    s_errors, s_built, s_items, s_uses = sentences.process(s_rows, by_hanzi)
+    s_rows, s_easy = sentences.rows_of(json.loads(s_path.read_text())) if s_path.exists() else ([], set())
+    s_errors, s_built, s_items, s_uses = sentences.process(s_rows, by_hanzi, s_easy)
     s_errors += sentences.coverage_errors(s_uses, by_hanzi)
     for e in s_errors:
         print("ERROR sentences", e)
     if s_errors:
         sys.exit(1)
-    print(f"Sentences: {len(s_built)} checked, every word in at least {sentences.MIN_USES}")
+    print(f"Sentences: {len(s_built)} checked ({len(s_easy)} easy), every word in at least {sentences.MIN_USES}")
     if cmd in ("all", "audio"):
         build_audio({**items, **words, **g_items, **example_items(words), **s_items}, force="--force" in sys.argv)
     if cmd in ("all", "cards"):

@@ -2,7 +2,12 @@
 
 data/sentences.json holds the sentences, one per line:
 
-    {"about": "...", "sentences": [
+    {"about": "...",
+    "easy": [                  # short, simple sentences: the app gives these first
+      ["他在。", "Tā zài.", "He's in."],
+      ...
+    ],
+    "sentences": [
       ["你是谁？", "Nǐ shì shéi?", "Who are you?"],
       ...
     ]}
@@ -98,14 +103,25 @@ def load(path):
     return json.loads(Path(path).read_text())
 
 
+LISTS = ("easy", "sentences")
+
+
 def save(path, data):
-    rows = ",\n".join("  " + json.dumps(r, ensure_ascii=False) for r in data["sentences"])
-    head = json.dumps({k: v for k, v in data.items() if k != "sentences"}, ensure_ascii=False)[1:-1]
-    Path(path).write_text("{" + head + (",\n" if head else "\n") + "\"sentences\": [\n" + rows + "\n]}\n")
+    head = json.dumps({k: v for k, v in data.items() if k not in LISTS}, ensure_ascii=False)[1:-1]
+    parts = [f"\"{k}\": [\n" + ",\n".join("  " + json.dumps(r, ensure_ascii=False) for r in data[k]) + "\n]"
+             for k in LISTS if k in data]
+    Path(path).write_text("{" + head + (",\n" if head else "\n") + ",\n".join(parts) + "}\n")
 
 
-def process(rows, words):
-    """Check every sentence. Returns (errors, sentences for the app, audio items, uses by word)."""
+def rows_of(data):
+    """All sentences, the easy ones first, and the characters of the easy ones."""
+    easy = data.get("easy", [])
+    return easy + data.get("sentences", []), {r[0] for r in easy}
+
+
+def process(rows, words, easy=frozenset()):
+    """Check every sentence (easy: the characters of the easy ones).
+    Returns (errors, sentences for the app, audio items, uses by word)."""
     dic = dictionary(words)
     errors, out, items, seen = [], [], {}, {}
     uses = {h: 0 for h in words}
@@ -131,6 +147,8 @@ def process(rows, words):
         for w in set(ws):
             uses[w] += 1
         x["level"] = max(dic.entries[w]["pos"] for w in ws)
+        if hz in easy:
+            x["easy"] = True
         items[x["audio"]] = {"id": x["audio"], "kind": "sentence", "hanzi": x["hanzi"], "pinyin": x["pinyin"]}
         out.append(x)
     return errors, out, items, uses
@@ -159,21 +177,23 @@ def main():
     if cmd in ("fill", "refill"):   # refill: write the Pinyin of every sentence again
         dic = dictionary(words)
         filled = 0
-        for i, row in enumerate(data["sentences"]):
-            if cmd == "refill" and len(row) == 3:
-                new = make_pinyin(row[0], dic)
-                if new != row[1]:
-                    print(f"{row[1]}  ->  {new}")
-                row = data["sentences"][i] = [row[0], row[2]]
-            if len(row) == 2:
-                try:
-                    data["sentences"][i] = [row[0], make_pinyin(row[0], dic), row[1]]
-                    filled += 1
-                except ValueError as e:
-                    print(f"ERROR sentence {i + 1}: {e}")
+        for key in LISTS:
+            for i, row in enumerate(data.get(key, [])):
+                if cmd == "refill" and len(row) == 3:
+                    new = make_pinyin(row[0], dic)
+                    if new != row[1]:
+                        print(f"{row[1]}  ->  {new}")
+                    row = data[key][i] = [row[0], row[2]]
+                if len(row) == 2:
+                    try:
+                        data[key][i] = [row[0], make_pinyin(row[0], dic), row[1]]
+                        filled += 1
+                    except ValueError as e:
+                        print(f"ERROR {key} {i + 1}: {e}")
         save(path, data)
         print(f"Filled in the Pinyin of {filled} sentences.")
-    errors, out, _, uses = process(data["sentences"], words)
+    rows, easy = rows_of(data)
+    errors, out, _, uses = process(rows, words, easy)
     examples = {w["example"]["hanzi"] for w in words.values() if "example" in w}
     soon = {h: 0 for h in words}   # sentences with the word, open within SOON words of it
     for x in out:
