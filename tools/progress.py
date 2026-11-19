@@ -135,7 +135,7 @@ def main():
         grades = [sum(e["grades"][i] for e in rounds) for i in range(3)]
         st = progress.get("sentences", {})
         print(f"\nSentences: {st.get('done', '?')} translated, {st.get('ok', '?')} got right the last time; "
-              f"{len(rounds)} rounds logged (Didn't get it {grades[0]}, Partly {grades[1]}, Got it {grades[2]})")
+              f"{sum(grades)} answers logged (Didn't get it {grades[0]}, Partly {grades[1]}, Got it {grades[2]})")
         wrong = [w for e in rounds[-10:] for w in e.get("wrong", [])]
         if wrong:
             print("Not (fully) got lately:", " · ".join(dict.fromkeys(wrong)))
