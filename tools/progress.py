@@ -11,7 +11,8 @@
 - data/progress.json also gets the latest word flashcard summary: how many
   words were seen, and how often each word was forgotten (Don't know), and
   the grammar sessions checked (date, best score, times), and how many
-  sentences were translated (Sentences tab)
+  sentences were translated (Sentences tab), and the Spoonfed flashcards: how many
+  sentences seen, the next new one, and the ones often forgotten
 - prints a summary of weak spots over the whole log, for PROGRESS.md
 
 Run tools/build.py afterwards to update CHART.md.
@@ -47,9 +48,18 @@ def from_github():
     words = {"seen": len(cards),
              "forgotten": {w: c["lapses"] for w, c in cards.items() if c.get("lapses", 0) >= 2}}
     sents = synced.get("sentences", {}).values()
+    sf = synced.get("spoonfed", {})
+    order = [str(r[0]) for r in json.loads((DATA / "spoonfed.json").read_text())["sentences"]] \
+        if (DATA / "spoonfed.json").exists() else []
+    hanzi = {str(r[0]): r[1].replace("\n", " ") for r in json.loads((DATA / "spoonfed.json").read_text())["sentences"]} \
+        if order else {}
+    spoonfed = {"seen": len(sf), "of": len(order),
+                "next": next((i + 1 for i, sid in enumerate(order) if sid not in sf), len(order) + 1),
+                "forgotten": {hanzi.get(sid, sid): c["lapses"] for sid, c in sf.items() if c.get("lapses", 0) >= 2}}
     return {"copied": synced.get("updated", "")[:16].replace("T", " "),
             "lessons": synced.get("lessons", {}), "words": words, "grammar": synced.get("grammar", {}),
             "sentences": {"done": len(sents), "ok": sum(1 for c in sents if c.get("last") == 3)},
+            "spoonfed": spoonfed,
             "log": synced.get("log", [])}
 
 
@@ -95,6 +105,14 @@ def main():
         progress["grammar"] = dict(sorted(grammar.items()))
     if data.get("sentences", {}).get("done"):
         progress["sentences"] = data["sentences"]   # the newest summary wins
+    if data.get("spoonfed", {}).get("seen"):
+        old_sf = progress.get("spoonfed", {})
+        forgotten = {**old_sf.get("forgotten", {})}
+        for w, n in data["spoonfed"].get("forgotten", {}).items():
+            forgotten[w] = max(n, forgotten.get(w, 0))
+        progress["spoonfed"] = {"seen": max(data["spoonfed"]["seen"], old_sf.get("seen", 0)),
+                                "next": max(data["spoonfed"].get("next", 0), old_sf.get("next", 0)),
+                                "forgotten": dict(sorted(forgotten.items(), key=lambda kv: -kv[1]))}
     progress["copied"] = max(progress.get("copied", ""), data["copied"])
     PROGRESS.write_text(json.dumps(progress, ensure_ascii=False, indent=1) + "\n")
 
@@ -139,6 +157,15 @@ def main():
         wrong = [w for e in rounds[-10:] for w in e.get("wrong", [])]
         if wrong:
             print("Not (fully) got lately:", " · ".join(dict.fromkeys(wrong)))
+    batches = [e for e in log if e["t"] == "spoonfed" and not e.get("practice")]
+    sf = progress.get("spoonfed")
+    if batches or sf:
+        grades = [sum(e["grades"][i] for e in batches) for i in range(5)]
+        names = ["Don't know", "Barely know", "Know", "Safely know", "Securely know"]
+        print(f"\nSpoonfed: {sf['seen'] if sf else '?'} sentences seen, next new one no. {sf.get('next', '?') if sf else '?'}; "
+              f"{sum(grades)} answers logged ({', '.join(f'{n} {g}' for n, g in zip(names, grades))})")
+        if sf and sf["forgotten"]:
+            print("Often forgotten:", " · ".join(f"{w} {n}×" for w, n in list(sf["forgotten"].items())[:15]))
     checks = [e for e in log if e["t"] == "grammar"]
     if progress.get("grammar"):
         print("\nGrammar:", ", ".join(f"{g} best {st['best']}% ({st['times']}×)" for g, st in progress["grammar"].items()))

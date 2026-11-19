@@ -229,6 +229,22 @@ details.later .list { margin-top: 10px; }
 .scard .big-en { font-size: 1.4rem; line-height: 1.35; }
 .swords .chip { gap: 1px; font-size: 1rem; padding: 5px 10px; color: var(--text); }
 .swords .chip .hzf { font-size: 1.25rem; }
+.newkey { border: 1px solid var(--accent); border-radius: 6px; padding: 0 5px; font-size: .75rem; color: var(--accent); }
+.sfwords { display: flex; flex-direction: column; margin: 14px auto 0; max-width: 28rem; text-align: left; }
+.sfw { display: grid; grid-template-columns: auto auto 1fr auto; gap: 0 10px; align-items: center; padding: 5px 8px; border-top: 1px solid var(--border); }
+.sfw:first-child { border-top: 0; }
+.sfw .hzf { font-size: 1.25rem; white-space: nowrap; }
+.sfw b { font-weight: 600; white-space: nowrap; }
+.sfw .g { font-size: .88rem; color: var(--muted); line-height: 1.3; min-width: 0; }
+.sfw .btn { min-height: 34px; padding: 2px 8px; }
+.sfw.new { background: color-mix(in srgb, var(--accent) 10%, var(--surface)); border-radius: 8px; border-top-color: transparent; }
+.sfw.new + .sfw { border-top-color: transparent; }
+.sfw.new .g { color: var(--text); }
+.sfstudy .item { align-items: flex-start; }
+.sfstudy .item .p { font-size: 1.05rem; }
+.sfstudy .hzl { font-size: 1.35rem; line-height: 1.4; }
+.sfstudy .why { margin-left: 8px; color: var(--bad); }
+.sfstudy .sfwords { margin: 8px 0 0; }
 .swords .chip.weak .hzf { text-decoration: underline; text-decoration-color: var(--warn); text-underline-offset: 4px; }
 .grades.three { grid-template-columns: repeat(3, 1fr); }
 .sgroups { display: grid; gap: 8px; margin-bottom: 4px; }
@@ -376,6 +392,7 @@ h2.ltitle { margin: 4px 0 2px; font-size: 1.5rem; color: var(--text); text-trans
     <a href="#exercises" data-tab="exercises">Exercises</a>
     <a href="#words" data-tab="words">Words</a>
     <a href="#sentences" data-tab="sentences">Sentences</a>
+    <a href="#spoonfed" data-tab="spoonfed">Spoonfed</a>
     <a href="#grammar" data-tab="grammar">Grammar</a>
     <a href="#settings" data-tab="settings" title="Settings">⚙︎</a>
   </nav>
@@ -392,7 +409,8 @@ const KEY = "pinyin-flashcards-v1";
 // words: progress of each word flashcard, by its characters (see srs.js)
 // grammar: grammar sessions checked, by topic id ({done, last, best, times, at})
 // sentences: sentences translated, by audio id ({n, ok, last, day, at}; see the Sentences tab)
-const DEFAULT_STATE = { unlocked: [], cards: {}, words: {}, sentences: {}, grammar: {}, lessons: {}, removedLessons: {}, log: [], settings: { numbers: true, autoplay: true } };
+// spoonfed: progress of each Spoonfed sentence flashcard, by its id (same fields as words)
+const DEFAULT_STATE = { unlocked: [], cards: {}, words: {}, sentences: {}, spoonfed: {}, grammar: {}, lessons: {}, removedLessons: {}, log: [], settings: { numbers: true, autoplay: true } };
 // Activity log for "Copy progress for Claude": finished lessons, wrong answers, practice rounds.
 const LOG_MAX = 3000;
 function logEvent(e) {
@@ -414,7 +432,7 @@ const nowIso = () => new Date().toISOString();
 // ---------- sync between devices, through a file on a branch of the GitHub repo ----------
 // The token stays in this browser (its own key, so Export never contains it).
 const SYNC_KEY = "pinyin-sync", SYNC_BRANCH = "progress", SYNC_FILE = "progress.json";
-const SHARED = ["lessons", "removedLessons", "cards", "words", "sentences", "grammar", "unlocked", "log"];   // settings stay per device
+const SHARED = ["lessons", "removedLessons", "cards", "words", "sentences", "spoonfed", "grammar", "unlocked", "log"];   // settings stay per device
 let syncCfg = (() => { try { return JSON.parse(localStorage.getItem(SYNC_KEY)) || {}; } catch (e) { return {}; } })();
 let syncTimer = null, syncing = null, syncAgain = false;
 function saveSyncCfg() { try { localStorage.setItem(SYNC_KEY, JSON.stringify(syncCfg)); } catch (e) { /* ignore */ } }
@@ -450,11 +468,15 @@ function mergeState(a, b) {
     const o = cards[id], [ta, na] = weight(c), [tb, nb] = o ? weight(o) : ["", -1];
     if (!o || ta > tb || (ta === tb && na > nb)) cards[id] = c;
   }
-  const words = { ...(b.words || {}) };
-  for (const [w, c] of Object.entries(a.words || {})) {
-    const o = words[w];
-    if (!o || (c.at || "") > (o.at || "") || (c.at === o.at && c.reps > o.reps)) words[w] = c;
-  }
+  const latest = key => {   // word and Spoonfed flashcards: the later answer wins
+    const out = { ...(b[key] || {}) };
+    for (const [w, c] of Object.entries(a[key] || {})) {
+      const o = out[w];
+      if (!o || (c.at || "") > (o.at || "") || (c.at === o.at && c.reps > o.reps)) out[w] = c;
+    }
+    return out;
+  };
+  const words = latest("words"), spoonfed = latest("spoonfed");
   const sentences = { ...(b.sentences || {}) };
   for (const [id, c] of Object.entries(a.sentences || {})) {
     const o = sentences[id];
@@ -473,7 +495,7 @@ function mergeState(a, b) {
     if (!seen.has(k)) { seen.add(k); log.push(e); }
   }
   log.sort((x, y) => x.d < y.d ? -1 : x.d > y.d ? 1 : 0);
-  return { lessons, removedLessons: removed, cards, words, sentences, grammar, unlocked, log: log.slice(-LOG_MAX) };
+  return { lessons, removedLessons: removed, cards, words, sentences, spoonfed, grammar, unlocked, log: log.slice(-LOG_MAX) };
 }
 
 async function gh(path, opts = {}) {
@@ -910,6 +932,26 @@ function progressReport() {
     }
   }
 
+  flushSpoonfed();
+  const fseen = Object.entries(state.spoonfed);
+  const spoonfed = { seen: fseen.length, forgotten: {} };
+  if (fseen.length) {
+    const n = F.list.length ? SRS.counts(F.list, state.spoonfed, Date.now()) : null;
+    if (n) Object.assign(spoonfed, { of: F.list.length, due: n.due, parked: n.parked,
+                                     next: (F.list.findIndex(id => !state.spoonfed[id]) + 1) || F.list.length + 1 });
+    lines.push("", `**Spoonfed sentences:** ${fseen.length} seen${n ? ` of ${F.list.length}, ${n.due} due now, next new one is no. ${spoonfed.next}` : ""}.`);
+    const batches = fresh.filter(e => e.t === "spoonfed" && !e.practice);
+    if (batches.length) {
+      const g = [0, 0, 0, 0, 0];
+      batches.forEach(e => e.grades.forEach((x, i) => g[i] += x));
+      lines.push(`Since last copy: ${g.reduce((a, b) => a + b)} answers (${SRS.GRADES.map((x, i) => `${x} ${g[i]}`).join(", ")}), ${batches.reduce((a, e) => a + e.new, 0)} new sentences.`);
+    }
+    const often = fseen.filter(([, c]) => c.lapses >= 2).sort((a, b) => b[1].lapses - a[1].lapses);
+    often.forEach(([id, c]) => spoonfed.forgotten[F.byId[id] ? F.byId[id].hanzi : id] = c.lapses);
+    if (often.length) lines.push(`**Spoonfed sentences often forgotten:** ${often.slice(0, 15).map(([id, c]) =>
+      `${F.byId[id] ? F.byId[id].hanzi.replace(/\n/g, " ") : id} ${c.lapses}×`).join(" · ")}`);
+  }
+
   const gdone = Object.entries(state.grammar).sort();
   if (gdone.length) {
     lines.push("", `**Grammar done:** ${gdone.map(([id, st]) => `${id} (${st.done}, best ${st.best}%, ${st.times}×)`).join(", ")}`);
@@ -919,7 +961,7 @@ function progressReport() {
     if (wrong.length) { lines.push("Grammar mistakes since last copy:"); wrong.slice(0, 20).forEach(w => lines.push(`- ${w}`)); }
   }
 
-  const data = { v: 1, copied: now, since, lessons: state.lessons, words, sentences, grammar: state.grammar, log: fresh };
+  const data = { v: 1, copied: now, since, lessons: state.lessons, words, sentences, spoonfed, grammar: state.grammar, log: fresh };
   lines.push("", "```json", JSON.stringify(data), "```");
   return lines.join("\n");
 }
@@ -1340,6 +1382,234 @@ function renderSentencesDone() {
       <button class="btn primary wide" id="sBack">Back</button>
     </div>`;
   $("#sBack").onclick = renderSentences;
+}
+
+// ---------- Spoonfed: the sentences of the Anki deck Spoonfed Chinese, in the deck's order, as flashcards like Words ----------
+// docs/spoonfed.json (built by tools/spoonfed.py). Same rules as the words (srs.js): sessions only ask
+// sentences you've studied or seen, and Study brings the next 10 of the deck.
+// Progress per sentence, by its id, in state.spoonfed (same fields as a word, see srs.js).
+const F = { list: [], byId: {}, glosses: {}, loading: null, session: null, batch: null, pbatch: null };
+function loadSpoonfed() {
+  if (!F.loading) F.loading = Promise.all([loadWords().catch(() => {}), fetch("spoonfed.json", { cache: "no-cache" }).then(r => r.json())]).then(([, d]) => {
+    F.glosses = d.glosses;
+    d.sentences.forEach((x, i) => {
+      x.id = String(x.id); x.n = i + 1;
+      F.byId[x.id] = x;
+      if (x.audio) byId[x.audio] = { v: x.v };
+    });
+    F.list = d.sentences.map(x => x.id);
+  }).catch(e => { F.loading = null; throw e; });
+  return F.loading;
+}
+const onSpoonfedTab = () => (location.hash.slice(1) || "sounds").split("/")[0] === "spoonfed";
+function logSpoonfed(grade, isNew, practice) {
+  const key = practice ? "pbatch" : "batch";
+  const b = F[key] = F[key] || { total: 0, grades: [0, 0, 0, 0, 0], new: 0, ...(practice ? { practice: true } : {}) };
+  b.total++; b.grades[grade - 1]++; if (isNew) b.new++;
+  if (b.total >= 20) flushSpoonfed();
+}
+function flushSpoonfed() {
+  if (!F.batch && !F.pbatch) return;
+  if (F.batch) logEvent({ t: "spoonfed", ...F.batch });
+  if (F.pbatch) logEvent({ t: "spoonfed", ...F.pbatch });
+  F.batch = F.pbatch = null;
+  save();
+}
+const hardSentences = () => F.list.filter(id => (state.spoonfed[id]?.lapses || 0) >= SRS.HARD);
+const sfLines = t => esc(t).replace(/\n/g, "<br>");
+const sfGloss = ([h, p]) => F.glosses[`${h} ${p}`] || "";
+// the sentence's words: a word that's also in Words plays its sound; the words new in this sentence are marked
+function sfWords(x, only) {
+  return x.words.map((w, k) => {
+    if (only && !x.new.includes(k)) return "";
+    const [h, p] = w, inWords = W.byHanzi[h], isNew = x.new.includes(k);
+    return `<div class="sfw${isNew ? " new" : ""}"><span class="hzf" lang="zh-CN">${esc(h)}</span><b>${esc(p)}</b>
+      <span class="g">${isNew && !only ? `<span class="newkey">new</span> ` : ""}${esc(sfGloss(w))}</span>
+      ${inWords ? `<button class="btn" data-play="${inWords.audio}" title="Play ${esc(inWords.pinyin)} (in Words)">🔊</button>` : "<span></span>"}</div>`;
+  }).join("");
+}
+const sfPlay = (x, big) => x.audio ? `<div class="row" style="margin-top:${big ? 14 : 0}px">
+    <button class="btn${big ? " bigplay" : ""}" data-play="${x.audio}" title="Play again (P)">🔊</button>
+    <button class="btn icon" data-slow="${x.audio}" title="Slowly">🐢</button></div>` : "";
+
+function renderSpoonfed(sub) {
+  if (!F.list.length) {
+    keyHandler = null;
+    view.innerHTML = `<div class="card center muted">Loading the sentences…</div>`;
+    loadSpoonfed().then(() => { if (onSpoonfedTab()) renderSpoonfed(sub); })
+      .catch(() => { if (onSpoonfedTab()) view.innerHTML = `<div class="card center muted">Couldn't load the sentences. Check your connection and open the tab again.</div>`; });
+    return;
+  }
+  if (F.session) return renderSpoonfedCard();
+  if (sub === "study") return renderSpoonfedStudy();
+  const n = SRS.counts(F.list, state.spoonfed, Date.now());
+  const anything = n.due || n.learning;
+  keyHandler = e => { if (anything && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); startSpoonfed(); } };
+  const hard = hardSentences();
+  const practice = SRS.practiceWords(F.list, state.spoonfed, Date.now()).length;
+  const toStudy = SRS.studyWords(F.list, state.spoonfed);
+  const dk = toStudy.filter(id => state.spoonfed[id]).length;
+  const nextNew = F.list.find(id => !state.spoonfed[id]);
+  view.innerHTML = `<div class="card center">
+      <div class="done-stats" style="margin-top:0">
+        <div><b>${n.due}</b><span class="muted small">due now</span></div>
+        <div><b>${n.learning}</b><span class="muted small">to try again</span></div>
+        <div><b>${n.learned}</b><span class="muted small">of ${F.list.length} seen</span></div>
+      </div>
+      <button class="btn primary wide" id="fStart" ${anything ? "" : "disabled"}>${anything ? "Start" : "All done"}</button>
+      <p class="muted small" style="margin-bottom:0">${anything
+        ? `Hear the sentence, read it in Pinyin and characters, tap for the English and its words, then say how well you knew it. Only sentences you've studied or seen before: new ones come in through <b>Study</b>, in the deck's order. Stop whenever you like.`
+        : `Nothing due right now. Next: ${n.tomorrow} due by tomorrow.${toStudy.length ? " Study new sentences to have more to review." : ""}`}${n.parked
+        ? ` <b>${n.parked} ${n.parked === 1 ? "sentence is" : "sentences are"} set aside</b>: you said <i>Don't know</i> ${SRS.PARK_AT} times, so ${n.parked === 1 ? "it comes" : "they come"} back once you've studied ${n.parked === 1 ? "it" : "them"}.` : ""}</p>
+    </div>${toStudy.length ? `<div class="card center" style="margin-top:14px">
+      <a class="btn wide${anything ? "" : " primary"}" href="#spoonfed/study">Study (${toStudy.length} sentences)</a>
+      <p class="muted small" style="margin-bottom:0">The next ${toStudy.length} sentences to learn, with their new words: ${dk
+        ? `first the ${dk} you said <i>Don't know</i> to${dk < toStudy.length ? ", then new ones in the deck's order" : ""}`
+        : `new ones in the deck's order${nextNew ? `, from no. ${F.byId[nextNew].n}` : ""}`}. When you've learnt them, they come into the next session.</p>
+    </div>` : ""}${practice ? `<div class="card center" style="margin-top:14px">
+      <button class="btn wide" id="fPractice">Practise today's <i>Know</i> sentences (${practice})</button>
+      <p class="muted small" style="margin-bottom:0">Go over the sentences you picked <i>Know</i> for today and that come back tomorrow. Knowing them now doesn't move them up; <i>Don't know</i> or <i>Barely know</i> counts as usual.</p>
+    </div>` : ""}${hard.length ? `<h2>Hard sentences ⚑</h2>
+    <p class="muted small" style="margin-top:0">Sentences you've marked <i>Don't know</i> ${SRS.HARD} times or more.</p>
+    <div class="list hardlist">${hard.map(id => { const x = F.byId[id]; return `<div class="item"><div class="main">
+      <div class="p"><span class="hz" lang="zh-CN">${sfLines(x.hanzi)}</span></div><div class="e">${esc(x.english)}</div></div>
+      ${x.audio ? `<div class="btns"><button class="btn" data-play="${x.audio}" title="Play">🔊</button></div>` : ""}</div>`; }).join("")}</div>` : ""}
+    <p class="muted small" style="margin-top:18px">From the Anki deck <a href="https://ankiweb.net/shared/info/1271086873" target="_blank" rel="noopener" style="color:inherit">Spoonfed Chinese ↗</a>: ${F.list.length} sentences, each with about one new word. Word meanings from CC-CEDICT.</p>`;
+  if (anything) $("#fStart").onclick = startSpoonfed;
+  if (practice) $("#fPractice").onclick = startSpoonfedPractice;
+}
+function renderSpoonfedStudy() {
+  const list = F.studyList = SRS.studyWords(F.list, state.spoonfed);
+  const back = () => { location.hash = "#spoonfed"; };
+  if (!list.length) return back();
+  const why = id => { const c = state.spoonfed[id];
+    return !c ? "" : SRS.isParked(c) ? `<span class="why dk">Don't know ${c.dk}× · set aside</span>` : `<span class="why dk">Don't know</span>`; };
+  keyHandler = e => { if (e.key === "Escape") back(); };
+  list.forEach(id => audioFor(F.byId[id].audio));
+  view.innerHTML = `<div class="wtop"><a class="btn" href="#spoonfed">← Back</a><span class="muted small">${list.length} sentences to study</span></div>
+    <div class="list sfstudy">${list.map(id => { const x = F.byId[id], nw = sfWords(x, true); return `<div class="item"><div class="main">
+        <div class="muted small">no. ${x.n}${why(id)}</div>
+        <div class="p">${sfLines(x.pinyin)}</div>
+        <div class="hzl hzf" lang="zh-CN">${sfLines(x.hanzi)}</div>
+        <div class="e">${esc(x.english)}</div>
+        ${nw ? `<div class="sfwords">${nw}</div>` : ""}</div>
+        ${x.audio ? `<div class="btns"><button class="btn" data-play="${x.audio}" title="Play">🔊</button></div>` : ""}</div>`; }).join("")}</div>
+    <div class="card center" style="margin-top:14px">
+      <button class="btn primary wide" id="fStudied">I've studied these</button>
+      <p class="muted small" style="margin-bottom:0">Each sentence shows the words that are new in it. When you know them, tap the button: the new sentences come into your next session (<b>Start</b>), and sentences set aside come back.</p>
+    </div>`;
+  $("#fStudied").onclick = () => {
+    const now = Date.now();
+    for (const id of F.studyList) state.spoonfed[id] = SRS.study(state.spoonfed[id], now);
+    logEvent({ t: "spoonfed-study", total: F.studyList.length, new: F.studyList.filter(id => !state.spoonfed[id].reps).length });
+    save();
+    back();
+  };
+}
+function startSpoonfed() {
+  F.session = { recent: [], current: null, flipped: false, done: 0, known: 0, fresh: 0 };
+  nextSpoonfed();
+}
+function startSpoonfedPractice() {
+  const queue = shuffle(SRS.practiceWords(F.list, state.spoonfed, Date.now()));
+  F.session = { practice: true, queue, total: queue.length, current: null, flipped: false, done: 0, known: 0, fresh: 0 };
+  nextSpoonfed();
+}
+function nextSpoonfed() {
+  const s = F.session;
+  const next = s.practice
+    ? (s.queue.length ? { word: s.queue.shift(), kind: "practice" } : null)
+    : SRS.pickNext(F.list, state.spoonfed, Date.now(), s);
+  if (!next) return renderSpoonfedDone(true);
+  s.current = next;
+  s.flipped = false;
+  renderSpoonfedCard();
+  const x = F.byId[next.word];
+  if (state.settings.autoplay && x.audio) play(x.audio);
+}
+function renderSpoonfedCard() {
+  const s = F.session, id = s.current.word, x = F.byId[id], card = state.spoonfed[id];
+  const n = SRS.counts(F.list, state.spoonfed, Date.now());
+  const tag = s.practice ? (card.learning ? "Practice · once more" : "Practice")
+    : { new: "New sentence", again: "Once more", due: "Review" }[s.current.kind];
+  const flip = () => { if (!s.flipped) { s.flipped = true; renderSpoonfedCard(); } };
+  view.innerHTML = `<div class="wtop"><button class="btn" id="fStop">✕ Stop</button>
+      <span class="muted small">${s.practice ? `${s.done} done · ${s.queue.length + 1} left`
+        : `${s.done} done · ${n.due} due${n.learning ? ` · ${n.learning} to try again` : ""}`}</span></div>
+    <div class="card center wcard scard" id="fCard">
+      <span class="tag">${tag} · no. ${x.n}${card && card.lapses >= SRS.HARD ? " · ⚑ hard" : ""}</span>
+      ${sfPlay(x, true)}
+      <div class="spy">${sfLines(x.pinyin)}</div>${state.settings.numbers && x.numbers ? `<div class="num">${sfLines(x.numbers)}</div>` : ""}
+      <div class="shz hzf" lang="zh-CN">${sfLines(x.hanzi)}</div>
+      ${s.flipped ? `<hr><div class="big-en">${sfLines(x.english)}</div>
+        <div class="sfwords">${sfWords(x)}</div>
+        <p class="muted small" style="margin:10px 0 0">${x.new.length ? `<span class="newkey">new</span> = first time in the deck. ` : ""}${x.words.some(([h]) => W.byHanzi[h]) ? "🔊: the word is also in Words." : ""}</p>
+        ${x.voice ? `<div class="note">The deck has no recording of this sentence: this one is made by the app's voice.</div>` : ""}`
+      : `<p class="muted small" style="margin:18px 0 0">Understand it, then tap to see the English</p>`}
+      ${!x.audio ? `<div class="note">No recording of this sentence yet.</div>` : ""}
+    </div>
+    <div class="footer">${s.flipped
+      ? `<div class="grades five" style="margin-top:0">${SRS.GRADES.map((g, i) =>
+          `<button class="btn g${i + 1}" data-grade="${i + 1}">${g}<small>${s.practice ? SRS.practicePreview(card, i + 1) : SRS.preview(card, i + 1)}</small></button>`).join("")}</div>`
+      : `<button class="btn primary wide" id="fShow">Show answer</button>`}</div>
+    <div class="kbd center">${s.flipped ? "1–5: how well you knew it" : "Space: show answer"} · P: play again</div>`;
+  if (s.flipped) x.words.forEach(([h]) => W.byHanzi[h] && audioFor(W.byHanzi[h].audio));
+  $("#fStop").onclick = () => renderSpoonfedDone(false);
+  $("#fCard").onclick = e => { if (!e.target.closest("button")) flip(); };
+  if ($("#fShow")) $("#fShow").onclick = flip;
+  view.querySelectorAll("[data-grade]").forEach(b => b.onclick = () => gradeSpoonfed(+b.dataset.grade));
+  keyHandler = e => {
+    if (e.key === "p" || e.key === "P") { if (x.audio) play(x.audio); }
+    else if (!s.flipped && (e.key === " " || e.key === "Enter")) { e.preventDefault(); flip(); }
+    else if (s.flipped && /^[1-5]$/.test(e.key)) gradeSpoonfed(+e.key);
+  };
+  // the next card's sound, so it starts at once
+  if (!s.practice) { const after = SRS.pickNext(F.list, state.spoonfed, Date.now(), { recent: [id, ...s.recent] }); if (after) audioFor(F.byId[after.word].audio); }
+  else if (s.queue.length) audioFor(F.byId[s.queue[0]].audio);
+}
+function gradeSpoonfed(grade) {
+  const s = F.session, id = s.current.word, isNew = !state.spoonfed[id]?.reps;
+  stopAudio();
+  if (s.practice) {
+    const c = state.spoonfed[id] = SRS.practice(state.spoonfed[id], grade, Date.now());
+    save();
+    logSpoonfed(grade, false, true);
+    s.done++;
+    if (grade >= 3) s.known++;
+    if (c.learning && !SRS.isParked(c)) s.queue.splice(Math.min(SRS.MIN_GAP, s.queue.length), 0, id);
+    return nextSpoonfed();
+  }
+  state.spoonfed[id] = SRS.answer(state.spoonfed[id], grade, Date.now());
+  save();
+  logSpoonfed(grade, isNew);
+  s.done++;
+  if (grade >= 3) s.known++;
+  if (isNew) s.fresh++;
+  s.recent = [id, ...s.recent].slice(0, SRS.MIN_GAP);
+  nextSpoonfed();
+}
+function renderSpoonfedDone(allDone) {
+  stopAudio();
+  flushSpoonfed();
+  const s = F.session;
+  F.session = null;
+  if (!s.done) return renderSpoonfed();
+  const n = SRS.counts(F.list, state.spoonfed, Date.now());
+  keyHandler = e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); renderSpoonfed(); } };
+  view.innerHTML = `<div class="card center">
+      <h3 style="margin-top:0">${s.practice ? (allDone ? "Practice done" : "Good work") : allDone ? "All done for now" : "Good work"}</h3>
+      <div class="done-stats">
+        <div><b>${s.done}</b><span class="muted small">cards</span></div>
+        <div><b>${s.known}</b><span class="muted small">known</span></div>
+        ${s.practice ? `<div><b>${s.total}</b><span class="muted small">sentences practised</span></div>`
+          : `<div><b>${s.fresh}</b><span class="muted small">new sentences</span></div>`}
+      </div>
+      ${s.practice ? `<p class="muted small">Practice doesn't move sentences up: they still come back tomorrow.</p>` : ""}
+      <p class="muted">${n.due || n.learning ? `Still waiting: ${[n.due && `${n.due} due`, n.learning && `${n.learning} to try again`].filter(Boolean).join(", ")}. They come first next time. ` : ""}By tomorrow: ${n.tomorrow} due.</p>
+      ${n.parked ? `<p class="muted small">${n.parked} ${n.parked === 1 ? "sentence is" : "sentences are"} set aside after <i>Don't know</i> ${SRS.PARK_AT} times: study ${n.parked === 1 ? "it" : "them"} in <b>Study</b> to bring ${n.parked === 1 ? "it" : "them"} back.</p>` : ""}
+      <button class="btn primary wide" id="fBack">Back</button>
+    </div>`;
+  $("#fBack").onclick = () => renderSpoonfed();
 }
 
 // ---------- Grammar: one topic per session, in HSK order (docs/grammar.json, built from data/grammar/) ----------
@@ -2166,11 +2436,11 @@ function renderSettings() {
     <h2>Settings</h2>
     <div class="card">
       <div class="setting"><span>Show tone numbers under Pinyin</span><input type="checkbox" id="numbers" ${state.settings.numbers ? "checked" : ""}></div>
-      <div class="setting"><span>Words and Sentences: play the sound when a card appears</span><input type="checkbox" id="autoplay" ${state.settings.autoplay ? "checked" : ""}></div>
+      <div class="setting"><span>Words, Sentences and Spoonfed: play the sound when a card appears</span><input type="checkbox" id="autoplay" ${state.settings.autoplay ? "checked" : ""}></div>
     </div>
     <h2>Sync between devices</h2>
     <div class="card">${syncCfg.token ? `
-      <p style="margin-top:0">This ${esc(syncCfg.device || "device")} syncs with <b>${esc(syncCfg.repo)}</b> (branch <code>${SYNC_BRANCH}</code>): lessons, practice, words and mistakes.</p>
+      <p style="margin-top:0">This ${esc(syncCfg.device || "device")} syncs with <b>${esc(syncCfg.repo)}</b> (branch <code>${SYNC_BRANCH}</code>): lessons, practice, words, sentences and mistakes.</p>
       <p class="muted small" data-sync-status>${syncStatus()}</p>
       <div class="row" style="justify-content:flex-start;margin-top:0">
         <button class="btn primary" id="syncNow">Sync now</button><button class="btn" id="syncOff">Disconnect</button></div>` : `
@@ -2253,12 +2523,13 @@ function route() {
   stopAudio();
   if (tab !== "words") { flushWords(); W.session = null; }
   if (tab !== "sentences") { S.session = null; flushSentences(); }
+  if (tab !== "spoonfed") { F.session = null; flushSpoonfed(); }
   if (tab !== "exercises" || !arg) L = null;
   if (tab !== "grammar" || sub !== "check") G.quiz = null;
   document.body.classList.toggle("inlesson", (tab === "exercises" && !!arg) || (tab === "grammar" && sub === "check"));
   document.querySelectorAll("nav a").forEach(a => a.classList.toggle("on", a.dataset.tab === tab));
   ({ sounds: () => renderSounds(arg), exercises: () => arg ? startRound(arg) : renderExercises(), words: () => renderWords(arg),
-     sentences: renderSentences,
+     sentences: renderSentences, spoonfed: () => renderSpoonfed(arg),
      grammar: () => renderGrammar(arg, sub), settings: renderSettings }[tab] || renderSounds)();
   updateStat();
 }
@@ -2276,6 +2547,7 @@ fetch("cards.json", { cache: "no-cache" })
     route();
     syncNow();
     loadWords().catch(() => {});   // for the words in Copy progress for Claude
+    if (Object.keys(state.spoonfed).length) loadSpoonfed().catch(() => {});
   })
   .catch(() => { view.innerHTML = `<div class="card center muted">Couldn't load the lessons. If you opened this file directly, run a local server: <code>python3 -m http.server -d docs</code></div>`; });
 </script>
