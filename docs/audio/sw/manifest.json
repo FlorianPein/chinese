@@ -1,0 +1,6730 @@
+{
+"4e00-4e2a-4eba": {
+"hanzi": "一个人",
+"tokens": "yi1 ge4 ren2 .",
+"method": "best-effort",
+"score": -4.1
+},
+"4e00-4f1a-513f": {
+"hanzi": "一会儿",
+"tokens": "yi1 hui4 .",
+"method": "pitch-edited",
+"score": 2.8
+},
+"4e00-5171": {
+"hanzi": "一共",
+"tokens": "yi1 gong4 .",
+"method": "pitch-edited",
+"score": 2.7
+},
+"4e00-5468": {
+"hanzi": "一周",
+"tokens": "yi1 zhou1 .",
+"method": "pitch-edited",
+"score": 2.5
+},
+"4e00-5757-513f": {
+"hanzi": "一块儿",
+"tokens": "yi1 kuai4 .",
+"method": "pitch-edited",
+"score": 2.8
+},
+"4e00-5957": {
+"hanzi": "一套",
+"tokens": "yi1 tao4 .",
+"method": "pitch-edited",
+"score": 2.8
+},
+"4e00-5bb6": {
+"hanzi": "一家",
+"tokens": "yi1 jia1 .",
+"method": "pitch-edited",
+"score": 2.4
+},
+"4e00-65e6": {
+"hanzi": "一旦",
+"tokens": "yi1 dan4 .",
+"method": "pitch-edited",
+"score": 2.8
+},
+"4e00-773c": {
+"hanzi": "一眼",
+"tokens": "yi1 yan3 .",
+"method": "best-effort",
+"score": 0.1
+},
+"4e00-79cd": {
+"hanzi": "一种",
+"tokens": "yi1 zhong3 .",
+"method": "natural",
+"score": 1.3
+},
+"4e00-81f4": {
+"hanzi": "一致",
+"tokens": "yi1 zhi4 .",
+"method": "pitch-edited",
+"score": 2.8
+},
+"4e00-822c": {
+"hanzi": "一般",
+"tokens": "yi1 ban1 .",
+"method": "pitch-edited",
+"score": 1.8
+},
+"4e00-90e8-5206": {
+"hanzi": "一部分",
+"tokens": "yi1 bu2 fen4 .",
+"method": "pitch-edited",
+"score": 1.7
+},
+"4e07": {
+"hanzi": "万",
+"tokens": "wan4 .",
+"method": "natural",
+"score": 2.5
+},
+"4e07-4e00": {
+"hanzi": "万一",
+"tokens": "wan4 yi1 .",
+"method": "best-effort",
+"score": -1.0
+},
+"4e09": {
+"hanzi": "三",
+"tokens": "san1 .",
+"method": "natural",
+"score": 1.3
+},
+"4e0a-4e2a": {
+"hanzi": "上个",
+"tokens": "shang4 ge4 .",
+"method": "pitch-edited",
+"score": 2.7
+},
+"4e0a-5b66": {
+"hanzi": "上学",
+"tokens": "shang4 xue2 .",
+"method": "natural",
+"score": 1.6
+},
+"4e0a-5e1d": {
+"hanzi": "上帝",
+"tokens": "shang4 di4 .",
+"method": "natural (split evenly)",
+"score": 1.0
+},
+"4e0a-6d77": {
+"hanzi": "上海",
+"tokens": "shang4 hai3 .",
+"method": "natural",
+"score": 1.0
+},
+"4e0a-73ed": {
+"hanzi": "上班",
+"tokens": "shang4 ban1 .",
+"method": "natural",
+"score": 1.7
+},
+"4e0a-7f51": {
+"hanzi": "上网",
+"tokens": "shang4 wang3 .",
+"method": "natural (split evenly)",
+"score": 5.8
+},
+"4e0a-8bfe": {
+"hanzi": "上课",
+"tokens": "shang4 ke4 .",
+"method": "pitch-edited",
+"score": 2.6
+},
+"4e0b-4e2a": {
+"hanzi": "下个",
+"tokens": "xia4 ge4 .",
+"method": "pitch-edited",
+"score": 0.7
+},
+"4e0b-5348": {
+"hanzi": "下午",
+"tokens": "xia4 wu3 .",
+"method": "natural (split evenly)",
+"score": 3.9
+},
+"4e0b-73ed": {
+"hanzi": "下班",
+"tokens": "xia4 ban1 .",
+"method": "best-effort",
+"score": 0.4
+},
+"4e0b-8bfe": {
+"hanzi": "下课",
+"tokens": "xia4 ke4 .",
+"method": "natural",
+"score": 1.7
+},
+"4e0b-8f66": {
+"hanzi": "下车",
+"tokens": "xia4 che1 .",
+"method": "natural",
+"score": 1.6
+},
+"4e0b-96e8": {
+"hanzi": "下雨",
+"tokens": "xia4 yu3 .",
+"method": "natural (split evenly)",
+"score": 3.9
+},
+"4e0d-4e45": {
+"hanzi": "不久",
+"tokens": "bu4 jiu3 .",
+"method": "natural (split evenly)",
+"score": 3.6
+},
+"4e0d-4e86": {
+"hanzi": "不了",
+"tokens": "bu4 liao3 .",
+"method": "natural (split evenly)",
+"score": 2.7
+},
+"4e0d-4ec5": {
+"hanzi": "不仅",
+"tokens": "bu4 jin3 .",
+"method": "natural",
+"score": 1.2
+},
+"4e0d-4f46": {
+"hanzi": "不但",
+"tokens": "bu2 dan4 .",
+"method": "natural",
+"score": 1.1
+},
+"4e0d-53ea": {
+"hanzi": "不只",
+"tokens": "bu4 zhi3 .",
+"method": "natural",
+"score": 2.3
+},
+"4e0d-53ef-80fd": {
+"hanzi": "不可能",
+"tokens": "bu4 ke3 neng2 .",
+"method": "best-effort",
+"score": 0.0
+},
+"4e0d-5c11": {
+"hanzi": "不少",
+"tokens": "bu4 shao3 .",
+"method": "natural (split evenly)",
+"score": 2.4
+},
+"4e0d-65ad": {
+"hanzi": "不断",
+"tokens": "bu2 duan4 .",
+"method": "natural (split evenly)",
+"score": 5.0
+},
+"4e0d-662f-5417": {
+"hanzi": "不是吗",
+"tokens": "bu2 shi4 ma .",
+"method": "natural (split evenly)",
+"score": 1.2
+},
+"4e0d-77e5": {
+"hanzi": "不知",
+"tokens": "bu4 zhi1 .",
+"method": "natural",
+"score": 2.0
+},
+"4e0d-81ea-5728": {
+"hanzi": "不自在",
+"tokens": "bu2 zi4 zai4 .",
+"method": "pitch-edited",
+"score": 1.6
+},
+"4e0d-8db3": {
+"hanzi": "不足",
+"tokens": "bu4 zu2 .",
+"method": "natural",
+"score": 2.7
+},
+"4e0e": {
+"hanzi": "与",
+"tokens": "yu3 .",
+"method": "pitch-edited",
+"score": 2.9
+},
+"4e13-5bb6": {
+"hanzi": "专家",
+"tokens": "zhuan1 jia1 .",
+"method": "natural",
+"score": 0.7
+},
+"4e13-95e8": {
+"hanzi": "专门",
+"tokens": "zhuan1 men2 .",
+"method": "natural (split evenly)",
+"score": 1.2
+},
+"4e16-7eaa": {
+"hanzi": "世纪",
+"tokens": "shi4 ji4 .",
+"method": "natural",
+"score": 3.2
+},
+"4e1c-65b9": {
+"hanzi": "东方",
+"tokens": "dong1 fang1 .",
+"method": "natural",
+"score": 0.8
+},
+"4e22": {
+"hanzi": "丢",
+"tokens": "diu1 .",
+"method": "natural",
+"score": 0.9
+},
+"4e24": {
+"hanzi": "两",
+"tokens": "liang3 .",
+"method": "pitch-edited",
+"score": 2.4
+},
+"4e25-683c": {
+"hanzi": "严格",
+"tokens": "yan2 ge2 .",
+"method": "natural",
+"score": 1.5
+},
+"4e25-91cd": {
+"hanzi": "严重",
+"tokens": "yan2 zhong4 .",
+"method": "natural (split evenly)",
+"score": 1.0
+},
+"4e2a-4eba": {
+"hanzi": "个人",
+"tokens": "ge4 ren2 .",
+"method": "natural (split evenly)",
+"score": 0.9
+},
+"4e2a-6027": {
+"hanzi": "个性",
+"tokens": "ge4 xing4 .",
+"method": "natural",
+"score": 0.8
+},
+"4e2d": {
+"hanzi": "中",
+"tokens": "zhong1 .",
+"method": "natural",
+"score": 1.6
+},
+"4e2d-5348": {
+"hanzi": "中午",
+"tokens": "zhong1 wu3 .",
+"method": "natural (split evenly)",
+"score": 1.4
+},
+"4e2d-56fd": {
+"hanzi": "中国",
+"tokens": "zhong1 guo2 .",
+"method": "natural",
+"score": 1.1
+},
+"4e2d-56fd-4eba": {
+"hanzi": "中国人",
+"tokens": "zhong1 guo2 ren2 .",
+"method": "best-effort",
+"score": -3.3
+},
+"4e2d-5b66": {
+"hanzi": "中学",
+"tokens": "zhong1 xue2 .",
+"method": "natural",
+"score": 1.4
+},
+"4e2d-6587": {
+"hanzi": "中文",
+"tokens": "zhong1 wen2 .",
+"method": "best-effort",
+"score": 0.2
+},
+"4e2d-95f4": {
+"hanzi": "中间",
+"tokens": "zhong1 jian1 .",
+"method": "natural",
+"score": 1.2
+},
+"4e30-5bcc": {
+"hanzi": "丰富",
+"tokens": "feng1 fu4 .",
+"method": "natural",
+"score": 2.5
+},
+"4e3a-751f": {
+"hanzi": "为生",
+"tokens": "wei2 sheng1 .",
+"method": "pitch-edited",
+"score": 1.4
+},
+"4e3a-96be": {
+"hanzi": "为难",
+"tokens": "wei2 nan2 .",
+"method": "natural (split evenly)",
+"score": 2.4
+},
+"4e3b-4efb": {
+"hanzi": "主任",
+"tokens": "zhu3 ren4 .",
+"method": "natural (split evenly)",
+"score": 1.5
+},
+"4e3b-6301-4eba": {
+"hanzi": "主持人",
+"tokens": "zhu3 chi2 ren2 .",
+"method": "best-effort",
+"score": -4.1
+},
+"4e3b-9898": {
+"hanzi": "主题",
+"tokens": "zhu3 ti2 .",
+"method": "natural",
+"score": 1.2
+},
+"4e45": {
+"hanzi": "久",
+"tokens": "jiu3 .",
+"method": "pitch-edited",
+"score": 2.6
+},
+"4e4b": {
+"hanzi": "之",
+"tokens": "zhi1 .",
+"method": "natural",
+"score": 0.9
+},
+"4e4b-5185": {
+"hanzi": "之内",
+"tokens": "zhi1 nei4 .",
+"method": "natural (split evenly)",
+"score": 1.2
+},
+"4e58": {
+"hanzi": "乘",
+"tokens": "cheng2 .",
+"method": "natural",
+"score": 3.3
+},
+"4e60-60ef": {
+"hanzi": "习惯",
+"tokens": "xi2 guan4 .",
+"method": "pitch-edited",
+"score": 1.6
+},
+"4e66": {
+"hanzi": "书",
+"tokens": "shu1 .",
+"method": "natural",
+"score": 2.5
+},
+"4e70-4e0d-8d77": {
+"hanzi": "买不起",
+"tokens": "mai3 bu4 qi3 .",
+"method": "pitch-edited",
+"score": 2.6
+},
+"4e71": {
+"hanzi": "乱",
+"tokens": "luan4 .",
+"method": "natural",
+"score": 3.1
+},
+"4e8b-6545": {
+"hanzi": "事故",
+"tokens": "shi4 gu4 .",
+"method": "natural",
+"score": 1.9
+},
+"4e8c": {
+"hanzi": "二",
+"tokens": "er4 .",
+"method": "natural",
+"score": 1.7
+},
+"4e8c-5341": {
+"hanzi": "二十",
+"tokens": "er4 shi2 .",
+"method": "pitch-edited",
+"score": 2.1
+},
+"4e8c-6708": {
+"hanzi": "二月",
+"tokens": "er4 yue4 .",
+"method": "natural (split evenly)",
+"score": 1.5
+},
+"4e92-76f8": {
+"hanzi": "互相",
+"tokens": "hu4 xiang1 .",
+"method": "natural",
+"score": 1.0
+},
+"4e94": {
+"hanzi": "五",
+"tokens": "wu3 .",
+"method": "pitch-edited",
+"score": 2.6
+},
+"4e9a-6d32": {
+"hanzi": "亚洲",
+"tokens": "ya4 zhou1 .",
+"method": "natural",
+"score": 2.2
+},
+"4ea4": {
+"hanzi": "交",
+"tokens": "jiao1 .",
+"method": "natural",
+"score": 2.4
+},
+"4ea4-6362": {
+"hanzi": "交换",
+"tokens": "jiao1 huan4 .",
+"method": "natural",
+"score": 2.4
+},
+"4ea4-6d41": {
+"hanzi": "交流",
+"tokens": "jiao1 liu2 .",
+"method": "natural (split evenly)",
+"score": 1.0
+},
+"4ea4-901a": {
+"hanzi": "交通",
+"tokens": "jiao1 tong1 .",
+"method": "natural",
+"score": 1.4
+},
+"4ea7-54c1": {
+"hanzi": "产品",
+"tokens": "chan2 pin3 .",
+"method": "natural",
+"score": 5.6
+},
+"4eab-53d7": {
+"hanzi": "享受",
+"tokens": "xiang3 shou4 .",
+"method": "natural",
+"score": 1.1
+},
+"4eae": {
+"hanzi": "亮",
+"tokens": "liang4 .",
+"method": "natural",
+"score": 1.4
+},
+"4eba-4e8b": {
+"hanzi": "人事",
+"tokens": "ren2 shi4 .",
+"method": "natural",
+"score": 1.3
+},
+"4eba-6743": {
+"hanzi": "人权",
+"tokens": "ren2 quan2 .",
+"method": "natural",
+"score": 1.6
+},
+"4ec0-4e48-65f6-5019": {
+"hanzi": "什么时候",
+"tokens": "shen2 me shi2 hou4 .",
+"method": "natural (split evenly)",
+"score": 1.3
+},
+"4ec0-4e48-6837": {
+"hanzi": "什么样",
+"tokens": "shen2 ma yang4 .",
+"method": "natural (split evenly)",
+"score": 0.9
+},
+"4eca-5e74": {
+"hanzi": "今年",
+"tokens": "jin1 nian2 .",
+"method": "best-effort",
+"score": -0.2
+},
+"4ecb-7ecd": {
+"hanzi": "介绍",
+"tokens": "jie4 shao4 .",
+"method": "natural",
+"score": 0.7
+},
+"4ecd-7136": {
+"hanzi": "仍然",
+"tokens": "reng2 ran2 .",
+"method": "natural (split evenly)",
+"score": 1.0
+},
+"4ece-4e8b": {
+"hanzi": "从事",
+"tokens": "cong2 shi4 .",
+"method": "natural",
+"score": 1.2
+},
+"4ed4-7ec6": {
+"hanzi": "仔细",
+"tokens": "zi3 xi4 .",
+"method": "natural",
+"score": 1.3
+},
+"4ee4-4eba": {
+"hanzi": "令人",
+"tokens": "ling4 ren2 .",
+"method": "natural (split evenly)",
+"score": 2.3
+},
+"4ee5": {
+"hanzi": "以",
+"tokens": "yi3 .",
+"method": "pitch-edited",
+"score": 2.4
+},
+"4ee5-53ca": {
+"hanzi": "以及",
+"tokens": "yi3 ji2 .",
+"method": "natural",
+"score": 1.9
+},
+"4ee5-5f80": {
+"hanzi": "以往",
+"tokens": "yi2 wang3 .",
+"method": "natural (split evenly)",
+"score": 2.5
+},
+"4eec": {
+"hanzi": "们",
+"tokens": "men .",
+"method": "natural",
+"score": null
+},
+"4ef6": {
+"hanzi": "件",
+"tokens": "jian4 .",
+"method": "natural",
+"score": 3.3
+},
+"4ef7-683c": {
+"hanzi": "价格",
+"tokens": "jia4 ge2 .",
+"method": "pitch-edited",
+"score": 2.0
+},
+"4efb-52a1": {
+"hanzi": "任务",
+"tokens": "ren4 wu4 .",
+"method": "natural (split evenly)",
+"score": 1.3
+},
+"4efd": {
+"hanzi": "份",
+"tokens": "fen4 .",
+"method": "natural",
+"score": 3.1
+},
+"4f18-79c0": {
+"hanzi": "优秀",
+"tokens": "you1 xiu4 .",
+"method": "pitch-edited",
+"score": 2.8
+},
+"4f1a-4e0d-4f1a": {
+"hanzi": "会不会",
+"tokens": "hui4 bu2 hui4 .",
+"method": "natural (split evenly)",
+"score": 2.7
+},
+"4f1a-8bae": {
+"hanzi": "会议",
+"tokens": "hui4 yi4 .",
+"method": "natural (split evenly)",
+"score": 3.2
+},
+"4f20-7edf": {
+"hanzi": "传统",
+"tokens": "chuan2 tong3 .",
+"method": "pitch-edited",
+"score": 3.5
+},
+"4f24-5fc3": {
+"hanzi": "伤心",
+"tokens": "shang1 xin1 .",
+"method": "natural",
+"score": 1.1
+},
+"4f30-8ba1": {
+"hanzi": "估计",
+"tokens": "gu1 ji4 .",
+"method": "pitch-edited",
+"score": 2.8
+},
+"4f3c-4e4e": {
+"hanzi": "似乎",
+"tokens": "si4 hu1 .",
+"method": "natural",
+"score": 1.5
+},
+"4f3c-7684": {
+"hanzi": "似的",
+"tokens": "shi4 de .",
+"method": "natural",
+"score": 2.9
+},
+"4f4d-5b50": {
+"hanzi": "位子",
+"tokens": "wei4 zi .",
+"method": "natural",
+"score": 3.3
+},
+"4f4f-5904": {
+"hanzi": "住处",
+"tokens": "zhu4 chu4 .",
+"method": "natural",
+"score": 1.1
+},
+"4f55": {
+"hanzi": "何",
+"tokens": "he2 .",
+"method": "natural",
+"score": 1.4
+},
+"4f59": {
+"hanzi": "余",
+"tokens": "yu2 .",
+"method": "natural",
+"score": 1.1
+},
+"4f5c-4e1a": {
+"hanzi": "作业",
+"tokens": "zuo4 ye4 .",
+"method": "best-effort",
+"score": -0.8
+},
+"4f5c-6587": {
+"hanzi": "作文",
+"tokens": "zuo4 wen2 .",
+"method": "natural (split evenly)",
+"score": 3.1
+},
+"4f5c-753b": {
+"hanzi": "作画",
+"tokens": "zuo4 hua4 .",
+"method": "natural",
+"score": 2.5
+},
+"4f5c-8005": {
+"hanzi": "作者",
+"tokens": "zuo4 zhe3 .",
+"method": "natural",
+"score": 3.1
+},
+"4f8b-9898": {
+"hanzi": "例题",
+"tokens": "li4 ti2 .",
+"method": "natural",
+"score": 0.9
+},
+"4fbf-5b9c": {
+"hanzi": "便宜",
+"tokens": "pian2 yi .",
+"method": "natural",
+"score": 2.7
+},
+"4fc3-8fdb": {
+"hanzi": "促进",
+"tokens": "cu4 jin4 .",
+"method": "natural",
+"score": 1.7
+},
+"4fc4-7f57-65af": {
+"hanzi": "俄罗斯",
+"tokens": "e2 luo2 si1 .",
+"method": "best-effort",
+"score": -1.7
+},
+"4fe1": {
+"hanzi": "信",
+"tokens": "xin4 .",
+"method": "natural",
+"score": 1.0
+},
+"4fe1-4efb": {
+"hanzi": "信任",
+"tokens": "xin4 ren4 .",
+"method": "natural (split evenly)",
+"score": 1.0
+},
+"4fe1-53f7": {
+"hanzi": "信号",
+"tokens": "xin4 hao4 .",
+"method": "natural",
+"score": 1.5
+},
+"4fe1-7528-5361": {
+"hanzi": "信用卡",
+"tokens": "xin4 yong4 ka3 .",
+"method": "best-effort",
+"score": -1.8
+},
+"4fee-6539": {
+"hanzi": "修改",
+"tokens": "xiu1 gai3 .",
+"method": "natural",
+"score": 2.4
+},
+"500d": {
+"hanzi": "倍",
+"tokens": "bei4 .",
+"method": "natural",
+"score": 3.0
+},
+"5012": {
+"hanzi": "倒",
+"tokens": "dao3 .",
+"method": "pitch-edited",
+"score": 2.7
+},
+"501f": {
+"hanzi": "借",
+"tokens": "jie4 .",
+"method": "natural",
+"score": 2.6
+},
+"503c-5f97": {
+"hanzi": "值得",
+"tokens": "zhi2 de .",
+"method": "natural (split evenly)",
+"score": 2.0
+},
+"5047": {
+"hanzi": "假",
+"tokens": "jia3 .",
+"method": "pitch-edited",
+"score": 2.8
+},
+"505a-4e8b": {
+"hanzi": "做事",
+"tokens": "zuo4 shi4 .",
+"method": "natural",
+"score": 0.6
+},
+"505a-5b8c": {
+"hanzi": "做完",
+"tokens": "zuo4 wan2 .",
+"method": "natural (split evenly)",
+"score": 2.9
+},
+"505a-68a6": {
+"hanzi": "做梦",
+"tokens": "zuo4 meng4 .",
+"method": "best-effort",
+"score": -0.8
+},
+"505a-6cd5": {
+"hanzi": "做法",
+"tokens": "zuo4 fa3 .",
+"method": "natural",
+"score": 0.8
+},
+"505a-996d": {
+"hanzi": "做饭",
+"tokens": "zuo4 fan4 .",
+"method": "pitch-edited",
+"score": 2.7
+},
+"505c": {
+"hanzi": "停",
+"tokens": "ting2 .",
+"method": "natural",
+"score": 2.0
+},
+"5065-5eb7": {
+"hanzi": "健康",
+"tokens": "jian4 kang1 .",
+"method": "natural",
+"score": 1.4
+},
+"5077": {
+"hanzi": "偷",
+"tokens": "tou1 .",
+"method": "natural",
+"score": 2.4
+},
+"50bb": {
+"hanzi": "傻",
+"tokens": "sha3 .",
+"method": "pitch-edited",
+"score": 2.7
+},
+"513f-7ae5": {
+"hanzi": "儿童",
+"tokens": "er2 tong2 .",
+"method": "natural",
+"score": 2.2
+},
+"5141-8bb8": {
+"hanzi": "允许",
+"tokens": "yun2 xu3 .",
+"method": "natural",
+"score": 5.2
+},
+"5143": {
+"hanzi": "元",
+"tokens": "yuan2 .",
+"method": "natural",
+"score": 1.6
+},
+"5145-5206": {
+"hanzi": "充分",
+"tokens": "chong1 fen4 .",
+"method": "natural",
+"score": 1.4
+},
+"5149": {
+"hanzi": "光",
+"tokens": "guang1 .",
+"method": "natural",
+"score": 1.1
+},
+"5168": {
+"hanzi": "全",
+"tokens": "quan2 .",
+"method": "natural",
+"score": 1.8
+},
+"516b": {
+"hanzi": "八",
+"tokens": "ba1 .",
+"method": "pitch-edited",
+"score": 2.3
+},
+"516c-56ed": {
+"hanzi": "公园",
+"tokens": "gong1 yuan2 .",
+"method": "best-effort",
+"score": 0.5
+},
+"516c-5e73": {
+"hanzi": "公平",
+"tokens": "gong1 ping2 .",
+"method": "natural",
+"score": 1.6
+},
+"516c-91cc": {
+"hanzi": "公里",
+"tokens": "gong1 li3 .",
+"method": "best-effort",
+"score": 0.3
+},
+"516d": {
+"hanzi": "六",
+"tokens": "liu4 .",
+"method": "natural",
+"score": 3.1
+},
+"5173-6ce8": {
+"hanzi": "关注",
+"tokens": "guan1 zhu4 .",
+"method": "natural",
+"score": 1.5
+},
+"5173-95e8": {
+"hanzi": "关门",
+"tokens": "guan1 men2 .",
+"method": "natural (split evenly)",
+"score": 1.3
+},
+"5174-8da3": {
+"hanzi": "兴趣",
+"tokens": "xing4 qu4 .",
+"method": "natural",
+"score": 1.1
+},
+"5176-6b21": {
+"hanzi": "其次",
+"tokens": "qi2 ci4 .",
+"method": "pitch-edited",
+"score": 1.6
+},
+"517b": {
+"hanzi": "养",
+"tokens": "yang3 .",
+"method": "pitch-edited",
+"score": 2.5
+},
+"5185": {
+"hanzi": "内",
+"tokens": "nei4 .",
+"method": "natural",
+"score": 2.6
+},
+"518d-4e5f": {
+"hanzi": "再也",
+"tokens": "zai4 ye3 .",
+"method": "natural (split evenly)",
+"score": 3.7
+},
+"5199-4fe1": {
+"hanzi": "写信",
+"tokens": "xie3 xin4 .",
+"method": "natural",
+"score": 1.5
+},
+"5199-5b57": {
+"hanzi": "写字",
+"tokens": "xie3 zi4 .",
+"method": "natural",
+"score": 0.9
+},
+"519b-961f": {
+"hanzi": "军队",
+"tokens": "jun1 dui4 .",
+"method": "natural (split evenly)",
+"score": 1.6
+},
+"519c-4e1a": {
+"hanzi": "农业",
+"tokens": "nong2 ye4 .",
+"method": "natural (split evenly)",
+"score": 1.2
+},
+"519c-6751": {
+"hanzi": "农村",
+"tokens": "nong2 cun1 .",
+"method": "natural",
+"score": 1.0
+},
+"51ac-5929": {
+"hanzi": "冬天",
+"tokens": "dong1 tian1 .",
+"method": "natural",
+"score": 2.2
+},
+"51b7": {
+"hanzi": "冷",
+"tokens": "leng3 .",
+"method": "pitch-edited",
+"score": 2.2
+},
+"51b7-9759": {
+"hanzi": "冷静",
+"tokens": "leng3 jing4 .",
+"method": "natural",
+"score": 1.7
+},
+"51c6": {
+"hanzi": "准",
+"tokens": "zhun3 .",
+"method": "pitch-edited",
+"score": 2.6
+},
+"51c6-786e": {
+"hanzi": "准确",
+"tokens": "zhun3 que4 .",
+"method": "natural",
+"score": 0.9
+},
+"51e0": {
+"hanzi": "几",
+"tokens": "ji3 .",
+"method": "pitch-edited",
+"score": 2.4
+},
+"51e0-4e2a": {
+"hanzi": "几个",
+"tokens": "ji3 ge4 .",
+"method": "pitch-edited",
+"score": 1.2
+},
+"51e0-4e4e": {
+"hanzi": "几乎",
+"tokens": "ji1 hu1 .",
+"method": "natural",
+"score": 1.3
+},
+"51e0-5206": {
+"hanzi": "几分",
+"tokens": "ji3 fen1 .",
+"method": "pitch-edited",
+"score": 2.8
+},
+"51e0-5929": {
+"hanzi": "几天",
+"tokens": "ji3 tian1 .",
+"method": "pitch-edited",
+"score": 2.8
+},
+"51e0-65f6": {
+"hanzi": "几时",
+"tokens": "ji3 shi2 .",
+"method": "natural",
+"score": 1.1
+},
+"51e0-70b9": {
+"hanzi": "几点",
+"tokens": "ji2 dian3 .",
+"method": "pitch-edited",
+"score": 3.1
+},
+"51ed": {
+"hanzi": "凭",
+"tokens": "ping2 .",
+"method": "natural",
+"score": 1.5
+},
+"51fa-5356": {
+"hanzi": "出卖",
+"tokens": "chu1 mai4 .",
+"method": "natural (split evenly)",
+"score": 1.8
+},
+"51fa-53d1": {
+"hanzi": "出发",
+"tokens": "chu1 fa1 .",
+"method": "natural",
+"score": 1.5
+},
+"51fa-56fd": {
+"hanzi": "出国",
+"tokens": "chu1 guo2 .",
+"method": "natural",
+"score": 1.2
+},
+"51fa-7248": {
+"hanzi": "出版",
+"tokens": "chu1 ban3 .",
+"method": "natural",
+"score": 1.8
+},
+"51fa-751f": {
+"hanzi": "出生",
+"tokens": "chu1 sheng1 .",
+"method": "natural",
+"score": 1.0
+},
+"51fa-8272": {
+"hanzi": "出色",
+"tokens": "chu1 se4 .",
+"method": "natural",
+"score": 1.4
+},
+"51fa-95e8": {
+"hanzi": "出门",
+"tokens": "chu1 men2 .",
+"method": "best-effort",
+"score": 0.4
+},
+"51fa-96be-9898": {
+"hanzi": "出难题",
+"tokens": "chu1 nan2 ti2 .",
+"method": "best-effort",
+"score": -2.3
+},
+"5206": {
+"hanzi": "分",
+"tokens": "fen1 .",
+"method": "natural",
+"score": 1.1
+},
+"5206-624b": {
+"hanzi": "分手",
+"tokens": "fen1 shou3 .",
+"method": "natural (split evenly)",
+"score": 1.0
+},
+"5206-6790": {
+"hanzi": "分析",
+"tokens": "fen1 xi1 .",
+"method": "natural",
+"score": 1.5
+},
+"5206-949f": {
+"hanzi": "分钟",
+"tokens": "fen1 zhong1 .",
+"method": "natural",
+"score": 1.6
+},
+"5207": {
+"hanzi": "切",
+"tokens": "qie4 .",
+"method": "natural",
+"score": 2.4
+},
+"520a": {
+"hanzi": "刊",
+"tokens": "kan1 .",
+"method": "natural",
+"score": 1.3
+},
+"521a": {
+"hanzi": "刚",
+"tokens": "gang1 .",
+"method": "natural",
+"score": 1.0
+},
+"521a-597d": {
+"hanzi": "刚好",
+"tokens": "gang1 hao3 .",
+"method": "pitch-edited",
+"score": 2.8
+},
+"5224-65ad": {
+"hanzi": "判断",
+"tokens": "pan4 duan4 .",
+"method": "natural (split evenly)",
+"score": 0.9
+},
+"522b-6709": {
+"hanzi": "别有",
+"tokens": "bie2 you3 .",
+"method": "natural (split evenly)",
+"score": 1.1
+},
+"5230-4e86": {
+"hanzi": "到了",
+"tokens": "dao4 le .",
+"method": "best-effort",
+"score": 0.4
+},
+"5236-5b9a": {
+"hanzi": "制定",
+"tokens": "zhi4 ding4 .",
+"method": "natural",
+"score": 2.4
+},
+"5236-5ea6": {
+"hanzi": "制度",
+"tokens": "zhi4 du4 .",
+"method": "natural",
+"score": 2.9
+},
+"524d-5929": {
+"hanzi": "前天",
+"tokens": "qian2 tian1 .",
+"method": "natural",
+"score": 1.1
+},
+"524d-9762": {
+"hanzi": "前面",
+"tokens": "qian2 mian4 .",
+"method": "natural (split evenly)",
+"score": 4.0
+},
+"529e": {
+"hanzi": "办",
+"tokens": "ban4 .",
+"method": "natural",
+"score": 3.1
+},
+"529e-516c-5ba4": {
+"hanzi": "办公室",
+"tokens": "ban4 gong1 shi4 .",
+"method": "natural",
+"score": 1.1
+},
+"52a0": {
+"hanzi": "加",
+"tokens": "jia1 .",
+"method": "natural",
+"score": 1.0
+},
+"52a0-62ff-5927": {
+"hanzi": "加拿大",
+"tokens": "jia1 na2 da4 .",
+"method": "natural (split evenly)",
+"score": 1.5
+},
+"52a8": {
+"hanzi": "动",
+"tokens": "dong4 .",
+"method": "natural",
+"score": 3.2
+},
+"52a8-4f5c": {
+"hanzi": "动作",
+"tokens": "dong4 zuo4 .",
+"method": "natural",
+"score": 1.4
+},
+"52a8-624b": {
+"hanzi": "动手",
+"tokens": "dong4 shou3 .",
+"method": "natural",
+"score": 1.1
+},
+"52a8-7269": {
+"hanzi": "动物",
+"tokens": "dong4 wu4 .",
+"method": "best-effort",
+"score": -1.0
+},
+"5305": {
+"hanzi": "包",
+"tokens": "bao1 .",
+"method": "natural",
+"score": 1.7
+},
+"5316-5b66": {
+"hanzi": "化学",
+"tokens": "hua4 xue2 .",
+"method": "natural",
+"score": 1.4
+},
+"5317-4eac": {
+"hanzi": "北京",
+"tokens": "bei3 jing1 .",
+"method": "pitch-edited",
+"score": 2.0
+},
+"533a-522b": {
+"hanzi": "区别",
+"tokens": "qu1 bie2 .",
+"method": "natural",
+"score": 1.7
+},
+"5341": {
+"hanzi": "十",
+"tokens": "shi2 .",
+"method": "natural",
+"score": 1.9
+},
+"5341-4e8c": {
+"hanzi": "十二",
+"tokens": "shi2 er4 .",
+"method": "natural (split evenly)",
+"score": 3.2
+},
+"5341-5206": {
+"hanzi": "十分",
+"tokens": "shi2 fen1 .",
+"method": "pitch-edited",
+"score": 1.2
+},
+"534a": {
+"hanzi": "半",
+"tokens": "ban4 .",
+"method": "natural",
+"score": 2.7
+},
+"534a-591c": {
+"hanzi": "半夜",
+"tokens": "ban4 ye4 .",
+"method": "natural (split evenly)",
+"score": 1.6
+},
+"5355-8bcd": {
+"hanzi": "单词",
+"tokens": "dan1 ci2 .",
+"method": "natural",
+"score": 1.3
+},
+"535a-58eb": {
+"hanzi": "博士",
+"tokens": "bo2 shi4 .",
+"method": "natural",
+"score": 1.9
+},
+"5360": {
+"hanzi": "占",
+"tokens": "zhan4 .",
+"method": "natural",
+"score": 2.9
+},
+"5361": {
+"hanzi": "卡",
+"tokens": "ka3 .",
+"method": "pitch-edited",
+"score": 2.2
+},
+"5374": {
+"hanzi": "却",
+"tokens": "que4 .",
+"method": "natural",
+"score": 1.4
+},
+"5386-53f2": {
+"hanzi": "历史",
+"tokens": "li4 shi3 .",
+"method": "natural",
+"score": 1.1
+},
+"538b-529b": {
+"hanzi": "压力",
+"tokens": "ya1 li4 .",
+"method": "best-effort",
+"score": 0.3
+},
+"5395-6240": {
+"hanzi": "厕所",
+"tokens": "ce4 suo3 .",
+"method": "natural",
+"score": 0.9
+},
+"539a": {
+"hanzi": "厚",
+"tokens": "hou4 .",
+"method": "natural",
+"score": 2.7
+},
+"539f-5219": {
+"hanzi": "原则",
+"tokens": "yuan2 ze2 .",
+"method": "natural",
+"score": 0.9
+},
+"53a8-623f": {
+"hanzi": "厨房",
+"tokens": "chu2 fang2 .",
+"method": "natural",
+"score": 2.1
+},
+"53bb-4e16": {
+"hanzi": "去世",
+"tokens": "qu4 shi4 .",
+"method": "natural",
+"score": 0.9
+},
+"53bb-5e74": {
+"hanzi": "去年",
+"tokens": "qu4 nian2 .",
+"method": "natural (split evenly)",
+"score": 4.4
+},
+"53cb-597d": {
+"hanzi": "友好",
+"tokens": "you2 hao3 .",
+"method": "natural",
+"score": 5.1
+},
+"53cc-65b9": {
+"hanzi": "双方",
+"tokens": "shuang1 fang1 .",
+"method": "natural (split evenly)",
+"score": 0.9
+},
+"53cd": {
+"hanzi": "反",
+"tokens": "fan3 .",
+"method": "pitch-edited",
+"score": 2.6
+},
+"53d1": {
+"hanzi": "发",
+"tokens": "fa1 .",
+"method": "natural",
+"score": 2.1
+},
+"53d1-5c55": {
+"hanzi": "发展",
+"tokens": "fa1 zhan3 .",
+"method": "natural",
+"score": 0.6
+},
+"53d1-660e": {
+"hanzi": "发明",
+"tokens": "fa1 ming2 .",
+"method": "best-effort",
+"score": 0.5
+},
+"53d1-8868": {
+"hanzi": "发表",
+"tokens": "fa1 biao3 .",
+"method": "natural",
+"score": 1.1
+},
+"53d1-8a00": {
+"hanzi": "发言",
+"tokens": "fa1 yan2 .",
+"method": "best-effort",
+"score": -2.3
+},
+"53d1-8fbe": {
+"hanzi": "发达",
+"tokens": "fa1 da2 .",
+"method": "natural",
+"score": 0.7
+},
+"53d4-53d4": {
+"hanzi": "叔叔",
+"tokens": "shu1 shu1 .",
+"method": "natural",
+"score": 2.0
+},
+"53d6-5f97": {
+"hanzi": "取得",
+"tokens": "qu3 de2 .",
+"method": "pitch-edited",
+"score": 1.9
+},
+"53d6-94b1": {
+"hanzi": "取钱",
+"tokens": "qu3 qian2 .",
+"method": "natural",
+"score": 0.6
+},
+"53d7": {
+"hanzi": "受",
+"tokens": "shou4 .",
+"method": "natural",
+"score": 1.6
+},
+"53d7-5230": {
+"hanzi": "受到",
+"tokens": "shou4 dao4 .",
+"method": "natural",
+"score": 1.3
+},
+"53d8": {
+"hanzi": "变",
+"tokens": "bian4 .",
+"method": "natural",
+"score": 1.8
+},
+"53e3": {
+"hanzi": "口",
+"tokens": "kou3 .",
+"method": "pitch-edited",
+"score": 2.5
+},
+"53e5": {
+"hanzi": "句",
+"tokens": "ju4 .",
+"method": "natural",
+"score": 2.9
+},
+"53e5-5b50": {
+"hanzi": "句子",
+"tokens": "ju4 zi .",
+"method": "natural",
+"score": 4.4
+},
+"53e6-4e00": {
+"hanzi": "另一",
+"tokens": "ling4 yi1 .",
+"method": "best-effort",
+"score": 0.3
+},
+"53e6-5916": {
+"hanzi": "另外",
+"tokens": "ling4 wai4 .",
+"method": "best-effort",
+"score": 0.1
+},
+"53ea-597d": {
+"hanzi": "只好",
+"tokens": "zhi2 hao3 .",
+"method": "natural",
+"score": 1.5
+},
+"53eb-505a": {
+"hanzi": "叫做",
+"tokens": "jiao4 zuo4 .",
+"method": "natural (split evenly)",
+"score": 1.5
+},
+"53ec-5f00": {
+"hanzi": "召开",
+"tokens": "zhao4 kai1 .",
+"method": "natural",
+"score": 1.5
+},
+"53ef-601c": {
+"hanzi": "可怜",
+"tokens": "ke3 lian2 .",
+"method": "natural (split evenly)",
+"score": 0.7
+},
+"53ef-60dc": {
+"hanzi": "可惜",
+"tokens": "ke3 xi1 .",
+"method": "natural",
+"score": 0.9
+},
+"53ef-884c": {
+"hanzi": "可行",
+"tokens": "ke3 xing2 .",
+"method": "pitch-edited",
+"score": 3.9
+},
+"53f0": {
+"hanzi": "台",
+"tokens": "tai2 .",
+"method": "natural",
+"score": 2.0
+},
+"53f0-6e7e": {
+"hanzi": "台湾",
+"tokens": "tai2 wan1 .",
+"method": "natural (split evenly)",
+"score": 1.3
+},
+"53f0-98ce": {
+"hanzi": "台风",
+"tokens": "tai2 feng1 .",
+"method": "natural",
+"score": 1.1
+},
+"53f7-7801": {
+"hanzi": "号码",
+"tokens": "hao4 ma3 .",
+"method": "natural (split evenly)",
+"score": 3.1
+},
+"53f8-673a": {
+"hanzi": "司机",
+"tokens": "si1 ji1 .",
+"method": "pitch-edited",
+"score": 2.1
+},
+"5403-996d": {
+"hanzi": "吃饭",
+"tokens": "chi1 fan4 .",
+"method": "natural",
+"score": 1.1
+},
+"5408-4f5c": {
+"hanzi": "合作",
+"tokens": "he2 zuo4 .",
+"method": "pitch-edited",
+"score": 1.4
+},
+"5408-540c": {
+"hanzi": "合同",
+"tokens": "he2 tong2 .",
+"method": "natural",
+"score": 2.6
+},
+"5408-9002": {
+"hanzi": "合适",
+"tokens": "he2 shi4 .",
+"method": "pitch-edited",
+"score": 1.7
+},
+"540c": {
+"hanzi": "同",
+"tokens": "tong2 .",
+"method": "natural",
+"score": 1.7
+},
+"540c-4e8b": {
+"hanzi": "同事",
+"tokens": "tong2 shi4 .",
+"method": "natural",
+"score": 1.0
+},
+"540c-5b66": {
+"hanzi": "同学",
+"tokens": "tong2 xue2 .",
+"method": "natural",
+"score": 0.9
+},
+"540c-6837": {
+"hanzi": "同样",
+"tokens": "tong2 yang4 .",
+"method": "natural (split evenly)",
+"score": 3.8
+},
+"540c-9f84": {
+"hanzi": "同龄",
+"tokens": "tong2 ling2 .",
+"method": "natural (split evenly)",
+"score": 0.9
+},
+"540d": {
+"hanzi": "名",
+"tokens": "ming2 .",
+"method": "natural",
+"score": 1.9
+},
+"540d-7247": {
+"hanzi": "名片",
+"tokens": "ming2 pian4 .",
+"method": "natural",
+"score": 2.2
+},
+"540e-6094": {
+"hanzi": "后悔",
+"tokens": "hou4 hui3 .",
+"method": "natural",
+"score": 1.5
+},
+"541b": {
+"hanzi": "君",
+"tokens": "jun1 .",
+"method": "natural",
+"score": 1.3
+},
+"5426-5219": {
+"hanzi": "否则",
+"tokens": "fou3 ze2 .",
+"method": "natural",
+"score": 0.9
+},
+"542c-5f97-89c1": {
+"hanzi": "听得见",
+"tokens": "ting1 de jian4 .",
+"method": "natural (split evenly)",
+"score": 1.9
+},
+"542c-8bfe": {
+"hanzi": "听课",
+"tokens": "ting1 ke4 .",
+"method": "natural",
+"score": 1.7
+},
+"5439": {
+"hanzi": "吹",
+"tokens": "chui1 .",
+"method": "natural",
+"score": 1.1
+},
+"543b": {
+"hanzi": "吻",
+"tokens": "wen3 .",
+"method": "pitch-edited",
+"score": 2.2
+},
+"5458-5de5": {
+"hanzi": "员工",
+"tokens": "yuan2 gong1 .",
+"method": "natural",
+"score": 1.6
+},
+"5468": {
+"hanzi": "周",
+"tokens": "zhou1 .",
+"method": "natural",
+"score": 1.3
+},
+"5468-56f4": {
+"hanzi": "周围",
+"tokens": "zhou1 wei2 .",
+"method": "natural (split evenly)",
+"score": 1.1
+},
+"5468-672b": {
+"hanzi": "周末",
+"tokens": "zhou1 mo4 .",
+"method": "natural (split evenly)",
+"score": 1.6
+},
+"547d-4ee4": {
+"hanzi": "命令",
+"tokens": "ming4 ling4 .",
+"method": "natural (split evenly)",
+"score": 1.3
+},
+"547d-8fd0": {
+"hanzi": "命运",
+"tokens": "ming4 yun4 .",
+"method": "best-effort",
+"score": -0.9
+},
+"548c-597d": {
+"hanzi": "和好",
+"tokens": "he2 hao3 .",
+"method": "natural",
+"score": 1.8
+},
+"548c-5e73": {
+"hanzi": "和平",
+"tokens": "he2 ping2 .",
+"method": "natural",
+"score": 2.9
+},
+"5496-5561": {
+"hanzi": "咖啡",
+"tokens": "ka1 fei1 .",
+"method": "natural",
+"score": 1.6
+},
+"5496-5561-673a": {
+"hanzi": "咖啡机",
+"tokens": "ka1 fei1 ji1 .",
+"method": "natural",
+"score": 0.9
+},
+"54cd": {
+"hanzi": "响",
+"tokens": "xiang3 .",
+"method": "pitch-edited",
+"score": 2.6
+},
+"54ea-4e2a": {
+"hanzi": "哪个",
+"tokens": "na3 ge4 .",
+"method": "natural",
+"score": 1.9
+},
+"54ea-513f": {
+"hanzi": "哪儿",
+"tokens": "na3 .",
+"method": "pitch-edited",
+"score": 2.8
+},
+"54ed": {
+"hanzi": "哭",
+"tokens": "ku1 .",
+"method": "natural",
+"score": 2.1
+},
+"5531": {
+"hanzi": "唱",
+"tokens": "chang4 .",
+"method": "natural",
+"score": 0.9
+},
+"5531-6b4c": {
+"hanzi": "唱歌",
+"tokens": "chang4 ge1 .",
+"method": "natural",
+"score": 1.7
+},
+"5546-5e97": {
+"hanzi": "商店",
+"tokens": "shang1 dian4 .",
+"method": "natural (split evenly)",
+"score": 2.3
+},
+"5546-91cf": {
+"hanzi": "商量",
+"tokens": "shang1 liang2 .",
+"method": "natural (split evenly)",
+"score": 1.4
+},
+"5564-9152": {
+"hanzi": "啤酒",
+"tokens": "pi2 jiu3 .",
+"method": "natural",
+"score": 1.3
+},
+"558a": {
+"hanzi": "喊",
+"tokens": "han3 .",
+"method": "pitch-edited",
+"score": 2.1
+},
+"56db": {
+"hanzi": "四",
+"tokens": "si4 .",
+"method": "natural",
+"score": 3.4
+},
+"56de-56fd": {
+"hanzi": "回国",
+"tokens": "hui2 guo2 .",
+"method": "natural",
+"score": 1.5
+},
+"56de-5934": {
+"hanzi": "回头",
+"tokens": "hui2 tou2 .",
+"method": "natural",
+"score": 1.3
+},
+"56f0-96be": {
+"hanzi": "困难",
+"tokens": "kun4 nan2 .",
+"method": "natural (split evenly)",
+"score": 2.7
+},
+"56f4": {
+"hanzi": "围",
+"tokens": "wei2 .",
+"method": "natural",
+"score": 2.4
+},
+"56fd": {
+"hanzi": "国",
+"tokens": "guo2 .",
+"method": "natural",
+"score": 2.0
+},
+"56fd-738b": {
+"hanzi": "国王",
+"tokens": "guo2 wang2 .",
+"method": "natural (split evenly)",
+"score": 1.4
+},
+"56fd-9645": {
+"hanzi": "国际",
+"tokens": "guo2 ji4 .",
+"method": "natural",
+"score": 1.8
+},
+"56fe-4e66-9986": {
+"hanzi": "图书馆",
+"tokens": "tu2 shu1 guan3 .",
+"method": "pitch-edited",
+"score": 2.0
+},
+"571f-5730": {
+"hanzi": "土地",
+"tokens": "tu3 di4 .",
+"method": "natural (split evenly)",
+"score": 1.0
+},
+"5728-610f": {
+"hanzi": "在意",
+"tokens": "zai4 yi4 .",
+"method": "natural (split evenly)",
+"score": 0.7
+},
+"5728-90a3-513f": {
+"hanzi": "在那儿",
+"tokens": "zai4 na .",
+"method": "natural",
+"score": 3.2
+},
+"5730": {
+"hanzi": "地",
+"tokens": "de .",
+"method": "natural",
+"score": null
+},
+"5730-533a": {
+"hanzi": "地区",
+"tokens": "di4 qu1 .",
+"method": "natural",
+"score": 1.0
+},
+"5730-56fe": {
+"hanzi": "地图",
+"tokens": "di4 tu2 .",
+"method": "natural",
+"score": 2.5
+},
+"5730-5740": {
+"hanzi": "地址",
+"tokens": "di4 zhi3 .",
+"method": "natural",
+"score": 1.3
+},
+"5730-94c1": {
+"hanzi": "地铁",
+"tokens": "di4 tie3 .",
+"method": "natural (split evenly)",
+"score": 1.9
+},
+"574f": {
+"hanzi": "坏",
+"tokens": "huai4 .",
+"method": "natural",
+"score": 3.4
+},
+"574f-4e86": {
+"hanzi": "坏了",
+"tokens": "huai4 le .",
+"method": "natural (split evenly)",
+"score": 1.1
+},
+"574f-4eba": {
+"hanzi": "坏人",
+"tokens": "huai4 ren2 .",
+"method": "natural (split evenly)",
+"score": 1.7
+},
+"5757": {
+"hanzi": "块",
+"tokens": "kuai4 .",
+"method": "natural",
+"score": 2.8
+},
+"575a-6301": {
+"hanzi": "坚持",
+"tokens": "jian1 chi2 .",
+"method": "pitch-edited",
+"score": 1.8
+},
+"57ce-5e02": {
+"hanzi": "城市",
+"tokens": "cheng2 shi4 .",
+"method": "natural",
+"score": 1.0
+},
+"57f9-517b": {
+"hanzi": "培养",
+"tokens": "pei2 yang3 .",
+"method": "natural (split evenly)",
+"score": 2.2
+},
+"57fa-7840": {
+"hanzi": "基础",
+"tokens": "ji1 chu3 .",
+"method": "pitch-edited",
+"score": 1.7
+},
+"589e-52a0": {
+"hanzi": "增加",
+"tokens": "zeng1 jia1 .",
+"method": "natural",
+"score": 1.3
+},
+"589e-957f": {
+"hanzi": "增长",
+"tokens": "zeng1 zhang3 .",
+"method": "natural (split evenly)",
+"score": 1.0
+},
+"58eb-5175": {
+"hanzi": "士兵",
+"tokens": "shi4 bing1 .",
+"method": "natural",
+"score": 0.7
+},
+"590d-4e60": {
+"hanzi": "复习",
+"tokens": "fu4 xi2 .",
+"method": "natural",
+"score": 1.8
+},
+"590d-6742": {
+"hanzi": "复杂",
+"tokens": "fu4 za2 .",
+"method": "natural",
+"score": 1.6
+},
+"590f-5929": {
+"hanzi": "夏天",
+"tokens": "xia4 tian1 .",
+"method": "natural",
+"score": 1.4
+},
+"5916-51fa": {
+"hanzi": "外出",
+"tokens": "wai4 chu1 .",
+"method": "natural",
+"score": 2.4
+},
+"5916-56fd": {
+"hanzi": "外国",
+"tokens": "wai4 guo2 .",
+"method": "natural",
+"score": 1.9
+},
+"5916-56fd-4eba": {
+"hanzi": "外国人",
+"tokens": "wai4 guo2 ren2 .",
+"method": "best-effort",
+"score": -1.6
+},
+"5916-8bed": {
+"hanzi": "外语",
+"tokens": "wai4 yu3 .",
+"method": "natural (split evenly)",
+"score": 1.4
+},
+"591a-5e74": {
+"hanzi": "多年",
+"tokens": "duo1 nian2 .",
+"method": "best-effort",
+"score": -0.7
+},
+"591c-665a": {
+"hanzi": "夜晚",
+"tokens": "ye4 wan3 .",
+"method": "natural (split evenly)",
+"score": 3.4
+},
+"5927-4e8b": {
+"hanzi": "大事",
+"tokens": "da4 shi4 .",
+"method": "pitch-edited",
+"score": 2.1
+},
+"5927-58f0": {
+"hanzi": "大声",
+"tokens": "da4 sheng1 .",
+"method": "natural",
+"score": 1.4
+},
+"5927-5b66": {
+"hanzi": "大学",
+"tokens": "da4 xue2 .",
+"method": "natural",
+"score": 1.7
+},
+"5927-5b66-751f": {
+"hanzi": "大学生",
+"tokens": "da4 xue2 sheng1 .",
+"method": "pitch-edited",
+"score": 1.7
+},
+"5927-697c": {
+"hanzi": "大楼",
+"tokens": "da4 lou2 .",
+"method": "best-effort",
+"score": 0.4
+},
+"5927-6982": {
+"hanzi": "大概",
+"tokens": "da4 gai4 .",
+"method": "natural",
+"score": 2.6
+},
+"5927-7ea6": {
+"hanzi": "大约",
+"tokens": "da4 yue1 .",
+"method": "best-effort",
+"score": 0.3
+},
+"5927-8fde": {
+"hanzi": "大连",
+"tokens": "da4 lian2 .",
+"method": "natural (split evenly)",
+"score": 2.7
+},
+"5927-91cf": {
+"hanzi": "大量",
+"tokens": "da4 liang4 .",
+"method": "best-effort",
+"score": -1.1
+},
+"5927-9646": {
+"hanzi": "大陆",
+"tokens": "da4 lu4 .",
+"method": "best-effort",
+"score": 0.5
+},
+"5929-4e0a": {
+"hanzi": "天上",
+"tokens": "tian1 shang4 .",
+"method": "natural",
+"score": 1.8
+},
+"5929-4f7f": {
+"hanzi": "天使",
+"tokens": "tian1 shi3 .",
+"method": "natural",
+"score": 2.1
+},
+"5929-5929": {
+"hanzi": "天天",
+"tokens": "tian1 tian1 .",
+"method": "natural",
+"score": 1.9
+},
+"5929-6027": {
+"hanzi": "天性",
+"tokens": "tian1 xing4 .",
+"method": "natural",
+"score": 1.3
+},
+"5929-624d": {
+"hanzi": "天才",
+"tokens": "tian1 cai2 .",
+"method": "pitch-edited",
+"score": 2.0
+},
+"5929-6c14": {
+"hanzi": "天气",
+"tokens": "tian1 qi4 .",
+"method": "natural",
+"score": 1.4
+},
+"5929-7a7a": {
+"hanzi": "天空",
+"tokens": "tian1 kong1 .",
+"method": "natural",
+"score": 0.9
+},
+"592a-9633": {
+"hanzi": "太阳",
+"tokens": "tai4 yang2 .",
+"method": "natural (split evenly)",
+"score": 1.3
+},
+"5931-671b": {
+"hanzi": "失望",
+"tokens": "shi1 wang4 .",
+"method": "natural (split evenly)",
+"score": 2.1
+},
+"5931-8d25": {
+"hanzi": "失败",
+"tokens": "shi1 bai4 .",
+"method": "natural",
+"score": 1.7
+},
+"5934-53d1": {
+"hanzi": "头发",
+"tokens": "tou2 fa4 .",
+"method": "natural",
+"score": 1.4
+},
+"5956": {
+"hanzi": "奖",
+"tokens": "jiang3 .",
+"method": "pitch-edited",
+"score": 2.9
+},
+"5957": {
+"hanzi": "套",
+"tokens": "tao4 .",
+"method": "natural",
+"score": 2.3
+},
+"5973-6027": {
+"hanzi": "女性",
+"tokens": "nv3 xing4 .",
+"method": "natural",
+"score": 1.9
+},
+"5973-670b-53cb": {
+"hanzi": "女朋友",
+"tokens": "nv3 peng2 you3 .",
+"method": "natural (split evenly)",
+"score": 1.2
+},
+"5973-751f": {
+"hanzi": "女生",
+"tokens": "nv3 sheng1 .",
+"method": "pitch-edited",
+"score": 2.0
+},
+"597d-4e8b": {
+"hanzi": "好事",
+"tokens": "hao3 shi4 .",
+"method": "natural",
+"score": 3.5
+},
+"597d-51e0": {
+"hanzi": "好几",
+"tokens": "hao2 ji3 .",
+"method": "natural",
+"score": 2.8
+},
+"597d-5403": {
+"hanzi": "好吃",
+"tokens": "hao3 chi1 .",
+"method": "natural",
+"score": 1.2
+},
+"597d-5904": {
+"hanzi": "好处",
+"tokens": "hao3 chu4 .",
+"method": "natural",
+"score": 2.4
+},
+"597d-591a": {
+"hanzi": "好多",
+"tokens": "hao3 duo1 .",
+"method": "pitch-edited",
+"score": 2.8
+},
+"597d-5947": {
+"hanzi": "好奇",
+"tokens": "hao4 qi2 .",
+"method": "natural",
+"score": 1.9
+},
+"597d-597d-513f": {
+"hanzi": "好好儿",
+"tokens": "hao3 hao1 .",
+"method": "pitch-edited",
+"score": 2.8
+},
+"597d-5b66": {
+"hanzi": "好学",
+"tokens": "hao4 xue2 .",
+"method": "natural",
+"score": 2.4
+},
+"597d-670b-53cb": {
+"hanzi": "好朋友",
+"tokens": "hao3 peng2 you3 .",
+"method": "best-effort",
+"score": 0.0
+},
+"597d-770b": {
+"hanzi": "好看",
+"tokens": "hao3 kan4 .",
+"method": "natural",
+"score": 1.4
+},
+"5982-6b64": {
+"hanzi": "如此",
+"tokens": "ru2 ci3 .",
+"method": "natural",
+"score": 2.7
+},
+"59b9-59b9": {
+"hanzi": "妹妹",
+"tokens": "mei4 mei4 .",
+"method": "natural (split evenly)",
+"score": 1.1
+},
+"59d0-59d0": {
+"hanzi": "姐姐",
+"tokens": "jie3 jie3 .",
+"method": "pitch-edited",
+"score": 4.7
+},
+"59d3": {
+"hanzi": "姓",
+"tokens": "xing4 .",
+"method": "natural",
+"score": 1.0
+},
+"5a01-80c1": {
+"hanzi": "威胁",
+"tokens": "wei1 xie2 .",
+"method": "pitch-edited",
+"score": 1.0
+},
+"5a31-4e50": {
+"hanzi": "娱乐",
+"tokens": "yu2 le4 .",
+"method": "natural (split evenly)",
+"score": 2.1
+},
+"5a5a-59fb": {
+"hanzi": "婚姻",
+"tokens": "hun1 yin1 .",
+"method": "natural (split evenly)",
+"score": 1.0
+},
+"5ab3-5987": {
+"hanzi": "媳妇",
+"tokens": "xi2 fu4 .",
+"method": "natural",
+"score": 1.5
+},
+"5b50": {
+"hanzi": "子",
+"tokens": "zi .",
+"method": "natural",
+"score": null
+},
+"5b57": {
+"hanzi": "字",
+"tokens": "zi4 .",
+"method": "natural",
+"score": 1.9
+},
+"5b58": {
+"hanzi": "存",
+"tokens": "cun2 .",
+"method": "natural",
+"score": 3.1
+},
+"5b58-5728": {
+"hanzi": "存在",
+"tokens": "cun2 zai4 .",
+"method": "best-effort",
+"score": 0.5
+},
+"5b64-5355": {
+"hanzi": "孤单",
+"tokens": "gu1 dan1 .",
+"method": "natural",
+"score": 1.2
+},
+"5b64-72ec": {
+"hanzi": "孤独",
+"tokens": "gu1 du2 .",
+"method": "natural",
+"score": 0.9
+},
+"5b66": {
+"hanzi": "学",
+"tokens": "xue2 .",
+"method": "pitch-edited",
+"score": 1.7
+},
+"5b66-4e60": {
+"hanzi": "学习",
+"tokens": "xue2 xi2 .",
+"method": "natural",
+"score": 2.0
+},
+"5b66-4f1a": {
+"hanzi": "学会",
+"tokens": "xue2 hui4 .",
+"method": "natural",
+"score": 1.4
+},
+"5b66-4f4d": {
+"hanzi": "学位",
+"tokens": "xue2 wei4 .",
+"method": "natural (split evenly)",
+"score": 3.5
+},
+"5b66-5230": {
+"hanzi": "学到",
+"tokens": "xue2 dao4 .",
+"method": "natural (split evenly)",
+"score": 3.0
+},
+"5b66-597d": {
+"hanzi": "学好",
+"tokens": "xue2 hao3 .",
+"method": "natural",
+"score": 2.6
+},
+"5b66-671f": {
+"hanzi": "学期",
+"tokens": "xue2 qi1 .",
+"method": "pitch-edited",
+"score": 1.4
+},
+"5b66-751f": {
+"hanzi": "学生",
+"tokens": "xue2 sheng1 .",
+"method": "natural",
+"score": 1.4
+},
+"5b66-8005": {
+"hanzi": "学者",
+"tokens": "xue2 zhe3 .",
+"method": "natural",
+"score": 1.2
+},
+"5b69-5b50-4eec": {
+"hanzi": "孩子们",
+"tokens": "hai2 zi men .",
+"method": "natural (split evenly)",
+"score": 4.2
+},
+"5b89-6170": {
+"hanzi": "安慰",
+"tokens": "an1 wei4 .",
+"method": "natural (split evenly)",
+"score": 0.9
+},
+"5b89-6392": {
+"hanzi": "安排",
+"tokens": "an1 pai2 .",
+"method": "pitch-edited",
+"score": 2.1
+},
+"5b89-88c5": {
+"hanzi": "安装",
+"tokens": "an1 zhuang1 .",
+"method": "natural (split evenly)",
+"score": 1.1
+},
+"5b89-9759": {
+"hanzi": "安静",
+"tokens": "an1 jing4 .",
+"method": "natural",
+"score": 1.2
+},
+"5b8c-4e86": {
+"hanzi": "完了",
+"tokens": "wan2 le .",
+"method": "best-effort",
+"score": -0.3
+},
+"5b97-6559": {
+"hanzi": "宗教",
+"tokens": "zong1 jiao4 .",
+"method": "natural",
+"score": 2.6
+},
+"5b98-5458": {
+"hanzi": "官员",
+"tokens": "guan1 yuan2 .",
+"method": "best-effort",
+"score": -1.1
+},
+"5b98-65b9": {
+"hanzi": "官方",
+"tokens": "guan1 fang1 .",
+"method": "natural",
+"score": 1.4
+},
+"5b9e-8df5": {
+"hanzi": "实践",
+"tokens": "shi2 jian4 .",
+"method": "pitch-edited",
+"score": 2.1
+},
+"5b9e-9a8c": {
+"hanzi": "实验",
+"tokens": "shi2 yan4 .",
+"method": "natural (split evenly)",
+"score": 4.8
+},
+"5ba2-4eba": {
+"hanzi": "客人",
+"tokens": "ke4 ren2 .",
+"method": "natural (split evenly)",
+"score": 3.4
+},
+"5ba3-4f20": {
+"hanzi": "宣传",
+"tokens": "xuan1 chuan2 .",
+"method": "natural",
+"score": 1.0
+},
+"5ba3-5e03": {
+"hanzi": "宣布",
+"tokens": "xuan1 bu4 .",
+"method": "natural",
+"score": 1.5
+},
+"5bb6-4eba": {
+"hanzi": "家人",
+"tokens": "jia1 ren2 .",
+"method": "natural (split evenly)",
+"score": 1.3
+},
+"5bb6-5ead": {
+"hanzi": "家庭",
+"tokens": "jia1 ting2 .",
+"method": "natural",
+"score": 1.6
+},
+"5bb6-91cc": {
+"hanzi": "家里",
+"tokens": "jia1 li3 .",
+"method": "best-effort",
+"score": -0.3
+},
+"5bbf-820d": {
+"hanzi": "宿舍",
+"tokens": "su4 she4 .",
+"method": "natural",
+"score": 0.9
+},
+"5bc4": {
+"hanzi": "寄",
+"tokens": "ji4 .",
+"method": "natural",
+"score": 1.5
+},
+"5bf9-5f85": {
+"hanzi": "对待",
+"tokens": "dui4 dai4 .",
+"method": "natural",
+"score": 1.6
+},
+"5c01": {
+"hanzi": "封",
+"tokens": "feng1 .",
+"method": "natural",
+"score": 1.4
+},
+"5c06": {
+"hanzi": "将",
+"tokens": "jiang1 .",
+"method": "natural",
+"score": 1.2
+},
+"5c0a-91cd": {
+"hanzi": "尊重",
+"tokens": "zun1 zhong4 .",
+"method": "natural",
+"score": 1.0
+},
+"5c0f-5b66": {
+"hanzi": "小学",
+"tokens": "xiao3 xue2 .",
+"method": "natural",
+"score": 1.0
+},
+"5c0f-5b69": {
+"hanzi": "小孩",
+"tokens": "xiao3 hai2 .",
+"method": "natural",
+"score": 1.8
+},
+"5c0f-5c9b": {
+"hanzi": "小岛",
+"tokens": "xiao2 dao3 .",
+"method": "natural (split evenly)",
+"score": 1.0
+},
+"5c0f-670b-53cb": {
+"hanzi": "小朋友",
+"tokens": "xiao3 peng2 you3 .",
+"method": "natural (split evenly)",
+"score": 1.3
+},
+"5c0f-72d7": {
+"hanzi": "小狗",
+"tokens": "xiao2 gou3 .",
+"method": "natural (split evenly)",
+"score": 1.7
+},
+"5c0f-8bf4": {
+"hanzi": "小说",
+"tokens": "xiao3 shuo1 .",
+"method": "natural",
+"score": 1.2
+},
+"5c0f-9a6c": {
+"hanzi": "小马",
+"tokens": "xiao2 ma3 .",
+"method": "natural (split evenly)",
+"score": 1.3
+},
+"5c11": {
+"hanzi": "少",
+"tokens": "shao3 .",
+"method": "pitch-edited",
+"score": 2.9
+},
+"5c1d": {
+"hanzi": "尝",
+"tokens": "chang2 .",
+"method": "natural",
+"score": 1.5
+},
+"5c24-5176": {
+"hanzi": "尤其",
+"tokens": "you2 qi2 .",
+"method": "natural",
+"score": 1.5
+},
+"5c34-5c2c": {
+"hanzi": "尴尬",
+"skipped": "the voice never learned ga4"
+},
+"5c3d-5feb": {
+"hanzi": "尽快",
+"tokens": "jin3 kuai4 .",
+"method": "natural",
+"score": 1.9
+},
+"5c3d-91cf": {
+"hanzi": "尽量",
+"tokens": "jin3 liang4 .",
+"method": "best-effort",
+"score": 0.5
+},
+"5c4a": {
+"hanzi": "届",
+"tokens": "jie4 .",
+"method": "natural",
+"score": 2.5
+},
+"5c4b-5b50": {
+"hanzi": "屋子",
+"tokens": "wu1 zi .",
+"method": "pitch-edited",
+"score": 2.8
+},
+"5c55-5f00": {
+"hanzi": "展开",
+"tokens": "zhan3 kai1 .",
+"method": "pitch-edited",
+"score": 2.8
+},
+"5c5e-4e8e": {
+"hanzi": "属于",
+"tokens": "shu3 yu2 .",
+"method": "best-effort",
+"score": -3.3
+},
+"5c71": {
+"hanzi": "山",
+"tokens": "shan1 .",
+"method": "natural",
+"score": 1.9
+},
+"5de5-4e1a": {
+"hanzi": "工业",
+"tokens": "gong1 ye4 .",
+"method": "natural (split evenly)",
+"score": 1.1
+},
+"5de5-5177": {
+"hanzi": "工具",
+"tokens": "gong1 ju4 .",
+"method": "natural",
+"score": 1.1
+},
+"5de5-5382": {
+"hanzi": "工厂",
+"tokens": "gong1 chang3 .",
+"method": "natural",
+"score": 0.8
+},
+"5de6-53f3": {
+"hanzi": "左右",
+"tokens": "zuo3 you4 .",
+"method": "natural (split evenly)",
+"score": 1.8
+},
+"5dee": {
+"hanzi": "差",
+"tokens": "cha4 .",
+"method": "natural",
+"score": 2.0
+},
+"5dee-4e0d-591a": {
+"hanzi": "差不多",
+"tokens": "cha4 bu4 duo1 .",
+"method": "natural",
+"score": 0.8
+},
+"5dee-9519": {
+"hanzi": "差错",
+"tokens": "cha1 cuo4 .",
+"method": "natural",
+"score": 2.0
+},
+"5df2": {
+"hanzi": "已",
+"tokens": "yi3 .",
+"method": "pitch-edited",
+"score": 2.7
+},
+"5e02-573a": {
+"hanzi": "市场",
+"tokens": "shi4 chang3 .",
+"method": "pitch-edited",
+"score": 2.7
+},
+"5e03": {
+"hanzi": "布",
+"tokens": "bu4 .",
+"method": "natural",
+"score": 2.4
+},
+"5e26-513f": {
+"hanzi": "带儿",
+"tokens": "dai4 .",
+"method": "natural",
+"score": 2.0
+},
+"5e38-5e38": {
+"hanzi": "常常",
+"tokens": "chang2 chang2 .",
+"method": "pitch-edited",
+"score": 1.6
+},
+"5e38-7528": {
+"hanzi": "常用",
+"tokens": "chang2 yong4 .",
+"method": "natural (split evenly)",
+"score": 1.3
+},
+"5e72-51c0": {
+"hanzi": "干净",
+"tokens": "gan1 jing4 .",
+"method": "natural",
+"score": 1.2
+},
+"5e73-5747": {
+"hanzi": "平均",
+"tokens": "ping2 jun1 .",
+"method": "natural",
+"score": 0.7
+},
+"5e74": {
+"hanzi": "年",
+"tokens": "nian2 .",
+"method": "natural",
+"score": 2.6
+},
+"5e74-7ea7": {
+"hanzi": "年级",
+"tokens": "nian2 ji2 .",
+"method": "natural",
+"score": 1.2
+},
+"5e74-8f7b": {
+"hanzi": "年轻",
+"tokens": "nian2 qing1 .",
+"method": "natural",
+"score": 1.3
+},
+"5e74-9f84": {
+"hanzi": "年龄",
+"tokens": "nian2 ling2 .",
+"method": "natural (split evenly)",
+"score": 2.4
+},
+"5e76": {
+"hanzi": "并",
+"tokens": "bing4 .",
+"method": "natural",
+"score": 2.0
+},
+"5e78-798f": {
+"hanzi": "幸福",
+"tokens": "xing4 fu2 .",
+"method": "pitch-edited",
+"score": 1.0
+},
+"5e7f-573a": {
+"hanzi": "广场",
+"tokens": "guang2 chang3 .",
+"method": "natural",
+"score": 4.5
+},
+"5e97": {
+"hanzi": "店",
+"tokens": "dian4 .",
+"method": "natural",
+"score": 2.4
+},
+"5ea7": {
+"hanzi": "座",
+"tokens": "zuo4 .",
+"method": "natural",
+"score": 1.7
+},
+"5ea7-4f4d": {
+"hanzi": "座位",
+"tokens": "zuo4 wei4 .",
+"method": "best-effort",
+"score": -1.2
+},
+"5efa": {
+"hanzi": "建",
+"tokens": "jian4 .",
+"method": "natural",
+"score": 3.4
+},
+"5efa-7acb": {
+"hanzi": "建立",
+"tokens": "jian4 li4 .",
+"method": "best-effort",
+"score": 0.0
+},
+"5efa-8bae": {
+"hanzi": "建议",
+"tokens": "jian4 yi4 .",
+"method": "best-effort",
+"score": 0.4
+},
+"5f00-4f1a": {
+"hanzi": "开会",
+"tokens": "kai1 hui4 .",
+"method": "natural",
+"score": 2.4
+},
+"5f00-653e": {
+"hanzi": "开放",
+"tokens": "kai1 fang4 .",
+"method": "natural",
+"score": 1.1
+},
+"5f00-8f66": {
+"hanzi": "开车",
+"tokens": "kai1 che1 .",
+"method": "natural",
+"score": 1.4
+},
+"5f00-95e8": {
+"hanzi": "开门",
+"tokens": "kai1 men2 .",
+"method": "best-effort",
+"score": -1.2
+},
+"5f02-5e38": {
+"hanzi": "异常",
+"tokens": "yi4 chang2 .",
+"method": "natural",
+"score": 2.3
+},
+"5f04-5230": {
+"hanzi": "弄到",
+"tokens": "nong4 dao4 .",
+"method": "natural (split evenly)",
+"score": 1.0
+},
+"5f04-5e73": {
+"hanzi": "弄平",
+"tokens": "nong4 ping2 .",
+"method": "natural",
+"score": 2.9
+},
+"5f1f-5f1f": {
+"hanzi": "弟弟",
+"tokens": "di4 di4 .",
+"method": "natural",
+"score": 1.0
+},
+"5f20": {
+"hanzi": "张",
+"tokens": "zhang1 .",
+"method": "natural",
+"score": 1.3
+},
+"5f3a": {
+"hanzi": "强",
+"tokens": "qiang2 .",
+"method": "natural",
+"score": 1.4
+},
+"5f53-4f5c": {
+"hanzi": "当作",
+"tokens": "dang4 zuo4 .",
+"method": "natural",
+"score": 0.6
+},
+"5f71-54cd": {
+"hanzi": "影响",
+"tokens": "ying2 xiang3 .",
+"method": "natural",
+"score": 1.9
+},
+"5f7b-5e95": {
+"hanzi": "彻底",
+"tokens": "che4 di3 .",
+"method": "natural",
+"score": 3.1
+},
+"5f80": {
+"hanzi": "往",
+"tokens": "wang3 .",
+"method": "pitch-edited",
+"score": 1.5
+},
+"5f85": {
+"hanzi": "待",
+"tokens": "dai4 .",
+"method": "natural",
+"score": 2.2
+},
+"5f97-4e86": {
+"hanzi": "得了",
+"tokens": "de2 le .",
+"method": "natural (split evenly)",
+"score": 0.7
+},
+"5f97-5f88": {
+"hanzi": "得很",
+"tokens": "de hen3 .",
+"method": "natural",
+"score": 1.6
+},
+"5fb7-56fd": {
+"hanzi": "德国",
+"tokens": "de2 guo2 .",
+"method": "natural",
+"score": 1.2
+},
+"5fb7-56fd-4eba": {
+"hanzi": "德国人",
+"tokens": "de2 guo2 ren2 .",
+"method": "best-effort",
+"score": -1.3
+},
+"5fcd-4e0d-4f4f": {
+"hanzi": "忍不住",
+"tokens": "ren3 bu2 zhu4 .",
+"method": "natural",
+"score": 1.1
+},
+"5fd8-8bb0": {
+"hanzi": "忘记",
+"tokens": "wang4 ji4 .",
+"method": "natural",
+"score": 0.9
+},
+"5feb-4e50": {
+"hanzi": "快乐",
+"tokens": "kuai4 le4 .",
+"method": "best-effort",
+"score": 0.5
+},
+"5feb-8981": {
+"hanzi": "快要",
+"tokens": "kuai4 yao4 .",
+"method": "best-effort",
+"score": 0.3
+},
+"5ff5": {
+"hanzi": "念",
+"tokens": "nian4 .",
+"method": "natural",
+"score": 1.9
+},
+"6000-7591": {
+"hanzi": "怀疑",
+"tokens": "huai2 yi2 .",
+"method": "natural (split evenly)",
+"score": 1.5
+},
+"6001-5ea6": {
+"hanzi": "态度",
+"tokens": "tai4 du4 .",
+"method": "natural",
+"score": 4.3
+},
+"6015": {
+"hanzi": "怕",
+"tokens": "pa4 .",
+"method": "natural",
+"score": 1.3
+},
+"601d": {
+"hanzi": "思",
+"tokens": "si1 .",
+"method": "natural",
+"score": 1.0
+},
+"601d-60f3": {
+"hanzi": "思想",
+"tokens": "si1 xiang3 .",
+"method": "natural",
+"score": 1.2
+},
+"601d-8003": {
+"hanzi": "思考",
+"tokens": "si1 kao3 .",
+"method": "natural",
+"score": 1.5
+},
+"6025": {
+"hanzi": "急",
+"tokens": "ji2 .",
+"method": "natural",
+"score": 2.0
+},
+"6027-683c": {
+"hanzi": "性格",
+"tokens": "xing4 ge2 .",
+"method": "pitch-edited",
+"score": 1.7
+},
+"602a": {
+"hanzi": "怪",
+"tokens": "guai4 .",
+"method": "natural",
+"score": 3.0
+},
+"603b": {
+"hanzi": "总",
+"tokens": "zong3 .",
+"method": "pitch-edited",
+"score": 2.9
+},
+"603b-7684-6765-8bf4": {
+"hanzi": "总的来说",
+"tokens": "zong3 de lai2 shuo1 .",
+"method": "best-effort",
+"score": -0.6
+},
+"603b-7edf": {
+"hanzi": "总统",
+"tokens": "zong2 tong3 .",
+"method": "pitch-edited",
+"score": 3.2
+},
+"604b": {
+"hanzi": "恋",
+"tokens": "lian4 .",
+"method": "natural",
+"score": 3.1
+},
+"604b-7231": {
+"hanzi": "恋爱",
+"skipped": "the voice never learned lia4"
+},
+"6050-6016": {
+"hanzi": "恐怖",
+"tokens": "kong3 bu4 .",
+"method": "natural",
+"score": 1.1
+},
+"6062-590d": {
+"hanzi": "恢复",
+"tokens": "hui1 fu4 .",
+"method": "natural",
+"score": 1.9
+},
+"6068": {
+"hanzi": "恨",
+"tokens": "hen4 .",
+"method": "natural",
+"score": 1.9
+},
+"60ca-8bb6": {
+"hanzi": "惊讶",
+"tokens": "jing1 ya4 .",
+"method": "natural (split evenly)",
+"score": 1.5
+},
+"60f3-5230": {
+"hanzi": "想到",
+"tokens": "xiang3 dao4 .",
+"method": "natural (split evenly)",
+"score": 1.3
+},
+"60f3-5ff5": {
+"hanzi": "想念",
+"tokens": "xiang3 nian4 .",
+"method": "natural (split evenly)",
+"score": 1.3
+},
+"6109-5feb": {
+"hanzi": "愉快",
+"tokens": "yu2 kuai4 .",
+"method": "natural",
+"score": 1.0
+},
+"610f": {
+"hanzi": "意",
+"tokens": "yi4 .",
+"method": "natural",
+"score": 2.4
+},
+"610f-89c1": {
+"hanzi": "意见",
+"tokens": "yi4 jian4 .",
+"method": "natural",
+"score": 1.4
+},
+"610f-8bc6": {
+"hanzi": "意识",
+"tokens": "yi4 shi .",
+"method": "pitch-edited",
+"score": 2.7
+},
+"611f": {
+"hanzi": "感",
+"tokens": "gan3 .",
+"method": "pitch-edited",
+"score": 2.9
+},
+"611f-53d7": {
+"hanzi": "感受",
+"tokens": "gan3 shou4 .",
+"method": "natural",
+"score": 1.8
+},
+"6162": {
+"hanzi": "慢",
+"tokens": "man4 .",
+"method": "pitch-edited",
+"score": 1.6
+},
+"6210": {
+"hanzi": "成",
+"tokens": "cheng2 .",
+"method": "natural",
+"score": 2.5
+},
+"6210-679c": {
+"hanzi": "成果",
+"tokens": "cheng2 guo3 .",
+"method": "natural (split evenly)",
+"score": 1.5
+},
+"6210-7ee9": {
+"hanzi": "成绩",
+"tokens": "cheng2 ji4 .",
+"method": "natural",
+"score": 1.2
+},
+"6210-957f": {
+"hanzi": "成长",
+"tokens": "cheng2 zhang3 .",
+"method": "natural (split evenly)",
+"score": 3.9
+},
+"6211-53bb": {
+"hanzi": "我去",
+"tokens": "wo3 qu4 .",
+"method": "natural",
+"score": 1.6
+},
+"6211-56fd": {
+"hanzi": "我国",
+"tokens": "wo3 guo2 .",
+"method": "natural",
+"score": 1.5
+},
+"6240": {
+"hanzi": "所",
+"tokens": "suo3 .",
+"method": "pitch-edited",
+"score": 2.8
+},
+"6240-5728": {
+"hanzi": "所在",
+"tokens": "suo3 zai4 .",
+"method": "natural",
+"score": 0.7
+},
+"624b-6307": {
+"hanzi": "手指",
+"tokens": "shou2 zhi3 .",
+"method": "natural",
+"score": 3.7
+},
+"624b-673a": {
+"hanzi": "手机",
+"tokens": "shou3 ji1 .",
+"method": "pitch-edited",
+"score": 2.8
+},
+"624b-67aa": {
+"hanzi": "手枪",
+"tokens": "shou3 qiang1 .",
+"method": "best-effort",
+"score": -0.4
+},
+"624b-91cc": {
+"hanzi": "手里",
+"tokens": "shou3 li .",
+"method": "natural (split evenly)",
+"score": 1.2
+},
+"624d-534e": {
+"hanzi": "才华",
+"tokens": "cai2 hua2 .",
+"method": "natural",
+"score": 0.9
+},
+"6253-5305": {
+"hanzi": "打包",
+"tokens": "da3 bao1 .",
+"method": "pitch-edited",
+"score": 1.4
+},
+"6267-884c": {
+"hanzi": "执行",
+"tokens": "zhi2 xing2 .",
+"method": "natural",
+"score": 2.8
+},
+"6279-8bc4": {
+"hanzi": "批评",
+"tokens": "pi1 ping2 .",
+"method": "natural",
+"score": 1.1
+},
+"627f-8ba4": {
+"hanzi": "承认",
+"tokens": "cheng2 ren4 .",
+"method": "natural (split evenly)",
+"score": 3.3
+},
+"628a-624b": {
+"hanzi": "把手",
+"tokens": "ba2 shou3 .",
+"method": "natural",
+"score": 1.5
+},
+"6295-8d44": {
+"hanzi": "投资",
+"tokens": "tou2 zi1 .",
+"method": "natural",
+"score": 2.0
+},
+"62a2": {
+"hanzi": "抢",
+"tokens": "qiang3 .",
+"method": "pitch-edited",
+"score": 2.7
+},
+"62a4-58eb": {
+"hanzi": "护士",
+"tokens": "hu4 shi .",
+"method": "natural",
+"score": 3.7
+},
+"62a5-544a": {
+"hanzi": "报告",
+"tokens": "bao4 gao4 .",
+"method": "pitch-edited",
+"score": 1.8
+},
+"62a5-7eb8": {
+"hanzi": "报纸",
+"tokens": "bao4 zhi3 .",
+"method": "natural",
+"score": 2.1
+},
+"62a5-9053": {
+"hanzi": "报道",
+"tokens": "bao4 dao4 .",
+"method": "natural",
+"score": 0.7
+},
+"62c9-5f00": {
+"hanzi": "拉开",
+"tokens": "la1 kai1 .",
+"method": "natural",
+"score": 1.0
+},
+"62cd-7167": {
+"hanzi": "拍照",
+"tokens": "pai1 zhao4 .",
+"method": "natural",
+"score": 2.0
+},
+"62d2-7edd": {
+"hanzi": "拒绝",
+"tokens": "ju4 jue2 .",
+"method": "pitch-edited",
+"score": 1.8
+},
+"62ff-5230": {
+"hanzi": "拿到",
+"tokens": "na2 dao4 .",
+"method": "natural (split evenly)",
+"score": 2.9
+},
+"6307-51fa": {
+"hanzi": "指出",
+"tokens": "zhi3 chu1 .",
+"method": "natural",
+"score": 1.3
+},
+"6309-65f6": {
+"hanzi": "按时",
+"tokens": "an4 shi2 .",
+"method": "natural",
+"score": 1.0
+},
+"6311": {
+"hanzi": "挑",
+"tokens": "tiao1 .",
+"method": "natural",
+"score": 1.5
+},
+"6311-6218": {
+"hanzi": "挑战",
+"tokens": "tiao3 zhan4 .",
+"method": "natural",
+"score": 1.2
+},
+"6323": {
+"hanzi": "挣",
+"tokens": "zheng4 .",
+"method": "natural",
+"score": 3.0
+},
+"6324": {
+"hanzi": "挤",
+"tokens": "ji3 .",
+"method": "pitch-edited",
+"score": 2.5
+},
+"6362": {
+"hanzi": "换",
+"tokens": "huan4 .",
+"method": "natural",
+"score": 3.2
+},
+"6392": {
+"hanzi": "排",
+"tokens": "pai2 .",
+"method": "natural",
+"score": 2.1
+},
+"63a5": {
+"hanzi": "接",
+"tokens": "jie1 .",
+"method": "natural",
+"score": 1.0
+},
+"63a5-4e0b-6765": {
+"hanzi": "接下来",
+"tokens": "jie1 xia4 lai2 .",
+"method": "best-effort",
+"score": -1.3
+},
+"63a5-89e6": {
+"hanzi": "接触",
+"tokens": "jie1 chu4 .",
+"method": "natural",
+"score": 1.3
+},
+"63a7-5236": {
+"hanzi": "控制",
+"tokens": "kong4 zhi4 .",
+"method": "natural",
+"score": 1.1
+},
+"63a8-52a8": {
+"hanzi": "推动",
+"tokens": "tui1 dong4 .",
+"method": "natural",
+"score": 0.8
+},
+"63d0": {
+"hanzi": "提",
+"tokens": "ti2 .",
+"method": "natural",
+"score": 1.0
+},
+"63d0-4f9b": {
+"hanzi": "提供",
+"tokens": "ti2 gong1 .",
+"method": "pitch-edited",
+"score": 2.1
+},
+"63d0-51fa": {
+"hanzi": "提出",
+"tokens": "ti2 chu1 .",
+"method": "pitch-edited",
+"score": 1.5
+},
+"63d0-95ee": {
+"hanzi": "提问",
+"tokens": "ti2 wen4 .",
+"method": "natural (split evenly)",
+"score": 4.4
+},
+"642d": {
+"hanzi": "搭",
+"tokens": "da1 .",
+"method": "natural",
+"score": 1.3
+},
+"6444-5f71": {
+"hanzi": "摄影",
+"tokens": "she4 ying3 .",
+"method": "natural (split evenly)",
+"score": 5.1
+},
+"6446": {
+"hanzi": "摆",
+"tokens": "bai3 .",
+"method": "pitch-edited",
+"score": 2.1
+},
+"6469-6258-8f66": {
+"hanzi": "摩托车",
+"tokens": "mo2 tuo1 che1 .",
+"method": "pitch-edited",
+"score": 1.4
+},
+"649e": {
+"hanzi": "撞",
+"tokens": "zhuang4 .",
+"method": "natural",
+"score": 2.4
+},
+"64cd-4f5c": {
+"hanzi": "操作",
+"tokens": "cao1 zuo4 .",
+"method": "natural",
+"score": 1.1
+},
+"652f": {
+"hanzi": "支",
+"tokens": "zhi1 .",
+"method": "natural",
+"score": 1.1
+},
+"652f-6301": {
+"hanzi": "支持",
+"tokens": "zhi1 chi2 .",
+"method": "natural",
+"score": 1.5
+},
+"6536": {
+"hanzi": "收",
+"tokens": "shou1 .",
+"method": "natural",
+"score": 2.4
+},
+"6536-5165": {
+"hanzi": "收入",
+"tokens": "shou1 ru4 .",
+"method": "natural (split evenly)",
+"score": 2.0
+},
+"6539-9769": {
+"hanzi": "改革",
+"tokens": "gai3 ge2 .",
+"method": "natural",
+"score": 1.5
+},
+"653e-5b66": {
+"hanzi": "放学",
+"tokens": "fang4 xue2 .",
+"method": "natural",
+"score": 1.3
+},
+"653e-5fc3": {
+"hanzi": "放心",
+"tokens": "fang4 xin1 .",
+"method": "natural",
+"score": 1.1
+},
+"653f-6cbb": {
+"hanzi": "政治",
+"tokens": "zheng4 zhi4 .",
+"method": "pitch-edited",
+"score": 2.7
+},
+"6559": {
+"hanzi": "教",
+"tokens": "jiao1 .",
+"method": "natural",
+"score": 2.0
+},
+"6559-4e66": {
+"hanzi": "教书",
+"tokens": "jiao1 shu1 .",
+"method": "natural",
+"score": 2.0
+},
+"6559-5802": {
+"hanzi": "教堂",
+"tokens": "jiao4 tang2 .",
+"method": "natural",
+"score": 1.4
+},
+"6559-5ba4": {
+"hanzi": "教室",
+"tokens": "jiao4 shi4 .",
+"method": "natural",
+"score": 1.0
+},
+"6559-5e08": {
+"hanzi": "教师",
+"tokens": "jiao4 shi1 .",
+"method": "natural",
+"score": 1.7
+},
+"6559-6388": {
+"hanzi": "教授",
+"tokens": "jiao4 shou4 .",
+"method": "natural",
+"score": 1.0
+},
+"6559-6750": {
+"hanzi": "教材",
+"tokens": "jiao4 cai2 .",
+"method": "natural",
+"score": 1.1
+},
+"6559-80b2": {
+"hanzi": "教育",
+"tokens": "jiao4 yu4 .",
+"method": "natural (split evenly)",
+"score": 1.1
+},
+"6562": {
+"hanzi": "敢",
+"tokens": "gan3 .",
+"method": "pitch-edited",
+"score": 2.6
+},
+"6570": {
+"hanzi": "数",
+"tokens": "shu3 .",
+"method": "pitch-edited",
+"score": 2.7
+},
+"6570-5b66": {
+"hanzi": "数学",
+"tokens": "shu4 xue2 .",
+"method": "natural",
+"score": 1.2
+},
+"6574": {
+"hanzi": "整",
+"tokens": "zheng3 .",
+"method": "pitch-edited",
+"score": 2.4
+},
+"6574-7406": {
+"hanzi": "整理",
+"tokens": "zheng3 li3 .",
+"method": "best-effort",
+"score": -3.5
+},
+"6587": {
+"hanzi": "文",
+"tokens": "wen2 .",
+"method": "natural",
+"score": 1.2
+},
+"6587-4ef6": {
+"hanzi": "文件",
+"tokens": "wen2 jian4 .",
+"method": "natural",
+"score": 2.2
+},
+"6587-5316": {
+"hanzi": "文化",
+"tokens": "wen2 hua4 .",
+"method": "natural",
+"score": 1.6
+},
+"6597-4e89": {
+"hanzi": "斗争",
+"tokens": "dou4 zheng1 .",
+"method": "natural",
+"score": 1.4
+},
+"65af-6587": {
+"hanzi": "斯文",
+"tokens": "si1 wen2 .",
+"method": "best-effort",
+"score": -2.1
+},
+"65b0-95fb": {
+"hanzi": "新闻",
+"tokens": "xin1 wen2 .",
+"method": "best-effort",
+"score": 0.2
+},
+"65b0-9c9c": {
+"hanzi": "新鲜",
+"tokens": "xin1 xian1 .",
+"method": "natural",
+"score": 2.0
+},
+"65b9-6848": {
+"hanzi": "方案",
+"tokens": "fan1 gan4 .",
+"method": "natural (split evenly)",
+"score": 1.8
+},
+"65b9-6cd5": {
+"hanzi": "方法",
+"tokens": "fang1 fa3 .",
+"method": "natural",
+"score": 2.1
+},
+"65b9-9762": {
+"hanzi": "方面",
+"tokens": "fang1 mian4 .",
+"method": "natural (split evenly)",
+"score": 2.1
+},
+"65c1-8fb9": {
+"hanzi": "旁边",
+"tokens": "pang2 bian1 .",
+"method": "natural (split evenly)",
+"score": 1.7
+},
+"65c5-6e38": {
+"hanzi": "旅游",
+"tokens": "lv3 you2 .",
+"method": "natural (split evenly)",
+"score": 2.2
+},
+"65c5-884c": {
+"hanzi": "旅行",
+"tokens": "lv3 xing2 .",
+"method": "natural",
+"score": 0.9
+},
+"65e0-8bba": {
+"hanzi": "无论",
+"tokens": "wu2 lun4 .",
+"method": "natural (split evenly)",
+"score": 3.4
+},
+"65e2": {
+"hanzi": "既",
+"tokens": "ji4 .",
+"method": "natural",
+"score": 2.4
+},
+"65e2-7136": {
+"hanzi": "既然",
+"tokens": "ji4 ran2 .",
+"method": "natural (split evenly)",
+"score": 2.7
+},
+"65e5": {
+"hanzi": "日",
+"tokens": "ri4 .",
+"method": "natural",
+"score": 2.4
+},
+"65e5-5143": {
+"hanzi": "日元",
+"tokens": "ri4 yuan2 .",
+"method": "natural (split evenly)",
+"score": 3.1
+},
+"65e5-672c": {
+"hanzi": "日本",
+"tokens": "ri4 ben3 .",
+"method": "natural",
+"score": 2.0
+},
+"65e5-8bed": {
+"hanzi": "日语",
+"tokens": "ri4 yu3 .",
+"method": "natural (split evenly)",
+"score": 4.3
+},
+"65e7": {
+"hanzi": "旧",
+"tokens": "jiu4 .",
+"method": "natural",
+"score": 3.6
+},
+"65e9-6668": {
+"hanzi": "早晨",
+"tokens": "zao3 chen2 .",
+"method": "pitch-edited",
+"score": 4.7
+},
+"65e9-77e5": {
+"hanzi": "早知",
+"tokens": "zao3 zhi1 .",
+"method": "pitch-edited",
+"score": 2.8
+},
+"65e9-8d77": {
+"hanzi": "早起",
+"tokens": "zao2 qi3 .",
+"method": "natural",
+"score": 2.5
+},
+"65e9-996d": {
+"hanzi": "早饭",
+"tokens": "zao3 fan4 .",
+"method": "natural",
+"score": 2.0
+},
+"65f6-4ee3": {
+"hanzi": "时代",
+"tokens": "shi2 dai4 .",
+"method": "natural (split evenly)",
+"score": 1.5
+},
+"65f6-5c1a": {
+"hanzi": "时尚",
+"tokens": "shi2 shang4 .",
+"method": "pitch-edited",
+"score": 2.0
+},
+"65f6-6bb5": {
+"hanzi": "时段",
+"tokens": "shi2 duan4 .",
+"method": "natural (split evenly)",
+"score": 3.9
+},
+"660e-663e": {
+"hanzi": "明显",
+"tokens": "ming2 xian3 .",
+"method": "natural",
+"score": 2.1
+},
+"661f-671f": {
+"hanzi": "星期",
+"tokens": "xing1 qi1 .",
+"method": "natural",
+"score": 1.1
+},
+"6625-5929": {
+"hanzi": "春天",
+"tokens": "chun1 tian1 .",
+"method": "natural",
+"score": 1.6
+},
+"6625-8282": {
+"hanzi": "春节",
+"tokens": "chun1 jie2 .",
+"method": "pitch-edited",
+"score": 1.9
+},
+"6628-5929": {
+"hanzi": "昨天",
+"tokens": "zuo2 tian1 .",
+"method": "pitch-edited",
+"score": 1.5
+},
+"662f-5426": {
+"hanzi": "是否",
+"tokens": "shi4 fou3 .",
+"method": "natural (split evenly)",
+"score": 2.9
+},
+"662f-7684": {
+"hanzi": "是的",
+"tokens": "shi4 de .",
+"method": "natural (split evenly)",
+"score": 4.2
+},
+"663e-7136": {
+"hanzi": "显然",
+"tokens": "xian3 ran2 .",
+"method": "best-effort",
+"score": -1.9
+},
+"665a": {
+"hanzi": "晚",
+"tokens": "wan3 .",
+"method": "pitch-edited",
+"score": 2.7
+},
+"665a-996d": {
+"hanzi": "晚饭",
+"tokens": "wan3 fan4 .",
+"method": "natural",
+"score": 1.2
+},
+"666e-904d": {
+"hanzi": "普遍",
+"tokens": "pu3 bian4 .",
+"method": "natural",
+"score": 2.9
+},
+"6682-65f6": {
+"hanzi": "暂时",
+"tokens": "zan4 shi2 .",
+"method": "pitch-edited",
+"score": 1.7
+},
+"66f0": {
+"hanzi": "曰",
+"tokens": "yue1 .",
+"method": "natural",
+"score": 1.0
+},
+"66f4-65b0": {
+"hanzi": "更新",
+"tokens": "geng1 xin1 .",
+"method": "natural",
+"score": 2.1
+},
+"66fe": {
+"hanzi": "曾",
+"tokens": "ceng2 .",
+"method": "natural",
+"score": 3.2
+},
+"66ff": {
+"hanzi": "替",
+"tokens": "ti4 .",
+"method": "natural",
+"score": 1.0
+},
+"6700-65b0": {
+"hanzi": "最新",
+"tokens": "zui4 xin1 .",
+"method": "natural",
+"score": 1.2
+},
+"6708": {
+"hanzi": "月",
+"tokens": "yue4 .",
+"method": "natural",
+"score": 3.0
+},
+"6708-4efd": {
+"hanzi": "月份",
+"tokens": "yue4 fen4 .",
+"method": "natural",
+"score": 1.3
+},
+"6709-5229-4e8e": {
+"hanzi": "有利于",
+"tokens": "you3 li4 yu2 .",
+"method": "natural (split evenly)",
+"score": 2.4
+},
+"6709-540d": {
+"hanzi": "有名",
+"tokens": "you3 ming2 .",
+"method": "natural (split evenly)",
+"score": 1.9
+},
+"6709-610f": {
+"hanzi": "有意",
+"tokens": "you3 yi4 .",
+"method": "natural (split evenly)",
+"score": 2.2
+},
+"6709-65f6": {
+"hanzi": "有时",
+"tokens": "you3 shi2 .",
+"method": "natural",
+"score": 2.6
+},
+"6709-7528": {
+"hanzi": "有用",
+"tokens": "you3 yong4 .",
+"method": "natural (split evenly)",
+"score": 1.8
+},
+"6709-7a7a": {
+"hanzi": "有空",
+"tokens": "you3 kong1 .",
+"method": "natural",
+"score": 1.8
+},
+"6709-9650": {
+"hanzi": "有限",
+"tokens": "you3 xian4 .",
+"method": "natural",
+"score": 1.5
+},
+"670d-52a1": {
+"hanzi": "服务",
+"tokens": "fu2 wu4 .",
+"method": "natural (split evenly)",
+"score": 2.2
+},
+"671f-5f85": {
+"hanzi": "期待",
+"tokens": "qi1 dai4 .",
+"method": "natural",
+"score": 1.2
+},
+"671f-671b": {
+"hanzi": "期望",
+"tokens": "qi1 wang4 .",
+"method": "natural (split evenly)",
+"score": 1.5
+},
+"672a-6765": {
+"hanzi": "未来",
+"tokens": "wei4 lai2 .",
+"method": "natural (split evenly)",
+"score": 1.1
+},
+"672c": {
+"hanzi": "本",
+"tokens": "ben3 .",
+"method": "pitch-edited",
+"score": 2.7
+},
+"672c-4eba": {
+"hanzi": "本人",
+"tokens": "ben3 ren2 .",
+"method": "natural (split evenly)",
+"score": 1.6
+},
+"672c-5b50": {
+"hanzi": "本子",
+"tokens": "ben3 zi .",
+"method": "natural",
+"score": 1.5
+},
+"672c-6765": {
+"hanzi": "本来",
+"tokens": "ben3 lai2 .",
+"method": "natural (split evenly)",
+"score": 2.0
+},
+"673a-5668": {
+"hanzi": "机器",
+"tokens": "ji1 qi4 .",
+"method": "natural",
+"score": 0.9
+},
+"673a-6784": {
+"hanzi": "机构",
+"tokens": "ji1 gou4 .",
+"method": "natural",
+"score": 0.7
+},
+"6742-5fd7": {
+"hanzi": "杂志",
+"tokens": "za2 zhi4 .",
+"method": "natural",
+"score": 1.6
+},
+"6761": {
+"hanzi": "条",
+"tokens": "tiao2 .",
+"method": "natural",
+"score": 1.5
+},
+"6761-4ef6": {
+"hanzi": "条件",
+"tokens": "tiao2 jian4 .",
+"method": "pitch-edited",
+"score": 1.8
+},
+"6761-7ea6": {
+"hanzi": "条约",
+"tokens": "tiao2 yue1 .",
+"method": "natural (split evenly)",
+"score": 2.0
+},
+"676f": {
+"hanzi": "杯",
+"tokens": "bei1 .",
+"method": "natural",
+"score": 1.2
+},
+"6781": {
+"hanzi": "极",
+"tokens": "ji2 .",
+"method": "natural",
+"score": 1.9
+},
+"6781-5927": {
+"hanzi": "极大",
+"tokens": "ji2 da4 .",
+"method": "natural (split evenly)",
+"score": 4.3
+},
+"67aa": {
+"hanzi": "枪",
+"tokens": "qiang1 .",
+"method": "pitch-edited",
+"score": 2.3
+},
+"67d0": {
+"hanzi": "某",
+"tokens": "mou3 .",
+"method": "pitch-edited",
+"score": 2.5
+},
+"67e5": {
+"hanzi": "查",
+"tokens": "cha2 .",
+"method": "natural",
+"score": 1.6
+},
+"6811": {
+"hanzi": "树",
+"tokens": "shu4 .",
+"method": "natural",
+"score": 2.8
+},
+"6821-957f": {
+"hanzi": "校长",
+"tokens": "xiao4 zhang3 .",
+"method": "natural",
+"score": 2.4
+},
+"6837": {
+"hanzi": "样",
+"tokens": "yang4 .",
+"method": "natural",
+"score": 2.9
+},
+"6839": {
+"hanzi": "根",
+"tokens": "gen1 .",
+"method": "natural",
+"score": 0.8
+},
+"684c-5b50": {
+"hanzi": "桌子",
+"tokens": "zhuo1 zi .",
+"method": "natural",
+"score": 1.4
+},
+"68c0-67e5": {
+"hanzi": "检查",
+"tokens": "jian3 cha2 .",
+"method": "natural",
+"score": 2.4
+},
+"68d2": {
+"hanzi": "棒",
+"tokens": "bang4 .",
+"method": "natural",
+"score": 1.5
+},
+"68f5": {
+"hanzi": "棵",
+"tokens": "ke1 .",
+"method": "natural",
+"score": 2.5
+},
+"6905-5b50": {
+"hanzi": "椅子",
+"tokens": "yi3 zi .",
+"method": "natural",
+"score": 3.0
+},
+"697c": {
+"hanzi": "楼",
+"tokens": "lou2 .",
+"method": "natural",
+"score": 1.7
+},
+"6a21-5f0f": {
+"hanzi": "模式",
+"tokens": "mo2 shi4 .",
+"method": "natural",
+"score": 1.1
+},
+"6b21": {
+"hanzi": "次",
+"tokens": "ci4 .",
+"method": "natural",
+"score": 0.9
+},
+"6b21-8981": {
+"hanzi": "次要",
+"tokens": "ci4 yao4 .",
+"method": "best-effort",
+"score": -1.6
+},
+"6b23-8d4f": {
+"hanzi": "欣赏",
+"tokens": "xin1 shang3 .",
+"method": "pitch-edited",
+"score": 2.7
+},
+"6b27-6d32": {
+"hanzi": "欧洲",
+"tokens": "ou1 zhou1 .",
+"method": "natural",
+"score": 1.8
+},
+"6b63": {
+"hanzi": "正",
+"tokens": "zheng4 .",
+"method": "natural",
+"score": 3.4
+},
+"6b63-786e": {
+"hanzi": "正确",
+"tokens": "zheng4 que4 .",
+"method": "natural",
+"score": 1.5
+},
+"6b64": {
+"hanzi": "此",
+"tokens": "ci3 .",
+"method": "pitch-edited",
+"score": 3.0
+},
+"6b65": {
+"hanzi": "步",
+"tokens": "bu4 .",
+"method": "natural",
+"score": 2.9
+},
+"6b66-5668": {
+"hanzi": "武器",
+"tokens": "wu3 qi4 .",
+"method": "natural",
+"score": 2.5
+},
+"6b7b-4ea1": {
+"hanzi": "死亡",
+"tokens": "si3 wang2 .",
+"method": "natural (split evenly)",
+"score": 2.3
+},
+"6bb5": {
+"hanzi": "段",
+"tokens": "duan4 .",
+"method": "natural",
+"score": 2.2
+},
+"6bcf-5929": {
+"hanzi": "每天",
+"tokens": "mei3 tian1 .",
+"method": "natural",
+"score": 1.0
+},
+"6bcf-5e74": {
+"hanzi": "每年",
+"tokens": "mei3 nian2 .",
+"method": "natural (split evenly)",
+"score": 1.4
+},
+"6bd4-8d77": {
+"hanzi": "比起",
+"tokens": "bi2 qi3 .",
+"method": "pitch-edited",
+"score": 2.0
+},
+"6bd4-8f83": {
+"hanzi": "比较",
+"tokens": "bi3 jiao4 .",
+"method": "natural",
+"score": 1.6
+},
+"6bd5-4e1a": {
+"hanzi": "毕业",
+"tokens": "bi4 ye4 .",
+"method": "best-effort",
+"score": -0.5
+},
+"6bd5-7adf": {
+"hanzi": "毕竟",
+"tokens": "bi4 jing4 .",
+"method": "natural",
+"score": 1.6
+},
+"6bdb": {
+"hanzi": "毛",
+"tokens": "mao2 .",
+"method": "natural",
+"score": 1.6
+},
+"6c11-65cf": {
+"hanzi": "民族",
+"tokens": "min2 zu2 .",
+"method": "natural",
+"score": 1.0
+},
+"6c14": {
+"hanzi": "气",
+"tokens": "qi4 .",
+"method": "natural",
+"score": 1.8
+},
+"6c14-6c1b": {
+"hanzi": "气氛",
+"tokens": "qi4 fen1 .",
+"method": "pitch-edited",
+"score": 2.2
+},
+"6c34": {
+"hanzi": "水",
+"tokens": "shui3 .",
+"method": "pitch-edited",
+"score": 2.5
+},
+"6c34-679c": {
+"hanzi": "水果",
+"tokens": "shui2 guo3 .",
+"method": "natural",
+"score": 0.9
+},
+"6c49-5b57": {
+"hanzi": "汉字",
+"tokens": "han4 zi4 .",
+"method": "natural",
+"score": 1.7
+},
+"6c49-8bed": {
+"hanzi": "汉语",
+"tokens": "han4 yu3 .",
+"method": "natural (split evenly)",
+"score": 1.7
+},
+"6c57": {
+"hanzi": "汗",
+"tokens": "han4 .",
+"method": "natural",
+"score": 2.8
+},
+"6c89-9ed8": {
+"hanzi": "沉默",
+"tokens": "chen2 mo4 .",
+"method": "natural (split evenly)",
+"score": 2.8
+},
+"6c99-53d1": {
+"hanzi": "沙发",
+"tokens": "sha1 fa1 .",
+"method": "natural",
+"score": 1.3
+},
+"6ca1-6cd5": {
+"hanzi": "没法",
+"tokens": "mei2 fa3 .",
+"method": "pitch-edited",
+"score": 4.7
+},
+"6ca1-7528": {
+"hanzi": "没用",
+"tokens": "mei2 yong4 .",
+"method": "natural (split evenly)",
+"score": 3.5
+},
+"6cb3": {
+"hanzi": "河",
+"tokens": "he2 .",
+"method": "natural",
+"score": 1.9
+},
+"6cbb-7597": {
+"hanzi": "治疗",
+"tokens": "zhi4 liao2 .",
+"method": "natural (split evenly)",
+"score": 1.3
+},
+"6cd5-56fd": {
+"hanzi": "法国",
+"tokens": "fa3 guo2 .",
+"method": "natural",
+"score": 1.5
+},
+"6cd5-5f8b": {
+"hanzi": "法律",
+"tokens": "fa3 lv4 .",
+"method": "natural (split evenly)",
+"score": 1.2
+},
+"6d17": {
+"hanzi": "洗",
+"tokens": "xi3 .",
+"method": "pitch-edited",
+"score": 3.0
+},
+"6d17-7897": {
+"hanzi": "洗碗",
+"tokens": "xi2 wan3 .",
+"method": "best-effort",
+"score": -1.6
+},
+"6d3b": {
+"hanzi": "活",
+"tokens": "huo2 .",
+"method": "pitch-edited",
+"score": 1.7
+},
+"6d41": {
+"hanzi": "流",
+"tokens": "liu2 .",
+"method": "natural",
+"score": 2.5
+},
+"6d4b-8bd5": {
+"hanzi": "测试",
+"tokens": "ce4 shi4 .",
+"method": "natural",
+"score": 1.9
+},
+"6d6a-8d39": {
+"hanzi": "浪费",
+"tokens": "lang4 fei4 .",
+"method": "natural",
+"score": 2.0
+},
+"6d77-5916": {
+"hanzi": "海外",
+"tokens": "hai3 wai4 .",
+"method": "natural (split evenly)",
+"score": 1.7
+},
+"6df1-5165": {
+"hanzi": "深入",
+"tokens": "shen1 ru4 .",
+"method": "natural (split evenly)",
+"score": 1.6
+},
+"6e05-9192": {
+"hanzi": "清醒",
+"tokens": "qing1 xing3 .",
+"method": "natural",
+"score": 1.7
+},
+"6e10-6e10": {
+"hanzi": "渐渐",
+"tokens": "jian4 jian4 .",
+"method": "natural",
+"score": 0.7
+},
+"6e29-6696": {
+"hanzi": "温暖",
+"tokens": "wen1 nuan3 .",
+"method": "natural (split evenly)",
+"score": 1.2
+},
+"6e38": {
+"hanzi": "游",
+"tokens": "you2 .",
+"method": "natural",
+"score": 1.1
+},
+"6ee1-5206": {
+"hanzi": "满分",
+"tokens": "man3 fen1 .",
+"method": "natural",
+"score": 0.6
+},
+"6ee1-610f": {
+"hanzi": "满意",
+"tokens": "man3 yi4 .",
+"method": "natural (split evenly)",
+"score": 2.1
+},
+"6ee1-8db3": {
+"hanzi": "满足",
+"tokens": "man3 zu2 .",
+"method": "natural",
+"score": 0.8
+},
+"6f14-51fa": {
+"hanzi": "演出",
+"tokens": "yan3 chu1 .",
+"method": "natural",
+"score": 1.2
+},
+"6f14-8bb2": {
+"hanzi": "演讲",
+"tokens": "yan2 jiang3 .",
+"method": "natural",
+"score": 1.4
+},
+"706b-8f66": {
+"hanzi": "火车",
+"tokens": "huo3 che1 .",
+"method": "natural",
+"score": 1.0
+},
+"706b-8f66-7ad9": {
+"hanzi": "火车站",
+"tokens": "huo3 che1 zhan4 .",
+"method": "natural",
+"score": 0.7
+},
+"70ed": {
+"hanzi": "热",
+"tokens": "re4 .",
+"method": "natural",
+"score": 2.9
+},
+"70ed-7231": {
+"hanzi": "热爱",
+"tokens": "re4 ai4 .",
+"method": "best-effort",
+"score": 0.4
+},
+"70ed-95e8": {
+"hanzi": "热门",
+"tokens": "re4 men2 .",
+"method": "natural (split evenly)",
+"score": 0.8
+},
+"719f-6089": {
+"hanzi": "熟悉",
+"tokens": "shu2 xi1 .",
+"method": "natural",
+"score": 1.9
+},
+"722c": {
+"hanzi": "爬",
+"tokens": "pa2 .",
+"method": "pitch-edited",
+"score": 1.7
+},
+"7231-597d": {
+"hanzi": "爱好",
+"tokens": "ai4 hao4 .",
+"method": "natural",
+"score": 0.7
+},
+"7231-60c5": {
+"hanzi": "爱情",
+"tokens": "ai4 qing2 .",
+"method": "natural",
+"score": 1.5
+},
+"7237-7237": {
+"hanzi": "爷爷",
+"tokens": "ye2 ye2 .",
+"method": "natural (split evenly)",
+"score": 1.2
+},
+"7269-54c1": {
+"hanzi": "物品",
+"tokens": "wu4 pin3 .",
+"method": "natural",
+"score": 1.8
+},
+"7279-6b8a": {
+"hanzi": "特殊",
+"tokens": "te4 shu1 .",
+"method": "natural",
+"score": 1.9
+},
+"72af-7f6a": {
+"hanzi": "犯罪",
+"tokens": "fan4 zui4 .",
+"method": "natural",
+"score": 1.3
+},
+"72af-9519": {
+"hanzi": "犯错",
+"tokens": "fan4 cuo4 .",
+"method": "natural",
+"score": 2.5
+},
+"72ec-7acb": {
+"hanzi": "独立",
+"tokens": "du2 li4 .",
+"method": "natural (split evenly)",
+"score": 3.2
+},
+"732a": {
+"hanzi": "猪",
+"tokens": "zhu1 .",
+"method": "natural",
+"score": 2.3
+},
+"732b": {
+"hanzi": "猫",
+"tokens": "mao1 .",
+"method": "pitch-edited",
+"score": 2.3
+},
+"73a9-513f": {
+"hanzi": "玩儿",
+"tokens": "wan2 .",
+"method": "natural",
+"score": 1.7
+},
+"73a9-5177": {
+"hanzi": "玩具",
+"tokens": "wan2 ju4 .",
+"method": "natural",
+"score": 1.6
+},
+"73a9-7b11": {
+"hanzi": "玩笑",
+"tokens": "wan2 xiao4 .",
+"method": "natural",
+"score": 2.2
+},
+"73af-5883": {
+"hanzi": "环境",
+"tokens": "huan2 jing4 .",
+"method": "natural",
+"score": 2.7
+},
+"73ed": {
+"hanzi": "班",
+"tokens": "ban1 .",
+"method": "natural",
+"score": 1.1
+},
+"73ed-8f66": {
+"hanzi": "班车",
+"tokens": "ban1 che1 .",
+"method": "natural",
+"score": 1.0
+},
+"7406-60f3": {
+"hanzi": "理想",
+"tokens": "li2 xiang3 .",
+"method": "natural",
+"score": 1.8
+},
+"7406-7531": {
+"hanzi": "理由",
+"tokens": "li3 you2 .",
+"method": "natural (split evenly)",
+"score": 2.3
+},
+"7406-8bba": {
+"hanzi": "理论",
+"tokens": "li3 lun4 .",
+"method": "natural (split evenly)",
+"score": 2.0
+},
+"751c": {
+"hanzi": "甜",
+"tokens": "tian2 .",
+"method": "natural",
+"score": 2.3
+},
+"751f": {
+"hanzi": "生",
+"tokens": "sheng1 .",
+"method": "natural",
+"score": 1.9
+},
+"751f-4ea7": {
+"hanzi": "生产",
+"tokens": "sheng1 chan3 .",
+"method": "natural",
+"score": 2.0
+},
+"751f-65e5": {
+"hanzi": "生日",
+"tokens": "sheng1 ri4 .",
+"method": "natural (split evenly)",
+"score": 1.1
+},
+"751f-6c14": {
+"hanzi": "生气",
+"tokens": "sheng1 qi4 .",
+"method": "natural",
+"score": 2.3
+},
+"751f-75c5": {
+"hanzi": "生病",
+"tokens": "sheng1 bing4 .",
+"method": "natural (split evenly)",
+"score": 1.6
+},
+"751f-8bcd": {
+"hanzi": "生词",
+"tokens": "sheng1 ci2 .",
+"method": "natural",
+"score": 1.4
+},
+"7531": {
+"hanzi": "由",
+"tokens": "you2 .",
+"method": "natural",
+"score": 1.1
+},
+"7532": {
+"hanzi": "甲",
+"tokens": "jia .",
+"method": "natural",
+"score": null
+},
+"7533-8bf7": {
+"hanzi": "申请",
+"tokens": "shen1 qing3 .",
+"method": "natural",
+"score": 2.5
+},
+"7535-8111": {
+"hanzi": "电脑",
+"tokens": "dian4 nao3 .",
+"method": "natural",
+"score": 4.0
+},
+"7535-89c6": {
+"hanzi": "电视",
+"tokens": "dian4 shi4 .",
+"method": "pitch-edited",
+"score": 2.8
+},
+"7535-89c6-53f0": {
+"hanzi": "电视台",
+"tokens": "dian4 shi4 tai2 .",
+"method": "pitch-edited",
+"score": 0.6
+},
+"7537": {
+"hanzi": "男",
+"tokens": "nan2 .",
+"method": "natural",
+"score": 1.7
+},
+"7537-670b-53cb": {
+"hanzi": "男朋友",
+"tokens": "nan2 peng2 you3 .",
+"method": "best-effort",
+"score": -2.6
+},
+"7537-751f": {
+"hanzi": "男生",
+"tokens": "nan2 sheng1 .",
+"method": "natural",
+"score": 0.8
+},
+"753b-56fe": {
+"hanzi": "画图",
+"tokens": "hua4 tu2 .",
+"method": "natural",
+"score": 1.8
+},
+"753b-753b": {
+"hanzi": "画画",
+"tokens": "hua4 hua4 .",
+"method": "natural",
+"score": 1.4
+},
+"7559": {
+"hanzi": "留",
+"tokens": "liu2 .",
+"method": "natural",
+"score": 2.6
+},
+"7559-5b66": {
+"hanzi": "留学",
+"tokens": "liu2 xue2 .",
+"method": "natural",
+"score": 1.9
+},
+"7559-5b66-751f": {
+"hanzi": "留学生",
+"tokens": "liu2 xue2 sheng1 .",
+"method": "pitch-edited",
+"score": 2.0
+},
+"7559-8a00": {
+"hanzi": "留言",
+"tokens": "liu2 yan2 .",
+"method": "natural (split evenly)",
+"score": 1.0
+},
+"75bc": {
+"hanzi": "疼",
+"tokens": "teng2 .",
+"method": "natural",
+"score": 1.5
+},
+"75c5": {
+"hanzi": "病",
+"tokens": "bing4 .",
+"method": "natural",
+"score": 2.1
+},
+"75c5-4eba": {
+"hanzi": "病人",
+"tokens": "bing4 ren2 .",
+"method": "natural",
+"score": 1.8
+},
+"75db": {
+"hanzi": "痛",
+"tokens": "tong4 .",
+"method": "natural",
+"score": 2.9
+},
+"7626": {
+"hanzi": "瘦",
+"tokens": "shou4 .",
+"method": "natural",
+"score": 1.3
+},
+"767d": {
+"hanzi": "白",
+"tokens": "bai2 .",
+"method": "natural",
+"score": 1.9
+},
+"767d-5929": {
+"hanzi": "白天",
+"tokens": "bai2 tian1 .",
+"method": "natural",
+"score": 2.0
+},
+"767e": {
+"hanzi": "百",
+"tokens": "bai3 .",
+"method": "pitch-edited",
+"score": 2.6
+},
+"767e-5e74": {
+"hanzi": "百年",
+"tokens": "bai3 nian2 .",
+"method": "natural (split evenly)",
+"score": 1.4
+},
+"767e-7c73": {
+"hanzi": "百米",
+"tokens": "bai2 mi3 .",
+"method": "best-effort",
+"score": -1.6
+},
+"7684-786e": {
+"hanzi": "的确",
+"tokens": "di2 que4 .",
+"method": "pitch-edited",
+"score": 1.6
+},
+"76ae-80a4": {
+"hanzi": "皮肤",
+"tokens": "pi2 fu1 .",
+"method": "natural",
+"score": 1.4
+},
+"76ee-6807": {
+"hanzi": "目标",
+"tokens": "mu4 biao1 .",
+"method": "natural (split evenly)",
+"score": 1.8
+},
+"76ee-7684": {
+"hanzi": "目的",
+"tokens": "mu4 di4 .",
+"method": "best-effort",
+"score": 0.3
+},
+"76f4-63a5": {
+"hanzi": "直接",
+"tokens": "zhi2 jie1 .",
+"method": "pitch-edited",
+"score": 1.4
+},
+"76f8": {
+"hanzi": "相",
+"tokens": "xiang1 .",
+"method": "natural",
+"score": 2.1
+},
+"76f8-4e2d": {
+"hanzi": "相中",
+"tokens": "xiang1 zhong4 .",
+"method": "natural",
+"score": 0.8
+},
+"76f8-53cd": {
+"hanzi": "相反",
+"tokens": "xiang1 fan3 .",
+"method": "natural",
+"score": 2.1
+},
+"76f8-540c": {
+"hanzi": "相同",
+"tokens": "xiang1 tong2 .",
+"method": "natural",
+"score": 1.9
+},
+"76f8-5904": {
+"hanzi": "相处",
+"tokens": "xiang1 chu3 .",
+"method": "pitch-edited",
+"score": 2.4
+},
+"76f8-5f53": {
+"hanzi": "相当",
+"tokens": "xiang1 dang1 .",
+"method": "natural (split evenly)",
+"score": 1.5
+},
+"76f8-6bd4": {
+"hanzi": "相比",
+"tokens": "xiang1 bi3 .",
+"method": "natural",
+"score": 1.0
+},
+"770b-4e0a-53bb": {
+"hanzi": "看上去",
+"tokens": "kan4 shang qu4 .",
+"method": "natural",
+"score": 1.3
+},
+"770b-6cd5": {
+"hanzi": "看法",
+"tokens": "kan4 fa3 .",
+"method": "natural",
+"score": 2.2
+},
+"771f-5b9e": {
+"hanzi": "真实",
+"tokens": "zhen1 shi2 .",
+"method": "natural",
+"score": 1.4
+},
+"771f-662f": {
+"hanzi": "真是",
+"tokens": "zhen1 shi4 .",
+"method": "natural",
+"score": 2.0
+},
+"773c-6cea": {
+"hanzi": "眼泪",
+"tokens": "yan3 lei4 .",
+"method": "natural (split evenly)",
+"score": 1.4
+},
+"7740-6025": {
+"hanzi": "着急",
+"tokens": "zhao2 ji2 .",
+"method": "natural",
+"score": 3.1
+},
+"7761-7740": {
+"hanzi": "睡着",
+"tokens": "shui4 zhao2 .",
+"method": "natural",
+"score": 2.9
+},
+"7761-89c9": {
+"hanzi": "睡觉",
+"tokens": "shui4 jiao4 .",
+"method": "natural",
+"score": 3.1
+},
+"77db-76fe": {
+"hanzi": "矛盾",
+"tokens": "mao2 dun4 .",
+"method": "pitch-edited",
+"score": 1.4
+},
+"77e5-8bc6": {
+"hanzi": "知识",
+"tokens": "zhi1 shi .",
+"method": "natural",
+"score": 1.6
+},
+"77ed": {
+"hanzi": "短",
+"tokens": "duan3 .",
+"method": "pitch-edited",
+"score": 2.8
+},
+"7814-7a76": {
+"hanzi": "研究",
+"tokens": "yan2 jiu1 .",
+"method": "natural",
+"score": 2.1
+},
+"7838": {
+"hanzi": "砸",
+"tokens": "za2 .",
+"method": "natural",
+"score": 2.6
+},
+"7855-58eb": {
+"hanzi": "硕士",
+"tokens": "shuo4 shi4 .",
+"method": "natural",
+"score": 1.4
+},
+"7897": {
+"hanzi": "碗",
+"tokens": "wan3 .",
+"method": "pitch-edited",
+"score": 2.5
+},
+"78b0-5230": {
+"hanzi": "碰到",
+"tokens": "peng4 dao4 .",
+"method": "natural",
+"score": 1.8
+},
+"793c-7269": {
+"hanzi": "礼物",
+"tokens": "li3 wu4 .",
+"method": "natural (split evenly)",
+"score": 1.0
+},
+"7956-56fd": {
+"hanzi": "祖国",
+"tokens": "zu3 guo2 .",
+"method": "natural",
+"score": 1.5
+},
+"79bb": {
+"hanzi": "离",
+"tokens": "li2 .",
+"method": "natural",
+"score": 2.3
+},
+"79cd": {
+"hanzi": "种",
+"tokens": "zhong3 .",
+"method": "pitch-edited",
+"score": 2.7
+},
+"79cd-6811": {
+"hanzi": "种树",
+"tokens": "zhong4 shu4 .",
+"method": "natural",
+"score": 1.4
+},
+"79d1-5b66": {
+"hanzi": "科学",
+"tokens": "ke1 xue2 .",
+"method": "natural",
+"score": 1.3
+},
+"79d1-6280": {
+"hanzi": "科技",
+"tokens": "ke1 ji4 .",
+"method": "natural",
+"score": 1.6
+},
+"79d2": {
+"hanzi": "秒",
+"tokens": "miao3 .",
+"method": "pitch-edited",
+"score": 2.6
+},
+"79df": {
+"hanzi": "租",
+"tokens": "zu1 .",
+"method": "natural",
+"score": 2.5
+},
+"79fb-6c11": {
+"hanzi": "移民",
+"tokens": "yi2 min2 .",
+"method": "natural (split evenly)",
+"score": 2.5
+},
+"7a0b-5ea6": {
+"hanzi": "程度",
+"tokens": "cheng2 du4 .",
+"method": "natural (split evenly)",
+"score": 3.2
+},
+"7a33-5b9a": {
+"hanzi": "稳定",
+"tokens": "wen3 ding4 .",
+"method": "natural",
+"score": 1.2
+},
+"7a77": {
+"hanzi": "穷",
+"tokens": "qiong2 .",
+"method": "natural",
+"score": 2.9
+},
+"7a7a": {
+"hanzi": "空",
+"tokens": "kong1 .",
+"method": "natural",
+"score": 1.4
+},
+"7a7a-6c14": {
+"hanzi": "空气",
+"tokens": "kong1 qi4 .",
+"method": "natural",
+"score": 2.2
+},
+"7a7f-7740": {
+"hanzi": "穿着",
+"tokens": "chuan1 zhuo2 .",
+"method": "natural",
+"score": 1.6
+},
+"7a81-7834": {
+"hanzi": "突破",
+"tokens": "tu1 po4 .",
+"method": "natural",
+"score": 1.3
+},
+"7a97-6237": {
+"hanzi": "窗户",
+"tokens": "chuang1 hu4 .",
+"method": "natural",
+"score": 1.4
+},
+"7acb-5373": {
+"hanzi": "立即",
+"tokens": "li4 ji2 .",
+"method": "natural",
+"score": 0.6
+},
+"7adf-7136": {
+"hanzi": "竟然",
+"tokens": "jing4 ran2 .",
+"method": "natural (split evenly)",
+"score": 1.2
+},
+"7ae0": {
+"hanzi": "章",
+"tokens": "zhang1 .",
+"method": "natural",
+"score": 1.1
+},
+"7b11-8bdd": {
+"hanzi": "笑话",
+"tokens": "xiao4 hua4 .",
+"method": "natural",
+"score": 2.7
+},
+"7b14": {
+"hanzi": "笔",
+"tokens": "bi3 .",
+"method": "pitch-edited",
+"score": 2.4
+},
+"7b26-5408": {
+"hanzi": "符合",
+"tokens": "fu2 he2 .",
+"method": "pitch-edited",
+"score": 1.9
+},
+"7b2c-4e00": {
+"hanzi": "第一",
+"tokens": "di4 yi1 .",
+"method": "best-effort",
+"score": -2.0
+},
+"7b49-5230": {
+"hanzi": "等到",
+"tokens": "deng3 dao4 .",
+"method": "natural",
+"score": 1.5
+},
+"7b54-5e94": {
+"hanzi": "答应",
+"tokens": "da1 ying4 .",
+"method": "natural (split evenly)",
+"score": 1.4
+},
+"7b54-6848": {
+"hanzi": "答案",
+"tokens": "da2 an4 .",
+"method": "pitch-edited",
+"score": 1.8
+},
+"7b7e-8bc1": {
+"hanzi": "签证",
+"tokens": "qian1 zheng4 .",
+"method": "natural",
+"score": 1.6
+},
+"7c73": {
+"hanzi": "米",
+"tokens": "mi3 .",
+"method": "pitch-edited",
+"score": 2.5
+},
+"7c7b-4f3c": {
+"hanzi": "类似",
+"tokens": "lei4 si4 .",
+"method": "natural",
+"score": 0.8
+},
+"7c7b-578b": {
+"hanzi": "类型",
+"tokens": "lei4 xing2 .",
+"method": "natural",
+"score": 3.0
+},
+"7cbe-795e": {
+"hanzi": "精神",
+"tokens": "jing1 shen2 .",
+"method": "natural",
+"score": 1.5
+},
+"7cd6": {
+"hanzi": "糖",
+"tokens": "tang2 .",
+"method": "natural",
+"score": 1.4
+},
+"7cfb-5217": {
+"hanzi": "系列",
+"tokens": "xi4 lie4 .",
+"method": "best-effort",
+"score": -0.3
+},
+"7cfb-7edf": {
+"hanzi": "系统",
+"tokens": "xi4 tong3 .",
+"method": "natural",
+"score": 0.9
+},
+"7d27-5f20": {
+"hanzi": "紧张",
+"tokens": "jin3 zhang1 .",
+"method": "natural",
+"score": 1.3
+},
+"7d2f": {
+"hanzi": "累",
+"tokens": "lei4 .",
+"method": "natural",
+"score": 3.1
+},
+"7ea2-8272": {
+"hanzi": "红色",
+"tokens": "hong2 se4 .",
+"method": "natural",
+"score": 1.3
+},
+"7ea6": {
+"hanzi": "约",
+"tokens": "yue1 .",
+"method": "natural",
+"score": 1.0
+},
+"7eb7-7eb7": {
+"hanzi": "纷纷",
+"tokens": "fen1 fen1 .",
+"method": "natural",
+"score": 1.0
+},
+"7eb8": {
+"hanzi": "纸",
+"tokens": "zhi3 .",
+"method": "pitch-edited",
+"score": 3.0
+},
+"7ec3-4e60": {
+"hanzi": "练习",
+"tokens": "lian4 xi2 .",
+"method": "natural",
+"score": 2.4
+},
+"7ec6": {
+"hanzi": "细",
+"tokens": "xi4 .",
+"method": "natural",
+"score": 1.6
+},
+"7ec8-4e8e": {
+"hanzi": "终于",
+"tokens": "zhong1 yu2 .",
+"method": "best-effort",
+"score": -0.3
+},
+"7ecf-5386": {
+"hanzi": "经历",
+"tokens": "jing1 li4 .",
+"method": "natural (split evenly)",
+"score": 1.6
+},
+"7ecf-6d4e": {
+"hanzi": "经济",
+"tokens": "jing1 ji4 .",
+"method": "natural",
+"score": 1.3
+},
+"7ecf-7406": {
+"hanzi": "经理",
+"tokens": "jing1 li3 .",
+"method": "best-effort",
+"score": -1.1
+},
+"7ecf-8425": {
+"hanzi": "经营",
+"tokens": "jing1 ying2 .",
+"method": "best-effort",
+"score": 0.6
+},
+"7ecf-8fc7": {
+"hanzi": "经过",
+"tokens": "jing1 guo4 .",
+"method": "natural (split evenly)",
+"score": 1.1
+},
+"7ed3-6784": {
+"hanzi": "结构",
+"tokens": "jie2 gou4 .",
+"method": "pitch-edited",
+"score": 1.5
+},
+"7ed9-4e88": {
+"hanzi": "给予",
+"tokens": "ji2 yu3 .",
+"method": "natural (split evenly)",
+"score": 1.3
+},
+"7edf-4e00": {
+"hanzi": "统一",
+"tokens": "tong3 yi1 .",
+"method": "best-effort",
+"score": -0.9
+},
+"7eff-8272": {
+"hanzi": "绿色",
+"tokens": "lv4 se4 .",
+"method": "pitch-edited",
+"score": 2.7
+},
+"7f16-8f91": {
+"hanzi": "编辑",
+"tokens": "bian1 ji2 .",
+"method": "natural",
+"score": 1.0
+},
+"7f3a-4e4f": {
+"hanzi": "缺乏",
+"tokens": "que1 fa2 .",
+"method": "natural",
+"score": 0.8
+},
+"7f51-4e0a": {
+"hanzi": "网上",
+"tokens": "wang3 shang4 .",
+"method": "natural",
+"score": 1.1
+},
+"7f51-7ad9": {
+"hanzi": "网站",
+"tokens": "wang3 zhan4 .",
+"method": "natural",
+"score": 0.9
+},
+"7f51-7edc": {
+"hanzi": "网络",
+"tokens": "wang3 luo4 .",
+"method": "natural (split evenly)",
+"score": 1.7
+},
+"7f8e": {
+"hanzi": "美",
+"tokens": "mei3 .",
+"method": "pitch-edited",
+"score": 2.6
+},
+"7f8e-4e3d": {
+"hanzi": "美丽",
+"tokens": "mei3 li4 .",
+"method": "natural (split evenly)",
+"score": 2.7
+},
+"7f8e-5143": {
+"hanzi": "美元",
+"tokens": "mei3 yuan2 .",
+"method": "natural (split evenly)",
+"score": 1.5
+},
+"7f8e-56fd-4eba": {
+"hanzi": "美国人",
+"tokens": "mei3 guo2 ren2 .",
+"method": "natural (split evenly)",
+"score": 1.1
+},
+"7f8e-597d": {
+"hanzi": "美好",
+"tokens": "mei2 hao3 .",
+"method": "natural",
+"score": 3.6
+},
+"7f8e-6ee1": {
+"hanzi": "美满",
+"tokens": "mei2 man3 .",
+"method": "best-effort",
+"score": -1.6
+},
+"8001-4eba": {
+"hanzi": "老人",
+"tokens": "lao3 ren2 .",
+"method": "natural (split evenly)",
+"score": 1.9
+},
+"8001-670b-53cb": {
+"hanzi": "老朋友",
+"tokens": "lao3 peng2 you3 .",
+"method": "best-effort",
+"score": -0.8
+},
+"8001-677f": {
+"hanzi": "老板",
+"tokens": "lao2 ban3 .",
+"method": "natural",
+"score": 1.1
+},
+"8001-767e-59d3": {
+"hanzi": "老百姓",
+"tokens": "lao2 bai3 xing4 .",
+"method": "pitch-edited",
+"score": 1.8
+},
+"8003": {
+"hanzi": "考",
+"tokens": "kao3 .",
+"method": "pitch-edited",
+"score": 2.8
+},
+"8003-8651": {
+"hanzi": "考虑",
+"tokens": "kao3 lv4 .",
+"method": "natural (split evenly)",
+"score": 1.0
+},
+"8003-8bd5": {
+"hanzi": "考试",
+"tokens": "kao3 shi4 .",
+"method": "natural",
+"score": 1.0
+},
+"800c": {
+"hanzi": "而",
+"tokens": "er2 .",
+"method": "natural",
+"score": 1.4
+},
+"8033-6735": {
+"hanzi": "耳朵",
+"tokens": "er3 duo3 .",
+"method": "natural",
+"score": 1.3
+},
+"804a-5929": {
+"hanzi": "聊天",
+"tokens": "liao2 tian1 .",
+"method": "natural",
+"score": 1.7
+},
+"804c-4e1a": {
+"hanzi": "职业",
+"tokens": "zhi2 ye4 .",
+"method": "natural (split evenly)",
+"score": 2.2
+},
+"8054-7cfb": {
+"hanzi": "联系",
+"tokens": "lian2 xi4 .",
+"method": "natural",
+"score": 2.9
+},
+"806a-660e": {
+"hanzi": "聪明",
+"tokens": "cong1 ming2 .",
+"method": "best-effort",
+"score": -3.0
+},
+"8089": {
+"hanzi": "肉",
+"tokens": "rou4 .",
+"method": "natural",
+"score": 3.3
+},
+"80af": {
+"hanzi": "肯",
+"tokens": "ken3 .",
+"method": "pitch-edited",
+"score": 2.5
+},
+"80cc": {
+"hanzi": "背",
+"tokens": "bei4 .",
+"method": "natural",
+"score": 2.4
+},
+"80cc-540e": {
+"hanzi": "背后",
+"tokens": "bei4 hou4 .",
+"method": "natural",
+"score": 1.1
+},
+"80d6": {
+"hanzi": "胖",
+"tokens": "pang4 .",
+"method": "natural",
+"score": 3.6
+},
+"80dc-5229": {
+"hanzi": "胜利",
+"tokens": "sheng4 li4 .",
+"method": "best-effort",
+"score": -0.5
+},
+"80fd-529b": {
+"hanzi": "能力",
+"tokens": "neng2 li4 .",
+"method": "natural (split evenly)",
+"score": 2.5
+},
+"8111-888b": {
+"hanzi": "脑袋",
+"tokens": "nao3 dai4 .",
+"method": "natural",
+"score": 1.2
+},
+"811a": {
+"hanzi": "脚",
+"tokens": "jiao3 .",
+"method": "pitch-edited",
+"score": 2.6
+},
+"817f": {
+"hanzi": "腿",
+"tokens": "tui3 .",
+"method": "pitch-edited",
+"score": 2.6
+},
+"81ea": {
+"hanzi": "自",
+"tokens": "zi4 .",
+"method": "natural",
+"score": 1.8
+},
+"81ea-4fe1": {
+"hanzi": "自信",
+"tokens": "zi4 xin4 .",
+"method": "pitch-edited",
+"score": 2.7
+},
+"81ea-6211": {
+"hanzi": "自我",
+"tokens": "zi4 wo3 .",
+"method": "natural (split evenly)",
+"score": 3.8
+},
+"81ea-7136": {
+"hanzi": "自然",
+"tokens": "zi4 ran2 .",
+"method": "natural (split evenly)",
+"score": 2.5
+},
+"81ea-884c-8f66": {
+"hanzi": "自行车",
+"tokens": "zi4 xing2 che1 .",
+"method": "pitch-edited",
+"score": 1.8
+},
+"81ed": {
+"hanzi": "臭",
+"tokens": "chou4 .",
+"method": "natural",
+"score": 3.5
+},
+"81f3-4e8e": {
+"hanzi": "至于",
+"tokens": "zhi4 yu2 .",
+"method": "natural (split evenly)",
+"score": 2.4
+},
+"8212-670d": {
+"hanzi": "舒服",
+"tokens": "shu1 fu2 .",
+"method": "natural",
+"score": 1.7
+},
+"826f-597d": {
+"hanzi": "良好",
+"tokens": "liang2 hao3 .",
+"method": "natural",
+"score": 4.2
+},
+"8282": {
+"hanzi": "节",
+"tokens": "jie2 .",
+"method": "natural",
+"score": 1.2
+},
+"8282-65e5": {
+"hanzi": "节日",
+"tokens": "jie2 ri4 .",
+"method": "natural (split evenly)",
+"score": 2.8
+},
+"8282-7701": {
+"hanzi": "节省",
+"tokens": "jie2 sheng3 .",
+"method": "natural",
+"score": 0.9
+},
+"82b1": {
+"hanzi": "花",
+"tokens": "hua1 .",
+"method": "natural",
+"score": 2.2
+},
+"82b1-56ed": {
+"hanzi": "花园",
+"tokens": "hua1 yuan2 .",
+"method": "best-effort",
+"score": -1.9
+},
+"82b1-6389": {
+"hanzi": "花掉",
+"tokens": "hua1 diao4 .",
+"method": "natural",
+"score": 2.4
+},
+"82b1-94b1": {
+"hanzi": "花钱",
+"tokens": "hua1 qian2 .",
+"method": "natural",
+"score": 2.3
+},
+"82e5": {
+"hanzi": "若",
+"tokens": "ruo4 .",
+"method": "natural",
+"score": 2.6
+},
+"82e6": {
+"hanzi": "苦",
+"tokens": "ku3 .",
+"method": "pitch-edited",
+"score": 2.2
+},
+"82f1-56fd": {
+"hanzi": "英国",
+"tokens": "ying1 guo2 .",
+"method": "pitch-edited",
+"score": 2.0
+},
+"82f1-6587": {
+"hanzi": "英文",
+"tokens": "ying1 wen2 .",
+"method": "best-effort",
+"score": 0.2
+},
+"82f1-8bed": {
+"hanzi": "英语",
+"tokens": "ying1 yu3 .",
+"method": "best-effort",
+"score": -0.2
+},
+"8336": {
+"hanzi": "茶",
+"tokens": "cha2 .",
+"method": "natural",
+"score": 1.0
+},
+"8349": {
+"hanzi": "草",
+"tokens": "cao3 .",
+"method": "pitch-edited",
+"score": 2.7
+},
+"836f": {
+"hanzi": "药",
+"tokens": "yao4 .",
+"method": "natural",
+"score": 2.7
+},
+"83ab": {
+"hanzi": "莫",
+"tokens": "mo4 .",
+"method": "natural",
+"score": 2.8
+},
+"83b7-5f97": {
+"hanzi": "获得",
+"tokens": "huo4 de2 .",
+"method": "natural",
+"score": 3.1
+},
+"83dc": {
+"hanzi": "菜",
+"tokens": "cai4 .",
+"method": "natural",
+"score": 3.4
+},
+"84dd": {
+"hanzi": "蓝",
+"tokens": "lan2 .",
+"method": "natural",
+"score": 2.1
+},
+"85cf": {
+"hanzi": "藏",
+"tokens": "cang2 .",
+"method": "natural",
+"score": 1.7
+},
+"884c-4e3a": {
+"hanzi": "行为",
+"tokens": "xing2 wei2 .",
+"method": "best-effort",
+"score": 0.5
+},
+"884c-4eba": {
+"hanzi": "行人",
+"tokens": "xing2 ren2 .",
+"method": "best-effort",
+"score": -0.2
+},
+"884c-52a8": {
+"hanzi": "行动",
+"tokens": "xing2 dong4 .",
+"method": "natural (split evenly)",
+"score": 3.3
+},
+"884c-674e": {
+"hanzi": "行李",
+"tokens": "xing2 li .",
+"method": "natural (split evenly)",
+"score": 2.6
+},
+"8857-4e0a": {
+"hanzi": "街上",
+"tokens": "jie1 shang .",
+"method": "natural",
+"score": 1.9
+},
+"8857-9053": {
+"hanzi": "街道",
+"tokens": "jie1 dao4 .",
+"method": "natural",
+"score": 1.1
+},
+"8865": {
+"hanzi": "补",
+"tokens": "bu3 .",
+"method": "pitch-edited",
+"score": 2.7
+},
+"8865-5145": {
+"hanzi": "补充",
+"tokens": "bu3 chong1 .",
+"method": "natural",
+"score": 1.7
+},
+"8868": {
+"hanzi": "表",
+"tokens": "biao3 .",
+"method": "pitch-edited",
+"score": 2.8
+},
+"8868-73b0": {
+"hanzi": "表现",
+"tokens": "biao3 xian4 .",
+"method": "natural",
+"score": 1.6
+},
+"897f-90e8": {
+"hanzi": "西部",
+"tokens": "xi1 bu4 .",
+"method": "natural",
+"score": 1.4
+},
+"89c1-9762": {
+"hanzi": "见面",
+"tokens": "jian4 mian4 .",
+"method": "best-effort",
+"score": -2.5
+},
+"89c2-5ff5": {
+"hanzi": "观念",
+"tokens": "guan1 nian4 .",
+"method": "natural (split evenly)",
+"score": 1.0
+},
+"89c2-70b9": {
+"hanzi": "观点",
+"tokens": "guan1 dian3 .",
+"method": "natural (split evenly)",
+"score": 0.6
+},
+"89c4-5219": {
+"hanzi": "规则",
+"tokens": "gui1 ze2 .",
+"method": "natural",
+"score": 0.8
+},
+"89c9": {
+"hanzi": "觉",
+"tokens": "jiao4 .",
+"method": "natural",
+"score": 3.4
+},
+"8ba1-7b97": {
+"hanzi": "计算",
+"tokens": "ji4 suan4 .",
+"method": "natural",
+"score": 0.7
+},
+"8ba1-7b97-673a": {
+"hanzi": "计算机",
+"tokens": "ji4 suan4 ji1 .",
+"method": "pitch-edited",
+"score": 2.6
+},
+"8ba4-771f": {
+"hanzi": "认真",
+"tokens": "ren4 zhen1 .",
+"method": "natural",
+"score": 1.1
+},
+"8ba8-8bba": {
+"hanzi": "讨论",
+"tokens": "tao3 lun4 .",
+"method": "natural (split evenly)",
+"score": 2.0
+},
+"8bb0": {
+"hanzi": "记",
+"tokens": "ji4 .",
+"method": "natural",
+"score": 2.5
+},
+"8bb0-4f4f": {
+"hanzi": "记住",
+"tokens": "ji4 zhu4 .",
+"method": "natural",
+"score": 1.4
+},
+"8bb0-8005": {
+"hanzi": "记者",
+"tokens": "ji4 zhe3 .",
+"method": "natural",
+"score": 2.3
+},
+"8bb8-591a": {
+"hanzi": "许多",
+"tokens": "xu3 duo1 .",
+"method": "best-effort",
+"score": -1.3
+},
+"8bbe-5907": {
+"hanzi": "设备",
+"tokens": "she4 bei4 .",
+"method": "natural",
+"score": 1.3
+},
+"8bbe-8ba1": {
+"hanzi": "设计",
+"tokens": "she4 ji4 .",
+"method": "natural",
+"score": 1.4
+},
+"8bbf-95ee": {
+"hanzi": "访问",
+"tokens": "fang3 wen4 .",
+"method": "natural (split evenly)",
+"score": 0.9
+},
+"8bc1-636e": {
+"hanzi": "证据",
+"tokens": "zheng4 ju4 .",
+"method": "natural",
+"score": 1.1
+},
+"8bc4-8bba": {
+"hanzi": "评论",
+"tokens": "ping2 lun4 .",
+"method": "natural (split evenly)",
+"score": 3.1
+},
+"8bcd": {
+"hanzi": "词",
+"tokens": "ci2 .",
+"method": "natural",
+"score": 2.4
+},
+"8bcd-6c47": {
+"hanzi": "词汇",
+"tokens": "ci2 hui4 .",
+"method": "natural (split evenly)",
+"score": 4.4
+},
+"8bd5": {
+"hanzi": "试",
+"tokens": "shi4 .",
+"method": "pitch-edited",
+"score": 1.6
+},
+"8bd5-56fe": {
+"hanzi": "试图",
+"tokens": "shi4 tu2 .",
+"method": "natural",
+"score": 2.1
+},
+"8bd5-7740": {
+"hanzi": "试着",
+"tokens": "shi4 zhe .",
+"method": "natural",
+"score": 2.0
+},
+"8bd7-4eba": {
+"hanzi": "诗人",
+"tokens": "shi1 ren2 .",
+"method": "best-effort",
+"score": -2.4
+},
+"8bdd-9898": {
+"hanzi": "话题",
+"tokens": "hua4 ti2 .",
+"method": "pitch-edited",
+"score": 1.6
+},
+"8be6-7ec6": {
+"hanzi": "详细",
+"tokens": "xiang2 xi4 .",
+"method": "natural",
+"score": 2.3
+},
+"8bed-8a00": {
+"hanzi": "语言",
+"tokens": "yu3 yan2 .",
+"method": "natural (split evenly)",
+"score": 2.5
+},
+"8bf4-5230-505a-5230": {
+"hanzi": "说到做到",
+"tokens": "shuo1 dao4 zuo4 dao4 .",
+"method": "best-effort",
+"score": -0.6
+},
+"8bf4-660e": {
+"hanzi": "说明",
+"tokens": "shuo1 ming2 .",
+"method": "best-effort",
+"score": -0.6
+},
+"8bf4-6cd5": {
+"hanzi": "说法",
+"tokens": "shuo1 fa3 .",
+"method": "natural",
+"score": 1.6
+},
+"8bf7-95ee": {
+"hanzi": "请问",
+"tokens": "qing3 wen4 .",
+"method": "natural (split evenly)",
+"score": 1.0
+},
+"8bfb": {
+"hanzi": "读",
+"tokens": "du2 .",
+"method": "natural",
+"score": 2.0
+},
+"8bfb-4e66": {
+"hanzi": "读书",
+"tokens": "du2 shu1 .",
+"method": "natural",
+"score": 1.2
+},
+"8bfe": {
+"hanzi": "课",
+"tokens": "ke4 .",
+"method": "natural",
+"score": 1.8
+},
+"8bfe-672c": {
+"hanzi": "课本",
+"tokens": "ke4 ben3 .",
+"method": "pitch-edited",
+"score": 2.7
+},
+"8d1f-8d23": {
+"hanzi": "负责",
+"tokens": "fu4 ze2 .",
+"method": "natural",
+"score": 1.8
+},
+"8d21-732e": {
+"hanzi": "贡献",
+"tokens": "gong4 xian4 .",
+"method": "natural",
+"score": 0.9
+},
+"8d28-91cf": {
+"hanzi": "质量",
+"tokens": "zhi4 liang4 .",
+"method": "best-effort",
+"score": -1.6
+},
+"8d2d-4e70": {
+"hanzi": "购买",
+"tokens": "gou4 mai3 .",
+"method": "natural",
+"score": 4.1
+},
+"8d35": {
+"hanzi": "贵",
+"tokens": "gui4 .",
+"method": "natural",
+"score": 3.8
+},
+"8d37-6b3e": {
+"hanzi": "贷款",
+"tokens": "dai4 kuan3 .",
+"method": "natural",
+"score": 2.6
+},
+"8d38-6613": {
+"hanzi": "贸易",
+"tokens": "mao4 yi4 .",
+"method": "best-effort",
+"score": 0.5
+},
+"8d39-7528": {
+"hanzi": "费用",
+"tokens": "fei4 yong4 .",
+"method": "best-effort",
+"score": 0.4
+},
+"8d3c": {
+"hanzi": "贼",
+"tokens": "zei2 .",
+"method": "natural",
+"score": 1.8
+},
+"8d44-6599": {
+"hanzi": "资料",
+"tokens": "zi1 liao4 .",
+"method": "natural (split evenly)",
+"score": 1.0
+},
+"8d44-6e90": {
+"hanzi": "资源",
+"tokens": "zi1 yuan2 .",
+"method": "best-effort",
+"score": -2.2
+},
+"8d5a": {
+"hanzi": "赚",
+"tokens": "zhuan4 .",
+"method": "natural",
+"score": 1.8
+},
+"8d5a-94b1": {
+"hanzi": "赚钱",
+"tokens": "zhuan4 qian2 .",
+"method": "natural",
+"score": 2.6
+},
+"8d70-8def": {
+"hanzi": "走路",
+"tokens": "zou3 lu4 .",
+"method": "natural (split evenly)",
+"score": 1.4
+},
+"8d77": {
+"hanzi": "起",
+"tokens": "qi3 .",
+"method": "pitch-edited",
+"score": 1.8
+},
+"8d77-5e8a": {
+"hanzi": "起床",
+"tokens": "qi3 chuang2 .",
+"method": "natural",
+"score": 2.0
+},
+"8d85-5e02": {
+"hanzi": "超市",
+"tokens": "chao1 shi4 .",
+"method": "pitch-edited",
+"score": 2.8
+},
+"8d85-7ea7": {
+"hanzi": "超级",
+"tokens": "chao1 ji2 .",
+"method": "natural",
+"score": 1.0
+},
+"8d85-8fc7": {
+"hanzi": "超过",
+"tokens": "chao1 guo4 .",
+"method": "natural",
+"score": 1.7
+},
+"8d8a": {
+"hanzi": "越",
+"tokens": "yue4 .",
+"method": "natural",
+"score": 3.0
+},
+"8dd1-6b65": {
+"hanzi": "跑步",
+"tokens": "pao3 bu4 .",
+"method": "natural",
+"score": 1.6
+},
+"8ddd-79bb": {
+"hanzi": "距离",
+"tokens": "ju4 li2 .",
+"method": "natural (split evenly)",
+"score": 2.3
+},
+"8def-4e0a": {
+"hanzi": "路上",
+"tokens": "lu4 shang .",
+"method": "natural",
+"score": 1.1
+},
+"8def-8fb9": {
+"hanzi": "路边",
+"tokens": "lu4 bian1 .",
+"method": "natural",
+"score": 1.3
+},
+"8e29": {
+"hanzi": "踩",
+"tokens": "cai3 .",
+"method": "pitch-edited",
+"score": 2.6
+},
+"8eab-540e": {
+"hanzi": "身后",
+"tokens": "shen1 hou4 .",
+"method": "natural",
+"score": 1.9
+},
+"8f66-5b50": {
+"hanzi": "车子",
+"tokens": "che1 zi .",
+"method": "natural",
+"score": 1.3
+},
+"8f66-7ad9": {
+"hanzi": "车站",
+"tokens": "che1 zhan4 .",
+"method": "natural",
+"score": 1.5
+},
+"8f6f-4ef6": {
+"hanzi": "软件",
+"tokens": "ruan3 jian4 .",
+"method": "natural",
+"score": 0.9
+},
+"8f7b-677e": {
+"hanzi": "轻松",
+"tokens": "qing1 song1 .",
+"method": "natural",
+"score": 1.4
+},
+"8f86": {
+"hanzi": "辆",
+"tokens": "liang4 .",
+"method": "natural",
+"score": 1.9
+},
+"8f93": {
+"hanzi": "输",
+"tokens": "shu1 .",
+"method": "natural",
+"score": 2.2
+},
+"8f9b-82e6": {
+"hanzi": "辛苦",
+"tokens": "xin1 ku3 .",
+"method": "natural",
+"score": 1.7
+},
+"8fc5-901f": {
+"hanzi": "迅速",
+"tokens": "xun4 su4 .",
+"method": "pitch-edited",
+"score": 0.9
+},
+"8fc7-5e74": {
+"hanzi": "过年",
+"tokens": "guo4 nian2 .",
+"method": "natural (split evenly)",
+"score": 2.2
+},
+"8fc7-5f97": {
+"hanzi": "过得",
+"tokens": "guo4 de .",
+"method": "natural (split evenly)",
+"score": 3.5
+},
+"8fc7-9519": {
+"hanzi": "过错",
+"tokens": "guo4 cuo4 .",
+"method": "natural",
+"score": 2.5
+},
+"8fd0-52a8": {
+"hanzi": "运动",
+"tokens": "yun4 dong4 .",
+"method": "natural (split evenly)",
+"score": 1.1
+},
+"8fd1": {
+"hanzi": "近",
+"tokens": "jin4 .",
+"method": "natural",
+"score": 2.9
+},
+"8fd9-4f4d": {
+"hanzi": "这位",
+"tokens": "zhe4 wei4 .",
+"method": "best-effort",
+"score": -0.2
+},
+"8fd9-513f": {
+"hanzi": "这儿",
+"tokens": "zhe4 .",
+"method": "natural",
+"score": 3.4
+},
+"8fdb-6b65": {
+"hanzi": "进步",
+"tokens": "jin4 bu4 .",
+"method": "natural",
+"score": 1.6
+},
+"8fdb-884c": {
+"hanzi": "进行",
+"tokens": "jin4 xing2 .",
+"method": "natural",
+"score": 0.8
+},
+"8fdc": {
+"hanzi": "远",
+"tokens": "yuan3 .",
+"method": "pitch-edited",
+"score": 2.4
+},
+"8ffd": {
+"hanzi": "追",
+"tokens": "zhui1 .",
+"method": "natural",
+"score": 2.1
+},
+"8ffd-6c42": {
+"hanzi": "追求",
+"tokens": "zhui1 qiu2 .",
+"method": "natural",
+"score": 1.0
+},
+"900f-9732": {
+"hanzi": "透露",
+"tokens": "tou4 lu4 .",
+"method": "best-effort",
+"score": -0.4
+},
+"901a-5e38": {
+"hanzi": "通常",
+"tokens": "tong1 chang2 .",
+"method": "pitch-edited",
+"score": 1.7
+},
+"901f-5ea6": {
+"hanzi": "速度",
+"tokens": "su4 du4 .",
+"method": "best-effort",
+"score": -0.0
+},
+"9020-6210": {
+"hanzi": "造成",
+"tokens": "zao4 cheng2 .",
+"method": "natural",
+"score": 1.4
+},
+"9047-5230": {
+"hanzi": "遇到",
+"tokens": "yu4 dao4 .",
+"method": "pitch-edited",
+"score": 2.7
+},
+"904d": {
+"hanzi": "遍",
+"tokens": "bian4 .",
+"method": "natural",
+"score": 2.0
+},
+"9053": {
+"hanzi": "道",
+"tokens": "dao4 .",
+"method": "natural",
+"score": 2.3
+},
+"9053-522b": {
+"hanzi": "道别",
+"tokens": "dao4 bie2 .",
+"method": "natural",
+"score": 1.1
+},
+"9053-5fb7": {
+"hanzi": "道德",
+"tokens": "dao4 de2 .",
+"method": "natural",
+"score": 0.9
+},
+"9057-61be": {
+"hanzi": "遗憾",
+"tokens": "yi2 han4 .",
+"method": "natural",
+"score": 1.7
+},
+"90a3-513f": {
+"hanzi": "那儿",
+"tokens": "na4 er2 .",
+"method": "best-effort",
+"score": -2.2
+},
+"90a3-662f": {
+"hanzi": "那是",
+"tokens": "na4 shi4 .",
+"method": "pitch-edited",
+"score": 2.7
+},
+"90bb-5c45": {
+"hanzi": "邻居",
+"tokens": "lin2 ju1 .",
+"method": "natural",
+"score": 2.0
+},
+"90e8": {
+"hanzi": "部",
+"tokens": "bu4 .",
+"method": "natural",
+"score": 2.6
+},
+"90e8-95e8": {
+"hanzi": "部门",
+"tokens": "bu4 men2 .",
+"method": "natural (split evenly)",
+"score": 2.6
+},
+"9152": {
+"hanzi": "酒",
+"tokens": "jiu3 .",
+"method": "pitch-edited",
+"score": 2.6
+},
+"9152-5427": {
+"hanzi": "酒吧",
+"tokens": "jiu3 ba1 .",
+"method": "pitch-edited",
+"score": 1.7
+},
+"9192": {
+"hanzi": "醒",
+"tokens": "xing3 .",
+"method": "pitch-edited",
+"score": 3.1
+},
+"91c7-53d6": {
+"hanzi": "采取",
+"tokens": "cai2 qu3 .",
+"method": "natural",
+"score": 1.5
+},
+"91cd-590d": {
+"hanzi": "重复",
+"tokens": "chong2 fu4 .",
+"method": "natural",
+"score": 5.0
+},
+"91cd-65b0-5f00-59cb": {
+"hanzi": "重新开始",
+"tokens": "chong2 xin1 kai1 shi3 .",
+"method": "natural",
+"score": 1.0
+},
+"91d1-94b1": {
+"hanzi": "金钱",
+"tokens": "jin1 qian2 .",
+"method": "natural",
+"score": 1.0
+},
+"9488-5bf9": {
+"hanzi": "针对",
+"tokens": "zhen1 dui4 .",
+"method": "natural",
+"score": 1.9
+},
+"949f": {
+"hanzi": "钟",
+"tokens": "zhong1 .",
+"method": "natural",
+"score": 1.6
+},
+"94b1-5305": {
+"hanzi": "钱包",
+"tokens": "qian2 bao1 .",
+"method": "best-effort",
+"score": 0.3
+},
+"94f6-884c": {
+"hanzi": "银行",
+"tokens": "yin2 hang2 .",
+"method": "natural",
+"score": 1.3
+},
+"9519-8bef": {
+"hanzi": "错误",
+"tokens": "cuo4 wu4 .",
+"method": "best-effort",
+"score": 0.6
+},
+"9519-8fc7": {
+"hanzi": "错过",
+"tokens": "cuo4 guo4 .",
+"method": "pitch-edited",
+"score": 2.8
+},
+"957f-57ce": {
+"hanzi": "长城",
+"tokens": "chang2 cheng2 .",
+"method": "natural",
+"score": 2.5
+},
+"957f-5927": {
+"hanzi": "长大",
+"tokens": "zhang3 da4 .",
+"method": "pitch-edited",
+"score": 2.8
+},
+"957f-5f97": {
+"hanzi": "长得",
+"tokens": "chang2 de .",
+"method": "best-effort",
+"score": 0.0
+},
+"95e8": {
+"hanzi": "门",
+"tokens": "men2 .",
+"method": "natural",
+"score": 1.9
+},
+"95e8-7968": {
+"hanzi": "门票",
+"tokens": "men2 piao4 .",
+"method": "natural",
+"score": 2.1
+},
+"95ee-9053": {
+"hanzi": "问道",
+"tokens": "wen4 dao4 .",
+"method": "natural",
+"score": 1.6
+},
+"95f4": {
+"hanzi": "间",
+"tokens": "jian1 .",
+"method": "natural",
+"score": 0.9
+},
+"9605-8bfb": {
+"hanzi": "阅读",
+"tokens": "yue4 du2 .",
+"method": "natural",
+"score": 1.4
+},
+"961f": {
+"hanzi": "队",
+"tokens": "dui4 .",
+"method": "natural",
+"score": 2.5
+},
+"9633": {
+"hanzi": "阳",
+"tokens": "yang2 .",
+"method": "natural",
+"score": 2.4
+},
+"9633-5149": {
+"hanzi": "阳光",
+"tokens": "yang2 guang1 .",
+"method": "natural (split evenly)",
+"score": 0.9
+},
+"963f-59e8": {
+"hanzi": "阿姨",
+"tokens": "a1 yi2 .",
+"method": "best-effort",
+"score": -3.5
+},
+"9644-8fd1": {
+"hanzi": "附近",
+"tokens": "fu4 jin4 .",
+"method": "natural",
+"score": 2.6
+},
+"964c-751f": {
+"hanzi": "陌生",
+"tokens": "mo4 sheng1 .",
+"method": "natural",
+"score": 0.9
+},
+"9664": {
+"hanzi": "除",
+"tokens": "chu2 .",
+"method": "natural",
+"score": 1.4
+},
+"966a": {
+"hanzi": "陪",
+"tokens": "pei2 .",
+"method": "natural",
+"score": 1.8
+},
+"968f-4fbf": {
+"hanzi": "随便",
+"tokens": "sui2 bian4 .",
+"method": "natural (split evenly)",
+"score": 3.9
+},
+"968f-65f6": {
+"hanzi": "随时",
+"tokens": "sui2 shi2 .",
+"method": "natural",
+"score": 2.5
+},
+"96be": {
+"hanzi": "难",
+"tokens": "nan2 .",
+"method": "natural",
+"score": 2.6
+},
+"96be-4ee5": {
+"hanzi": "难以",
+"tokens": "nan2 yi3 .",
+"method": "best-effort",
+"score": -0.2
+},
+"96be-8bf4": {
+"hanzi": "难说",
+"tokens": "nan2 shuo1 .",
+"method": "natural",
+"score": 0.6
+},
+"96be-8fc7": {
+"hanzi": "难过",
+"tokens": "nan2 guo4 .",
+"method": "pitch-edited",
+"score": 2.0
+},
+"96be-9898": {
+"hanzi": "难题",
+"tokens": "nan2 ti2 .",
+"method": "natural",
+"score": 1.4
+},
+"96c6-4e2d": {
+"hanzi": "集中",
+"tokens": "ji2 zhong1 .",
+"method": "pitch-edited",
+"score": 1.4
+},
+"96e8": {
+"hanzi": "雨",
+"tokens": "yu3 .",
+"method": "pitch-edited",
+"score": 2.8
+},
+"96ea": {
+"hanzi": "雪",
+"tokens": "xue3 .",
+"method": "pitch-edited",
+"score": 2.5
+},
+"9752-6625": {
+"hanzi": "青春",
+"tokens": "qing1 chun1 .",
+"method": "natural",
+"score": 2.0
+},
+"9759-517b": {
+"hanzi": "静养",
+"tokens": "jing4 yang3 .",
+"method": "natural (split evenly)",
+"score": 2.3
+},
+"975e": {
+"hanzi": "非",
+"tokens": "fei1 .",
+"method": "natural",
+"score": 2.3
+},
+"9762-4e34": {
+"hanzi": "面临",
+"tokens": "mian4 lin2 .",
+"method": "natural (split evenly)",
+"score": 2.3
+},
+"9762-79ef": {
+"hanzi": "面积",
+"tokens": "mian4 ji1 .",
+"method": "natural",
+"score": 1.6
+},
+"97e9-56fd": {
+"hanzi": "韩国",
+"tokens": "han2 guo2 .",
+"method": "natural",
+"score": 1.0
+},
+"97e9-56fd-4eba": {
+"hanzi": "韩国人",
+"tokens": "han2 guo2 ren2 .",
+"method": "best-effort",
+"score": -3.6
+},
+"97f3": {
+"hanzi": "音",
+"tokens": "yin1 .",
+"method": "pitch-edited",
+"score": 2.3
+},
+"97f3-4e50": {
+"hanzi": "音乐",
+"tokens": "yin1 yue4 .",
+"method": "natural (split evenly)",
+"score": 1.0
+},
+"97f3-4e50-4f1a": {
+"hanzi": "音乐会",
+"tokens": "yin1 yue4 hui4 .",
+"method": "natural (split evenly)",
+"score": 0.9
+},
+"97f3-4e50-5bb6": {
+"hanzi": "音乐家",
+"tokens": "yin1 yue4 jia1 .",
+"method": "natural (split evenly)",
+"score": 1.3
+},
+"9875": {
+"hanzi": "页",
+"tokens": "ye4 .",
+"method": "natural",
+"score": 2.7
+},
+"9879": {
+"hanzi": "项",
+"tokens": "xiang4 .",
+"method": "natural",
+"score": 3.4
+},
+"9879-76ee": {
+"hanzi": "项目",
+"tokens": "xiang4 mu4 .",
+"method": "best-effort",
+"score": -3.2
+},
+"987a-5229": {
+"hanzi": "顺利",
+"tokens": "shun4 li4 .",
+"method": "natural (split evenly)",
+"score": 0.7
+},
+"987e-5ba2": {
+"hanzi": "顾客",
+"tokens": "gu4 ke4 .",
+"method": "natural",
+"score": 1.7
+},
+"9886-57df": {
+"hanzi": "领域",
+"tokens": "ling3 yu4 .",
+"method": "natural (split evenly)",
+"score": 1.5
+},
+"9886-5bfc": {
+"hanzi": "领导",
+"tokens": "ling2 dao3 .",
+"method": "pitch-edited",
+"score": 3.8
+},
+"9886-5bfc-4eba": {
+"hanzi": "领导人",
+"tokens": "ling2 dao3 ren2 .",
+"method": "best-effort",
+"score": -4.4
+},
+"9898": {
+"hanzi": "题",
+"tokens": "ti2 .",
+"method": "natural",
+"score": 0.7
+},
+"9898-76ee": {
+"hanzi": "题目",
+"tokens": "ti2 mu4 .",
+"method": "natural (split evenly)",
+"score": 1.2
+},
+"989c-8272": {
+"hanzi": "颜色",
+"tokens": "yan2 se4 .",
+"method": "natural",
+"score": 1.6
+},
+"98ce": {
+"hanzi": "风",
+"tokens": "feng1 .",
+"method": "natural",
+"score": 1.1
+},
+"98ce-666f": {
+"hanzi": "风景",
+"tokens": "feng1 jing3 .",
+"method": "natural",
+"score": 2.2
+},
+"98de-884c": {
+"hanzi": "飞行",
+"tokens": "fei1 xing2 .",
+"method": "natural",
+"score": 2.5
+},
+"98df-7269": {
+"hanzi": "食物",
+"tokens": "shi2 wu4 .",
+"method": "natural (split evenly)",
+"score": 3.4
+},
+"9910-5385": {
+"hanzi": "餐厅",
+"tokens": "can1 ting1 .",
+"method": "natural",
+"score": 2.1
+},
+"996d": {
+"hanzi": "饭",
+"tokens": "fan4 .",
+"method": "natural",
+"score": 3.3
+},
+"996d-5e97": {
+"hanzi": "饭店",
+"tokens": "fan4 dian4 .",
+"method": "best-effort",
+"score": -0.2
+},
+"997f": {
+"hanzi": "饿",
+"tokens": "e4 .",
+"method": "natural",
+"score": 2.0
+},
+"9996-5148": {
+"hanzi": "首先",
+"tokens": "shou3 xian1 .",
+"method": "pitch-edited",
+"score": 1.4
+},
+"9996-90fd": {
+"hanzi": "首都",
+"tokens": "shou3 du1 .",
+"method": "pitch-edited",
+"score": 2.8
+},
+"9999": {
+"hanzi": "香",
+"tokens": "xiang1 .",
+"method": "natural",
+"score": 2.5
+},
+"9999-6e2f": {
+"hanzi": "香港",
+"tokens": "xiang1 gang3 .",
+"method": "natural (split evenly)",
+"score": 1.4
+},
+"9a6c-8def": {
+"hanzi": "马路",
+"tokens": "ma3 lu4 .",
+"method": "natural (split evenly)",
+"score": 1.8
+},
+"9a91": {
+"hanzi": "骑",
+"tokens": "qi2 .",
+"method": "natural",
+"score": 2.3
+},
+"9a97": {
+"hanzi": "骗",
+"tokens": "pian4 .",
+"method": "natural",
+"score": 2.3
+},
+"9ad8-4e2d": {
+"hanzi": "高中",
+"tokens": "gao1 zhong1 .",
+"method": "natural",
+"score": 1.1
+},
+"9ad8-5927": {
+"hanzi": "高大",
+"tokens": "gao1 da4 .",
+"method": "natural",
+"score": 1.1
+},
+"9ad8-697c": {
+"hanzi": "高楼",
+"tokens": "gao1 lou2 .",
+"method": "best-effort",
+"score": 0.4
+},
+"9b3c": {
+"hanzi": "鬼",
+"tokens": "gui3 .",
+"method": "pitch-edited",
+"score": 2.4
+},
+"9b45-529b": {
+"hanzi": "魅力",
+"tokens": "mei4 li4 .",
+"method": "best-effort",
+"score": 0.3
+},
+"9c7c": {
+"hanzi": "鱼",
+"tokens": "yu2 .",
+"method": "natural",
+"score": 1.1
+},
+"9ec4": {
+"hanzi": "黄",
+"tokens": "huang2 .",
+"method": "natural",
+"score": 3.1
+},
+"9ec4-91d1": {
+"hanzi": "黄金",
+"tokens": "huang2 jin1 .",
+"method": "natural",
+"score": 1.3
+},
+"9ed1": {
+"hanzi": "黑",
+"tokens": "hei1 .",
+"method": "natural",
+"score": 1.0
+},
+"9f13-52b1": {
+"hanzi": "鼓励",
+"tokens": "gu3 li4 .",
+"method": "natural (split evenly)",
+"score": 2.2
+}
+}
