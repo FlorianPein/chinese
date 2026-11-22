@@ -603,6 +603,7 @@ def write_words(curated):
         return
     d, words = deck_words()
     by = {c["hanzi"]: c for c in curated}
+    made = json.loads(SW_MANIFEST.read_text()) if SW_MANIFEST.exists() else {}
     out, missing, no_audio = [], 0, 0
     for h, p, x, k in words:
         if h in by:
@@ -616,6 +617,8 @@ def write_words(curated):
             f = build.AUDIO / f"{sw_id(h)}.mp3"
             if f.exists():
                 card["audio"], card["v"] = sw_id(h), build.audio_version(sw_id(h))
+                if made.get(sw_id(h)[3:], {}).get("method") == "best-effort":
+                    card["audio_note"] = "The recording may not have every tone right: go by the Pinyin."
             else:
                 no_audio += 1
             missing += not card["english"]
