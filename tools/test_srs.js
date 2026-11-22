@@ -293,6 +293,37 @@ test("practice: Know or better changes nothing, Don't know and Barely know go do
   assert.equal(SRS.practice(c, 3, T0 + 12 * MIN).step, 1);
 });
 
+// The Words tab: one session, due words first, then new words in the list's order
+test("sessions with new words: due words first, then new ones in order", () => {
+  const W = ["a", "b", "c", "d", "e"], cards = {};
+  let next = SRS.pickNextOrNew(W, cards, T0, {}, 2);
+  assert.deepEqual(next, { word: "a", kind: "fresh" }, "nothing seen: the first word, new");
+  cards.a = SRS.answer(SRS.study(cards.a, T0), K["Don't know"], T0);
+  assert.equal(cards.a.studied, SRS.dayOf(T0), "counts as started today");
+  next = SRS.pickNextOrNew(W, cards, T0 + 10000, { recent: ["a"] }, 1);
+  assert.deepEqual(next, { word: "b", kind: "fresh" }, "while a waits its minute: the next new word");
+  assert.deepEqual(SRS.pickNextOrNew(W, cards, T0 + 2 * MIN, { recent: [] }, 1), { word: "a", kind: "again" }, "a's minute is up: a first");
+  assert.deepEqual(SRS.pickNextOrNew(W, cards, T0 + 10000, { recent: ["a"] }, 0), { word: "a", kind: "again" }, "no new words left: a, even before its minute");
+  cards.b = SRS.answer(SRS.study(null, T0), K.Know, T0);
+  cards.a = SRS.answer(cards.a, K.Know, T0 + 2 * MIN);
+  assert.equal(SRS.pickNextOrNew(W, cards, T0 + 3 * MIN, {}, 0), null, "nothing due, no new words: done");
+  assert.deepEqual(SRS.pickNextOrNew(W, cards, at(1), {}, 5).word, "a", "the next day: due words before new ones");
+  assert.equal(SRS.nextNew(W, cards, T0), "c");
+});
+
+test("a word set aside comes back as a new word on another day", () => {
+  const W = ["a", "b"], cards = {};
+  let c = SRS.answer(SRS.study(null, T0), K["Don't know"], T0);
+  c = SRS.answer(c, K["Don't know"], T0 + 2 * MIN);
+  assert.ok(SRS.isParked(c));
+  cards.a = c;
+  assert.equal(SRS.nextNew(W, cards, T0 + 3 * MIN), "b", "not the same day");
+  assert.deepEqual(SRS.pickNextOrNew(W, cards, at(1), {}, 1), { word: "a", kind: "back" }, "the next day: back, before new words");
+  cards.a = SRS.answer(SRS.study(cards.a, at(1)), K.Know, at(1));
+  assert.ok(!SRS.isParked(cards.a), "learnt again: no longer set aside");
+  assert.equal(daysUntil(cards.a, at(1)), 1);
+});
+
 // the app loads srs.js as srs.js?v=<start of its sha1>, so phones don't keep an old copy
 test("index.html loads this version of srs.js", () => {
   const fs = require("fs"), path = require("path"), crypto = require("crypto");

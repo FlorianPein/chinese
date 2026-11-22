@@ -1,6 +1,6 @@
 # Plan: Word flashcards (Anki-style)
 
-A new part of the app for learning the **most common Chinese words**: you hear the word and see it in Pinyin and characters, tap to see the English, then say how well you knew it. That answer decides when the word comes back.
+A new part of the app for learning Chinese words (since 2026-11-22: **the words of the Spoonfed deck, in its order**, see [section 5](#5-the-words-in-the-order-of-the-spoonfed-deck)): you hear the word and see it in Pinyin and characters, tap to see the English, then say how well you knew it. That answer decides when the word comes back.
 
 Status: **built**: the **Words** tab in the app. [Section 7](#7-whats-where) says where everything is.
 
@@ -139,51 +139,41 @@ A word you've marked *Don't know* **6 times** becomes a **hard word** (Anki call
 
 ---
 
-## 4. Sessions, and studying new words
+## 4. Sessions, and new words
 
-**A session never brings new words.** It only asks words you've studied or seen before. New words come in through the **Study** table.
+The Words tab has **one button: Start**. A session asks the words that are due and brings new words, in the order of the word list ([section 5](#5-the-words-in-the-order-of-the-spoonfed-deck)), up to **10 new words a day** (⚙︎ → *Words: new words a day*: 5, 10, 15, 20, 30 or 50). When nothing is due and today's new words are done, the button says **10 more new words** and starts a session with 10 more.
 
-**Order of the next card:**
+**Order of the next card** (`SRS.pickNextOrNew` in `docs/srs.js`):
 
 1. A word you just got wrong whose 1 or 10 minutes are up
-2. A due word: first the *open* ones (you said *Don't know* and haven't known them on a later day yet), then words you've just studied, then the one waiting longest
-3. If only words waiting their minutes are left, the one that's back soonest
+2. A due word: first the *open* ones (you said *Don't know* and haven't known them on a later day yet), then words studied but not reviewed yet, then the one waiting longest
+3. A new word, while the session still has new words to bring: first a word set aside (see below) that you didn't answer today, then the next word you've never seen
+4. If only words waiting their minutes are left, the one that's back soonest
 
-When nothing is due, the session ends.
+When none of these is left, the session ends. So a word you get wrong comes back after a few new ones.
+
+**A new word shows everything at once:** its sound (it plays by itself), Pinyin, characters, English, the sentence it first comes in and what each character means. You learn it there and pick how well you know it now; the buttons work as for any new word (*Don't know*: 1 min, *Know*: 1 d, *Safely know*: 3 d, …). It counts as studied that day (`studied`), which is how the app counts today's new words.
 
 ### Words set aside: *Don't know* twice
 
-A word you say *Don't know* to **twice** is **set aside**: it no longer comes up in sessions (or in the practice of today's *Know* words) until you study it. Both times count, whether in the same session (the repeat after 1 minute) or on different days. The count starts again when you study the word, or when you pick *Know* or better on a later day.
+A word you say *Don't know* to **twice** is **set aside**: it no longer comes up as a review. Both times count, whether in the same session (the repeat after 1 minute) or on different days. On a later day it comes back **as a new word** (*Learn it again*), before the words you've never seen, showing everything again; its count then starts again. The count also starts again when you pick *Know* or better on a later day.
 
-### Study
+**Top of the tab:** how many words are due, how many new words are left today, how many of the list you've seen, and **Start**. You can stop any time; the screen then shows how many you did and how many are due tomorrow.
 
-The **Study** button on the Words tab shows a table of the **next 10 words** to learn: Pinyin, characters, English and a 🔊 to hear each one.
-
-1. First the words you said *Don't know* to and haven't studied since: the ones set aside first, then the others. A word you've studied stays out of the table until you say *Don't know* to it again
-2. If there are fewer than 10 of those, new words fill the table, most common first
-
-When you've learnt them, tap **I've studied these**:
-
-- the **new words** come into your sessions: due straight away, so the next **Start** asks them (the open words first). They show *New word*, and the buttons work as for any new word (*Know*: 1 d, *Safely know*: 3 d, …)
-- the **words set aside** come back into your sessions, and their *Don't know* count starts again
-- the step is logged as `{t: "study", total, new}`
-
-So you decide how many new words you take on: each Study brings at most 10, and while you have 10 words you don't know, it brings none.
-
-**Top of the tab:** how many words are due, waiting to be tried again and seen, a **Start** button, how many words are set aside, and the **Study** button. You can stop any time; the screen then shows how many you did and how many are due tomorrow.
-
-### Practising today's *Know* words
-
-Below the Start button: **Practise today's *Know* words (N)**. It shows the words you picked **Know** for today **and** that come back **tomorrow** (both must hold), in random order, so you can go over them again the same day.
-
-- **Know, Safely know, Securely know** change nothing: the word doesn't move up and still comes back tomorrow.
-- **Don't know** and **Barely know** count as usual, so a word can go down: *Don't know* counts as forgotten and makes the word open again. The word then comes back in the practice after a few others until you know it, unless it's now set aside (*Don't know* twice).
-- The buttons show when the word comes back (*1 d* for Know and better).
-- Practice answers go into the log in their own batches (`practice: true`), apart from the reviews.
+*Earlier versions had a **Study** table (the next 10 words, studied before they came into sessions) and **Practise today's Know words**. Both are gone: new words come in through the session itself. `SRS.studyWords` and `SRS.practiceWords` stay in `srs.js` for the Sentences tab, which still has both.*
 
 ---
 
-## 5. The words: most common first
+## 5. The words: in the order of the Spoonfed deck
+
+**Now:** the word list is every word of the Anki deck [Spoonfed Chinese](https://ankiweb.net/shared/info/1271086873) (the **Sentences** tab), **in the order the deck brings them in**: each sentence brings about one new word, and the word comes with that sentence as its example (🔊 and 🐢 play the deck's recording; the word is highlighted, and every word of the sentence is a button that plays it). That's 6923 words, then the 59 words of `data/words.json` that the deck doesn't have. `tools/spoonfed.py build` writes `docs/words.json`; each word there has the id of its sentence (`sf`) and where the word is in it (`mark`), and the app takes the sentence from `docs/spoonfed.json`.
+
+- A word that's also in `data/words.json` (474 of them) keeps its English, notes, what each character means and its recording from there; the sentence is the deck's.
+- The other words: Pinyin as the deck writes it, English from CC-CEDICT, a recording made by the same voice (`python tools/spoonfed.py words-audio`, in `docs/audio/sw/<code points>.mp3`, tone-checked like the others). A word the voice can't say (a syllable it never learned) has no recording: its card plays the sentence instead and says so.
+- Progress is kept by the characters, as before, so words you'd already seen keep their progress.
+
+**Before (still `data/words.json`, which the grammar sessions use):** the most common words first:
+
 
 New file `data/words.json`, ordered by **how common the word is in everyday speech**.
 
@@ -234,10 +224,10 @@ Per word, in the existing progress state, under a new key `words` (the old `card
 | `due` | the day it's next shown |
 | `learning` | when it's waiting its 1 or 10 minutes: the time it's back, in ms (else 0) |
 | `reps`, `lapses` | how often reviewed, how often *Don't know* |
-| `last` | the last button picked (1–5), to find today's *Know* words for practice |
-| `miss` | open: said *Don't know*, not yet known on a later day ([section 4](#4-sessions-and-studying-new-words)). Cards from before this field count as open while on step 1 |
+| `last` | the last button picked (1–5) |
+| `miss` | open: said *Don't know*, not yet known on a later day ([section 4](#4-sessions-and-new-words)). Cards from before this field count as open while on step 1 |
 | `dk` | *Don't know* answers since the word was last studied or known on a later day; at 2 it's set aside |
-| `studied` | the day it was last studied in the Study table. A studied word you haven't reviewed yet is on `step` 0 |
+| `studied` | the day it was last learnt as a new word (or in the Study table of earlier versions). A studied word you haven't reviewed yet is on `step` 0 |
 | `at` | time of the last change, for sync |
 
 - **Sync:** `words` is added to the synced keys. When two devices disagree about a word, the later `at` wins.
@@ -249,8 +239,9 @@ Per word, in the existing progress state, under a new key `words` (the old `card
 
 | Part | File |
 |------|------|
-| The words | `data/words.json` |
-| Checks, audio, app data (`docs/words.json`) | `tools/build.py` |
+| The word list: the Spoonfed deck's words, in its order | `data/spoonfed.json`, `tools/spoonfed.py` (`build`, `words-audio`) |
+| The 533 common words (meanings, notes, recordings; the grammar sessions use them) | `data/words.json` |
+| Checks and audio of those, app data (`docs/words.json`, through `tools/spoonfed.py`) | `tools/build.py` |
 | When a word comes back, which card is next | `docs/srs.js` |
 | Test of every rule and every cell of the table in section 3 | `node tools/test_srs.js` |
 | The Words tab | `docs/index.html` |
