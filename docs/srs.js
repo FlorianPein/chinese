@@ -152,6 +152,32 @@ function pickNext(words, cards, now, session) {
   return waiting ? { word: waiting, kind: "again" } : null;
 }
 
+// The next word to learn in a session that brings new words (the Words tab): first a
+// word set aside (isParked) that wasn't answered today, then the first word never seen,
+// in the list's order. null when there's none.
+function nextNew(words, cards, now) {
+  const today = dayOf(now);
+  return words.find(w => isParked(cards[w]) && dayOf(Date.parse(cards[w].at + "Z")) !== today) ||
+         words.find(w => !cards[w]) || null;
+}
+
+// Like pickNext, with new words: when nothing is due, a new word (nextNew) comes in,
+// while `fresh` (how many more new words this session may bring) is above 0. Words
+// waiting their minutes after Don't know come back in between.
+// Returns { word, kind } with kind "fresh" (never seen) or "back" (set aside, to learn
+// again) for a new word, else as pickNext.
+function pickNextOrNew(words, cards, now, session, fresh) {
+  const { learning, due } = sortWords(words, cards, now);
+  const recent = session.recent || [];
+  const ready = learning.find(w => cards[w].learning <= now && !recent.includes(w));
+  if (ready) return { word: ready, kind: "again" };
+  if (due.length) return { word: due[0], kind: cards[due[0]].step === 0 ? "new" : "due" };
+  const w = fresh > 0 ? nextNew(words, cards, now) : null;
+  if (w) return { word: w, kind: cards[w] ? "back" : "fresh" };
+  const waiting = learning.find(w => !recent.includes(w)) || learning[0];
+  return waiting ? { word: waiting, kind: "again" } : null;
+}
+
 // A word to study: one you said Don't know to and haven't studied since (dk counts
 // the Don't know answers since it was last studied; cards studied before never were).
 const needsStudy = c => !!c && missed(c) && ((c.dk || 0) > 0 || !c.studied);
@@ -185,7 +211,7 @@ function counts(words, cards, now) {
                                                      (cards[w].learning || cards[w].due <= tomorrow)).length };
 }
 
-const SRS = { LADDER, LABELS, GRADES, HARD, MIN_GAP, PARK_AT, STUDY_SIZE, isOpen, isParked, nextStep, answer, preview, practiceWords, practice, practicePreview, pickNext, studyWords, study, counts, dayOf, addDays };
+const SRS = { LADDER, LABELS, GRADES, HARD, MIN_GAP, PARK_AT, STUDY_SIZE, isOpen, isParked, nextStep, answer, preview, practiceWords, practice, practicePreview, pickNext, pickNextOrNew, nextNew, studyWords, study, counts, dayOf, addDays };
 if (typeof module !== "undefined") module.exports = SRS;
 else root.SRS = SRS;
 })(this);
